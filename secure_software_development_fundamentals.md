@@ -1,4 +1,4 @@
-"Secure Software Development Fundamentals"
+# Secure Software Development Fundamentals
 
 by David A. Wheeler
 
@@ -140,7 +140,7 @@ To get secure software, we first need to understand what *security* means. Diffe
 
 This set of Confidentiality, Integrity, and Availability (CIA) is sometimes called the CIA triad.
 
- (NOTE: INLINE_DRAWING NOT SUPPORTED)
+![CIA Triad](cia.png)
 
 The CIA Triad
 
@@ -1299,7 +1299,7 @@ Note that *"only allow an integer between 0 and 200 including those endpoints"* 
 
 Sometimes your inputs are text with a standard format and there is a library that can do the validation for you. For example, most languages have some routine that can check the format of email addresses. When you have one you can trust, use it!
 
-Sometimes the validation libraries you can use require some configuration. Again, configure them to be as narrow (limiting) as possible. For example, if you accept HTML, limit it to only the tags and attributes that you need. Often when you accept HTML, you need to only accept a few tags (e.g., **<i>** for italics, **<b>** for bold, **<a>** for hyperlinks) and attributes (e.g., the **href** attribute of the **<a>** tag so that you can say where to link to, and maybe an **id** attribute so others can refer to a particular point). Then, when an attacker tries to provide HTML with other tags (for example, a malicious **<script>**), the validator simply will not accept it at all.
+Sometimes the validation libraries you can use require some configuration. Again, configure them to be as narrow (limiting) as possible. For example, if you accept HTML, limit it to only the tags and attributes that you need. Often when you accept HTML, you need to only accept a few tags (e.g., **&lt;i>** for italics, **&lt;b>** for bold, **&lt;a>** for hyperlinks) and attributes (e.g., the **href** attribute of the **&lt;a>** tag so that you can say where to link to, and maybe an **id** attribute so others can refer to a particular point). Then, when an attacker tries to provide HTML with other tags (for example, a malicious **&lt;script>**), the validator simply will not accept it at all.
 
 Some input formats are composite structures of a lot of other data. For example, JSON, XML, and CSV files can contain lots of other data. You would typically use a trustworthy library to examine and extract the portions of the data you need, and then you would validate each piece. So again, if you extract a sequence of characters representing a number, you would validate the number (e.g., to see if it is within the minimum and maximum range). In many cases, it is a text value. We will further discuss handling composite structures later, but at some point, they will decompose to specific values, often as numbers or text.
 
