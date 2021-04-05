@@ -856,11 +856,9 @@ This HTML is fine if its purpose is to be a quick check to counter accidental mi
 
 A related and common insecure design is where code is sent to web browsers, for example, as JavaScript or WebAssembly (WASM), and that code does security checks before sending its data to a server. In most situations, an attacker can control the web browser, while the server is under your control, so again, you cannot trust anything the web browser does. Put another way, any security checks in the code sent to the browser can be trivially bypassed by an attacker, since attackers control their own web browsers. A related problem is providing direct access of a database to untrusted users. Often users do not need full access: giving users far more privilege than they need (violating least privilege), and such access can make it harder to prevent bypassing security checks. The following figure shows this mistake:
 
-![image alt text](image_0.png)
+![Insecure design: In this figure security-relevant input validation checks are run in a web browser, and not run again by the web server. Since the attacker can control their own web browser, this is insecure. The database is also directly accessible by logged-in users; this is a bad sign, because this grants a lot of data access that is often unnecessary.](insecure_design.png)
 
 An Insecure JavaScript Application
-
-[ALT: In this figure security-relevant input validation checks are run in a web browser, and not run again by the web server. Since the attacker can control their own web browser, this is insecure. The database is also directly accessible by logged-in users; this is a bad sign, because this grants a lot of data access that is often unnecessary.]
 
 #### Secure Design: Input Validation on an Environment You Can Trust
 
@@ -868,11 +866,10 @@ You can use JavaScript securely, you just need to do it correctly. You can send 
 
 The following figure shows a similar but secure design; notice that all the security-related checks are being done in the server, since in this case that is the system we can trust. It also prevents direct database access, which is often a good idea if users do not need direct access:
 
-![image alt text](image_1.png)
+![Secure design: In this figure some security-relevant input validation checks are run in a web browser, but all security checks are run by the web server, even if some were run in the browser earlier. Since the server in this case is trusted, this is a secure design. The database is not directly accessible by logged-in users; this is a good architecture, because direct access to the database is often unnecessary.](secure_design.png)
 
 A More Secure Alternative of the JavaScript Application
 
-[ALT: In this figure some security-relevant input validation checks are run in a web browser, but all security checks are run by the web server, even if some were run in the browser earlier. Since the server in this case is trusted, this is a secure design. The database is not directly accessible by logged-in users; this is a good architecture, because direct access to the database is often unnecessary.]
 
 #### Insecure Design: Mobile Application with Client-Side Checking
 
@@ -1044,7 +1041,7 @@ Learning objectives:
 
 When developing software, you normally reuse lots of other software. This may include an operating system, container runtime, frameworks, and libraries. You will typically also use development tools that others have developed. This reused software, and how you get it, can significantly impact the security of the result.
 
-![image alt text](image_2.png)
+![Dependency](dependency.png)
 
 *Dependency* (retrieved from [xkcd.com](https://xkcd.com/2347/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/))
 
@@ -1212,7 +1209,7 @@ You may know what your software is supposed to do (requirements) and may have a 
 
 This section discusses how to implement secure software. We will do that by considering a very abstract view of a program, as illustrated by the following figure:
 
-![image alt text](image_3.png)
+![Program Model](program_model.png)
 
 **Abstract View of a Program**
 
@@ -1946,7 +1943,7 @@ As a result, some programming languages that emphasize performance are either *n
 
 Memory safety problems are a common cause of vulnerabilities. Catalin Cimpanu’s study, *[Microsoft: 70 percent of all security bugs are memory safe issue*s](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/) (2019), found that about ~70% of all Microsoft vulnerabilities in 2006-2018 were due to memory safety issues. What is more, while there are annual fluctuations, it has been relatively stable over that time:
 
-![image alt text](image_4.png)
+![Memory safety has been consistently a vulnerability over time](memory_safety_over_time.png)
 
 **Percentage of memory-safety vulnerabilities at Microsoft **(by Catalin Cimpanu, 2019, retrieved from [ZDNet](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/))
 
@@ -1994,7 +1991,7 @@ If an attacker can cause your program to write outside its buffer, this often re
 
 Unbounded writes are not the only problem. Historically, people worried about out-of-bounds writes more than reads, but the Heartbleed vulnerability in 2014 showed that out-of-bounds reads could also be extremely dangerous. Out-of-bounds reads can reveal information that allow attackers to completely break into a system. Even programs that only allow one byte of an out-of-bound read or write can have a dangerous vulnerability.
 
-![image alt text](image_5.png)
+![image alt text](heartbleed.png)
 
 **Heartbleed Explained**. Retrieved from [xkcd](https://xkcd.com/1354/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
 
@@ -2200,7 +2197,7 @@ This is false. Clearly, if you pick known *insecure* software, you will have a p
 
 #### SQL Injection Vulnerability
 
-![image alt text](image_6.png)
+![image alt text](exploits_of_a_mom.png)
 
 **Exploits of a Mom**, retrieved from [xkcd.com](https://xkcd.com/327/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
@@ -3655,7 +3652,7 @@ The idea is to have a simple model of the design that shows the essential featur
 
 Then, when applying STRIDE in step 3, you examine each of the elements (processes, data stores, data flows, and interactors) to determine what threats it is susceptible to. For each element, you look for the threats as shown in this table:
 
-![image alt text](image_7.png)
+![image alt text](stride_threat_categories.png)
 
 **STRIDE Threat Categories**, retrieved from [SEI](https://insights.sei.cmu.edu/sei_blog/2018/12/threat-modeling-12-available-methods.html), originally from Microsoft
 
@@ -3707,7 +3704,7 @@ The word *cryptography* comes from the Greek phrase for "secret writing". Crypto
 
 Cryptography provides a set of tools that can sometimes help develop secure software. Cryptography *cannot* solve all security problems. In fact, most computer security vulnerabilities have nothing to do with cryptography.
 
-![image alt text](image_8.png)
+![image alt text](security_xkcd.png)
 
 **Security**, retrieved from [xkcd](https://xkcd.com/538/), provided indeed [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
 
@@ -3763,7 +3760,7 @@ Many symmetric key algorithms, including AES, are what is called *block algorith
 
 The ECB mode is basically a debug or test mode for testing cryptographic algorithms. In ECB mode, the same block of data will produce the same encryption result. This is disastrous for an encryption algorithm, because it reveals far too much about the data that is supposed to be encrypted. A great illustration of this is the so-called "ECB Penguin" image; this image is encrypted using an ECB mode. Encrypted images should appear as random noise, but because ECB mode is used, in the ECB Penguin the image of Tux the Penguin is clearly visible.
 
-![image alt text](image_9.png)
+![image alt text](ecb_penguin.png)
 
 The ECB Penguin [ALT: A dark encrypted image that clearly shows the Linux mascot, Tux the Penguin], by Filippo Valsorda, retrieved from [filippo.io](https://blog.filippo.io/the-ecb-penguin/). Licensed under [CC BY-SA 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode). This image was inspired by the original lower-resolution ECB Penguin image by Wikipedia User: Lunkwill. Source "The ECB Penguin" (2013-11-10). Based on the Tux the penguin official Linux mascot created by Larry Ewing in 1996
 
@@ -4152,7 +4149,7 @@ When fixing a security vulnerability, check to see if the same kind of vulnerabi
 
 If your update causes problems, people will reject it and learn to not accept any future updates from you. Any proposed fix must avoid backwards incompatibilities if at all possible. It must also be of high quality. This implies that you need to have a strong *automated* test suite before you release the software, and have any needed hardware to execute it (if the tests need special hardware). Add automated tests related to what you are changing, both to ensure that it really fixes the problem and also to verify that the change does not negatively affect anything else.
 
-![image alt text](image_10.png)
+![image alt text](worst.png)
 
 **Worst Thing That Could Happen**, retrieved from [xkcd.com](https://xkcd.com/2261/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
 
@@ -4288,7 +4285,7 @@ An assurance case does not have to be in any particular form. However, they are 
 
 Let’s talk about one way to create an assurance case, based on material from *[A Sample Security Assurance Case Patter*n](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). Let’s say that we have an overall claim: we want to claim that our "system is adequately secure against moderate threats". Let’s argue that we can provide adequate proof of this if our security requirements are identified and met by its functionality, and that security is implemented by system life cycle processes. We can break down the security requirements further into our security requirement triad (confidentiality, integrity, and availability), properly handling access control, and identifying and addressing the assets and threat actors. Here is a figure that shows the top level of an assurance case:
 
-![image alt text](image_11.png)
+![image alt text](top_assurance_case.png)
 
 **Sample top level of an assurance case**, by David A. Wheeler (2018)
 
