@@ -1072,8 +1072,8 @@ This is a reason to avoid using C and C++ to implement new software when there i
     4. Is there evidence of a security audit, and that any problems found were fixed? Security audits are relatively uncommon, but they are a great sign when they exist. An audit that finds a large number of vulnerabilities could have found them because the software is just full of vulnerabilities, or because the audit was thorough, but no matter what, if the problems were found and fixed, those problems no longer exist in the version you plan to use.
 
     5. Consider using [SAFECode’s guide ](https://safecode.org/principles-of-software-assurance-assessment/)[*Principles for Software Assurance Assessment*](https://safecode.org/principles-of-software-assurance-assessment/) (2019), which has a multi-tiered approach for examining the security characteristics of software.
-
-This entire course discusses how to develop secure software; the more of these actions you see in the software you are considering, the better!
+    
+    This entire course discusses how to develop secure software; the more of these actions you see in the software you are considering, the better!
 
 3. Is it *maintained*? Unmaintained software is a risk. If the software is not maintained, it is more likely to have serious unaddressed security vulnerabilities, and it is more likely that its developers will fail to quickly fix vulnerabilities when they are reported. In theory, software can be "completed" and not need future changes, but usually software that is not being changed is not being maintained.
 
