@@ -1058,8 +1058,8 @@ There are many important things to consider when selecting reusable software. Fo
     1. Look at the defaults of its interface and configuration. Is its API secure by default, or are "simple examples" using the defaults also insecure?
 
     2. If it has a discussion about how to use it securely, that is generally a good sign, especially if it is clear that its warnings recommend that you keep its defaults.
-
-This is a reason to avoid using C and C++ to implement new software when there is no significant reason to use them; C and C++ have many insecure defaults (as we will discuss later).
+    
+    This is a reason to avoid using C and C++ to implement new software when there is no significant reason to use them; C and C++ have many insecure defaults (as we will discuss later).
 
 2. Is there evidence that its developers *work to make it secure*?
 
