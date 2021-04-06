@@ -3194,19 +3194,19 @@ In security we often want to use tools that find and report certain kinds of vul
 
 <table>
   <tr>
-    <td>**Analysis/tool report**</td>
-    <td>**Report correct**</td>
-    <td>**Report incorrect**</td>
+    <td><b>Analysis/tool report</b></td>
+    <td><b>Report correct</b></td>
+    <td><b>Report incorrect</b></td>
   </tr>
   <tr>
-    <td>**Reported** (a defect)</td>
-    <td>*True positive (TP)*: Correctly reported (a defect)</td>
-    <td>*False positive (FP)*: Incorrect report (of a "defect" that’s not a defect) (“Type I error”)</td>
+    <td><b>Reported</b> (a defect)</td>
+    <td><i>True positive (TP)</i>: Correctly reported (a defect)</td>
+    <td><i>False positive (FP)</i>: Incorrect report (of a "defect" that’s not a defect) (“Type I error”)</td>
   </tr>
   <tr>
-    <td>**Did not report** (a defect (there))</td>
-    <td>*True negative (TN)*: Correctly did not report (a given defect)</td>
-    <td>*False negative (FN)*: Incorrect because it failed to report (a defect) (“Type II error”)</td>
+    <td><b>Did not report</b> (a defect (there))</td>
+    <td><i>True negative (TN)</i>: Correctly did not report (a given defect)</td>
+    <td><i>False negative (FN)</i>: Incorrect because it failed to report (a defect) (“Type II error”)</td>
   </tr>
 </table>
 
