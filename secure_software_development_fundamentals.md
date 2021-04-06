@@ -4438,31 +4438,31 @@ Propositional Connectives
 
 <table>
   <tr>
-    <td>x</td>
-    <td>y</td>
-    <td>x ∧ y</td>
-    <td>x ∨ y</td>
-    <td>￢x</td>
-    <td>x→y</td>
-    <td>x↔y</td>
+    <td><b>x</b></td>
+    <td><b>y</b></td>
+    <td><b>x ∧ y</b></td>
+    <td><b>x ∨ y</b></td>
+    <td><b>￢x</b></td>
+    <td><b>x→y</b></td>
+    <td><b>x↔y</b></td>
   </tr>
   <tr>
-    <td>F</td>
-    <td>F</td>
-    <td>F</td>
-    <td>F</td>
-    <td>T</td>
-    <td>T</td>
-    <td>T</td>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+    <td><b>T</b></td>
+    <td><b>T</b></td>
+    <td><b>T</b></td>
   </tr>
   <tr>
-    <td>F</td>
-    <td>T</td>
-    <td>F</td>
-    <td>T</td>
-    <td>T</td>
-    <td>T</td>
-    <td>F</td>
+    <td><b>F</b></td>
+    <td><b>T</b></td>
+    <td><b>F</b></td>
+    <td><b>T</b></td>
+    <td><b>T</b></td>
+    <td><b>T</b></td>
+    <td><b>F</b></td>
   </tr>
   <tr>
     <td>T</td>
