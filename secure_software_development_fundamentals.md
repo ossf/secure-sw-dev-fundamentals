@@ -1163,9 +1163,9 @@ In practice, you will have many reused software components, and they will need t
 
 6. Monitor to determine if any of the software versions you use has had a publicly-known vulnerability discovered. We will discuss this later in the section on software component analysis (SCA).
 
-😱 STORY TIME: Equifax
+> 😱 STORY TIME: Equifax
 
-The widely-used program Apache Struts had a critical vulnerability that was fixed on 2017-03-06 and widely reported by the computer press. The data broker Equifax was notified by Apache, US CERT, and the US Department of Homeland Security about the vulnerability, and was provided instructions on how to make the fix. However, Equifax failed to implement a timely update. *"Two months later, Equifax had still failed to patch its systems. It eventually got around to it on July 29. The attackers used the vulnerability to access the company's databases and steal consumer information on May 13, over two months after Equifax should have patched the vulnerability." Equifax reported that “145.5 million US customers, about 44% of the [US] population, were impacted by the breach... The attackers got access to … exactly the sort of information criminals can use to impersonate victims to banks, credit card companies, insurance companies, cell phone companies and other businesses vulnerable to fraud. As a result, all 143 million US victims are at greater risk of identity theft, and will remain at risk for years to come. And those who suffer identity theft will have problems for months, if not years, as they work to clean up their name and credit rating.”* (Bruce Schneier, [*Me on the Equifax Breach: Testimony and Statement for the Record of Bruce Schneier*](https://www.schneier.com/blog/archives/2017/11/me_on_the_equif.html),  2017)
+> The widely-used program Apache Struts had a critical vulnerability that was fixed on 2017-03-06 and widely reported by the computer press. The data broker Equifax was notified by Apache, US CERT, and the US Department of Homeland Security about the vulnerability, and was provided instructions on how to make the fix. However, Equifax failed to implement a timely update. *"Two months later, Equifax had still failed to patch its systems. It eventually got around to it on July 29. The attackers used the vulnerability to access the company's databases and steal consumer information on May 13, over two months after Equifax should have patched the vulnerability." Equifax reported that “145.5 million US customers, about 44% of the [US] population, were impacted by the breach... The attackers got access to … exactly the sort of information criminals can use to impersonate victims to banks, credit card companies, insurance companies, cell phone companies and other businesses vulnerable to fraud. As a result, all 143 million US victims are at greater risk of identity theft, and will remain at risk for years to come. And those who suffer identity theft will have problems for months, if not years, as they work to clean up their name and credit rating.”* (Bruce Schneier, [*Me on the Equifax Breach: Testimony and Statement for the Record of Bruce Schneier*](https://www.schneier.com/blog/archives/2017/11/me_on_the_equif.html),  2017)
 
 #### Updating How You Use Reused Software (Avoid/Replace Obsolete Interfaces)
 
@@ -1698,9 +1698,9 @@ Of course, if something requires authorization, that means there should first ha
 
 We will later discuss various tools for verification. While tools can help find some problems, they are often *less* effective at finding authentication and authorization problems, because the tools don’t usually have enough information to determine *what is acceptable* and *what is not*. It helps to have tests that verify unauthorized requests are rejected, of course. But the most effective approach is ensuring that absolutely every input path is quickly authenticated and authorized where appropriate, so that manual review can easily assure reviewers that all cases are covered.
 
-😱 STORY TIME: Target Breach
+> 😱 STORY TIME: Target Breach
 
-In 2013 the Target Corporation’s network was breached. In this incidence 40 million credit and debit card numbers and 70 million records of personal information were stolen. The full costs are difficult to estimate, but the credit card unions spent over $200 million just to reissue cards. The best available evidence suggests that the initial breach occurred in a third party heating, ventilation, and
+> In 2013 the Target Corporation’s network was breached. In this incidence 40 million credit and debit card numbers and 70 million records of personal information were stolen. The full costs are difficult to estimate, but the credit card unions spent over $200 million just to reissue cards. The best available evidence suggests that the initial breach occurred in a third party heating, ventilation, and
 
 air-conditioning (HVAC) firm. The attackers used these compromised credentials to penetrate the Target network. The attackers were able to subvert sensitive systems due to the weak segmentation between non-sensitive and sensitive networks inside Target ([*Breaking the Target: An Analysis of Target Data Breach and Lessons Learned*](https://arxiv.org/pdf/1701.04940.pdf), by Xiaokui Shu, Andrew Ciambrone and Danfeng Yao, 2017).
 
@@ -1994,9 +1994,9 @@ Unbounded writes are not the only problem. Historically, people worried about ou
 
 **Heartbleed Explained**. Retrieved from [xkcd](https://xkcd.com/1354/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
 
-😱 STORY TIME: Heartbleed
+> 😱 STORY TIME: Heartbleed
 
-In 2014 a vulnerability named Heartbleed ([CVE-2014-0160](https://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2014-0160)) was found in the widely-used OpenSSL cryptographic library.  The key weakness was a buffer over-read (past the end of the buffer) was allowed in the heap due to improper input validation. This vulnerability allowed attackers to acquire sensitive data, and OpenSSL managed some extremely sensitive data such as server private keys. This vulnerability affected a huge number of popular websites, leading to problems such as user account hijacking and information compromises of millions of patients. ([*How to Prevent the next Heartbleed*](https://dwheeler.com/essays/heartbleed.html), 2020, by David A. Wheeler)
+> In 2014 a vulnerability named Heartbleed ([CVE-2014-0160](https://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2014-0160)) was found in the widely-used OpenSSL cryptographic library.  The key weakness was a buffer over-read (past the end of the buffer) was allowed in the heap due to improper input validation. This vulnerability allowed attackers to acquire sensitive data, and OpenSSL managed some extremely sensitive data such as server private keys. This vulnerability affected a huge number of popular websites, leading to problems such as user account hijacking and information compromises of millions of patients. ([*How to Prevent the next Heartbleed*](https://dwheeler.com/essays/heartbleed.html), 2020, by David A. Wheeler)
 
 #### Solutions for Out-of-Bounds Reads and Writes
 
@@ -2320,9 +2320,9 @@ Pathnames are often at least partly controlled by an untrusted user. For example
 
 An obvious case is that systems are often not supposed to allow access outside of some directory (e.g., a "document root" of a web server). For example, if a program tries to access a path that is a concatenation of "**trusted_root_path**" and "**username**", the attacker might be able to create a username ".**./../../mysecrets**" and foil the limitations. This vulnerability, where an attacker can create filenames that traverse outside where it is supposed to, is so common that it has a name: *directory traversal vulnerabilities*. As always, use a very limited allowlist for information that will be used to create filenames. If your web application’s allowlist does not include "**.**", "**/**", "**~**", and "**&#92;**", on most systems it is significantly harder to traverse outside the intended directory root. Another common solution is to convert a relative path into a normalized absolute path in a way that eliminates all "**..**" uses and then ensure that the resulting path is still in the correct region of the filesystem.
 
-😱 STORY TIME: SaltStack
+> 😱 STORY TIME: SaltStack
 
-An example of a directory traversal vulnerability is [CVE-2020-11652](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11652), a vulnerability in the SaltStack. SaltStack is a configuration management and orchestration tool for managing multi-computer infrastructure. In this vulnerability, a method failed to properly sanitize an input parameter, allowing "**..**" elements that were used to create a filename. The result was that attackers could cause entire sets of machines to execute commands of their choosing.
+> An example of a directory traversal vulnerability is [CVE-2020-11652](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11652), a vulnerability in the SaltStack. SaltStack is a configuration management and orchestration tool for managing multi-computer infrastructure. In this vulnerability, a method failed to properly sanitize an input parameter, allowing "**..**" elements that were used to create a filename. The result was that attackers could cause entire sets of machines to execute commands of their choosing.
 
 🔔 Path traversal is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #10. It is also identified as [CWE-22](https://cwe.mitre.org/data/definitions/22.html), *Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')*.
 
@@ -2388,11 +2388,11 @@ Real programs must handle errors. Many production programs are *mostly* error-ha
 
 Poor error handling can lead to security vulnerabilities. So let’s discuss common approaches to error handling and how to use them securely. Basically, this involves understanding their strengths and weaknesses, and being cautious about their weaknesses when using them.
 
-😱 STORY TIME: Apple **goto fail; goto fail;**
+> 😱 STORY TIME: Apple **goto fail; goto fail;**
 
-An example of a security vulnerability caused by bad error handling is [CVE-2014-1266](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1266), commonly called the "*goto fail; goto fail;*" vulnerability. This was a vulnerability in the Apple implementation of the SSL/TLS protocol in many versions of its operating systems. The problem was a second (duplicate) “**goto fail;**” statement in the function **SSLVerifySignedServerKeyExchange**, as follows:
+>> An example of a security vulnerability caused by bad error handling is [CVE-2014-1266](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1266), commonly called the "*goto fail; goto fail;*" vulnerability. This was a vulnerability in the Apple implementation of the SSL/TLS protocol in many versions of its operating systems. The problem was a second (duplicate) “**goto fail;**” statement in the function **SSLVerifySignedServerKeyExchange**, as follows:
 
-~~~~C
+> ~~~~C
     if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)
       goto fail;
     goto fail;
@@ -2402,7 +2402,7 @@ An example of a security vulnerability caused by bad error handling is [CVE-2014
       return err;
 ~~~~
 
-The indentation here is misleading; since there are no curly braces after the **if** statement, the second "**goto fail**" is always executed. In context, that meant that vital signature checking code was skipped, so both bad and good signatures would be accepted. The extraneous “**goto**” caused the function to return 0 (“no error”) when the rest of the checking was skipped; as a result, invalid certificates were quietly accepted as valid. This was a disastrous vulnerability, since it meant that all sorts of invalid certificates would be accepted, completely compromising security. This vulnerability would be easily detected by an automated test suite. ([*The Apple goto fail vulnerability: lessons learne*](https://dwheeler.com/essays/apple-goto-fail.html), by David A. Wheeler, 2020).
+> The indentation here is misleading; since there are no curly braces after the **if** statement, the second "**goto fail**" is always executed. In context, that meant that vital signature checking code was skipped, so both bad and good signatures would be accepted. The extraneous “**goto**” caused the function to return 0 (“no error”) when the rest of the checking was skipped; as a result, invalid certificates were quietly accepted as valid. This was a disastrous vulnerability, since it meant that all sorts of invalid certificates would be accepted, completely compromising security. This vulnerability would be easily detected by an automated test suite. ([*The Apple goto fail vulnerability: lessons learne*](https://dwheeler.com/essays/apple-goto-fail.html), by David A. Wheeler, 2020).
 
 #### Return Codes
 
