@@ -1619,21 +1619,22 @@ If you are using XML, there is an extremely common vulnerability you need to cou
 
 XML supports external references which can be auto-loaded when the original document is loaded. The external reference can be any file location or URL. This means an attacker can provide files that quietly cause other files or URLs to be loaded and placed in certain places. This functionality exists for a reason, and some systems legitimately depend on it. However, many developers have no idea that this is possible, and this has led to many vulnerabilities. Here is an example of an XML document with embedded external entities:
 
-**<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">**
+~~~~xml
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-**<!DOCTYPE letter [**
+    <!DOCTYPE letter [
 
-**  <!ENTITY part1 SYSTEM "http://www.example.com/part1.xml">**
+      <!ENTITY part1 SYSTEM "http://www.example.com/part1.xml">
 
-**  <!ENTITY part2 SYSTEM "../../../secrets/part2.xml">**
+      <!ENTITY part2 SYSTEM "../../../secrets/part2.xml"> ]> ...
 
-**]> …**
+    <building>
 
-**<building>**
+    &part1; &part2;
 
-**&part1; &part2;**
-
-**</building>**
+    </building>
+~~~~
 
 In general, you should not accept unchecked external references from untrusted sources. Here are a few possible solutions:
 
