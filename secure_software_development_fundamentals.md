@@ -158,7 +158,7 @@ What you specifically do depends on the software you are developing. If you are 
 
 ### Quiz 1.1
 
->>Match the terms with the correct definitions.<<
+\>\>Match the terms with the correct definitions.<<
 
 Confidentiality : Reads must be authorized
 
@@ -216,7 +216,7 @@ If you are looking for ideas for potential security requirements, one source is 
 
 ### Quiz 1.2
 
->>A typical requirement for an Internet-connected service is to stay available regardless of the attacks it undergoes. True or False?<<
+\>\>A typical requirement for an Internet-connected service is to stay available regardless of the attacks it undergoes. True or False?<<
 
 ( ) True
 
@@ -398,7 +398,7 @@ The Linux Foundation’s *["Telemetry Data Collection and Usage Policy*"](https:
 
 ### Quiz 1.3
 
->>Which of the following privacy-related statements is true?||Check all of the options below that are true, and do NOT check them otherwise.<<
+\>\>Which of the following privacy-related statements is true?||Check all of the options below that are true, and do NOT check them otherwise.<<
 
 [!] There are no privacy laws in the United States. {{ selected: No. The United States does not have a *comprehensive* information privacy law as a whole. Instead, the US federal government has a number of laws that cover different specific circumstances. There are also some state laws. }}
 
@@ -498,7 +498,7 @@ This course will give you a number of tips to help you to reduce risks, focusing
 
 ### Quiz 1.4
 
->>The purpose of developing secure software is to eliminate all possible security risks. True or False?<<
+\>\>The purpose of developing secure software is to eliminate all possible security risks. True or False?<<
 
 ( ) True
 
@@ -562,7 +562,7 @@ You also should focus on continuous improvement, of both the software itself and
 
 ### Quiz 1.5
 
->>To develop secure software you should always rigorously develop all the requirements, then develop your complete design, and only then begin implementing the software. True or False?<<
+\>\>To develop secure software you should always rigorously develop all the requirements, then develop your complete design, and only then begin implementing the software. True or False?<<
 
 ( ) True
 
@@ -576,7 +576,7 @@ This is false. This is a "waterfall" approach and is generally a very risky way 
 
 ### Quiz 1.6
 
->>To develop secure software, simply add security tools into your continuous integration pipeline. True or False?<<
+\>\>To develop secure software, simply add security tools into your continuous integration pipeline. True or False?<<
 
 ( ) True
 
@@ -616,7 +616,7 @@ We will talk a lot about protection measures. It is typically cheaper to prevent
 
 ### Quiz 1.7
 
->>Choose the correct answer.<<
+\>\>Choose the correct answer.<<
 
 (!) Protection is what matters in security; if your protection is good enough, you don’t need detection or response. {{No, because there is always the possibility of an unanticipated mistake.}}
 
@@ -686,7 +686,7 @@ Identifying common kinds of vulnerabilities has another advantage, too: It will 
 
 ### Quiz 1.8
 
->>Choose the true statement.<<
+\>\>Choose the true statement.<<
 
 (!) All publicly-known vulnerabilities are assigned CVE IDs. {{No, someone has to request a CVE ID. In addition, CVEs are only granted for software that has been publicly released (including pre-releases if they are widely used). CVEs are generally not assigned to custom-built software that is not distributed. They are also not normally assigned to online services.}}
 
@@ -730,7 +730,7 @@ When thinking about your design, you need to think about what components you can
 
 ### Quiz 2.1
 
->>If you follow secure design principles, you will always create secure software. True or False?<<
+\>\>If you follow secure design principles, you will always create secure software. True or False?<<
 
 (!) True
 
@@ -772,7 +772,7 @@ Next, we will look in more detail at a few of these principles, because they hav
 
 ### Quiz 2.2
 
->>If we keep how the system works a secret, then the system will be secure. True or False?<<
+\>\>If we keep how the system works a secret, then the system will be secure. True or False?<<
 
 ( ) True
 
@@ -832,7 +832,7 @@ It is unfortunately common to mismanage privileges. For example, there are many 
 
 ### Quiz 2.3
 
->>One way you *might* be able to implement some of the "least privilege" privilege (depending on the program) is to use SQL GRANT statements so the program doesn’t have the rights to change certain data even if an attacker takes control of that program. True or False?<<
+\>\>One way you *might* be able to implement some of the "least privilege" privilege (depending on the program) is to use SQL GRANT statements so the program doesn’t have the rights to change certain data even if an attacker takes control of that program. True or False?<<
 
 (!) False.
 
@@ -921,7 +921,7 @@ In general, you are better off with simple solutions that do not involve trying 
 
 ### Quiz 2.4
 
->>A server sends some React-based JavaScript to a web browser. A developer wants to include some security checks of the input in the client-side (browser-side) React code, and says that the server can trust those security checks because the server sent the client-side React code in the first place. Which of the following is true?<<
+\>\>A server sends some React-based JavaScript to a web browser. A developer wants to include some security checks of the input in the client-side (browser-side) React code, and says that the server can trust those security checks because the server sent the client-side React code in the first place. Which of the following is true?<<
 
 ( ) The server *can* trust the client-side security checks in this case.
 
@@ -951,7 +951,7 @@ Let’s briefly look at the rest of the secure design principles identified by S
 
 ## Quiz 2.5
 
->>Which of the following is a generally-accepted security principle?||Check all of the options below that are generally-accepted security principles, and do NOT check them otherwise.<<
+\>\>Which of the following is a generally-accepted security principle?||Check all of the options below that are generally-accepted security principles, and do NOT check them otherwise.<<
 
 [!] Make the source code difficult to understand (e.g., use obscure names) so that vulnerabilities will be more difficult to detect. {{ selected: No, if the source code is more difficult to understand, then it will be more difficult for developers to make it secure in the first place. You should strive to keep the system as reasonably simple as you can. }}
 
@@ -1009,7 +1009,7 @@ A good example of this is the Content Security Policy (CSP) supported by modern 
 
 ### Quiz 2.6
 
->>Which of the following is a useful additional security principle?||Check all of the options below that are generally-accepted security principles, and do NOT check them otherwise.<<
+\>\>Which of the following is a useful additional security principle?||Check all of the options below that are generally-accepted security principles, and do NOT check them otherwise.<<
 
 [!x] Design and implement systems to ensure that after a request has been authorized, an attacker cannot change something relevant to that decision before the request is acted on. {{ unselected: This is important, it is called a time-of-check/time-of-use (TOCTOU) race condition. }}
 
@@ -1103,7 +1103,7 @@ This entire course discusses how to develop secure software; the more of these a
 
 ### Quiz 3.1
 
->>What is evidence that the software you are thinking of reusing will probably be a good choice for security? Select all answers that apply.<<
+\>\>What is evidence that the software you are thinking of reusing will probably be a good choice for security? Select all answers that apply.<<
 
 [!x] Evidence that it is easy to use securely
 
@@ -1139,7 +1139,7 @@ That said, if you only use pipe-to-shell in a contained environment (e.g., a con
 
 ### Quiz 3.2
 
->>What are good ways to acquire software? Select all answers that apply.<<
+\>\>What are good ways to acquire software? Select all answers that apply.<<
 
 [!x] Double-check that the name you will request is really the one you wanted (e.g., **-** and **_** are not swapped, **O** and **0** are not swapped, and so on)
 
@@ -1183,7 +1183,7 @@ These are merely tips, and are by no means exhaustive. It is great that we have 
 
 ### Quiz 3.3
 
->>Reused software is so dangerous that you should always prefer to rewrite that software yourself when you can. True or False?<<
+\>\>Reused software is so dangerous that you should always prefer to rewrite that software yourself when you can. True or False?<<
 
 ( ) True
 
@@ -1269,7 +1269,7 @@ Again, your code should use *allowlisting* (narrowly identifying what is legal a
 
 ### Quiz 1.1
 
->>In general, you should validate inputs from untrusted users by:<<
+\>\>In general, you should validate inputs from untrusted users by:<<
 
 (!) Rejecting patterns that are known to be malicious.
 
@@ -1307,7 +1307,7 @@ Many programs need to validate text fields, but those fields’ rules are not de
 
 ### Quiz 1.2
 
->>Select all the good practices for validating an input number from an untrusted source:<<
+\>\>Select all the good practices for validating an input number from an untrusted source:<<
 
 [!x] Check that it is at least as large as the minimum.
 
@@ -1389,7 +1389,7 @@ Visual spoofing can be very challenging to counter in general. Normalization and
 
 ### Quiz 1.3
 
->>In Unicode a character is represented by a 16-bit value. True or False?<<
+\>\>In Unicode a character is represented by a 16-bit value. True or False?<<
 
 ( ) True
 
@@ -1505,7 +1505,7 @@ Again, you should know what your software should not accept, and use some of tho
 
 ### Quiz 1.4
 
->>Which of the following matches only "1 or more lowercase Latin letters" using an extended regular expression (given the POSIX locale)?<<
+\>\>Which of the following matches only "1 or more lowercase Latin letters" using an extended regular expression (given the POSIX locale)?<<
 
 (!) **[a-z]***
 
@@ -1561,7 +1561,7 @@ If you are interested in more details, see the [OWASP discussion](https://owasp.
 
 ### Quiz 1.5
 
->>Which of these are *practical* ways to mitigate ReDoS attacks? Select all answers that apply.<<
+\>\>Which of these are *practical* ways to mitigate ReDoS attacks? Select all answers that apply.<<
 
 [!x] Use a regular expression engine that does not use backtracking (that is, a DFA).
 
@@ -1595,7 +1595,7 @@ Some people recommend enforcing string type constraints (e.g., only allowing spe
 
 ### Quiz 1.6
 
->>One of the big risks in deserializing data is that, depending on the serialization format, the data might cause attacker-defined code to be executed. True or False?<<
+\>\>One of the big risks in deserializing data is that, depending on the serialization format, the data might cause attacker-defined code to be executed. True or False?<<
 
 (x) True
 
@@ -1677,7 +1677,7 @@ If your program allows uploads, try to limit uploads to specific file types and 
 
 ### Quiz 1.7
 
->>When reading data in common data formats like XML and JSON, prefer to use libraries designed to securely handle them, try to reject structures that are not syntactically valid, and then where practical, check that they meet whatever specific schema you require. True or False?<<
+\>\>When reading data in common data formats like XML and JSON, prefer to use libraries designed to securely handle them, try to reject structures that are not syntactically valid, and then where practical, check that they meet whatever specific schema you require. True or False?<<
 
 (x) True
 
@@ -1707,7 +1707,7 @@ air-conditioning (HVAC) firm. The attackers used these compromised credentials t
 
 ### Quiz 1.8
 
->>It is important that humans be able to directly verify that authentication is non-bypassable. True or False?<<
+\>\>It is important that humans be able to directly verify that authentication is non-bypassable. True or False?<<
 
 (x) True
 
@@ -1733,7 +1733,7 @@ Here are some other possible measures:
 
 ### Quiz 1.9
 
->>If your software has to run where environment variables are not from trusted sources, you should extract only the variables needed, erase all the environment variables, and then set the environment variables to safe values (including safe values provided as input). True or False?<<
+\>\>If your software has to run where environment variables are not from trusted sources, you should extract only the variables needed, erase all the environment variables, and then set the environment variables to safe values (including safe values provided as input). True or False?<<
 
 (x) True
 
@@ -1763,7 +1763,7 @@ Some systems try to depend on *secure boot* or similar mechanisms to ensure that
 
 ### Quiz 1.10
 
->>For ease of use, you should deliver applications with a standard known password and make it clear in the documentation how to change that password. True or False?<<
+\>\>For ease of use, you should deliver applications with a standard known password and make it clear in the documentation how to change that password. True or False?<<
 
 ( ) True
 
@@ -1845,7 +1845,7 @@ However, many applications do have to process untrusted data. In that case, when
 
 ### Quiz 2.1
 
->>If we receive a password reset request for an email account, and it has a case-insensitive match to a verified email account in our database, we should send the confirmation to the email account the user just sent. True or False?<<
+\>\>If we receive a password reset request for an email account, and it has a case-insensitive match to a verified email account in our database, we should send the confirmation to the email account the user just sent. True or False?<<
 
 ( ) True
 
@@ -1889,7 +1889,7 @@ For outbound authentication, credentials should be stored outside the code in a 
 
 ### Quiz 2.2
 
->>Secret keys should be stored in source code so that they cannot be easily read, as they could be if they were stored in separate files. True or False?<<
+\>\>Secret keys should be stored in source code so that they cannot be easily read, as they could be if they were stored in separate files. True or False?<<
 
 ( ) True
 
@@ -1913,7 +1913,7 @@ For our purposes, conversions do not include determining if a value is truthy. I
 
 ### Quiz 2.3
 
->>Which of the following might be concerning about a cast? Select all answers that apply.<<
+\>\>Which of the following might be concerning about a cast? Select all answers that apply.<<
 
 [!x] The cast might lose important information.
 
@@ -2031,7 +2031,7 @@ If you are writing code that is not memory-safe, or calling code that is not mem
 
 ### Quiz 2.4
 
->>Programs written in memory-unsafe languages, such as C and C++, must be careful to *never* allow an untrusted user to cause an out-of-bounds read or write. This can be challenging to do without fail; correct application of functions like **snprintf()** can help. True or False?<<
+\>\>Programs written in memory-unsafe languages, such as C and C++, must be careful to *never* allow an untrusted user to cause an out-of-bounds read or write. This can be challenging to do without fail; correct application of functions like **snprintf()** can help. True or False?<<
 
 (x) True
 
@@ -2063,7 +2063,7 @@ In cases where that is not practical, simplify your code as best you can so that
 
 ### Quiz 2.5
 
->>In C and C++ it doesn’t matter if you use a memory region after freeing it, as long as you use the memory region within the same function or method. True or False?<<
+\>\>In C and C++ it doesn’t matter if you use a memory region after freeing it, as long as you use the memory region within the same function or method. True or False?<<
 
 ( ) True
 
@@ -2111,7 +2111,7 @@ We will later discuss using tools to try to detect these, but be warned: most to
 
 ### Quiz 2.6
 
->>In C and C++, a null pointer dereference is not a serious security problem, because you will just read a data value or, at worst, crash the program. True or False?<<
+\>\>In C and C++, a null pointer dereference is not a serious security problem, because you will just read a data value or, at worst, crash the program. True or False?<<
 
 ( ) True
 
@@ -2179,7 +2179,7 @@ Let’s now examine some common injection attack cases and how to handle them se
 
 ### Quiz 3.1
 
->>Just pick secure software to reuse, and your application will be secure. True or False?<<
+\>\>Just pick secure software to reuse, and your application will be secure. True or False?<<
 
 ( ) True
 
@@ -2265,7 +2265,7 @@ Properly using prepared statement libraries makes it much easier to write secure
 
 ### Quiz 3.2
 
->>Prepared statements are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
+\>\>Prepared statements are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
 
 (x) True
 
@@ -2297,7 +2297,7 @@ Of course, if you are calling a program with any data that might be from an atta
 
 ### Quiz 3.3
 
->>Avoid unnecessarily calling an operating system shell when you simply want to run another program. True or False?<<
+\>\>Avoid unnecessarily calling an operating system shell when you simply want to run another program. True or False?<<
 
 (x) True
 
@@ -2345,7 +2345,7 @@ Be careful about displaying or storing pathnames, since they can include newline
 
 ### Quiz 3.4
 
->>Select all the statements that are true.<<
+\>\>Select all the statements that are true.<<
 
 [!] On Unix and Linux, filenames are a sequence of characters. {{ selected: No, in general filenames in Unix and Linux are a sequence of bytes, which may or may not map to any specific characters at all. Some specific implementations and filesystems require filenames to be a sequence of characters, but this is not true as a blanket statement. }}
 
@@ -2371,7 +2371,7 @@ Of course, once you receive information, make sure that you check for error cond
 
 ### Quiz 3.5
 
->>From a program, try to use same API used by humans, as that may be better tested. True or False?<<
+\>\>From a program, try to use same API used by humans, as that may be better tested. True or False?<<
 
 ( ) True
 
@@ -2449,7 +2449,7 @@ Error-handling is a fact of life, but you need to make sure your error handling 
 
 ### Quiz 3.6
 
->>Select all the true statement(s).<<
+\>\>Select all the true statement(s).<<
 
 [!x] A common problem with traditional return codes is that it is easy to forget to check for the error.
 
@@ -2479,7 +2479,7 @@ As a general rule, don’t include passwords or very sensitive data in logs. Sin
 
 ### Quiz 3.7
 
->>Select all the true statement(s).<<
+\>\>Select all the true statement(s).<<
 
 [!] In general, logged information should also be displayed to the user who triggered it to speed debugging {{ selected: Absolutely not; the logs may contain sensitive or secret information, and users are often not fully trusted. Instead, report to the user what the user needs to know (e.g., "operation did not work"... and put the details in the logs. }}
 
@@ -2521,7 +2521,7 @@ Inserting assertions can make a verification technique called "fuzzing" more eff
 
 ### Quiz 3.8
 
->>Select all the true statement(s).<<
+\>\>Select all the true statement(s).<<
 
 [!x] If you insert debug code, make it easy to automatically remove or turn it into a logging statement.
 
@@ -2555,7 +2555,7 @@ Make sure that you have backups of important datasets and a workable recovery pr
 
 #### Quiz 3.9
 
->>Select all the approaches that might help counter denial-of-service (DoS) attacks if your service is accessible on the public internet:<<
+\>\>Select all the approaches that might help counter denial-of-service (DoS) attacks if your service is accessible on the public internet:<<
 
 [!x] Minimize execution time per request.
 
@@ -2623,7 +2623,7 @@ More generally, you often need to **_escape your output_** so that any data you 
 
 ### Quiz 4.1
 
->>Do not waste space telling a receiving web browser the data type or encoding being sent, as browsers do an excellent job at automatically determining this information. True or False?<<
+\>\>Do not waste space telling a receiving web browser the data type or encoding being sent, as browsers do an excellent job at automatically determining this information. True or False?<<
 
 ( ) True
 
@@ -2727,7 +2727,7 @@ XSS is usually best countered by choosing a framework or library that automatica
 
 ### Quiz 4.2
 
->>Choosing a framework or library that automatically escapes HTML output is often one of the best ways to counter XSS attacks. True or False?<<
+\>\>Choosing a framework or library that automatically escapes HTML output is often one of the best ways to counter XSS attacks. True or False?<<
 
 (x) True
 
@@ -2775,7 +2775,7 @@ When you are developing a site it might be wise to go through the CSP specificat
 
 ### Quiz 4.3
 
->>Using a CSP setting that forbids inline scripts, requires that JavaScript only be executed from specific trusted locations, and moving all JavaScript to separate files into those locations can reduce the impact of cross-site scripting (XSS) attacks. True or False?<<
+\>\>Using a CSP setting that forbids inline scripts, requires that JavaScript only be executed from specific trusted locations, and moving all JavaScript to separate files into those locations can reduce the impact of cross-site scripting (XSS) attacks. True or False?<<
 
 (x) True
 
@@ -2805,7 +2805,7 @@ Also, an important word about HTTP headers in general. You may decide, for vario
 
 ### Quiz 4.4
 
->>When sending information using HTTP, you can set various HTTP headers (such as HTTP Strict-Transport-Security (HSTS)) to help harden your system against attack. True or False?<<
+\>\>When sending information using HTTP, you can set various HTTP headers (such as HTTP Strict-Transport-Security (HSTS)) to help harden your system against attack. True or False?<<
 
 (x) True
 
@@ -2867,7 +2867,7 @@ You should also eventually log out an inactive session automatically. Some easy 
 
 ### Quiz 4.5
 
->>When a user logs in again, reuse the session id if session ids are used and already present, to reduce confusion to the user. True or False?<<
+\>\>When a user logs in again, reuse the session id if session ids are used and already present, to reduce confusion to the user. True or False?<<
 
 ( ) True
 
@@ -2907,7 +2907,7 @@ Of course, there are other ways an attacker might be able to gain temporary cont
 
 ### Quiz 4.6
 
->>CSRF vulnerabilities are less common today because web application frameworks and web browsers generally have countermeasures to make these vulnerabilities less likely. True or False?<<
+\>\>CSRF vulnerabilities are less common today because web application frameworks and web browsers generally have countermeasures to make these vulnerabilities less likely. True or False?<<
 
 (x) True
 
@@ -2955,7 +2955,7 @@ The [OWASP cheat sheet on unvalidated redirects and forwards](https://cheatsheet
 
 ### Quiz 4.7
 
->>It is fine to support a redirector URL, e.g., **https://bank.example.com/redirect?url=https://dangerous.example.com**, as long as the URL is carefully sanitized to only allow trusted URLs. True or False?<<
+\>\>It is fine to support a redirector URL, e.g., **https://bank.example.com/redirect?url=https://dangerous.example.com**, as long as the URL is carefully sanitized to only allow trusted URLs. True or False?<<
 
 (x) True
 
@@ -2985,7 +2985,7 @@ The simplest solution is to avoid using **target=...** in HTML, and always set *
 
 ### Quiz 4.8
 
->>In an HTML anchor (**<a href=...>**) to another site, if you use **target=...** with a value other than **_self**, be sure to also set "**rel**" to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
+\>\>In an HTML anchor (**<a href=...>**) to another site, if you use **target=...** with a value other than **_self**, be sure to also set "**rel**" to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
 
 (x) True
 
@@ -3025,7 +3025,7 @@ The main solution is to ensure that you greatly limit how you construct any URLs
 
 ### Quiz 4.9
 
->>URLs are merely ways to locate information, so validating them is not important. True or False?<<
+\>\>URLs are merely ways to locate information, so validating them is not important. True or False?<<
 
 ( ) True
 
@@ -3095,7 +3095,7 @@ Many output formatting systems have a way to support internationalization (**i18
 
 ### Quiz 4.10
 
->>Select all the true statement(s).<<
+\>\>Select all the true statement(s).<<
 
 [!x] Where practical, do not allow untrusted users to control the format/template used when formatting output.
 
@@ -3123,7 +3123,7 @@ Also, ensure that users cannot receive unauthorized information. Permissions and
 
 ### Quiz 4.11
 
->>If an untrusted user connects into your system over a network, and a request fails, you should provide them with a detailed stack trace. True or False?<<
+\>\>If an untrusted user connects into your system over a network, and a request fails, you should provide them with a detailed stack trace. True or False?<<
 
 ( ) True
 
@@ -3230,7 +3230,7 @@ So let’s look at some kinds of tools you can use to help make your software se
 
 ### Quiz 1.1
 
->>When using tools to look for security vulnerabilities, there is normally a risk of "false negatives" - that is, failing to report vulnerabilities even when they are present and the tool is designed to find that kind of vulnerability. True or False?<<
+\>\>When using tools to look for security vulnerabilities, there is normally a risk of "false negatives" - that is, failing to report vulnerabilities even when they are present and the tool is designed to find that kind of vulnerability. True or False?<<
 
 (x) True
 
@@ -3298,7 +3298,7 @@ One kind is so important that we will dedicate a whole separate section to it. T
 
 ### Quiz 1.2
 
->>Security code scanners/static application security testing (SAST) tools examine code to look for vulnerabilities. They can be very useful, but such a tool could report no vulnerabilities even on software with vulnerabilities. True or False?<<
+\>\>Security code scanners/static application security testing (SAST) tools examine code to look for vulnerabilities. They can be very useful, but such a tool could report no vulnerabilities even on software with vulnerabilities. True or False?<<
 
 (x) True
 
@@ -3360,7 +3360,7 @@ The key is that most software reuses other software, and that vulnerabilities wi
 
 ### Quiz 1.3
 
->>Select all the true statement(s) about handling dependencies:<<
+\>\>Select all the true statement(s) about handling dependencies:<<
 
 [!x] Tools can be used to help you identify which software dependencies have publicly-known vulnerabilities.
 
@@ -3434,7 +3434,7 @@ But there is more to dynamic analysis when you are interested in security. Let�
 
 ### Quiz 1.4
 
->>Select the true statement(s) about dynamic analysis including testing:<<
+\>\>Select the true statement(s) about dynamic analysis including testing:<<
 
 [!] For high-quality software, ensure that the software is tested with all possible input values. {{ selected: That is completely impossible. We cannot even do that for software that just adds two 64-bit numbers, nevermind "real world" software. }}
 
@@ -3488,7 +3488,7 @@ There are a huge number of fuzzers, and things are changing all the time. The fi
 
 ### Quiz 1.5
 
->>Select the true statement(s) about fuzzing:<<
+\>\>Select the true statement(s) about fuzzing:<<
 
 [!] Fuzzers send input to a program and determine if the output is correct.
 
@@ -3530,7 +3530,7 @@ In this course we have intentionally used more specific terms instead of DAST, i
 
 ### Quiz 1.6
 
->>A web application scanner (WAS) executes at runtime; it repeatedly sends data to a web application in an attempt to trigger and then detect problems. True or False?<<
+\>\>A web application scanner (WAS) executes at runtime; it repeatedly sends data to a web application in an attempt to trigger and then detect problems. True or False?<<
 
 (x) True
 
@@ -3558,7 +3558,7 @@ If you are using OSS, consider preferring OSS who have earned a badge. If you ar
 
 ### Quiz 1.7
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] A pen test simulates an attack on a system, attempting to break into it.
 
@@ -3604,7 +3604,7 @@ For our purposes, we will focus in the next unit on a very simple approach calle
 
 ### Quiz 2.1
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] For purposes of this course, threat modeling / attack modeling is the process of examining your requirements and design to consider how an attacker might exploit or break into your system, so that you can try to prevent those problems in the first place.
 
@@ -3666,7 +3666,7 @@ Threat modeling is overkill if you do not have significant security threats, and
 
 ### Quiz 2.2
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] STRIDE uses a simplified representation of the design, typically a data flow diagram.
 
@@ -3770,7 +3770,7 @@ A common mode used today is the Galois/Counter Mode (GCM). It is fast, paralleli
 
 ### Quiz 3.1
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] The Advanced Encryption Standard (AES) supports 3 key sizes: 128, 192, or 256 bits.
 
@@ -3806,7 +3806,7 @@ This may be resolved in git by the time you read this. However, the main point i
 
 ### Quiz 3.2
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] In a secure one-way cryptographic hash algorithm, it should be infeasible, given one message, to create another message that has the same hash value {{ selected: This is true, this is "preimage resistance" }}
 
@@ -3840,7 +3840,7 @@ As hinted at earlier, it is critical that you use existing well-respected implem
 
 ### Quiz 3.3
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!] RSA with a 1024-bit key is generally considered adequately secure for most use cases.
 
@@ -3897,7 +3897,7 @@ A particularly nasty security problem in computer systems is *subverted random n
 
 ### Quiz 3.4
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] In many programming languages, a cryptographically secure random number generator will have "secure" or “crypto” in its name.
 
@@ -3941,7 +3941,7 @@ Also, beware of implementing these algorithms only on the client side. It is fin
 
 ### Quiz 3.5
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!] You can eliminate all authentication security and privacy concerns by delegating authentication to another service. {{ selected: Not so. For one thing, can you trust that other service? That other service will know who authenticated when; is that acceptable? In many cases it is a good decision to delegate, but you need to consider the ramifications. }}
 
@@ -3985,7 +3985,7 @@ Once you have deployed your system, you should test it. If the site is publicly 
 
 ### Quiz 3.6
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!] If you are invoking a TLS library, it is reasonable to assume that it fully verifies the server’s TLS certificate automatically. {{ selected: Not so. Many libraries do *not* fully verify it, e.g., they might not verify that the certificate is appropriate for a given system. Some do, but when using a TLS library you have not used before, it is important to check what it verifies. }}
 
@@ -4039,7 +4039,7 @@ Similarly, seek advice from experts, and weigh that advice carefully. Errors in 
 
 ### Quiz 3.7
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!] Attackers cannot detect latency within an equality over a network.
 
@@ -4209,7 +4209,7 @@ Be sure to always credit and thank vulnerability reporters, unless they request 
 
 ### Quiz 4.1
 
->>What is the meaning of **TLP:RED**?<<
+\>\>What is the meaning of **TLP:RED**?<<
 
 (!x) Not for disclosure, restricted to participants only.
 
@@ -4305,7 +4305,7 @@ What is great about an assurance case is that if someone later wants to know "is
 
 ### Quiz 4.2
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] A claim describes an important property that you want to be true for a system or product
 
@@ -4367,7 +4367,7 @@ When disposing, make sure you fully destroy any data you are supposed to destroy
 
 ### Quiz 4.3
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] Don’t give direct access to your database system unless it is necessary *and* you have verified it’s secure.
 
@@ -4548,7 +4548,7 @@ Today formal methods are only used in special circumstances, but they might beco
 
 ### Quiz 4.4
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] The expression "∀ X foo" is true if *foo* is true no matter what the value of X is.
 
@@ -4594,7 +4594,7 @@ In this course we have covered all of the 2017 OWASP Top 10 and included cross-r
 
 ### Quiz 4.5
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x] The #1 biggest risk in the OWASP "Top 10 Web Application Security Risks" are injection flaws, including SQL injection and OS command injection.
 
@@ -4838,7 +4838,7 @@ You will be glad to know that this set of courses has, at least briefly, discuss
 
 ### Quiz 4.6
 
->>Select the true statement(s):<<
+\>\>Select the true statement(s):<<
 
 [!x]  The 2019 CWE Top 25 Most Dangerous Software Errors list was created using real-world data about vulnerabilities combined with their severity scores
 
