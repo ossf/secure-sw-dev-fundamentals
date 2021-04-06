@@ -422,13 +422,13 @@ Risks are *potential problems*. The key to developing adequately secure software
 
 All of life involves risk. It is unrealistic to expect that there will be no risks in life. In particular, there are risks to anyone using the software you develop because it may have vulnerabilities. When you develop software, you are likely to make mistakes, and some of those mistakes might eventually lead to security vulnerabilities. Someone may even try to intentionally insert vulnerabilities or malicious code into your software, or the software you depend on, during its development. Even very strong techniques for countering vulnerabilities must build on assumptions or can only eliminate *some* security-related risks, so again, it is unrealistic to expect there to be no risks.
 
-But when you develop software, you should take reasonable steps to *manage* risks so that the risks are so low (both to its developers and users) that they are acceptable. In his book, *["The Failure of Risk management: Why It’s Broken and How to Fix It*"](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119198536) (2009), Douglas Hubbard defines risk management as the *“identification, evaluation, and prioritization of risks… followed by coordinated and economical application of resources to minimize, monitor, and control the probability or impact of unfortunate events”*.
+But when you develop software, you should take reasonable steps to *manage* risks so that the risks are so low (both to its developers and users) that they are acceptable. In his book, [*"The Failure of Risk management: Why It’s Broken and How to Fix It"*](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119198536) (2009), Douglas Hubbard defines risk management as the *“identification, evaluation, and prioritization of risks… followed by coordinated and economical application of resources to minimize, monitor, and control the probability or impact of unfortunate events”*.
 
 One of the risks when developing and deploying software is that attacker(s) will exploit its vulnerabilities and cause harm to others. You cannot prevent attackers from trying to attack the system. In fact:
 
 **🚩**
 
-**I****f people start using the software you develop, ****_expect_**** that intelligent adversaries will try to attack it.**
+**If people start using the software you develop, ****_expect_**** that intelligent adversaries will try to attack it.**
 
 But while you cannot prevent attackers from trying to attack it, you can make it difficult for an attack to succeed, or reduce the impact if an attack succeeds. You can do this by taking steps throughout software development and deployment to reduce the risks to an acceptably low level. If your software is widely-used or depended on for vital tasks, then it is especially important that you work to manage those risks to your users.
 
@@ -436,7 +436,7 @@ Do *not* wait to think about risks until they happen. Then they are no longer ri
 
 #### Risk Management Process
 
-Small projects with relatively low impacts can do risk management very informally. Large projects with major impacts should be more rigorous. But no matter what, risk management can be divided into the following activities (according to the US Department of Defense’s *[Risk, Issue, and Opportunity Management Guide for Defense Acquisition Program*s](http://acqnotes.com/wp-content/uploads/2017/07/DoD-Risk-Issue-and-Opportunity-Management-Guide-Jan-2017.pdf), 2017):
+Small projects with relatively low impacts can do risk management very informally. Large projects with major impacts should be more rigorous. But no matter what, risk management can be divided into the following activities (according to the US Department of Defense’s [*Risk, Issue, and Opportunity Management Guide for Defense Acquisition Programs*](http://acqnotes.com/wp-content/uploads/2017/07/DoD-Risk-Issue-and-Opportunity-Management-Guide-Jan-2017.pdf), 2017):
 
 1. **Risk planning**. Determine your project’s risk management process.
 
@@ -470,17 +470,17 @@ Risk management is *not* complicated. It is basically common sense. But when you
 
 Note that the first step (beyond planning) is identifying risks. But how do you identify the risks of security vulnerabilities? Clearly many people do *not* notice risks from security vulnerabilities.
 
-Bruce Schneier has this wonderful story (*[The Security Mindse*t](https://www.schneier.com/blog/archives/2008/03/the_security_mi_1.html), 2008): 
+Bruce Schneier has this wonderful story ([*The Security Mindset*](https://www.schneier.com/blog/archives/2008/03/the_security_mi_1.html), 2008): 
 
-*"Uncle Milton Industries has been selling ant farms to children since 1956. Some years ago, I remember opening one up with a friend. There were no actual ants included in the box. Instead, there was a card that you filled in with your address, and the company would mail you some ants. My friend expressed surprise that you could get ants sent to you in the mail. [Bruce Schneier] replied: ‘What's really interesting is that these people will send a tube of live ants to anyone you tell them to.’ … Security requires a particular mindset. Security professionals -- at least the good ones -- see the world differently. They can't walk into a store without noticing how they might shoplift. They can't use a computer without wondering about the security vulnerabilities. They can't vote without trying to figure out how to vote twice."*
+> *"Uncle Milton Industries has been selling ant farms to children since 1956. Some years ago, I remember opening one up with a friend. There were no actual ants included in the box. Instead, there was a card that you filled in with your address, and the company would mail you some ants. My friend expressed surprise that you could get ants sent to you in the mail. [Bruce Schneier] replied: ‘What's really interesting is that these people will send a tube of live ants to anyone you tell them to.’ … Security requires a particular mindset. Security professionals -- at least the good ones -- see the world differently. They can't walk into a store without noticing how they might shoplift. They can't use a computer without wondering about the security vulnerabilities. They can't vote without trying to figure out how to vote twice."*
 
 Can this mindset be taught? Our experience is that it can be, at least in part. Checklists, guidance, and tips help remind people to look for certain things, especially when they are built from relevant past experiences. Another technique that helps is working to develop a slightly paranoid mind-set. Not a clinical level of paranoia, but a constant low-level concern that there are many risks and that some people really are out to get you. Remember that some users will intentionally seek to cause rare, unlikely, or unexpected situations, in the hope that such attacks will give them unwarranted privileges. As a result, when writing secure programs, paranoia is a virtue. Talking about risks with others, reviewing plans with others, and continuously looking for risks can all help identify risks so that they can be addressed *before* they become problems.
 
 #### Security Is A Process, Not A Product
 
-In his essay, *[The Process of Securit*y](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier has famously explained that 
+In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier has famously explained that 
 
-*"security is a process not a product… there's no such thing as perfect security. Interestingly enough, that's not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…". *
+> *"security is a process not a product… there's no such thing as perfect security. Interestingly enough, that's not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…".*
 
 The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change.. Software that was secure a year or five ago may not be adequate today. 
 
