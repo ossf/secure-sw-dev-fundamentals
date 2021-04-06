@@ -236,7 +236,7 @@ Security and privacy are interrelated, but not the same thing. In this unit we w
 
 #### What Does Privacy Mean?
 
-The non-profit [International Association of Privacy Professionals (IAPP) defines privacy](https://iapp.org/about/what-is-privacy/) as *"the right to be let alone, or freedom from interference or intrusion"*. More specifically, it says *“Information privacy is the right to have some control over how your personal information is collected and used... various cultures have widely differing views on what a person’s rights are when it comes to privacy and how it should be regulated.”* They also contrast privacy and security:* “Data privacy is focused on the use and governance of personal data—things like putting policies in place to ensure that consumers’ personal information is being collected, shared and used in appropriate ways.”*
+The non-profit [International Association of Privacy Professionals (IAPP) defines privacy](https://iapp.org/about/what-is-privacy/) as *"the right to be let alone, or freedom from interference or intrusion"*. More specifically, it says *“Information privacy is the right to have some control over how your personal information is collected and used... various cultures have widely differing views on what a person’s rights are when it comes to privacy and how it should be regulated.”* They also contrast privacy and security: *“Data privacy is focused on the use and governance of personal data—things like putting policies in place to ensure that consumers’ personal information is being collected, shared and used in appropriate ways.”*
 
 Put another way, privacy is about protecting personal data about individuals from abuse.
 
@@ -458,9 +458,9 @@ Small projects with relatively low impacts can do risk management very informall
 
         2. Use approaches (such as secure design, specific programming languages, and APIs) that are designed to make those vulnerabilities less likely,
 
-Use tools & reviews to catch mistakes (including vulnerabilities), and
+        3. Use tools & reviews to catch mistakes (including vulnerabilities), and
 
-        3. Harden the system. Hardening a system means modifying a system so that defects are less likely to become security vulnerabilities. We will discuss hardening later in the course.
+        4. Harden the system. Hardening a system means modifying a system so that defects are less likely to become security vulnerabilities. We will discuss hardening later in the course.
 
 5. **Risk Monitoring**. Determine how the risks have changed over time. Over time, you should "burn down" your risks - that is, the steps you are taking should be continuously reducing the risk likelihood or severity to acceptable levels.
 
@@ -656,7 +656,7 @@ People have identified the most important or top kinds of vulnerabilities in ter
 
 1. [**OWASP Top 10 Web Application Security Risks**](https://owasp.org/www-project-top-ten/)<br>This list, developed by the Open Web Application Security Project (OWASP), represents a *"broad consensus about the most critical security risks to web applications."*
 
-2. **[CWE Top 25 Lis**t](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html)<br>This is a list of the most widespread and critical kinds of vulnerabilities. It was created by the Common Weaknesses Enumeration (CWE) Team by analyzing data about publicly-known vulnerabilities over many years. This list can be applied to any software, but it is especially common to apply it to software that is not a web application (since the OWASP list focuses on web applications). One interesting quirk: they identify important weaknesses beyond the first 25, so you can see numbers larger than 25 associated with this list.
+2. [**CWE Top 25 List**](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html)<br>This is a list of the most widespread and critical kinds of vulnerabilities. It was created by the Common Weaknesses Enumeration (CWE) Team by analyzing data about publicly-known vulnerabilities over many years. This list can be applied to any software, but it is especially common to apply it to software that is not a web application (since the OWASP list focuses on web applications). One interesting quirk: they identify important weaknesses beyond the first 25, so you can see numbers larger than 25 associated with this list.
 
 OWASP has other top 10 lists for different kinds of software. For example:
 
@@ -1065,41 +1065,41 @@ This is a reason to avoid using C and C++ to implement new software when there i
 
 2. Is there evidence that its developers *work to make it secure*?
 
-    3. If it is OSS, has the project earned a Core Infrastructure Initiative (CII) Best Practices badge (or at least are they well on their way to that)? An OSS project that has earned a CII Best Practices badge implements a number of best practices for sustainably developing secure software. We will discuss this in more detail later in the section on verification. You can learn more about the [CII Best Practices badge](https://bestpractices.coreinfrastructure.org/en) online.
+    1. If it is OSS, has the project earned a Core Infrastructure Initiative (CII) Best Practices badge (or at least are they well on their way to that)? An OSS project that has earned a CII Best Practices badge implements a number of best practices for sustainably developing secure software. We will discuss this in more detail later in the section on verification. You can learn more about the [CII Best Practices badge](https://bestpractices.coreinfrastructure.org/en) online.
 
-    4. Is there evidence that the developers use tools to detect defects and vulnerabilities as early as possible?
+    2. Is there evidence that the developers use tools to detect defects and vulnerabilities as early as possible?
 
-    5. Is there documentation explaining why its developers believe it is secure (aka an "assurance case")?
+    3. Is there documentation explaining why its developers believe it is secure (aka an "assurance case")?
 
-    6. Is there evidence of a security audit, and that any problems found were fixed? Security audits are relatively uncommon, but they are a great sign when they exist. An audit that finds a large number of vulnerabilities could have found them because the software is just full of vulnerabilities, or because the audit was thorough, but no matter what, if the problems were found and fixed, those problems no longer exist in the version you plan to use.
+    4. Is there evidence of a security audit, and that any problems found were fixed? Security audits are relatively uncommon, but they are a great sign when they exist. An audit that finds a large number of vulnerabilities could have found them because the software is just full of vulnerabilities, or because the audit was thorough, but no matter what, if the problems were found and fixed, those problems no longer exist in the version you plan to use.
 
-    7. Consider using [SAFECode’s guide ](https://safecode.org/principles-of-software-assurance-assessment/)[*Principles for Software Assurance Assessment*](https://safecode.org/principles-of-software-assurance-assessment/) (2019), which has a multi-tiered approach for examining the security characteristics of software.
+    5. Consider using [SAFECode’s guide ](https://safecode.org/principles-of-software-assurance-assessment/)[*Principles for Software Assurance Assessment*](https://safecode.org/principles-of-software-assurance-assessment/) (2019), which has a multi-tiered approach for examining the security characteristics of software.
 
 This entire course discusses how to develop secure software; the more of these actions you see in the software you are considering, the better!
 
 3. Is it *maintained*? Unmaintained software is a risk. If the software is not maintained, it is more likely to have serious unaddressed security vulnerabilities, and it is more likely that its developers will fail to quickly fix vulnerabilities when they are reported. In theory, software can be "completed" and not need future changes, but usually software that is not being changed is not being maintained.
 
-    8. If the software is OSS, you can generally look at its repository and see its commit history. If it continues to have active commits, especially by multiple people, that is a good sign. An OSS component with no changes in the last year is generally much riskier.
+    1. If the software is OSS, you can generally look at its repository and see its commit history. If it continues to have active commits, especially by multiple people, that is a good sign. An OSS component with no changes in the last year is generally much riskier.
 
-    9. Are there recent releases or announcements from its developer?
+    2. Are there recent releases or announcements from its developer?
 
 4. Does it have *significant use*? Just because there are many users, or a large company (like Google or Facebook) uses it, does not mean it is appropriate for you. If you only choose the latest fad, you will sometimes make horrific mistakes! However, knowing that software is widely used can be useful information. If software has many users or large (corporate) users, then there’s more likely to be useful information on how to use it securely, and more people who will care about its security. Also, if it has a small number of users, see if something else with a similar name is more popular - that could indicate a typosquatting attack. We will discuss typosquatting in the next unit.
 
 5. What is the software’s *license*? Licenses are technically not security, but licenses can have a big impact on security.
 
-    10. Some software is released without a license at all; this can be legally dangerous, especially if it is more than a line or two of code, because in most countries and situations the law does not permit its use. Sometimes this can be fixed by contacting the original developer and proposing a license. A developer who puts users at legal risk is probably not worried about preventing security risks either.
+    1. Some software is released without a license at all; this can be legally dangerous, especially if it is more than a line or two of code, because in most countries and situations the law does not permit its use. Sometimes this can be fixed by contacting the original developer and proposing a license. A developer who puts users at legal risk is probably not worried about preventing security risks either.
 
-    11. If the software has a license, make sure that its license is consistent with what you are trying to do. **Beware**: the costs of failing to abide by a license can be extremely steep. Be especially careful if the software is not released with an OSS license, since by definition you will have fewer rights, and in practice there will only be one supplier who will decide what information you can have and how it will change. Make sure you follow the license requirements. If you won’t follow the license requirements, you are not only at legal risk for using it, but you will generally not have the right to use its security updates either.
+    2. If the software has a license, make sure that its license is consistent with what you are trying to do. **Beware**: the costs of failing to abide by a license can be extremely steep. Be especially careful if the software is not released with an OSS license, since by definition you will have fewer rights, and in practice there will only be one supplier who will decide what information you can have and how it will change. Make sure you follow the license requirements. If you won’t follow the license requirements, you are not only at legal risk for using it, but you will generally not have the right to use its security updates either.
 
 6. If it is important, what is *your own evaluation* of it? If the software is important to you, and especially if it is OSS, you can download and examine it yourself. Some people are scared of doing this, but there is no reason to be afraid. Even a brief review of software source code, and its changes over time, can give you some insight into the software you are thinking about using. This can be time-consuming, so many will not do this. But if the software you are developing is very important, this is a step worth seriously considering. Doing a thorough evaluation of such software is outside the scope of this course. There are many organizations with expertise in doing code-level security audits for a fee; you may want to engage their services if you want an in-depth review. However, if you decide that you want to do just a brief review, here are things to consider:
 
-    12. When you review the more detailed artifacts (e.g., the source code), is there evidence that the developers were trying to develop secure software (such as rigorous input validation of untrusted input and the use of prepared statements)?
+    1. When you review the more detailed artifacts (e.g., the source code), is there evidence that the developers were trying to develop secure software (such as rigorous input validation of untrusted input and the use of prepared statements)?
 
-    13. Is there evidence of insecure or woefully incomplete software (such as a forest of TODO statements)?
+    2. Is there evidence of insecure or woefully incomplete software (such as a forest of TODO statements)?
 
-    14. What are the "top" problems reported when running it through static analysis tools (that examine the code to look for problems)?
+    3. What are the "top" problems reported when running it through static analysis tools (that examine the code to look for problems)?
 
-    15. Is there evidence that the software is malicious? The authors of [*Backstabber’s Knife Collection: A Review of Open Source Software Supply Chain Attacks*](https://arxiv.org/abs/2005.09535) (2020) article notes traits that are especially common in malicious packages: most malicious packages perform malicious actions during installation (so check the installation routines), most aim at data exfiltration (so check for extraction and sending of data like **~/.ssh** or environment variables), and about half use some sort of obfuscation (so look for encoded values that end up being executed). You could also run the software in a sandbox with an environment intended to trigger likely issues, and see if the software attempts to do something malicious. Some malicious software detects that it is being examined and behaves well when examined, so running code in a sandbox does not guarantee detection… but it may reduce risk.
+    4. Is there evidence that the software is malicious? The authors of [*Backstabber’s Knife Collection: A Review of Open Source Software Supply Chain Attacks*](https://arxiv.org/abs/2005.09535) (2020) article notes traits that are especially common in malicious packages: most malicious packages perform malicious actions during installation (so check the installation routines), most aim at data exfiltration (so check for extraction and sending of data like **~/.ssh** or environment variables), and about half use some sort of obfuscation (so look for encoded values that end up being executed). You could also run the software in a sandbox with an environment intended to trigger likely issues, and see if the software attempts to do something malicious. Some malicious software detects that it is being examined and behaves well when examined, so running code in a sandbox does not guarantee detection… but it may reduce risk.
 
 ### Quiz 3.1
 
@@ -1119,29 +1119,29 @@ Of course, if you download and install a subverted version of the reused softwar
 
 1. Make sure you have exactly the correct name. A common attack is called "typosquatting". In typosquatting, an attacker will create a domain name or package name that is intentionally and maliciously similar to a widely-used software component, and use that misleading name to spread a malicious version of that software. [Ohm & all, 2020](https://arxiv.org/abs/2005.09535) found that *“most malicious [OSS] packages mimic existing packages’ names via typosquatting”*. For example:
 
-    1. Check for common misleading name changes. It is easy to switch between dash (**-**) and underscore (**_**). One (**1**) and lower-case L (**l**) look similar, as do zero (**0**) and capital O (**O**). In some package managers, uppercase and lowercase ASCII are considered different; in those situations, beware of case. Unicode provides characters that appear exactly the same as ASCII, but are another alphabet, like Cyrillic or Greek; in some cases, these can also be exploited.
+    1. Check for common misleading name changes. It is easy to switch between dash (**-**) and underscore (**&x95;**). One (**1**) and lower-case L (**l**) look similar, as do zero (**0**) and capital O (**O**). In some package managers, uppercase and lowercase ASCII are considered different; in those situations, beware of case. Unicode provides characters that appear exactly the same as ASCII, but are another alphabet, like Cyrillic or Greek; in some cases, these can also be exploited.
 
     2. Check how popular the package is. Generally the more-popular version is the correct version. If you are using a package manager, compare the download counts of similarly-named packages; the ones with lower counts may be typosquatting attacks. If you are looking for a website, or the package manager does not provide direct access to counts, use a search engine and pick the most popular domain. However, be sure to *ignore* all advertised domains from a search engine; attackers may pay to advertise their malicious version!
 
 2. Make sure you download and install the software in a trustworthy way:
 
-    3. You should directly download the software from its main site or from a redistribution site that you have good reason to trust (such as your Linux distribution’s repository or your programming language package manager’s standard repository).
+    1. You should directly download the software from its main site or from a redistribution site that you have good reason to trust (such as your Linux distribution’s repository or your programming language package manager’s standard repository).
 
-    4. Typically this means that you should use **https:** (TLS) to download the software, not **http:**, since this generally ensures that you are contacting the site you requested and prevents attackers from modifying the software en route to you.
+    2. Typically this means that you should use **https:** (TLS) to download the software, not **http:**, since this generally ensures that you are contacting the site you requested and prevents attackers from modifying the software en route to you.
 
-    5. Consider downloading the software, but then only install and use it a few days later after verifying nothing has changed. That way, if the distribution site is temporarily subverted when you download the software, but is quickly fixed, you will not be using the subverted version. This is not always practical, since you may be in too much of a hurry to wait, but in some cases this is easy to do.
+    3. Consider downloading the software, but then only install and use it a few days later after verifying nothing has changed. That way, if the distribution site is temporarily subverted when you download the software, but is quickly fixed, you will not be using the subverted version. This is not always practical, since you may be in too much of a hurry to wait, but in some cases this is easy to do.
 
-    6. Try to avoid using pipe-to-shell (such as  **curl … | sh**) to download and install software. You obviously cannot download and delay installation when you use pipe-to-shell. In addition, attackers who subvert a source site can detect a pipe-to-shell request and selectively subvert pipe-to-shell users (who by definition are not reviewing what they are downloading). Using pipe-to-shell makes source site subversions much harder to detect and counter. It also makes understanding the actual version you downloaded and installed impossible to determine - so you have effectively lost some version control, and you cannot depend on others to be able to determine what happened. In short, your risks increase if you use pipe-to-shell.
+    4. Try to avoid using pipe-to-shell (such as  **curl … | sh**) to download and install software. You obviously cannot download and delay installation when you use pipe-to-shell. In addition, attackers who subvert a source site can detect a pipe-to-shell request and selectively subvert pipe-to-shell users (who by definition are not reviewing what they are downloading). Using pipe-to-shell makes source site subversions much harder to detect and counter. It also makes understanding the actual version you downloaded and installed impossible to determine - so you have effectively lost some version control, and you cannot depend on others to be able to determine what happened. In short, your risks increase if you use pipe-to-shell.
 
-That said, if you only use pipe-to-shell in a contained environment (e.g., a container or virtual machine) and throw away any produced executables, as it often happens in the test environments of continuous integration (CI) pipelines, pipe-to-shell is much less risky. Pipe-to-shell is also hard to avoid in some situations, depending on how the reused software is distributed, and sometimes it is not worth trying to avoid pipe-to-shell. So this is a tip that’s worth considering, but not always worth doing. **Remember**: focus on risk management, not total risk avoidance.
+    That said, if you only use pipe-to-shell in a contained environment (e.g., a container or virtual machine) and throw away any produced executables, as it often happens in the test environments of continuous integration (CI) pipelines, pipe-to-shell is much less risky. Pipe-to-shell is also hard to avoid in some situations, depending on how the reused software is distributed, and sometimes it is not worth trying to avoid pipe-to-shell. So this is a tip that’s worth considering, but not always worth doing. **Remember**: focus on risk management, not total risk avoidance.
 
-    7. Where important and practical, try to verify that the package is digitally signed by its expected creators (or at least its redistributors). Software to verify that a package is digitally signed has been around for decades, and in some situations, there is automated verification that the package does come from a particular redistributor. That said, it is often harder to ensure that you have the correct corresponding public keys (this is an example of a *key management* problem.) There is continuing work in this area; where you can, take advantage of it.
+    5. Where important and practical, try to verify that the package is digitally signed by its expected creators (or at least its redistributors). Software to verify that a package is digitally signed has been around for decades, and in some situations, there is automated verification that the package does come from a particular redistributor. That said, it is often harder to ensure that you have the correct corresponding public keys (this is an example of a *key management* problem.) There is continuing work in this area; where you can, take advantage of it.
 
 ### Quiz 3.2
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
 
-[!x] Double-check that the name you will request is really the one you wanted (e.g., **-** and **_** are not swapped, **O** and **0** are not swapped, and so on)
+[!x] Double-check that the name you will request is really the one you wanted (e.g., **-** and **&95;** are not swapped, **O** and **0** are not swapped, and so on)
 
 [x] Use **https:**, not **http:**
 
