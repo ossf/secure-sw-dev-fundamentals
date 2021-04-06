@@ -1906,7 +1906,7 @@ Sometimes it is necessary to convert or cast a data value from one type to anoth
 
 For our purposes, conversions do not include determining if a value is truthy. In general, programming languages have conditional constructs (such as **if** and **while**) that will produce different results depending on whether or not a condition’s value is truthy. What is truthy is a key design decision when creating a programming language. For example, every value in JavaScript is considered truthy except for a specific list of falsy values (currently **false**, **0**, **-0**, **0n**, **""**, **null**, **undefined**, and **NaN**). In such languages, **if p** and similar are a shorthand for checking if a value is truthy. This interpretation in conditionals might be considered a conversion from some other type into a boolean type, but such constructs are really just an abbreviated way to determine if a value is truthy, and that is not what we are concerned with here.
 
-🔔 *Incorrect Type Conversion or Cast* ([CWE-704](https://cwe.mitre.org/data/definitions/704.html))is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #28.
+🔔 *Incorrect Type Conversion or Cast* ([CWE-704](https://cwe.mitre.org/data/definitions/704.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #28.
 
 ### Quiz 2.3
 
