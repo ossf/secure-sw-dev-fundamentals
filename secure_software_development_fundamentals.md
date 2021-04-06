@@ -38,7 +38,7 @@ For more information about this material, see the folder here:
 
 ## Introduction
 
-Learn the security basics that allow you to develop software that is hardened against attacks, and understand how you can reduce the damage and speed the response when a vulnerability is exploited.
+*Learn the security basics that allow you to develop software that is hardened against attacks, and understand how you can reduce the damage and speed the response when a vulnerability is exploited.*
 
 Modern software is under constant attack, but many software developers have never been told how to effectively counter those attacks. This course works to solve that problem, by explaining the fundamentals of developing secure software. Geared towards software developers, DevOps professionals, software engineers, web application developers, and others interested in learning how to develop secure software, this course focuses on practical steps that can be taken, even with limited resources, to improve information security. This course will enable software developers to create and maintain systems that are much harder to successfully attack, reduce the damage when attacks are successful, and speed the response so that any latent vulnerabilities can be rapidly repaired.
 
@@ -132,11 +132,11 @@ Learning Objectives:
 
 To get secure software, we first need to understand what *security* means. Different software has different specific security requirements, but many people divide security requirements into three broad objectives - Confidentiality, Integrity, and Availability:
 
-* **Confidentiality**"No unauthorized read" - users are only allowed to read the information they are authorized to read.
+* **Confidentiality**<br>"No unauthorized read" - users are only allowed to read the information they are authorized to read.
 
-* **Integrity**"No unauthorized modification (write or delete)"  - users are only allowed to modify the information they are authorized to modify; modification includes additions, changes, and deletions.
+* **Integrity**<br>"No unauthorized modification (write or delete)"  - users are only allowed to modify the information they are authorized to modify; modification includes additions, changes, and deletions.
 
-* **Availability**"Keeps working in presence of attack." - the software keeps working while under attack. A Denial of Service (DoS) attack is an attack that tries to make the software no longer available.
+* **Availability**<br>"Keeps working in presence of attack." - the software keeps working while under attack. A Denial of Service (DoS) attack is an attack that tries to make the software no longer available.
 
 This set of Confidentiality, Integrity, and Availability (CIA) is sometimes called the CIA triad.
 
@@ -148,11 +148,11 @@ Many add one more security objective: **non-repudiation** or **accountability**.
 
 These security objectives need some supporting mechanisms. For example, confidentiality and integrity require that there be a way to determine if an action is authorized (unless all requests are authorized). Here are some common supporting mechanisms:
 
-* **Identity & Authentication (I&A)**Require users to identify themselves and prove (authenticate) their identity before doing anything that requires authorization. For example, they might use a username or email address as their identity, and use a password or hardware token to authenticate that they really are that user. This is typically done by a login process.
+* **Identity & Authentication (I&A)**<br>Require users to identify themselves and prove (authenticate) their identity before doing anything that requires authorization. For example, they might use a username or email address as their identity, and use a password or hardware token to authenticate that they really are that user. This is typically done by a login process.
 
-* **Authorization**Determine what that user is allowed (authorized) to do before deciding to do it. You can think of authorization as a list of what each user is allowed to do. If it is easy for an attacker to add authorizations, then secure I&A means little. This is critical for implementing confidentiality and/or integrity. Watch out: the words *authentication* and *authorization* sound similar, but they are not the same thing. You may know exactly who someone is (authentication), but still not allow that person to do something (authorization).
+* **Authorization**<br>Determine what that user is allowed (authorized) to do before deciding to do it. You can think of authorization as a list of what each user is allowed to do. If it is easy for an attacker to add authorizations, then secure I&A means little. This is critical for implementing confidentiality and/or integrity. Watch out: the words *authentication* and *authorization* sound similar, but they are not the same thing. You may know exactly who someone is (authentication), but still not allow that person to do something (authorization).
 
-* **Auditing** (aka logging)Record important events to help detect and recover from attacks. Typically these events include log in, log out, and modifying important information. Auditing is often critical for implementing non-repudiation / accountability requirements.
+* **Auditing** (aka logging)<br>Record important events to help detect and recover from attacks. Typically these events include log in, log out, and modifying important information. Auditing is often critical for implementing non-repudiation / accountability requirements.
 
 What you specifically do depends on the software you are developing. If you are developing a lower-level library, you might not be directly supporting any of these supporting mechanisms, but you still have to make sure that what you are doing will fit into a larger program.
 
@@ -186,21 +186,21 @@ Of course, the actual requirements depend on what you’re trying to accomplish.
 
 So how can you determine the security requirements for a particular system? One way to identify security requirements is to think about the common security objectives and supporting security functions we have *already* discussed and determine the specific requirements for your system in each category. In particular, think about how each one applies to the kind of information your program will manage. Let’s walk through each security objective and supporting security function, and discuss some things to consider:
 
-1. **Confidentiality** ("No unauthorized read") Identify information that should not be publicly revealed, such as private information about people and systems. Who should be allowed to see that? Can you avoid having that information at all (since you cannot reveal what you do not have)? If you store password information so people can log in to your system (aka “inbound” authentication), you need to store this password information using special algorithms designed for it (such as Argon2id), as we will discuss later.
+1. **Confidentiality** ("No unauthorized read")<br>Identify information that should not be publicly revealed, such as private information about people and systems. Who should be allowed to see that? Can you avoid having that information at all (since you cannot reveal what you do not have)? If you store password information so people can log in to your system (aka “inbound” authentication), you need to store this password information using special algorithms designed for it (such as Argon2id), as we will discuss later.
 
-2. **Integrity** ("No unauthorized modification")Identify information that only some people should be allowed to modify, and who that is.
+2. **Integrity** ("No unauthorized modification")<br>Identify information that only some people should be allowed to modify, and who that is.
 
-3. **Availability** ("Keeps working in presence of attack")What is the impact if it does not work for a while - is that serious? Availability is rarely an absolute. If your system is accessible via the internet, availability is very challenging to provide; a well-resourced attacker can always use a Distributed Denial of Service (DDoS) attack to take down a site, at least for a little while. It is possible to work to counter DDoS attacks, but in the end it can turn into a competition between how many resources each side has.
+3. **Availability** ("Keeps working in presence of attack")<br>What is the impact if it does not work for a while - is that serious? Availability is rarely an absolute. If your system is accessible via the internet, availability is very challenging to provide; a well-resourced attacker can always use a Distributed Denial of Service (DDoS) attack to take down a site, at least for a little while. It is possible to work to counter DDoS attacks, but in the end it can turn into a competition between how many resources each side has.
 
 Even when availability cannot be universally guaranteed, you can still have secure software by focusing on the bigger-risk items ([Not all attackers are equal: understanding and preventing DoS in web applications](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/), by Jacob Kaplan-Moss, 2020).  In many cases, focus on developing your software so it is not *easy* to overwhelm or take down with simple inputs; make it possible to temporarily scale up the software by rapidly adding new servers; and implement the software so it quickly recovers when an attack ends. To counter the risk that the system might be destroyed or have its data deleted, design the software so its data is easily backed up, and plan for backups. Ensure that data can be backed up to "cold storage" (where the data cannot be corrupted later if the software is subverted). If the system is routinely backed up in operations, you can recover relatively quickly (at least partially). So yes, you *can* have availability as a requirement, as long as its limitations are clear.
 
-4. **Non-repudiation** ("Prove someone did something") Is there some action that you want to be able to *prove* someone took? In many systems this is not critical, but in some it is.
+4. **Non-repudiation** ("Prove someone did something")<br>Is there some action that you want to be able to *prove* someone took? In many systems this is not critical, but in some it is.
 
-5. **Identity & authentication (I&A)**How will users prove who they are? You want to make sure that someone cannot spoof a legitimate user. You should normally support two-factor authentication (2FA), either directly or by allowing users to prove their identity via some other service that supports it.
+5. **Identity & authentication (I&A)**<br>How will users prove who they are? You want to make sure that someone cannot spoof a legitimate user. You should normally support two-factor authentication (2FA), either directly or by allowing users to prove their identity via some other service that supports it.
 
-6. **Authorization**Who is allowed to do what? This is a part of confidentiality and integrity, but if you think about people’s roles in addition to thinking about the information to protect, you will probably get a better picture.
+6. **Authorization**<br>Who is allowed to do what? This is a part of confidentiality and integrity, but if you think about people’s roles in addition to thinking about the information to protect, you will probably get a better picture.
 
-7. **Auditing/Logging**What information/events should you record? Typically you at least record login, logout, and important events like user account creation and deletion. Generally a system should record when something happened (date and time), what happened, what system component did it, and who caused it to happen.
+7. **Auditing/Logging**<br>What information/events should you record? Typically you at least record login, logout, and important events like user account creation and deletion. Generally a system should record when something happened (date and time), what happened, what system component did it, and who caused it to happen.
 
 You will sometimes see documents that use the security terms "subject" and “object”. A “subject” is something that acts (e.g., a user or process). An “object” is something being acted on (e.g., a file or network port).
 
@@ -322,33 +322,33 @@ Personal data is *processed* any time an operation is performed on it. This incl
 
 The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial "gut reaction" for whether a particular use of personal data is likely to be acceptable. These are:
 
-1. **Lawfulness, Fairness and Transparency**Process personal data in a way that is legal, fair and transparent to the data subject.
+1. **Lawfulness, Fairness and Transparency**<br>Process personal data in a way that is legal, fair and transparent to the data subject.
 
-2. **Purpose Limitation**Only process personal data in ways that are compatible with the legitimate purposes for which it was collected.
+2. **Purpose Limitation**<br>Only process personal data in ways that are compatible with the legitimate purposes for which it was collected.
 
-3. **Data Minimization**Limit the personal data you collect to what’s adequate for those purposes.
+3. **Data Minimization**<br>Limit the personal data you collect to what’s adequate for those purposes.
 
-4. **Accuracy**Keep personal data accurate and up to date, and take every reasonable step to erase or rectify inaccurate data.
+4. **Accuracy**<br>Keep personal data accurate and up to date, and take every reasonable step to erase or rectify inaccurate data.
 
-5. **Storage Limitation**Store personal data in a form which permits identification for no longer than needed for the purposes for which it was collected.
+5. **Storage Limitation**<br>Store personal data in a form which permits identification for no longer than needed for the purposes for which it was collected.
 
-6. **Integrity and Confidentiality**Process personal data in a way that ensures appropriate security.
+6. **Integrity and Confidentiality**<br>Process personal data in a way that ensures appropriate security.
 
-7. **Accountability**A controller of personal data is responsible for the above principles, and for demonstrating its compliance with them.
+7. **Accountability**<br>A controller of personal data is responsible for the above principles, and for demonstrating its compliance with them.
 
 Six articles in the GDPR lay out specific rights given to individuals regarding their personal data. This gives EU residents the right to contact a data controller and request that it take certain actions (*GDPR requests*). Since EU residents have these rights, software systems and organizational processes must be designed to enable these rights. The types of requests described in the GDPR include the following:
 
-* **Right of Access** (Art. 15)Data subjects can ask whether their personal data is being processed. If it is, they can receive "access" to the data (e.g., a copy or screenshot of it) and information regarding the processing.
+* **Right of Access** (Art. 15)<br>Data subjects can ask whether their personal data is being processed. If it is, they can receive "access" to the data (e.g., a copy or screenshot of it) and information regarding the processing.
 
-* **Right to Rectification** (Art. 16)Data subjects can have inaccurate data updated and corrected.
+* **Right to Rectification** (Art. 16)<br>Data subjects can have inaccurate data updated and corrected.
 
-* **Right to Erasure** (a.k.a "Right to be Forgotten") (Art. 17)In certain circumstances, data subjects can have their personal data erased.
+* **Right to Erasure** (a.k.a "Right to be Forgotten") (Art. 17)<br>In certain circumstances, data subjects can have their personal data erased.
 
-* **Right to Restriction of Processing** (Art. 18)In certain circumstances, data subjects can restrict processing of their personal data. It can still be stored, unless a "Right to Erasure" request was also made.
+* **Right to Restriction of Processing** (Art. 18)<br>In certain circumstances, data subjects can restrict processing of their personal data. It can still be stored, unless a "Right to Erasure" request was also made.
 
-* **Right to Data Portability** (Art. 20)In certain circumstances, data subjects can have their personal data exported (e.g., provided to the data subject or a third party in a structured, commonly used and machine-readable format).
+* **Right to Data Portability** (Art. 20)<br>In certain circumstances, data subjects can have their personal data exported (e.g., provided to the data subject or a third party in a structured, commonly used and machine-readable format).
 
-* **Right to Object** (Art. 21)In certain circumstances, particularly for direct marketing and profiling purposes, data subjects can object to having their personal data processed.
+* **Right to Object** (Art. 21)<br>In certain circumstances, particularly for direct marketing and profiling purposes, data subjects can object to having their personal data processed.
 
 To process personal data, it must be lawful, meaning it must fall into at least one of several categories, including the following among others:
 
@@ -598,15 +598,15 @@ Software is developed to be used, so let’s briefly look at security from the v
 
 Organizations should not assume that they can always protect their systems from attack. Attackers sometimes break through. For example, the [US NIST Cybersecurity Framework](https://www.nist.gov/cyberframework) identifies five concurrent and continuous functions organizations should apply in their operations to manage cybersecurity risk:
 
-1. **Identify** *"Develop an organizational understanding to manage cybersecurity risk to systems, people, assets, data, and capabilities".*
+1. **Identify**<br>*"Develop an organizational understanding to manage cybersecurity risk to systems, people, assets, data, and capabilities".*
 
-2. **Protect** *"Develop and implement appropriate safeguards to **ensure** delivery of critical services".*
+2. **Protect**<br>*"Develop and implement appropriate safeguards to **ensure** delivery of critical services".*
 
-3. **Detect** *"Develop and implement appropriate activities to identify the occurrence of a cybersecurity event".*
+3. **Detect**<br>*"Develop and implement appropriate activities to identify the occurrence of a cybersecurity event".*
 
-4. **Respond** "Develop and implement appropriate activities to take action regarding a detected cybersecurity incident".
+4. **Respond**<br>"Develop and implement appropriate activities to take action regarding a detected cybersecurity incident".
 
-5. **Recover** *"Develop and implement appropriate activities to maintain plans for resilience and to restore any capabilities or services that were impaired due to a cybersecurity incident".*
+5. **Recover**<br>*"Develop and implement appropriate activities to maintain plans for resilience and to restore any capabilities or services that were impaired due to a cybersecurity incident".*
 
 This list of five functions is sometimes simplified to three basic functions: **protect**, **detect**, and **respond**. When using this simplified list of three basic functions, identify is considered part of protect, and recover is considered part of respond. We will use that shortened list of basic functions here.
 
@@ -654,9 +654,9 @@ The [Common Weaknesses Enumeration (CWE)](https://cwe.mitre.org/) is a very long
 
 People have identified the most important or top kinds of vulnerabilities in terms of their likelihood and severity. Two of the most popular lists of top kinds of vulnerabilities are:
 
-1. [**OWASP Top 10 Web Application Security Risks**](https://owasp.org/www-project-top-ten/) This list, developed by the Open Web Application Security Project (OWASP), represents a *"broad consensus about the most critical security risks to web applications."*
+1. [**OWASP Top 10 Web Application Security Risks**](https://owasp.org/www-project-top-ten/)<br>This list, developed by the Open Web Application Security Project (OWASP), represents a *"broad consensus about the most critical security risks to web applications."*
 
-2. **[CWE Top 25 Lis**t](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html)This is a list of the most widespread and critical kinds of vulnerabilities. It was created by the Common Weaknesses Enumeration (CWE) Team by analyzing data about publicly-known vulnerabilities over many years. This list can be applied to any software, but it is especially common to apply it to software that is not a web application (since the OWASP list focuses on web applications). One interesting quirk: they identify important weaknesses beyond the first 25, so you can see numbers larger than 25 associated with this list.
+2. **[CWE Top 25 Lis**t](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html)<br>This is a list of the most widespread and critical kinds of vulnerabilities. It was created by the Common Weaknesses Enumeration (CWE) Team by analyzing data about publicly-known vulnerabilities over many years. This list can be applied to any software, but it is especially common to apply it to software that is not a web application (since the OWASP list focuses on web applications). One interesting quirk: they identify important weaknesses beyond the first 25, so you can see numbers larger than 25 associated with this list.
 
 OWASP has other top 10 lists for different kinds of software. For example:
 
@@ -748,21 +748,21 @@ Software has been under attack for decades, and many key secure design principle
 
 In their list they focus on the *protection system* - that is, the part of the system that the security depends on. Here is their list, along with some alternative names:
 
-1. **Least privilege**Each (human) user and program should operate using the fewest privileges possible. This principle limits the damage from an accident, error, or attack. It also reduces the number of potential interactions among privileged programs, so unintentional, unwanted, or improper uses of privilege are less likely to occur.
+1. **Least privilege**<br>Each (human) user and program should operate using the fewest privileges possible. This principle limits the damage from an accident, error, or attack. It also reduces the number of potential interactions among privileged programs, so unintentional, unwanted, or improper uses of privilege are less likely to occur.
 
-2. **Complete mediation (aka non-bypassability)** Every access attempt must be checked; position the mechanism so it cannot be subverted. A synonym for this goal is non-bypassability.
+2. **Complete mediation (aka non-bypassability)**<br>Every access attempt must be checked; position the mechanism so it cannot be subverted. A synonym for this goal is non-bypassability.
 
-3. **Economy of mechanism (aka simplicity)**The system, in particular the part that security depends on, should be as simple and small as possible.
+3. **Economy of mechanism (aka simplicity)**<br>The system, in particular the part that security depends on, should be as simple and small as possible.
 
-4. **Open design**The protection mechanism must not depend on attacker ignorance. Instead, you should act as if the mechanism is publicly known, and instead depend on the secrecy of relatively few and easily changeable items like passwords or private keys. An attacker should not be able to break into a system just because the attacker knows how it works. "Security through obscurity" generally does not work.
+4. **Open design**<br>The protection mechanism must not depend on attacker ignorance. Instead, you should act as if the mechanism is publicly known, and instead depend on the secrecy of relatively few and easily changeable items like passwords or private keys. An attacker should not be able to break into a system just because the attacker knows how it works. "Security through obscurity" generally does not work.
 
-5. **Fail-safe defaults** The default installation should be the secure installation. If it’s not certain that something should be allowed, don’t allow it.
+5. **Fail-safe defaults**<br>The default installation should be the secure installation. If it’s not certain that something should be allowed, don’t allow it.
 
-6. **Separation of privilege (****e.g.,**** use two-factor authentication)** Access to objects should depend on more than one condition (such as having a password). That way, if an attacker manages to break one condition (e.g., by stealing a key) the system remains secure. Note: sometimes programs are broken into parts, each part with a different privilege. This approach is sometimes confusingly called "privilege separation" - but breaking a program into parts with different privileges is something else. In this terminology, that is an example of least privilege.
+6. **Separation of privilege (****e.g.,**** use two-factor authentication)**<br>Access to objects should depend on more than one condition (such as having a password). That way, if an attacker manages to break one condition (e.g., by stealing a key) the system remains secure. Note: sometimes programs are broken into parts, each part with a different privilege. This approach is sometimes confusingly called "privilege separation" - but breaking a program into parts with different privileges is something else. In this terminology, that is an example of least privilege.
 
-7. **Least common mechanism (aka minimize sharing)** Minimize the amount and use of shared mechanisms. Avoid sharing files, directories, operating system kernel execution, or computers with something you do not trust, because attackers might exploit them.
+7. **Least common mechanism (aka minimize sharing)**<br>Minimize the amount and use of shared mechanisms. Avoid sharing files, directories, operating system kernel execution, or computers with something you do not trust, because attackers might exploit them.
 
-8. **Psychological acceptability (aka easy to use)** The human interface must be designed for ease of use so users will routinely and automatically use the protection mechanisms correctly.
+8. **Psychological acceptability (aka easy to use)**<br>The human interface must be designed for ease of use so users will routinely and automatically use the protection mechanisms correctly.
 
 Since then, other secure design principles have also been identified by different people; we will cover a few of those throughout the course.
 
@@ -794,25 +794,25 @@ Least privilege limits the potential damage from an attack, and also reduces the
 
 Here are several ways to implement least privilege, depending on the circumstance:
 
-1. **Don’t give a program any special privileges (where practical)**If this can be done, do it, as this is the best from a security point of view. For example, Linux supports making programs **setuid** or **setgid**, so that simply running the program gives the program the privileges of its owner. If you can completely avoid using this mechanism, consider doing it, because it gives special privileges to programs. There are often safer alternatives; for example, requiring people to log in specifically with privileges (this is the purpose of **sudo**).
+1. **Don’t give a program any special privileges (where practical)**<br>If this can be done, do it, as this is the best from a security point of view. For example, Linux supports making programs **setuid** or **setgid**, so that simply running the program gives the program the privileges of its owner. If you can completely avoid using this mechanism, consider doing it, because it gives special privileges to programs. There are often safer alternatives; for example, requiring people to log in specifically with privileges (this is the purpose of **sudo**).
 
-2. **Minimize the special privileges a program gets, including minimizing whatever data is accessible to it**On Linux, you might have a program below (or run on the behalf of) a special group or user that only has specific rights, instead of something more privileged (like root). If you are calling a database system query interface, limit the rights of the database user that the application uses. If your database system uses SQL, you might be able to use the SQL GRANT command to limit the privileges the program gets. Redis users might use Redis’ ACL command to limit privileges.
+2. **Minimize the special privileges a program gets, including minimizing whatever data is accessible to it**<br>On Linux, you might have a program below (or run on the behalf of) a special group or user that only has specific rights, instead of something more privileged (like root). If you are calling a database system query interface, limit the rights of the database user that the application uses. If your database system uses SQL, you might be able to use the SQL GRANT command to limit the privileges the program gets. Redis users might use Redis’ ACL command to limit privileges.
 
-3. **Permanently give up privileges as soon as possible**For example, if you are using Linux saved group IDs, user IDs, or capabilities, permanently drop those extra privileges as soon as possible. That way, if the attack happens afterwards, the attacker cannot exploit those privileges.
+3. **Permanently give up privileges as soon as possible**<br>For example, if you are using Linux saved group IDs, user IDs, or capabilities, permanently drop those extra privileges as soon as possible. That way, if the attack happens afterwards, the attacker cannot exploit those privileges.
 
-4. **If you cannot permanently give up privileges, try to minimize the time the privilege is active**This is less effective, because some attacks can force programs to run arbitrary code. But some attacks can only make programs do a limited number of things, and minimizing when the privilege is active will reduce what an attacker can do.
+4. **If you cannot permanently give up privileges, try to minimize the time the privilege is active**<br>This is less effective, because some attacks can force programs to run arbitrary code. But some attacks can only make programs do a limited number of things, and minimizing when the privilege is active will reduce what an attacker can do.
 
-5. **Break the program into different modules, and give special privileges to only one or a few modules (portions of the program)**The privileged module will ideally not even fully trust the other parts of your program (aka a *mutually suspicious design*), If you do that, then if some part of your program is subverted, it will limit what an attacker can immediately do. For example, you might split the part of a program that implements a GUI from a different part with privileges. Separation mechanisms like containers, virtual machines, Linux seccomp, and various kinds of security wrappers can help you separate parts of your program so that subversion of one part does not necessarily break another. **_Beware:_*** make sure that you configure these mechanisms to securely separate the modules, and limit the privileges in each part.* These separation mechanisms are often not foolproof, so don’t assume that using them automatically makes your program secure. That said, they can make your program harder to attack and may reduce damage if an attack is successful.
+5. **Break the program into different modules, and give special privileges to only one or a few modules (portions of the program)**<br>The privileged module will ideally not even fully trust the other parts of your program (aka a *mutually suspicious design*), If you do that, then if some part of your program is subverted, it will limit what an attacker can immediately do. For example, you might split the part of a program that implements a GUI from a different part with privileges. Separation mechanisms like containers, virtual machines, Linux seccomp, and various kinds of security wrappers can help you separate parts of your program so that subversion of one part does not necessarily break another. **_Beware:_*** make sure that you configure these mechanisms to securely separate the modules, and limit the privileges in each part.* These separation mechanisms are often not foolproof, so don’t assume that using them automatically makes your program secure. That said, they can make your program harder to attack and may reduce damage if an attack is successful.
 
-6. **Minimize (limit) the attack surface**The *attack surface* is the set of operations (e.g., its API and its open network ports) that a potential attacker can access. For example, if you allow public access to some method, then you are giving all attackers access to that method - are you sure you need to? Where possible, limit the operations that a potential attacker can access. If the public does not need access, do not give the public access. In particular, avoid leaving debug operations in production systems that an attacker can access; debug operations are a common source of problems.
+6. **Minimize (limit) the attack surface**<br>The *attack surface* is the set of operations (e.g., its API and its open network ports) that a potential attacker can access. For example, if you allow public access to some method, then you are giving all attackers access to that method - are you sure you need to? Where possible, limit the operations that a potential attacker can access. If the public does not need access, do not give the public access. In particular, avoid leaving debug operations in production systems that an attacker can access; debug operations are a common source of problems.
 
-7. **Validate (check) input before you accept it**Don’t just accept data from a potential attacker; check it thoroughly before accepting it. We will discuss input validation in more detail later. Of course, you need to make sure that attackers cannot bypass this input validation; this is such a big issue that it has its own principle, *complete mediation*, aka *non-byassability*. We will be talking about that next.
+7. **Validate (check) input before you accept it**<br>Don’t just accept data from a potential attacker; check it thoroughly before accepting it. We will discuss input validation in more detail later. Of course, you need to make sure that attackers cannot bypass this input validation; this is such a big issue that it has its own principle, *complete mediation*, aka *non-byassability*. We will be talking about that next.
 
-8. **Sandbox your program**Intentionally run your program (or part of it) in an environment with intentionally-restricted capabilities.
+8. **Sandbox your program**<br>Intentionally run your program (or part of it) in an environment with intentionally-restricted capabilities.
 
-9. **Minimize privileges for files & other resources**For example, normally you should not have files writable by everyone (even readable by everyone is often dubious). On Android, a file writable by all could be changed by a different (possibly malicious) application.
+9. **Minimize privileges for files & other resources**<br>For example, normally you should not have files writable by everyone (even readable by everyone is often dubious). On Android, a file writable by all could be changed by a different (possibly malicious) application.
 
-
+<br>
 
 🔔 Incorrect permissions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #15. It is [CWE-732](https://cwe.mitre.org/data/definitions/732.html) (*Incorrect Permission Assignment for Critical Resource*).
 
@@ -1359,13 +1359,13 @@ In some other cases, you should use routines to test for Unicode compatibility. 
 
 This is a pain, so the Unicode standard defines text normalization procedures, called Unicode normalization. Unicode normalization turns equivalent or compatible sequences into the exact same sequence of characters. There are 4 normalization forms:
 
-* NFD (Normalization Form Canonical Decomposition)Characters are decomposed by canonical equivalence, and multiple combining characters are arranged in a specific order.
+* NFD (Normalization Form Canonical Decomposition)<br>Characters are decomposed by canonical equivalence, and multiple combining characters are arranged in a specific order.
 
-* NFC (Normalization Form Canonical Composition) Characters are decomposed and then recomposed by canonical equivalence.
+* NFC (Normalization Form Canonical Composition)<br>Characters are decomposed and then recomposed by canonical equivalence.
 
-* NFKD (Normalization Form Compatibility Decomposition) Characters are decomposed by compatibility, and multiple combining characters are arranged in a specific order.
+* NFKD (Normalization Form Compatibility Decomposition)<br>Characters are decomposed by compatibility, and multiple combining characters are arranged in a specific order.
 
-* NFKC (Normalization Form Compatibility Composition) Characters are decomposed by compatibility, then recomposed by canonical equivalence.
+* NFKC (Normalization Form Compatibility Composition)<br>Characters are decomposed by compatibility, then recomposed by canonical equivalence.
 
 From a security point-of-view it normally does not matter *which* Unicode normalization you use, but if you want to determine if two strings are equal, you need to be *consistent* about the normalization you use when comparing them. Also note that once you normalize a sequence of characters, you cannot in general regenerate exactly the original sequence.
 
@@ -1377,13 +1377,13 @@ Visual spoofing can even happen in the ASCII subset of Unicode. The digit "0" lo
 
 But once we move beyond the ASCII subset, many other tricks exist:
 
-* Decomposition"ƶ" may be expressed as U+007A U+0335 (z + combining short stroke overlay) or as U+01B6. This means that different sequences of bytes may still indicate the same letter (and thus look identical). Normalization solves this problem.
+* Decomposition<br>"ƶ" may be expressed as U+007A U+0335 (z + combining short stroke overlay) or as U+01B6. This means that different sequences of bytes may still indicate the same letter (and thus look identical). Normalization solves this problem.
 
-* Mixed-scriptGreek omicron & Latin "o" typically look the same, even though they are in different sections of Unicode.
+* Mixed-script<br>Greek omicron & Latin "o" typically look the same, even though they are in different sections of Unicode.
 
-* Same-scriptSome characters simply look similar. E.g., "-" Hyphen-minus U+002D vs. hyphen “‐” U+2010.
+* Same-script<br>Some characters simply look similar. E.g., "-" Hyphen-minus U+002D vs. hyphen “‐” U+2010.
 
-* Bidirectional Text SpoofingSome languages are mostly right-to-left, but switch in certain situations to left-to-right. Thus, Unicode includes mechanisms to indicate direction. But this means that the string "olleh", surrounded by “use right-to-left”, will visually look the same as “hello”.
+* Bidirectional Text Spoofing<br>Some languages are mostly right-to-left, but switch in certain situations to left-to-right. Thus, Unicode includes mechanisms to indicate direction. But this means that the string "olleh", surrounded by “use right-to-left”, will visually look the same as “hello”.
 
 Visual spoofing can be very challenging to counter in general. Normalization and using distinctive fonts is not always enough, but it can sometimes be very helpful.
 
@@ -1471,11 +1471,11 @@ Almost every programming language has at least one good regex implementation. Th
 
 There are three major families of regex language notations:
 
-1. Basic regular expression (BRE)This is the default for **grep** and **sed**. This is defined by the POSIX standard. However, its syntax is sometimes a little awkward, so in most cases, it is easier to use extended regular expressions instead for input validation.
+1. Basic regular expression (BRE)<br>This is the default for **grep** and **sed**. This is defined by the POSIX standard. However, its syntax is sometimes a little awkward, so in most cases, it is easier to use extended regular expressions instead for input validation.
 
-2. Extended regular expression (ERE)This is defined by the POSIX standard and adds capabilities like using parentheses for grouping and "**+**" for *“one or more”*. This is often used in C programs. So for example, “**[B-D]+**” means *“one or more of the letters B, C, or D”*.
+2. Extended regular expression (ERE)<br>This is defined by the POSIX standard and adds capabilities like using parentheses for grouping and "**+**" for *“one or more”*. This is often used in C programs. So for example, “**[B-D]+**” means *“one or more of the letters B, C, or D”*.
 
-3. Perl Compatible Regular Expressions (PCRE)This is mostly an extension of the ERE format; many other programming languages use this family of regex languages. It includes capabilities like "**\d**" to represent digits.
+3. Perl Compatible Regular Expressions (PCRE)<br>This is mostly an extension of the ERE format; many other programming languages use this family of regex languages. It includes capabilities like "**\d**" to represent digits.
 
  Here are some important things that vary:
 
@@ -1611,9 +1611,9 @@ While technically these are strings, in reality these are strings with their own
 
 Lots of data and messages are encoded in XML (Extensible Markup Language). XML is part of other formats, such as SOAP (Simple Object Access Protocol). There are two terms about XML that are widely confused:
 
-* **Well-formed** Well-formed XML follows certain syntax rules. For example, all opened tags must be closed, and XML elements must be properly nested. If you are accepting XML, at *least* verify that the XML is well-formed; there are easily-available libraries for this, and applications are only supposed to accept XML that is well-formed.
+* **Well-formed**<br>Well-formed XML follows certain syntax rules. For example, all opened tags must be closed, and XML elements must be properly nested. If you are accepting XML, at *least* verify that the XML is well-formed; there are easily-available libraries for this, and applications are only supposed to accept XML that is well-formed.
 
-* **Valid**Valid XML meets some schema definition. The schema specifies information such as *what* tags are allowed, how they may be nested, and whether some are required. A schema definition, if rigorous, is a kind of allowlist. Thus, checking for validity before accepting XML input can be really useful for countering attacks. However, do *not* allow the attacker to determine what schema to use - decide what schema is okay and use *that*. Sometimes no schema is available, though, and if you are only extracting a small part of XML, it may not be worth it to create an XML schema.
+* **Valid**<br>Valid XML meets some schema definition. The schema specifies information such as *what* tags are allowed, how they may be nested, and whether some are required. A schema definition, if rigorous, is a kind of allowlist. Thus, checking for validity before accepting XML input can be really useful for countering attacks. However, do *not* allow the attacker to determine what schema to use - decide what schema is okay and use *that*. Sometimes no schema is available, though, and if you are only extracting a small part of XML, it may not be worth it to create an XML schema.
 
 If you are using XML, there is an extremely common vulnerability you need to counter called XML External Entities (XXE). To understand them, you need to understand some XML functionality that is not widely known.
 
@@ -1864,9 +1864,9 @@ Password resets using just email are not a strong authentication mechanism to st
 
 Many programs have to use some secret information. An especially common kind of secret is a *credential* (e.g., a password or secret key).  How you protect them depends on how they are used, and there are two common uses for credentials:
 
-* **Inbound**The software receives some credentials as input and checks if it matches to authenticate something else.
+* **Inbound**<br>The software receives some credentials as input and checks if it matches to authenticate something else.
 
-* **Outbound**The software sends the credentials to something else to authenticate itself to something else.
+* **Outbound**<br>The software sends the credentials to something else to authenticate itself to something else.
 
 #### Avoid Default Credentials
 
@@ -1970,9 +1970,9 @@ Here are the fundamentals. Almost all programs have to store intermediate result
 
 What happens if the value of **i** is out of bounds (that is, has a value other than 0 through 9)? There are two safe and common options that happen in different programming languages:
 
-1. **Resize**In many programming languages, trying to write (or read) out of bounds will resize the array so that the value can be stored or read from.
+1. **Resize**<br>In many programming languages, trying to write (or read) out of bounds will resize the array so that the value can be stored or read from.
 
-2. **Error**In some languages, particularly those focused on excellent performance, an error (usually an exception) will be reported if the index is out of bounds.
+2. **Error**<br>In some languages, particularly those focused on excellent performance, an error (usually an exception) will be reported if the index is out of bounds.
 
 Unfortunately, there is a third option: an out-of-bounds read or write can be accepted and turned into a potential security vulnerability. If you use a memory-unsafe language such as C, C++, or assembly language, then any read or write that can go out-of-bounds is a potentially dangerous security vulnerability. This problem can also happen if the language is normally memory-safe, but you disable the language’s memory safety checks (such as Rust, C#, and Ada).
 
@@ -2020,13 +2020,13 @@ If you use C, sometimes you can use safer functions instead. The C function **sn
 
 Modern compilers for these languages, and the operating systems that support them, use a variety of hardening techniques to make exploiting these attacks harder. Widely-applied hardening measures include:
 
-* Address Space Layout Randomization (ASLR)Randomize where objects are stored in memory, making it harder for attackers to target some objects (in the gcc and clang compilers you may need to enable PIE mode, e.g., using **-fPIE**)
+* Address Space Layout Randomization (ASLR)<br>Randomize where objects are stored in memory, making it harder for attackers to target some objects (in the gcc and clang compilers you may need to enable PIE mode, e.g., using **-fPIE**)
 
-* Non-executable memoryEnsure that memory with executable instructions cannot also be written to at the same time, making it slightly harder for attackers to modify software or introduce their own malicious code.
+* Non-executable memory<br>Ensure that memory with executable instructions cannot also be written to at the same time, making it slightly harder for attackers to modify software or introduce their own malicious code.
 
-* CanariesInsert an extra check in selected functions; before they return, they do a sanity check on a value called a "guard" or “canary” that detects certain kinds of buffer overflows that perform writes (the gcc and clang compilers can do this with options like **-fstack-protector**)
+* Canaries<br>Insert an extra check in selected functions; before they return, they do a sanity check on a value called a "guard" or “canary” that detects certain kinds of buffer overflows that perform writes (the gcc and clang compilers can do this with options like **-fstack-protector**)
 
-* Automated bounds insertionsModify code during compilation to do bounds checking even if was not originally requested (the gcc and clang compilers can do this with the option **-D_FORTIFY_SOURCE=2**).
+* Automated bounds insertions<br>Modify code during compilation to do bounds checking even if was not originally requested (the gcc and clang compilers can do this with the option **-D_FORTIFY_SOURCE=2**).
 
 If you are writing code that is not memory-safe, or calling code that is not memory-safe, make sure hardening measures like these are enabled whenever you can, including in compilation, test, and production. The good news is that hardening measures like these will slow down some exploits. But in the end, hardening measures often do not *prevent* exploits. In the best case, these hardening measures turn "take over program" into “program stops working”... and that is the *best* case. The only way to not have vulnerable code… is to not have vulnerable code.
 
@@ -2168,11 +2168,11 @@ Why are certain kinds of routines hard to use securely? One common problem is th
 
 So you need to ensure that when you send data to some program (or output), you send it in a secure way. That may involve:
 
-* **Sanitizing**Removing any illegal or potentially-malicious character (usually metacharacters) from the data.
+* **Sanitizing**<br>Removing any illegal or potentially-malicious character (usually metacharacters) from the data.
 
-* **Escaping**Modifying characters (some metacharacters) so that they are not interpreted incorrectly.
+* **Escaping**<br>Modifying characters (some metacharacters) so that they are not interpreted incorrectly.
 
-* **Normalizing**Changing the form of data to be a common form (and, as a side-effect, preventing it from causing a security problem).
+* **Normalizing**<br>Changing the form of data to be a common form (and, as a side-effect, preventing it from causing a security problem).
 
 Where possible, use libraries and APIs that do this for you; they are easier to use securely.
 
@@ -2646,11 +2646,11 @@ For example, if the web server sends HTML embedded with a string from an untrust
 
 In XSS, the system that is eventually attacked is the *web browser*. However, the *cause* of the attack is improper code written in the *sender* of the data to the web browser. There are three common patterns for XSS:
 
-* **Persistent Store**The malicious data is stored in a database for later retrieval. For example, an attacker submits a comment with an embedded malicious script; when someone else uses their web browser to view the comments, the web browser runs the malicious script.
+* **Persistent Store**<br>The malicious data is stored in a database for later retrieval. For example, an attacker submits a comment with an embedded malicious script; when someone else uses their web browser to view the comments, the web browser runs the malicious script.
 
-* **Reflection**The malicious data is sent by the victim’s web browser to the server (typically inside a URL) and immediately reflected back to the browser.
+* **Reflection**<br>The malicious data is sent by the victim’s web browser to the server (typically inside a URL) and immediately reflected back to the browser.
 
-* **DOM-based**The web client sends the attack data to itself, typically using data provided from an attack and then sent via the DOM using JavaScript.
+* **DOM-based**<br>The web client sends the attack data to itself, typically using data provided from an attack and then sent via the DOM using JavaScript.
 
 🔔 XSS is such a common mistake in web applications that it is 2017 OWASP Top 10 #7. It is also 2019 CWE Top 25 #2. In CWE it is [CWE-79](https://cwe.mitre.org/data/definitions/79.html), *Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')*.
 
@@ -2790,11 +2790,11 @@ This is true. CSP does not eliminate all problems, but CSP does let you forbid i
 
 When you are delivering web pages you can limit what can be done with the results, making it harder for attackers to cause serious damage. In short, there are other HTTP headers that you can set that can sometimes harden your applications against attacks. We have already discussed the Content Security Policy (CSP), which is perhaps the most important one. Here are some other HTTP headers you should consider using:
 
-* **X-Content-Type-Options**This should be set to **nosniff**, which means that the MIME types provided are correct and that the receiver should not try to guess what the type is. This means that attackers won’t be able to fool the web browser into using a different type.
+* **X-Content-Type-Options**<br>This should be set to **nosniff**, which means that the MIME types provided are correct and that the receiver should not try to guess what the type is. This means that attackers won’t be able to fool the web browser into using a different type.
 
-* **X-Frame-Options**This should be set to **DENY** or **SAMEORIGIN**. Like the CSP **frame-ancestors**, this prevents the use of frames or only allows them from the origin, countering many clickjacking attacks. Technically, X-Frame-Options has been obsoleted by CSP **frame-ancestors**, but if you might have Internet Explorer (IE) users, you also need this as IE does not support CSP **frame-ancestors**.
+* **X-Frame-Options**<br>This should be set to **DENY** or **SAMEORIGIN**. Like the CSP **frame-ancestors**, this prevents the use of frames or only allows them from the origin, countering many clickjacking attacks. Technically, X-Frame-Options has been obsoleted by CSP **frame-ancestors**, but if you might have Internet Explorer (IE) users, you also need this as IE does not support CSP **frame-ancestors**.
 
-* **HTTP Strict-Transport-Security (HSTS)**This means that *only* the secured HTTPS protocol, and not the insecure HTTP protocol, is permitted for future visits to this site for a given number of seconds. A common setting is "**Strict-Transport-Security: max-age=31536000;**" which means that *only* HTTPS will be allowed for a year (the number is the number of seconds). A larger number is fine.
+* **HTTP Strict-Transport-Security (HSTS)**<br>This means that *only* the secured HTTPS protocol, and not the insecure HTTP protocol, is permitted for future visits to this site for a given number of seconds. A common setting is "**Strict-Transport-Security: max-age=31536000;**" which means that *only* HTTPS will be allowed for a year (the number is the number of seconds). A larger number is fine.
 
 If your site is publicly accessible, you can easily test your headers using the [Security Headers website](https://securityheaders.com/).
 
@@ -3715,11 +3715,11 @@ However, there are many people who know how to attack cryptographic systems. Usi
 
 For normal software development there are three key rules for cryptography:
 
-1. **_Never_**** develop your own cryptographic algorithm or protocol**. Creating these is highly specialized. To do a good job you need a PhD in cryptography, which in turn requires advanced college mathematics. Instead, find out what has been publicly vetted by reputable cryptographers and use that.
+1. **_Never_**** develop your own cryptographic algorithm or protocol**.<br>Creating these is highly specialized. To do a good job you need a PhD in cryptography, which in turn requires advanced college mathematics. Instead, find out what has been publicly vetted by reputable cryptographers and use that.
 
-2. **_Never_**** implement your cryptographic algorithms or protocols (if you have an alternative)**. There are a large number of specialized rules for implementing cryptographic algorithms that don’t apply to normal software and are thus not known to most software developers. Tiny implementation errors of cryptographic algorithms often become massive vulnerabilities. Instead, reuse good implementations where practical.
+2. **_Never_**** implement your cryptographic algorithms or protocols (if you have an alternative)**.<br>There are a large number of specialized rules for implementing cryptographic algorithms that don’t apply to normal software and are thus not known to most software developers. Tiny implementation errors of cryptographic algorithms often become massive vulnerabilities. Instead, reuse good implementations where practical.
 
-3. **Cryptographic systems (such as algorithms and protocols) are occasionally broken.** Make sure the ones you choose are still strong enough, and make sure you are  prepared to replace them.
+3. **Cryptographic systems (such as algorithms and protocols) are occasionally broken.**<br>Make sure the ones you choose are still strong enough, and make sure you are  prepared to replace them.
 
 When choosing a cryptographic library, prefer ones that have had significant public review and have a simple-to-use-correctly API. Otherwise, you risk having a vulnerability either in the reused component or having one caused due to incorrect use of an API.
 
@@ -3817,11 +3817,11 @@ A public key or asymmetric cryptographic system uses pairs of keys. One key is a
 
 These algorithms can be used in one or more ways (depending on the algorithm), including:
 
-* **Encryption**Anyone could encrypt a message using a public key, but only someone with the corresponding private key could decrypt it. Public key encryption algorithms are generally relatively slow, so in many situations, a *key* for a shared-key algorithm is encrypted, and the rest of the message is encrypted with a shared key.
+* **Encryption**<br>Anyone could encrypt a message using a public key, but only someone with the corresponding private key could decrypt it. Public key encryption algorithms are generally relatively slow, so in many situations, a *key* for a shared-key algorithm is encrypted, and the rest of the message is encrypted with a shared key.
 
-* **Digital signatures (authentication)**A sender can use a public key algorithm and their private key to provide additional data called a *digital signature*; anyone with the public key can verify that the sender holds the corresponding private key.
+* **Digital signatures (authentication)**<br>A sender can use a public key algorithm and their private key to provide additional data called a *digital signature*; anyone with the public key can verify that the sender holds the corresponding private key.
 
-* **Key exchange**There are public key algorithms that enable two parties to end up with a shared key without outside passive observers being able to determine the key.
+* **Key exchange**<br>There are public key algorithms that enable two parties to end up with a shared key without outside passive observers being able to determine the key.
 
 A widely-used public key algorithm is the RSA algorithm, which *can* be used for all these purposes. However, *do not implement RSA yourself*. RSA is fundamentally based on exponentiation of large numbers, which lures some developers into implementing it themselves or thinking it is simple. In practice it is extremely easy to implement RSA *insecurely*. For example, it is very difficult to check for weak parameters that *look* acceptable but make it trivial to defeat. To be secure, RSA *must* be implemented with something called "padding". There is a standard RSA padding scheme with a rigorous proof called OAEP, but it is difficult to implement correctly (incorrect implementations may be vulnerable to *Manger’s attack*). In practice, RSA can be tricky to apply correctly, and unless you understand cryptography, you won’t be able to tell when it is not working ([*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
@@ -3860,7 +3860,7 @@ Here are some examples of how to call the predictable random number versus a cry
 <table>
   <tr>
     <td>Language</td>
-    <td>Predictable random value(do not use for security)</td>
+    <td>Predictable random value<br>(do not use for security)</td>
     <td>Cryptographically secure random value</td>
   </tr>
   <tr>
@@ -3876,7 +3876,7 @@ Here are some examples of how to call the predictable random number versus a cry
   <tr>
     <td>JavaScript</td>
     <td>Math.random</td>
-    <td>window.crypto.getRandomValuesor crypto.randomBytes</td>
+    <td>window.crypto.getRandomValues<br>or crypto.randomBytes</td>
   </tr>
   <tr>
     <td>Python</td>
@@ -3924,11 +3924,11 @@ If you implement option 3, supporting a password-based login (at least in part),
 
 If you are using passwords for inbound authentication, for security you **_must_** use a special kind of algorithm for this purpose called an *iterated per-user salted cryptographic hash* algorithm. The term "iterated" is also called key derivation. Three algorithms are commonly used as an iterated per-user salted cryptographic hash algorithm:
 
-* **Argon2id**Unless you have a strong reason to use something else, this is the algorithm to use today. It is relatively strong against both software and hardware-based attacks.
+* **Argon2id**<br>Unless you have a strong reason to use something else, this is the algorithm to use today. It is relatively strong against both software and hardware-based attacks.
 
-* **Bcrypt**This is a decent algorithm against software-based attacks. It is not as easy to attack with hardware compared to PBKDF2 (because bcrypt requires more RAM), but it is weaker against hardware-based attacks compared to Argon2id.
+* **Bcrypt**<br>This is a decent algorithm against software-based attacks. It is not as easy to attack with hardware compared to PBKDF2 (because bcrypt requires more RAM), but it is weaker against hardware-based attacks compared to Argon2id.
 
-* **PBKDF2**This is a decent algorithm against software-based attacks, but it is the most vulnerable of these widely-used algorithms to hardware-based attacks from specialized circuits or GPUs. That is because it can be implemented with a small circuit and little RAM. You may not need to replace it (depending on the kinds of attackers that concern you), but it is probably best to avoid this for new systems today.
+* **PBKDF2**<br>This is a decent algorithm against software-based attacks, but it is the most vulnerable of these widely-used algorithms to hardware-based attacks from specialized circuits or GPUs. That is because it can be implemented with a small circuit and little RAM. You may not need to replace it (depending on the kinds of attackers that concern you), but it is probably best to avoid this for new systems today.
 
 Another algorithm that is in use is scrypt. This should also be strong against hardware attacks, but it has not gotten as much review compared to Argon2id, so Argon2id is more commonly recommended. That said, at the time of this writing, it has no known serious problems.
 
@@ -4238,13 +4238,13 @@ Reporting a vulnerability that you have found can be surprisingly complicated. I
 
 There are several different kinds of disclosure models:
 
-1. **Private Disclosure***"In the private disclosure model, the vulnerability is reported privately to the organisation. The organisation may choose to publish the details of the vulnerabilities, but this is done at the discretion of the organisation, not the researcher, meaning that many vulnerabilities may never be made public. The majority of bug bounty programs require that the researcher follows this model. The main problem with this model is that if the vendor is unresponsive, or decides not to fix the vulnerability, then the details may never be made public. Historically this has led to researchers getting fed up with companies ignoring and trying to hide vulnerabilities, leading them to the full disclosure approach."* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html))
+1. **Private Disclosure**<br>*"In the private disclosure model, the vulnerability is reported privately to the organisation. The organisation may choose to publish the details of the vulnerabilities, but this is done at the discretion of the organisation, not the researcher, meaning that many vulnerabilities may never be made public. The majority of bug bounty programs require that the researcher follows this model. The main problem with this model is that if the vendor is unresponsive, or decides not to fix the vulnerability, then the details may never be made public. Historically this has led to researchers getting fed up with companies ignoring and trying to hide vulnerabilities, leading them to the full disclosure approach."* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html))
 
-2. **Full Disclosure***"With the full disclosure approach, the full details of the vulnerability are made public as soon as they are identified. This means that the full details (sometimes including exploit code) are available to attackers, often before a patch is available. The full disclosure approach is primarily used in response to organizations ignoring reported vulnerabilities, in order to put pressure on them to develop and publish a fix. This makes the full disclosure approach very controversial, and it is seen as irresponsible by many people. Generally it should only be considered as a last resort, when all other methods have failed, or when exploit code is already publicly available"* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Another reason to consider full disclosure is if there is reason to believe that the supplier is intentionally malicious; reporting a vulnerability to only a malicious supplier gives the malicious supplier more time to exploit the vulnerability.
+2. **Full Disclosure**<br>*"With the full disclosure approach, the full details of the vulnerability are made public as soon as they are identified. This means that the full details (sometimes including exploit code) are available to attackers, often before a patch is available. The full disclosure approach is primarily used in response to organizations ignoring reported vulnerabilities, in order to put pressure on them to develop and publish a fix. This makes the full disclosure approach very controversial, and it is seen as irresponsible by many people. Generally it should only be considered as a last resort, when all other methods have failed, or when exploit code is already publicly available"* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Another reason to consider full disclosure is if there is reason to believe that the supplier is intentionally malicious; reporting a vulnerability to only a malicious supplier gives the malicious supplier more time to exploit the vulnerability.
 
-3. **Coordinated Disclosure (historically called Responsible Disclosure)**Coordinated disclosure *"attempts to find a reasonable middle ground between these two approaches. … the initial report is made privately, but with the full details being published once a patch has been made available (sometimes with a delay to allow more time for the patches to be installed)."* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Historically, this has been called *responsible disclosure*, but this is a biased term, and its original coiner now recommends calling it coordinated disclosure instead. It is **important** that there is a **time limit** before the vulnerability will be unilaterally disclosed. Without a time limit this is essentially identical to private disclosure, since the supplier may have little incentive to fix the vulnerability.
+3. **Coordinated Disclosure (historically called Responsible Disclosure)**<br>Coordinated disclosure *"attempts to find a reasonable middle ground between these two approaches. … the initial report is made privately, but with the full details being published once a patch has been made available (sometimes with a delay to allow more time for the patches to be installed)."* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Historically, this has been called *responsible disclosure*, but this is a biased term, and its original coiner now recommends calling it coordinated disclosure instead. It is **important** that there is a **time limit** before the vulnerability will be unilaterally disclosed. Without a time limit this is essentially identical to private disclosure, since the supplier may have little incentive to fix the vulnerability.
 
-4. **Disclosure to Attackers**Some researchers work for organizations who attack others’ systems. Other researchers sell vulnerabilities to such organizations, or to brokers who then sell the vulnerabilities on. Doing this is controversial, especially when they are sold to brokers who do not clearly disclose exactly who is buying the vulnerabilities. The impact of doing this varies, because there is great variety in organizations who pay for vulnerabilities. These organizations include law enforcement in various countries, militaries in various countries, organized crime, and/or terrorist groups. Anyone who provides vulnerabilities to attackers should consider the ethical implications. In particular, you should consider what the attackers are likely to do with these vulnerabilities. Do you have confidence that the attackers will not use the vulnerabilities in contravention of human rights? Will they harm certain people or groups such as ethnic minorities, political dissidents, or journalists? If you disclose vulnerabilities to attackers, then you are supporting how these organizations will use those vulnerabilities to attack others; you should be confident that they will use them for good.
+4. **Disclosure to Attackers**<br>Some researchers work for organizations who attack others’ systems. Other researchers sell vulnerabilities to such organizations, or to brokers who then sell the vulnerabilities on. Doing this is controversial, especially when they are sold to brokers who do not clearly disclose exactly who is buying the vulnerabilities. The impact of doing this varies, because there is great variety in organizations who pay for vulnerabilities. These organizations include law enforcement in various countries, militaries in various countries, organized crime, and/or terrorist groups. Anyone who provides vulnerabilities to attackers should consider the ethical implications. In particular, you should consider what the attackers are likely to do with these vulnerabilities. Do you have confidence that the attackers will not use the vulnerabilities in contravention of human rights? Will they harm certain people or groups such as ethnic minorities, political dissidents, or journalists? If you disclose vulnerabilities to attackers, then you are supporting how these organizations will use those vulnerabilities to attack others; you should be confident that they will use them for good.
 
 From here on we will presume that you follow a *coordinated disclosure model* with some limited timeframe.
 
@@ -4412,11 +4412,11 @@ Before we do that, we need to make one thing clear: Formal methods always requir
 
 Because of the extra effort, formal methods are often applied to a subset of components or specific properties that are especially important. Formal methods can also be applied to various degrees. There is varying terminology on these degrees, but one way is these three levels:
 
-* **Level 0**A formal specification is created (that is, mathematically-based techniques are used to rigorously describe what the program is supposed to do). The program is then informally developed from it. This is sometimes called *formal methods lite*. This approach can help remove some ambiguities.
+* **Level 0**<br>A formal specification is created (that is, mathematically-based techniques are used to rigorously describe what the program is supposed to do). The program is then informally developed from it. This is sometimes called *formal methods lite*. This approach can help remove some ambiguities.
 
-* **Level 1**Apply level 0 and then prove some select properties from that or do a formal refinement from specification towards something that will become the program.
+* **Level 1**<br>Apply level 0 and then prove some select properties from that or do a formal refinement from specification towards something that will become the program.
 
-* **Level 2**Fully prove the claims of a program, including mechanically checking it. This provides the strongest results, but also requires the most effort.
+* **Level 2**<br>Fully prove the claims of a program, including mechanically checking it. This provides the strongest results, but also requires the most effort.
 
 #### How Can Math Be Applied?
 
@@ -4521,17 +4521,17 @@ Practically any tool (even a word processor!) can be used to capture requirement
 
 Some tools are also designed to verify that claims are mathematically true. Major kinds are:
 
-* *Theorem-provers*These try to prove goals given assumptions using only a sequence of allowed rules. Some are fully automated while others are interactive. The interactive tools can handle harder problems but are generally harder to use.
+* *Theorem-provers*<br>These try to prove goals given assumptions using only a sequence of allowed rules. Some are fully automated while others are interactive. The interactive tools can handle harder problems but are generally harder to use.
 
     * Widely-used OSS automated theorem provers include E and SPASS.
 
     * Widely-used OSS interactive theorem provers include Coq and Isabelle.
 
-* *Satisfiability (SAT) solvers / SAT modulo theories (SMT)*These take a bunch of equations with variables, and try to find a set of values for those variables that makes all equations true. SAT solvers only handle boolean variables and boolean equations, while SMT solvers can handle other values. Some package managers internally use a SAT solver. Widely-used OSS SMT solvers include Z3, CVC4, and Alt-Ergo-Free.
+* *Satisfiability (SAT) solvers / SAT modulo theories (SMT)*<br>These take a bunch of equations with variables, and try to find a set of values for those variables that makes all equations true. SAT solvers only handle boolean variables and boolean equations, while SMT solvers can handle other values. Some package managers internally use a SAT solver. Widely-used OSS SMT solvers include Z3, CVC4, and Alt-Ergo-Free.
 
-* *Model-checkers*These take a model and "exhaustively" show it is true in all cases, using many optimization tricks to make that practical. A widely-used OSS generic model checker is Spin (which supports a language called ProMeLa). There are also many model-checking tools specifically designed to analyze programs. For example, CBMC is an OSS bounded model checker for C and C++ programs that can verify memory safety, check for ex­cep­tions, check for various variants of undefined behavior, and supports user-specified as­ser­tions.
+* *Model-checkers*<br>These take a model and "exhaustively" show it is true in all cases, using many optimization tricks to make that practical. A widely-used OSS generic model checker is Spin (which supports a language called ProMeLa). There are also many model-checking tools specifically designed to analyze programs. For example, CBMC is an OSS bounded model checker for C and C++ programs that can verify memory safety, check for ex­cep­tions, check for various variants of undefined behavior, and supports user-specified as­ser­tions.
 
-* *Abstract interpretation / symbolic execution (for programs)*These "execute" programs using relevant simplifications (abstract interpretation) or symbols (symbolic execution).
+* *Abstract interpretation / symbolic execution (for programs)*<br>These "execute" programs using relevant simplifications (abstract interpretation) or symbols (symbolic execution).
 
 There are some systems that can combine these tools. For example:
 
