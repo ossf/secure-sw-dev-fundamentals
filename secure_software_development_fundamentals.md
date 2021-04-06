@@ -1962,11 +1962,11 @@ One of the most common kinds of security vulnerabilities is where a read or writ
 
 Here are the fundamentals. Almost all programs have to store intermediate results, and such storage areas are often called *buffers*. Reading and writing within that buffer is fine. But what happens when your program tries to read from or write to that buffer, but it tries to do that outside the range of that storage area? For example, here is a trivial fragment of a C program that allocates some array **x** of size 10 (index values 0 through 9), and later stores the value of **y** to the index value **i** of that array:
 
-	**char x[10];**
-
-**	…**
-
-**	x[i] = y;**
+~~~~C
+    char x[10];
+    ...
+    x[i] = y;
+~~~~
 
 What happens if the value of **i** is out of bounds (that is, has a value other than 0 through 9)? There are two safe and common options that happen in different programming languages:
 
