@@ -2666,24 +2666,24 @@ The standard way to counter XSS is to escape all output that might be from an at
     <td>Escaped HTML</td>
   </tr>
   <tr>
-    <td>&</td>
     <td>&amp;</td>
+    <td>&amp;amp;</td>
   </tr>
   <tr>
-    <td><</td>
     <td>&lt;</td>
+    <td>&amp;lt;</td>
   </tr>
   <tr>
-    <td>></td>
     <td>&gt;</td>
+    <td>&amp;gt;</td>
   </tr>
   <tr>
     <td>"</td>
-    <td>&quot;</td>
+    <td>&amp;quot;</td>
   </tr>
   <tr>
     <td>‘</td>
-    <td>&#39; or &apos;</td>
+    <td>&amp;#39; or &amp;apos;</td>
   </tr>
 </table>
 
@@ -2708,7 +2708,7 @@ In that case, where possible, use libraries *already designed* to allow only wha
 
 We have focused on escaping HTML, because that is the biggest problem in web applications. But HTML can embed other kinds of data, and of those, perhaps the most common are URLs.
 
-Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme:[//authority]path[?query][#fragment]**. For example, in the URL **<****https://www.linuxfoundation.org/about/****>**, the scheme is "**https**", authority “**www.linuxfoundation.org**”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, "**.**", "**-**", "**&#42;**", and "**&#95;**". The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
+Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme:[//authority]path[?query][#fragment]**. For example, in the URL **<https://www.linuxfoundation.org/about/>**, the scheme is "**https**", authority “**www.linuxfoundation.org**”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, "**.**", "**-**", "**&#42;**", and "**&#95;**". The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
 
 #### XSS Alternatives
 
@@ -2924,7 +2924,7 @@ A web application should not accept user-controlled input that specifies a link 
 
 This can be hard to understand, so let’s look at an example. Let’s imagine that a server-side web application has a "**/redirect**" link that accepts a parameter **url=**, and then simply redirects requests to the **url= value**. That means that an attacker could create an HTML file anywhere that looks like this (the example is based on text in MITRE’s text on [CWE-601](https://cwe.mitre.org/data/definitions/601.html)):
 
-**<a href="https://bank.example.com/redirect?url=https://attacker.example.net">Click here to log in</a>**
+**&lt;a href="https://bank.example.com/redirect?url=https://attacker.example.net"&gt;Click here to log in&lt;/a&gt;**
 
 What is the problem? The problem is that a user who checked the link would think that this link went to a trusted domain (e.g., **bank.example.com**). While technically that is true, when clicked, the supposedly trusted domain will quietly redirect the user to some other domain that might be dangerous and not what the user expected (e.g., **attacker.example.net**). More generally, the problem is that an open redirect can be used to fool humans and create stronger phishing attacks. Humans can be lulled into thinking they are going to a trusted domain, without realizing that they will in fact be immediately transferred to an untrusted domain. In theory, the users should also check *where they are now* on each page, but busy humans often don’t do that. We want to make it harder, not easier, to fool busy humans.
 
@@ -3825,7 +3825,7 @@ These algorithms can be used in one or more ways (depending on the algorithm), i
 
 A widely-used public key algorithm is the RSA algorithm, which *can* be used for all these purposes. However, *do not implement RSA yourself*. RSA is fundamentally based on exponentiation of large numbers, which lures some developers into implementing it themselves or thinking it is simple. In practice it is extremely easy to implement RSA *insecurely*. For example, it is very difficult to check for weak parameters that *look* acceptable but make it trivial to defeat. To be secure, RSA *must* be implemented with something called "padding". There is a standard RSA padding scheme with a rigorous proof called OAEP, but it is difficult to implement correctly (incorrect implementations may be vulnerable to *Manger’s attack*). In practice, RSA can be tricky to apply correctly, and unless you understand cryptography, you won’t be able to tell when it is not working ([*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
-RSA key lengths need to be longer than you might expect. An RSA key length of 1024 bits is approximately equivalent to a symmetric key length of 80 bits, which is so small that it is generally considered insecure. An RSA key length of 2048 bits is equivalent to a symmetric key length of 112 bits; a 2048 bit is considered barely acceptable by some (e.g., NIST says that this may be used through 2030, after which it may not be used by the US government). If you are using RSA, you should probably use at least 3,072 bit key in current deployments (this is equivalent to a 128 bit symmetric key). You would need an RSA key of 15,360 bits to get the equivalent of a 256-bit symmetric key. See [NIST’s](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)[* Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf) for more about key equivalent lengths. Unfortunately, RSA is relatively slow, especially as you increase to key lengths necessary for minimum security. For all these reasons, some organizations, such as Trail of Bits, recommend avoiding using RSA in most cases ([*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
+RSA key lengths need to be longer than you might expect. An RSA key length of 1024 bits is approximately equivalent to a symmetric key length of 80 bits, which is so small that it is generally considered insecure. An RSA key length of 2048 bits is equivalent to a symmetric key length of 112 bits; a 2048 bit is considered barely acceptable by some (e.g., NIST says that this may be used through 2030, after which it may not be used by the US government). If you are using RSA, you should probably use at least 3,072 bit key in current deployments (this is equivalent to a 128 bit symmetric key). You would need an RSA key of 15,360 bits to get the equivalent of a 256-bit symmetric key. See [NIST’s](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)[*Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf) for more about key equivalent lengths. Unfortunately, RSA is relatively slow, especially as you increase to key lengths necessary for minimum security. For all these reasons, some organizations, such as Trail of Bits, recommend avoiding using RSA in most cases ([*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
 A whole family of algorithms are called *elliptic curve cryptography*; these are algorithms that are based on complex math involving elliptic curves. These algorithms require far shorter key lengths for equivalent cryptographic strength, and that is a significant advantage. Historically, elliptic curve cryptography involved a minefield of patents, but over the years many of those patents have expired and so elliptic curve cryptography has become more common. A widely-used and respected algorithm for key exchange and digital signatures is Curve25519; a related protocol called ECIES combines Curve25519 key exchange with a symmetric key algorithm (for more details, see [*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
