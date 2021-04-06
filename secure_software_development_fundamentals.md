@@ -1652,7 +1652,7 @@ For more about this issue, see the [OWASP XML External Entities web page](https:
 
 Typically you can simply call a library to validate HTML and pass a set of allowed tags (e.g,. **<p>**) and attributes (e.g., **href=**). Everything not permitted is removed or rejected. This will eliminate dangerous tags like **<script>** from external sources (presuming that you don’t include dangerous tags in the set of allowed tags).
 
-Although this is potentially a big topic, in practice, the key is often to use a library with decent secure defaults. If you only allow tags such as **<p>**, **<i>**, and **<b>**, and limit attributes to values such as **id**, the amount of damage that can be done is greatly limited.
+Although this is potentially a big topic, in practice, the key is often to use a library with decent secure defaults. If you only allow tags such as **&lt;p>**, **&lt;i>**, and **&lt;b>**, and limit attributes to values such as **id**, the amount of damage that can be done is greatly limited.
 
 #### CSV
 
@@ -1672,7 +1672,7 @@ If you want to go further, there are formats such as JSON Schema that let you de
 
 Sometimes you need to accept file uploads of special file types (e.g., of images).
 
-If your program allows uploads, try to limit uploads to specific file types and make sure (via both its MIME type and its contents) that it is one of the valid types that you will accept. Limit what you allow in the filename, too; alphanumeric characters are generally fine, but anything else (especially "**/**" and “**\**”) can be problematic, so only allow the characters you are certain will be fine. Where possible, define an acceptlist of allowed filename suffixes, and only allow uploads of files named with one of those allowed suffixes.
+If your program allows uploads, try to limit uploads to specific file types and make sure (via both its MIME type and its contents) that it is one of the valid types that you will accept. Limit what you allow in the filename, too; alphanumeric characters are generally fine, but anything else (especially "**/**" and “**&#92;**”) can be problematic, so only allow the characters you are certain will be fine. Where possible, define an acceptlist of allowed filename suffixes, and only allow uploads of files named with one of those allowed suffixes.
 
 🔔 Inadequate restriction of uploads is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #16. It is identified as [CWE-434](https://cwe.mitre.org/data/definitions/434.html), *Unrestricted Upload of File with Dangerous Type*.
 
