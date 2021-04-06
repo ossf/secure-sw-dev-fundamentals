@@ -426,9 +426,7 @@ But when you develop software, you should take reasonable steps to *manage* risk
 
 One of the risks when developing and deploying software is that attacker(s) will exploit its vulnerabilities and cause harm to others. You cannot prevent attackers from trying to attack the system. In fact:
 
-**🚩**
-
-**If people start using the software you develop, _expect_ that intelligent adversaries will try to attack it.**
+**🚩 If people start using the software you develop, _expect_ that intelligent adversaries will try to attack it.**
 
 But while you cannot prevent attackers from trying to attack it, you can make it difficult for an attack to succeed, or reduce the impact if an attack succeeds. You can do this by taking steps throughout software development and deployment to reduce the risks to an acceptably low level. If your software is widely-used or depended on for vital tasks, then it is especially important that you work to manage those risks to your users.
 
@@ -1497,7 +1495,7 @@ In some languages, such as in Ruby, you normally use **\A** and **\z** instead o
 
 Almost all regex implementations support *branches* - that is, "**aa|bb|cc**" matches **aa**, **bb**, or **cc**. All ERE and PCRE implementations support branches, and even some BRE implementations support branches if they are written as “**\|**” instead of “**|**”. The *priority* of the branch operation is standard, but it is not what some users expect. The regex “**^aa|bb$**” means *“either it begins with aa OR it ends with bb”*, not *“exactly aa or bb”*.  When you are using regexes for input validation, a sequence of branches that is not surrounded by parentheses is practically always a mistake. What you normally want is “**^(aa|bb)$**” which means *“exactly aa or bb”*.
 
-🚩 So, whenever you have a branch ("**|**") in a regex, group the whole expression with branches using parentheses.
+**🚩 So, whenever you have a branch ("*|*") in a regex, group the whole expression with branches using parentheses.**
 
 #### Test Input Validators
 
@@ -1507,11 +1505,11 @@ Again, you should know what your software should not accept, and use some of tho
 
 \>\>Which of the following matches only "1 or more lowercase Latin letters" using an extended regular expression (given the POSIX locale)?<<
 
-(!) **[a-z]***
+(!) **[a-z]&#42;**
 
 ( ) **[a-z]+**
 
-( ) **^[a-z]*$**
+( ) **^[a-z]&#42;$**
 
 (x) **^[a-z]+$**
 
@@ -1533,7 +1531,7 @@ NFA implementations of regexes - and that is most of them - *backtrack* whenever
 
 1. The regex pattern uses repetition on complex subexpressions (the use of "**+**" and “**&#42;**” on complex subexpressions), and
 
-2. Within these repeated subexpressions, there are additional repetition symbols and expressions that match a suffix of another match. ([OWASP ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS))
+2. Within these repeated subexpressions, there are additional repetition symbols and expressions that match a suffix of another match. ([OWASP ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service&#95;-&#95;ReDoS))
 
 A trivial example is the regex pattern "**^(a+)+$**". Let’s imagine that an attacker provided the input value ”**aaaaX**”. An NFA will match the input first letter “**a**” with the “a” in the pattern easily, but then the regex implementation has two options: should it try to apply the *inner* “**+**” or the *outer* “**+**” to the next letter? Most implementations would try the inner one first, and then backtrack as needed. In the worst case, an NFA has to try out *all* possible combinations. Thus, to determine if the input “**aaaaX**” matches the pattern, an NFA regex has to try out 16 possible paths (all possibilities), with each one eventually failing because of the trailing “**X**”. If the attacker provides the input “**aaaaaaaaaaaaaaaaX**” there would be 65536 possible paths, with the number of paths doubling for each additional “**a**”. If an attacker provided 80 ‘**a**’s followed by **X**, that thread will try to process all combinations, which would take so long that it would become a denial-of-service. 
 
@@ -1557,7 +1555,7 @@ Some tools examine source code to detect regexes with worst-case behaviors (thes
 
 4. Don’t run regexes provided by attackers on systems you trust. It is okay for an adversary to provide a regex that they themselves always run (in that case, attackers just attack themselves). But if attackers can provide regexes that you run, they may be able to cause a ReDOS (unless you have taken other steps to prevent it). Regexes are, in general, programming languages, and you should generally avoid running attacker-provided programs. It is possible to do it relatively securely, but you need to take a lot of precautions and it is always more secure to just not do it.
 
-If you are interested in more details, see the [OWASP discussion](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS) about this.
+If you are interested in more details, see the [OWASP discussion](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service&#95;-&#95;ReDoS) about this.
 
 ### Quiz 1.5
 
@@ -1583,7 +1581,7 @@ A dangerous problem is insecure deserialization. **Deserialization** is the proc
 
 2. Deserializing the data might cause code execution, e.g., it might create classes or instances and/or call attacker-selected methods with attacker-provided arguments. This is especially a problem for formats designed for arbitrary object persistence. An example of this is the Python pickle format, which automatically executes code in certain cases when deserializing data.
 
-🚩 The safest solution is to not accept serialized objects from untrusted sources.
+**🚩 The safest solution is to not accept serialized objects from untrusted sources.**
 
 If you must accept serialized objects from untrusted sources, you can use serialization formats that do not support code execution. For example, use serialization formats that only allow primitive data types. This counters the second problem - code execution - but by itself, it does not solve the first problem - unexpected values. So, if after choosing an approach to prevent code execution, validate the input you have received using the approaches we have already discussed.
 
@@ -2090,7 +2088,7 @@ Any undefined behavior can be - and often is - a security vulnerability. Even if
 
 Many languages have at least some undefined behaviors, and so, if you use those languages, you need to learn what they are and avoid them. C and C++ have an especially large number of undefined behaviors. For example, for C, there are hundreds of undefined behaviors; the list is 11 pages long in the publicly available final draft of [C18 annex J.2](https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf). It is also very easy in C and C++ to accidentally write code that has undefined behavior.  We have already seen some examples of undefined behavior: reads and writes out of the bounds of a buffer, use-after-free, and double-frees. Here are a few more.
 
-In C and C++, a null pointer dereference is also undefined (e.g., evaluating "***p**" when **p** is **NULL**). This means that an attempt to dereference a null pointer does not necessarily lead to trying to read an invalid value, the program might do *anything* at all.
+In C and C++, a null pointer dereference is also undefined (e.g., evaluating "**&#42;p**" when **p** is **NULL**). This means that an attempt to dereference a null pointer does not necessarily lead to trying to read an invalid value, the program might do *anything* at all.
 
 🔔 *Null Pointer Dereference* ([CWE-476](https://cwe.mitre.org/data/definitions/476.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #14. 
 
@@ -3853,7 +3851,7 @@ One challenge is historical: today, the name *random* in programming language li
 
 Instead, for almost all security-related tasks you need to use a cryptographically secure PRNG (CSPRNG) for crypto and security-related tasks, as these are not easily predicted. You should *only* use random number generators for security purposes if it says it is a *cryptographic PRNG* - and typically its name will have "secure" and/or “crypto” in it. In their documentation, you may see references to well-accepted cryptographic PRNG algorithms such as Yarrow, Fortuna, ANSI X9.17 (which can use any block cipher), NIST SP 800-90A’s Hash_DRBG, HMAC_DRBG, and CTR_DRBG. 
 
-🚩 Never use the algorithm Dual_EC_DRBG, as it is widely accepted that this is a subverted and insecure algorithm.
+**🚩 Never use the algorithm Dual_EC_DRBG, as it is widely accepted that this is a subverted and insecure algorithm.**
 
 Here are some examples of how to call the predictable random number versus a cryptographically secure random number in different programming languages (in practice there are often multiple ways; the point is to show that they are different):
 
