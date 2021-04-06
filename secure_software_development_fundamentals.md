@@ -4430,7 +4430,7 @@ A widely-used tool is the idea of boolean expressions. These expressions are tru
 
 4. "x→y" is true if x is false *or* if y is true, that is, x → y is the same as ((not x) or y). The arrow is often read as “implies”. This operator may be new to you, but this arrow simply represents “if x is true then y is true”. It is formally called *material implication*.
 
-5. "x↔y" is true if x and y have the same value. This is basically “are these values equal” for boolean values. It is sometimes read as “if and only if” (iff).
+5. "x&harr;y" is true if x and y have the same value. This is basically “are these values equal” for boolean values. It is sometimes read as “if and only if” (iff).
 
 You may find it easier to understand the connectives by looking at the following table. This table shows the results of these connectives given the possible input values of x and y (in this table T is true while F is false):
 
@@ -4444,7 +4444,7 @@ Propositional Connectives
     <th>x ∨ y</th>
     <th>￢x</th>
     <th>x→y</th>
-    <th>x↔y</th>
+    <th>x&harr;y</th>
   </tr>
   <tr>
     <th>F</th>
