@@ -2208,9 +2208,10 @@ Even if the database language is not SQL, if it is an attack on a language for a
 
 Here is a trivial example; here is a snippet of Java that tries to do an SQL query:
 
-    **String QueryString = "select * from authors where lastname = ' " + search_lastname + " '; ";**
-
-**  rs = statement.executeQuery(QueryString);**
+~~~~
+    String QueryString = "select * from authors where lastname = ' " + search_lastname + " '; ";**
+    rs = statement.executeQuery(QueryString);**
+~~~~
 
 The intent is clear; if **search_lastname** has the value **Fred**, then the database will receive the query "**select * from authors where lastname='Fred';**" - a reasonable SQL query. But remember our warning signs - this code concatenates strings, some of that data is probably provided by an attacker, and we’re doing something called “execute”.  The warning signs are right. Imagine that the attacker provides the input “** Fred’ OR ’a’=’a**”. This will produce the query “**select * from authors where lastname='Fred' OR ’a’=’a’;**” and now the attacker can retrieve the entire database. The attacker could even modify or delete data this way, depending on various factors. This is a simple example of an SQL injection attack; an attacker can insert some characters and inject new or modified commands.
 
@@ -2238,23 +2239,22 @@ Prepared statements allow you to identify placeholders (often a "**?**") for dat
 
 Here is an example of using prepared statements in Java:
 
-**String QueryString = "select * from authors where lastname = ?";**
-
-**PreparedStatement pstmt = connection.prepareStatement(QueryString);**
-
-**pstmt.setString(1, search_lastname);**
-
-**ResultSet results = pstmt.execute( );**
+~~~~java
+    String QueryString = "select * from authors where lastname = ?";
+    PreparedStatement pstmt = connection.prepareStatement(QueryString);
+    pstmt.setString(1, search_lastname);
+    ResultSet results = pstmt.execute( );
+~~~~
 
 There are more statements, but the statements are simpler; in particular, the complicated concatenation is now a simple string constant. We still call something called "**execute**" - but remember, avoiding methods named “execute” is just a rule of thumb to help us detect potential problems.
 
 Of course, like any technique, if you use it wrongly then it won’t be secure. Here is an example of how to use prepared statements in Java to produce a probably-insecure program:
 
-**String QueryString = "select * from authors where lastname = '" + search_lastname + "';";**
-
-**PreparedStatement pstmt = connection.prepareStatement(QueryString);**
-
-**ResultSet results = pstmt.execute( ); // Probably insecure, don’t do this!**
+~~~~java
+    String QueryString = "select * from authors where lastname = '" + search_lastname + "';";
+    PreparedStatement pstmt = connection.prepareStatement(QueryString);
+    ResultSet results = pstmt.execute( ); // Probably insecure, don’t do this!
+~~~~
 
 This insecure program uses a prepared statement, but instead of correctly using "**?**" as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly isn’t), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
 
@@ -2320,7 +2320,7 @@ Pathnames are often at least partly controlled by an untrusted user. For example
 
 #### Path Traversal
 
-An obvious case is that systems are often not supposed to allow access outside of some directory (e.g., a "document root" of a web server). For example, if a program tries to access a path that is a concatenation of "**trusted_root_path**" and "**username**", the attacker might be able to create a username ".**./../../mysecrets**" and foil the limitations. This vulnerability, where an attacker can create filenames that traverse outside where it is supposed to, is so common that it has a name: *directory traversal vulnerabilities*. As always, use a very limited allowlist for information that will be used to create filenames. If your web application’s allowlist does not include "**.**", "**/**", "**~**", and "**\**", on most systems it is significantly harder to traverse outside the intended directory root. Another common solution is to convert a relative path into a normalized absolute path in a way that eliminates all "**..**" uses and then ensure that the resulting path is still in the correct region of the filesystem.
+An obvious case is that systems are often not supposed to allow access outside of some directory (e.g., a "document root" of a web server). For example, if a program tries to access a path that is a concatenation of "**trusted_root_path**" and "**username**", the attacker might be able to create a username ".**./../../mysecrets**" and foil the limitations. This vulnerability, where an attacker can create filenames that traverse outside where it is supposed to, is so common that it has a name: *directory traversal vulnerabilities*. As always, use a very limited allowlist for information that will be used to create filenames. If your web application’s allowlist does not include "**.**", "**/**", "**~**", and "**&#92;**", on most systems it is significantly harder to traverse outside the intended directory root. Another common solution is to convert a relative path into a normalized absolute path in a way that eliminates all "**..**" uses and then ensure that the resulting path is still in the correct region of the filesystem.
 
 😱 STORY TIME: SaltStack
 
@@ -2330,7 +2330,7 @@ An example of a directory traversal vulnerability is [CVE-2020-11652](https://cv
 
 #### Windows Pathnames
 
-Microsoft Windows pathnames can be extremely difficult to deal with securely. Windows pathname interpretations vary depending on the version of Windows and the API used (many calls use **CreateFile** which supports the pathname prefix "**\\.\**" - and these interpret pathnames differently than the other calls that do not). Perhaps most obviously, "**letter:**" and "**\\server\share...**" have a special meaning in Windows. A nastier issue is that there are reserved filenames, whose form depends on the API used and the local configuration. The built-in reserved device names are as follows: CON, PRN, AUX, NUL, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, and LPT9. Even worse, drivers can create more reserved names - so you actually cannot know ahead-of-time what names are reserved. You should avoid creating filenames with reserved names, both with and without an extension; if an attacker can trick the program into reading/writing the name (e.g., **com1.txt**), it may (depending on API) cause read or write to a device instead of a file. In this case, even simple alphanumerics can cause disaster and be interpreted as metacharacters - this is rare, since usually alphanumerics are safe. Windows supports "**/**" as a directory separator, but it conventionally uses "**\**" as the directory separator (which is annoying because **\** is widely used as an escape character). In Windows, don’t end a file or directory name with a space or period; the underlying filesystem may support it, but the Windows shell and user interface generally do not. For more details, check the Microsoft Windows documentation on *[Naming Files, Paths, and Namespace*s](https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN).
+Microsoft Windows pathnames can be extremely difficult to deal with securely. Windows pathname interpretations vary depending on the version of Windows and the API used (many calls use **CreateFile** which supports the pathname prefix "**\\.&#92;**" - and these interpret pathnames differently than the other calls that do not). Perhaps most obviously, "**letter:**" and "**\\server\share...**" have a special meaning in Windows. A nastier issue is that there are reserved filenames, whose form depends on the API used and the local configuration. The built-in reserved device names are as follows: CON, PRN, AUX, NUL, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, and LPT9. Even worse, drivers can create more reserved names - so you actually cannot know ahead-of-time what names are reserved. You should avoid creating filenames with reserved names, both with and without an extension; if an attacker can trick the program into reading/writing the name (e.g., **com1.txt**), it may (depending on API) cause read or write to a device instead of a file. In this case, even simple alphanumerics can cause disaster and be interpreted as metacharacters - this is rare, since usually alphanumerics are safe. Windows supports "**/**" as a directory separator, but it conventionally uses "**&#92;**" as the directory separator (which is annoying because **&#92;** is widely used as an escape character). In Windows, don’t end a file or directory name with a space or period; the underlying filesystem may support it, but the Windows shell and user interface generally do not. For more details, check the Microsoft Windows documentation on [*Naming Files, Paths, and Namespaces*](https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN).
 
 #### Unix/Linux Pathnames
 
@@ -2340,7 +2340,7 @@ including a leading "**-**" (the marker for command options). These problematic 
 
 Some potential problems with filenames are specific to the shell, but filename problems are not limited to the shell. A common problem is that "**-**" is the option flag for many commands, but it is a legal beginning of a filename.
 
-A simple solution is to prefix all globs or filenames where needed with "**./**" so that they cannot begin with "**-**". So for example, never use "***.pdf**" to refer to a set of PDFs if an attacker might influence a directory’s filenames; use "**./*.pdf**".
+A simple solution is to prefix all globs or filenames where needed with "**./**" so that they cannot begin with "**-**". So for example, never use "**&#42;.pdf**" to refer to a set of PDFs if an attacker might influence a directory’s filenames; use "**./&#42;.pdf**".
 
 Be careful about displaying or storing pathnames, since they can include newlines, tabs, escape (which can begin terminal controls), or sequences that are not legal strings. On some systems, merely displaying filenames can invoke terminal controls, which can then run commands with the privilege of the one displaying.
 
@@ -2394,21 +2394,17 @@ Poor error handling can lead to security vulnerabilities. So let’s discuss com
 
 An example of a security vulnerability caused by bad error handling is [CVE-2014-1266](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1266), commonly called the "*goto fail; goto fail;*" vulnerability. This was a vulnerability in the Apple implementation of the SSL/TLS protocol in many versions of its operating systems. The problem was a second (duplicate) “**goto fail;**” statement in the function **SSLVerifySignedServerKeyExchange**, as follows:
 
-  **if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)**
+~~~~C
+    if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)
+      goto fail;
+    goto fail;
+    ... other checks ...
+    fail:
+      ... buffer frees (cleanups) ...
+      return err;
+~~~~
 
-**    goto fail;**
-
-**    goto fail;**
-
-**  ... other checks ...**
-
-**  fail:**
-
-**    ... buffer frees (cleanups) ...**
-
-**    return err;**
-
-The indentation here is misleading; since there are no curly braces after the **if** statement, the second "**goto fail**" is always executed. In context, that meant that vital signature checking code was skipped, so both bad and good signatures would be accepted. The extraneous “**goto**” caused the function to return 0 (“no error”) when the rest of the checking was skipped; as a result, invalid certificates were quietly accepted as valid. This was a disastrous vulnerability, since it meant that all sorts of invalid certificates would be accepted, completely compromising security. This vulnerability would be easily detected by an automated test suite. (*[The Apple goto fail vulnerability: lessons learne*d](https://dwheeler.com/essays/apple-goto-fail.html), by David A. Wheeler, 2020).
+The indentation here is misleading; since there are no curly braces after the **if** statement, the second "**goto fail**" is always executed. In context, that meant that vital signature checking code was skipped, so both bad and good signatures would be accepted. The extraneous “**goto**” caused the function to return 0 (“no error”) when the rest of the checking was skipped; as a result, invalid certificates were quietly accepted as valid. This was a disastrous vulnerability, since it meant that all sorts of invalid certificates would be accepted, completely compromising security. This vulnerability would be easily detected by an automated test suite. ([*The Apple goto fail vulnerability: lessons learne*](https://dwheeler.com/essays/apple-goto-fail.html), by David A. Wheeler, 2020).
 
 #### Return Codes
 
@@ -2712,7 +2708,7 @@ In that case, where possible, use libraries *already designed* to allow only wha
 
 We have focused on escaping HTML, because that is the biggest problem in web applications. But HTML can embed other kinds of data, and of those, perhaps the most common are URLs.
 
-Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme:[//authority]path[?query][#fragment]**. For example, in the URL **<****https://www.linuxfoundation.org/about/****>**, the scheme is "**https**", authority “**www.linuxfoundation.org**”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, "**.**", "**-**", "*****", and "**_**". The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
+Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme:[//authority]path[?query][#fragment]**. For example, in the URL **<****https://www.linuxfoundation.org/about/****>**, the scheme is "**https**", authority “**www.linuxfoundation.org**”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, "**.**", "**-**", "**&#42;**", and "**&#95;**". The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
 
 #### XSS Alternatives
 
@@ -2974,19 +2970,19 @@ This is true! The problem is not redirection, it is *unvalidated* redirection. O
 
 There is a peculiar problem with the HTML **target** attribute that many people are not aware of. Let’s explain the problem, and some partial solutions.
 
-In HTML, **<a href=...>** creates a hyperlink. The HTML construct **<a href=… target=…>** creates a hyperlink where, if you click on it, it creates a new "target". The default value for target is **_self**; if you set **target**, a common one is **target="_blank"** which creates the target in a new tab.
+In HTML, **<a href=...>** creates a hyperlink. The HTML construct **<a href=… target=…>** creates a hyperlink where, if you click on it, it creates a new "target". The default value for target is **&#95;self**; if you set **target**, a common one is **target="&#95;blank"** which creates the target in a new tab.
 
-But what many don’t realize is that a value of "**target**" other than the default “**_self**” may, in some cases, create a vulnerability. Because of the way it works, the page being linked to runs in the *same* process as the calling page. As a result, on a click the receiving page gains partial control over the linking page, *even if they are from different origins*. The primary way this happens is through the **window.opener** value. The receiving page can do things like force the *calling* page to navigate to a different page (e.g., **window.opener.location****.href = newURL**), provide a new page that looks like the old one (even though it is in a different place), and fool the user into doing something on the “same” page that is not the same at all. A related problem is that the new page may also get “referrer” information that you might not have expected.
+But what many don’t realize is that a value of "**target**" other than the default “**&#95;self**” may, in some cases, create a vulnerability. Because of the way it works, the page being linked to runs in the *same* process as the calling page. As a result, on a click the receiving page gains partial control over the linking page, *even if they are from different origins*. The primary way this happens is through the **window.opener** value. The receiving page can do things like force the *calling* page to navigate to a different page (e.g., **window.opener.location****.href = newURL**), provide a new page that looks like the old one (even though it is in a different place), and fool the user into doing something on the “same” page that is not the same at all. A related problem is that the new page may also get “referrer” information that you might not have expected.
 
-The same kind of problem can happen in JavaScript. JavaScript’s "**window.open**" has a default target of “**_blank**”; since that is not “**_self**”, the *default value* of **window.open()** is insecure. Again, it will open a window that loads another page that is simultaneously given control over its calling page, *even if* they have different origins.
+The same kind of problem can happen in JavaScript. JavaScript’s "**window.open**" has a default target of “**&#95;blank**”; since that is not “**&#95;self**”, the *default value* of **window.open()** is insecure. Again, it will open a window that loads another page that is simultaneously given control over its calling page, *even if* they have different origins.
 
 Of course, if you can trust that other page, that is not a security problem. So using a target value is often not a problem as long as you are referring to your *own* site. But if you are referring to another site, this may be more of a concern - are you sure you can trust it? Even if you trust your own or another site, it might be unwise to allow this - what happens if someone breaks into that part or that other site? Again, there is the principle of least privilege - we don’t want to give privileges if we don’t need to. This can also be a minor performance problem; page performance may suffer due to use of a shared process.
 
-The simplest solution is to avoid using **target=...** in HTML, and always set **target="_self”** when calling JavaScript **window.open()...** especially for links to user-generated content and external domains. If you decide to use HTML **target=**, also use **rel="noopener noreferrer"**. The "**noopener**” tells the web browser to *not* allow the JavaScript to gain control over the referring window (so **window.opener** won’t give access to it). The ”**noreferrer**” prevents passing on the referrer information to the new tab/window (*[Security Vulnerability and Browser Performance Impact of Target=”_blank*”](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
+The simplest solution is to avoid using **target=...** in HTML, and always set **target="&#95;self”** when calling JavaScript **window.open()...** especially for links to user-generated content and external domains. If you decide to use HTML **target=**, also use **rel="noopener noreferrer"**. The "**noopener**” tells the web browser to *not* allow the JavaScript to gain control over the referring window (so **window.opener** won’t give access to it). The ”**noreferrer**” prevents passing on the referrer information to the new tab/window (*[Security Vulnerability and Browser Performance Impact of Target=”&#95;blank*”](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
 
 ### Quiz 4.8
 
-\>\>In an HTML anchor (**<a href=...>**) to another site, if you use **target=...** with a value other than **_self**, be sure to also set "**rel**" to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
+\>\>In an HTML anchor (**<a href=...>**) to another site, if you use **target=...** with a value other than **&#95;self**, be sure to also set "**rel**" to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
 
 (x) True
 
@@ -3064,27 +3060,27 @@ A CORS simple request is used when *all* of the following are true:
 
 * A few other requirements are also met. See the specification for details; in most cases these other requirements will be met.
 
-When a CORS simple request is made, the web browser makes the request as usual and also sets the HTTP header **Origin** to the script origin. The web server then determines if that request is acceptable. The web server then replies and sets the HTTP header **Access-Control-Allow-Origin** with information about the allowed origin(s). If that value is "*****", then *any* origin is allowed that access. The web browser looks at the **Access-Control-Allow-Origin**, and if the requesting origin matches, the script receives any information returned.
+When a CORS simple request is made, the web browser makes the request as usual and also sets the HTTP header **Origin** to the script origin. The web server then determines if that request is acceptable. The web server then replies and sets the HTTP header **Access-Control-Allow-Origin** with information about the allowed origin(s). If that value is "**&#42;**", then *any* origin is allowed that access. The web browser looks at the **Access-Control-Allow-Origin**, and if the requesting origin matches, the script receives any information returned.
 
 A preflighted request, unlike a simple request, uses an extra step. In a preflighted request, the web browser first sends an **OPTIONS** request with the **Origin** and other information, to ask the web server if the actual request is "*safe to send*". If the web server approves it, then the actual request is sent. Some browsers do not follow redirects for a preflighted request; see the [Mozilla CORS documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for solutions if it matters to you.
 
 By default, browsers will not send credentials (cookies and HTTP Authentication information) in a CORS request. However, a specific flag can be set on an  **XMLHttpRequest** object or **Request** constructor to send credentials. If this is done, the web server must return **Access-Control-Allow-Credentials: true** or the JavaScript program will not receive the results. Web servers should be very cautious about using this; if it is used at all, be very picky about the origins allowed. It is much safer to *not* use **Access-Control-Allow-Credentials**, as this allows credentialed programmatic control from a different origin.
 
-If you intend for some information to be publicly readable on your web server, and it never varies (no matter who requested it or where it is from), consider returning "**Access-Control-Allow-Origin: ***" when a web browser tries to **GET** that information. This allows client-side JavaScript programs to directly retrieve that information and use it further. That does allow JavaScript programs to repeatedly request it, so in theory that makes DDoS attacks slightly easier. However, for many websites the goal is to distribute some information, and DDoS can be countered in other ways.
+If you intend for some information to be publicly readable on your web server, and it never varies (no matter who requested it or where it is from), consider returning "**Access-Control-Allow-Origin: &#42;**" when a web browser tries to **GET** that information. This allows client-side JavaScript programs to directly retrieve that information and use it further. That does allow JavaScript programs to repeatedly request it, so in theory that makes DDoS attacks slightly easier. However, for many websites the goal is to distribute some information, and DDoS can be countered in other ways.
 
-Sometimes the information may vary depending on the origin of the requestor (this is true if you set an **Access-Control-Allow-Origin** to any value other than "*****"). In these cases, ensure that you include a “**Vary**” header with the value “**Origin**”. This “**Vary**” value tells the web browser that the result may vary depending on the origin, preventing information from one origin from leaking into another origin (or lack of origin) via CORS.
+Sometimes the information may vary depending on the origin of the requestor (this is true if you set an **Access-Control-Allow-Origin** to any value other than "**&#42;**"). In these cases, ensure that you include a “**Vary**” header with the value “**Origin**”. This “**Vary**” value tells the web browser that the result may vary depending on the origin, preventing information from one origin from leaking into another origin (or lack of origin) via CORS.
 
 Details on how to enable CORS for a large variety of circumstances is available at [enable-cors.org](https://enable-cors.org/). You can also check out the following resources for more details:
 
-* [Web Hypertext Application Technology Working Group (WHATWG). ](https://fetch.spec.whatwg.org/)*[Fetc*h](https://fetch.spec.whatwg.org/) 
+* [Web Hypertext Application Technology Working Group (WHATWG). ](https://fetch.spec.whatwg.org/)[*Fetch*](https://fetch.spec.whatwg.org/) 
 
-* [Mozilla’s ](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)*[Same-origin polic*y](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[ documentation](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) 
+* [Mozilla’s ](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[*Same-origin policy*](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[ documentation](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) 
 
 * [Mozilla’s Cross-Origin Resource Sharing (CORS) documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 ### Format Strings and Templates
 
-Producing results can be complicated. Almost all programming languages have special mechanisms to make output easier; even the original 1956 version of FORTRAN did (*[The FORTRAN Automatic Coding System for IBM 704 EDPM: Programmer’s Reference Manua*l](https://archive.computerhistory.org/resources/text/Fortran/102649787.05.01.acc.pdf), 1956)! These mechanisms include various kinds of format string and template systems. These mechanisms can be very powerful and speed development. They can also be critical for countering vulnerabilities; one of the best ways to counter the Cross-Site Scripting (XSS) attacks is to use a templating system that counters it by default, as we have already discussed.
+Producing results can be complicated. Almost all programming languages have special mechanisms to make output easier; even the original 1956 version of FORTRAN did ([*The FORTRAN Automatic Coding System for IBM 704 EDPM: Programmer’s Reference Manual*](https://archive.computerhistory.org/resources/text/Fortran/102649787.05.01.acc.pdf), 1956)! These mechanisms include various kinds of format string and template systems. These mechanisms can be very powerful and speed development. They can also be critical for countering vulnerabilities; one of the best ways to counter the Cross-Site Scripting (XSS) attacks is to use a templating system that counters it by default, as we have already discussed.
 
 However, *be very careful* about letting untrusted users control the output formats (that is, using format strings and templates from untrusted users). In many cases, you should *not* let untrusted users set output formats that are used by general-purpose templating systems without carefully validating them first. Some output format systems can execute arbitrary code, or reveal information beyond a specific set of approved values - and you *definitely* should not allow that in most cases! Even when they cannot run *arbitrary* code, by definition they control the output, and they may be able to create misleading results or results that overwhelm wherever the output goes.
 
@@ -3215,7 +3211,7 @@ In security we often want to use tools that find and report certain kinds of vul
 </table>
 
 
-The reality is that there is usually a trade-off between false positives and false negatives. Tools can be designed or configured to have fewer false positives (incorrect reports), but that lack of sensitivity typically means that it will often have more false negatives (it will fail to report things that you might expect it to report). For more about details, see the *[SATE V Report: Ten Years of Static Analysis Tool Exposition*s](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf), 2018.
+The reality is that there is usually a trade-off between false positives and false negatives. Tools can be designed or configured to have fewer false positives (incorrect reports), but that lack of sensitivity typically means that it will often have more false negatives (it will fail to report things that you might expect it to report). For more about details, see the [*SATE V Report: Ten Years of Static Analysis Tool Expositions*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf), 2018.
 
 #### Applying Tools
 
@@ -3271,7 +3267,7 @@ That said, while these tools are often easy to use, they generally are not focus
 
 #### Security Code Scanners/Static Application Security Testing (SAST) Tools
 
-Some tools analyze code specifically looking for vulnerabilities. They go by a variety of names, such as Static Application Security Testing (SAST) tools, security code scanners, security source code scanners (if they examine source code), binary code scanners (if they only examine executables), or just *static code analyzers*. Some people use the term SAST only when the tool analyzes source code ( for more details, see *[The AppSec alphabet soup: A guide to SAST, IAST, DAST, and RAS*P](https://www.synopsys.com/blogs/software-security/sast-iast-dast-rasp-differences/) by Fred Bals, 2018, and *[10 Types of Application Security Testing Tools: When and How to Use The*m](https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html) by Thomas Scanlon, 2018), but we will not limit the term that way.
+Some tools analyze code specifically looking for vulnerabilities. They go by a variety of names, such as Static Application Security Testing (SAST) tools, security code scanners, security source code scanners (if they examine source code), binary code scanners (if they only examine executables), or just *static code analyzers*. Some people use the term SAST only when the tool analyzes source code (for more details, see [*The AppSec alphabet soup: A guide to SAST, IAST, DAST, and RASP*](https://www.synopsys.com/blogs/software-security/sast-iast-dast-rasp-differences/) by Fred Bals, 2018, and [*10 Types of Application Security Testing Tools: When and How to Use Them*](https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html) by Thomas Scanlon, 2018), but we will not limit the term that way.
 
 The idea behind these tools is that many vulnerabilities have specific patterns. A tool designed to look for those patterns can report similar kinds of vulnerabilities.
 
@@ -3383,7 +3379,7 @@ Dynamic analysis is any approach for verifying software (including finding defec
 
 All dynamic analysis tools have a fundamental limitation: it is impossible to evaluate all possible inputs in a reasonable amount of time. It is not even possible to evaluate a *reasonable subset*.
 
-Let’s imagine a trivial program that adds two 64-bit integers. The number of possible inputs is (2^64)*(2^64) = 2^128. If we ran tests with a 4GHZ processor, and could run and test each input in 5 cycles, it would take 13.5 x 10^21 years (13.5 zetta years) to fully test the program. Using 1 million 8-core processors does not help enough; that would reduce the time to 1.7 x 10^15 years (that is, 1.7 quadrillion years). Real programs have far more complex inputs than this, so testing even 0.00001% of all inputs of real programs is impossible in human lifetimes.
+Let’s imagine a trivial program that adds two 64-bit integers. The number of possible inputs is (2^64)\*(2^64) = 2^128. If we ran tests with a 4GHZ processor, and could run and test each input in 5 cycles, it would take 13.5 x 10^21 years (13.5 zetta years) to fully test the program. Using 1 million 8-core processors does not help enough; that would reduce the time to 1.7 x 10^15 years (that is, 1.7 quadrillion years). Real programs have far more complex inputs than this, so testing even 0.00001% of all inputs of real programs is impossible in human lifetimes.
 
 As a result, all dynamic analysis approaches must try to select a very small subset of possible inputs that still have a chance of detecting problems where they exist. They are often very effective. But dynamic analysis approaches cannot "prove" that anything works correctly in general; at best, they have a good chance of detecting problems.
 
@@ -3523,9 +3519,9 @@ If you are developing a web application, then it is a good idea to use at least 
 
 The term Dynamic Application Security Testing, or DAST, is often seen in literature. However, the *meaning* of DAST has a lot of variation:
 
-* For some, DAST is dynamic analysis for finding vulnerabilities in web applications (see VeraCode, *[DAST TEST: Benefits of a DAST test for application securit*y](https://www.veracode.com/security/dast-test), 2020), making the term mostly equivalent to *web application scanners*. John Breeden II (*[9 top fuzzing tools: Finding the weirdest application error*s](https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html), 2019) states this and expressly differentiates DAST from fuzzing.
+* For some, DAST is dynamic analysis for finding vulnerabilities in web applications (see VeraCode, [*DAST TEST: Benefits of a DAST test for application security*](https://www.veracode.com/security/dast-test), 2020), making the term mostly equivalent to *web application scanners*. John Breeden II ([*9 top fuzzing tools: Finding the weirdest application errors*](https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html), 2019) states this and expressly differentiates DAST from fuzzing.
 
-* Thomas Scanlon (*[10 Types of Application Security Testing Tools: When and How to Use The*m](https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html), 2018) defines DAST as tools for finding security vulnerabilities where *"the tester has no prior knowledge of the system"* and that *“DAST tools employ fuzzing”*. With this definition, web application scanners and fuzzers are DAST tools. Similarly, Sergej Dechand (*[What is FAST*?](https://blog.code-intelligence.com/what-is-fast), 2020) includes web application scanners and fuzzers under “DAST”.
+* Thomas Scanlon ([*10 Types of Application Security Testing Tools: When and How to Use Them*](https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html), 2018) defines DAST as tools for finding security vulnerabilities where *"the tester has no prior knowledge of the system"* and that *“DAST tools employ fuzzing”*. With this definition, web application scanners and fuzzers are DAST tools. Similarly, Sergej Dechand (*[What is FAST*?](https://blog.code-intelligence.com/what-is-fast), 2020) includes web application scanners and fuzzers under “DAST”.
 
 In this course we have intentionally used more specific terms instead of DAST, in the hopes of making things clearer. The point, regardless of the terminology, is to use approaches (including tools) to find and fix vulnerabilities before the attackers exploit them.
 
@@ -3962,7 +3958,7 @@ To use TLS properly, the server side at least needs a certificate (so it can pro
 
 When clients connect to a server using TLS, the client normally needs to check that the certificate is valid. Web browsers have long worked this out; web browsers come with a configurable set of certificate authority public keys (directly or via the operating system) and automatically verify each new TLS connection.
 
-*Beware*: If you are using your own client, instead of using a web browser, double-check that you are using the TLS library API *correctly*. Many TLS library APIs do *not* fully verify the server’s TLS certificate automatically. For example, they may allow connections to a server when there is no server certificate, they may allow any certificate (instead of a certificate for the site you are trying to connect to), or allow expired certificates. This is an extremely common mistake (*[The Most Dangerous Code in the World: Validating SSL Certificates in Non-Browser Softwar*e](https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf), by Martin Georgiev, Subodh Iyengar, Suman Jana, Rishita Anubhai, Dan Boneh, and Vitaly Shmatikov, 2012). If this is the case, you may be using a low-level TLS API instead of the API you should be using.
+*Beware*: If you are using your own client, instead of using a web browser, double-check that you are using the TLS library API *correctly*. Many TLS library APIs do *not* fully verify the server’s TLS certificate automatically. For example, they may allow connections to a server when there is no server certificate, they may allow any certificate (instead of a certificate for the site you are trying to connect to), or allow expired certificates. This is an extremely common mistake ([*The Most Dangerous Code in the World: Validating SSL Certificates in Non-Browser Software*](https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf), by Martin Georgiev, Subodh Iyengar, Suman Jana, Rishita Anubhai, Dan Boneh, and Vitaly Shmatikov, 2012). If this is the case, you may be using a low-level TLS API instead of the API you should be using.
 
 🔔 Improper certificate validation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #25. It is identified as [CWE-295](https://cwe.mitre.org/data/definitions/295.html), *Improper Certificate Validation*.
 
@@ -3970,7 +3966,7 @@ When clients connect to a server using TLS, the client normally needs to check t
 
 TLS, as a protocol, combines many of the pieces we have discussed. At the beginning of communication, the two sides must negotiate to determine the set of algorithms (including key lengths) that will be used for its connection. This set of algorithms is called the *ciphersuite*. That means that, for security, it is important to have good default configurations and to have the software configured correctly when deploying it.
 
-If you are configuring an HTTPS site, a great place to get currently-recommended settings is [Mozilla’s ](https://wiki.mozilla.org/Security/Server_Side_TLS)*[Security/Server Side TL*S](https://wiki.mozilla.org/Security/Server_Side_TLS)[ site](https://wiki.mozilla.org/Security/Server_Side_TLS). A key decision for you to make is if you want the modern, intermediate, or old configuration:
+If you are configuring an HTTPS site, a great place to get currently-recommended settings is [Mozilla’s ](https://wiki.mozilla.org/Security/Server_Side_TLS) [*Security/Server Side TLS*](https://wiki.mozilla.org/Security/Server_Side_TLS)[ site](https://wiki.mozilla.org/Security/Server_Side_TLS). A key decision for you to make is if you want the modern, intermediate, or old configuration:
 
 * Modern: Most secure, but a non-trivial number of clients might not be able to connect to it.
 
@@ -3980,7 +3976,7 @@ If you are configuring an HTTPS site, a great place to get currently-recommended
 
 At the time of this writing, the *intermediate setting* is recommended in most cases, but check that website for updates.
 
-You will notice that any configuration has a list of TLS ciphersuites in order of preference. For example, the TLS_AES_128_GCM_SHA256 means that TLS is to use the Advanced Encryption Standard (AES) with 128-bit key in Galois/Counter mode (GCM) combined with the secure hash algorithm with 256 bits (SHA-256).
+You will notice that any configuration has a list of TLS ciphersuites in order of preference. For example, the `TLS_AES_128_GCM_SHA256` means that TLS is to use the Advanced Encryption Standard (AES) with 128-bit key in Galois/Counter mode (GCM) combined with the secure hash algorithm with 256 bits (SHA-256).
 
 Once you have deployed your system, you should test it. If the site is publicly visible, it is a great idea to use the free Qualys test called the [SSL Server Test](https://www.ssllabs.com/ssltest/). It is called the SSL Server Test because that is the old name for TLS, but don’t be fooled, it works well with TLS (and will complain if you allow the vulnerable SSL protocols).
 
@@ -4000,7 +3996,7 @@ Once you have deployed your system, you should test it. If the site is publicly 
 
 #### Getting Cryptographic Advice
 
-In this course, we have tried to give some basics and enough information to apply them in various circumstances. Perhaps most important, however, are the key pieces of advice: do not create your own cryptographic algorithms or protocols, and do not create your own implementations. Instead, reuse well-respected algorithms, protocols, and implementations. When configuring cryptography, look for current well-respected advice. Examples of such sources include Mozilla’s [Security/Server Side TLS site](https://wiki.mozilla.org/Security/Server_Side_TLS), NIST (especially NIST’s *[Recommendation for Key Management: Part 1 - Genera*l](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)), and CISCO’s *[Next Generation Cryptograph*y](https://tools.cisco.com/security/center/resources/next_generation_cryptography). Cryptographers won’t always agree on what is "best" (as with any other field), but experts will be able to point out what is clearly broken and what is widely agreed to be much safer.
+In this course, we have tried to give some basics and enough information to apply them in various circumstances. Perhaps most important, however, are the key pieces of advice: do not create your own cryptographic algorithms or protocols, and do not create your own implementations. Instead, reuse well-respected algorithms, protocols, and implementations. When configuring cryptography, look for current well-respected advice. Examples of such sources include Mozilla’s [Security/Server Side TLS site](https://wiki.mozilla.org/Security/Server_Side_TLS), NIST (especially NIST’s [*Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)), and CISCO’s [*Next Generation Cryptography*](https://tools.cisco.com/security/center/resources/next_generation_cryptography). Cryptographers won’t always agree on what is "best" (as with any other field), but experts will be able to point out what is clearly broken and what is widely agreed to be much safer.
 
 #### Constant Time Algorithms
 
@@ -4398,15 +4394,15 @@ Many people are working on developing and improving tools to overcome these disa
 
 Formal methods *are* being used today to develop software, for example:
 
-* Engineers at Amazon Web Services (AWS) use TLA+ to analyze services including its widely-used Simple Storage Service (S3) and DynamoDB (a NoSQL data store). For more details, see *[Use of Formal Methods at Amazon Web Service*s](https://lamport.azurewebsites.net/tla/formal-methods-amazon.pdf) (2014) and *[How Amazon Web Services Uses Formal Method*s](https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/fulltext) (2015), by Chris Newcombe, Tim Rath, Fan Zhang, Bogdan Munteanu, Marc Brooker, and Michael Daerdeuff.
+* Engineers at Amazon Web Services (AWS) use TLA+ to analyze services including its widely-used Simple Storage Service (S3) and DynamoDB (a NoSQL data store). For more details, see [*Use of Formal Methods at Amazon Web Services*](https://lamport.azurewebsites.net/tla/formal-methods-amazon.pdf) (2014) and [*How Amazon Web Services Uses Formal Methods*](https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/fulltext) (2015), by Chris Newcombe, Tim Rath, Fan Zhang, Bogdan Munteanu, Marc Brooker, and Michael Daerdeuff.
 
 * The seL4 operating system kernel (an OSS kernel) has been proven correct.
 
-* The s2n implementation of TLS/SSL has had formal verification of important aspects and also formally verified its implementation of the HMAC algorithm (*[Automated Reasoning and Amazon s2*n](https://aws.amazon.com/blogs/security/automated-reasoning-and-amazon-s2n/), by Colm MacCarthaigh, 2016).
+* The s2n implementation of TLS/SSL has had formal verification of important aspects and also formally verified its implementation of the HMAC algorithm ([*Automated Reasoning and Amazon s2n*](https://aws.amazon.com/blogs/security/automated-reasoning-and-amazon-s2n/), by Colm MacCarthaigh, 2016).
 
 * Many proposed cryptographic protocols are examined with model checkers for possible exploits, and some tools embed formal methods approaches to address certain kinds of problems (*[Dramatically Reducing Software Vulnerabilities: Report to the White House Office of Science and Technology Polic*y](https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8151.pdf), by Paul E. Black, Lee Badger, Barbara Guttman and Elizabeth Fong, 2016).
 
-* Hubert Garavel (*[Formal Methods for Safe and Secure Computers System*s](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Studien/formal_methods_study_875/formal_methods_study_875.pdf?__blob=publicationFile&v=1), 2013) provides a large list where formal methods have been used, as well as a broader survey on formal methods.
+* Hubert Garavel ([*Formal Methods for Safe and Secure Computers Systems*](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Studien/formal_methods_study_875/formal_methods_study_875.pdf?__blob=publicationFile&v=1), 2013) provides a large list where formal methods have been used, as well as a broader survey on formal methods.
 
 That said, using formal methods during software development is unusual today. But formal methods may become more common in the future, or you may be asked to develop software where the risk from a vulnerability is extremely high. So in this section we will provide some brief awareness about formal methods.
 
@@ -4971,7 +4967,7 @@ Forum of Incident Response and Security Teams (FIRST), *Traffic Light Protocol (
 
 Friedl, Jeffrey E.F., *Mastering Regular Expressions*, 3rd Edition, O’Reilly Media,  ISBN 9780596528126, 2006-08 ([https://www.oreilly.com/library/view/mastering-regular-expressions/0596528124/](https://www.oreilly.com/library/view/mastering-regular-expressions/0596528124/))
 
-Garavel, Hubert, et al, *Formal Methods for Safe and Secure Computers Systems*, BSI Study 875, 2013 ([https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Studien/formal_methods_study_875/formal_methods_study_875.pdf?__blob=publicationFile&v=1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Studien/formal_methods_study_875/formal_methods_study_875.pdf?__blob=publicationFile&v=1))
+Garavel, Hubert, et al, *Formal Methods for Safe and Secure Computers Systems*, BSI Study 875, 2013 ([https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Studien/formal_methods_study_875/formal_methods_study_875.pdf?&#95;&#95;blob=publicationFile&v=1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Studien/formal_methods_study_875/formal_methods_study_875.pdf?&#95;&#95;blob=publicationFile&v=1))
 
 Georgiev, Martin; Iyengar, Subodh; Jana, Suman; Anubhai, Rishita; Boneh, Dan; Shmatikov, Vitaly; *The Most Dangerous Code in the World: Validating SSL Certificates in Non-Browser Software*, 2012 ([https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf](https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf))
 
