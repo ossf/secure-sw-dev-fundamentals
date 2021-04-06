@@ -1700,9 +1700,7 @@ We will later discuss various tools for verification. While tools can help find 
 
 > 😱 STORY TIME: Target Breach
 
-> In 2013 the Target Corporation’s network was breached. In this incidence 40 million credit and debit card numbers and 70 million records of personal information were stolen. The full costs are difficult to estimate, but the credit card unions spent over $200 million just to reissue cards. The best available evidence suggests that the initial breach occurred in a third party heating, ventilation, and
-
-air-conditioning (HVAC) firm. The attackers used these compromised credentials to penetrate the Target network. The attackers were able to subvert sensitive systems due to the weak segmentation between non-sensitive and sensitive networks inside Target ([*Breaking the Target: An Analysis of Target Data Breach and Lessons Learned*](https://arxiv.org/pdf/1701.04940.pdf), by Xiaokui Shu, Andrew Ciambrone and Danfeng Yao, 2017).
+> In 2013 the Target Corporation’s network was breached. In this incidence 40 million credit and debit card numbers and 70 million records of personal information were stolen. The full costs are difficult to estimate, but the credit card unions spent over $200 million just to reissue cards. The best available evidence suggests that the initial breach occurred in a third party heating, ventilation, and air-conditioning (HVAC) firm. The attackers used these compromised credentials to penetrate the Target network. The attackers were able to subvert sensitive systems due to the weak segmentation between non-sensitive and sensitive networks inside Target ([*Breaking the Target: An Analysis of Target Data Breach and Lessons Learned*](https://arxiv.org/pdf/1701.04940.pdf), by Xiaokui Shu, Andrew Ciambrone and Danfeng Yao, 2017).
 
 ### Quiz 1.8
 
@@ -2390,9 +2388,9 @@ Poor error handling can lead to security vulnerabilities. So let’s discuss com
 
 > 😱 STORY TIME: Apple **goto fail; goto fail;**
 
->> An example of a security vulnerability caused by bad error handling is [CVE-2014-1266](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1266), commonly called the "*goto fail; goto fail;*" vulnerability. This was a vulnerability in the Apple implementation of the SSL/TLS protocol in many versions of its operating systems. The problem was a second (duplicate) “**goto fail;**” statement in the function **SSLVerifySignedServerKeyExchange**, as follows:
+> An example of a security vulnerability caused by bad error handling is [CVE-2014-1266](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1266), commonly called the "*goto fail; goto fail;*" vulnerability. This was a vulnerability in the Apple implementation of the SSL/TLS protocol in many versions of its operating systems. The problem was a second (duplicate) “**goto fail;**” statement in the function **SSLVerifySignedServerKeyExchange**, as follows:
 
-> ~~~~C
+~~~~C
     if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)
       goto fail;
     goto fail;
@@ -2402,7 +2400,7 @@ Poor error handling can lead to security vulnerabilities. So let’s discuss com
       return err;
 ~~~~
 
-> The indentation here is misleading; since there are no curly braces after the **if** statement, the second "**goto fail**" is always executed. In context, that meant that vital signature checking code was skipped, so both bad and good signatures would be accepted. The extraneous “**goto**” caused the function to return 0 (“no error”) when the rest of the checking was skipped; as a result, invalid certificates were quietly accepted as valid. This was a disastrous vulnerability, since it meant that all sorts of invalid certificates would be accepted, completely compromising security. This vulnerability would be easily detected by an automated test suite. ([*The Apple goto fail vulnerability: lessons learne*](https://dwheeler.com/essays/apple-goto-fail.html), by David A. Wheeler, 2020).
+> The indentation here is misleading; since there are no curly braces after the **if** statement, the second "**goto fail**" is always executed. In context, that meant that vital signature checking code was skipped, so both bad and good signatures would be accepted. The extraneous “**goto**” caused the function to return 0 (“no error”) when the rest of the checking was skipped; as a result, invalid certificates were quietly accepted as valid. This was a disastrous vulnerability, since it meant that all sorts of invalid certificates would be accepted, completely compromising security. This vulnerability would be easily detected by an automated test suite. ([*The Apple goto fail vulnerability: lessons learned*](https://dwheeler.com/essays/apple-goto-fail.html), by David A. Wheeler, 2020).
 
 #### Return Codes
 
