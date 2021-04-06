@@ -3753,7 +3753,7 @@ There are alternative symmetric key algorithms that are also generally considere
 
 Many symmetric key algorithms, including AES, are what is called *block algorithms*. With block algorithms you must also choose a *mode* to use. Here is the most important rule about modes:
 
-**_Never_**** use Electronic Code Book (ECB) mode!**
+**Never use Electronic Code Book (ECB) mode!**
 
 The ECB mode is basically a debug or test mode for testing cryptographic algorithms. In ECB mode, the same block of data will produce the same encryption result. This is disastrous for an encryption algorithm, because it reveals far too much about the data that is supposed to be encrypted. A great illustration of this is the so-called "ECB Penguin" image; this image is encrypted using an ECB mode. Encrypted images should appear as random noise, but because ECB mode is used, in the ECB Penguin the image of Tux the Penguin is clearly visible.
 
