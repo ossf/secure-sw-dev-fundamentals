@@ -1495,9 +1495,9 @@ In some languages, such as in Ruby, you normally use **\A** and **\z** instead o
 
 #### Branch Priority
 
-Almost all regex implementations support *branches* - that is, "**aa|bb|cc**" matches **aa**, **bb**, or **cc**. All ERE and PCRE implementations support branches, and even some BRE implementations support branches if they are written as “**\|**” instead of “**|**”. The *priority* of the branch operation is standard, but it is not what some users expect. The regex “**^aa|bb$**” means *“either it begins with aa OR it ends with bb”*, not *“exactly aa or bb”*.  When you are using regexes for input validation, a sequence of branches that is not surrounded by parentheses is practically always a mistake. What you normally want is “**^(aa|bb)$**” which means *“exactly aa or bb”*.
+Almost all regex implementations support *branches* - that is, "**aa|bb|cc**" matches **aa**, **bb**, or **cc**. All ERE and PCRE implementations support branches, and even some BRE implementations support branches if they are written as “**&#92;|**” instead of “**|**”. The *priority* of the branch operation is standard, but it is not what some users expect. The regex “**^aa|bb$**” means *“either it begins with aa OR it ends with bb”*, not *“exactly aa or bb”*.  When you are using regexes for input validation, a sequence of branches that is not surrounded by parentheses is practically always a mistake. What you normally want is “**^(aa|bb)$**” which means *“exactly aa or bb”*.
 
-**🚩 So, whenever you have a branch ("*&#124;*") in a regex, group the whole expression with branches using parentheses.**
+**🚩 So, whenever you have a branch ("|") in a regex, group the whole expression with branches using parentheses.**
 
 #### Test Input Validators
 
