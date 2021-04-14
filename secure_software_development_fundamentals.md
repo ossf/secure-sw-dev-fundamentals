@@ -632,7 +632,7 @@ Modern society depends on software (and hardware), and as a result, there has be
 
 There are many people who have, for one reason or or another, found security vulnerabilities in software. Some people, called security researchers, make finding vulnerabilities part of their career.
 
-In most cases, these vulnerability finders report the vulnerability to the software supplier(s) through a *"**timed** coordinated disclosure"* process. The finders privately report the vulnerability to the supplier(s), giving the supplier(s) some limited time (called the *“embargo time”*) to fix the vulnerability. After this embargo time (typically 14-90 days), or when the vulnerability has been fixed and users have had an opportunity to install the upgraded version of the software, the vulnerability is publicly disclosed. Sometimes this process is just called *“coordinated disclosure”*, but we want to make it unambiguously clear that in this process, the vulnerability will be publicly disclosed if the supplier fails to fix it in a timely manner.
+In most cases, these vulnerability finders report the vulnerability to the software supplier(s) through a *"timed coordinated disclosure"* process. The finders privately report the vulnerability to the supplier(s), giving the supplier(s) some limited time (called the *“embargo time”*) to fix the vulnerability. After this embargo time (typically 14-90 days), or when the vulnerability has been fixed and users have had an opportunity to install the upgraded version of the software, the vulnerability is publicly disclosed. Sometimes this process is just called *“coordinated disclosure"*, but we want to make it unambiguously clear that in this process, the vulnerability will be publicly disclosed if the supplier fails to fix it in a timely manner.
 
 In practice, things are more complicated. Often there are multiple suppliers and other stakeholders involved. It is critically important that you (as a developer/supplier) prepare ahead-of-time so that people can easily report vulnerabilities to you, so that you can privately discuss the issue with trusted parties, and so that you can rapidly fix any issues. Later in this course we will further discuss how to accept and report vulnerabilities, including references to useful documents about it. In addition, there is so much software and so many vulnerabilities that there is a need to track vulnerabilities. This need for tracking led to the creation of something called Common Vulnerabilities and Exposures (CVE).
 
@@ -846,7 +846,9 @@ A common mistake is to try to run security checks on a system that the attacker 
 
 A simple example of an insecure design is when a server-side web application sends some HTML to a client, and the HTML includes some validation requirement. For example, the HTML might include the following statement to require that the maximum length be no more than 100:
 
-**<input id="name" type="text" maxlength="100">**
+~~~~html
+    <input id="name" type="text" maxlength="100">
+~~~~
 
 This HTML is fine if its purpose is to be a quick check to counter accidental mistakes. But since attackers can control their own web browser, this maximum length check is trivial to bypass. An attacker can easily send a much longer input. You cannot *depend* on the web browser to do any security-relevant checking for you if the attacker could control or replace the web browser.
 
@@ -1117,7 +1119,7 @@ Of course, if you download and install a subverted version of the reused softwar
 
 1. Make sure you have exactly the correct name. A common attack is called "typosquatting". In typosquatting, an attacker will create a domain name or package name that is intentionally and maliciously similar to a widely-used software component, and use that misleading name to spread a malicious version of that software. [Ohm & all, 2020](https://arxiv.org/abs/2005.09535) found that *“most malicious [OSS] packages mimic existing packages’ names via typosquatting”*. For example:
 
-    1. Check for common misleading name changes. It is easy to switch between dash (**-**) and underscore (**&x95;**). One (**1**) and lower-case L (**l**) look similar, as do zero (**0**) and capital O (**O**). In some package managers, uppercase and lowercase ASCII are considered different; in those situations, beware of case. Unicode provides characters that appear exactly the same as ASCII, but are another alphabet, like Cyrillic or Greek; in some cases, these can also be exploited.
+    1. Check for common misleading name changes. It is easy to switch between dash (**-**) and underscore (**&#95;**). One (**1**) and lower-case L (**l**) look similar, as do zero (**0**) and capital O (**O**). In some package managers, uppercase and lowercase ASCII are considered different; in those situations, beware of case. Unicode provides characters that appear exactly the same as ASCII, but are another alphabet, like Cyrillic or Greek; in some cases, these can also be exploited.
 
     2. Check how popular the package is. Generally the more-popular version is the correct version. If you are using a package manager, compare the download counts of similarly-named packages; the ones with lower counts may be typosquatting attacks. If you are looking for a website, or the package manager does not provide direct access to counts, use a search engine and pick the most popular domain. However, be sure to *ignore* all advertised domains from a search engine; attackers may pay to advertise their malicious version!
 
@@ -1495,7 +1497,7 @@ In some languages, such as in Ruby, you normally use **\A** and **\z** instead o
 
 Almost all regex implementations support *branches* - that is, "**aa|bb|cc**" matches **aa**, **bb**, or **cc**. All ERE and PCRE implementations support branches, and even some BRE implementations support branches if they are written as “**\|**” instead of “**|**”. The *priority* of the branch operation is standard, but it is not what some users expect. The regex “**^aa|bb$**” means *“either it begins with aa OR it ends with bb”*, not *“exactly aa or bb”*.  When you are using regexes for input validation, a sequence of branches that is not surrounded by parentheses is practically always a mistake. What you normally want is “**^(aa|bb)$**” which means *“exactly aa or bb”*.
 
-**🚩 So, whenever you have a branch ("*|*") in a regex, group the whole expression with branches using parentheses.**
+**🚩 So, whenever you have a branch ("*\|*") in a regex, group the whole expression with branches using parentheses.**
 
 #### Test Input Validators
 
