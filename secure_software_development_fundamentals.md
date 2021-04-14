@@ -1551,7 +1551,7 @@ There are many solutions to this problem, including the following:
 
     3. Avoid unbounded repetition. For example, define maximum repetition counts (e.g., **{0,5}**) so the worst-case behavior is greatly limited.
 
-Some tools examine source code to detect regexes with worst-case behaviors (these may be standalone tools or part of bigger tools).
+    Some tools examine source code to detect regexes with worst-case behaviors (these may be standalone tools or part of bigger tools).
 
 3. Where you can, limit the maximum length of input strings and check the input length first. If inputs must be short, the exponential growth in time will still end up as a small total amount of time.
 
