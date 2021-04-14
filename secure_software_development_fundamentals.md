@@ -2922,7 +2922,7 @@ A web application should not accept user-controlled input that specifies a link 
 
 This can be hard to understand, so let’s look at an example. Let’s imagine that a server-side web application has a "**/redirect**" link that accepts a parameter **url=**, and then simply redirects requests to the **url= value**. That means that an attacker could create an HTML file anywhere that looks like this (the example is based on text in MITRE’s text on [CWE-601](https://cwe.mitre.org/data/definitions/601.html)):
 
-**&lt;a href="https://bank.example.com/redirect?url=https://attacker.example.net"&gt;Click here to log in&lt;/a&gt;**
+<b>&lt;a href=&quot;https://bank.example.com/redirect?url=https://attacker.example.net&quot;&gt;Click here to log in&lt;/a&gt;</b>
 
 What is the problem? The problem is that a user who checked the link would think that this link went to a trusted domain (e.g., **bank.example.com**). While technically that is true, when clicked, the supposedly trusted domain will quietly redirect the user to some other domain that might be dangerous and not what the user expected (e.g., **attacker.example.net**). More generally, the problem is that an open redirect can be used to fool humans and create stronger phishing attacks. Humans can be lulled into thinking they are going to a trusted domain, without realizing that they will in fact be immediately transferred to an untrusted domain. In theory, the users should also check *where they are now* on each page, but busy humans often don’t do that. We want to make it harder, not easier, to fool busy humans.
 
