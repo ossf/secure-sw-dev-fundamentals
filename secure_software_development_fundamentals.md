@@ -4028,7 +4028,7 @@ In contrast, current symmetric cryptographic algorithms and hash functions are l
 
 Perhaps the most important lesson here is to be humble when using cryptography. Many cryptographic algorithms have been developed in the past, only to be broken later. It is hubris to think that our current algorithms and protocols cannot be broken.
 
-You should instead have a plan for handling when (not if) your cryptographic algorithms and protocols are broken. Make sure all your co-developers learn of this plan so that they will not ruin it (e.g., if you run an OSS project, put this in the** CONTRIBUTING.md** or equivalent file). In short, plan for change.
+You should instead have a plan for handling when (not if) your cryptographic algorithms and protocols are broken. Make sure all your co-developers learn of this plan so that they will not ruin it (e.g., if you run an OSS project, put this in the **CONTRIBUTING.md** or equivalent file). In short, plan for change.
 
 Similarly, seek advice from experts, and weigh that advice carefully. Errors in cryptographic systems can be devastating, and can last for many years because they are not obvious. Getting others’ review and constructive feedback is generally a good idea, but it is especially important when using cryptography.
 
@@ -4092,7 +4092,7 @@ In one sense this requirement is easy. Decide what your reporting convention is,
 
 1. Many companies and projects support an email address of the form **security@example.com** or **abuse@example.com**.
 
-2. A common convention in OSS projects is to provide this information in a file named **SECURITY.md** in the repository’s root or** docs/** directory. Sites such as GitHub will highlight this file if present and encourage their creation. Add a link from your **README.md** file to this **SECURITY.md** file.
+2. A common convention in OSS projects is to provide this information in a file named **SECURITY.md** in the repository’s root or **docs/** directory. Sites such as GitHub will highlight this file if present and encourage their creation. Add a link from your **README.md** file to this **SECURITY.md** file.
 
 3. If the project has or implements a website, a common recommendation is to add a **security.txt** file on the website at **/security.txt** or **/.well-known/security.txt**. To learn more, visit [securitytxt.org](https://securitytxt.org/).
 
