@@ -3831,7 +3831,7 @@ The Digital Signature Standard (DSS) is a standard for creating cryptographic di
 
 There are also a variety of key exchange algorithms. The oldest is the Diffie-Hellman key exchange algorithm. There is a newer key exchange algorithm based on elliptic curves, called Elliptic Curve Diffie-Hellman (ECDH).
 
-As hinted at earlier, it is critical that you use existing well-respected implementations (don’t implement it yourself), and check any parameters you choose carefully. Perhaps the most important is the key length for that algorithm (as noted earlier, elliptic curve algorithms have equivalent strength with shorter keys). A useful source for recommended key lengths is [NIST’s](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)[* Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf).
+As hinted at earlier, it is critical that you use existing well-respected implementations (don’t implement it yourself), and check any parameters you choose carefully. Perhaps the most important is the key length for that algorithm (as noted earlier, elliptic curve algorithms have equivalent strength with shorter keys). A useful source for recommended key lengths is [NIST’s *Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf).
 
 ### Quiz 3.3
 
