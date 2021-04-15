@@ -4066,7 +4066,7 @@ Unfortunately, even after your best efforts, someone may find a vulnerability in
 
 #### Product Security Incident Response Teams (PSIRTs)
 
-If you are part of a team developing a large software application within a single organization, then you probably have or should consider forming a group to address security incidents related to that software. Such teams are sometimes called a Product Security Incident Response Team (PSIRT). The nonprofit Forum of Incident Response and Security Teams (FIRST) defines a PSIRT as* "an entity within an organization which... focuses on the identification, assessment and disposition of the risks associated with security vulnerabilities within the products, including offerings, solutions, components and/or services which an organization produces and/or sells"* ([FIRST](https://www.first.org/standards/frameworks/): *Product Security Incident Response Team (PSIRT) Services Framework* and *Computer Security Incident Response Team (CSIRT) Services Framework*). FIRST recommends that PSIRTs be formed while requirements are still being developed, but they should at least be formed before the initial release of the software. A properly-running PSIRT can identify and rapidly respond to an extremely serious vulnerability report.
+If you are part of a team developing a large software application within a single organization, then you probably have or should consider forming a group to address security incidents related to that software. Such teams are sometimes called a Product Security Incident Response Team (PSIRT). The nonprofit Forum of Incident Response and Security Teams (FIRST) defines a PSIRT as *"an entity within an organization which... focuses on the identification, assessment and disposition of the risks associated with security vulnerabilities within the products, including offerings, solutions, components and/or services which an organization produces and/or sells"* ([FIRST](https://www.first.org/standards/frameworks/): *Product Security Incident Response Team (PSIRT) Services Framework* and *Computer Security Incident Response Team (CSIRT) Services Framework*). FIRST recommends that PSIRTs be formed while requirements are still being developed, but they should at least be formed before the initial release of the software. A properly-running PSIRT can identify and rapidly respond to an extremely serious vulnerability report.
 
 PSIRTs often work with computer incident response teams (CSIRTs); a CSIRT is focused on the security of computer systems and/or networks that make up the infrastructure of an entire organization, while PSIRTs focus on specific products/services. Should you have one (or want to establish one), FIRST provides useful frameworks describing what PSIRTs and CSIRTs should do within an organization ([FIRST Services Framework](https://www.first.org/standards/frameworks/)).
 
@@ -4613,127 +4613,127 @@ No system is perfect. A complication is that the CWEs identified here are at var
   </tr>
   <tr>
     <td>[1]</td>
-    <td>CWE-119</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/119.html">CWE-119</a></td>
     <td>Improper Restriction of Operations within the Bounds of a Memory Buffer</td>
   </tr>
   <tr>
     <td>[2]</td>
-    <td>CWE-79</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/79.html">CWE-79</a></td>
     <td>Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')</td>
   </tr>
   <tr>
     <td>[3]</td>
-    <td>CWE-20</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/20.html">CWE-20</a></td>
     <td>Improper Input Validation</td>
   </tr>
   <tr>
     <td>[4]</td>
-    <td>CWE-200</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/200.html">CWE-200</a></td>
     <td>Information Exposure</td>
   </tr>
   <tr>
     <td>[5]</td>
-    <td>CWE-125</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/125.html">CWE-125</a></td>
     <td>Out-of-bounds Read</td>
   </tr>
   <tr>
     <td>[6]</td>
-    <td>CWE-89</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a></td>
     <td>Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')</td>
   </tr>
   <tr>
     <td>[7]</td>
-    <td>CWE-416</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/416.html">CWE-416</a></td>
     <td>Use After Free</td>
   </tr>
   <tr>
     <td>[8]</td>
-    <td>CWE-190</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/190.html">CWE-190</a></td>
     <td>Integer Overflow or Wraparound</td>
   </tr>
   <tr>
     <td>[9]</td>
-    <td>CWE-352</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/352.html">CWE-352</a></td>
     <td>Cross-Site Request Forgery (CSRF)</td>
   </tr>
   <tr>
     <td>[10]</td>
-    <td>CWE-22</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/22.html">CWE-22</a></td>
     <td>Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')</td>
   </tr>
   <tr>
     <td>[11]</td>
-    <td>CWE-78</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/78.html">CWE-78</a></td>
     <td>Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')</td>
   </tr>
   <tr>
     <td>[12]</td>
-    <td>CWE-787</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/787.html">CWE-787</a></td>
     <td>Out-of-bounds Write</td>
   </tr>
   <tr>
     <td>[13]</td>
-    <td>CWE-287</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/287.html">CWE-287</a></td>
     <td>Improper Authentication</td>
   </tr>
   <tr>
     <td>[14]</td>
-    <td>CWE-476</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/476.html">CWE-476</a></td>
     <td>NULL Pointer Dereference</td>
   </tr>
   <tr>
     <td>[15]</td>
-    <td>CWE-732</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/732.html">CWE-732</a></td>
     <td>Incorrect Permission Assignment for Critical Resource</td>
   </tr>
   <tr>
     <td>[16]</td>
-    <td>CWE-434</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/434.html">CWE-434</a></td>
     <td>Unrestricted Upload of File with Dangerous Type</td>
   </tr>
   <tr>
     <td>[17]</td>
-    <td>CWE-611</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/611.html">CWE-611</a></td>
     <td>Improper Restriction of XML External Entity Reference</td>
   </tr>
   <tr>
     <td>[18]</td>
-    <td>CWE-94</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/94.html">CWE-94</a></td>
     <td>Improper Control of Generation of Code ('Code Injection')</td>
   </tr>
   <tr>
     <td>[19]</td>
-    <td>CWE-798</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/798.html">CWE-798</a></td>
     <td>Use of Hard-coded Credentials</td>
   </tr>
   <tr>
     <td>[20]</td>
-    <td>CWE-400</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/400.html">CWE-400</a></td>
     <td>Uncontrolled Resource Consumption</td>
   </tr>
   <tr>
     <td>[21]</td>
-    <td>CWE-772</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/772.html">CWE-772</a></td>
     <td>Missing Release of Resource after Effective Lifetime</td>
   </tr>
   <tr>
     <td>[22]</td>
-    <td>CWE-426</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/426.html">CWE-426</a></td>
     <td>Untrusted Search Path</td>
   </tr>
   <tr>
     <td>[23]</td>
-    <td>CWE-502</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/502.html">CWE-502</a></td>
     <td>Deserialization of Untrusted Data</td>
   </tr>
   <tr>
     <td>[24]</td>
-    <td>CWE-269</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/269.html">CWE-269</a></td>
     <td>Improper Privilege Management</td>
   </tr>
   <tr>
     <td>[25]</td>
-    <td>CWE-295</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/295.html">CWE-295</a></td>
     <td>Improper Certificate Validation</td>
   </tr>
 </table>
@@ -4753,77 +4753,77 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   </tr>
   <tr>
     <td>[26]</td>
-    <td>CWE-835</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/835.html">CWE-835</a></td>
     <td>Loop with Unreachable Exit Condition ('Infinite Loop')</td>
   </tr>
   <tr>
     <td>[27]</td>
-    <td>CWE-522</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/522.html">CWE-522</a></td>
     <td>Insufficiently Protected Credentials</td>
   </tr>
   <tr>
     <td>[28]</td>
-    <td>CWE-704</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/704.html">CWE-704</a></td>
     <td>Incorrect Type Conversion or Cast</td>
   </tr>
   <tr>
     <td>[29]</td>
-    <td>CWE-362</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/362.html">CWE-362</a></td>
     <td>Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')</td>
   </tr>
   <tr>
     <td>[30]</td>
-    <td>CWE-918</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/918.html">CWE-918</a></td>
     <td>Server-Side Request Forgery (SSRF)</td>
   </tr>
   <tr>
     <td>[31]</td>
-    <td>CWE-415</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/415.html">CWE-415</a></td>
     <td>Double Free</td>
   </tr>
   <tr>
     <td>[32]</td>
-    <td>CWE-601</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/601.html">CWE-601</a></td>
     <td>URL Redirection to Untrusted Site ('Open Redirect')</td>
   </tr>
   <tr>
     <td>[33]</td>
-    <td>CWE-863</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/863.html">CWE-863</a></td>
     <td>Incorrect Authorization</td>
   </tr>
   <tr>
     <td>[34]</td>
-    <td>CWE-862</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/862.html">CWE-862</a></td>
     <td>Missing Authorization</td>
   </tr>
   <tr>
     <td>[35]</td>
-    <td>CWE-532</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/532.html">CWE-532</a></td>
     <td>Inclusion of Sensitive Information in Log Files</td>
   </tr>
   <tr>
     <td>[36]</td>
-    <td>CWE-306</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/306.html">CWE-306</a></td>
     <td>Missing Authentication for Critical Function</td>
   </tr>
   <tr>
     <td>[37]</td>
-    <td>CWE-384</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/384.html">CWE-384</a></td>
     <td>Session Fixation</td>
   </tr>
   <tr>
     <td>[38]</td>
-    <td>CWE-326</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/326.html">CWE-326</a></td>
     <td>Inadequate Encryption Strength</td>
   </tr>
   <tr>
     <td>[39]</td>
-    <td>CWE-770</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/770.html">CWE-770</a></td>
     <td>Allocation of Resources Without Limits or Throttling</td>
   </tr>
   <tr>
     <td>[40]</td>
-    <td>CWE-617</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/617.html">CWE-617</a></td>
     <td>Reachable Assertion</td>
   </tr>
 </table>
@@ -4921,7 +4921,7 @@ Breeden II, John, *9 top fuzzing tools: Finding the weirdest application errors*
 
 Bressers, Josh, *Broken vulnerabilities severities*, 2020-05-25 ([https://opensourcesecurity.io/2020/05/27/broken-vulnerability-severities/](https://opensourcesecurity.io/2020/05/27/broken-vulnerability-severities/))
 
-Butler, Ricky W., *What is Formal Methods? *([https://shemesh.larc.nasa.gov/fm/fm-what.html](https://shemesh.larc.nasa.gov/fm/fm-what.html))
+Butler, Ricky W., *What is Formal Methods?* ([https://shemesh.larc.nasa.gov/fm/fm-what.html](https://shemesh.larc.nasa.gov/fm/fm-what.html))
 
 C FAQ list ([http://c-faq.com/ansi/undef.html](http://c-faq.com/ansi/undef.html))
 
@@ -4943,7 +4943,7 @@ Common Criteria, *Common Criteria for Information Technology Security Evaluation
 
 Corbet, Jonathan, *A new hash algorithm for Git*, 2020 ([https://lwn.net/Articles/811068/](https://lwn.net/Articles/811068/))
 
-Core Infrastructure Initiative (CII), *CII Best Practices Badge Program *([https://bestpractices.coreinfrastructure.org/en](https://bestpractices.coreinfrastructure.org/en))
+Core Infrastructure Initiative (CII), *CII Best Practices Badge Program* ([https://bestpractices.coreinfrastructure.org/en](https://bestpractices.coreinfrastructure.org/en))
 
 Core Infrastructure Initiative (CII), *BadgeApp Security: Its Assurance Case* ([https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md))
 
@@ -5047,7 +5047,7 @@ Open Web Application Security Project (OWASP), *OWASP Top 10 Web Application Sec
 
 Open Web Application Security Project (OWASP), *OWASP Mobile Top 10* ([https://owasp.org/www-project-mobile-top-10/](https://owasp.org/www-project-mobile-top-10/))
 
-Open Web Application Security Project (OWASP), *OWASP Internet of Things Project *([https://wiki.owasp.org/index.php/OWASP_Internet_of_Things_Project](https://wiki.owasp.org/index.php/OWASP_Internet_of_Things_Project))
+Open Web Application Security Project (OWASP), *OWASP Internet of Things Project* ([https://wiki.owasp.org/index.php/OWASP_Internet_of_Things_Project](https://wiki.owasp.org/index.php/OWASP_Internet_of_Things_Project))
 
 Open Web Application Security Project (OWASP), *Regular expression Denial of Service - ReDoS* ([https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS))
 
@@ -5103,7 +5103,7 @@ Shu, Xiaokui; Ciambrone, Andrew; Yao, Danfeng, *Breaking the Target: An Analysis
 
 Sim, Darren, *Security Vulnerability and Browser Performance Impact of Target="_blank”*, 2019-03-23 ([https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547))
 
-State of California,* California Online Privacy Protection Act (OPPA), *2003 ([https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575))
+State of California, *California Online Privacy Protection Act (OPPA)*, 2003 ([https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575))
 
 State of California, *California Online Privacy Protection Act (OPPA), CHAPTER 22. Internet Privacy Requirements [22575-22579]*, 2003 ([https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575))
 
