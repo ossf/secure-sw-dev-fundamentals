@@ -866,7 +866,7 @@ You can use JavaScript securely, you just need to do it correctly. You can send 
 
 The following figure shows a similar but secure design; notice that all the security-related checks are being done in the server, since in this case that is the system we can trust. It also prevents direct database access, which is often a good idea if users do not need direct access:
 
-![Secure design: In this figure some security-relevant input validation checks are run in a web browser, but all security checks are run by the web server, even if some were run in the browser earlier. Since the server in this case is trusted, this is a secure design. The database is not directly accessible by logged-in users; this is a good architecture, because direct access to the database is often unnecessary.](secure_design.png)
+![A More Secure Alternative of the JavaScript Application: In this figure some security-relevant input validation checks are run in a web browser, but all security checks are run by the web server, even if some were run in the browser earlier. Since the server in this case is trusted, this is a secure design. The database is not directly accessible by logged-in users; this is a good architecture, because direct access to the database is often unnecessary.](secure_design.png)
 
 A More Secure Alternative of the JavaScript Application
 
@@ -3755,9 +3755,9 @@ Many symmetric key algorithms, including AES, are what is called *block algorith
 
 The ECB mode is basically a debug or test mode for testing cryptographic algorithms. In ECB mode, the same block of data will produce the same encryption result. This is disastrous for an encryption algorithm, because it reveals far too much about the data that is supposed to be encrypted. A great illustration of this is the so-called "ECB Penguin" image; this image is encrypted using an ECB mode. Encrypted images should appear as random noise, but because ECB mode is used, in the ECB Penguin the image of Tux the Penguin is clearly visible.
 
-![image alt text](ecb_penguin.png)
+![The ECB Penguin: A dark encrypted image that clearly shows the Linux mascot, Tux the Penguin](ecb_penguin.png)
 
-The ECB Penguin [ALT: A dark encrypted image that clearly shows the Linux mascot, Tux the Penguin], by Filippo Valsorda, retrieved from [filippo.io](https://blog.filippo.io/the-ecb-penguin/). Licensed under [CC BY-SA 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode). This image was inspired by the original lower-resolution ECB Penguin image by Wikipedia User: Lunkwill. Source "The ECB Penguin" (2013-11-10). Based on the Tux the penguin official Linux mascot created by Larry Ewing in 1996
+The ECB Penguin, by Filippo Valsorda, retrieved from [filippo.io](https://blog.filippo.io/the-ecb-penguin/). Licensed under [CC BY-SA 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode). This image was inspired by the original lower-resolution ECB Penguin image by Wikipedia User: Lunkwill. Source "The ECB Penguin" (2013-11-10). Based on the Tux the penguin official Linux mascot created by Larry Ewing in 1996
 
 Historically the *Cipher block chaining* (CBC) mode was used, but this must be calculated sequentially, so it is slow on multi-core systems. Another problem is that many systems that use CBC are vulnerable to attacks unless they are integrity-checked first. So in general, it is best to avoid CBC mode today ([Microsoft CBC Documentation](https://docs.microsoft.com/en-us/dotnet/standard/security/vulnerabilities-cbc-mode), 2020).
 
