@@ -4,7 +4,9 @@ by David A. Wheeler
 
 This is the content of a trio of self-paced courses designed for delivery on edX. Users can learn from it for free, or apply for a certificate of completion for a fee.
 
-To *take* the course, please go to edX, either via OpenSSF <[https://openssf.org/edx-courses/](https://openssf.org/edx-courses/)> or directly to their pages at [https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals](https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals)
+To *take* the course, please go to edX, either via OpenSSF <[https://openssf.org/edx-courses/](https://openssf.org/edx-courses/)> or directly to their pages at [https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals](https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals).
+To get this content in Markdown format, go to <https://github.com/ossf/secure-sw-dev-fundamentals>.
+You can also request to [see this content via Google docs](https://docs.google.com/document/d/1oN6juqVR7KXuvclHvoY0pr_XQmC6t6uXMLcYphPsUsA/edit).
 
 This is split into 3 smaller courses (part 1-3):
 
@@ -14,7 +16,7 @@ This is split into 3 smaller courses (part 1-3):
 
 3. Secure Software Development - Part III, Verification and More Specialized Topics [Covers verification, threat models, cryptography, & other advanced topics] - ~ 3-5 hours
 
-These learning materials (including section quizzes) are released under the Creative Commons Attribution (CC-BY) license, specifically CC-BY-4.0. We do NOT release the chapter/final exams that way, as that would encourage cheating. If by some circumstance you end up with access to those exams,  DO NOT RELEASE them, please!
+These learning materials (including section quizzes) are released under the Creative Commons Attribution (CC-BY) license, specifically CC-BY-4.0. A few images (e.g., from XKCD) have different licenses and are noted as such. We do NOT release the chapter/final exams that way, as that would encourage cheating. If by some circumstance you end up with access to those exams,  DO NOT RELEASE them, please!
 
 We can quickly fix significant mistakes, but we otherwise want to only implement updates every 1-1.5 years so its contents stay relatively stable. You can propose a change via [https://github.com/ossf/secure-sw-dev-fundamentals/issues](https://github.com/ossf/secure-sw-dev-fundamentals/issues). This course content was reconciled with the materials posted on edX as of 2020-12-03. LF Training & Certification has determined, from experience, that it’s safer & more reliable to write/edit content on some other platform and then convert it to edX (that is, instead of Don’t Repeat Yourself (DRY) it is safer to Write Everything Twice (WET)), so that is the process we’re using. The original document was developed using Google docs; other formats are translations, which may have translation errors.
 
