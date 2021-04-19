@@ -1,5 +1,4 @@
-# secure-sw-dev-fundamentals
-Secure Software Development Fundamentals edX courses (from the OpenSSF Best Practices WG)
+# secure-sw-dev-fundamentals: Secure Software Development Fundamentals edX courses (from the OpenSSF Best Practices WG)
 
 This repository is for managing and sharing the content of the
 *Secure Software Development Fundamentals*
