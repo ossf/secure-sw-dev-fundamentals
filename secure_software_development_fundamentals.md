@@ -246,17 +246,17 @@ Put another way, privacy is about protecting personal data about individuals fro
 
 While some have argued that privacy is no longer possible or relevant, many others disagree, and many laws have been put in place around the world to protect privacy. One accessible summary for the widespread position that privacy is important is Glenn Greenwald’s TED Talk [*“Why privacy matters”*](https://www.ted.com/talks/glenn_greenwald_why_privacy_matters) (2014). Here are some of his points (see the talk for details):
 
-* People who say, *“If you're doing something that you don’t want other people to know, maybe you shouldn't be doing it in the first place”* are engaged in extreme self-deprecation; *“What they're really saying is,"I have agreed to make myself such a harmless and unthreatening and uninteresting person that I actually don't fear having the government know what it is that I'm doing.’”*
+* People who say, *“If you’re doing something that you don’t want other people to know, maybe you shouldn’t be doing it in the first place”* are engaged in extreme self-deprecation; *“What they’re really saying is,"I have agreed to make myself such a harmless and unthreatening and uninteresting person that I actually don’t fear having the government know what it is that I’m doing.’”*
 
 * Many of these same people [who make these claims] do not actually act in this way, e.g., they will take many steps to gain privacy for themselves.
 
-* *“There’s a reason privacy is so craved universally and instinctively… when we're in a state where we can be monitored, where we can be watched, our behavior changes dramatically… There are dozens of psychological studies that prove that when somebody knows that they might be watched, the behavior they engage in is vastly more conformist and compliant.”*
+* *“There’s a reason privacy is so craved universally and instinctively… when we’re in a state where we can be monitored, where we can be watched, our behavior changes dramatically… There are dozens of psychological studies that prove that when somebody knows that they might be watched, the behavior they engage in is vastly more conformist and compliant.”*
 
 * *“Mass surveillance creates a prison in the mind that is a much more subtle though much more effective means of fostering compliance with social norms or with social orthodoxy, much more effective than brute force could ever be.”*
 
 * *“A society in which people can be monitored at all times is a society that breeds conformity and obedience and submission, which is why every tyrant, the most overt to the most subtle, craves that system.”*
 
-* *“When we allow a society to exist in which we're subject to constant monitoring, we allow the essence of human freedom to be severely crippled.”*
+* *“When we allow a society to exist in which we’re subject to constant monitoring, we allow the essence of human freedom to be severely crippled.”*
 
 * *“a system of mass surveillance suppresses our own freedom in all sorts of ways. It renders off-limits all kinds of behavioral choices without our even knowing that it’s happened.”*
 
@@ -472,7 +472,7 @@ Note that the first step (beyond planning) is identifying risks. But how do you 
 
 Bruce Schneier has this wonderful story ([*The Security Mindset*](https://www.schneier.com/blog/archives/2008/03/the_security_mi_1.html), 2008): 
 
-> *“Uncle Milton Industries has been selling ant farms to children since 1956. Some years ago, I remember opening one up with a friend. There were no actual ants included in the box. Instead, there was a card that you filled in with your address, and the company would mail you some ants. My friend expressed surprise that you could get ants sent to you in the mail. [Bruce Schneier] replied: ‘What’s really interesting is that these people will send a tube of live ants to anyone you tell them to.’ … Security requires a particular mindset. Security professionals -- at least the good ones -- see the world differently. They can’t walk into a store without noticing how they might shoplift. They can't use a computer without wondering about the security vulnerabilities. They can't vote without trying to figure out how to vote twice.”*
+> *“Uncle Milton Industries has been selling ant farms to children since 1956. Some years ago, I remember opening one up with a friend. There were no actual ants included in the box. Instead, there was a card that you filled in with your address, and the company would mail you some ants. My friend expressed surprise that you could get ants sent to you in the mail. [Bruce Schneier] replied: ‘What’s really interesting is that these people will send a tube of live ants to anyone you tell them to.’ … Security requires a particular mindset. Security professionals -- at least the good ones -- see the world differently. They can’t walk into a store without noticing how they might shoplift. They can’t use a computer without wondering about the security vulnerabilities. They can’t vote without trying to figure out how to vote twice.”*
 
 Can this mindset be taught? Our experience is that it can be, at least in part. Checklists, guidance, and tips help remind people to look for certain things, especially when they are built from relevant past experiences. Another technique that helps is working to develop a slightly paranoid mind-set. Not a clinical level of paranoia, but a constant low-level concern that there are many risks and that some people really are out to get you. Remember that some users will intentionally seek to cause rare, unlikely, or unexpected situations, in the hope that such attacks will give them unwarranted privileges. As a result, when writing secure programs, paranoia is a virtue. Talking about risks with others, reviewing plans with others, and continuously looking for risks can all help identify risks so that they can be addressed *before* they become problems.
 
@@ -480,7 +480,7 @@ Can this mindset be taught? Our experience is that it can be, at least in part. 
 
 In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier has famously explained that 
 
-> *“security is a process not a product… there’s no such thing as perfect security. Interestingly enough, that's not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…”.*
+> *“security is a process not a product… there’s no such thing as perfect security. Interestingly enough, that’s not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…”.*
 
 The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change.. Software that was secure a year or five ago may not be adequate today. 
 
