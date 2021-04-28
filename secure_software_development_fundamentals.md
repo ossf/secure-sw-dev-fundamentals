@@ -22,13 +22,64 @@ We can quickly fix significant mistakes, but we otherwise want to only implement
 
 The learning approach is designed to potentially support many users (with a potential of 10-15 million), so all problems (including knowledge checks) must be completely automated. There are no plans to use cohorts, discussions, or anything else requiring human instructors (because that doesn’t scale well). In most cases the knowledge checks are 1-2 multiple choice questions. They will generally have a random *order* of answers, but not Randomized *values* of answer (no Python script is involved).
 
-The “about” page, marketing material, etc., is not covered in this document.
-
 Note that edX requires groupings at 3 levels: Sections, Subsections, and Units. Only Units (level 3) can have content.  We represent this in the material below as follows:  A “Heading 1” represents the beginning of a Section and contains ONLY sequences beginning with “Heading 2” (no text). A “Heading 2” represents the beginning of a Subsection and contains ONLY sequences beginning with “Heading 3”. A “Heading 3” represents the beginning of a Unit and contains all content. A Heading 3 cannot be directly contained within a Heading 1. Heading 4 (and below) are used freely within a Unit.
 
 For more information about this material, see the folder here:
 
 [https://drive.google.com/drive/folders/1AwqHfObQXxZrFSscXHBs8k5GSOCIKzxs](https://drive.google.com/drive/folders/1AwqHfObQXxZrFSscXHBs8k5GSOCIKzxs)
+
+**About this course (Part 1)**
+
+Modern software is under constant attack, but many software developers have never been told how to effectively counter those attacks. This course works to solve that problem, by explaining the fundamentals of developing secure software. Geared towards software developers, DevOps professionals, software engineers, web application developers, and others interested in learning how to develop secure software, this course focuses on practical steps that can be taken, even with limited resources, to improve information security. This course will enable software developers to create and maintain systems that are much harder to successfully attack, reduce the damage when attacks are successful, and speed the response so that any latent vulnerabilities can be rapidly repaired.
+
+This course discusses the basics of security, such as what risk management really means. It discusses how to consider security as part of the requirements of a system, and what potential security requirements you might consider. This part then discusses how to design software to be secure, including various secure design principles that will help you avoid bad designs and embrace good ones. It also discusses how to secure your software supply chain, that is, how to more securely select and acquire reused software (including open source software) to enhance security.
+
+This is the first of the three courses in the Secure Software Development Fundamentals Professional Certificate program, and was developed by the Open Source Security Foundation (OpenSSF), a project of the Linux Foundation focused on securing the open source ecosystem. The training courses included in this program focus on practical steps that you (as a developer) can take to counter most common kinds of attacks.
+
+**What you'll learn (Part 1)**
+
+<ul>
+<li>Security basics: risk management, the “CIA” triad, and requirements.</li>
+<li>Secure design principles: what are principles such as “least privilege” and how to apply these principles.</li>
+<li>Supply chain evaluation: tips on how to choose packages to reuse, and how to reuse them so that you can rapidly be alerted & update.</li>
+</ul>
+
+**About this course (Part 2)**
+
+Modern software is under constant attack, but many software developers have never been told how to effectively counter those attacks. This course works to solve that problem, by explaining the fundamentals of developing secure software. Geared towards software developers, DevOps professionals, software engineers, web application developers, and others interested in learning how to develop secure software, this course focuses on practical steps that can be taken, even with limited resources to improve information security. This course will enable software developers to create and maintain systems that are much harder to successfully attack, reduce the damage when attacks are successful, and speed the response so that any latent vulnerabilities can be rapidly repaired.
+
+This course focuses on key implementation issues: input validation (such as why allowlists should be used and not denylists), processing data securely, calling out to other programs, sending output, and error handling. It focuses on practical steps that you (as a developer) can take to counter the most common kinds of attacks.
+
+This is the second of the three courses in the Secure Software Development Fundamentals Professional Certificate program, and was developed by the Open Source Security Foundation (OpenSSF), a project of the Linux Foundation focused on securing the open source ecosystem.
+
+**What you'll learn (Part 2)**
+
+<ul>
+<li>Implementation: You’ll learn how to implement much more secure software. This includes how to do Input validation, process data securely, call out to other programs, and send output. You’ll also learn about more specialized approaches, including some basics of cryptography and handling problems (such as error-handling code).</li>
+</ul>
+
+**About this course (Part 3)**
+
+Modern software is under constant attack, but many software developers have never been told how to effectively counter those attacks. This course works to solve that problem, by explaining the fundamentals of developing secure software. Geared towards software developers, DevOps professionals, software engineers, web application developers, and others interested in learning how to develop secure software, this course focuses on practical steps that can be taken, even with limited resources to improve information security. This course will enable software developers to create and maintain systems that are much harder to successfully attack, reduce the damage when attacks are successful, and speed the response so that any latent vulnerabilities can be rapidly repaired.
+
+This course discusses how to verify software for security. In particular, it discusses the various static and dynamic analyses approaches, as well as how to apply them (e.g., in a continuous integration pipeline). It also discusses more specialized topics, such as the basics of how to develop a threat model and how to apply various cryptographic capabilities.
+
+This is the third of the three courses in the Secure Software Development Fundamentals Professional Certificate program, and was developed by the Open Source Security Foundation (OpenSSF), a project of the Linux Foundation focused on securing the open source ecosystem. The training courses included in this program focus on practical steps that you (as a developer) can take to counter most common kinds of attacks.
+
+**What you'll learn (Part 3)**
+
+<ul>
+<li>Security Verification: How to examine software, include some key tool types, and how to apply them in continuous integration (CI). This includes learning about security code scanners/static application security testing (SAST) tools, software component analysis (SCA)/dependency analysis tools, fuzzers, and web application scanners.</li>
+<li>Threat modeling/Attack modeling: How to consider your system from an attacker’s point of view and how to apply a simple design analysis approach called STRIDE.</li>
+<li>Fielding: How to deploy and operate secure software, handle vulnerability reports, and how to rapidly update when reused components have publicly-known vulnerabilities.</li>
+<li>Assurance cases & formal methods: The basics of approaches to more strongly analyze and justify that your software is secure.</li>
+</ul>
+
+**Meet your instructor**
+
+David A. Wheeler<br>
+Director of Open Source Supply Chain Security at The Linux Foundation<br>
+Dr. David A. Wheeler is an expert in developing secure software and in open source software (OSS). He is the Director of Open Source Supply Chain Security at the Linux Foundation and teaches graduate courses in developing secure software at George Mason University (GMU) in Fairfax, VA. He has a PhD in Information Technology, a Master's in Computer Science, a certificate in Information Security, a certificate in software engineering, and a B.S. in Electronics Engineering. He is also a Certified Information Systems Security Professional (CISSP) and an IEEE Senior member. He leads the Core Infrastructure Initiative (CII) Best Practices Badge project for the Linux Foundation and has served as a lead validator for National Information Assurance Partnership (NIAP) for the (security) Common Criteria. He lives in Northern Virginia.
 
 # Table of contents
 
