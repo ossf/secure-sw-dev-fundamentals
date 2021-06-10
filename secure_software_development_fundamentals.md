@@ -69,7 +69,7 @@ This is the third of the three courses in the Secure Software Development Fundam
 **What you'll learn (Part 3)**
 
 <ul>
-<li>Security Verification: How to examine software, include some key tool types, and how to apply them in continuous integration (CI). This includes learning about security code scanners/static application security testing (SAST) tools, software component analysis (SCA)/dependency analysis tools, fuzzers, and web application scanners.</li>
+<li>Security Verification: How to examine software, include some key tool types, and how to apply them in continuous integration (CI). This includes learning about security code scanners/static application security testing (SAST) tools, software composition analysis (SCA)/dependency analysis tools, fuzzers, and web application scanners.</li>
 <li>Threat modeling/Attack modeling: How to consider your system from an attacker’s point of view and how to apply a simple design analysis approach called STRIDE.</li>
 <li>Fielding: How to deploy and operate secure software, handle vulnerability reports, and how to rapidly update when reused components have publicly-known vulnerabilities.</li>
 <li>Assurance cases & formal methods: The basics of approaches to more strongly analyze and justify that your software is secure.</li>
@@ -1154,6 +1154,8 @@ There are many important things to consider when selecting reusable software. Fo
 
     4. Is there evidence that the software is malicious? The authors of [*Backstabber’s Knife Collection: A Review of Open Source Software Supply Chain Attacks*](https://arxiv.org/abs/2005.09535) (2020) article notes traits that are especially common in malicious packages: most malicious packages perform malicious actions during installation (so check the installation routines), most aim at data exfiltration (so check for extraction and sending of data like **~/.ssh** or environment variables), and about half use some sort of obfuscation (so look for encoded values that end up being executed). You could also run the software in a sandbox with an environment intended to trigger likely issues, and see if the software attempts to do something malicious. Some malicious software detects that it is being examined and behaves well when examined, so running code in a sandbox does not guarantee detection… but it may reduce risk.
 
+Most software depends on other software, which in turn often depends on other software with many tiers. A software bill of materials (SBOM) is a nested inventory that identifies the software components that make up a larger piece of software. Many ecosystems have ecosystem-specific SBOM formats. There are also some SBOM formats that support arbitrary ecosystems: [Software Package Data Exchange (SPDX)](https://spdx.dev/), [Software ID (SWID)](https://csrc.nist.gov/Projects/Software-Identification-SWID/), and [CycloneDX](https://github.com/CycloneDX/specification). When an SBOM is available for a component you are thinking about using, it’s often easier to use that data to help answer some of the questions listed above. It’s also good to provide an SBOM to potential users of your software, for the same reasons.
+
 ### Quiz 3.1
 
 \>\>What is evidence that the software you are thinking of reusing will probably be a good choice for security? Select all answers that apply.<<
@@ -1216,7 +1218,7 @@ In practice, you will have many reused software components, and they will need t
 
 5. Keep your reused software relatively up-to-date. If your reused components go very far out-of-date, then it may be very difficult to replace a vulnerable version with a fixed version.
 
-6. Monitor to determine if any of the software versions you use has had a publicly-known vulnerability discovered. We will discuss this later in the section on software component analysis (SCA).
+6. Monitor to determine if any of the software versions you use has had a publicly-known vulnerability discovered. We will discuss this later in the section on software composition analysis (SCA).
 
 > 😱 STORY TIME: Equifax
 
@@ -3342,7 +3344,7 @@ Here are some kinds of vulnerabilities that specialized SAST tools can detect:
 
 There are many other kinds of static analysis tools.
 
-One kind is so important that we will dedicate a whole separate section to it. The kind of analysis these tools do has a variety of names, including software component analysis (SCA), dependency analysis, and origin analysis. No matter what it is called, it is important, so we will discuss that next.
+One kind is so important that we will dedicate a whole separate section to it. The kind of analysis these tools do has a variety of names, including software composition analysis (SCA), dependency analysis, and origin analysis. No matter what it is called, it is important, so we will discuss that next.
 
 ### Quiz 1.2
 
@@ -3358,9 +3360,9 @@ This is true. They are useful, and in general you should use at least one such t
 
 [Explanation]
 
-### Software Component Analysis (SCA)/Dependency Analysis
+### Software Composition Analysis (SCA)/Dependency Analysis
 
-One kind of static analysis tool is so important that we want to discuss it separately. The kind of analysis these tools do has a variety of names, including software component analysis (SCA), dependency analysis, and origin analysis. No matter what it is called, it is important. Let’s first examine *why* it is important.
+One kind of static analysis tool is so important that we want to discuss it separately. The kind of analysis these tools do has a variety of names, including software composition analysis (SCA), dependency analysis, and origin analysis. No matter what it is called, it is important. Let’s first examine *why* it is important.
 
 #### Need for SCA
 
@@ -3376,7 +3378,7 @@ It is inevitable that you will need to quickly update vulnerable reused componen
 
 #### Preparing for the Inevitable: Vulnerabilities in Your Dependencies
 
-A key part of your preparation is to use a tool that can determine what software you reuse, and report on any publicly-known vulnerabilities in those reused components. Tools that can identify reused components have various names including software composition analysis (SCA) tools, dependency analysis tools, or origin analysis tools. Historically, many of these tools were developed for legal review, to ensure that all the reused software is being used in conformance to their licenses, that the licenses (as used) are compatible, and that there are licenses for all of it. It is a very good idea to include this kind of license analysis whenever you try to include or update any reused software. But for our purposes, we will focus on the tools that compare this list of components (including their version numbers) with databases of known vulnerabilities.
+A key part of your preparation is to use a tool that can determine what software you reuse, and report on any publicly-known vulnerabilities in those reused components. Tools that can identify reused components have various names including software composition analysis (SCA) tools, software component analysis tools, dependency analysis tools, or origin analysis tools. Historically, many of these tools were developed for legal review, to ensure that all the reused software is being used in conformance to their licenses, that the licenses (as used) are compatible, and that there are licenses for all of it. It is a very good idea to include this kind of license analysis whenever you try to include or update any reused software. But for our purposes, we will focus on the tools that compare this list of components (including their version numbers) with databases of known vulnerabilities.
 
 There are publicly-available databases of software with publicly known vulnerabilities; an especially widely-used database is the US National Vulnerability Database (NVD). The NVD is a publicly-available database of publicly-known vulnerabilities, all identified by a CVE identifier (each vulnerability has a different CVE identifier) combined with a list of products and version numbers which are known to have that vulnerability. Some commercial vendors have their own databases as well.
 
@@ -4164,6 +4166,8 @@ You should also use encryption to communicate among the key developers if you do
 #### Monitor for Vulnerabilities, Including Vulnerable Dependencies
 
 As we have already mentioned, monitor for vulnerabilities about your software and all libraries embedded in it. You can use Google alerts to alert you about your software from various news sources. Use a software composition analysis (SCA) / origin analysis tool to alert you about newly-found publicly-known vulnerabilities in your dependencies.
+
+As noted earlier, a software bill of materials (SBOM) is a nested inventory that identifies the software components that make up a larger piece of software. When an SBOM is available for a component you are using, it’s often easier to use that data to help detect known vulnerabilities. Many ecosystems have ecosystem-specific SBOM formats. There are also some SBOM formats that support arbitrary ecosystems: [Software Package Data Exchange (SPDX)](https://spdx.dev/), [Software ID (SWID)](https://csrc.nist.gov/Projects/Software-Identification-SWID/), and [CycloneDX](https://github.com/CycloneDX/specification).
 
 #### Consider Creating a Bug Bounty Program
 
