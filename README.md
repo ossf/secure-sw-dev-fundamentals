@@ -19,3 +19,5 @@ A newer one is [lmmx/gdocs2md-html](https://github.com/lmmx/gdocs2md-html)
 though that seems to have stalled later on.
 
 The original [content in Google Docs form](https://docs.google.com/document/d/1oN6juqVR7KXuvclHvoY0pr_XQmC6t6uXMLcYphPsUsA/edit) is also available but you may need to request access.
+
+Our thanks to Flavia Cioanca for her work to convert the text into a live course!
