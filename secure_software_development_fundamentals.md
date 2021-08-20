@@ -3960,7 +3960,7 @@ In short: Make sure you use a strong, properly-implemented cryptographically sec
 
 \>\>Select the true statement(s):<<
 
-[!x] In many programming languages, a cryptographically secure random number generator will have “secure” or “crypto” in its name.
+[!x] In many programming languages, a cryptographically secure pseudo-random number generator will have “secure” or “crypto” in its name.
 
 [x] In many programming languages, a function/method with the name “random” but no other indicator is typically a predictable random number and should not be used for security.
 
