@@ -17,7 +17,9 @@ patched to skip inline drawings.
 That project unfortunately seems to have stalled.
 A newer one is [lmmx/gdocs2md-html](https://github.com/lmmx/gdocs2md-html)
 though that seems to have stalled later on.
-
-The original [content in Google Docs form](https://docs.google.com/document/d/1oN6juqVR7KXuvclHvoY0pr_XQmC6t6uXMLcYphPsUsA/edit) is also available but you may need to request access.
+If you have a special need you may request
+view access to the [content in Google Docs form](https://docs.google.com/document/d/1oN6juqVR7KXuvclHvoY0pr_XQmC6t6uXMLcYphPsUsA/edit?usp=sharing). Please justify why you need it this unusual access; you almost certainly don't need it, since the content is the same.
+If you want to propose changes to the content, the preferred mechanism is
+via issues and pull requests.
 
 Our thanks to Flavia Cioanca for her work to convert the text into a live course!
