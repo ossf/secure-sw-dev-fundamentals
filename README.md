@@ -11,15 +11,15 @@ See the [*Secure Software Development Fundamentals* content converted into Markd
 
 This informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.txt), so you can reuse it in many ways. We want you to use this information! There are some exceptions: we quote other material (such as from xkcd) which are under their own licenses, and to counter cheating we do not release certain testing materials this way.
 
-This content was converted from Google docs format using
+This content was originally converted from Google docs format using
 [gdocs2md](http://github.com/mangini/gdocs2md),
 patched to skip inline drawings.
 That project unfortunately seems to have stalled.
 A newer one is [lmmx/gdocs2md-html](https://github.com/lmmx/gdocs2md-html)
 though that seems to have stalled later on.
-If you have a special need you may request
-view access to the [content in Google Docs form](https://docs.google.com/document/d/1oN6juqVR7KXuvclHvoY0pr_XQmC6t6uXMLcYphPsUsA/edit?usp=sharing). Please justify why you need it this unusual access; you almost certainly don't need it, since the content is the same.
 If you want to propose changes to the content, the preferred mechanism is
-via issues and pull requests.
+via issues and pull requests to the
+[secure-sw-dev-fundamentals](https://github.com/ossf/secure-sw-dev-fundamentals)
+project.
 
 Our thanks to Flavia Cioanca for her work to convert the text into a live course!
