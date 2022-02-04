@@ -6,7 +6,6 @@ This is the content of a trio of self-paced courses designed for delivery on edX
 
 To *take* the course, please go to edX, either via OpenSSF <[https://openssf.org/edx-courses/](https://openssf.org/edx-courses/)> or directly to their pages at [https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals](https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals).
 To get this content in Markdown format, go to <https://github.com/ossf/secure-sw-dev-fundamentals>.
-You can also request to [see this content via Google docs](https://docs.google.com/document/d/1oN6juqVR7KXuvclHvoY0pr_XQmC6t6uXMLcYphPsUsA/edit).
 
 This is split into 3 smaller courses (part 1-3):
 
