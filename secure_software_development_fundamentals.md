@@ -122,7 +122,7 @@ This course focuses on helping you understand how to practically develop secure 
 
 * that is much harder for attackers to exploit,
 
-* that limits damage is an exploitation is successful, and
+* that limits damage if an exploitation is successful, and
 
 * where vulnerabilities can be fixed and exploitations partially recovered from relatively quickly.
 
