@@ -78,7 +78,7 @@ This is the third of the three courses in the Secure Software Development Fundam
 
 David A. Wheeler<br>
 Director of Open Source Supply Chain Security at The Linux Foundation<br>
-Dr. David A. Wheeler is an expert in developing secure software and in open source software (OSS). He is the Director of Open Source Supply Chain Security at the Linux Foundation and teaches graduate courses in developing secure software at George Mason University (GMU) in Fairfax, VA. He has a PhD in Information Technology, a Master's in Computer Science, a certificate in Information Security, a certificate in software engineering, and a B.S. in Electronics Engineering. He is also a Certified Information Systems Security Professional (CISSP) and an IEEE Senior member. He leads the Core Infrastructure Initiative (CII) Best Practices Badge project for the Linux Foundation and has served as a lead validator for National Information Assurance Partnership (NIAP) for the (security) Common Criteria. He lives in Northern Virginia.
+Dr. David A. Wheeler is an expert in developing secure software and in open source software (OSS). He is the Director of Open Source Supply Chain Security at the Linux Foundation and teaches graduate courses in developing secure software at George Mason University (GMU) in Fairfax, VA. He has a PhD in Information Technology, a Master's in Computer Science, a certificate in Information Security, a certificate in software engineering, and a B.S. in Electronics Engineering. He is also a Certified Information Systems Security Professional (CISSP) and an IEEE Senior member. He leads the Open Source Security Foundation (OpenSSF) Best Practices Badge project for the Linux Foundation and has served as a lead validator for National Information Assurance Partnership (NIAP) for the (security) Common Criteria. He lives in Northern Virginia.
 
 # Table of contents
 
@@ -1117,7 +1117,7 @@ There are many important things to consider when selecting reusable software. Fo
 
 2. Is there evidence that its developers *work to make it secure*?
 
-    1. If it is OSS, has the project earned a Core Infrastructure Initiative (CII) Best Practices badge (or at least are they well on their way to that)? An OSS project that has earned a CII Best Practices badge implements a number of best practices for sustainably developing secure software. We will discuss this in more detail later in the section on verification. You can learn more about the [CII Best Practices badge](https://bestpractices.coreinfrastructure.org/en) online.
+    1. If it is OSS, has the project earned an Open Source Security Foundation (OpenSSF) Best Practices badge (or at least are they well on their way to that)? An OSS project that has earned an OpenSSF Best Practices badge implements a number of best practices for sustainably developing secure software. We will discuss this in more detail later in the section on verification. You can learn more about the [OpenSSF Best Practices badge](https://bestpractices.coreinfrastructure.org/en) online.
 
     2. Is there evidence that the developers use tools to detect defects and vulnerabilities as early as possible?
 
@@ -1161,7 +1161,7 @@ Most software depends on other software, which in turn often depends on other so
 
 [!x] Evidence that it is easy to use securely
 
-[x] An OSS project that has earned a CII Best Practices badge
+[x] An OSS project that has earned an OpenSSF Best Practices badge
 
 [x] An OSS project with multiple contributors active within the past year
 
@@ -3597,7 +3597,7 @@ A *penetration test* (aka *pen test*) simulates an attack on a system to try to 
 
 A *security audit* reviews a system to look for vulnerabilities. Often the phrase is used implying a more methodical approach, where designs and code are reviewed to look for problems. But that is not always true; the terms *security audit* and *penetration test* are sometimes used synonymously. Regardless of this, security audits and penetration tests often employ a variety of techniques, including both static and dynamic analysis, to try to find vulnerabilities before real attackers can find and exploit them.
 
-The Core Infrastructure Initiative (CII) Best Practices badge identifies a set of best practices for open source software (OSS) projects. There are three badge levels: passing, silver, and gold. Each level requires meeting the previous level; gold is especially difficult and *requires* multiple developers. Within each level are a set of criteria that are considered best practices for developing secure and sustainable OSS, and each criterion has a short identifier. Here are some examples of its criteria:
+The Open Source Security Foundation (OpenSSF) Best Practices badge identifies a set of best practices for open source software (OSS) projects. There are three badge levels: passing, silver, and gold. Each level requires meeting the previous level; gold is especially difficult and *requires* multiple developers. Within each level are a set of criteria that are considered best practices for developing secure and sustainable OSS, and each criterion has a short identifier. Here are some examples of its criteria:
 
 * “*The project MUST **use at least one automated test suite that is publicly released as FLOSS** (this test suite may be maintained as a separate FLOSS project).”* [test] Note that this criterion is solely about a traditional automated test suite (e.g., for its functionality).
 
@@ -3605,7 +3605,7 @@ The Core Infrastructure Initiative (CII) Best Practices badge identifies a set o
 
 * *“The project sites (website, repository, and download URLs) MUST support HTTPS using TLS.”* [sites_https]
 
-If you are using OSS, consider preferring OSS who have earned a badge. If you are developing OSS, you should strongly consider working to earn a Core Infrastructure Initiative (CII) Best Practices badge. By implementing these best practices you will increase the likelihood of developing higher-quality and more secure software. To learn more and get started, check out the [CII Best Practices Badge Program](https://bestpractices.coreinfrastructure.org/en).
+If you are using OSS, consider preferring OSS who have earned a badge. If you are developing OSS, you should strongly consider working to earn an Open Source Security Foundation (OpenSSF) Best Practices badge. By implementing these best practices you will increase the likelihood of developing higher-quality and more secure software. To learn more and get started, check out the [OpenSSF Best Practices Badge Program](https://bestpractices.coreinfrastructure.org/en).
 
 ### Quiz 1.7
 
@@ -3615,7 +3615,7 @@ If you are using OSS, consider preferring OSS who have earned a badge. If you ar
 
 [x] A security audit looks for vulnerabilities by reviewing information about the system, and often implies a methodical approach.
 
-[x] The CII Best Practices badge is a set of criteria for open source software projects.
+[x] The OpenSSF Best Practices badge is a set of criteria for open source software projects.
 
 [ ] None of the above
 
@@ -4151,7 +4151,7 @@ In the rest of this unit we will discuss some of the key issues for accepting vu
 
 #### Publicly State How to Send Vulnerability Reports
 
-You must tell others, publicly, how to send vulnerability reports… and this information must be extremely easy to find. Otherwise, potential reporters will not report vulnerabilities to you, or there may be a significant delay while the project tries to figure out how to receive a report. This is time wasted where time is often of the essence. In 2019, failure to publicly state how to send vulnerability reports was the #1 most common reason OSS projects did not earn the CII Best Practices *passing* badge ([*Core Infrastructure Initiative (CII) Best Practices Badge in 2019*](https://events19.linuxfoundation.org/wp-content/uploads/2018/07/cii-bp-badge-2019-03.pdf), by David A. Wheeler).
+You must tell others, publicly, how to send vulnerability reports… and this information must be extremely easy to find. Otherwise, potential reporters will not report vulnerabilities to you, or there may be a significant delay while the project tries to figure out how to receive a report. This is time wasted where time is often of the essence. In 2019, failure to publicly state how to send vulnerability reports was the #1 most common reason OSS projects did not earn the OpenSSF Best Practices *passing* badge ([*Core Infrastructure Initiative (CII) Best Practices Badge in 2019*](https://events19.linuxfoundation.org/wp-content/uploads/2018/07/cii-bp-badge-2019-03.pdf), by David A. Wheeler).
 
 In one sense this requirement is easy. Decide what your reporting convention is, and make that information easy to find. Here are some common conventions:
 
@@ -4359,7 +4359,7 @@ We could then repeatedly break each item down further. For example, we might div
 
 * For verification, we might show that we use a variety of tools to detect vulnerabilities before the software is released. 
 
-For a detailed discussion and template for creating an assurance case, see [*A Sample Security Assurance Case Pattern*](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). If you would like to see an actual example, you can see the [CII Best Practices BadgeApp assurance case](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md).
+For a detailed discussion and template for creating an assurance case, see [*A Sample Security Assurance Case Pattern*](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). If you would like to see an actual example, you can see the [OpenSSF Best Practices BadgeApp assurance case](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md).
 
 When do you end? The usual answer is when the stakeholders agree that it is enough. If they don’t think it is enough, then ask them what would be enough and if they are willing to pay for those changes. If they are not paying you enough, then you don’t need to do it.
 
@@ -5010,10 +5010,6 @@ Common Criteria, *Common Criteria for Information Technology Security Evaluation
 
 Corbet, Jonathan, *A new hash algorithm for Git*, 2020 ([https://lwn.net/Articles/811068/](https://lwn.net/Articles/811068/))
 
-Core Infrastructure Initiative (CII), *CII Best Practices Badge Program* ([https://bestpractices.coreinfrastructure.org/en](https://bestpractices.coreinfrastructure.org/en))
-
-Core Infrastructure Initiative (CII), *BadgeApp Security: Its Assurance Case* ([https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md))
-
 Dechand, Sergej, *What is FAST?*, 2020 ([https://blog.code-intelligence.com/what-is-fast](https://blog.code-intelligence.com/what-is-fast))
 
 Delaitre, Aurelien; Stivalet, Bertrand; Black, Paul E.; Okun, Vadim; Ribeiro, Athos; Cohen, Terry S., *SATE V Report: Ten Years of Static Analysis Tool Expositions*, NIST Special Publication 500-326, 2018 ([https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf)) or ([https://doi.org/10.6028/NIST.SP.500-326](https://doi.org/10.6028/NIST.SP.500-326))
@@ -5107,6 +5103,10 @@ Newcombe, Chris; Rath, Tim; Zhang, Fan; Munteanu, Bogdan; Brooker, Marc; Daerdeu
 Official EU site for the GDPR text ([https://eur-lex.europa.eu/eli/reg/2016/679/oj](https://eur-lex.europa.eu/eli/reg/2016/679/oj))
 
 Ohm, Marc; Plate, Henrik; Sykosch, Arnold; Meier, Michal, *Backstabber’s Knife Collection: A Review of Open Source Software Supply Chain Attacks*, 2020-05-19 ([https://arxiv.org/abs/2005.09535](https://arxiv.org/abs/2005.09535))
+
+Open Source Security Foundation (OpenSSF), *OpenSSF Best Practices Badge Program* ([https://bestpractices.coreinfrastructure.org/en](https://bestpractices.coreinfrastructure.org/en))
+
+Open Source Security Foundation (OpenSSF), *BadgeApp Security: Its Assurance Case* ([https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md))
 
 Open Source Security Foundation (OpenSSF), Vulnerability Disclosures Working Group ([https://github.com/ossf/wg-vulnerability-disclosures](https://github.com/ossf/wg-vulnerability-disclosures))
 
