@@ -2,9 +2,11 @@
 
 by David A. Wheeler
 
-This is the content of a trio of self-paced courses designed for delivery on edX. Users can learn from it for free, or apply for a certificate of completion for a fee.
+This is the content of a trio of self-paced courses. Users can learn from it for free, or apply for a certificate of completion for a fee.
 
-To *take* the course, please go to edX, either via OpenSSF <[https://openssf.org/edx-courses/](https://openssf.org/edx-courses/)> or directly to their pages at [https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals](https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals).
+To *take* the course, please go to the [OpenSSF web page on Secure Software Development Fundamentals courses](https://openssf.org/training/courses/).
+You can also go to its
+[edX page](https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals).
 To get this content in Markdown format, go to <https://github.com/ossf/secure-sw-dev-fundamentals>.
 
 This is split into 3 smaller courses (part 1-3):

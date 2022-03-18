@@ -5,7 +5,7 @@ This repository is for managing and sharing the content of the
 courses (from the OpenSSF Best Practices WG) that are available via edX.
 If you see something that should be changed, please file an issue.
 
-If you just want to *take* these courses, please [select the course you are interested in and take it on edX](https://openssf.org/edx-courses/).
+If you just want to *take* these courses, please [select the course you are interested in and take it](https://openssf.org/training/courses/).
 
 See the [*Secure Software Development Fundamentals* content converted into Markdown format](secure_software_development_fundamentals.md) for the main content of this repository.
 
