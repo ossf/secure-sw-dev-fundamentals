@@ -1089,7 +1089,7 @@ Learning objectives:
 
 ### Basics of Reusing Software
 
-When developing software, you normally reuse lots of other software. This may include an operating system, container runtime, frameworks, and libraries. You will typically also use development tools that others have developed. This reused software, and how you get it, can significantly impact the security of the result.
+When developing software, you normally reuse lots of other software. This may include an operating system, a container runtime, frameworks, libraries, extensions, plug-ins, themes, and so on. You will typically also use development tools that others have developed. This reused software, and how you get it, can significantly impact the security of the result.
 
 ![Dependency](dependency.png)
 
@@ -1098,6 +1098,8 @@ When developing software, you normally reuse lots of other software. This may in
 Some consider the selection of reused software as part of design, since it clearly impacts how we divide up the problem. Others might describe this as its own category, e.g., supply chain. No matter what you call it, it is important. In general, software systems today are mostly reused software from somewhere else.
 
 If you are purchasing expensive software you selected on behalf of an organization, there are often many steps and processes to work through, primarily focused on controlling money. That is outside the scope of this course. Instead, we are going to focus on the specific aspects related to security.
+
+Many systems support installing extensions that are separately developed and maintained than the “core” program (often by different developers).  ***Extensions need to be separately evaluated before installing them***. The core system may be relatively secure, but that does not mean all its extensions are secure, and often the biggest risks are from the extensions. These extensions may be called many names including extensions, plug-ins, add-ons, themes, components, or packages. No matter what they’re called, evaluate them too. For example, PatchStack reported that while WordPress powered 43.2% of websites on the web in 2021, “vulnerabilities from plugins and themes remain as one of the biggest threats to websites built on WordPress.” They noted that only 0.58% of security vulnerabilities originate from WordPress core in 2021; the rest of the vulnerabilities were in components (plugins and themes). What’s worse, 29% of the WordPress plugins with critical vulnerabilities received no patch. This wouldn’t matter as much if few sites used components, but on average a WordPress website has 18 different components (plugins and themes) installed. See [*State Of WordPress Security In 2021*](https://patchstack.com/whitepaper/the-state-of-wordpress-security-in-2021/) by PatchStack for more information.
 
 We’ll use the term “reused software” here, because that is our concern. This reused software includes all the software you depend on when the software runs, aka its dependencies. In practice, the vast majority of the software you reuse will be open source software (OSS), so we will especially focus on tips when reusing OSS.
 
@@ -5123,6 +5125,8 @@ Open Web Application Security Project (OWASP), *Unvalidated Redirects and Forwar
 Open Web Application Security Project (OWASP), *Vulnerability Disclosure Cheat Sheet* ([https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html))
 
 Qualys, *SSL Server Test* ([https://www.ssllabs.com/ssltest/](https://www.ssllabs.com/ssltest/))
+
+Patchstack, 2022, State Of WordPress Security In 2021 ([https://patchstack.com/whitepaper/the-state-of-wordpress-security-in-2021/]( https://patchstack.com/whitepaper/the-state-of-wordpress-security-in-2021/))
 
 Petro, Dan and Allan Cecil, 2021, You're Doing IoT RNG, DEF CON 29 ([https://labs.bishopfox.com/tech-blog/youre-doing-iot-rng](https://labs.bishopfox.com/tech-blog/youre-doing-iot-rng)) with presentation at [https://www.youtube.com/watch?v=Zuqw0-jZh9Y](https://www.youtube.com/watch?v=Zuqw0-jZh9Y)
 
