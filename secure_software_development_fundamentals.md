@@ -2176,6 +2176,41 @@ No, in C and C++ a null pointer dereference is undefined behavior. Any undefined
 
 [Explanation]
 
+## Processing Data Securely: Calculate Correctly
+
+### Avoid Integer Overflow, Wraparound, and Underflow
+
+It’s common to calculate integers in programs, such as by continuously incrementing (adding 1 to) a variable. However, no computer can truly handle an infinite number of digits. In fact, many programming languages use a fixed number of bits in their most common integer types, so the minimum and maximum integers have a much smaller range than what could be represented.
+
+If an attacker can cause an integer calculation to exceed the range of the integer’s representation, the result can be a vulnerability. Since integer calculations are common, and developers often forget that computers can’t actually handle an infinite number of digits, this is a relatively common vulnerability.
+
+As we’ve already noted, in C and C++, you must write your program so that attacker cannot cause the usual signed integer types (such as int) to overflow or underflow. A signed integer overflow or underflow is normally undefined behavior in C and C++, and the program is allowed to do anything at all when it occurs (including triggering a vulnerability).
+
+In C and C++, overflowing or underflowing an unsigned integer wraps around in its underlying representation (typically two’s complement). So for example, in C and C++ it’s typical that adding 1 to the largest representable unsigned value returns 0. In many other programming languages, both signed and unsigned integers are stored in a fixed length and wrap around on overflow & underflow (typically in two’s complement). This is not always a good thing; if an attacker can cause an underflow or overflow, and the program was not designed to handle it, the result can often be a vulnerability.
+
+Some programming languages automatically switch to “big number” integer formats as needed to support an arbitrary number of digits. These include Python, Ruby, and Scheme. Many other programming languages provide support for such formats, such as through a library, though you may need to specifically request using this format (e.g., as a type). These formats can’t really support an infinite number of digits, since no computer has infinite memory, but this does greatly reduce the risk of such problems. In many cases an exception is raised if the calculation runs out of space, so make sure the program can properly handle that exception. A common problem is that programs often need to call a routine written in a different programming language, and during that conversion the number may be converted incorrectly to a fixed-width format that cannot store the value (thus recreating the problem).
+
+The JavaScript programming language is an unusual case. The JavaScript specification, called ECMAScript, does not provide direct support for integers. Instead, integers are typically represented using floating point numbers. As noted in the ECMAScript language specification (section "The Number Type"), this means that JavaScript’s Number type can accurately represent all positive and negative mathematical integers whose magnitude is no greater than 2<sup>53</sup>. However, if an attacker can cause calculated integers to go beyond this range, odd things can happen. For example, incrementing a positive integer beyond this value is likely to produce an unchanged result. There are also some operators that only deal with integers in specific ranges (such as -2<sup>31</sup> through 2<sup>31</sup>-1 inclusive, or 0 through 2<sup>16</sup>-1 inclusive); make sure an attacker can’t cause those ranges to be exceeded before you call those operators. For more information see the ECMAScript ® 2021 Language Specification from ECMA.
+
+> 😱 STORY TIME: NetUSB CVE-2021-45608
+
+> An example of an integer overflow leading to a vulnerability is [CVE-2021-45608](), as explained in “[CVE-2021-45608 | NetUSB RCE Flaw in Millions of End User Routers](https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/)” by Sentinel Labs.  The KCodes NetUSB kernel module, used by a large number of network device vendors, had an integer overflow vulnerability. The module took an untrusted client-provided length, added 0x11, and allocated that amount of memory. If the requested length was large (e.g., all 1s in binary), the addition would wrap around, causing a too-small allocation. After that, data would be dumped into the too-small buffer. This shows that it’s important to check for wraparound when using attacker-controlled data, especially if you use it to make size or out-of-range decisions. Other rules can be learned as well. First, always validate data from an untrusted source (e.g., data from the Internet) - there was no reason to allow any allocation request this big. Second, this module listened to requests from the wide-area network (WAN) instead just the local area network (LAN); software should minimize privilege to only what's needed to reduce the likelihood or impact of damage if there is a vulnerability.
+
+
+🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound*.
+
+### Quiz
+
+>>Integer overflows can be ignored when handling untrusted data. True or False?<<
+
+( ) True
+(x) False
+
+[Explanation]
+No. The range of possible values varies by language and types used, but attackers can sometimes exploit integer overflows.
+[Explanation]
+
+
 # 3. Calling Other Programs
 
 This chapter describes how to call other programs securely, including how to counter injection attacks (including SQL injection and OS command injection) and how to properly handle filenames/pathnames.
@@ -5014,6 +5049,8 @@ Dechand, Sergej, *What is FAST?*, 2020 ([https://blog.code-intelligence.com/what
 
 Delaitre, Aurelien; Stivalet, Bertrand; Black, Paul E.; Okun, Vadim; Ribeiro, Athos; Cohen, Terry S., *SATE V Report: Ten Years of Static Analysis Tool Expositions*, NIST Special Publication 500-326, 2018 ([https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf)) or ([https://doi.org/10.6028/NIST.SP.500-326](https://doi.org/10.6028/NIST.SP.500-326))
 
+ECMA, ECMA-262, 12th edition, June 2021, ECMAScript® 2021 Language Specification, “The Number Type” ([https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type]((https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type))
+
 Enable Cross-Origin Resource Sharing ([https://enable-cors.org/](https://enable-cors.org/))
 
 Forum of Incident Response and Security Teams (FIRST), *FIRST Services Framework* ([https://www.first.org/standards/frameworks/](https://www.first.org/standards/frameworks/))
@@ -5165,6 +5202,8 @@ Schneier, Bruce, *Inside the Twisted Mind of the Security Professional*, Wired, 
 Security Headers website for testing headers on publicly accessible sites ([https://securityheaders.com/](https://securityheaders.com/))
 
 Security.txt ([https://securitytxt.org/](https://securitytxt.org/))
+
+Sentinel Labs, “CVE-2021-45608 | NetUSB RCE Flaw in Millions of End User Routers” ([https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/](https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/))
 
 Shahin, Mojtaba; Babar, Muhammad Ali; Zhu, Liming, *Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*, IEEE Access, 2017 ([https://arxiv.org/abs/1703.07019](https://arxiv.org/abs/1703.07019))  
 
