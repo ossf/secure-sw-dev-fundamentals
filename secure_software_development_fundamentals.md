@@ -25,10 +25,6 @@ The learning approach is designed to potentially support many users (with a pote
 
 Note that edX requires groupings at 3 levels: Sections, Subsections, and Units. Only Units (level 3) can have content.  We represent this in the material below as follows:  A “Heading 1” represents the beginning of a Section and contains ONLY sequences beginning with “Heading 2” (no text). A “Heading 2” represents the beginning of a Subsection and contains ONLY sequences beginning with “Heading 3”. A “Heading 3” represents the beginning of a Unit and contains all content. A Heading 3 cannot be directly contained within a Heading 1. Heading 4 (and below) are used freely within a Unit.
 
-For more information about this material, see the folder here:
-
-[https://drive.google.com/drive/folders/1AwqHfObQXxZrFSscXHBs8k5GSOCIKzxs](https://drive.google.com/drive/folders/1AwqHfObQXxZrFSscXHBs8k5GSOCIKzxs)
-
 **About this course (Part 1)**
 
 Modern software is under constant attack, but many software developers have never been told how to effectively counter those attacks. This course works to solve that problem, by explaining the fundamentals of developing secure software. Geared towards software developers, DevOps professionals, software engineers, web application developers, and others interested in learning how to develop secure software, this course focuses on practical steps that can be taken, even with limited resources, to improve information security. This course will enable software developers to create and maintain systems that are much harder to successfully attack, reduce the damage when attacks are successful, and speed the response so that any latent vulnerabilities can be rapidly repaired.
