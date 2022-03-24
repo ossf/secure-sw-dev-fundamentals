@@ -1111,7 +1111,7 @@ There are many important things to consider when selecting reusable software. Fo
 
     1. Look at the defaults of its interface and configuration. Is its API secure by default, or are “simple examples” using the defaults also insecure?
 
-    2. If it has a discussion about how to use it securely, that is generally a good sign, especially if it is clear that its warnings recommend that you keep its defaults.
+    2. If it has a discussion about how to use it securely, that is generally a good sign, especially if its warnings recommend that you keep its defaults.
     
     This is a reason to avoid using C and C++ to implement new software when there is no significant reason to use them; C and C++ have many insecure defaults (as we will discuss later).
 
@@ -1119,31 +1119,35 @@ There are many important things to consider when selecting reusable software. Fo
 
     1. If it is OSS, has the project earned an Open Source Security Foundation (OpenSSF) Best Practices badge (or at least are they well on their way to that)? An OSS project that has earned an OpenSSF Best Practices badge implements a number of best practices for sustainably developing secure software. We will discuss this in more detail later in the section on verification. You can learn more about the [OpenSSF Best Practices badge](https://bestpractices.coreinfrastructure.org/en) online.
 
-    2. Is there evidence that the developers use tools to detect defects and vulnerabilities as early as possible?
+    2.  If it is OSS, look at its [OpenSSF Scorecards](https://github.com/ossf/scorecard) score. This provides an automated measure of OSS, so while it can’t include data that the Best Practices badge can, it can provide information on projects without requiring their cooperation.
 
-    3. Is there documentation explaining why its developers believe it is secure (aka an “assurance case”)?
+    3. Is there evidence that the developers use tools to detect defects and vulnerabilities as early as possible? Projects should have a continuous integration (CI) pipeline that checks proposed changes, and those checks should include tools that look for vulnerabilities.
 
-    4. Is there evidence of a security audit, and that any problems found were fixed? Security audits are relatively uncommon, but they are a great sign when they exist. An audit that finds a large number of vulnerabilities could have found them because the software is just full of vulnerabilities, or because the audit was thorough, but no matter what, if the problems were found and fixed, those problems no longer exist in the version you plan to use.
+    4. Is there documentation explaining why its developers believe it is secure (aka an “assurance case”)?
 
-    5. Consider using [SAFECode’s guide ](https://safecode.org/principles-of-software-assurance-assessment/)[*Principles for Software Assurance Assessment*](https://safecode.org/principles-of-software-assurance-assessment/) (2019), which has a multi-tiered approach for examining the security characteristics of software.
+    5. Is there evidence of a security audit, and that any problems found were fixed? Security audits are relatively uncommon, but they are a great sign when they exist. An audit that finds a large number of vulnerabilities could have found them because the software is just full of vulnerabilities, or because the audit was thorough, but no matter what, if the problems were found and fixed, those problems no longer exist in the version you plan to use. OpenSSF’s “[Security Reviews](https://github.com/ossf/security-reviews)” has a collection of security reviews (audits) of OSS projects.
+
+    6. Consider using [SAFECode’s guide ](https://safecode.org/principles-of-software-assurance-assessment/)[*Principles for Software Assurance Assessment*](https://safecode.org/principles-of-software-assurance-assessment/) (2019), which has a multi-tiered approach for examining the security characteristics of software.
     
     This entire course discusses how to develop secure software; the more of these actions you see in the software you are considering, the better!
 
-3. Is it *maintained*? Unmaintained software is a risk. If the software is not maintained, it is more likely to have serious unaddressed security vulnerabilities, and it is more likely that its developers will fail to quickly fix vulnerabilities when they are reported. In theory, software can be “completed” and not need future changes, but usually software that is not being changed is not being maintained.
+3. Are there instructions on *how to report vulnerabilities*? Software developers are human; they make mistakes, and sometimes those mistakes may be vulnerabilities. However, if there’s a clearly described way to report vulnerabilities, that suggests they’ve prepared themselves to accept and promptly address vulnerability reports.
+
+4. Is it *maintained*? Unmaintained software is a risk. If the software is not maintained, it is more likely to have serious unaddressed security vulnerabilities, and it is more likely that its developers will fail to quickly fix vulnerabilities when they are reported. In theory, software can be “completed” and not need future changes. However, usually software that is not being changed is not being maintained (unless the software is very small).
 
     1. If the software is OSS, you can generally look at its repository and see its commit history. If it continues to have active commits, especially by multiple people, that is a good sign. An OSS component with no changes in the last year is generally much riskier.
 
     2. Are there recent releases or announcements from its developer?
 
-4. Does it have *significant use*? Just because there are many users, or a large company (like Google or Facebook) uses it, does not mean it is appropriate for you. If you only choose the latest fad, you will sometimes make horrific mistakes! However, knowing that software is widely used can be useful information. If software has many users or large (corporate) users, then there’s more likely to be useful information on how to use it securely, and more people who will care about its security. Also, if it has a small number of users, see if something else with a similar name is more popular - that could indicate a typosquatting attack. We will discuss typosquatting in the next unit.
+5. Does it have *significant use*? Just because there are many users, or a large company (like Google or Facebook) uses it, does not mean it is appropriate for you. If you only choose the latest fad, you will sometimes make horrific mistakes! However, knowing that software is widely used can be useful information. If software has many users or large (corporate) users, then there’s more likely to be useful information on how to use it securely, and more people who will care about its security. Also, if it has a small number of users, see if something else with a similar name is more popular - that could indicate a typosquatting attack. We will discuss typosquatting in the next unit.
 
-5. What is the software’s *license*? Licenses are technically not security, but licenses can have a big impact on security.
+6. What is the software’s *license*? Licenses are technically not security, but licenses can have a big impact on security.
 
     1. Some software is released without a license at all; this can be legally dangerous, especially if it is more than a line or two of code, because in most countries and situations the law does not permit its use. Sometimes this can be fixed by contacting the original developer and proposing a license. A developer who puts users at legal risk is probably not worried about preventing security risks either.
 
     2. If the software has a license, make sure that its license is consistent with what you are trying to do. **Beware**: the costs of failing to abide by a license can be extremely steep. Be especially careful if the software is not released with an OSS license, since by definition you will have fewer rights, and in practice there will only be one supplier who will decide what information you can have and how it will change. Make sure you follow the license requirements. If you won’t follow the license requirements, you are not only at legal risk for using it, but you will generally not have the right to use its security updates either.
 
-6. If it is important, what is *your own evaluation* of it? If the software is important to you, and especially if it is OSS, you can download and examine it yourself. Some people are scared of doing this, but there is no reason to be afraid. Even a brief review of software source code, and its changes over time, can give you some insight into the software you are thinking about using. This can be time-consuming, so many will not do this. But if the software you are developing is very important, this is a step worth seriously considering. Doing a thorough evaluation of such software is outside the scope of this course. There are many organizations with expertise in doing code-level security audits for a fee; you may want to engage their services if you want an in-depth review. However, if you decide that you want to do just a brief review, here are things to consider:
+7. If it is important, what is *your own evaluation* of it? If the software is important to you, and especially if it is OSS, you can download and examine it yourself. Some people are scared of doing this, but there is no reason to be afraid. Even a brief review of software source code, and its changes over time, can give you some insight into the software you are thinking about using. This can be time-consuming, so many will not do this. But if the software you are developing is very important, this is a step worth seriously considering. Doing a thorough evaluation of such software is outside the scope of this course. There are many organizations with expertise in doing code-level security audits for a fee; you may want to engage their services if you want an in-depth review. However, if you decide that you want to do just a brief review, here are things to consider:
 
     1. When you review the more detailed artifacts (e.g., the source code), is there evidence that the developers were trying to develop secure software (such as rigorous input validation of untrusted input and the use of prepared statements)?
 
@@ -4180,7 +4184,9 @@ There are many other useful documents that discuss vulnerability disclosure. In 
 
 * FIRST’s [*Guidelines and Practices for Multi-Party Vulnerability Coordination and Disclosure*](https://www.first.org/global/sigs/vulnerability-coordination/multiparty/guidelines-v1.1) [https://www.first.org/global/sigs/vulnerability-coordination/multiparty/guidelines-v1.1](https://www.first.org/global/sigs/vulnerability-coordination/multiparty/guidelines-v1.1)
 
-There is an Open Source Security Foundation (OpenSSF) working group on vulnerability disclosures, which may in the future provide additional guidance. You can learn more about this working group here: [OpenSSF Vulnerability Disclosures Working Group](https://github.com/ossf/wg-vulnerability-disclosures).
+The Open Source Security Foundation (OpenSSF) [Vulnerability Disclosures Working Group](https://github.com/ossf/wg-vulnerability-disclosures)
+has developed a [Guide to coordinated vulnerability disclosure for open source software projects](https://github.com/ossf/oss-vulnerability-guide). If you maintain an OSS project, apply that guide so you’ll be prepared for vulnerability reports before they happen.
+
 
 In the rest of this unit we will discuss some of the key issues for accepting vulnerability reports.
 
@@ -5146,6 +5152,8 @@ Open Source Security Foundation (OpenSSF), *OpenSSF Best Practices Badge Program
 Open Source Security Foundation (OpenSSF), *BadgeApp Security: Its Assurance Case* ([https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md))
 
 Open Source Security Foundation (OpenSSF), Vulnerability Disclosures Working Group ([https://github.com/ossf/wg-vulnerability-disclosures](https://github.com/ossf/wg-vulnerability-disclosures))
+
+The Open Source Security Foundation (OpenSSF) Vulnerability Disclosures Working Group, Guide to coordinated vulnerability disclosure for open source software projects ([https://github.com/ossf/oss-vulnerability-guide](https://github.com/ossf/oss-vulnerability-guide))
 
 Open Web Application Security Project (OWASP), *OWASP Top 10 Web Application Security Risks* ([https://owasp.org/www-project-top-ten](https://owasp.org/www-project-top-ten))
 
