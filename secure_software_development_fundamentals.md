@@ -9,13 +9,13 @@ You can also go to its
 [edX page](https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals).
 To get this content in Markdown format, go to <https://github.com/ossf/secure-sw-dev-fundamentals>.
 
-This is split into 3 smaller courses (part 1-3):
+This material is split into 3 smaller courses (part 1-3) that should take ~ 14-18 hours total:
 
-1. Secure Software Development - Part I, Requirements, Design, and Reuse [Covers basics, requirements, design, reuse] - ~ 2-4 hours
+1. Secure Software Development - Part I, Requirements, Design, and Reuse [Covers basics, requirements, design, reuse] - ~ 2-4 hours course only, ~ 4-5 hours total including tests and exploring provided resources/links
 
-2. Secure Software Development - Part II, Implementation - ~ 4-6 hours
+2. Secure Software Development - Part II, Implementation - ~ 4-6 hours course only, ~ 5-7 hours total
 
-3. Secure Software Development - Part III, Verification and More Specialized Topics [Covers verification, threat models, cryptography, & other advanced topics] - ~ 3-5 hours
+3. Secure Software Development - Part III, Verification and More Specialized Topics [Covers verification, threat models, cryptography, & other advanced topics] - ~ 3-5 hours course only, ~ 5-6 hours total
 
 These learning materials (including section quizzes) are released under the Creative Commons Attribution (CC-BY) license, specifically CC-BY-4.0. A few images (e.g., from XKCD) have different licenses and are noted as such. We do NOT release the chapter/final exams that way, as that would encourage cheating. If by some circumstance you end up with access to those exams,  DO NOT RELEASE them, please!
 
