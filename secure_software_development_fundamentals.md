@@ -4603,7 +4603,7 @@ Propositional Connectives
 
 ##### Sets
 
-Another widely-used mathematical tool is the idea of sets. A set is simply an unordered collection of elements, where elements themselves may be sets. For examples, if you say S = {4, 5, 6}, that just means that set S has 3 elements (specifically 4, 5, and 6). You can then apply various operations to sets, for example:
+Another widely-used mathematical tool is the idea of sets. A set is simply an unordered collection of elements, where elements themselves may be sets. For example, if you say S = {4, 5, 6}, that just means that set S has 3 elements (specifically 4, 5, and 6). You can then apply various operations to sets, for example:
 
 * The operation “A ∈ B” returns true if and only if the left-hand-side A is a member of the right-hand-side B. So given the previous definition of S, “4 ∈ S” is true (because 4 is a member of S), while “7 ∈ S” is false (because 7 is not a member of S).
 
