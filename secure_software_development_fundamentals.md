@@ -4615,7 +4615,7 @@ A widely-used mathematical tool that you may not have seen is the idea of *quant
 
 * ∀ X *expression* : This is true if and only if the *expression* is always true for all allowed values of X. It essentially “loops” over every value X could be. The ∀ (an upside-down A) is read as “for all”. This lets you easily state that something is always true.
 
-* ∃ X *expression* : This is true if and only if there is some allowed value of X where the *expression* is true. The ∃ is read as “there exists”. This lets you easily state that something can occur.
+* ∃ X *expression* : This is true if and only if there is some allowed value of X where the *expression* is true. The ∃ is read as “there exists”. This lets you easily state that something occurs at least once.
 
 This means you can use expressions like “∀ X (valid(X) → well_formed(X))” to say “for all values of X, if X is valid then X is well-formed”... or put another way, if X is valid then X is well-formed. Note that this entire expression is true if we are discussing XML data.
 
