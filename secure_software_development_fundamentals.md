@@ -862,7 +862,7 @@ Here are several ways to implement least privilege, depending on the circumstanc
 
 <br>
 
-🔔 Incorrect permissions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #15. It is [CWE-732](https://cwe.mitre.org/data/definitions/732.html) (*Incorrect Permission Assignment for Critical Resource*).
+🔔 Incorrect permissions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #15. It is [CWE-732](https://cwe.mitre.org/data/definitions/732.html) (*Incorrect Permission Assignment for Critical Resource*). Incorrect permissions are especially bad if the *default* permissions are insecure; that special case is [CWE-276](https://cwe.mitre.org/data/definitions/276.html) (*Incorrect Default Permissions*).
 
 #### Examples of Least Privilege
 
@@ -991,7 +991,7 @@ Let’s briefly look at the rest of the secure design principles identified by S
 
 2. **Open design**. The protection mechanism must not depend on attacker ignorance. Instead, the mechanism should be public, depending on the secrecy of relatively few (and easily changeable) items like passwords or private keys. An open design makes extensive public scrutiny possible. An open design also makes it possible for users to convince themselves that the system about to be used is adequate. Frankly, it is not realistic to try to maintain secrecy for a system that is widely distributed; decompilers and subverted hardware can quickly expose any “secrets” in an implementation. One of the big advantages of open source software (OSS) is that it better implements the open design principle; OSS source code has an open design, enabling anyone else to review it and make changes to potentially improve it. Of course, the OSS has to *actually* be reviewed for this to help, but it is an important *potential* advantage.
 
-3. **Fail-safe defaults (aka fail-secure defaults)**. The default installation should be the secure installation. If it is not certain that something should be allowed, don’t allow it. For example, don’t distribute software with an empty or default password; instead, *require* that a new password be set when the software is installed. That way, if someone just quickly installs it, it will not have a vulnerability due to a known password.
+3. **Fail-safe defaults (aka fail-secure defaults)**. The default installation should be the secure installation. If it is not certain that something should be allowed, don’t allow it. For example, don’t distribute software with an empty or default password; instead, *require* that a new password be set when the software is installed. That way, if someone just quickly installs it, it will not have a vulnerability due to a known password. Make sure the default permissions are secure; weakness category [CWE-276](https://cwe.mitre.org/data/definitions/276.html) is “Incorrect Default Permissions”.
 
 4. **Separation of privilege (e.g., use two-factor authentication)**. Access to objects should depend on more than one condition, so that breaking one condition does not break everything. In short, make sure that if your software has a login mechanism, it has a way to support two-factor authentication (2FA).
 
@@ -1826,7 +1826,7 @@ Most larger systems need some mechanism to receive configuration information. Ma
 
 Some systems try to depend on *secure boot* or similar mechanisms to ensure that only specific software is run on a particular computer. Don’t take these mechanisms very seriously if the computer (such as a smartphone) may be physically controlled by a potential attacker. If an attacker has physical control over a device, then that attacker has ultimate control over the device. The reality is that secure boot systems have been repeatedly broken; trusting this to never happen in the future is ignoring the lessons of the past. You are better off designing your system so that you don’t need to trust the application on that device, but instead run software you need to trust on hardware controlled by someone you trust. Secure boot systems are far more powerful if the system is physically controlled by a trusted party, because then they are simply providing an additional protective measure for the one physically in control.
 
-🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6.
+🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6. [CWE-276](https://cwe.mitre.org/data/definitions/276.html) covers Incorrect Default Permissions.
 
 ### Quiz 1.10
 
