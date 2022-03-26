@@ -3987,7 +3987,9 @@ Here are some examples of how to call the predictable PRNG versus a cryptographi
 
 Another challenge is that software is fundamentally deterministic; given exactly the same inputs, a sequential algorithm should produce exactly the same output. You should not normally be directly seeding (initializing) any cryptographically secure algorithms, as many of these libraries implement secure seeding themselves. If you must seed it (and that is a bad sign), ensure that attackers cannot guess the seed value. Some people seed cryptographically secure PRNGs algorithms with date/time data, which is a vulnerability; in many cases, attackers can easily guess the likely date/times.
 
-There is a simple solution: use a CSPRNG and use hardware to correctly provide data to it. Most operating system kernels today provide cryptographically secure random numbers by gathering environmental noise from hardware devices. If you are directly running on Linux, reading from **/dev/urandom** will provide cryptographically random data (in special circumstances, you might want to use **/dev/random** instead, but that can block). These cryptographically secure random numbers can be used directly, or can be used as a secure seed for a cryptographically secure PRNG.
+There is a simple solution: use a CSPRNG and use hardware to correctly provide data to it. Most operating system kernels today provide cryptographically secure random numbers by gathering environmental noise from multiple hardware devices and implementing a CSPRNG. If you’re running on bare metal (instead of an operating system kernel) there are usually reusable libraries you can use for this purpose. These cryptographically secure random numbers can be used directly, or can be used as a secure seed for a cryptographically secure PRNG.
+
+For example, the Linux kernel provides cryptographically secure random number values via its **/dev/urandom** special file, its **/dev/random** special file, and its **getrandom** system call. In most cases you would want to use the **/dev/urandom** special file or the **getrandom** system call. These generate cryptographically secure random values using a CSPRNG and entropy gathered by the kernel. In special circumstances, such as creating a long-lived cryptographic key, you might instead want to use **/dev/random** or the equivalent option in **getrandom**; this forces the kernel to wait (block) until it has a high estimated amount of internal entropy. The purpose of **/dev/random** is to provide extremely high-quality results, but the blocking may be indefinite in some circumstances and it’s usually not necessary (see [“Myths about /dev/urandom”](https://www.2uo.de/myths-about-urandom/) by Thomas).
 
 A particularly nasty security problem in computer systems is *insecure random number generators*. An insecure random number generator produces values that look fine, but destroys the security of the entire system. Many failures of cryptographic systems have been traced back to bad random number generation, in part because it can be hard to detect the problem.
 
@@ -5244,6 +5246,8 @@ The Linux Foundation, *Summary of GDPR Concepts For Free and Open Source Softwar
 The Linux Foundation, *Telemetry Data Collection and Usage Policy*, 2019 ([https://www.linuxfoundation.org/telemetry-data-policy/](https://www.linuxfoundation.org/telemetry-data-policy/))
 
 The Open Group, PO*SIX standard - definition of the environ variable*, 2018 ([https://pubs.opengroup.org/onlinepubs/9699919799/functions/environ.html](https://pubs.opengroup.org/onlinepubs/9699919799/functions/environ.html))
+
+Thomas, “Myths about /dev/urandom”, (<https://www.2uo.de/myths-about-urandom>)
 
 Trail of Bits, *Seriously, stop using RSA*, 2019 ([https://blog.trailofbits.com/2019/07/08/fuck-rsa/](https://blog.trailofbits.com/2019/07/08/fuck-rsa/))
 
