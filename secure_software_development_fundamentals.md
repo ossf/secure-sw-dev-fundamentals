@@ -1197,6 +1197,14 @@ Of course, if you download and install a subverted version of the reused softwar
 
     5. Where important and practical, try to verify that the package is digitally signed by its expected creators (or at least its redistributors). Software to verify that a package is digitally signed, also called cryptographically signed, has been around for decades. In some situations, there is automated verification that the package does come from a particular redistributor. That said, it is often harder to ensure that you have the correct corresponding public keys (this is an example of a *key management* problem.) There is continuing work in this area, for example, the [sigstore](https://www.sigstore.dev/) project is working to make it significantly easier to digitally sign and verify software artifacts.  When you can practically create and verify digital signatures, take advantage of them.
 
+You also need to ensure that your system is not vulnerable to a “dependency confusion” aka “substitution” attack. This vulnerability affects systems that identify a list of dependencies and are configured to retrieve those dependencies from more than one repository. Such systems are often configured to depend on some package P where the developers assumed that package P would be retrieved from one particular repository (typically a private repository). The vulnerability occurs if nothing *requires* that the package P be retrieved from its expected repository. If nothing requires it, an attacker can create a malicious package P with the same name on a *different* repository (typically a public repository), and fool the system into using that malicious package instead. Attackers can take many steps to make its use likely, such as giving their malicious version a large version number. This is not a theoretical attack; attackers began widely exploiting this vulnerability in 2021. (For more information, see “[3 Ways to Mitigate Risk When Using Private Package Feeds](https://aka.ms/pkgsecwp)” by Microsoft and “[Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)” by Alex Birsan.) There are various countermeasures to dependency confusion, for example:
+
+1. Use a single feed (e.g., a single repository or registry). If there’s a single source, there’s no opportunity for confusion.
+2. Clearly declare, for each package, where the package must be retrieved from. These are sometimes called “controlled scopes”.
+3. Prioritize feeds so that the most trusted feed(s) are always consulted first, and then less-trusted feeds are only consulted when the more trusted feeds expressly report that the package is not found. Make sure that the less-trusted feeds never override the more-trusted feeds.
+4. Use client-side verification features. One approach is to enforce version pinning to a cryptographic hash value (aka a “digital fingerprint”) of a package. Another approach is integrity verification to verify that a downloaded package is identical to the first time it was downloaded.
+
+
 ### Quiz 3.2
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
@@ -5031,6 +5039,8 @@ Bals, Fred, *The AppSec alphabet soup: A guide to SAST, IAST, DAST, and RASP*, S
 
 Barker, Elaine, *Recommendation for Key Management: Part 1 - General*, NIST Special Publication 800-57 Part 1 Revision 5, 2020,  ([https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf))
 
+Birsan, Alex, 2021-02-09, “Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies”, (<https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610>)
+
 Black, Paul E.; Badger, Lee; Guttman, Barbara; Fong, Elizabeth, *Dramatically Reducing Software Vulnerabilities: Report to the White House Office of Science and Technology Policy*, NISTIR 8151, US National Institute of Standards and Technology (NIST) Information Technology Laboratory, 2016-11 ([https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8151.pdf](https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8151.pdf))
 
 Breeden II, John, *9 top fuzzing tools: Finding the weirdest application errors*, 2019 ([https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html](https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html))
@@ -5128,6 +5138,8 @@ Microsoft, *Naming Files, Paths and Namespaces* ([http://msdn.microsoft.com/en-u
 Microsoft, *Threat Modeling* ([https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling))
 
 Microsoft, *Timing vulnerabilities with CBC-mode symmetric decryption using padding*, 2020-07-15 ([https://docs.microsoft.com/en-us/dotnet/standard/security/vulnerabilities-cbc-mode](https://docs.microsoft.com/en-us/dotnet/standard/security/vulnerabilities-cbc-mode))
+
+Microsoft,  “3 Ways to Mitigate Risk When Using Private Package Feeds”, (<https://aka.ms/pkgsecwp>)
 
 Minocha, Shreyas, *Regular Expressions for Regular Folk* ([https://refrf.shreyasminocha.me/](https://refrf.shreyasminocha.me/))
 
