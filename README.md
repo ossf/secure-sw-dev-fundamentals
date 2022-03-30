@@ -1,4 +1,4 @@
-# secure-sw-dev-fundamentals: Secure Software Development Fundamentals edX courses (from the OpenSSF Best Practices WG)
+# secure-sw-dev-fundamentals: Secure Software Development Fundamentals courses (from the OpenSSF Best Practices WG)
 
 This repository is for managing and sharing the content of the
 *Secure Software Development Fundamentals*
@@ -9,7 +9,7 @@ If you just want to *take* these courses, please [select the course you are inte
 
 See the [*Secure Software Development Fundamentals* content converted into Markdown format](secure_software_development_fundamentals.md) for the main content of this repository.
 
-This informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.txt), so you can reuse it in many ways. We want you to use this information! There are some exceptions: we quote other material (such as from xkcd) which are under their own licenses, and to counter cheating we do not release certain testing materials this way.
+This informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.txt), so you can reuse it in many ways. We want you to use this information! There are some exceptions: we quote other material (such as from xkcd) which are under their own licenses, and to counter cheating we do not release certain testing materials this way. Note that we update this material, so you should be prepared for updates if you use a significant portion of it.
 
 This content was originally converted from Google docs format using
 [gdocs2md](http://github.com/mangini/gdocs2md),
