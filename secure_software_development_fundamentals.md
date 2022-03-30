@@ -5,7 +5,9 @@ by David A. Wheeler
 This is the content of a trio of self-paced courses. Users can learn from it for free, or apply for a certificate of completion for a fee.
 
 To *take* the course, please go to the [OpenSSF web page on Secure Software Development Fundamentals courses](https://openssf.org/training/courses/).
-You can also go to its
+You can also go directly to its
+["Developing Secure Software" (LFD121)](https://training.linuxfoundation.org/training/developing-secure-software-lfd121/)
+page on the Linux Foundation Training & Certification site, or to its
 [edX page](https://www.edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals).
 To get this content in Markdown format, go to <https://github.com/ossf/secure-sw-dev-fundamentals>.
 
