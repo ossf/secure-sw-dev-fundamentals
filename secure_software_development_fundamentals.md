@@ -1095,7 +1095,7 @@ When developing software, you normally reuse lots of other software. This may in
 
 ![Dependency](dependency.png)
 
-*Dependency* (retrieved from [xkcd.com](https://xkcd.com/2347/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/))
+*Dependency* (retrieved from [xkcd.com](https://xkcd.com/2347/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/))
 
 Some consider the selection of reused software as part of design, since it clearly impacts how we divide up the problem. Others might describe this as its own category, e.g., supply chain. No matter what you call it, it is important. In general, software systems today are mostly reused software from somewhere else.
 
@@ -2062,7 +2062,7 @@ Unbounded writes are not the only problem. Historically, people worried about ou
 
 ![image alt text](heartbleed.png)
 
-**Heartbleed Explained**. Retrieved from [xkcd](https://xkcd.com/1354/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
+**Heartbleed Explained**. Retrieved from [xkcd](https://xkcd.com/1354/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
 
 > 😱 STORY TIME: Heartbleed
 
@@ -2307,7 +2307,7 @@ This is false. Clearly, if you pick known *insecure* software, you will have a p
 
 ![image alt text](exploits_of_a_mom.png)
 
-**Exploits of a Mom**, retrieved from [xkcd.com](https://xkcd.com/327/), provided under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
+**Exploits of a Mom**, retrieved from [xkcd.com](https://xkcd.com/327/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
 Most database systems include a language that can let you create arbitrary queries, and typically many other functions too (e.g., creating and modifying things). The SQL language is especially common, and while some database systems use other languages, those other languages often have similarities with SQL. Such languages, including SQL, include metacharacters. When attackers can insert metacharacters into a SQL command to cause a security problem, the attack is called an *SQL injection attack*, and the vulnerability is called an *SQL injection vulnerability*.
 
@@ -3817,7 +3817,7 @@ Cryptography provides a set of tools that can sometimes help develop secure soft
 
 ![image alt text](security_xkcd.png)
 
-**Security**, retrieved from [xkcd](https://xkcd.com/538/), provided indeed [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
+**Security**, retrieved from [xkcd](https://xkcd.com/538/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
 
 That said, in *some* systems cryptography is a vitally important part of making a system secure. Cryptography is often used to protect sensitive data’s confidentiality, and it can do that in two ways: *at rest* (storing the information in an encrypted form) and *in transit* (transmitting the information in an encrypted form). Cryptography can also, with certain limits, verify that information is from someone with a corresponding key, and/or verify that certain data has not been changed.
 
