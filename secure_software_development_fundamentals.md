@@ -1039,7 +1039,9 @@ In many situations, the right way to counter TOCTOU race conditions is to implem
 
 #### Harden the System
 
-Defects happen! But they don’t need to necessarily turn into vulnerabilities. Instead, try to design your system so a single defect is much less likely to result in complete compromise. This is basically a specific application of the least privilege principle, but if you think specifically about making the system hard to subvert *even* when there is a defect in it, you may identify other steps you can take.
+Defects happen! But they don’t need to turn into vulnerabilities. Instead, try to design your system so a single defect is much less likely to result in complete compromise. This is basically a specific application of the least privilege principle, but if you think specifically about making the system hard to subvert *even* when there is a defect in it, you may identify other steps you can take.
+
+There are many mechanisms that can harden a system. Examples include Content Security Policy (CSP) and Address Space Layout Randomization (ASLR). We’ll discuss some hardening mechanisms later in the course. The point here is that you should either enable hardening mechanisms or ensure that your users can enable them.
 
 #### Keep Secrets Secret
 
@@ -1049,13 +1051,18 @@ If your software manages secrets like private cryptographic keys and passwords, 
 
 * Store passwords used for inbound authentication with an algorithm specifically designed to do this. We will discuss these later in the course, but these kinds of algorithms are called *iterated per-user salted hash* algorithms. If done correctly, it is infeasible for an attacker to determine many passwords even if the attacker gets the encrypted password data.
 
+* Use **https://** instead of **http://**; that provides an encrypted link to prevent data leakage.
+
+* Avoid accepting and sending secret data (like private keys) as command line parameters, where you can; command line parameters are often visible to other processes on a system.
+
+
 #### Trust Only Trustworthy Channels
 
-In general, only trust information (input or results) from trustworthy channels. For example, use **https://** instead of **http://**, because that checks if the server on the other side has a valid cryptographic certificate for that site. In general you should use **https**, because that will prevent attackers from snooping or modifying information exchanged with other users.
+In general, only trust information (input or results) from trustworthy channels. For example, use **https://** instead of **http://** when contacting a server, because enables checking if the server has a valid cryptographic certificate for that site. In general you should use **https**, because that will prevent attackers from snooping or modifying information exchanged with other users.
 
 #### Separate Data from Control
 
-A useful trick for developing more secure software is to separate data from control (aka programs). Put another way, you should separate the passive data from programs that are executed. That way, if an attacker manages to slip in “extra” information into data, that will not cause a potentially-malicious program to be executed. This is basically another way to implement least privilege - don’t give data the right to run as a program.
+A useful trick for developing more secure software is to separate data from control (aka programs). Put another way, you should separate the passive data from the programs that are executed. That way, if an attacker manages to slip in “extra” information into data, that will not cause a potentially-malicious program to be executed. This is basically another way to implement least privilege - don’t give data the right to run as a program.
 
 A good example of this is the Content Security Policy (CSP) supported by modern web browsers. CSP lets you state that the HTML being sent is only data, and is *not* allowed to provide inline scripts (programs) or styles (which can also be programs) - instead, the scripts and styles may only be downloaded from specified trusted places. That way, if an attacker manages to subvert the HTML, the attacker will not be able to cause attacker-provided programs to be run.
 
