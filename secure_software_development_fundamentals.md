@@ -864,7 +864,7 @@ Here are several ways to implement least privilege, depending on the circumstanc
 
 <br>
 
-🔔 Incorrect permissions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #15. It is [CWE-732](https://cwe.mitre.org/data/definitions/732.html) (*Incorrect Permission Assignment for Critical Resource*). Incorrect permissions are especially bad if the *default* permissions are insecure; that special case is [CWE-276](https://cwe.mitre.org/data/definitions/276.html) (*Incorrect Default Permissions*).
+🔔 Incorrect permissions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#15. It is [CWE-732](https://cwe.mitre.org/data/definitions/732.html) (*Incorrect Permission Assignment for Critical Resource*). Incorrect permissions are especially bad if the *default* permissions are insecure; that special case is [CWE-276](https://cwe.mitre.org/data/definitions/276.html) (*Incorrect Default Permissions*).
 
 #### Examples of Least Privilege
 
@@ -878,7 +878,7 @@ If you implement an external API (e.g., with REST or GraphQL), don’t provide a
 
 It is unfortunately common to mismanage privileges. For example, there are many cases where programs have failed to drop privileges in all cases (e.g., because raising an exception skipped the code that dropped privileges, or because the code that was supposed to drop privileges does not work in all cases).
 
-🔔 Improper privilege management is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #24. It is [CWE-269](https://cwe.mitre.org/data/definitions/269.html) (*Improper Privilege Management*).
+🔔 Improper privilege management is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#24. It is [CWE-269](https://cwe.mitre.org/data/definitions/269.html) (*Improper Privilege Management*).
 
 ### Quiz 2.3
 
@@ -1035,7 +1035,7 @@ In many situations, the right way to counter TOCTOU race conditions is to implem
 
 3. If you want to create a new file on a Unix-like system, make sure you request that it be created *exclusively* (**O_EXCL** in the C **open()** API, and the letter **x** in **fopen()** and the option flags used in many other programming languages). Again, that way there is no window of opportunity for an attacker to create the file before the program can (if the attacker could do so).
 
-🔔 Race conditions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #29. *Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)* is [CWE-362](https://cwe.mitre.org/data/definitions/362.html).
+🔔 Race conditions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#29. *Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)* is [CWE-362](https://cwe.mitre.org/data/definitions/362.html).
 
 #### Harden the System
 
@@ -1327,7 +1327,7 @@ At each remaining input from potentially untrusted users you need to validate th
 
 You should determine what is legal, as narrowly as you reasonably can, and reject anything that does not match that definition. Using rules that define what is legal, and by implication rejecting everything else, is called *allowlisting* (the rules themselves are an *allowlist*). Synonyms are *goodlisting* (the rules are the *goodlist*) and the historically common *whitelisting* (the rules are the *whitelist*). In general, do not do the reverse. That is, it is normally a mistake to try to identify what is illegal and write code to reject just those cases. This generally insecure approach, where you try to list everything that should be rejected, is called *denylisting* (the rules are a *denylist*). Synonyms for denylisting are *badlisting* and the historically common *blacklisting* (the rules are then called a *badlist* or  *blacklist*). Denylisting typically leads to security vulnerabilities, because if you forget to handle one or more important cases of illegal input, it could be an opportunity for an attacker. If you forget to allow a case, you get a bug report and your software fails securely. Besides, it is usually much easier to simply identify *what is allowed* and only allow those inputs. In a few rare cases you *can* absolutely be certain that you have enumerated all possible bad inputs, in which case denylisting is okay, but those are rare. Generally denylisting leads to trouble.
 
-🔔 Improper input validation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #3. It is also identified as [CWE-20](https://cwe.mitre.org/data/definitions/20.html) (*Improper Input Validation*).
+🔔 Improper input validation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#3. It is also identified as [CWE-20](https://cwe.mitre.org/data/definitions/20.html) (*Improper Input Validation*).
 
 The good news is that it usually does not take long to add input validation, and that can immediately make your program harder to attack. It may be hard to decide on a user-friendly response to invalid input, but it is easier than suffering a successful attack.
 
@@ -1661,7 +1661,7 @@ In some cases, you can prevent deserialization attacks with authentication check
 
 Some people recommend enforcing string type constraints (e.g., only allowing specific classes to be deserialized). Unfortunately, many bypasses to this technique have been found over the years. It is a good idea as a *hardening* technique (or simply as a way to detect bugs early). However, in many systems, this is probably too dangerous to recommend as an adequate defense by itself.
 
-🔔 Insecure deserialization is such a common mistake in web applications that it is 2017 OWASP Top 10 #8 and 2019 CWE Top 25 #23. It is [CWE-502](https://cwe.mitre.org/data/definitions/502.html), *Deserialization of Untrusted Data*. Attackers may find such vulnerabilities harder to exploit, but once the vulnerability is found it can result in immediate compromise of an entire system, because it may provide complete control of the system to the attacker.
+🔔 Insecure deserialization is such a common mistake in web applications that it is 2017 OWASP Top 10 \#8 and 2019 CWE Top 25 \#23. It is [CWE-502](https://cwe.mitre.org/data/definitions/502.html), *Deserialization of Untrusted Data*. Attackers may find such vulnerabilities harder to exploit, but once the vulnerability is found it can result in immediate compromise of an entire system, because it may provide complete control of the system to the attacker.
 
 ### Quiz 1.6
 
@@ -1716,7 +1716,7 @@ In general, you should not accept unchecked external references from untrusted s
 
 For more about this issue, see the [OWASP XML External Entities web page](https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE).html).
 
-🔔 XML XXE is such a common mistake in web applications that it is 2017 OWASP Top 10 #4 and 2019 CWE Top 25 #17. It is also identified as [CWE-611](https://cwe.mitre.org/data/definitions/611.html), *Improper Restriction of XML External Entity Reference*.
+🔔 XML XXE is such a common mistake in web applications that it is 2017 OWASP Top 10 \#4 and 2019 CWE Top 25 \#17. It is also identified as [CWE-611](https://cwe.mitre.org/data/definitions/611.html), *Improper Restriction of XML External Entity Reference*.
 
 #### HTML
 
@@ -1744,7 +1744,7 @@ Sometimes you need to accept file uploads of special file types (e.g., of images
 
 If your program allows uploads, try to limit uploads to specific file types and make sure (via both its MIME type and its contents) that it is one of the valid types that you will accept. Limit what you allow in the filename, too; alphanumeric characters are generally fine, but anything else (especially “**/**” and “**&#92;**”) can be problematic, so only allow the characters you are certain will be fine. Where possible, define an acceptlist of allowed filename suffixes, and only allow uploads of files named with one of those allowed suffixes.
 
-🔔 Inadequate restriction of uploads is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #16. It is identified as [CWE-434](https://cwe.mitre.org/data/definitions/434.html), *Unrestricted Upload of File with Dangerous Type*.
+🔔 Inadequate restriction of uploads is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#16. It is identified as [CWE-434](https://cwe.mitre.org/data/definitions/434.html), *Unrestricted Upload of File with Dangerous Type*.
 
 ### Quiz 1.7
 
@@ -1762,11 +1762,11 @@ That said, in many systems, attackers will be able to attempt some requests. In 
 
 You need to check whether or not a request is authorized in absolutely every case. That is to say, ensure that authorization checks are non-bypassable. Tools are often not good at determining if every request is checked for authorization, so you typically need to depend primarily on human review. If humans can easily see that the correct authorization check is made for every request, it takes much less time to review *and* it is more likely to be correct. In practice, that often means that programs should check for authorization as soon as you reasonably can do so. Exactly what that means depends on your system, e.g., in a model-view-controller architecture, you could put authorization checks on each controller entry and/or each model entry. What matters is that you do it consistently and that it is easy for others to verify that it cannot be bypassed. Similarly, the data needs to be stored so that only authorized requests can succeed.
 
-🔔 Inadequate authorization is such a common mistake that *Broken Access Control* is 2017 OWASP Top 10 #5, *Incorrect Authorization* is 2019 CWE Top 25 #33 ([CWE-863](https://cwe.mitre.org/data/definitions/863.html)), and *Missing Authorization* is 2019 CWE Top 25 #34 ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
+🔔 Inadequate authorization is such a common mistake that *Broken Access Control* is 2017 OWASP Top 10 \#5, *Incorrect Authorization* is 2019 CWE Top 25 \#33 ([CWE-863](https://cwe.mitre.org/data/definitions/863.html)), and *Missing Authorization* is 2019 CWE Top 25 \#34 ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
 
 Of course, if something requires authorization, that means there should first have been some kind of authentication to ensure that the request was from whom they claimed to be. Thoroughly check how you handle authentication, and where practical, use well-respected libraries or frameworks to do it.
 
-🔔 Inadequate authentication is such a common mistake that *Broken Authentication* is 2017 OWASP Top 10 #2 and 2019 CWE Top 25 #13. It is [CWE-287](https://cwe.mitre.org/data/definitions/287.html), *Improper Authentication*. *Missing Authentication for (specifically a) Critical Function* is CWE Top 25 #36 ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+🔔 Inadequate authentication is such a common mistake that *Broken Authentication* is 2017 OWASP Top 10 \#2 and 2019 CWE Top 25 \#13. It is [CWE-287](https://cwe.mitre.org/data/definitions/287.html), *Improper Authentication*. *Missing Authentication for (specifically a) Critical Function* is CWE Top 25 \#36 ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
 
 We will later discuss various tools for verification. While tools can help find some problems, they are often *less* effective at finding authentication and authorization problems, because the tools don’t usually have enough information to determine *what is acceptable* and *what is not*. It helps to have tests that verify unauthorized requests are rejected, of course. But the most effective approach is ensuring that absolutely every input path is quickly authenticated and authorized where appropriate, so that manual review can easily assure reviewers that all cases are covered.
 
@@ -1798,7 +1798,7 @@ Here are some other possible measures:
 
 * Use full path names when calling executable programs, to make sure you are calling the right ones. This is a plausible hardening mechanism, but it is easy to miss one, and this does make it harder to port software between systems.
 
-🔔 Untrusted search path is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #22. It is [CWE-426](https://cwe.mitre.org/data/definitions/426.html), *Untrusted Search Path*.
+🔔 Untrusted search path is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#22. It is [CWE-426](https://cwe.mitre.org/data/definitions/426.html), *Untrusted Search Path*.
 
 ### Quiz 1.9
 
@@ -1828,7 +1828,7 @@ Most larger systems need some mechanism to receive configuration information. Ma
 
 Some systems try to depend on *secure boot* or similar mechanisms to ensure that only specific software is run on a particular computer. Don’t take these mechanisms very seriously if the computer (such as a smartphone) may be physically controlled by a potential attacker. If an attacker has physical control over a device, then that attacker has ultimate control over the device. The reality is that secure boot systems have been repeatedly broken; trusting this to never happen in the future is ignoring the lessons of the past. You are better off designing your system so that you don’t need to trust the application on that device, but instead run software you need to trust on hardware controlled by someone you trust. Secure boot systems are far more powerful if the system is physically controlled by a trusted party, because then they are simply providing an additional protective measure for the one physically in control.
 
-🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6. [CWE-276](https://cwe.mitre.org/data/definitions/276.html) covers Incorrect Default Permissions.
+🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 \#6. [CWE-276](https://cwe.mitre.org/data/definitions/276.html) covers Incorrect Default Permissions.
 
 ### Quiz 1.10
 
@@ -1954,7 +1954,7 @@ For inbound authentication using passwords, store credentials separately and use
 
 For outbound authentication, credentials should be stored outside the code in a storage system that is protected from all outsiders (including local users on the same system/cloud host). Ideally, all credentials would be stored in an encrypted file or database, but in many environments, this is difficult to do (where do you store the key to access the key?). At the very least, store credentials in something like a file or database table with permissions that are as restrictive as you can practically make them. Environment variables are generally a weaker way to store credentials, since their values are available to the entire process that loads them, but in some circumstances this is acceptable… and it is generally much better than hardcoding credentials.
 
-🔔 Hardcoded credentials are such a common cause of security vulnerabilities that they are 2019 CWE Top 25 #19. This weakness is [CWE-798](https://cwe.mitre.org/data/definitions/798.html), *Use of Hard-coded Credentials*. *Insufficiently Protected Credentials* are 2019 CWE Top 25 #27 as [CWE-522](https://cwe.mitre.org/data/definitions/522.html).
+🔔 Hardcoded credentials are such a common cause of security vulnerabilities that they are 2019 CWE Top 25 \#19. This weakness is [CWE-798](https://cwe.mitre.org/data/definitions/798.html), *Use of Hard-coded Credentials*. *Insufficiently Protected Credentials* are 2019 CWE Top 25 \#27 as [CWE-522](https://cwe.mitre.org/data/definitions/522.html).
 
 ### Quiz 2.2
 
@@ -1978,7 +1978,7 @@ Sometimes it is necessary to convert or cast a data value from one type to anoth
 
 For our purposes, conversions do not include determining if a value is truthy. In general, programming languages have conditional constructs (such as **if** and **while**) that will produce different results depending on whether or not a condition’s value is truthy. What is truthy is a key design decision when creating a programming language. For example, every value in JavaScript is considered truthy except for a specific list of falsy values (currently **false**, **0**, **-0**, **0n**, **“”**, **null**, **undefined**, and **NaN**). In such languages, **if p** and similar are a shorthand for checking if a value is truthy. This interpretation in conditionals might be considered a conversion from some other type into a boolean type, but such constructs are really just an abbreviated way to determine if a value is truthy, and that is not what we are concerned with here.
 
-🔔 *Incorrect Type Conversion or Cast* ([CWE-704](https://cwe.mitre.org/data/definitions/704.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #28.
+🔔 *Incorrect Type Conversion or Cast* ([CWE-704](https://cwe.mitre.org/data/definitions/704.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#28.
 
 ### Quiz 2.3
 
@@ -2026,7 +2026,7 @@ One of the best-known attacker tricks is out-of-bounds reads and writes (includi
 
 One of the most common kinds of security vulnerabilities is where a read or write is *“out of bounds”* inside memory-unsafe code. Such vulnerabilities are common, and attackers find them easy to exploit. This problem has been well-known for a long time; Aleph One (Elias Levy) describes in detail in [*Smashing the Stack for Fun and Profit*](http://phrack.org/issues/49/14.html#article) (1996) how to exploit such vulnerabilities.
 
-🔔 In fact, out-of-bounds reads and writes are so common and dangerous that in the 2019 CWE Top 25 Most Dangerous Software Errors list this is the #1 weakness ([CWE-119](https://cwe.mitre.org/data/definitions/119.html) *Improper Restriction of Operations within the Bounds of a Memory Buffer*), and specific cases of it are #5 ([CWE-125](https://cwe.mitre.org/data/definitions/125.html) *Out-of-bounds Read*) and #12 ([CWE-787](https://cwe.mitre.org/data/definitions/787.html) *Out-of-bounds Write*).
+🔔 In fact, out-of-bounds reads and writes are so common and dangerous that in the 2019 CWE Top 25 Most Dangerous Software Errors list this is the \#1 weakness ([CWE-119](https://cwe.mitre.org/data/definitions/119.html) *Improper Restriction of Operations within the Bounds of a Memory Buffer*), and specific cases of it are \#5 ([CWE-125](https://cwe.mitre.org/data/definitions/125.html) *Out-of-bounds Read*) and \#12 ([CWE-787](https://cwe.mitre.org/data/definitions/787.html) *Out-of-bounds Write*).
 
 Here are the fundamentals. Almost all programs have to store intermediate results, and such storage areas are often called *buffers*. Reading and writing within that buffer is fine. But what happens when your program tries to read from or write to that buffer, but it tries to do that outside the range of that storage area? For example, here is a trivial fragment of a C program that allocates some array **x** of size 10 (index values 0 through 9), and later stores the value of **y** to the index value **i** of that array:
 
@@ -2128,7 +2128,7 @@ The obvious solution is to only use programming languages where you don’t have
 
 In cases where that is not practical, simplify your code as best you can so that it is clear where deallocation will occur, so that it will occur exactly once and you never use it again. Consider setting pointers to NULL (0) when you are done with what they point to. This will reduce the risk of freeing them or using them again later, and if unnecessary many of those assignments will be optimized away by the compiler.
 
-🔔 Use-after-free is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #7. It is [CWE-416](https://cwe.mitre.org/data/definitions/416.html) (*Use After Free*). Double-free is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #31. It is [CWE-415](https://cwe.mitre.org/data/definitions/415.html) (*Double Free*).
+🔔 Use-after-free is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#7. It is [CWE-416](https://cwe.mitre.org/data/definitions/416.html) (*Use After Free*). Double-free is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#31. It is [CWE-415](https://cwe.mitre.org/data/definitions/415.html) (*Double Free*).
 
 ### Quiz 2.5
 
@@ -2160,11 +2160,11 @@ Many languages have at least some undefined behaviors, and so, if you use those 
 
 In C and C++, a null pointer dereference is also undefined (e.g., evaluating “**&#42;p**” when **p** is **NULL**). This means that an attempt to dereference a null pointer does not necessarily lead to trying to read an invalid value, the program might do *anything* at all.
 
-🔔 *Null Pointer Dereference* ([CWE-476](https://cwe.mitre.org/data/definitions/476.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #14. 
+🔔 *Null Pointer Dereference* ([CWE-476](https://cwe.mitre.org/data/definitions/476.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#14. 
 
 In C  and C++, signed integer overflow is undefined (e.g., an **int** with value **MAX_INT** with 1 added to it). There is no guarantee that signed integers wrap; instead, the program might do anything at all.
 
-🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound* (though this CWE also covers unsigned wraparound, which is defined in C and C++).
+🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound* (though this CWE also covers unsigned wraparound, which is defined in C and C++).
 
 Perhaps by now it is clear why many people recommend avoiding C and C++ if the code has to be secure. For a variety of reasons, it is more difficult to write secure software in these languages! But again, there are *reasons* that people choose these languages, and of course, if something is already written in these languages, it is hard to change.
 
@@ -2217,7 +2217,7 @@ One of the simplest ways to ensure an attacker cannot trigger vulnerabilities fr
 > This shows that it’s important to check for wraparound when using attacker-controlled data, especially if you use it to make size or out-of-range decisions. Other rules can be learned as well. First, always validate data from an untrusted source (e.g., data from the Internet) - there was no reason to allow any allocation request this big. Second, this module listened to requests from the wide-area network (WAN) instead of just the local area network (LAN); software should minimize privilege to only what's needed to reduce the likelihood or impact of damage if there is a vulnerability.
 
 
-🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound*.
+🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound*.
 
 ### Quiz
 
@@ -2271,7 +2271,7 @@ You *can* use such routines securely, and sometimes you need to. But if you can 
 
 Why are certain kinds of routines hard to use securely? One common problem is that many routines accept languages with *metacharacters* - that is, characters that change how other characters are interpreted instead of being data themselves. For example, the double quote character (**“**) is often a metacharacter (including in SQL and shell). If there is a language specification, that almost certainly means there are metacharacters. Supporting metacharacters is very flexible, and if all of the input is trusted, it is not a problem. But when parts of the data might be from an attacker, you need to be very careful and take extra precautions. If an attacker can insert metacharacters into the input, and they are not escaped exactly correctly, then dangerous and easily-exploited vulnerabilities often follow if they are read by some kind of interpreter. These kinds of attacks are sometimes called injection attacks.
 
-🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that “Injection” is 2017 OWASP Top 10 #1 and 2019 CWE Top 25 #18. It is identified as [CWE-94](https://cwe.mitre.org/data/definitions/94.html),  *Improper Control of Generation of Code (‘Code Injection’)*.
+🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that “Injection” is 2017 OWASP Top 10 \#1 and 2019 CWE Top 25 \#18. It is identified as [CWE-94](https://cwe.mitre.org/data/definitions/94.html),  *Improper Control of Generation of Code (‘Code Injection’)*.
 
 So you need to ensure that when you send data to some program (or output), you send it in a secure way. That may involve:
 
@@ -2326,7 +2326,7 @@ There are many ways to trigger SQL injection attacks; attackers can insert singl
 
 If you are using a database, you shouldn’t ever be concatenating strings to create a query, because that is easy to get wrong. Remember, we want to try to use a routine that is easy to use correctly.
 
-🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*. 
+🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 \#1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2019 CWE Top 25 \#6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*. 
 
 For databases, there are well-known solutions that are far easier to use securely.
 
@@ -2401,7 +2401,7 @@ If you must call a program through a shell, and also include some data that migh
 
 Of course, if you are calling a program with any data that might be from an attacker, you need to make sure that the data will not be misinterpreted. For example, make sure your command-line options will be correctly interpreted; if an attacker can cause the initial character to be “**-**” or “**/**” in a parameter, then they might be misinterpreted as an option or root directory. Anything passed in (e.g., by parameter or anything else) must be carefully escaped to prevent attack. This brings us to the topic of filenames, which we will cover next.
 
-🔔 OS command injection is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #11. It is [CWE-78](https://cwe.mitre.org/data/definitions/78.html), *Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’)*.
+🔔 OS command injection is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#11. It is [CWE-78](https://cwe.mitre.org/data/definitions/78.html), *Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’)*.
 
 ### Quiz 3.3
 
@@ -2433,7 +2433,7 @@ An obvious case is that systems are often not supposed to allow access outside o
 
 > An example of a directory traversal vulnerability is [CVE-2020-11652](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11652), a vulnerability in the SaltStack. SaltStack is a configuration management and orchestration tool for managing multi-computer infrastructure. In this vulnerability, a method failed to properly sanitize an input parameter, allowing “**..**” elements that were used to create a filename. The result was that attackers could cause entire sets of machines to execute commands of their choosing.
 
-🔔 Path traversal is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #10. It is also identified as [CWE-22](https://cwe.mitre.org/data/definitions/22.html), *Improper Limitation of a Pathname to a Restricted Directory (‘Path Traversal’)*.
+🔔 Path traversal is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#10. It is also identified as [CWE-22](https://cwe.mitre.org/data/definitions/22.html), *Improper Limitation of a Pathname to a Restricted Directory (‘Path Traversal’)*.
 
 #### Windows Pathnames
 
@@ -2581,7 +2581,7 @@ Greatly limit who can read the logs; they generally should not be readable by al
 
 As a general rule, don’t include passwords or very sensitive data in logs. Since people may need to review logs later, log data sometimes gets out to more people than you might expect. Sometimes logs are revealed to others, and the recipient may use the logs in unauthorized ways. Beware of including data if it might include passwords or private keys! If you must include possibly-sensitive data, consider logging the data as an encrypted or cryptographically hashed value, so that people who receive the log cannot easily use it in an unauthorized way.
 
-🔔 Insufficient logging and monitoring is such a common mistake in web applications that it is 2017 OWASP Top 10 #10. *Inclusion of Sensitive Information in Log Files*, [CWE-532](https://cwe.mitre.org/data/definitions/532.html), is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #35.
+🔔 Insufficient logging and monitoring is such a common mistake in web applications that it is 2017 OWASP Top 10 \#10. *Inclusion of Sensitive Information in Log Files*, [CWE-532](https://cwe.mitre.org/data/definitions/532.html), is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#35.
 
 ### Quiz 3.7
 
@@ -2621,7 +2621,7 @@ Assertions are often great, because they can stop problems before they get more 
 
 * Limit scope of the assertion response (exception handler) to the attacker’s session where you can. For example, try to crash just that connection, not all connections, if an assertion fails.
 
-🔔 A *Reachable Assertion* (an assertion an attacker can trigger), [CWE-617](https://cwe.mitre.org/data/definitions/617.html), is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #40. 
+🔔 A *Reachable Assertion* (an assertion an attacker can trigger), [CWE-617](https://cwe.mitre.org/data/definitions/617.html), is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#40. 
 
 Inserting assertions can make a verification technique called “fuzzing” more effective. So, it is often a good idea to have many assertions, as long as they are expressions that absolutely *should* always be true. We will discuss fuzzing in more detail later.
 
@@ -2647,15 +2647,15 @@ Another way to make DoS attacks more difficult is to reduce the amount of resour
 
 🔔 There are several kinds of (related) resource handling vulnerabilities, and any of them can eventually lead to a denial of service. What is more, they are common problems:
 
-* *Uncontrolled Resource Consumption* ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #20. 
+* *Uncontrolled Resource Consumption* ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#20. 
 
-* This is highly related to having a missing release of resources, 2019 CWE Top 25 #21, [CWE-772](https://cwe.mitre.org/data/definitions/772.html), *Missing Release of Resource after Effective Lifetime*.
+* This is highly related to having a missing release of resources, 2019 CWE Top 25 \#21, [CWE-772](https://cwe.mitre.org/data/definitions/772.html), *Missing Release of Resource after Effective Lifetime*.
 
-* *Allocation of Resources Without Limits or Throttling* ([CWE-770](https://cwe.mitre.org/data/definitions/770.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #39.  
+* *Allocation of Resources Without Limits or Throttling* ([CWE-770](https://cwe.mitre.org/data/definitions/770.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#39.  
 
 An obvious but surprisingly common problem is loops where an attacker can cause the exit condition to never occur, causing the program to get stuck in an infinite loop without getting work done.
 
-🔔 Loops with unreachable exit conditions are 2019 CWE Top 25 #26, [CWE-835](https://cwe.mitre.org/data/definitions/835.html).
+🔔 Loops with unreachable exit conditions are 2019 CWE Top 25 \#26, [CWE-835](https://cwe.mitre.org/data/definitions/835.html).
 
 Make sure that you have backups of important datasets and a workable recovery process. That way, if an attacker manages to shut down the whole system, the data loss will be minimized. If necessary, you could even restart the service somewhere else or in some other form using the backups. You should have multiple backups, and at least some older ones should be in *cold storage* (that is, the backups cannot be modified by a later computer attack). That way, if newer backups are corrupted by an attacker (such as by using a ransomware attack), there are backups that can still be used.
 
@@ -2761,7 +2761,7 @@ In XSS, the system that is eventually attacked is the *web browser*. However, th
 
 * **DOM-based**<br>The web client sends the attack data to itself, typically using data provided from an attack and then sent via the DOM using JavaScript.
 
-🔔 XSS is such a common mistake in web applications that it is 2017 OWASP Top 10 #7. It is also 2019 CWE Top 25 #2. In CWE it is [CWE-79](https://cwe.mitre.org/data/definitions/79.html), *Improper Neutralization of Input During Web Page Generation (‘Cross-site Scripting’)*.
+🔔 XSS is such a common mistake in web applications that it is 2017 OWASP Top 10 \#7. It is also 2019 CWE Top 25 \#2. In CWE it is [CWE-79](https://cwe.mitre.org/data/definitions/79.html), *Improper Neutralization of Input During Web Page Generation (‘Cross-site Scripting’)*.
 
 #### The XSS Solution: Escape Output
 
@@ -2965,7 +2965,7 @@ Third, make sure that you have login and logout functions, and that they actuall
 
 Whenever a user successfully logs in, make sure that the user *always* gets a *new* session id (this is typically returned in a cookie). In particular, the receiving side of a login must *never* reuse session values. A new login means a new session is being requested (even if there is already a current session), so make sure a new session is created and used for that request! If your program fails to create a new session for a new login, it may be vulnerable to a *session fixation attack*.
 
-🔔 Session fixation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #37. It is [CWE-384](https://cwe.mitre.org/data/definitions/384.html).
+🔔 Session fixation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#37. It is [CWE-384](https://cwe.mitre.org/data/definitions/384.html).
 
 Similarly, make *sure* that you provide users a “log off” (“sign off”) action that *actually works*. If you use session ids - a common approach - then a log off should invalidate that session. This generally means that you need to remove the record of that session id from the server database that records active session ids (and the user id each session id applies to). You also need to tell the browser to delete the cookie or at least the session id value in that cookie. That way, the user is actually logged out. Users log out to reduce their risks, but this does not work if the application does not actually log them out. A surprisingly large number of major sites have, at one time or another, not logged out users when they requested it.
 
@@ -3003,7 +3003,7 @@ Another common countermeasure used today is what are called **SameSite** cookies
 
 In short, CSRF attacks are disappearing because the industry is moving towards safe defaults. This shows it is *possible* to mostly eliminate entire classes of vulnerabilities by designing or modifying systems so that the default is secure. Where possible, build countermeasures into your tools/standards/system so the problem won’t occur. If you are building a new web application, it is much less likely to be a problem, but make sure that your web framework counters it.
 
-🔔 Although it’s disappearing, Cross-Site Request Forgery (CSRF) is still a common enough cause of security vulnerabilities that it is 2019 CWE Top 25 #9. It is also identified as [CWE-352](https://cwe.mitre.org/data/definitions/352.html). It used to be in the OWASP Top 10. It is not in the 2017 edition, because so many modern frameworks now prevent it, but it is still important if your software is vulnerable to it.
+🔔 Although it’s disappearing, Cross-Site Request Forgery (CSRF) is still a common enough cause of security vulnerabilities that it is 2019 CWE Top 25 \#9. It is also identified as [CWE-352](https://cwe.mitre.org/data/definitions/352.html). It used to be in the OWASP Top 10. It is not in the 2017 edition, because so many modern frameworks now prevent it, but it is still important if your software is vulnerable to it.
 
 Of course, there are other ways an attacker might be able to gain temporary control over a user’s system. So you might still want to implement some other traditional CSRF countermeasures, such as:
 
@@ -3057,7 +3057,7 @@ The [OWASP cheat sheet on unvalidated redirects and forwards](https://cheatsheet
 
     * *This should be based on an allowlist approach, rather than a denylist.”*
 
-🔔 Open redirects are such a common cause of security vulnerabilities that this weakness is 2019 CWE Top 25 #32. It is [CWE-601](https://cwe.mitre.org/data/definitions/601.html).
+🔔 Open redirects are such a common cause of security vulnerabilities that this weakness is 2019 CWE Top 25 \#32. It is [CWE-601](https://cwe.mitre.org/data/definitions/601.html).
 
 ### Quiz 4.7
 
@@ -3127,7 +3127,7 @@ If a server is fooled into requesting an inadequately checked URL, it is called 
 
 The main solution is to ensure that you greatly limit how you construct any URLs that you request. If possible, don’t use untrusted data to create these URLs. If you must use untrusted data to construct a URL (and this often occurs), maximally limit the URLs that can be constructed and ensure that only *safe* URLs can be constructed. For example, in many cases today you can limit the URL to a single scheme (**https:**), there is usually no need to allow (for example) ports or usernames.
 
-🔔 Server-Side Request Forgery (SSRF) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #30. It is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
+🔔 Server-Side Request Forgery (SSRF) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#30. It is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
 
 ### Quiz 4.9
 
@@ -3230,7 +3230,7 @@ Implement audit logging early in development. Then, if you need to record more d
 
 Also, ensure that users cannot receive unauthorized information. Permissions and namespaces should be clearly set to prevent this.
 
-🔔 Improper information exposure is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #4. It is also identified as [CWE-200](https://cwe.mitre.org/data/definitions/200.html), *Information Exposure*.
+🔔 Improper information exposure is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#4. It is also identified as [CWE-200](https://cwe.mitre.org/data/definitions/200.html), *Information Exposure*.
 
 ### Quiz 4.11
 
@@ -3357,7 +3357,7 @@ Static analysis is any approach for verifying software (including finding defect
 
 Humans can be amazing at finding defects. This is one of the big potential advantages of open source software (OSS); since anyone can review OSS source code to find defects, there is a potential mass peer review. But humans have their downsides. Human time is expensive, humans get bored, and humans have “off” days where they are less effective (e.g., they might miss things). Different humans have different levels of effectiveness, too. It’s great to have humans review code, but you also want to support humans with tools that will find problems the humans may miss.
 
-If you can get humans to review code, do so! But you may want to direct the humans to examine issues that tools are especially not good at. In particular, it is good to have people review the “entry points” (attack surface) across a trust boundary to ensure that every request is either authorized or rejected. Determining whether or not a request is authorized is not something most tools are good at (they lack the information to make the decision). What is more, if that analysis is too hard for humans, there is something wrong with the software - it should be relatively *easy* to answer that question on each entry point. It is also a common problem; as we noted earlier, *Broken Access Control* is 2017 OWASP Top 10 #2.
+If you can get humans to review code, do so! But you may want to direct the humans to examine issues that tools are especially not good at. In particular, it is good to have people review the “entry points” (attack surface) across a trust boundary to ensure that every request is either authorized or rejected. Determining whether or not a request is authorized is not something most tools are good at (they lack the information to make the decision). What is more, if that analysis is too hard for humans, there is something wrong with the software - it should be relatively *easy* to answer that question on each entry point. It is also a common problem; as we noted earlier, *Broken Access Control* is 2017 OWASP Top 10 \#2.
 
 In general, if there are problems that tools are not good at finding, it may be best to modify your design so the problem cannot happen in the first place. For example, choose a memory-safe language or design a system component so only safe requests can be made. If that does not work, it may be wise to try to find or develop a tool to find it. That said, there will always be issues that tools will not work well for. If nothing else works, then work to focus the most powerful tool of all on the problem: people. But people’s time is limited, so where you can, try to not depend *solely* on human review.
 
@@ -3433,7 +3433,7 @@ There are clear advantages to reusing software. One advantage is that it saves a
 
 But when you reuse software, there is a downside: that software will have vulnerabilities in it. You should try to pick software that is likely to have fewer vulnerabilities. But in general, vulnerabilities *will* be found in the software you use directly and indirectly; those vulnerabilities will be publicly announced, and updates to those components that fix the vulnerabilities will be released. Because most reused software is OSS, some people and companies call this examining for OSS. That is not quite right, because it is actually an issue for any reused software, but it is understandable that people focus on OSS because most reused software is OSS.
 
-🔔 This is such a common problem that in 2013 OWASP added *Using Components with Known Vulnerabilities* to the OWASP Top 10. Using components with known vulnerabilities is 2017 OWASP Top 10 #9.
+🔔 This is such a common problem that in 2013 OWASP added *Using Components with Known Vulnerabilities* to the OWASP Top 10. Using components with known vulnerabilities is 2017 OWASP Top 10 \#9.
 
 It is inevitable that you will need to quickly update vulnerable reused components, so you need to *prepare* to quickly detect and do security updates for the reused software in your applications.
 
@@ -3513,7 +3513,7 @@ A tricky problem in testing is when a resource is not available. If the test req
 
 #### Traditional Testing for Security
 
-From a security perspective, it is important to include tests for security requirements. In particular, test both “what should happen” and “what should not happen”. Often people forget to test *what should not happen* (aka negative testing). For example, where it applies, you should have a test to check “Can I read/write *without* being authorized to do so?” (the answer should be “no”) and “Can I access the system with an *invalid* certificate or no certificate at all?” (again, that should fail). It is very common for programs’ security to fail because they don’t properly check for authentication (2017 OWASP Top 10 #2) or authorization (2017 OWASP Top 10 #5), so make sure you have tests for that!
+From a security perspective, it is important to include tests for security requirements. In particular, test both “what should happen” and “what should not happen”. Often people forget to test *what should not happen* (aka negative testing). For example, where it applies, you should have a test to check “Can I read/write *without* being authorized to do so?” (the answer should be “no”) and “Can I access the system with an *invalid* certificate or no certificate at all?” (again, that should fail). It is very common for programs’ security to fail because they don’t properly check for authentication (2017 OWASP Top 10 \#2) or authorization (2017 OWASP Top 10 \#5), so make sure you have tests for that!
 
 One approach to developing software is called t*est-driven development* (TDD). To over-summarize, in TDD the tests for a new capability are written before the software to implement the capability. This has some advantages, in particular, it encourages writing useful tests that actually check what they are supposed to check, and it also encourages developing testable software. One potential problem with TDD is that many TDD practitioners fail to write *negative* tests. Some TDD guidance even argues that you should only write tests for the new capability and nothing else. This is terrible guidance, because sometimes some things should simply *never* be allowed to happen, and you still need to test for them. You can definitely write secure software using TDD, but you must include negative tests (tests for what the software must *not* do) if you apply TDD.
 
@@ -3825,7 +3825,7 @@ For example, we typically want our web browsers and web servers to have an encry
 
 However, there are many people who know how to attack cryptographic systems. Using cryptography incorrectly can sometimes lead to having false confidence in an insecure system. What’s worse, incorrectly-used cryptography can sometimes be hard to spot if you are not an expert, so these mistakes may be exploited for long periods of time.
 
-🔔 Sensitive data exposure is such a common mistake in web applications that it is 2017 OWASP Top 10 #3. Sensitive data exposure is not always caused by poor use of cryptography, but it is a common underlying cause. Inadequate encryption strength is such a common cause of security vulnerabilities by itself that it is 2019 CWE Top 25 #3 (it is [CWE-326](https://cwe.mitre.org/data/definitions/326.html)).
+🔔 Sensitive data exposure is such a common mistake in web applications that it is 2017 OWASP Top 10 \#3. Sensitive data exposure is not always caused by poor use of cryptography, but it is a common underlying cause. Inadequate encryption strength is such a common cause of security vulnerabilities by itself that it is 2019 CWE Top 25 \#3 (it is [CWE-326](https://cwe.mitre.org/data/definitions/326.html)).
 
 For normal software development there are three key rules for cryptography:
 
@@ -4094,7 +4094,7 @@ When clients connect to a server using TLS, the client normally needs to check t
 
 *Beware*: If you are using your own client, instead of using a web browser, double-check that you are using the TLS library API *correctly*. Many TLS library APIs do *not* fully verify the server’s TLS certificate automatically. For example, they may allow connections to a server when there is no server certificate, they may allow any certificate (instead of a certificate for the site you are trying to connect to), or allow expired certificates. This is an extremely common mistake ([*The Most Dangerous Code in the World: Validating SSL Certificates in Non-Browser Software*](https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf), by Martin Georgiev, Subodh Iyengar, Suman Jana, Rishita Anubhai, Dan Boneh, and Vitaly Shmatikov, 2012). If this is the case, you may be using a low-level TLS API instead of the API you should be using.
 
-🔔 Improper certificate validation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #25. It is identified as [CWE-295](https://cwe.mitre.org/data/definitions/295.html), *Improper Certificate Validation*.
+🔔 Improper certificate validation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 \#25. It is identified as [CWE-295](https://cwe.mitre.org/data/definitions/295.html), *Improper Certificate Validation*.
 
 #### Ciphersuites
 
@@ -4224,7 +4224,7 @@ In the rest of this unit we will discuss some of the key issues for accepting vu
 
 #### Publicly State How to Send Vulnerability Reports
 
-You must tell others, publicly, how to send vulnerability reports… and this information must be extremely easy to find. Otherwise, potential reporters will not report vulnerabilities to you, or there may be a significant delay while the project tries to figure out how to receive a report. This is time wasted where time is often of the essence. In 2019, failure to publicly state how to send vulnerability reports was the #1 most common reason OSS projects did not earn the OpenSSF Best Practices *passing* badge ([*Core Infrastructure Initiative (CII) Best Practices Badge in 2019*](https://events19.linuxfoundation.org/wp-content/uploads/2018/07/cii-bp-badge-2019-03.pdf), by David A. Wheeler).
+You must tell others, publicly, how to send vulnerability reports… and this information must be extremely easy to find. Otherwise, potential reporters will not report vulnerabilities to you, or there may be a significant delay while the project tries to figure out how to receive a report. This is time wasted where time is often of the essence. In 2019, failure to publicly state how to send vulnerability reports was the \#1 most common reason OSS projects did not earn the OpenSSF Best Practices *passing* badge ([*Core Infrastructure Initiative (CII) Best Practices Badge in 2019*](https://events19.linuxfoundation.org/wp-content/uploads/2018/07/cii-bp-badge-2019-03.pdf), by David A. Wheeler).
 
 In one sense this requirement is easy. Decide what your reporting convention is, and make that information easy to find. Here are some common conventions:
 
@@ -4464,7 +4464,7 @@ Note that our earlier discussion about software acquisition discussed distributi
 
 When fielding/deploying:
 
-* Configure your production environment to be secure, including all components you depend on, and keep it updated. Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6. For example:
+* Configure your production environment to be secure, including all components you depend on, and keep it updated. Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 \#6. For example:
 
     * Your environment should be configured to provide least privilege and use maximum security settings your system allows.
 
@@ -4486,9 +4486,9 @@ When fielding/deploying:
 
 When operating:
 
-* Update components in a timely way (this is sometimes called *patch and vulnerability management*). Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. In some organizations this job is split between developers who update components within an application and operators who update external components depended on by the application. No matter how you do it, components need to be updated in a timely way or an attacker will be able to exploit them.
+* Update components in a timely way (this is sometimes called *patch and vulnerability management*). Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 \#9. In some organizations this job is split between developers who update components within an application and operators who update external components depended on by the application. No matter how you do it, components need to be updated in a timely way or an attacker will be able to exploit them.
 
-* Examine warnings and/or logs routinely. Determine which ones are indicators of an incident. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 #10.
+* Examine warnings and/or logs routinely. Determine which ones are indicators of an incident. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 \#10.
 
 * Respond in a timely way to incidents.
 
@@ -4731,7 +4731,7 @@ In this course we have covered all of the 2017 OWASP Top 10 and included cross-r
 
 \>\>Select the true statement(s):<<
 
-[!x] The #1 biggest risk in the OWASP “Top 10 Web Application Security Risks” are injection flaws, including SQL injection and OS command injection.
+[!x] The \#1 biggest risk in the OWASP “Top 10 Web Application Security Risks” are injection flaws, including SQL injection and OS command injection.
 
 [x] Cross-site scripting (XSS) is in the OWASP “Top 10 Web Application Security Risks”.
 
@@ -4741,7 +4741,7 @@ In this course we have covered all of the 2017 OWASP Top 10 and included cross-r
 
 Here is the 2019 edition of the [CWE Top 25 Most Dangerous Software Errors](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html). This list was created using real-world data, specifically, the publicly known vulnerabilities with Common Vulnerabilities and Exposures (CVE) as published in the National Institute of Standards and Technology (NIST) National Vulnerability Database (NVD), including the severity scores as calculated using the Common Vulnerability Scoring System (CVSS) scores. This list combines many different kinds of software; whether or not that is good depends on your perspective.
 
-No system is perfect. A complication is that the CWEs identified here are at various hierarchical levels. For example, #1 [CWE-119](https://cwe.mitre.org/data/definitions/119.html) (*Improper Restriction of Operations within the Bounds of a Memory Buffer*) is a superset of both #5 [CWE-125](https://cwe.mitre.org/data/definitions/125.html) (*Out-of-bounds read*) and #12 [CWE-787](https://cwe.mitre.org/data/definitions/787.html) (*Out-of-bounds Write*), yet they are all listed here. Still, this does provide a defensible and repeatable approach for identifying what’s important.
+No system is perfect. A complication is that the CWEs identified here are at various hierarchical levels. For example, \#1 [CWE-119](https://cwe.mitre.org/data/definitions/119.html) (*Improper Restriction of Operations within the Bounds of a Memory Buffer*) is a superset of both \#5 [CWE-125](https://cwe.mitre.org/data/definitions/125.html) (*Out-of-bounds read*) and \#12 [CWE-787](https://cwe.mitre.org/data/definitions/787.html) (*Out-of-bounds Write*), yet they are all listed here. Still, this does provide a defensible and repeatable approach for identifying what’s important.
 
 #### Top 25
 
@@ -4979,7 +4979,7 @@ You will be glad to know that this set of courses has, at least briefly, discuss
 
 [x]  The 2019 CWE Top 25 Most Dangerous Software Errors list is a combination of all kinds of software.
 
-[ ] The CWEs listed in the 2019 CWE Top 25 Most Dangerous Software Errors do not overlap each other. {{ selected: No, there are CWEs that overlap. For example, #1 CWE-119 (“Improper Restriction of Operations within the Bounds of a Memory Buffer”) is a superset of both #5 CWE-125 (“Out-of-bounds read”) and #12 CWE-787 (“Out-of-bounds Write”). }}
+[ ] The CWEs listed in the 2019 CWE Top 25 Most Dangerous Software Errors do not overlap each other. {{ selected: No, there are CWEs that overlap. For example, \#1 CWE-119 (“Improper Restriction of Operations within the Bounds of a Memory Buffer”) is a superset of both \#5 CWE-125 (“Out-of-bounds read”) and \#12 CWE-787 (“Out-of-bounds Write”). }}
 
 ## Concluding Notes
 
@@ -5041,7 +5041,7 @@ Many others discuss how to develop secure software. This course merely covers th
 
 (Not part of the course per se)
 
-Aleph One (Elias Levy), *Smashing the Stack for Fun and Profit*, Phrack #49, 1996 ([http://phrack.org/issues/49/14.html#article](http://phrack.org/issues/49/14.html#article))
+Aleph One (Elias Levy), *Smashing the Stack for Fun and Profit*, Phrack \#49, 1996 ([http://phrack.org/issues/49/14.html#article](http://phrack.org/issues/49/14.html#article))
 
 Anderson, James P., *Computer Security Technology Planning Study*, volume I, ESD-TR-73-51 (Volumes I and II), October 1972 ([https://csrc.nist.gov/csrc/media/publications/conference-paper/1998/10/08/proceedings-of-the-21st-nissc-1998/documents/early-cs-papers/ande72a.pdf](https://csrc.nist.gov/csrc/media/publications/conference-paper/1998/10/08/proceedings-of-the-21st-nissc-1998/documents/early-cs-papers/ande72a.pdf)) and ([https://csrc.nist.rip/publications/history/ande72.pdf](https://csrc.nist.rip/publications/history/ande72.pdf))
 
