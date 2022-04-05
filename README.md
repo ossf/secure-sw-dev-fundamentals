@@ -15,8 +15,11 @@ This content was originally converted from Google docs format using
 [gdocs2md](http://github.com/mangini/gdocs2md),
 patched to skip inline drawings.
 That project unfortunately seems to have stalled.
-A newer one is [lmmx/gdocs2md-html](https://github.com/lmmx/gdocs2md-html)
-though that seems to have stalled later on.
+Alternative converters include
+[lmmx/gdocs2md-html](https://github.com/lmmx/gdocs2md-html)
+and
+[evbacher/gd2md-html](https://github.com/evbacher/gd2md-html!)
+(the last one is most recently active).
 If you want to propose changes to the content, the preferred mechanism is
 via issues and pull requests to the
 [secure-sw-dev-fundamentals](https://github.com/ossf/secure-sw-dev-fundamentals)
