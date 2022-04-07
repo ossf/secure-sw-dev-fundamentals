@@ -1670,7 +1670,7 @@ In some cases, you can prevent deserialization attacks with authentication check
 
 Some people recommend enforcing string type constraints (e.g., only allowing specific classes to be deserialized). Unfortunately, many bypasses to this technique have been found over the years. It is a good idea as a *hardening* technique (or simply as a way to detect bugs early). However, in many systems, this is probably too dangerous to recommend as an adequate defense by itself.
 
-🔔 Insecure deserialization is such a common mistake in web applications that it is 2017 OWASP Top 10 #8 and 2019 CWE Top 25 #23. It is [CWE-502](https://cwe.mitre.org/data/definitions/502.html), *Deserialization of Untrusted Data*. Attackers may find such vulnerabilities harder to exploit, but once the vulnerability is found it can result in immediate compromise of an entire system, because it may provide complete control of the system to the attacker.
+🔔 Insecure deserialization is such a common mistake in web applications that it is 2017 OWASP Top 10 #8, 2021 CWE Top 25 #13, and 2019 CWE Top 25 #23. It is [CWE-502](https://cwe.mitre.org/data/definitions/502.html), *Deserialization of Untrusted Data*. Attackers may find such vulnerabilities harder to exploit, but once the vulnerability is found it can result in immediate compromise of an entire system, because it may provide complete control of the system to the attacker.
 
 ### Quiz 1.6
 
@@ -1753,7 +1753,7 @@ Sometimes you need to accept file uploads of special file types (e.g., of images
 
 If your program allows uploads, try to limit uploads to specific file types and make sure (via both its MIME type and its contents) that it is one of the valid types that you will accept. Limit what you allow in the filename, too; alphanumeric characters are generally fine, but anything else (especially “**/**” and “**&#92;**”) can be problematic, so only allow the characters you are certain will be fine. Where possible, define an acceptlist of allowed filename suffixes, and only allow uploads of files named with one of those allowed suffixes.
 
-🔔 Inadequate restriction of uploads is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #16. It is identified as [CWE-434](https://cwe.mitre.org/data/definitions/434.html), *Unrestricted Upload of File with Dangerous Type*.
+🔔 Inadequate restriction of uploads is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #10 and 2019 CWE Top 25 #16. It is identified as [CWE-434](https://cwe.mitre.org/data/definitions/434.html), *Unrestricted Upload of File with Dangerous Type*.
 
 ### Quiz 1.7
 
@@ -1773,9 +1773,9 @@ You need to check whether or not a request is authorized in absolutely every cas
 
 🔔 Inadequate authorization is such a common mistake that *Broken Access Control* is 2017 OWASP Top 10 #5, *Incorrect Authorization* is 2019 CWE Top 25 #33 ([CWE-863](https://cwe.mitre.org/data/definitions/863.html)), and *Missing Authorization* is 2019 CWE Top 25 #34 ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
 
-Of course, if something requires authorization, that means there should first have been some kind of authentication to ensure that the request was from whom they claimed to be. Thoroughly check how you handle authentication, and where practical, use well-respected libraries or frameworks to do it.
+Of course, if something requires authorization, that means there should first have been some kind of authentication to ensure that the request was from whom they claimed to be. Thoroughly check how you handle authentication, and where practical, use well-respected services, libraries, or frameworks to do it.
 
-🔔 Inadequate authentication is such a common mistake that *Broken Authentication* is 2017 OWASP Top 10 #2 and 2019 CWE Top 25 #13. It is [CWE-287](https://cwe.mitre.org/data/definitions/287.html), *Improper Authentication*. *Missing Authentication for (specifically a) Critical Function* is CWE Top 25 #36 ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
+🔔 Inadequate authentication is such a common mistake that *Broken Authentication* is 2017 OWASP Top 10 #2, 2021 CWE Top 25 #14, and 2019 CWE Top 25 #13. It is [CWE-287](https://cwe.mitre.org/data/definitions/287.html), *Improper Authentication*. *Missing Authentication for (specifically a) Critical Function* is 2021 CWE Top 25 #11 and 2019 CWE Top 25 #36 ([CWE-306](https://cwe.mitre.org/data/definitions/306.html)).
 
 We will later discuss various tools for verification. While tools can help find some problems, they are often *less* effective at finding authentication and authorization problems, because the tools don’t usually have enough information to determine *what is acceptable* and *what is not*. It helps to have tests that verify unauthorized requests are rejected, of course. But the most effective approach is ensuring that absolutely every input path is quickly authenticated and authorized where appropriate, so that manual review can easily assure reviewers that all cases are covered.
 
@@ -2137,7 +2137,7 @@ The obvious solution is to only use programming languages where you don’t have
 
 In cases where that is not practical, simplify your code as best you can so that it is clear where deallocation will occur, so that it will occur exactly once and you never use it again. Consider setting pointers to NULL (0) when you are done with what they point to. This will reduce the risk of freeing them or using them again later, and if unnecessary many of those assignments will be optimized away by the compiler.
 
-🔔 Use-after-free is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #7. It is [CWE-416](https://cwe.mitre.org/data/definitions/416.html) (*Use After Free*). Double-free is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #31. It is [CWE-415](https://cwe.mitre.org/data/definitions/415.html) (*Double Free*).
+🔔 Use-after-free is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #7 and 2019 CWE Top 25 #7. It is [CWE-416](https://cwe.mitre.org/data/definitions/416.html) (*Use After Free*). Double-free is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #31. It is [CWE-415](https://cwe.mitre.org/data/definitions/415.html) (*Double Free*).
 
 ### Quiz 2.5
 
@@ -2169,11 +2169,11 @@ Many languages have at least some undefined behaviors, and so, if you use those 
 
 In C and C++, a null pointer dereference is also undefined (e.g., evaluating “**&#42;p**” when **p** is **NULL**). This means that an attempt to dereference a null pointer does not necessarily lead to trying to read an invalid value, the program might do *anything* at all.
 
-🔔 *Null Pointer Dereference* ([CWE-476](https://cwe.mitre.org/data/definitions/476.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #14. 
+🔔 *Null Pointer Dereference* ([CWE-476](https://cwe.mitre.org/data/definitions/476.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #15 and 2019 CWE Top 25 #14. 
 
 In C  and C++, signed integer overflow is undefined (e.g., an **int** with value **MAX_INT** with 1 added to it). There is no guarantee that signed integers wrap; instead, the program might do anything at all.
 
-🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound* (though this CWE also covers unsigned wraparound, which is defined in C and C++).
+🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #12 and 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound* (though this CWE also covers unsigned wraparound, which is defined in C and C++).
 
 Perhaps by now it is clear why many people recommend avoiding C and C++ if the code has to be secure. For a variety of reasons, it is more difficult to write secure software in these languages! But again, there are *reasons* that people choose these languages, and of course, if something is already written in these languages, it is hard to change.
 
@@ -2221,12 +2221,12 @@ One of the simplest ways to ensure an attacker cannot trigger vulnerabilities fr
 
 > 😱 STORY TIME: NetUSB CVE-2021-45608
 
-> An example of an integer overflow leading to a vulnerability is [CVE-2021-45608](), as explained in “[CVE-2021-45608 | NetUSB RCE Flaw in Millions of End User Routers](https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/)” by Sentinel Labs.  The KCodes NetUSB kernel module, used by a large number of network device vendors, had an integer overflow vulnerability. The module took an untrusted client-provided length, added 0x11, and allocated that amount of memory. If the requested length was large (e.g., all 1s in binary), the addition would wrap around, causing a too-small allocation. After that, data would be dumped into the too-small buffer.
+> An example of an integer overflow leading to a vulnerability is [CVE-2021-45608](), as explained in “[CVE-2021-45608 | NetUSB RCE Flaw in Millions of End User Routers](https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/)” by Sentinel Labs.  The KCodes NetUSB kernel module, used by a large number of network device vendors, had an integer overflow vulnerability. The module took an untrusted client-provided length, added 0x11, and allocated that amount of memory. If the requested length was large (e.g., all 1s in binary), the addition would wrap around, causing a too-small allocation. After that, data would be dumped into the too-small buffer, leading to a buffer overflow.
 >
 > This shows that it’s important to check for wraparound when using attacker-controlled data, especially if you use it to make size or out-of-range decisions. Other rules can be learned as well. First, always validate data from an untrusted source (e.g., data from the Internet) - there was no reason to allow any allocation request this big. Second, this module listened to requests from the wide-area network (WAN) instead of just the local area network (LAN); software should minimize privilege to only what's needed to reduce the likelihood or impact of damage if there is a vulnerability.
 
 
-🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound*.
+🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #12 and 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound*.
 
 ### Quiz
 
@@ -2335,7 +2335,7 @@ There are many ways to trigger SQL injection attacks; attackers can insert singl
 
 If you are using a database, you shouldn’t ever be concatenating strings to create a query, because that is easy to get wrong. Remember, we want to try to use a routine that is easy to use correctly.
 
-🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*. 
+🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2021 CWE Top 25 #6 and 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*. 
 
 For databases, there are well-known solutions that are far easier to use securely.
 
@@ -2442,7 +2442,7 @@ An obvious case is that systems are often not supposed to allow access outside o
 
 > An example of a directory traversal vulnerability is [CVE-2020-11652](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11652), a vulnerability in the SaltStack. SaltStack is a configuration management and orchestration tool for managing multi-computer infrastructure. In this vulnerability, a method failed to properly sanitize an input parameter, allowing “**..**” elements that were used to create a filename. The result was that attackers could cause entire sets of machines to execute commands of their choosing.
 
-🔔 Path traversal is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #10. It is also identified as [CWE-22](https://cwe.mitre.org/data/definitions/22.html), *Improper Limitation of a Pathname to a Restricted Directory (‘Path Traversal’)*.
+🔔 Path traversal is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #8 and 2019 CWE Top 25 #10. It is also identified as [CWE-22](https://cwe.mitre.org/data/definitions/22.html), *Improper Limitation of a Pathname to a Restricted Directory (‘Path Traversal’)*.
 
 #### Windows Pathnames
 
@@ -3000,19 +3000,19 @@ Reusing an existing session can, in some implementations, open a system to an at
 
 [Web application]
 
-Another kind of attack that websites have often been vulnerable to is called cross-site request forgery (CSRF or XSRF). It is much less of a problem today, but it can still happen, so let’s learn what it is and how it can be countered. CSRF is also a great example of how specific security vulnerabilities can be mostly eliminated over time; if you can, try to find general ways to eliminate other kinds of vulnerabilities!
+Another kind of attack that websites have often been vulnerable to is called cross-site request forgery (CSRF or XSRF). It is less of a problem today, but it can still happen, so let’s learn what it is and how it can be countered. CSRF is also a great example of how specific security vulnerabilities can become less common over time; if you can, try to find general ways to eliminate other kinds of vulnerabilities!
 
 In a CSRF attack, an attacker tricks the user into sending data to a *server*, where the server interprets the request as a request from the user and directly acts on it. For example, the attacker could create a form with a submit button on the attacker’s website, but tell the user’s web browser to submit the completed form to a server that will act on that form. Note that if the user is logged in to that server (say for a bank), the server will see that the user really is logged in to the bank, and might be convinced to do something the user did not intend (such as transfer a lot of money to the attacker).
 
 In some ways, a CSRF attack is the opposite of an XSS attack. XSS exploits the user’s trust in a server; CSRF exploits the server’s trust in a client (that the user is actually intentionally making a given request). Put another way: XSS fools clients; CSRF fools servers.
 
-A common countermeasure used today in most widely-used web application frameworks is to send a secret user-specific CSRF token in all forms and any other URLs with side-effects, and then check to ensure that the correct secret is included with any request with a side-effect. Since attackers will not know the secret value, the attacker cannot insert a matching CSRF token. Since this is built into almost all widely-used web frameworks today, most applications are automatically protected from CSRF (unless they disable the protection). You should prefer a web application framework that has a CSRF token mechanism.
+A common countermeasure used today in most widely-used web application frameworks is to send a secret user-specific CSRF token in all forms and any other URLs with side-effects, and then check to ensure that the correct secret is included with any request with a side-effect. Since attackers will not know the secret value, the attacker cannot insert a matching CSRF token. Since this is built into almost all widely-used web frameworks today, many applications are automatically protected from CSRF (unless they disable the protection or don't use the framework correctly). You should prefer a web application framework that has a CSRF token mechanism.
 
 Another common countermeasure used today is what are called **SameSite** cookies. Historically, all cookies were sent to a server whenever the user had matching cookies for that server, even when the primary page being displayed is from a different server. For example, a web page on site BB might include a reference to an image on site CC; when the web browser downloaded the image from CC it would send all related cookies. However, this does not really make much sense; in many cases cookies should not be sent if the interaction was caused by an unrelated server. So modern browsers have an optional **SameSite** setting on cookies. If the setting is **Lax** or **Strict**,  a request caused by an attacker on a different server will not cause the cookie (like a session) to be sent. So as long as your session cookies have a **SameSite** setting of **Lax** or **Strict**, CSRF attacks generally don’t work. Even better, modern browsers are working to make **SameSite=Lax** the default. It is best to set **SameSite** to **Lax** or **Strict** yourself, but a secure default is still a good thing.
 
-In short, CSRF attacks are disappearing because the industry is moving towards safe defaults. This shows it is *possible* to mostly eliminate entire classes of vulnerabilities by designing or modifying systems so that the default is secure. Where possible, build countermeasures into your tools/standards/system so the problem won’t occur. If you are building a new web application, it is much less likely to be a problem, but make sure that your web framework counters it.
+In short, CSRF vulnerabilities are becoming less common because the industry is moving towards safe defaults. This shows it is *possible* to reduce the likelihood of entire classes of vulnerabilities by designing or modifying systems so that the default is secure. Where possible, build countermeasures into your tools/standards/system so the problem won’t occur. If you are building a new web application, it is much less likely to be a problem, but make sure that your web framework counters it and that you use its mechanisms correctly.
 
-🔔 Although it’s disappearing, Cross-Site Request Forgery (CSRF) is still a common enough cause of security vulnerabilities that it is 2019 CWE Top 25 #9. It is also identified as [CWE-352](https://cwe.mitre.org/data/definitions/352.html). It used to be in the OWASP Top 10. It is not in the 2017 edition, because so many modern frameworks now prevent it, but it is still important if your software is vulnerable to it.
+🔔 Although it’s becoming less common, Cross-Site Request Forgery (CSRF) is still a common enough cause of security vulnerabilities that it is 2019 CWE Top 25 #9. It is also identified as [CWE-352](https://cwe.mitre.org/data/definitions/352.html). It used to be in the OWASP Top 10. It is not in the 2017 edition, because so many modern frameworks now prevent it, but it is still important if your software is vulnerable to it.
 
 Of course, there are other ways an attacker might be able to gain temporary control over a user’s system. So you might still want to implement some other traditional CSRF countermeasures, such as:
 
@@ -3030,7 +3030,7 @@ Of course, there are other ways an attacker might be able to gain temporary cont
 
 [Explanation]
 
-This is true! This shows that sometimes it *is* possible to modify systems to prevent whole classes of attacks. You should also continuously look for ways to eliminate entire classes of attacks, either in your specific application or the world in general.
+This is true! This shows that sometimes it *is* possible to modify systems to reduce the likelihood of whole classes of attacks. You should also continuously look for ways to eliminate entire classes of attacks, either in your specific application or the world in general.
 
 [Explanation]
 
