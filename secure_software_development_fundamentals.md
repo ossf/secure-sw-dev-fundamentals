@@ -1336,7 +1336,7 @@ At each remaining input from potentially untrusted users you need to validate th
 
 You should determine what is legal, as narrowly as you reasonably can, and reject anything that does not match that definition. Using rules that define what is legal, and by implication rejecting everything else, is called *allowlisting* (the rules themselves are an *allowlist*). Synonyms are *goodlisting* (the rules are the *goodlist*) and the historically common *whitelisting* (the rules are the *whitelist*). In general, do not do the reverse. That is, it is normally a mistake to try to identify what is illegal and write code to reject just those cases. This generally insecure approach, where you try to list everything that should be rejected, is called *denylisting* (the rules are a *denylist*). Synonyms for denylisting are *badlisting* and the historically common *blacklisting* (the rules are then called a *badlist* or  *blacklist*). Denylisting typically leads to security vulnerabilities, because if you forget to handle one or more important cases of illegal input, it could be an opportunity for an attacker. If you forget to allow a case, you get a bug report and your software fails securely. Besides, it is usually much easier to simply identify *what is allowed* and only allow those inputs. In a few rare cases you *can* absolutely be certain that you have enumerated all possible bad inputs, in which case denylisting is okay, but those are rare. Generally denylisting leads to trouble.
 
-🔔 Improper input validation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #3. It is also identified as [CWE-20](https://cwe.mitre.org/data/definitions/20.html) (*Improper Input Validation*).
+🔔 Improper input validation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #3 and 2021 CWE Top 25 #4. It is also identified as [CWE-20](https://cwe.mitre.org/data/definitions/20.html) (*Improper Input Validation*).
 
 The good news is that it usually does not take long to add input validation, and that can immediately make your program harder to attack. It may be hard to decide on a user-friendly response to invalid input, but it is easier than suffering a successful attack.
 
@@ -2035,7 +2035,7 @@ One of the best-known attacker tricks is out-of-bounds reads and writes (includi
 
 One of the most common kinds of security vulnerabilities is where a read or write is *“out of bounds”* inside memory-unsafe code. Such vulnerabilities are common, and attackers find them easy to exploit. This problem has been well-known for a long time; Aleph One (Elias Levy) describes in detail in [*Smashing the Stack for Fun and Profit*](http://phrack.org/issues/49/14.html#article) (1996) how to exploit such vulnerabilities.
 
-🔔 In fact, out-of-bounds reads and writes are so common and dangerous that in the 2019 CWE Top 25 Most Dangerous Software Errors list this is the #1 weakness ([CWE-119](https://cwe.mitre.org/data/definitions/119.html) *Improper Restriction of Operations within the Bounds of a Memory Buffer*), and specific cases of it are #5 ([CWE-125](https://cwe.mitre.org/data/definitions/125.html) *Out-of-bounds Read*) and #12 ([CWE-787](https://cwe.mitre.org/data/definitions/787.html) *Out-of-bounds Write*).
+🔔 Out-of-bounds reads and writes are so common and dangerous that in the 2021 CWE Top 25 list, the #1 weakness involves writes ([CWE-787](https://cwe.mitre.org/data/definitions/787.html) *Out-of-bounds Write*), the #3 weakness involves reads ([CWE-125](https://cwe.mitre.org/data/definitions/125.html) *Out-of-bounds Read*), and the general issue is #17 ([CWE-119](https://cwe.mitre.org/data/definitions/119.html) *Improper Restriction of Operations within the Bounds of a Memory Buffer*).  In the 2019 CWE Top 25 list the general issue is #1 ([CWE-119](https://cwe.mitre.org/data/definitions/119.html) *Improper Restriction of Operations within the Bounds of a Memory Buffer*), and specific cases of it are #5 ([CWE-125](https://cwe.mitre.org/data/definitions/125.html) *Out-of-bounds Read*) and #12 ([CWE-787](https://cwe.mitre.org/data/definitions/787.html) *Out-of-bounds Write*).
 
 Here are the fundamentals. Almost all programs have to store intermediate results, and such storage areas are often called *buffers*. Reading and writing within that buffer is fine. But what happens when your program tries to read from or write to that buffer, but it tries to do that outside the range of that storage area? For example, here is a trivial fragment of a C program that allocates some array **x** of size 10 (index values 0 through 9), and later stores the value of **y** to the index value **i** of that array:
 
@@ -2410,7 +2410,7 @@ If you must call a program through a shell, and also include some data that migh
 
 Of course, if you are calling a program with any data that might be from an attacker, you need to make sure that the data will not be misinterpreted. For example, make sure your command-line options will be correctly interpreted; if an attacker can cause the initial character to be “**-**” or “**/**” in a parameter, then they might be misinterpreted as an option or root directory. Anything passed in (e.g., by parameter or anything else) must be carefully escaped to prevent attack. This brings us to the topic of filenames, which we will cover next.
 
-🔔 OS command injection is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #11. It is [CWE-78](https://cwe.mitre.org/data/definitions/78.html), *Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’)*.
+🔔 OS command injection is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #11 and 2021 CWE Top 25 #5. It is [CWE-78](https://cwe.mitre.org/data/definitions/78.html), *Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’)*.
 
 ### Quiz 3.3
 
@@ -2770,7 +2770,7 @@ In XSS, the system that is eventually attacked is the *web browser*. However, th
 
 * **DOM-based**<br>The web client sends the attack data to itself, typically using data provided from an attack and then sent via the DOM using JavaScript.
 
-🔔 XSS is such a common mistake in web applications that it is 2017 OWASP Top 10 #7. It is also 2019 CWE Top 25 #2. In CWE it is [CWE-79](https://cwe.mitre.org/data/definitions/79.html), *Improper Neutralization of Input During Web Page Generation (‘Cross-site Scripting’)*.
+🔔 XSS is such a common mistake in web applications that it is 2017 OWASP Top 10 #7. It is also 2019 CWE Top 25 #2 and 2021 CWE Top 25 #2. In CWE it is [CWE-79](https://cwe.mitre.org/data/definitions/79.html), *Improper Neutralization of Input During Web Page Generation (‘Cross-site Scripting’)*.
 
 #### The XSS Solution: Escape Output
 
