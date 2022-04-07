@@ -864,7 +864,7 @@ Here are several ways to implement least privilege, depending on the circumstanc
 
 <br>
 
-🔔 Incorrect permissions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #15. It is [CWE-732](https://cwe.mitre.org/data/definitions/732.html) (*Incorrect Permission Assignment for Critical Resource*). Incorrect permissions are especially bad if the *default* permissions are insecure; that special case is [CWE-276](https://cwe.mitre.org/data/definitions/276.html) (*Incorrect Default Permissions*).
+🔔 Incorrect permissions are such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #22 and 2019 CWE Top 25 #15. It is [CWE-732](https://cwe.mitre.org/data/definitions/732.html) (*Incorrect Permission Assignment for Critical Resource*). Incorrect permissions are especially bad if the *default* permissions are insecure; that special case is [CWE-276](https://cwe.mitre.org/data/definitions/276.html) (*Incorrect Default Permissions*).
 
 #### Examples of Least Privilege
 
@@ -1725,7 +1725,7 @@ In general, you should not accept unchecked external references from untrusted s
 
 For more about this issue, see the [OWASP XML External Entities web page](https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE).html).
 
-🔔 XML XXE is such a common mistake in web applications that it is 2017 OWASP Top 10 #4 and 2019 CWE Top 25 #17. It is also identified as [CWE-611](https://cwe.mitre.org/data/definitions/611.html), *Improper Restriction of XML External Entity Reference*.
+🔔 XML XXE is such a common mistake in web applications that it is 2017 OWASP Top 10 #4, 2021 CWE Top 25 #23, and 2019 CWE Top 25 #17. It is also identified as [CWE-611](https://cwe.mitre.org/data/definitions/611.html), *Improper Restriction of XML External Entity Reference*.
 
 #### HTML
 
@@ -1771,7 +1771,7 @@ That said, in many systems, attackers will be able to attempt some requests. In 
 
 You need to check whether or not a request is authorized in absolutely every case. That is to say, ensure that authorization checks are non-bypassable. Tools are often not good at determining if every request is checked for authorization, so you typically need to depend primarily on human review. If humans can easily see that the correct authorization check is made for every request, it takes much less time to review *and* it is more likely to be correct. In practice, that often means that programs should check for authorization as soon as you reasonably can do so. Exactly what that means depends on your system, e.g., in a model-view-controller architecture, you could put authorization checks on each controller entry and/or each model entry. What matters is that you do it consistently and that it is easy for others to verify that it cannot be bypassed. Similarly, the data needs to be stored so that only authorized requests can succeed.
 
-🔔 Inadequate authorization is such a common mistake that *Broken Access Control* is 2017 OWASP Top 10 #5, *Incorrect Authorization* is 2019 CWE Top 25 #33 ([CWE-863](https://cwe.mitre.org/data/definitions/863.html)), and *Missing Authorization* is 2019 CWE Top 25 #34 ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
+🔔 Inadequate authorization is such a common mistake that *Broken Access Control* is 2017 OWASP Top 10 #5, *Incorrect Authorization* is 2019 CWE Top 25 #33 ([CWE-863](https://cwe.mitre.org/data/definitions/863.html)), and *Missing Authorization* is 2021 CWE Top 25 #18 and 2019 CWE Top 25 #34 ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
 
 Of course, if something requires authorization, that means there should first have been some kind of authentication to ensure that the request was from whom they claimed to be. Thoroughly check how you handle authentication, and where practical, use well-respected services, libraries, or frameworks to do it.
 
@@ -1837,7 +1837,7 @@ Most larger systems need some mechanism to receive configuration information. Ma
 
 Some systems try to depend on *secure boot* or similar mechanisms to ensure that only specific software is run on a particular computer. Don’t take these mechanisms very seriously if the computer (such as a smartphone) may be physically controlled by a potential attacker. If an attacker has physical control over a device, then that attacker has ultimate control over the device. The reality is that secure boot systems have been repeatedly broken; trusting this to never happen in the future is ignoring the lessons of the past. You are better off designing your system so that you don’t need to trust the application on that device, but instead run software you need to trust on hardware controlled by someone you trust. Secure boot systems are far more powerful if the system is physically controlled by a trusted party, because then they are simply providing an additional protective measure for the one physically in control.
 
-🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6. [CWE-276](https://cwe.mitre.org/data/definitions/276.html) covers Incorrect Default Permissions.
+🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6. 2021 CWE Top 25 #19 [CWE-276](https://cwe.mitre.org/data/definitions/276.html) covers Incorrect Default Permissions.
 
 ### Quiz 1.10
 
@@ -1963,7 +1963,7 @@ For inbound authentication using passwords, store credentials separately and use
 
 For outbound authentication, credentials should be stored outside the code in a storage system that is protected from all outsiders (including local users on the same system/cloud host). Ideally, all credentials would be stored in an encrypted file or database, but in many environments, this is difficult to do (where do you store the key to access the key?). At the very least, store credentials in something like a file or database table with permissions that are as restrictive as you can practically make them. Environment variables are generally a weaker way to store credentials, since their values are available to the entire process that loads them, but in some circumstances this is acceptable… and it is generally much better than hardcoding credentials.
 
-🔔 Hardcoded credentials are such a common cause of security vulnerabilities that they are 2019 CWE Top 25 #19. This weakness is [CWE-798](https://cwe.mitre.org/data/definitions/798.html), *Use of Hard-coded Credentials*. *Insufficiently Protected Credentials* are 2019 CWE Top 25 #27 as [CWE-522](https://cwe.mitre.org/data/definitions/522.html).
+🔔 Hardcoded credentials are such a common cause of security vulnerabilities that they are 2021 CWE Top 25 #16 and 2019 CWE Top 25 #19. This weakness is [CWE-798](https://cwe.mitre.org/data/definitions/798.html), *Use of Hard-coded Credentials*. The related *Insufficiently Protected Credentials* is 2021 CWE Top 25 #21 and 2019 CWE Top 25 #27 as [CWE-522](https://cwe.mitre.org/data/definitions/522.html).
 
 ### Quiz 2.2
 
@@ -2281,6 +2281,7 @@ You *can* use such routines securely, and sometimes you need to. But if you can 
 Why are certain kinds of routines hard to use securely? One common problem is that many routines accept languages with *metacharacters* - that is, characters that change how other characters are interpreted instead of being data themselves. For example, the double quote character (**“**) is often a metacharacter (including in SQL and shell). If there is a language specification, that almost certainly means there are metacharacters. Supporting metacharacters is very flexible, and if all of the input is trusted, it is not a problem. But when parts of the data might be from an attacker, you need to be very careful and take extra precautions. If an attacker can insert metacharacters into the input, and they are not escaped exactly correctly, then dangerous and easily-exploited vulnerabilities often follow if they are read by some kind of interpreter. These kinds of attacks are sometimes called injection attacks.
 
 🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that “Injection” is 2017 OWASP Top 10 #1 and 2019 CWE Top 25 #18. It is identified as [CWE-94](https://cwe.mitre.org/data/definitions/94.html),  *Improper Control of Generation of Code (‘Code Injection’)*.
+2021 CWE Top 10 #25 is [CWE-77](https://cwe.mitre.org/data/definitions/77.html), *Improper Neutralization of Special Elements used in a Command ('Command Injection')*; this general category has common special cases such as SQL injection vulnerabilities ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) that we will soon discuss.
 
 So you need to ensure that when you send data to some program (or output), you send it in a secure way. That may involve:
 
@@ -3136,7 +3137,7 @@ If a server is fooled into requesting an inadequately checked URL, it is called 
 
 The main solution is to ensure that you greatly limit how you construct any URLs that you request. If possible, don’t use untrusted data to create these URLs. If you must use untrusted data to construct a URL (and this often occurs), maximally limit the URLs that can be constructed and ensure that only *safe* URLs can be constructed. For example, in many cases today you can limit the URL to a single scheme (**https:**), there is usually no need to allow (for example) ports or usernames.
 
-🔔 Server-Side Request Forgery (SSRF) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #30. It is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
+🔔 Server-Side Request Forgery (SSRF) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #24 and 2019 CWE Top 25 #30. It is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
 
 ### Quiz 4.9
 
@@ -3239,7 +3240,7 @@ Implement audit logging early in development. Then, if you need to record more d
 
 Also, ensure that users cannot receive unauthorized information. Permissions and namespaces should be clearly set to prevent this.
 
-🔔 Improper information exposure is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #4. It is also identified as [CWE-200](https://cwe.mitre.org/data/definitions/200.html), *Information Exposure*.
+🔔 Improper information exposure is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #20 and 2019 CWE Top 25 #4. It is identified as [CWE-200](https://cwe.mitre.org/data/definitions/200.html), *Exposure of Sensitive Information to an Unauthorized Actor* (aka *Information Exposure*).
 
 ### Quiz 4.11
 
