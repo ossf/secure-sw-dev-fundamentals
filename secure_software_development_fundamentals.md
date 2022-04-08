@@ -878,7 +878,7 @@ If you implement an external API (e.g., with REST or GraphQL), don’t provide a
 
 It is unfortunately common to mismanage privileges. For example, there are many cases where programs have failed to drop privileges in all cases (e.g., because raising an exception skipped the code that dropped privileges, or because the code that was supposed to drop privileges does not work in all cases).
 
-🔔 Improper privilege management is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #24. It is [CWE-269](https://cwe.mitre.org/data/definitions/269.html) (*Improper Privilege Management*).
+🔔 Improper privilege management is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #29 and 2019 CWE Top 25 #24. It is [CWE-269](https://cwe.mitre.org/data/definitions/269.html) (*Improper Privilege Management*).
 
 ### Quiz 2.3
 
@@ -2282,7 +2282,7 @@ You *can* use such routines securely, and sometimes you need to. But if you can 
 
 Why are certain kinds of routines hard to use securely? One common problem is that many routines accept languages with *metacharacters* - that is, characters that change how other characters are interpreted instead of being data themselves. For example, the double quote character (**“**) is often a metacharacter (including in SQL and shell). If there is a language specification, that almost certainly means there are metacharacters. Supporting metacharacters is very flexible, and if all of the input is trusted, it is not a problem. But when parts of the data might be from an attacker, you need to be very careful and take extra precautions. If an attacker can insert metacharacters into the input, and they are not escaped exactly correctly, then dangerous and easily-exploited vulnerabilities often follow if they are read by some kind of interpreter. These kinds of attacks are sometimes called injection attacks.
 
-🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that “Injection” is 2017 OWASP Top 10 #1 and 2019 CWE Top 25 #18. It is identified as [CWE-94](https://cwe.mitre.org/data/definitions/94.html),  *Improper Control of Generation of Code (‘Code Injection’)*.
+🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that “Injection” is 2017 OWASP Top 10 #1, 2021 CWE Top 25 #28, and 2019 CWE Top 25 #18. It is identified as [CWE-94](https://cwe.mitre.org/data/definitions/94.html),  *Improper Control of Generation of Code (‘Code Injection’)*.
 2021 CWE Top 10 #25 is [CWE-77](https://cwe.mitre.org/data/definitions/77.html), *Improper Neutralization of Special Elements used in a Command ('Command Injection')*; this general category has common special cases such as SQL injection vulnerabilities ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) that we will soon discuss.
 
 So you need to ensure that when you send data to some program (or output), you send it in a secure way. That may involve:
@@ -2659,7 +2659,7 @@ Another way to make DoS attacks more difficult is to reduce the amount of resour
 
 🔔 There are several kinds of (related) resource handling vulnerabilities, and any of them can eventually lead to a denial of service. What is more, they are common problems:
 
-* *Uncontrolled Resource Consumption* ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #20. 
+* *Uncontrolled Resource Consumption* ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #27 and 2019 CWE Top 25 #20. 
 
 * This is highly related to having a missing release of resources, 2019 CWE Top 25 #21, [CWE-772](https://cwe.mitre.org/data/definitions/772.html), *Missing Release of Resource after Effective Lifetime*.
 
@@ -4106,7 +4106,7 @@ When clients connect to a server using TLS, the client normally needs to check t
 
 *Beware*: If you are using your own client, instead of using a web browser, double-check that you are using the TLS library API *correctly*. Many TLS library APIs do *not* fully verify the server’s TLS certificate automatically. For example, they may allow connections to a server when there is no server certificate, they may allow any certificate (instead of a certificate for the site you are trying to connect to), or allow expired certificates. This is an extremely common mistake ([*The Most Dangerous Code in the World: Validating SSL Certificates in Non-Browser Software*](https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf), by Martin Georgiev, Subodh Iyengar, Suman Jana, Rishita Anubhai, Dan Boneh, and Vitaly Shmatikov, 2012). If this is the case, you may be using a low-level TLS API instead of the API you should be using.
 
-🔔 Improper certificate validation is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #25. It is identified as [CWE-295](https://cwe.mitre.org/data/definitions/295.html), *Improper Certificate Validation*.
+🔔 Improper certificate validation is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #26 and2021 CWE Top 25 #26 and  2019 CWE Top 25 #25. It is identified as [CWE-295](https://cwe.mitre.org/data/definitions/295.html), *Improper Certificate Validation*.
 
 #### Ciphersuites
 
