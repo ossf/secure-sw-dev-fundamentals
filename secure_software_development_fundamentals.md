@@ -1773,7 +1773,7 @@ That said, in many systems, attackers will be able to attempt some requests. In 
 
 You need to check whether or not a request is authorized in absolutely every case. That is to say, ensure that authorization checks are non-bypassable. Tools are often not good at determining if every request is checked for authorization, so you typically need to depend primarily on human review. If humans can easily see that the correct authorization check is made for every request, it takes much less time to review *and* it is more likely to be correct. In practice, that often means that programs should check for authorization as soon as you reasonably can do so. Exactly what that means depends on your system, e.g., in a model-view-controller architecture, you could put authorization checks on each controller entry and/or each model entry. What matters is that you do it consistently and that it is easy for others to verify that it cannot be bypassed. Similarly, the data needs to be stored so that only authorized requests can succeed.
 
-🔔 Inadequate authorization is such a common mistake that *Broken Access Control* is 2017 OWASP Top 10 #5, *Incorrect Authorization* is 2019 CWE Top 25 #33 ([CWE-863](https://cwe.mitre.org/data/definitions/863.html)), and *Missing Authorization* is 2021 CWE Top 25 #18 and 2019 CWE Top 25 #34 ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
+🔔 Inadequate authorization is such a common mistake that *Broken Access Control* is 2017 OWASP Top 10 #5, *Incorrect Authorization* is 2021 CWE Top 25 #38 and 2019 CWE Top 25 #33 ([CWE-863](https://cwe.mitre.org/data/definitions/863.html)), and *Missing Authorization* is 2021 CWE Top 25 #18 and 2019 CWE Top 25 #34 ([CWE-862](https://cwe.mitre.org/data/definitions/862.html)).
 
 Of course, if something requires authorization, that means there should first have been some kind of authentication to ensure that the request was from whom they claimed to be. Thoroughly check how you handle authentication, and where practical, use well-respected services, libraries, or frameworks to do it.
 
@@ -2593,7 +2593,7 @@ Greatly limit who can read the logs; they generally should not be readable by al
 
 As a general rule, don’t include passwords or very sensitive data in logs. Since people may need to review logs later, log data sometimes gets out to more people than you might expect. Sometimes logs are revealed to others, and the recipient may use the logs in unauthorized ways. Beware of including data if it might include passwords or private keys! If you must include possibly-sensitive data, consider logging the data as an encrypted or cryptographically hashed value, so that people who receive the log cannot easily use it in an unauthorized way.
 
-🔔 Insufficient logging and monitoring is such a common mistake in web applications that it is 2017 OWASP Top 10 #10. *Inclusion of Sensitive Information in Log Files*, [CWE-532](https://cwe.mitre.org/data/definitions/532.html), is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #35.
+🔔 Insufficient logging and monitoring is such a common mistake in web applications that it is 2017 OWASP Top 10 #10. *Inclusion of Sensitive Information in Log Files*, [CWE-532](https://cwe.mitre.org/data/definitions/532.html), is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #39 and 2019 CWE Top 25 #35.
 
 ### Quiz 3.7
 
@@ -2663,7 +2663,7 @@ Another way to make DoS attacks more difficult is to reduce the amount of resour
 
 * This is highly related to having a missing release of resources, 2019 CWE Top 25 #21, [CWE-772](https://cwe.mitre.org/data/definitions/772.html), *Missing Release of Resource after Effective Lifetime*.
 
-* *Allocation of Resources Without Limits or Throttling* ([CWE-770](https://cwe.mitre.org/data/definitions/770.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #39.  
+* *Allocation of Resources Without Limits or Throttling* ([CWE-770](https://cwe.mitre.org/data/definitions/770.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #40 and 2019 CWE Top 25 #39.  
 
 An obvious but surprisingly common problem is loops where an attacker can cause the exit condition to never occur, causing the program to get stuck in an infinite loop without getting work done.
 
@@ -3069,7 +3069,7 @@ The [OWASP cheat sheet on unvalidated redirects and forwards](https://cheatsheet
 
     * *This should be based on an allowlist approach, rather than a denylist.”*
 
-🔔 Open redirects are such a common cause of security vulnerabilities that this weakness is 2019 CWE Top 25 #32. It is [CWE-601](https://cwe.mitre.org/data/definitions/601.html).
+🔔 Open redirects are such a common cause of security vulnerabilities that this weakness is 2021 CWE Top 25 #37 and 2019 CWE Top 25 #32. It is [CWE-601](https://cwe.mitre.org/data/definitions/601.html).
 
 ### Quiz 4.7
 
