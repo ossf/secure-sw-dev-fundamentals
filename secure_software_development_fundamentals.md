@@ -1035,7 +1035,7 @@ In many situations, the right way to counter TOCTOU race conditions is to implem
 
 3. If you want to create a new file on a Unix-like system, make sure you request that it be created *exclusively* (**O_EXCL** in the C **open()** API, and the letter **x** in **fopen()** and the option flags used in many other programming languages). Again, that way there is no window of opportunity for an attacker to create the file before the program can (if the attacker could do so).
 
-🔔 Race conditions are such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #29. *Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)* is [CWE-362](https://cwe.mitre.org/data/definitions/362.html).
+🔔 Race conditions are such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #33 and 2019 CWE Top 25 #29. *Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)* is [CWE-362](https://cwe.mitre.org/data/definitions/362.html).
 
 #### Harden the System
 
