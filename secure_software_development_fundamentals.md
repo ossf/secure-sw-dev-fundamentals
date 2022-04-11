@@ -1033,9 +1033,14 @@ In many situations, the right way to counter TOCTOU race conditions is to implem
 
 2. If you are writing a program for a Unix-like system, do not call **access()** to see if a file can be opened, followed by a call to **open()** to actually open the file. Instead, set things up to just call **open()** directly, since **open()** includes a check to see if the access is permitted.
 
-3. If you want to create a new file on a Unix-like system, make sure you request that it be created *exclusively* (**O_EXCL** in the C **open()** API, and the letter **x** in **fopen()** and the option flags used in many other programming languages). Again, that way there is no window of opportunity for an attacker to create the file before the program can (if the attacker could do so).
+3. If you want to ensure that you create a new file on a Unix-like system, make sure you request that it be created *exclusively* (**O_EXCL** in the C **open()** API, and the letter **x** in **fopen()** and the option flags used in many other programming languages). Again, that way there is no window of opportunity for an attacker to create the file before the program can (if the attacker could do so).
 
-🔔 Race conditions are such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #33 and 2019 CWE Top 25 #29. *Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)* is [CWE-362](https://cwe.mitre.org/data/definitions/362.html).
+A somewhat common error on Unix-like systems is insecurely creating temporary files. Temporarily files may be created in a directory where an attacker can influence the creation and names of other files. If an attacker creates a file first, and the application then requests to “create” a file without requesting that it be exclusive, then the existing file controlled by the attacker will be reused. Simply using the exclusive option isn’t enough, since that would still permit a denial of service. The solution is to use a simple loop that creates a “random” filename in the intended directory and then attempt to create exclusively with maximally limited privileges.
+
+Most languages have a routine or command to securely create temporary files; use them where available. In Python the tempfile module can securely create temporary files. Shell scripts can use the mktemp command to securely create temporary files.
+
+
+🔔 Race conditions are such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #33 and 2019 CWE Top 25 #29. *Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)* is [CWE-362](https://cwe.mitre.org/data/definitions/362.html). *Insecure Temporary File* is [CWE-377](https://cwe.mitre.org/data/definitions/377.html).
 
 #### Harden the System
 
@@ -2477,6 +2482,27 @@ Some potential problems with filenames are specific to the shell, but filename p
 A simple solution is to prefix all globs or filenames where needed with “**./**” so that they cannot begin with “**-**”. So for example, never use “**&#42;.pdf**” to refer to a set of PDFs if an attacker might influence a directory’s filenames; use “**./&#42;.pdf**”.
 
 Be careful about displaying or storing pathnames, since they can include newlines, tabs, escape (which can begin terminal controls), or sequences that are not legal strings. On some systems, merely displaying filenames can invoke terminal controls, which can then run commands with the privilege of the one displaying.
+
+#### File Handling (Including Link Following)
+
+Once you have a pathname, you often want to do something with it, such as try to open that file.
+
+As discussed in [“Beware of Race Conditions”](#beware_of_race_conditions), open files in ways that prevent time-of-check time-of-use (TOCTOU) race conditions. Open a file directly instead of querying if the access is permitted (since that may change). Include the “exclusive” option (“x” or O_EXCL) if you want to expressly require that the file be created. If you’re creating temporary files, use interfaces specifically designed to securely create temporary files.
+
+If your software might open a file system object (including a directory) that an attacker might control, be prepared for it. One way this can happen that we have not yet discussed is improper link resolution, particularly on Unix-like systems.
+
+Unix-like systems support “hard links” and “symbolic links”... but many developers don’t know about them. A “hard link” creates another name that refers to the exact same underlying file system object, with the same ownership and permissions. A “symbolic link” (aka “symlink” or “soft link”) is a special file that contains a reference to another file or directory in the form of an absolute or relative path; an attempt to open the symbolic link will be redirected to open the reference instead. These can be very useful. However, if an attacker can create these links in a file system object your application might open, these links can also be a problem and applications must be prepared to deal with them.
+
+There are two common measures you can take on Unix-like systems to harden them against many kinds of link-based attacks:
+
+1. All directories that are writable by multiple users should also have the “sticky” bit set. In most modern Unix-like systems, a directory with the “sticky” bit set means that only the file's owner, the directory's owner, or root user can rename or delete the file. Normally on Unix-like systems insertion and renames of files in a directory can be done by all the users with the write permission, regardless of the file owner. This is typically done for pre-existing shared directories like `/tmp` but you must specially set the sticky bit if you create new directories where writing is shared between users.
+2. Where available, enable “protected sticky symlinks” (aka protected_symlinks). In systems with protected sticky symlinks, a symbolic link in a world-writable sticky directory is not followed if the follower and directory owner do not match the symlink owner. Many Linux distributions enable this by default, including Ubuntu, Fedora, Red Hat Enterprise Linux.
+ 
+These hardening measures do not prevent all attacks. So on Unix-like systems you need to write code that is prepared for them. In particular, do not assume that all files in a directory are necessarily owned by the owner of the directory. If your program has elevated privileges, you may need to temporarily drop those privileges before handling the filesystem. You can also open files using the `O_NOFOLLOW` option; this disables following symlinks on the last filename component (the basename) though in some languages it takes extra steps to use the option
+
+Modern versions of Windows also support hard links and symbolic links. However, creating them typically requires elevated privileges (e.g., admin or developer mode) so they are much less likely as an attack method.
+
+🔔 2021 CWE Top 25 #31 is CWE-59, Improper Link Resolution Before File Access ('Link Following').
 
 ### Quiz 3.4
 
