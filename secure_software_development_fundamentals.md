@@ -2500,7 +2500,7 @@ There are two common measures you can take on Unix-like systems to harden them a
  
 These hardening measures do not prevent all attacks. So on Unix-like systems you need to write code that is prepared for them. In particular, do not assume that all files in a directory are necessarily owned by the owner of the directory. If your program has elevated privileges, you may need to temporarily drop those privileges before handling the filesystem. You can also open files using the `O_NOFOLLOW` option; this disables following symlinks on the last filename component (the basename) though in some languages it takes extra steps to use the option
 
-Modern versions of Windows also support hard links and symbolic links. However, creating them typically requires elevated privileges (e.g., admin or developer mode) so they are much less likely as an attack method.
+Modern versions of Windows also support hard links and symbolic links. Creating them typically requires elevated privileges (e.g., admin or developer mode) so they are somewhat less likely as an attack method. However, these kinds of vulnerabilities still happen on Windows systems because privileged users can created them and some applications aren’t designed to use them correctly, leading to exploitable vulnerabilities.
 
 🔔 2021 CWE Top 25 #31 is CWE-59, Improper Link Resolution Before File Access ('Link Following').
 
