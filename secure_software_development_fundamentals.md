@@ -2502,7 +2502,7 @@ These hardening measures do not prevent all attacks. So on Unix-like systems you
 
 Modern versions of Windows also support hard links and symbolic links. Creating them typically requires elevated privileges (e.g., admin or developer mode) so they are somewhat less likely as an attack method. However, these kinds of vulnerabilities still happen on Windows systems because privileged users can created them and some applications aren’t designed to use them correctly, leading to exploitable vulnerabilities.
 
-🔔 2021 CWE Top 25 #31 is CWE-59, Improper Link Resolution Before File Access ('Link Following').
+🔔 2021 CWE Top 25 #31 is [CWE-59](https://cwe.mitre.org/data/definitions/59.html), Improper Link Resolution Before File Access ('Link Following').
 
 ### Quiz 3.4
 
