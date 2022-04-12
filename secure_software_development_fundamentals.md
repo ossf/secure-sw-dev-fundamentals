@@ -3188,7 +3188,7 @@ If a server is fooled into requesting an inadequately checked URL, it is called 
 
 The main solution is to ensure that you greatly limit how you construct any URLs that you request. If possible, don’t use untrusted data to create these URLs. If you must use untrusted data to construct a URL (and this often occurs), maximally limit the URLs that can be constructed and ensure that only *safe* URLs can be constructed. For example, in many cases today you can limit the URL to a single scheme (**https:**), there is usually no need to allow (for example) ports or usernames.
 
-🔔 Server-Side Request Forgery (SSRF) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #24 and 2019 CWE Top 25 #30. It is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
+🔔 Server-Side Request Forgery (SSRF) is such a common cause of security vulnerabilities that it is 2021 OWASP Top 10 #10, 2021 CWE Top 25 #24, and 2019 CWE Top 25 #30. It is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
 
 ### Quiz 4.9
 
