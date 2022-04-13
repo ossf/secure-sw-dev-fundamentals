@@ -100,7 +100,7 @@ The *Secure Software Development Fundamentals* course was developed by the Open 
 
 ## A Note from the Author
 
-Our thanks to the many people who provided helpful commentary and advice. We especially thank Paul E. Black (NIST), Steve Lipner (SAFECode), Dan Lorenc (Google), Sherif Mansour (OWASP), and Yannick Moy (AdaCore) for their thoughtful and specific recommendations.
+Our thanks to the many people who provided helpful commentary and advice. We especially thank Paul E. Black (NIST), Steve Lipner (SAFECode), Dan Lorenc (Google), Sherif Mansour (OWASP), Yannick Moy (AdaCore), and Ashwin Ramaswami for their thoughtful and specific recommendations.
 
 ## Motivation
 
