@@ -5105,6 +5105,8 @@ Many others discuss how to develop secure software. This course merely covers th
 
 Aleph One (Elias Levy), *Smashing the Stack for Fun and Profit*, Phrack #49, 1996 ([http://phrack.org/issues/49/14.html#article](http://phrack.org/issues/49/14.html#article))
 
+Amodio, Dan Amodio, "Remote Code with Expression Language Injection", 2012-12-14. (<http://danamodio.com/appsec/research/spring-remote-code-with-expression-language-injection/>)
+
 Anderson, James P., *Computer Security Technology Planning Study*, volume I, ESD-TR-73-51 (Volumes I and II), October 1972 ([https://csrc.nist.gov/csrc/media/publications/conference-paper/1998/10/08/proceedings-of-the-21st-nissc-1998/documents/early-cs-papers/ande72a.pdf](https://csrc.nist.gov/csrc/media/publications/conference-paper/1998/10/08/proceedings-of-the-21st-nissc-1998/documents/early-cs-papers/ande72a.pdf)) and ([https://csrc.nist.rip/publications/history/ande72.pdf](https://csrc.nist.rip/publications/history/ande72.pdf))
 
 Anderson, James P., *Computer Security Technology Planning Study*, volume II, 1972 ([https://apps.dtic.mil/dtic/tr/fulltext/u2/772806.pdf](https://apps.dtic.mil/dtic/tr/fulltext/u2/772806.pdf))
@@ -5152,6 +5154,8 @@ Cox, Ben,  “Auditing GitHub users’ SSH key quality”, 2015-06-02 (<https://
 Dechand, Sergej, *What is FAST?*, 2020 ([https://blog.code-intelligence.com/what-is-fast](https://blog.code-intelligence.com/what-is-fast))
 
 Delaitre, Aurelien; Stivalet, Bertrand; Black, Paul E.; Okun, Vadim; Ribeiro, Athos; Cohen, Terry S., *SATE V Report: Ten Years of Static Analysis Tool Expositions*, NIST Special Publication 500-326, 2018 ([https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf)) or ([https://doi.org/10.6028/NIST.SP.500-326](https://doi.org/10.6028/NIST.SP.500-326))
+
+Di Paola, Stefano, and Arshan Dabirsiaghi. "Expression Language Injection", 2011-09-12, (<https://www.mindedsecurity.com/fileshare/ExpressionLanguageInjection.pdf>)
 
 ECMA, ECMA-262, 12th edition, June 2021, ECMAScript® 2021 Language Specification, “The Number Type” ([https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type]((https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type))
 
