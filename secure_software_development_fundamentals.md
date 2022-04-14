@@ -4867,9 +4867,9 @@ In this course we have covered all of the 2017 OWASP Top 10 and included cross-r
 
 ### CWE Top 25
 
-Here is the 2019 edition of the [CWE Top 25 Most Dangerous Software Errors](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html). This list was created using real-world data, specifically, the publicly known vulnerabilities with Common Vulnerabilities and Exposures (CVE) as published in the National Institute of Standards and Technology (NIST) National Vulnerability Database (NVD), including the severity scores as calculated using the Common Vulnerability Scoring System (CVSS) scores. This list combines many different kinds of software; whether or not that is good depends on your perspective.
+Here is the 2021 edition of the [CWE Top 25 Most Dangerous Software Errors](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html). This list was created using real-world data, specifically, the publicly known vulnerabilities with Common Vulnerabilities and Exposures (CVE) as published in the National Institute of Standards and Technology (NIST) National Vulnerability Database (NVD), including the severity scores as calculated using the Common Vulnerability Scoring System (CVSS) scores. This list combines many different kinds of software; whether or not that is good depends on your perspective.
 
-No system is perfect. A complication is that the CWEs identified here are at various hierarchical levels. For example, #1 [CWE-119](https://cwe.mitre.org/data/definitions/119.html) (*Improper Restriction of Operations within the Bounds of a Memory Buffer*) is a superset of both #5 [CWE-125](https://cwe.mitre.org/data/definitions/125.html) (*Out-of-bounds read*) and #12 [CWE-787](https://cwe.mitre.org/data/definitions/787.html) (*Out-of-bounds Write*), yet they are all listed here. Still, this does provide a defensible and repeatable approach for identifying what’s important.
+No system is perfect. A complication is that the CWEs identified here are at various hierarchical levels. For example, #17 [CWE-119](https://cwe.mitre.org/data/definitions/119.html) (*Improper Restriction of Operations within the Bounds of a Memory Buffer*) is a superset of both #3 [CWE-125](https://cwe.mitre.org/data/definitions/125.html) (*Out-of-bounds read*) and #1 [CWE-787](https://cwe.mitre.org/data/definitions/787.html) (*Out-of-bounds Write*), yet they are all listed here. Still, this does provide a defensible and repeatable approach for identifying what’s important.
 
 #### Top 25
 
@@ -5097,7 +5097,9 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
 </table>
 
 
-You will be glad to know that this set of courses has, at least briefly, discussed each one of these kinds of vulnerabilities, even the ones “on the cusp”.
+You will be glad to know that this set of courses has, at least briefly, discussed each one of these kinds of vulnerabilities, even the ones “on the cusp”,
+for both the [2019](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html) and [2021](https://cwe.mitre.org/top25/archive/2021/2021_cwe_top25.html) editions of the CWE Top 25 list.
+
 
 ### Quiz 4.6
 
