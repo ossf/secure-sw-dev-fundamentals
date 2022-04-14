@@ -4514,6 +4514,29 @@ What is great about an assurance case is that if someone later wants to know “
 
 [x] In principle, an assurance case is repeatedly drilled down until the stakeholders agree that enough has been done (e.g., because they are unwilling to pay for more).
 
+### Harden the Development Environment (Including Build and CI/CD Pipeline) & Distribution Environment
+
+Most attacks occur when a system is deployed, but increasingly attackers are attacking systems during their development and distribution. For our purposes, the “development environment” includes the set of all machines and other infrastructure used to develop the software, including each developer’s systems, version control system(s), build systems, CI/CD pipelines, and so on.  The “distribution environment” is the environment used to distribute the resulting built software, e.g., package registries/repositories, container registries/repositories, and so on. It’s important to secure the development environment and distribution environment against unauthorized access or compromise. This includes protecting them against the insertion of malicious code. Assume that attackers are attempting to subvert any system used for software development and distribution, especially any shared systems.
+
+First, minimize privileges. Limit who can control these environments, and by how much. If someone leaves a project and/or organization, remove their privileges; even if they wouldn’t attack, an attacker might acquire their credentials.
+
+One simple approach is to have developers use multi-factor authentication (MFA) tokens (aka keys) when accessing development environments. These are hardware devices that prove that the developer possesses the device, and since they are single-purpose they are hard for attackers to subvert. If you must use passwords, ensure they are long and not shared between people.
+
+Where practical, harden the development environment and distribution environment so they are harder to attack. In many projects, many or all parts of these environments are hosted elsewhere (often in a cloud); make sure the hosting system you choose has adequate security. Once chosen, consult the documentation for the systems you use and configure them to maximize security, e.g., to minimize privileges granted to others. For example, if you use GitHub, look at the [GitHub documentation on securing your repository](https://docs.github.com/en/code-security/getting-started/securing-your-repository). If you have a GitLab installation, [look at the GitLab documentation on securing your installation (“security”)](https://docs.gitlab.com/ee/security/).
+
+The build process should be fully scripted/automated. That way builds will be performed predictably each time. Where possible, the build system should provide provenance information, that is, record what components were included in the build and ideally what components were used to perform the build.
+
+Supply chain Levels for Software Artifacts, or SLSA (“salsa”), is a security framework being developed as a checklist of standards and controls to prevent tampering, improve integrity, and secure packages and infrastructure. At the time of this writing it is still in development, but you should consider its recommendations. SLSA is being developed under the Open Source Security Foundation (OpenSSF). To learn more, see the SLSA home page at <https://slsa.dev/>.
+
+If an attacker manages to subvert the build process, the subverted results are often difficult to detect. A strong countermeasure to this attack is a verified reproducible build. A build is reproducible “if given the same source code, build environment and build instructions, any party can recreate bit-by-bit identical copies of all specified artifacts” (as defined in [“Definitions” from the Reproducible Builds project](https://reproducible-builds.org/docs/definition/)). A reproducible build is also called a deterministic build. A verified reproducible build is simply a build that’s been independently verified to be a reproducible build. Verified reproducible builds make attacking the build process much harder, because the attacker must then subvert multiple independent build processes to succeed.
+
+Many builds are reproducible without any changes, however, some are not. The first step in creating a reproducible build is often to verify that if you do the same build twice it produces the same result (a repeatable build). One common problem is that the build result may include date/timestamps; if they can’t be easily removed, a common solution is to use the last modification of something (usually the source code) to set the date/timestamp (using mechanisms such as the SOURCE_DATE_EPOCH environment variable). Another common problem is that some values can be in an “arbitrary” order (e.g., due to parallel execution); a common solution is to sort the results (e.g., lexicographically). More information on how to create reproducible builds is available; see [“Documentation” from the Reproducible Builds project](https://reproducible-builds.org/docs/).
+
+😱 STORY TIME: Subversion of SolarWinds Orion’s Build System
+Orion is an enterprise network management software suite from SolarWinds that includes performance and application monitoring as well as network configuration management. In 2020 a threat actor intruded into its build system and modified it so that built versions of Orion would include malicious code. This subverted built system was then signed by the legitimate SolarWinds code signing certificate. This subversion was very damaging; the US government’s Cybersecurity & Infrastructure Security Agency (CISA) even issued an emergency directive (“[Emergency Directive 21-01]](https://www.cisa.gov/emergency-directive-21-01)” from CISA). Many security countermeasures couldn’t work in this case; “review code” didn’t work (the change was inserted by the build system and thus not seen by its developers), “check for signatures” didn’t work (it was legitimately signed), and monitoring for problems did not work for a while (because in many organizations this was the monitoring system). (For more information, see [Alert AA20-352A](https://www.cisa.gov/emergency-directive-21-01) from CISA and “[Preventing Supply Chain Attacks like SolarWinds](https://linuxfoundation.org/blog/preventing-supply-chain-attacks-like-solarwinds/)” by David A. Wheeler.)
+
+🔔 Hardening the CI/CD pipeline against unauthorized access, malicious code, or system compromise is part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
+
 ### Distributing, Fielding/Deploying, Operations, and Disposal
 
 No course can teach everything. This course focuses on *developing* secure software, including its distribution. We have intentionally not focused on processes after development, including distributing, fielding (deploying), operations, and disposal of software. One reason is that there are already many documents and guidelines that try to help people do this securely, but these efforts are hampered because they are trying to twiddle configuration knobs to turn insecure software into secure software. It is generally far more effective, if you want a secure system, to start with secure software.
@@ -5159,6 +5182,9 @@ Corbet, Jonathan, *A new hash algorithm for Git*, 2020 ([https://lwn.net/Article
 
 Cox, Ben,  “Auditing GitHub users’ SSH key quality”, 2015-06-02 (<https://blog.benjojo.co.uk/post/auditing-github-users-keys>)
 
+Cybersecurity & Infrastructure Security Agency (CISA), Emergency Directive 21-01, (<https://www.cisa.gov/emergency-directive-21-01>)
+Cybersecurity & Infrastructure Security Agency (CISA), Alert AA20-352A, (<https://www.cisa.gov/uscert/ncas/alerts/aa20-352a>)
+
 Dechand, Sergej, *What is FAST?*, 2020 ([https://blog.code-intelligence.com/what-is-fast](https://blog.code-intelligence.com/what-is-fast))
 
 Delaitre, Aurelien; Stivalet, Bertrand; Black, Paul E.; Okun, Vadim; Ribeiro, Athos; Cohen, Terry S., *SATE V Report: Ten Years of Static Analysis Tool Expositions*, NIST Special Publication 500-326, 2018 ([https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf)) or ([https://doi.org/10.6028/NIST.SP.500-326](https://doi.org/10.6028/NIST.SP.500-326))
@@ -5299,6 +5325,8 @@ Regehr, John, *A Guide to Undefined Behavior in C and C++ (Parts 1-3)*, 2010 ([h
 
 Reichel, Robert, *How we threat model*, 2020-09-02 ([https://github.blog/2020-09-02-how-we-threat-model/](https://github.blog/2020-09-02-how-we-threat-model/))
 
+Reproducible Builds project, “Definitions”, (<https://reproducible-builds.org/docs/definition/>)
+
 Rogers, Tony, *Falsehoods Programmers Believe About Names - With Examples*, 2018 ([https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/](https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/))
 
 Royce, Winston W., *Managing the Development of Large Systems: Concepts and Techniques*, 1970 ([https://dl.acm.org/doi/10.5555/41765.41801](https://dl.acm.org/doi/10.5555/41765.41801))
@@ -5380,6 +5408,8 @@ Wheeler, David A., *Core Infrastructure Initiative (CII) Best Practices Badge in
 Wheeler, David A., *How to Prevent the next Heartbled*, 2020-07-18 ([https://dwheeler.com/essays/heartbleed.html](https://dwheeler.com/essays/heartbleed.html))
 
 Wheeler, David A., *The Apple goto fail vulnerability: lessons learned*, 2020-08-13 ([https://dwheeler.com/essays/apple-goto-fail.html](https://dwheeler.com/essays/apple-goto-fail.html))
+
+Wheeler, David A., “Preventing Supply Chain Attacks like SolarWinds”, *Linux Foundation blog*, 2021-01-13, (<https://linuxfoundation.org/blog/preventing-supply-chain-attacks-like-solarwinds/>)
 
 # Education Team Requirements
 
