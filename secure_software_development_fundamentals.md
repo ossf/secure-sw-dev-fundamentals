@@ -3496,7 +3496,9 @@ Here are some kinds of vulnerabilities that specialized SAST tools can detect:
 
 * Regular Expression Denial-of-Service (ReDoS) vulnerabilities (that is, regular expressions with terrible worst-case performance). You can look for terms like “ReDoS”, “evil regex”, and “safe regex”. These extract the regular expressions from source code, and then analyze the regular expressions.
 
-* Hardcoded credentials such as cryptographic keys and passwords.
+* Hardcoded credentials such as cryptographic keys and passwords. Tools that look for hardcoded credentials are sometimes called “secret scanners”.
+
+🔔 Hardcoded credentials are such a common problem that they are 2021 CWE Top 25 #16, [CWE-798](https://cwe.mitre.org/data/definitions/798.html), Use of Hard-coded Credentials. This is one reason why secret scanners have rapidly become popular.
 
 #### Other Static Analysis Tools
 
@@ -5162,6 +5164,244 @@ Many others discuss how to develop secure software. This course merely covers th
 * Building Security In Maturity Model (BSIMM) <[https://www.bsimm.com/](https://www.bsimm.com/)>
 
 * The BSA Framework for Secure Software [https://www.bsa.org/files/reports/bsa_software_security_framework_web_final.pdf](https://www.bsa.org/files/reports/bsa_software_security_framework_web_final.pdf)
+
+* OWASP Secure Coding Practices-Quick Reference Guide <https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/migrated_content>
+
+# Old Mappings
+
+## OWASP Top 10 and CWE Top 25
+
+### CWE Top 25
+
+Here is the 2019 edition of the [CWE Top 25 Most Dangerous Software Errors](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html). This list was created using real-world data, specifically, the publicly known vulnerabilities with Common Vulnerabilities and Exposures (CVE) as published in the National Institute of Standards and Technology (NIST) National Vulnerability Database (NVD), including the severity scores as calculated using the Common Vulnerability Scoring System (CVSS) scores. This list combines many different kinds of software; whether or not that is good depends on your perspective.
+
+No system is perfect. A complication is that the CWEs identified here are at various hierarchical levels. For example, #1 [CWE-119](https://cwe.mitre.org/data/definitions/119.html) (*Improper Restriction of Operations within the Bounds of a Memory Buffer*) is a superset of both #5 [CWE-125](https://cwe.mitre.org/data/definitions/125.html) (*Out-of-bounds read*) and #12 [CWE-787](https://cwe.mitre.org/data/definitions/787.html) (*Out-of-bounds Write*), yet they are all listed here. Still, this does provide a defensible and repeatable approach for identifying what’s important.
+
+#### Top 25
+
+<table>
+  <tr>
+    <td>Rank</td>
+    <td>ID</td>
+    <td>Name</td>
+  </tr>
+  <tr>
+    <td>[1]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/119.html">CWE-119</a></td>
+    <td>Improper Restriction of Operations within the Bounds of a Memory Buffer</td>
+  </tr>
+  <tr>
+    <td>[2]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/79.html">CWE-79</a></td>
+    <td>Improper Neutralization of Input During Web Page Generation (‘Cross-site Scripting’)</td>
+  </tr>
+  <tr>
+    <td>[3]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/20.html">CWE-20</a></td>
+    <td>Improper Input Validation</td>
+  </tr>
+  <tr>
+    <td>[4]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/200.html">CWE-200</a></td>
+    <td>Information Exposure</td>
+  </tr>
+  <tr>
+    <td>[5]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/125.html">CWE-125</a></td>
+    <td>Out-of-bounds Read</td>
+  </tr>
+  <tr>
+    <td>[6]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a></td>
+    <td>Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)</td>
+  </tr>
+  <tr>
+    <td>[7]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/416.html">CWE-416</a></td>
+    <td>Use After Free</td>
+  </tr>
+  <tr>
+    <td>[8]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/190.html">CWE-190</a></td>
+    <td>Integer Overflow or Wraparound</td>
+  </tr>
+  <tr>
+    <td>[9]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/352.html">CWE-352</a></td>
+    <td>Cross-Site Request Forgery (CSRF)</td>
+  </tr>
+  <tr>
+    <td>[10]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/22.html">CWE-22</a></td>
+    <td>Improper Limitation of a Pathname to a Restricted Directory (‘Path Traversal’)</td>
+  </tr>
+  <tr>
+    <td>[11]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/78.html">CWE-78</a></td>
+    <td>Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’)</td>
+  </tr>
+  <tr>
+    <td>[12]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/787.html">CWE-787</a></td>
+    <td>Out-of-bounds Write</td>
+  </tr>
+  <tr>
+    <td>[13]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/287.html">CWE-287</a></td>
+    <td>Improper Authentication</td>
+  </tr>
+  <tr>
+    <td>[14]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/476.html">CWE-476</a></td>
+    <td>NULL Pointer Dereference</td>
+  </tr>
+  <tr>
+    <td>[15]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/732.html">CWE-732</a></td>
+    <td>Incorrect Permission Assignment for Critical Resource</td>
+  </tr>
+  <tr>
+    <td>[16]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/434.html">CWE-434</a></td>
+    <td>Unrestricted Upload of File with Dangerous Type</td>
+  </tr>
+  <tr>
+    <td>[17]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/611.html">CWE-611</a></td>
+    <td>Improper Restriction of XML External Entity Reference</td>
+  </tr>
+  <tr>
+    <td>[18]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/94.html">CWE-94</a></td>
+    <td>Improper Control of Generation of Code (‘Code Injection’)</td>
+  </tr>
+  <tr>
+    <td>[19]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/798.html">CWE-798</a></td>
+    <td>Use of Hard-coded Credentials</td>
+  </tr>
+  <tr>
+    <td>[20]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/400.html">CWE-400</a></td>
+    <td>Uncontrolled Resource Consumption</td>
+  </tr>
+  <tr>
+    <td>[21]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/772.html">CWE-772</a></td>
+    <td>Missing Release of Resource after Effective Lifetime</td>
+  </tr>
+  <tr>
+    <td>[22]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/426.html">CWE-426</a></td>
+    <td>Untrusted Search Path</td>
+  </tr>
+  <tr>
+    <td>[23]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/502.html">CWE-502</a></td>
+    <td>Deserialization of Untrusted Data</td>
+  </tr>
+  <tr>
+    <td>[24]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/269.html">CWE-269</a></td>
+    <td>Improper Privilege Management</td>
+  </tr>
+  <tr>
+    <td>[25]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/295.html">CWE-295</a></td>
+    <td>Improper Certificate Validation</td>
+  </tr>
+</table>
+
+
+#### On the Cusp
+
+The developers of the CWE Top 25 felt that there were a number of weaknesses that were important, but did not manage to be in their top 25 because they were not as prevalent or tended to be less severe. They call these weaknesses *on the cusp*.
+
+Developers that complete mitigation and risk decision-making on the 2019 CWE Top 25 may want to look for these other weaknesses potentially present in their software. For these reasons, users of the 2019 CWE Top 25 should seriously consider including these additional weaknesses in their analyses:
+
+<table>
+  <tr>
+    <td>Rank</td>
+    <td>ID</td>
+    <td>Name</td>
+  </tr>
+  <tr>
+    <td>[26]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/835.html">CWE-835</a></td>
+    <td>Loop with Unreachable Exit Condition (‘Infinite Loop’)</td>
+  </tr>
+  <tr>
+    <td>[27]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/522.html">CWE-522</a></td>
+    <td>Insufficiently Protected Credentials</td>
+  </tr>
+  <tr>
+    <td>[28]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/704.html">CWE-704</a></td>
+    <td>Incorrect Type Conversion or Cast</td>
+  </tr>
+  <tr>
+    <td>[29]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/362.html">CWE-362</a></td>
+    <td>Concurrent Execution using Shared Resource with Improper Synchronization (‘Race Condition’)</td>
+  </tr>
+  <tr>
+    <td>[30]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/918.html">CWE-918</a></td>
+    <td>Server-Side Request Forgery (SSRF)</td>
+  </tr>
+  <tr>
+    <td>[31]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/415.html">CWE-415</a></td>
+    <td>Double Free</td>
+  </tr>
+  <tr>
+    <td>[32]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/601.html">CWE-601</a></td>
+    <td>URL Redirection to Untrusted Site (‘Open Redirect’)</td>
+  </tr>
+  <tr>
+    <td>[33]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/863.html">CWE-863</a></td>
+    <td>Incorrect Authorization</td>
+  </tr>
+  <tr>
+    <td>[34]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/862.html">CWE-862</a></td>
+    <td>Missing Authorization</td>
+  </tr>
+  <tr>
+    <td>[35]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/532.html">CWE-532</a></td>
+    <td>Inclusion of Sensitive Information in Log Files</td>
+  </tr>
+  <tr>
+    <td>[36]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/306.html">CWE-306</a></td>
+    <td>Missing Authentication for Critical Function</td>
+  </tr>
+  <tr>
+    <td>[37]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/384.html">CWE-384</a></td>
+    <td>Session Fixation</td>
+  </tr>
+  <tr>
+    <td>[38]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/326.html">CWE-326</a></td>
+    <td>Inadequate Encryption Strength</td>
+  </tr>
+  <tr>
+    <td>[39]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/770.html">CWE-770</a></td>
+    <td>Allocation of Resources Without Limits or Throttling</td>
+  </tr>
+  <tr>
+    <td>[40]</td>
+    <td><a href="https://cwe.mitre.org/data/definitions/617.html">CWE-617</a></td>
+    <td>Reachable Assertion</td>
+  </tr>
+</table>
+
 
 # References
 
