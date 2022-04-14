@@ -5290,12 +5290,12 @@ No system is perfect. A complication is that the CWEs identified here are at var
   <tr>
     <td>[21]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/772.html">CWE-772</a></td>
-    <td>Missing Release of Resource after Effective Lifetime</td>
+    <td>Missing Release of Resource after Effective Lifetime (!)</td>
   </tr>
   <tr>
     <td>[22]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/426.html">CWE-426</a></td>
-    <td>Untrusted Search Path</td>
+    <td>Untrusted Search Path (!)</td>
   </tr>
   <tr>
     <td>[23]</td>
@@ -5314,6 +5314,8 @@ No system is perfect. A complication is that the CWEs identified here are at var
   </tr>
 </table>
 
+Ones marked with (!) are in the 2019 edition but not the 2021 edition.
+
 
 #### On the Cusp
 
@@ -5330,7 +5332,7 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   <tr>
     <td>[26]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/835.html">CWE-835</a></td>
-    <td>Loop with Unreachable Exit Condition (‘Infinite Loop’)</td>
+    <td>Loop with Unreachable Exit Condition (‘Infinite Loop’) (!)</td>
   </tr>
   <tr>
     <td>[27]</td>
@@ -5340,7 +5342,7 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   <tr>
     <td>[28]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/704.html">CWE-704</a></td>
-    <td>Incorrect Type Conversion or Cast</td>
+    <td>Incorrect Type Conversion or Cast (!)</td>
   </tr>
   <tr>
     <td>[29]</td>
@@ -5355,7 +5357,7 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   <tr>
     <td>[31]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/415.html">CWE-415</a></td>
-    <td>Double Free</td>
+    <td>Double Free (!)</td>
   </tr>
   <tr>
     <td>[32]</td>
@@ -5385,12 +5387,12 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   <tr>
     <td>[37]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/384.html">CWE-384</a></td>
-    <td>Session Fixation</td>
+    <td>Session Fixation (!)</td>
   </tr>
   <tr>
     <td>[38]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/326.html">CWE-326</a></td>
-    <td>Inadequate Encryption Strength</td>
+    <td>Inadequate Encryption Strength (!)</td>
   </tr>
   <tr>
     <td>[39]</td>
@@ -5400,10 +5402,11 @@ Developers that complete mitigation and risk decision-making on the 2019 CWE Top
   <tr>
     <td>[40]</td>
     <td><a href="https://cwe.mitre.org/data/definitions/617.html">CWE-617</a></td>
-    <td>Reachable Assertion</td>
+    <td>Reachable Assertion (!)</td>
   </tr>
 </table>
 
+Ones marked with (!) are in the 2019 edition but not the 2021 edition.
 
 # References
 
