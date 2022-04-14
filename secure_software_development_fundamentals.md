@@ -3534,7 +3534,7 @@ There are clear advantages to reusing software. One advantage is that it saves a
 
 But when you reuse software, there is a downside: that software will have vulnerabilities in it. You should try to pick software that is likely to have fewer vulnerabilities. But in general, vulnerabilities *will* be found in the software you use directly and indirectly; those vulnerabilities will be publicly announced, and updates to those components that fix the vulnerabilities will be released. Because most reused software is OSS, some people and companies call this examining for OSS. That is not quite right, because it is actually an issue for any reused software, but it is understandable that people focus on OSS because most reused software is OSS.
 
-🔔 This is such a common problem that in 2013 OWASP added *Using Components with Known Vulnerabilities* to the OWASP Top 10. Using components with known vulnerabilities is 2017 OWASP Top 10 #9.
+🔔 Using known-vulnerable components is such a common problem that in 2013 OWASP added *Using Components with Known Vulnerabilities* to the OWASP Top 10. Using components with known vulnerabilities is 2017 OWASP Top 10 #9. Using vulnerable and outdated components is 2021 OWASP Top 10 #6.
 
 It is inevitable that you will need to quickly update vulnerable reused components, so you need to *prepare* to quickly detect and do security updates for the reused software in your applications.
 
@@ -4630,7 +4630,7 @@ When operating:
 
 When disposing, make sure you fully destroy any data you are supposed to destroy. Just removing a file does not actually remove its contents from most storage devices.
 
-🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5.  Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 #10.
+🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5.  Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Using vulnerable and outdated components is 2021 OWASP Top 10 #6. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 #10.
 
 ### Quiz 4.3
 
