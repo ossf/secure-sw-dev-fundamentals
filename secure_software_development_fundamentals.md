@@ -1071,6 +1071,8 @@ A useful trick for developing more secure software is to separate data from cont
 
 A good example of this is the Content Security Policy (CSP) supported by modern web browsers. CSP lets you state that the HTML being sent is only data, and is *not* allowed to provide inline scripts (programs) or styles (which can also be programs) - instead, the scripts and styles may only be downloaded from specified trusted places. That way, if an attacker manages to subvert the HTML, the attacker will not be able to cause attacker-provided programs to be run.
 
+🔔 Insecure design is such a common mistake in web applications that it is 2021 OWASP Top 10 #4.
+
 ### Quiz 2.6
 
 \>\>Which of the following is a useful additional security principle?||Check all of the options below that are generally-accepted security principles, and do NOT check them otherwise.<<
@@ -3872,7 +3874,9 @@ STRIDE is one of the oldest, most well-known, and simplest forms of threat model
 
 As we noted earlier, there are other approaches. Feel free to learn or use them instead if they help you. The Software Engineering Institute (SEI) has even written some analyses of the various approaches, including their pros and cons ([Shevchenko, 2018](https://insights.sei.cmu.edu/sei_blog/2018/12/threat-modeling-12-available-methods.html)). Microsoft has also written some material on [threat modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling).
 
-Threat modeling is overkill if you do not have significant security threats, and threat modeling does not guarantee you will find all the problems. That said, if you have significant security threats, threat modeling using approaches like STRIDE can provide a relatively simple way to think through key questions before you invest a lot of time.
+Threat modeling may be overkill if you do not have significant security threats, and threat modeling does not guarantee you will find all the problems. That said, if you have significant security threats, threat modeling using approaches like STRIDE can provide a relatively simple way to think through key questions before you invest a lot of time.
+
+🔔 Failing to apply threat modeling is considered part of 2021 OWASP Top 10 #4, insecure design.
 
 ### Quiz 2.2
 
