@@ -704,7 +704,7 @@ The [Common Weaknesses Enumeration (CWE)](https://cwe.mitre.org/) is a very long
 
 People have identified the most important or top kinds of vulnerabilities in terms of their likelihood and severity. Two of the most popular lists of top kinds of vulnerabilities are:
 
-1. [**OWASP Top 10 Web Application Security Risks**](https://owasp.org/www-project-top-ten/)<br>This list, developed by the Open Web Application Security Project (OWASP), represents a *“broad consensus about the most critical security risks to web applications.”*
+1. [**OWASP Top 10**](https://owasp.org/www-project-top-ten/)<br>This list, developed by the Open Web Application Security Project (OWASP), represents a *“broad consensus about the most critical security risks to web applications.”* It is also called the OWASP Top 10 Web Application Security Risks.
 
 2. [**CWE Top 25 List**](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html)<br>This is a list of the most widespread and critical kinds of vulnerabilities. It was created by the Common Weaknesses Enumeration (CWE) Team by analyzing data about publicly-known vulnerabilities over many years. This list can be applied to any software, but it is especially common to apply it to software that is not a web application (since the OWASP list focuses on web applications). One interesting quirk: they identify important weaknesses beyond the first 25, so you can see numbers larger than 25 associated with this list.
 
