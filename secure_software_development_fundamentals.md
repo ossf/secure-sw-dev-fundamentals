@@ -2450,6 +2450,39 @@ This is true. Not only is it more efficient, but the operating system shell usua
 
 [Explanation]
 
+### Other Injection Attacks
+
+There are many other kinds of injection attacks beyond SQL injection and operating system command injection. There may be a risk of an injection attack any time you are sending data partly controlled by an untrusted user in a format that has metacharacters, is defined as a language, and/or is processed by an interpreter.
+
+Examples where there may be a risk of an injection vulnerability include generating and sending JSON, yaml, XML, Lightweight Directory Access Protocol (LDAP) commands, and many other formats to libraries, frameworks, and other components that you depend on, as well as outputting them to eventual users. In all cases, one solution is to use an API that automatically escapes the text as necessary, just like using prepared statements when generating SQL.
+
+One interesting variation of an injection attack occurs when some expression is unintentionally executed twice. This can occur, for example, in some uses of the expression language in the widely-used Spring Java framework, where the attack is called expression language injection. This vulnerability is remarkably common, so we’ll explain it further here.
+
+An “Expression Language” (EL) was developed as part of the Java Server Pages Standard Tag Library (JSTL) to make it easy to get data from the underlying object model. For example, this:
+
+> `<c:out value="person.address.street"/>`
+
+Is a convenient shorthand for:
+
+> `<%=HTMLEncoder.encode(((Person)person).getAddress().getStreet())%>`
+
+The problem is that in some cases it’s possible to have the EL interpreted twice when using Spring given certain versions and configurations. For example, the tags `<spring:message>` and `<spring:theme>` may interpret twice the following attributes: `arguments`, `code`, `text`, `var`, `scope`, and `message`. For another example, `<spring:bind>` and `<spring:nestedpath>` may interpret twice the attribute `path`. When this is happening, as noted in “[Remote Code with Expression Language Injection](http://danamodio.com/appsec/research/spring-remote-code-with-expression-language-injection/)” by Amodio (2012), is that a request of the form:
+
+> `http://vulnerable.com/foo?message=${applicationScope}`
+
+to a page that contains:
+
+> `<spring:message text="" code="${param['message']}"></spring:message>`
+
+can result in output that contains internal server information including the classpath and local working directories.
+
+Whether or not the problem happens depends on the version of Spring, its Java Server Pages /Servlet container (if present), and some configuration options. For more information, see "[Expression Language Injection](https://www.mindedsecurity.com/fileshare/ExpressionLanguageInjection.pdf)" by Di Paola and Dabirsiaghi (2011) and “[[Remote Code with Expression Language Injection](http://danamodio.com/appsec/research/spring-remote-code-with-expression-language-injection/)” by Amodio (2012).
+
+Obviously it’s important to ensure that expressions are only evaluated as many times as expected (typically once). It’s wise to make sure the configuration does this, if there is a possible alternative. If there are any concerns, include tests in your automated test suite to verify that expressions are only being evaluated once in safe contexts, so that any future mistake will be immediately detected before being used in production. In the case of Spring, a test could supply data like `${99999+1}` in a risky construct and then ensure that the response text was the expected one (and not `100000`).
+
+🔔 2021 CWE Top 25 #30 is [CWE-917](https://cwe.mitre.org/data/definitions/917.html), *Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')*.
+
+
 ### Filenames (Including Path Traversal and Link Following)
 
 Technically, a “**pathname**” is a sequence of bytes that describes how to find a filesystem object. On Unix-like systems, including Linux, Android, MacOS, and iOS, a pathname is a sequence of one or more filenames separated by one or more “**/**”. On Windows systems, a pathname is more complicated but the idea is the same. In practice, many people use the term “filename” to refer to pathnames.
