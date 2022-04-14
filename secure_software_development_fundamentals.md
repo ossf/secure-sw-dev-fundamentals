@@ -3926,7 +3926,7 @@ For example, we typically want our web browsers and web servers to have an encry
 
 However, there are many people who know how to attack cryptographic systems. Using cryptography incorrectly can sometimes lead to having false confidence in an insecure system. What’s worse, incorrectly-used cryptography can sometimes be hard to spot if you are not an expert, so these mistakes may be exploited for long periods of time.
 
-🔔 Sensitive data exposure is such a common mistake in web applications that it is 2017 OWASP Top 10 #3. Sensitive data exposure is not always caused by poor use of cryptography, but it is a common underlying cause. 2021 CWE Top 25 #35 is Cleartext Transmission of Sensitive Information ([CWE-319](https://cwe.mitre.org/data/definitions/319.html)). *Inadequate encryption strength* is such a common cause of security vulnerabilities by itself that it is 2019 CWE Top 25 #3 (it is [CWE-326](https://cwe.mitre.org/data/definitions/326.html)).
+🔔 Cryptographic failures are 2021 OWASP Top 10 #2. It was 2017 OWASP Top 10 #3 and then named Sensitive Data Exposure. Sensitive data exposure is not always caused by poor use of cryptography, but it is a common underlying cause. 2021 CWE Top 25 #35 is Cleartext Transmission of Sensitive Information ([CWE-319](https://cwe.mitre.org/data/definitions/319.html)). *Inadequate encryption strength* is such a common cause of security vulnerabilities by itself that it is 2019 CWE Top 25 #3 (it is [CWE-326](https://cwe.mitre.org/data/definitions/326.html)).
 
 For normal software development there are three key rules for cryptography:
 
