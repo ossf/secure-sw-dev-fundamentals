@@ -1856,7 +1856,7 @@ Most larger systems need some mechanism to receive configuration information. Ma
 
 Some systems try to depend on *secure boot* or similar mechanisms to ensure that only specific software is run on a particular computer. Don’t take these mechanisms very seriously if the computer (such as a smartphone) may be physically controlled by a potential attacker. If an attacker has physical control over a device, then that attacker has ultimate control over the device. The reality is that secure boot systems have been repeatedly broken; trusting this to never happen in the future is ignoring the lessons of the past. You are better off designing your system so that you don’t need to trust the application on that device, but instead run software you need to trust on hardware controlled by someone you trust. Secure boot systems are far more powerful if the system is physically controlled by a trusted party, because then they are simply providing an additional protective measure for the one physically in control.
 
-🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6. 2021 CWE Top 25 #19 [CWE-276](https://cwe.mitre.org/data/definitions/276.html) covers Incorrect Default Permissions.
+🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5. 2021 CWE Top 25 #19 [CWE-276](https://cwe.mitre.org/data/definitions/276.html) covers Incorrect Default Permissions.
 
 ### Quiz 1.10
 
@@ -4594,7 +4594,7 @@ Note that our earlier discussion about software acquisition discussed distributi
 
 When fielding/deploying:
 
-* Configure your production environment to be secure, including all components you depend on, and keep it updated. Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6. For example:
+* Configure your production environment to be secure, including all components you depend on, and keep it updated. For example:
 
     * Your environment should be configured to provide least privilege and use maximum security settings your system allows.
 
@@ -4630,7 +4630,7 @@ When operating:
 
 When disposing, make sure you fully destroy any data you are supposed to destroy. Just removing a file does not actually remove its contents from most storage devices.
 
-🔔 Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 #10.
+🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5.  Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 #10.
 
 ### Quiz 4.3
 
