@@ -1,0 +1,4 @@
+In some places I had to hand-modify a number of CWE-XYZ
+with versions that included a hyperlink, using this vim command:
+
+s!CWE-\([1-9][0-9]*\)!<a href="https://cwe.mitre.org/data/definitions/\1.html">CWE-\1</a>!
