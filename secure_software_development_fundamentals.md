@@ -1222,10 +1222,10 @@ You also need to ensure that your system is not vulnerable to a “dependency co
 3. Prioritize feeds so that the most trusted feed(s) are always consulted first, and then less-trusted feeds are only consulted when the more trusted feeds expressly report that the package is not found. Make sure that the less-trusted feeds never override the more-trusted feeds.
 4. Use client-side verification features. One approach is to enforce version pinning to a cryptographic hash value (aka a “digital fingerprint”) of a package. Another approach is integrity verification to verify that a downloaded package is identical to the first time it was downloaded.
 
-🔔 Dependency confusion is a special case of 2021 CWE Top 25 #34, *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)). Relying on plugins, libraries, or modules from untrusted sources, and relying untrustworthy content delivery networks, is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
+🔔 Dependency confusion is a special case of 2021 CWE Top 25 #34, *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)). Relying on plugins, libraries, or modules from untrusted sources, and relying on untrustworthy content delivery networks, is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
 
 
-### Quiz 3.2
+##e Quiz 3.2
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
 
@@ -3423,6 +3423,8 @@ If you can get humans to review code, do so! But you may want to direct the huma
 
 In general, if there are problems that tools are not good at finding, it may be best to modify your design so the problem cannot happen in the first place. For example, choose a memory-safe language or design a system component so only safe requests can be made. If that does not work, it may be wise to try to find or develop a tool to find it. That said, there will always be issues that tools will not work well for. If nothing else works, then work to focus the most powerful tool of all on the problem: people. But people’s time is limited, so where you can, try to not depend *solely* on human review.
 
+🔔 A human review process for code and configuration changes, to minimize the chance that malicious code or configuration could be introduced into your software pipeline, is part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
+
 So with that said, let’s start discussing tools to help us.
 
 #### Generic Bug-Finding Tools: Quality Tools, Compiler Warnings, and Type-Checking Tools
@@ -4522,7 +4524,9 @@ When distributing:
 
 * Use HTTPS (TLS), so that people can verify that it is the intended domain and the information cannot be manipulated between the server and recipient.
 
-* Where practical, sign the distributed information using a private key *not* available to the server. That enables external verification (using the corresponding public key) even if the server is compromised. Unfortunately, this requires ensuring that public keys are securely distributed to the receivers. In some cases, ensuring that the receivers have the correct public keys can be a challenging problem, while in other cases this is easy. A common solution for software updates is to accept an update if it is signed by the same key that signed the currently-installed version of the software.
+* Where practical, sign the distributed information using a private key *not* available to the server that is distributing the software. Ideally software releases should be signed by a private key that is never available on the Internet. That enables external verification (using the corresponding public key) even if the server is compromised. Unfortunately, this requires ensuring that public keys are securely distributed to the receivers. In some cases, ensuring that the receivers have the correct public keys can be a challenging problem, while in other cases this is easy. A common solution for software updates is to accept an update if it is signed by the same key that signed the currently-installed version of the software. The sigstore project is working to develop easier ways to sign and verify software artifacts; for more information, see <https://www.sigstore.dev/>.
+
+* If you are distributing an application, arrange to have it updated by default (though allow the user to override this). Users often won’t update unless it’s automatic. There is a risk that an attacker may subvert your build or distribution process, so protect those processes and ensure that updates are only accepted if they are signed by a private key that is never connected to the Internet.
 
 Note that our earlier discussion about software acquisition discussed distribution problems from the opposite side. That is, when acquiring software you want to ensure that you receive what you were supposed to receive, and when distributing software you want to make it easy for recipients to verify this.
 
@@ -4550,9 +4554,9 @@ When fielding/deploying:
 
 When operating:
 
-* Update components in a timely way (this is sometimes called *patch and vulnerability management*). Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. In some organizations this job is split between developers who update components within an application and operators who update external components depended on by the application. No matter how you do it, components need to be updated in a timely way or an attacker will be able to exploit them.
+* Update components in a timely way (this is sometimes called *patch and vulnerability management*). In some organizations this job is split between developers who update components within an application and operators who update external components depended on by the application. No matter how you do it, components need to be updated in a timely way or an attacker will be able to exploit them.
 
-* Examine warnings and/or logs routinely. Determine which ones are indicators of an incident. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 #10.
+* Examine warnings and/or logs routinely. Determine which ones are indicators of an incident.
 
 * Respond in a timely way to incidents.
 
@@ -4563,6 +4567,8 @@ When operating:
 * When you receive a vulnerability report, process and fix it in a timely manner. Then give the reporter public credit unless the reporter requests otherwise.
 
 When disposing, make sure you fully destroy any data you are supposed to destroy. Just removing a file does not actually remove its contents from most storage devices.
+
+🔔 Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 #10.
 
 ### Quiz 4.3
 
