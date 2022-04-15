@@ -1054,7 +1054,7 @@ If your software manages secrets like private cryptographic keys and passwords, 
 
 * Do not put live secrets in your source code. Source code is managed by version control systems and often gets spread to more people and systems than you might think.
 
-* Store passwords used for inbound authentication with an algorithm specifically designed to do this. We will discuss these later in the course, but these kinds of algorithms are called *iterated per-user salted hash* algorithms. If done correctly, it is infeasible for an attacker to determine many passwords even if the attacker gets the encrypted password data.
+* Store passwords used for inbound authentication with an algorithm specifically designed to do this. We will discuss these later in the course, but these kinds of algorithms are called *iterated per-user salted hash* algorithms (such as argon2id, bcrypt, or PBKDF2). If done correctly, it is infeasible for an attacker to determine many passwords even if the attacker gets the encrypted password data.
 
 * Use **https://** instead of **http://**; that provides an encrypted link to prevent data leakage.
 
