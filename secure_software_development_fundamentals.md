@@ -2678,7 +2678,7 @@ Greatly limit who can read the logs; they generally should not be readable by al
 
 As a general rule, don’t include passwords or very sensitive data in logs. Since people may need to review logs later, log data sometimes gets out to more people than you might expect. Sometimes logs are revealed to others, and the recipient may use the logs in unauthorized ways. Beware of including data if it might include passwords or private keys! If you must include possibly-sensitive data, consider logging the data as an encrypted or cryptographically hashed value, so that people who receive the log cannot easily use it in an unauthorized way.
 
-🔔 Insufficient logging and monitoring is such a common mistake in web applications that it is 2017 OWASP Top 10 #10. *Inclusion of Sensitive Information in Log Files*, [CWE-532](https://cwe.mitre.org/data/definitions/532.html), is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #39 and 2019 CWE Top 25 #35.
+🔔 *Security Logging and Monitoring Failures* is 2021 OWASP Top 10 #9. *Insufficient logging and monitoring* is 2017 OWASP Top 10 #10. *Inclusion of Sensitive Information in Log Files*, [CWE-532](https://cwe.mitre.org/data/definitions/532.html), is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #39 and 2019 CWE Top 25 #35.
 
 ### Quiz 3.7
 
@@ -4632,7 +4632,7 @@ When operating:
 
 When disposing, make sure you fully destroy any data you are supposed to destroy. Just removing a file does not actually remove its contents from most storage devices.
 
-🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5.  Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Using vulnerable and outdated components is 2021 OWASP Top 10 #6. Insufficient logging and monitoring is such a common web application vulnerability that it is 2017 OWASP Top 10 #10.
+🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5.  Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Using vulnerable and outdated components is 2021 OWASP Top 10 #6. *Security Logging and Monitoring Failures* is 2021 OWASP Top 10 #9. *Insufficient logging and monitoring* is 2017 OWASP Top 10 #10.
 
 ### Quiz 4.3
 
