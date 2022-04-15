@@ -856,7 +856,7 @@ Here are several ways to implement least privilege, depending on the circumstanc
 
 6. **Minimize (limit) the attack surface**<br>The *attack surface* is the set of operations (e.g., its API and its open network ports) that a potential attacker can access. For example, if you allow public access to some method, then you are giving all attackers access to that method - are you sure you need to? Where possible, limit the operations that a potential attacker can access. If the public does not need access, do not give the public access. In particular, avoid leaving debug operations in production systems that an attacker can access; debug operations are a common source of problems.
 
-7. **Validate (check) input before you accept it**<br>Don’t just accept data from a potential attacker; check it thoroughly before accepting it. We will discuss input validation in more detail later. Of course, you need to make sure that attackers cannot bypass this input validation; this is such a big issue that it has its own principle, *complete mediation*, aka *non-byassability*. We will be talking about that next.
+7. **Validate (check) input before you accept it**<br>Don’t just accept data from a potential attacker; check it thoroughly before accepting it. We will discuss input validation in more detail later. Of course, you need to make sure that attackers cannot bypass this input validation; this is such a big issue that it has its own principle, *complete mediation*, aka *non-bypassability*. We will be talking about that next.
 
 8. **Sandbox your program**<br>Intentionally run your program (or part of it) in an environment with intentionally-restricted capabilities.
 
