@@ -1123,7 +1123,7 @@ We’ll use the term “reused software” here, because that is our concern. Th
 
 There are many important things to consider when selecting reusable software. For security here are a few things to consider:
 
-1. *Should it be added at all*? Every new dependency creates a new avenue for vulnerabilities (both unintentional and intentional), especially since many dependencies bring in other transitive dependencies. Maybe the dependency isn’t worth adding. Perhaps you could write a few lines that make the dependency unnecessary, or perhaps the functionality is already provided in something you already depend on.
+1. *Should it be added at all*? Every new dependency creates a new avenue for vulnerabilities (both unintentional and intentional), especially since many dependencies bring in other transitive dependencies. Maybe the dependency isn’t worth adding. Perhaps you could write a few lines that make the dependency unnecessary, or perhaps the functionality is already provided in something you already depend on.  If you’re selecting a base container image or virtual machine image for production use, try to find a minimal image that suits your needs and doesn’t include unnecessary baggage.
 
 2. Is it *easy to use securely*? If something is hard to use *securely* the result is far more likely to be insecure.
 
