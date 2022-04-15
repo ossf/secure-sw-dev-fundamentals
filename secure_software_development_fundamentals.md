@@ -4857,11 +4857,11 @@ In this course we have covered all of the OWASP Top 10, in both the [2017](https
 
 \>\>Select the true statement(s):<<
 
-[!x] The #1 biggest risk in the OWASP “Top 10 Web Application Security Risks” are injection flaws, including SQL injection and OS command injection.
+[!x] Injection is a risk listed in the 2021 OWASP Top 10.
 
-[x] Cross-site scripting (XSS) is in the OWASP “Top 10 Web Application Security Risks”.
+[x] Security Misconfiguration is a risk listed in the 2021 OWASP Top 10.
 
-[ ] Buffer overflows are in the OWASP “Top 10 Web Application Security Risks”. {{ selected: No, and it is understandable if you missed this. Buffer overflows are very common in embedded systems, because they are widely implemented in C and C++ which provide little protection against buffer overflows. Most web applications are written in other programming languages that protect against buffer overflows, and thus they have relatively rare in web applications. }}
+[ ] Buffer overflows are in the 2021 OWASP Top 10. {{ selected: No, and it is understandable if you missed this. Buffer overflows are very common in embedded systems, because they are widely implemented in C and C++ which provide little protection against buffer overflows. Most web applications are written in other programming languages that protect against buffer overflows, and thus they have relatively rare in web applications. }}
 
 ### CWE Top 25
 
@@ -5103,11 +5103,11 @@ for both the [2019](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html
 
 \>\>Select the true statement(s):<<
 
-[!x]  The 2019 CWE Top 25 Most Dangerous Software Errors list was created using real-world data about vulnerabilities combined with their severity scores
+[!x]  The 2021 CWE Top 25 Most Dangerous Software Errors list was created using real-world data about vulnerabilities combined with their severity scores
 
-[x]  The 2019 CWE Top 25 Most Dangerous Software Errors list is a combination of all kinds of software.
+[x]  The 2021 CWE Top 25 Most Dangerous Software Errors list is a combination of all kinds of software.
 
-[ ] The CWEs listed in the 2019 CWE Top 25 Most Dangerous Software Errors do not overlap each other. {{ selected: No, there are CWEs that overlap. For example, #1 CWE-119 (“Improper Restriction of Operations within the Bounds of a Memory Buffer”) is a superset of both #5 CWE-125 (“Out-of-bounds read”) and #12 CWE-787 (“Out-of-bounds Write”). }}
+[ ] The CWEs listed in the 2021 CWE Top 25 Most Dangerous Software Errors do not overlap each other. {{ selected: No, there are CWEs that overlap. For example, CWE-119 (“Improper Restriction of Operations within the Bounds of a Memory Buffer”) is a superset of both CWE-125 (“Out-of-bounds read”) and CWE-787 (“Out-of-bounds Write”). }}
 
 ## Concluding Notes
 
