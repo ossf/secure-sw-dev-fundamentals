@@ -2,7 +2,7 @@
 
 This repository is for managing and sharing the content of the
 *Secure Software Development Fundamentals*
-courses (from the OpenSSF Best Practices WG) that are available via the
+courses (from the [OpenSSF Best Practices WG](https://github.com/ossf/wg-best-practices-os-developers) that are available via the
 [Linux Foundation Training &amp; Certification Platform](https://training.linuxfoundation.org/training/developing-secure-software-lfd121/)
 and via [edX](http://edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals?utm_medium=partner-marketing&utm_source=affiliate&utm_campaign=openssf&utm_content=openssforg-securedevelopmentpc).
 If you see something that should be changed, please
@@ -30,5 +30,9 @@ Alternative converters include
 and
 [evbacher/gd2md-html](https://github.com/evbacher/gd2md-html!)
 (the last one is most recently active).
+
+This course is one of the results of the
+[Open Source Security Foundation (OpenSSF)](https://openssf.org/)
+[Best Practices working group (WG)](https://github.com/ossf/wg-best-practices-os-developers).
 
 Our thanks to Flavia Cioanca for her work to convert the text into live courses!
