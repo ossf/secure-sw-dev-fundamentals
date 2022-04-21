@@ -19,7 +19,7 @@ If you earn a certificate of completion for the course via the Linux Foundation 
 If you want to propose changes to the content, the preferred mechanism is
 to file [issues](https://github.com/ossf/secure-sw-dev-fundamentals/issues) for general suggestions and provide [pull requests](https://github.com/ossf/secure-sw-dev-fundamentals/pulls) for specific changes, in both cases to this
 [secure-sw-dev-fundamentals](https://github.com/ossf/secure-sw-dev-fundamentals)
-project. Changes that are accepted into the Markdown then go through a series of internal steps to be deployed to both the LF Training and edX platforms.
+project. Changes that are accepted into the Markdown must go through a series of internal steps in coordination with LF Training &amp; Certification so that the changes will be deployed to both the LF Training and edX platforms.
 
 This content was originally converted from Google docs format using
 [gdocs2md](http://github.com/mangini/gdocs2md),
