@@ -1169,7 +1169,7 @@ There are many important things to consider when selecting reusable software. Fo
 
 9. If it is important, what is *your own evaluation* of it? If the software is important to you, and especially if it is OSS, you can download and examine it yourself. Some people are scared of doing this, but there is no reason to be afraid. Even a brief review of software source code, and its changes over time, can give you some insight into the software you are thinking about using. This can be time-consuming, so many will not do this. But if the software you are developing is very important, this is a step worth seriously considering. Doing a thorough evaluation of such software is outside the scope of this course. There are many organizations with expertise in doing code-level security audits for a fee; you may want to engage their services if you want an in-depth review. However, if you decide that you want to do just a brief review, here are things to consider:
 
-    1. When you review the more detailed artifacts (e.g., the source code), is there evidence that the developers were trying to develop secure software (such as rigorous input validation of untrusted input and the use of prepared statements)?
+    1. When you review the more detailed artifacts (e.g., the source code), is there evidence that the developers were trying to develop secure software (such as rigorous input validation of untrusted input and creating database queries using parameterized statements)?
 
     2. Is there evidence of insecure or woefully incomplete software (such as a forest of TODO statements)?
 
@@ -2361,11 +2361,11 @@ Most database systems include a language that can let you create arbitrary queri
 
 Even if the database language is not SQL, if it is an attack on a language for a database system it is often called an SQL injection attack (even though this is technically not accurate). We will focus on SQL, because SQL is very common and once you understand how to counter SQL injection attacks, it is easy to generalize this to any database language.
 
-Here is a trivial example; here is a snippet of Java that tries to do an SQL query:
+Here is a trivial example; here is a snippet of Java that tries to do an SQL query, but does it insecurely::
 
-~~~~
+~~~~java
     String QueryString = "select * from authors where lastname = ' " + search_lastname + " '; ";
-    rs = statement.executeQuery(QueryString);
+    rs = statement.executeQuery(QueryString); // VULNERABLE CODE
 ~~~~
 
 The intent is clear; if **search_lastname** has the value **Fred**, then the database will receive the query “**select * from authors where lastname='Fred';**” - a reasonable SQL query. But remember our warning signs - this code concatenates strings, some of that data is probably provided by an attacker, and we’re doing something called “execute”.  The warning signs are right. Imagine that the attacker provides the input “**Fred’ OR ’a’=’a**”. This will produce the query “**select * from authors where lastname='Fred' OR ’a’=’a’;**” and now the attacker can retrieve the entire database. The attacker could even modify or delete data this way, depending on various factors. This is a simple example of an SQL injection attack; an attacker can insert some characters and inject new or modified commands.
@@ -2382,17 +2382,26 @@ For databases, there are well-known solutions that are far easier to use securel
 
 SQL injection vulnerabilities are one of the most common and devastating vulnerabilities, especially in web applications. They are also easy to counter, once you know how to do it.
 
-*Prepared statements* are perhaps the best way to counter SQL injection attacks if you are directly creating SQL commands that need to be secure. Most programming languages have at least one library that implements prepared statements.
+*Parameterized statements*, aka *parameterized queries*, are perhaps best way to counter SQL injection attacks if you are directly creating SQL commands that need to be secure. Parameterized statements let you identify placeholders (often a “**?**”) for data that needs to be escaped. A pre-existing library that you call then escapes the data properly for that specific implementation. The exact syntax for placeholders depends on the library and/or database you're using.
 
-Prepared statements allow you to identify placeholders (often a “**?**”) for data that needs to be escaped. A pre-existing library that you call then escapes the data properly for that specific implementation. This approach has many advantages:
+For our purposes, a *prepared statement* prepares the statement with the database system ahead-of-time so that a later request can be executed more efficiently. Preparing a statement with a database ahead-of-time can help performance if the statement will be executed multiple times. Prepared statement APIs generally include support for parameterized statements, and many people (and APIs) use the terms "prepared statement" and "parameterized statement" as synonyms.
+
+For security, the key is to use an API with parameterized statements (including a prepared statement API) and ensure that every untrusted input is sent as a parameter though it. Make sure that you do *not* normally include untrusted input by concatenating it as a string into a request.
+
+##### Advantages of parameterized/prepared statements
+
+Most programming languages have at least one library that implements parameterized statements and/or prepared statements. Using parameterized statements, including by using prepared statements, has many advantages:
 
 1. Since the library does the escaping for you, it is simpler to use and more likely to be right.
 
 2. It tends to produce easier-to-maintain code, since the code tends to be easier to read.
 
-3. It can handle variation in different SQL engines (which is important because different systems often have different syntax rules).
+3. Many can handle variation in different SQL engines (which is important because different systems often have different syntax rules).
 
-Here is an example of using prepared statements in Java:
+##### Example: Prepared statements in Java
+
+Here is an example of using prepared statements in Java
+using its JDBC interface:
 
 ~~~~java
     String QueryString = "select * from authors where lastname = ?";
@@ -2401,7 +2410,18 @@ Here is an example of using prepared statements in Java:
     ResultSet results = pstmt.execute( );
 ~~~~
 
-There are more statements, but the statements are simpler; in particular, the complicated concatenation is now a simple string constant. We still call something called “**execute**” - but remember, avoiding methods named “execute” is just a rule of thumb to help us detect potential problems.
+There are more statements than our earlier example, but the statements are simpler. In particular, the complicated concatenation is now a simple string constant. We still call something called “**execute**” - but remember, avoiding methods named “execute” is just a rule of thumb to help us detect potential problems.
+
+Note: Some parameterized statement and/or prepared statement
+libraries are not thread-safe. In other words,
+some libraries assume that at any given time only a single thread can
+access an instance.
+This is true for the Java prepared statement API used here;
+this Java API is not thread-safe. So when using this Java interface,
+only define `PreparedStatement` objects as method-level variables
+(instead of class-level variables) to reduce the risk of thread safety
+problems, as suggested by
+[*Bobby Tables* (Java)](https://bobby-tables.com/java).
 
 Of course, like any technique, if you use it wrongly then it won’t be secure. Here is an example of how to use prepared statements in Java to produce a probably-insecure program:
 
@@ -2411,17 +2431,121 @@ Of course, like any technique, if you use it wrongly then it won’t be secure. 
     ResultSet results = pstmt.execute( ); // Probably insecure, don’t do this!
 ~~~~
 
-This insecure program uses a prepared statement, but instead of correctly using “**?**” as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly isn’t), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
+This insecure program uses a prepared statement, but instead of correctly using “**?**” as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly is not), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
 
-Many programs use object-relational mapping (ORM). This is just a technique to automatically convert data in a relational database into an object in an object-oriented programming language and back; lots of libraries and frameworks will do this for you. This is fine, as long as the ORM is implemented using prepared statements or something equivalent to them. In practice, any good ORM implementation will do so. So if you are using a respected ORM, you are already doing this. That said, it is common in systems that use ORMs to occasionally need to use SQL queries directly… and when you do, use prepared statements.
+##### Examples: Parameterized and Prepared Statements in some Other Languages
 
-There are other approaches, of course. You can write your own escape code, but this is difficult to get correct, and typically a waste of time since there are usually existing libraries to do the job. You can also use stored procedures, which can also help prevent SQL injection, but using them correctly can be a little tricky so we emphasize prepared statements here.
+Parameterized and prepared statements are widely available, though the
+APIs and placeholder syntax vary by programming language, library, and database.
+Here we'll see some examples.
 
-Properly using prepared statement libraries makes it much easier to write secure code. In addition, they typically make code easier to read, automatically handle the variations between how databases escape things, and sometimes they are faster than doing metacharacter escapes yourself.
+In Python there are several libraries that interface to databases.
+Many of them implement the Python Database API Specification v2.0,
+([PEP 249](https://peps.python.org/pep-0249/)),
+whose `execute` and `executemany` methods implement parameterized statements.
+The library's placeholder syntax is reported by its `paramstyle` attribute.
+Here's a simple Python example from the
+Python sqlite3 library documentation
+[Python (sqlite3)](https://docs.python.org/3/library/sqlite3.html):
+
+~~~~python
+    con = sqlite3.connect(...)
+    cur = con.cursor()
+    cur.execute("insert into test(d, ts) values (?, ?)", (today, now))
+~~~~
+
+Here's an example of a query in go from the [go.dev documentation on querying](https://go.dev/doc/database/querying):
+ 
+~~~~go
+    rows, err := db.Query("SELECT * FROM album WHERE artist = ?", artist)
+~~~~
+
+When using Node and JavaScript there are many ways to use
+parameterized and prepared statements.
+Here's an example using the node-postgres callback interface,
+as described in the
+[node-postgres documentation](https://node-postgres.com/features/queries):
+
+~~~~javascript
+    const text = 'INSERT INTO users(name, email) VALUES($1, $2) RETURNING *'
+    const values = ['brianc', 'brian.m.carlson@gmail.com']
+    client.query(text, values, (err, res) => { ....  })
+~~~~
+
+The PostgreSQL `libpq` C interface provides several functions, as
+explained in the [PostgreSQL (Command Execution Functions) documentation](https://www.postgresql.org/docs/current/libpq-exec.html):
+
+* `PQexec` directly runs a single string command and returns a result.
+* `PQexecParams` implements a parameterized statement.
+  Placeholders are represented in the command as `$1`, `$2`, etc.,
+  and the parameter values are supplied as separate parameters in the same call.
+* `PQprepare` implements a prepared statement.
+  It takes a statement with placeholders and
+  submits it to the database to be prepared.
+  Users can later use the separate `PQexecPrepared` call
+  to provide the placeholder parameter values and execute the resulting
+  command.
+
+The [OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html) and [Bobby Tables website](https://bobby-tables.com/) provide examples for a variety of ecosystems.
+
+
+##### Stored Procedures
+
+Many database systems support "stored procedures", that is,
+procedures embedded in the database itself.
+If you use stored procedures, and commands (such as queries)
+are dynamically constructed in them, then you can again have
+SQL injection vulnerabilities.
+
+Again, the best solution is usually to use a parameterized query mechanism
+when creating the dynamic command (e.g., the SQL) inside the
+stored procedure. Be careful; in some systems using them correctly
+can be a little tricky.
+
+For more information on using parameterized queries
+in stored procedures, see your library's documentation, the
+[OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html), and the
+[OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+
+##### When Parameterized Interfaces Won't Work
+
+In some situations parameterized statements (including
+prepared statements) will *not* work.
+Many parameterized interface APIs only allow replacing SQL values, so
+they do not allow varying information such as the names of tables, the names
+of columns, or the sort order direction.
+
+In those cases you may need to create a query by concatenating data.
+In those cases, make *sure* you carefully validate the data (using an allowlist)
+so only specific and safe values are allowed.
+Often the allowlist is a short list of permitted values, or at most
+a simple expression that only allows ASCII letters and digits.
+A risk with this approach is that if the validation
+is ever skipped (e.g., after some code change),
+the system may be become extremely vulnerable.
+
+The [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+has a nice suggestion: if you *must* do this concatenation,
+make the user input *different* from what you will actually use, and
+in the program map the user input to the values you will use.
+If user input doesn't have a valid mapping, reject the input.
+This increases the probability that a change to the program
+will not result in unvalidated input being concatenated into a query,
+or that the problem will be detected before shipping.
+
+##### Other Approaches
+
+Many programs use object-relational mapping (ORM). This is just a technique to automatically convert data in a relational database into an object in an object-oriented programming language and back; lots of libraries and frameworks will do this for you. This is fine, as long as the ORM is implemented using parameterized statements or something equivalent to them. In practice, any good ORM implementation will do so. So if you are using a respected ORM, you are already doing this. That said, it is common in systems that use ORMs to occasionally need to use SQL queries directly… and when you do, use parameterized statements or prepared statements.
+
+Some applications use a "query builder" library to build commands (queries) programmatically through a sequence of calls instead of embedding a command string. Some ORMs include a query builder system. Again, a well-implemented query builder will use parameterized statements or similar internally. So if you use a query builder, use that is implemented using parameterized statements and provide untrusted data as separate parameters however in the query builder requires for them to be correctly escaped.
+
+There are other approaches, of course. You can write your own escape code, but this is difficult to get correct, and typically a waste of time since there are usually existing libraries to do the job.
+
+In summary, properly using parameterized statement libraries makes it much easier to write secure code. In addition, they typically make code easier to read, automatically handle the variations between how databases escape things, and sometimes they are faster than doing metacharacter escapes yourself.
 
 ### Quiz 3.2
 
-\>\>Prepared statements are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
+\>\>Parameterized statements (including prepared statements) are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
 
 (x) True
 
@@ -2469,7 +2593,7 @@ This is true. Not only is it more efficient, but the operating system shell usua
 
 There are many other kinds of injection attacks beyond SQL injection and operating system command injection. There may be a risk of an injection attack any time you are sending data partly controlled by an untrusted user in a format that has metacharacters, is defined as a language, and/or is processed by an interpreter.
 
-Examples where there may be a risk of an injection vulnerability include generating and sending JSON, yaml, XML, Lightweight Directory Access Protocol (LDAP) commands, and many other formats to libraries, frameworks, and other components that you depend on, as well as outputting them to eventual users. In all cases, one solution is to use an API that automatically escapes the text as necessary, just like using prepared statements when generating SQL.
+Examples where there may be a risk of an injection vulnerability include generating and sending JSON, yaml, XML, Lightweight Directory Access Protocol (LDAP) commands, and many other formats to libraries, frameworks, and other components that you depend on, as well as outputting them to eventual users. In all cases, one solution is to use an API that automatically escapes the text as necessary, just like using parameterized statements when generating SQL.
 
 One interesting variation of an injection attack occurs when some expression is unintentionally executed twice. This can occur, for example, in some uses of the expression language in the widely-used Spring Java framework, where the attack is called expression language injection. This vulnerability is remarkably common, so we’ll explain it further here.
 
@@ -5480,6 +5604,8 @@ Barker, Elaine, *Recommendation for Key Management: Part 1 - General*, NIST Spec
 
 Birsan, Alex, 2021-02-09, “Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies”, (<https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610>)
 
+Bobby Tables, "Java", (<https://bobby-tables.com/java>)
+
 Black, Paul E.; Badger, Lee; Guttman, Barbara; Fong, Elizabeth, *Dramatically Reducing Software Vulnerabilities: Report to the White House Office of Science and Technology Policy*, NISTIR 8151, US National Institute of Standards and Technology (NIST) Information Technology Laboratory, 2016-11 ([https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8151.pdf](https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8151.pdf))
 
 Breeden II, John, *9 top fuzzing tools: Finding the weirdest application errors*, 2019 ([https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html](https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html))
@@ -5644,6 +5770,10 @@ Patchstack, 2022, State Of WordPress Security In 2021 ([https://patchstack.com/w
 Petro, Dan and Allan Cecil, 2021, You're Doing IoT RNG, DEF CON 29 ([https://labs.bishopfox.com/tech-blog/youre-doing-iot-rng](https://labs.bishopfox.com/tech-blog/youre-doing-iot-rng)) with presentation at [https://www.youtube.com/watch?v=Zuqw0-jZh9Y](https://www.youtube.com/watch?v=Zuqw0-jZh9Y)
 
 Ponemon Institute LLC, *Costs and Consequences of Gaps in Vulnerability Responses*, 2019 ([https://www.servicenow.com/lpayr/ponemon-vulnerability-survey.html](https://www.servicenow.com/lpayr/ponemon-vulnerability-survey.html))
+
+PostgreSQL, *PostgreSQL 14*, "Command Execution Functions",
+(<https://www.postgresql.org/docs/current/libpq-exec.html>).
+
 
 Rebert, Alexandre; Cha, Sang Kil; Avgerinos, Thanassis; Foote, Jonathan; Warren David; Grieco, Gustavo; Brumley, David, *Optimizing Seed Selection for Fuzzing*, 2014 ([https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf))
 
