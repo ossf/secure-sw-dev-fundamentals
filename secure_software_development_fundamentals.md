@@ -108,19 +108,19 @@ Our thanks to the many people who provided helpful commentary and advice. We esp
 
 Every day there is news about computer systems being broken into, often via various vulnerabilities in the software. Insecure software may:
 
-* Release private or secret information (aka *“lose confidentiality”*)
+* Release private/secret information (aka *“lose confidentiality”*)
 
 * Lose or corrupt information (aka “*lose integrity*”)
 
 * Lose service (aka *“lose availability”*).
 
-But the problems do not end there. Any of these can cause *real world* losses. They can cost money, time, trust, and even lives.
+But the problems don’t end there. Any of these can cause *real world* losses. They can cost money, time, trust, and even lives.
 
-Yet developers are often never told how to develop secure software. We should *expect* that developers who are never told how to do something will have difficulty doing it.
+Yet developers are often never told how to develop secure software. We should *expect* that developers who are never told how to do something will have a hard time doing it.
 
 This course focuses on helping you understand how to practically develop secure software. By *secure software* we mean software:
 
-* that is harder for attackers to exploit,
+* that is much harder for attackers to exploit,
 
 * that limits damage if an exploitation is successful, and
 
