@@ -68,10 +68,10 @@ This is the third of the three courses in the Secure Software Development Fundam
 **What you'll learn (Part 3)**
 
 <ul>
-<li>Security Verification: How to examine software, include some key tool types, and how to apply them in continuous integration (CI). This includes learning about security code scanners/static application security testing (SAST) tools, software composition analysis (SCA)/dependency analysis tools, fuzzers, and web application scanners.</li>
-<li>Threat modeling/Attack modeling: How to consider your system from an attacker’s point of view and how to apply a simple design analysis approach called STRIDE.</li>
+<li>Security Verification: How to examine software, include some key tool types, and how to apply them in continuous integration (CI). This includes learning about security code scanners and static application security testing (SAST) tools, software composition analysis (SCA) and dependency analysis tools, fuzzers, and web application scanners.</li>
+<li>Threat and Attack modeling: How to consider your system from an attacker’s point of view and how to apply the STRIDE design analysis approach.</li>
 <li>Fielding: How to deploy and operate secure software, handle vulnerability reports, and how to rapidly update when reused components have publicly-known vulnerabilities.</li>
-<li>Assurance cases & formal methods: The basics of approaches to more strongly analyze and justify that your software is secure.</li>
+<li>Assurance cases and formal methods: The basics of approaches to more strongly analyze and justify that your software is secure.</li>
 </ul>
 
 **Meet your instructor**
