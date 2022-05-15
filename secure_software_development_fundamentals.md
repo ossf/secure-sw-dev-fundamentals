@@ -422,9 +422,7 @@ Note that personal data can be processed if the data subject gives their consent
 
 Even if consent is granted, you may want to also find another lawful basis for processing the data, especially if you want to retain it. Under the GDPR, you are generally not allowed to retain personal data without a lawful basis.
 
-Under the GDPR, *profiling* is any form of automated processing that involves using personal data to evaluate aspects of that person. Profiling will usually require getting explicit consent
-
-from the individual, which means also that the individual will be able to withdraw that consent at any time. Therefore, profiling activities will typically require a greater degree of review and protections for the applicable personal data.
+Under the GDPR, *profiling* is any form of automated processing that involves using personal data to evaluate aspects of that person. Profiling will usually require getting explicit consent from the individual, which means also that the individual will be able to withdraw that consent at any time. Therefore, profiling activities will typically require a greater degree of review and protections for the applicable personal data.
 
 Here are some resources for learning more about the GDPR:
 
