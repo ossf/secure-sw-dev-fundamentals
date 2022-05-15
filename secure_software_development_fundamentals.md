@@ -398,7 +398,7 @@ Six articles in the GDPR lay out specific rights given to individuals regarding 
 
 * **Right to Restriction of Processing** (Art. 18)<br>In certain circumstances, data subjects can restrict processing of their personal data. It can still be stored, unless a “Right to Erasure” request was also made.
 
-* **Right to Data Portability** (Art. 20)<br>In certain circumstances, data subjects can have their personal data exported (e.g., provided to the data subject or a third party in a structured, commonly used and machine-readable format).
+* **Right to Data Portability** (Art. 20)<br>In certain circumstances, data subjects can have their personal data exported (e.g., provided to the data subject or a third party in a structured, commonly used, and machine-readable format).
 
 * **Right to Object** (Art. 21)<br>In certain circumstances, particularly for direct marketing and profiling purposes, data subjects can object to having their personal data processed.
 
