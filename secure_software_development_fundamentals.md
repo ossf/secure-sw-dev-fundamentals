@@ -2382,7 +2382,7 @@ For databases, there are well-known solutions that are far easier to use securel
 
 SQL injection vulnerabilities are one of the most common and devastating vulnerabilities, especially in web applications. They are also easy to counter, once you know how to do it.
 
-*Parameterized statements*, aka *parameterized queries*, are perhaps best way to counter SQL injection attacks if you are directly creating SQL commands that need to be secure. Parameterized statements let you identify placeholders (often a “**?**”) for data that needs to be escaped. A pre-existing library that you call then escapes the data properly for that specific implementation. The exact syntax for placeholders depends on the library and/or database you're using.
+*Parameterized statements*, aka *parameterized queries*, are perhaps the best way to counter SQL injection attacks if you are directly creating SQL commands that need to be secure. Parameterized statements let you identify placeholders (often a “**?**”) for data that needs to be escaped. A pre-existing library that you call then escapes the data properly for that specific implementation. The exact syntax for placeholders depends on the library and/or database you're using.
 
 For our purposes, a *prepared statement* prepares the statement with the database system ahead-of-time so that a later request can be executed more efficiently. Preparing a statement with a database ahead-of-time can help performance if the statement will be executed multiple times. Prepared statement APIs generally include support for parameterized statements, and many people (and APIs) use the terms "prepared statement" and "parameterized statement" as synonyms.
 
