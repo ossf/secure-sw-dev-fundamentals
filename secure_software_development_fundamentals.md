@@ -284,11 +284,11 @@ Of course, we should not make it easy for an attacker to take down a system. So 
 
 ### What Is Privacy and Why It Is Important
 
-Security and privacy are interrelated, but not the same thing. In this unit we will cover what privacy is, its relationship to security, and why privacy is important.
+Security and privacy are interrelated, but not the same thing. In this unit, we will define privacy, its relationship to security, and why it is important.
 
 #### What Does Privacy Mean?
 
-The non-profit [International Association of Privacy Professionals (IAPP) defines privacy](https://iapp.org/about/what-is-privacy/) as *“the right to be let alone, or freedom from interference or intrusion”*. More specifically, it says *“Information privacy is the right to have some control over how your personal information is collected and used... various cultures have widely differing views on what a person’s rights are when it comes to privacy and how it should be regulated.”* They also contrast privacy and security: *“Data privacy is focused on the use and governance of personal data—things like putting policies in place to ensure that consumers’ personal information is being collected, shared and used in appropriate ways.”*
+The non-profit [International Association of Privacy Professionals (IAPP) defines privacy](https://iapp.org/about/what-is-privacy/) as *“the right to be let alone, or freedom from interference or intrusion.”* More specifically, it says *“Information privacy is the right to have some control over how your personal information is collected and used... various cultures have widely differing views on what a person’s rights are when it comes to privacy and how it should be regulated.”* They also contrast privacy and security: *“Data privacy is focused on the use and governance of personal data—things like putting policies in place to ensure that consumers’ personal information is being collected, shared and used in appropriate ways.”*
 
 Put another way, privacy is about protecting personal data about individuals from abuse.
 
