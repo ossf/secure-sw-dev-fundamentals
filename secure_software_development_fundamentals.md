@@ -182,7 +182,7 @@ Learning Objectives:
 
 ### What Does “Security” Mean?
 
-To get secure software, we first need to understand what *security* means. Different software has different specific security requirements, but many people divide security requirements into three broad objectives - Confidentiality, Integrity, and Availability:
+We need to understand what *security* means to create secure software. Each type of software has specific security requirements, but many people divide security requirements into three broad objectives - Confidentiality, Integrity, and Availability:
 
 * **Confidentiality**<br>“No unauthorized read” - users are only allowed to read the information they are authorized to read.
 
@@ -196,7 +196,7 @@ This set of Confidentiality, Integrity, and Availability (CIA) is sometimes call
 
 The CIA Triad
 
-Many add one more security objective: **non-repudiation** or **accountability**. The point of non-repudiation or accountability is that if someone takes certain actions, the system should be able to later prove it, even if the person involved later denies it. Examples of such actions are transferring a large sum of money, deleting something important, sending an important message, or receiving an important message. Some systems do not have such requirements, and even when they do, some people consider this a special case of integrity. Some people add other objectives, too. No matter how you categorize things, though, it is important to know clearly what the system is supposed to do. Having some simple categories can help you do that.
+Many add one more security objective: **non-repudiation** or **accountability**. The point of non-repudiation or accountability is that if someone takes certain actions, the system should be able to later prove it, even if the person involved later denies it. Examples of such actions are transferring a large sum of money, deleting something important, sending an important message, or receiving an important message. Some systems do not have such requirements, and even when they do, some people consider this a special case of integrity. Some people add other objectives, too. No matter how you categorize things, it is important to know clearly what the system is supposed to do. Having some simple categories can help you do that.
 
 These security objectives need some supporting mechanisms. For example, confidentiality and integrity require that there be a way to determine if an action is authorized (unless all requests are authorized). Here are some common supporting mechanisms:
 
