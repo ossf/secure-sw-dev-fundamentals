@@ -2361,7 +2361,7 @@ Most database systems include a language that can let you create arbitrary queri
 
 Even if the database language is not SQL, if it is an attack on a language for a database system it is often called an SQL injection attack (even though this is technically not accurate). We will focus on SQL, because SQL is very common and once you understand how to counter SQL injection attacks, it is easy to generalize this to any database language.
 
-Here is a trivial example; here is a snippet of Java that tries to do an SQL query, but does it insecurely::
+Here is a trivial example; here is a snippet of Java that tries to do an SQL query, but does it insecurely:
 
 ~~~~java
     String QueryString = "select * from authors where lastname = ' " + search_lastname + " '; ";
