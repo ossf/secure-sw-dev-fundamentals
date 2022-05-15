@@ -486,9 +486,9 @@ Do *not* wait to think about risks until they happen. Then they are no longer ri
 
 #### Risk Management Process
 
-Small projects with relatively low impacts can do risk management very informally. Large projects with major impacts should be more rigorous. But no matter what, risk management can be divided into the following activities (according to the US Department of Defense’s [*Risk, Issue, and Opportunity Management Guide for Defense Acquisition Programs*](http://acqnotes.com/wp-content/uploads/2017/07/DoD-Risk-Issue-and-Opportunity-Management-Guide-Jan-2017.pdf), 2017):
+Small projects with relatively low impacts can do risk management informally. Large projects with major impacts should be more rigorous. Regardless, risk management can be divided into the following activities according to the US Department of Defense's [*Risk, Issue, and Opportunity Management Guide for Defense Acquisition Programs*](http://acqnotes.com/wp-content/uploads/2017/07/DoD-Risk-Issue-and-Opportunity-Management-Guide-Jan-2017.pdf) (2017):
 
-1. **Risk planning**. Determine your project’s risk management process.
+1. **Risk planning**. Determine the project’s risk management process.
 
 2. **Risk identification**. Identify what *might* go wrong. A good trick is to look for similar projects - what risks and problems did they have? It is a good idea to write this list down so it can be shared. For our purposes, we are concerned about security-related risks.
 
@@ -500,15 +500,15 @@ Small projects with relatively low impacts can do risk management very informall
 
     2. **Avoidance**. The risk is eliminated by making some change. That is, you make its likelihood zero or its severity irrelevant. This is great when you can do it. For example, you might choose to *not* gather some data (then you cannot lose its confidentiality later), or you might choose a programming language where certain kinds of vulnerabilities cannot happen (eliminating the risks from those kinds of vulnerabilities).
 
-    3. **Transfer**. The risk is transferred to someone else, e.g., by buying insurance, or by changing the system so that another component has that risk and its developers accept it. For example, instead of taking on the risks of bad identification & authentication (I&A), depend on some existing system to do I&A.
+    3. **Transfer**. The risk is transferred to someone else (e.g., buying insurance, or changing the system so that another component has that risk and its developers accept it). For example, instead of taking on the risks of bad identification & authentication (I&A), depend on some existing system to do I&A.
 
-    4. **Control**. Actively reduce the risk to an acceptable level. Since the importance of a risk depends on its likelihood and severity, this means changing things to make the likelihood and/or severity low (or at least lower). For security-related risks, this is often what you need to do. There is no single way to do this, so instead you have to continuously reduce likelihood and severity through software development and deployment until the risks are acceptable. For example, you might:
+    4. **Control**. Actively reduce the risk to an acceptable level. Since the importance of a risk depends on its likelihood and severity, this means changing things to make the likelihood and/or severity low (or at least lower). For security-related risks, this is often what you need to do. There is no single way to do this, so instead you have to continuously reduce likelihood and severity through the production and deployment processes until the risks are acceptable. For example, you might:
 
-        1. Ensure all developers know about certain kinds of common mistakes that lead to a particular kind of vulnerability (so that they can avoid them),
+        1. Ensure all developers know about certain kinds of common mistakes that lead to a particular type of vulnerability so that they can avoid them,
 
         2. Use approaches (such as secure design, specific programming languages, and APIs) that are designed to make those vulnerabilities less likely,
 
-        3. Use tools & reviews to catch mistakes (including vulnerabilities), and
+        3. Use tools and reviews to catch mistakes (including vulnerabilities), and
 
         4. Harden the system. Hardening a system means modifying a system so that defects are less likely to become security vulnerabilities. We will discuss hardening later in the course.
 
