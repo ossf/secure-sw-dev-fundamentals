@@ -514,7 +514,7 @@ Small projects with relatively low impacts can do risk management informally. La
 
 5. **Risk Monitoring**. Determine how the risks have changed over time. Over time, you should “burn down” your risks - that is, the steps you are taking should be continuously reducing the risk likelihood or severity to acceptable levels.
 
-Risk management is *not* complicated. It is basically common sense. But when you are working on solving the current problems it is easy to forget about risks, which are only *potential* problems. A little thought *ahead* of time can eliminate potential problems before they become real problems.
+Risk management is *not* complicated. However, when you are working on solving the current problems, it is easy to forget about risks, which are only *potential* problems. A little thought *ahead* of time can eliminate potential problems before they become real problems.
 
 #### Identifying Risks
 
