@@ -2382,11 +2382,11 @@ For databases, there are well-known solutions that are far easier to use securel
 
 SQL injection vulnerabilities are one of the most common and devastating vulnerabilities, especially in web applications. They are also easy to counter, once you know how to do it.
 
-*Parameterized statements*, aka *parameterized queries*, are perhaps the best way to counter SQL injection attacks if you are directly creating SQL commands that need to be secure. Parameterized statements let you identify placeholders (often a “**?**”) for data that needs to be escaped. A pre-existing library that you call then escapes the data properly for that specific implementation. The exact syntax for placeholders depends on the library and/or database you're using.
+*Parameterized statements*, aka *parameterized queries*, are perhaps the best way to counter SQL injection attacks if you are directly creating SQL commands that need to be secure. Parameterized statements are statements that let you identify placeholders (often a “**?**”) for data that needs to be escaped. A pre-existing library that you call then takes those parameters and in effect escapes the data properly for that specific implementation. The exact syntax for placeholders depends on the library and/or database you're using.
 
-For our purposes, a *prepared statement* prepares the statement with the database system ahead-of-time so that a later request can be executed more efficiently. Preparing a statement with a database ahead-of-time can help performance if the statement will be executed multiple times. Prepared statement APIs generally include support for parameterized statements, and many people (and APIs) use the terms "prepared statement" and "parameterized statement" as synonyms.
+For our purposes, a *prepared statement* compiles the statement with the database system ahead-of-time so that a later request with specific data can be executed more efficiently. Preparing a statement with a database ahead-of-time can improve performance if the statement will be executed multiple times. Prepared statement APIs generally include support for parameterized statements, and many people (and APIs) use the terms "prepared statement" and "parameterized statement" as synonyms.
 
-For security, the key is to use an API with parameterized statements (including a prepared statement API) and ensure that every untrusted input is sent as a parameter though it. Make sure that you do *not* normally include untrusted input by concatenating it as a string into a request.
+For security, the key is to use an API with parameterized statements (including a prepared statement API) and ensure that every untrusted input is sent as a separate parameter. Make sure that you do *not* normally include untrusted input by concatenating untrusted data as a string into a request.
 
 ##### Advantages of parameterized/prepared statements
 
@@ -2507,11 +2507,11 @@ in stored procedures, see your library's documentation, the
 [OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html#stored-procedure-examples), and the
 [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 
-##### When Parameterized Interfaces Won't Work
+##### When Parameterized Statements Won't Work
 
 In some situations parameterized statements (including
 prepared statements) will *not* work.
-Many parameterized interface APIs only allow replacing SQL values, so
+Many parameterized statement APIs only allow replacing SQL values, so
 they do not allow varying information such as the names of tables, the names
 of columns, or the sort order direction.
 
