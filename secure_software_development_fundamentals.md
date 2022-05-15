@@ -2532,7 +2532,16 @@ If user input doesn't have a valid mapping, reject the input.
 This increases the probability that a change to the program
 will not result in unvalidated input being concatenated into a query,
 or that the problem will be detected before shipping.
+For example, in Python, if you need to write to a user-provided table name, you can do the following:
 
+~~~~python
+    table_name_untrusted = request.get("table_name")  # This is untrusted, don't put this directly in the query!
+    table_name_map = {"table1": "db.table1", "table2": "db.table2"}
+    table_name = table_name_map[table_name_untrusted]
+    con = sqlite3.connect(...)
+    cur = con.cursor()
+    cur.execute(f"insert into {table_name}(d, ts) values (?, ?)", (today, now)) # This is safe because we know that table_name can only take trusted values from table_name_map
+~~~~
 ##### Other Approaches
 
 Many programs use object-relational mapping (ORM). This is just a technique to automatically convert data in a relational database into an object in an object-oriented programming language and back; lots of libraries and frameworks will do this for you. This is fine, as long as the ORM is implemented using parameterized statements or something equivalent to them. In practice, any good ORM implementation will do so. So if you are using a respected ORM, you are already doing this. That said, it is common in systems that use ORMs to occasionally need to use SQL queries directly… and when you do, use parameterized statements or prepared statements.
