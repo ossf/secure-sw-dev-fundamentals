@@ -314,11 +314,11 @@ While some have argued that privacy is no longer possible or relevant, many othe
 
 #### Simplest Approach: Don’t Collect Personal Information
 
-The first step for addressing privacy is acknowledging that privacy is important, and then considering how to ensure your software provides adequate privacy if it collects information about individuals.
+The first step for addressing privacy is acknowledging its importance, and then considering how to ensure your software provides adequate privacy if it collects information about individuals.
 
-The simplest approach to privacy, and often the best starting point, is to *not* collect information about individuals unless you specifically need it. If you do not collect the information, you cannot divulge it later and you do not have to determine how to prevent its misuse. Eliminating it entirely is best from a privacy point of view.
+The simplest approach to privacy, and often the best starting point, is to *not* collect information about individuals unless you need it. If you do not collect the information, you cannot divulge it later, and you do not have to determine how to prevent its misuse. Eliminating it is best from a privacy point of view.
 
-Failing that, minimize personal information to what you absolutely require. If you must collect information about individuals, you must then provide a variety of protections for them, at the very least those required by law and regulation. This can be complicated, because many laws and regulations may apply.
+Failing that, minimize personal information to what you absolutely require. If you must collect information about individuals, you must provide a variety of protections for them, at the very least those required by law and regulation. Protections can be complicated because many laws and regulations may apply.
 
 #### Privacy Laws and Regulations
 
