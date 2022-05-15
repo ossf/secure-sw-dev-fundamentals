@@ -528,11 +528,11 @@ Can this mindset be taught? Our experience is that it can be, at least in part. 
 
 #### Security Is A Process, Not A Product
 
-In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier has famously explained that 
+In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier has famously explained that: 
 
-> *“security is a process not a product… there’s no such thing as perfect security. Interestingly enough, that’s not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…”.*
+> *“security is a process not a product… there’s no such thing as perfect security. Interestingly enough, that’s not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…”*
 
-The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change.. Software that was secure a year or five ago may not be adequate today. 
+The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change. Software that was secure a year or five years ago may not be adequate today. 
 
 Since security is a process, it is not just “fire and forget.” You need to continuously consider security.
 
