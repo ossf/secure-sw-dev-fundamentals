@@ -538,9 +538,9 @@ Since security is a process, it is not just “fire and forget.” You need to c
 
 #### Checklists Are Not Security
 
-Do not equate checklists, guidelines, and tips with security. They are often *useful*, because they can help you identify risks and reasonable ways to handle them. Good checklists, guidelines, and tips can save you a lot of time and trouble, and they are also great aids for helping others evaluate the security of some software. Good ones are built on the experience of others, and you’d be foolish to ignore that experience.
+Do not equate checklists, guidelines, and tips with security. They are often *useful* because they can help identify risks and reasonable ways to handle them. Good checklists, guidelines, and tips can save time and trouble, and they are also great aids for helping others evaluate the security of some software. Good ones are built on the experience of others, and it would be foolish to ignore that experience.
 
-But they are only aids to the real goal; they are not the goal itself. You can follow checklists, guidelines, and tips, and have terribly insecure software. You can also *disregard* some inappropriate ones and have very secure software. In short:
+At the same time, they are only aids to the real goal; they are not the goal itself. You can follow checklists, guidelines, and tips, and have terribly insecure software. You can also *disregard* some inappropriate ones and have very secure software. In short:
 
 **_There is no substitute for thinking._**
 
@@ -556,7 +556,7 @@ This course will give you a number of tips to help you to reduce risks, focusing
 
 [Explanation]
 
-This is false. It would be great if we could eliminate all risks. But that is rarely reasonable. Instead, our goal is to reduce the probability and severity of all risks, including security vulnerabilities, to acceptable levels.
+This is false. It would be great if we could eliminate all risks, but that is unreasonable. Instead, our goal is to reduce the probability and severity of all risks, including security vulnerabilities, to acceptable levels.
 
 [Explanation]
 
