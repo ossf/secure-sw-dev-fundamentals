@@ -2364,7 +2364,7 @@ Even if the database language is not SQL, if it is an attack on a language for a
 Here is a trivial example; here is a snippet of Java that tries to do an SQL query, but does it insecurely:
 
 ~~~~java
-    String QueryString = "select * from authors where lastname = ' " + search_lastname + " '; ";
+    String QueryString = "select * from authors where lastname = ' " + search_lastname + " '; "; // VULNERABLE CODE
     rs = statement.executeQuery(QueryString); // VULNERABLE CODE
 ~~~~
 
