@@ -354,7 +354,7 @@ The European General Data Protection Regulation (GDPR) protects the personal dat
 
 But first: complying with the GDPR is important. Serious infringements can result in a fine of up to €20 million, or 4% of a firm’s worldwide annual revenue from the preceding financial year, whichever amount is *higher*.
 
-The GDPR defines personal data (requiring protection as such) as *“any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person”*. Note that it is not just data that identifies an individual - it is data that is connected to data that identifies an individual. For example, a person’s mailing address is personal data; details about a person’s skills or preferences are also personal data if they are linked, or reasonably capable of being linked, to other information identifying that individual.
+The GDPR defines personal data (requiring protection as such) as *“any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person.”* Note that it is not just data that identifies an individual; it is data that is connected to data that identifies an individual. For example, a person’s mailing address is personal data. Details about a person’s skills or preferences are also personal data if they are linked, or reasonably capable of being linked, to other information identifying that individual.
 
 Under the GDPR some personal data are considered more sensitive, and there are greater restrictions on collecting and processing them. These include:
 
@@ -372,13 +372,13 @@ Under the GDPR some personal data are considered more sensitive, and there are g
 
 Personal data is *processed* any time an operation is performed on it. This includes collecting, storing, viewing, transmitting, and deleting it, whether or not by automated means. In the GDPR, a “controller” is the person or organization who determines the purpose and means of processing. A “processor” is a third party that processes the data on a controller’s behalf.
 
-The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial “gut reaction” for whether a particular use of personal data is likely to be acceptable. These are:
+The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial insight for whether a particular use of personal data is likely to be acceptable. These are:
 
 1. **Lawfulness, Fairness and Transparency**<br>Process personal data in a way that is legal, fair and transparent to the data subject.
 
 2. **Purpose Limitation**<br>Only process personal data in ways that are compatible with the legitimate purposes for which it was collected.
 
-3. **Data Minimization**<br>Limit the personal data you collect to what’s adequate for those purposes.
+3. **Data Minimization**<br>Limit the personal data you collect to what is adequate for those purposes.
 
 4. **Accuracy**<br>Keep personal data accurate and up to date, and take every reasonable step to erase or rectify inaccurate data.
 
@@ -420,7 +420,7 @@ Note that personal data can be processed if the data subject gives their consent
 
 * it must be freely revocable (e.g., the data subject must be able to withdraw consent at any time).
 
-Even if consent is granted, you may want to also find another lawful basis for processing the data, especially if you want to retain it. Under the GDPR, you are generally not allowed to retain personal data without a lawful basis.
+Even if consent is granted, you may want to also find another lawful basis for processing the data, especially if you want to retain it. Under the GDPR, you are generally banned from retaining personal data without a lawful basis.
 
 Under the GDPR, *profiling* is any form of automated processing that involves using personal data to evaluate aspects of that person. Profiling will usually require getting explicit consent
 
