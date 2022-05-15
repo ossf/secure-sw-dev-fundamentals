@@ -2386,7 +2386,7 @@ SQL injection vulnerabilities are one of the most common and devastating vulnera
 
 For our purposes, a *prepared statement* compiles the statement with the database system ahead-of-time so that a later request with specific data can be executed more efficiently. Preparing a statement with a database ahead-of-time can improve performance if the statement will be executed multiple times. Prepared statement APIs generally include support for parameterized statements, and many people (and APIs) use the terms "prepared statement" and "parameterized statement" as synonyms.
 
-For security, the key is to use an API with parameterized statements (including a prepared statement API) and ensure that every untrusted input is sent as a separate parameter. Make sure that you do *not* normally include untrusted input by concatenating untrusted data as a string into a request.
+For security, the key is to use an API with parameterized statements (including a prepared statement API) and ensure that every untrusted input is sent as a separate parameter. Make sure that you do *not* normally include untrusted input by concatenating untrusted data as a string (including a formatted string) into a request.
 
 ##### Advantages of parameterized/prepared statements
 
@@ -2488,6 +2488,62 @@ explained in the [PostgreSQL (Command Execution Functions) documentation](https:
 
 The [OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html) and [Bobby Tables website](https://bobby-tables.com/) provide examples for a variety of ecosystems.
 
+##### Subtle issues: DBMS (Server) side vs. Application (client) side
+
+An important security issue is *where* the
+parameters of a parameterized statement are processed.
+There are two options, DBMS-side and application-side, and
+DBMS-side is better from a security point of view.
+
+From a security point-of-view it's best if the parameters of
+parameterized statements are be processed directly
+within the database management system (DBMS),
+aka "DBMS-side" parameter processing.
+This approach is often called "server-side" since many DBMSs use
+client/server architectures connecting over a network.
+There are many advantages to DBMS-side parameter processing.
+The DBMS has the current information on escaping rules
+(and can often use more efficient mechanisms than adding escape characters),
+and it also has other information such as all relevant character
+encodings.
+Perhaps most importantly, the DBMS developers will typically have
+security experts review this part of the DBMS system.
+However, DBMS-side parameter processing often requires using special
+effort, so many DBMS libraries use "application-side" parameter processing.
+
+"Application-side" parameter processing occurs when the parameter escaping
+occurs within a library *not* in the DBMS, but instead in the application's
+processing space.
+This is also called "client-side" parameter processing.
+Application-side parameter processing systems generally are implemented
+by directly inserting escape characters where they are needed.
+Application-side parameter processing is often easier to implement, so
+several DBMS libraries use this approach.
+Application-side libraries are better than directly calling an escape
+mechanism "by hand" since the escapes are automatically added.
+
+Unfortunately, application-side parameter processing has a weakness:
+the application side may interpret information differently than the DBMS.
+This weakness can lead to vulnerabilities. For example:
+
+1. The application-side library may be intended for a different
+   version of the DBMS. The DBMS may have a different list of characters
+   or situations that need to be escaped.
+2. The application-side library may interpret multi-byte characters
+   differently or not escape multi-byte characters correctly for the
+   circumstance. (See
+   [Multibyte character exploits PHP/MySQL](https://security.stackexchange.com/questions/9908/multibyte-character-exploits-php-mysql).)
+3. The application-side library may not correctly implement parameterization of
+   more complex data types (in particular arrays and
+   associative arrays/dictionaries).
+   This is especially a risk in languages that don't require static types
+   (compile-time knowledge of types), as it's much easier to get complex
+   types to a library that cannot correctly handle them.
+
+It's often hard to determine if a library uses DBMS-side or
+application-side parameterization, and in some circumstances
+only an application-side approach is available.
+Still, if you have a practical choice, prefer a DBMS-side implementation.
 
 ##### Stored Procedures
 
@@ -2576,7 +2632,7 @@ If all you want to do is call another program and pass it some parameters, try t
 
 * In JavaScript Node.js, prefer using **shell=False** (the default) with **child_process.spawn()** or **child_process.execFile()** instead of using **shell=True** or **child_process.exec()**
 
-In short: if you see code that concatenates strings for execution by a shell, and that concatenation includes untrusted input, be extremely concerned. While it is possible to do this securely, it is better avoided when you reasonably can.
+In short: if you see code that concatenates strings (including formatted strings) for execution by a shell, and that concatenation includes untrusted input, be extremely concerned. While it is possible to do this securely, it is better avoided when you reasonably can.
 
 If you must call a program through a shell, and also include some data that might be provided by an attacker, you need to use it securely. That is actually rather tricky. As always, *do not use a denylist*. There are many “lists of shell metacharacters” that are wrong because they miss some. So if you are sending data through a shell, you need to escape every character except for ones on an allowlist (characters you know are *not* metacharacters). Generally, A-Z, a-z, and 0-9 are not metacharacters, and after that, check very carefully. Make sure you quote everything as needed.
 
