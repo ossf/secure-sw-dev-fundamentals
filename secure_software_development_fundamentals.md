@@ -2499,18 +2499,19 @@ From a security point-of-view it's best if the parameters of
 parameterized statements are processed directly
 within the database management system (DBMS),
 aka "DBMS-side" parameter processing.
-This approach is often called "server-side" since many DBMSs use
-client/server architectures connecting over a network.
+This approach is often called "server-side" since many DBMSs use a
+client/server architecture where the client connect over a network
+to a server-side DBMS.
 There are many advantages to DBMS-side parameter processing.
 The DBMS has the current information on escaping rules
 (and can often use more efficient mechanisms than adding escape characters),
-and it also has other information such as all relevant character
-encodings.
+and it also has other information such the relevant character encodings
+and expected data types.
 Perhaps most importantly, the DBMS developers will typically have
 security experts review this part of the DBMS system.
 However, DBMS-side parameter processing can require more effort to
 within implement in DBMS libraries, so many DBMS libraries use
-"application-side" parameter processing.
+"application-side" parameter processing instead.
 
 "Application-side" parameter processing occurs when the parameter escaping
 occurs within a library *not* in the DBMS, but instead in the application's
@@ -2521,7 +2522,7 @@ by directly inserting escape characters where they are needed.
 Application-side parameter processing is often easier to implement, so
 several DBMS libraries use this approach.
 Application-side libraries are better than directly calling an escape
-mechanism "by hand" since the escapes are automatically added.
+mechanism "by hand" on every use since the escapes are automatically added.
 
 Unfortunately, application-side parameter processing has a weakness:
 the application side may interpret information differently than the DBMS.
@@ -2532,19 +2533,58 @@ This weakness can lead to vulnerabilities. For example:
    or situations that need to be escaped.
 2. The application-side library may interpret multi-byte characters
    differently or not escape multi-byte characters correctly for the
-   circumstance. (See
+   circumstance that actually exists on the DBMS side. (See
    [Multibyte character exploits PHP/MySQL](https://security.stackexchange.com/questions/9908/multibyte-character-exploits-php-mysql).)
-3. The application-side library may not correctly implement parameterization of
-   more complex data types (in particular arrays and
-   associative arrays/dictionaries).
+3. If the application-side library implements parameterization of
+   data types more complex than numbers and strings (such as arrays,
+   objects, associative arrays, and/or dictionaries), then there
+   is a significant risk of a vulnerability.
+   The fundamental problem is that the application-side library isn't
+   parsing the query language the same way that the DBMS would -
+   it is doing simple text substitutions. So if the library implements this
+   functionality, it must typically make *guesses* of what types are expected.
+   For example, it may guess that associative arrays are only provided sent
+   to the library when that is sensible in the parameterized SQL query.
+   That guess, sadly, may be exploitable.
    This is especially a risk in languages that don't require static types
-   (compile-time knowledge of types), as it's much easier to get complex
-   types to a library that cannot correctly handle them.
+   (compile-time knowledge of types), as it's much easier to get unexpected
+   complex types into a library that cannot always handle them securely.
+   For example, the widely-used Node.js MySQL library
+   [mysqljs/mysql](https://github.com/mysqljs/mysql)
+   as of early 2022 is exploitable through its parameterized library
+   if a JavaScript object can be sent as a parameter to it
+   (see 
+   [Finding an Authorization Bypass on my Own Website](https://maxwelldulin.com/BlogPost?post=9185867776) by Maxwell Dulin (ꓘ)).
+
+That last issue for application-side processing (that
+complex data types may not always be escaped properly)
+can be a *huge* challenge to solve:
+
+1. The safe solution is to disable processing of complex types
+   (types other than numbers and strings) by the library.
+   This may be impractical if the application already depends on this,
+   and there may not be a way to fully disable it.
+   For example, mysqljs/mysql allows setting `stringifyObjects` to true
+   when calling `mysql.createConnection`, but while this can help,
+   this only disables
+   escaping generic Objects - it does not
+   disable other complex data types such as arrays.
+2. The general solution is to verify every type before calling the library.
+   For example, require that all data expected to be strings must be strings.
+   This is typically easy to do in a statically typed language
+   if the language enforces the types - just declare the required type.
+   This can take a lot of time to implement in languages that don't
+   enforce static types, and there is also the
+   risk of missing a check when creating or modifying the code.
+   However, this approach is more flexible.
+   (See ["Finding an unseen SQL Injection by bypassing escape functions in mysqljs/mysql"](https://flattsecurity.medium.com/finding-an-unseen-sql-injection-by-bypassing-escape-functions-in-mysqljs-mysql-90b27f6542b4) by Flatt Security Inc., 2022-02-21.)
 
 It's often hard to determine if a library uses DBMS-side or
 application-side parameterization, and in some circumstances
 only an application-side approach is available.
-Still, if you have a practical choice, prefer a DBMS-side implementation.
+In some cases requesting a prepared statement forces the library to
+use DBMS-side processing, but don't assume it - check the documentation.
+If you have a practical choice, prefer a DBMS-side implementation.
 
 ##### Stored Procedures
 
@@ -5712,9 +5752,13 @@ Delaitre, Aurelien; Stivalet, Bertrand; Black, Paul E.; Okun, Vadim; Ribeiro, At
 
 Di Paola, Stefano, and Arshan Dabirsiaghi. "Expression Language Injection", 2011-09-12, (<https://www.mindedsecurity.com/fileshare/ExpressionLanguageInjection.pdf>)
 
+Dulin, Maxwell (ꓘ), Finding an Authorization Bypass on my Own Website, 2022-03-03, (<https://maxwelldulin.com/BlogPost?post=9185867776>)
+
 ECMA, ECMA-262, 12th edition, June 2021, ECMAScript® 2021 Language Specification, “The Number Type” ([https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type]((https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type))
 
 Enable Cross-Origin Resource Sharing ([https://enable-cors.org/](https://enable-cors.org/))
+
+Flatt Security Inc,, "Finding an unseen SQL Injection by bypassing escape functions in mysqljs/mysql", 2022-02-21, (<https://flattsecurity.medium.com/finding-an-unseen-sql-injection-by-bypassing-escape-functions-in-mysqljs-mysql-90b27f6542b4>)
 
 Forum of Incident Response and Security Teams (FIRST), *FIRST Services Framework* ([https://www.first.org/standards/frameworks/](https://www.first.org/standards/frameworks/))
 
