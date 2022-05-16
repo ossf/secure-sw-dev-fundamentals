@@ -2496,7 +2496,7 @@ There are two options, DBMS-side and application-side, and
 DBMS-side is better from a security point of view.
 
 From a security point-of-view it's best if the parameters of
-parameterized statements are be processed directly
+parameterized statements are processed directly
 within the database management system (DBMS),
 aka "DBMS-side" parameter processing.
 This approach is often called "server-side" since many DBMSs use
