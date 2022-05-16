@@ -2568,22 +2568,36 @@ This weakness can lead to vulnerabilities. For example:
    For example, the widely-used Node.js MySQL library
    [mysqljs/mysql](https://github.com/mysqljs/mysql)
    as of early 2022 is exploitable through its parameterized library
-   if a JavaScript object can be sent as a parameter to it
+   if a JavaScript object can be sent as a parameter to it.
    (see 
    [Finding an Authorization Bypass on my Own Website](https://maxwelldulin.com/BlogPost?post=9185867776) by Maxwell Dulin (ꓘ)).
 
-That last issue for application-side processing (that
-complex data types may not always be escaped properly)
-can be a *huge* challenge to solve:
+That last issue for application-side processing
+(that complex data types may not always be escaped properly)
+can be confusing, so an example may help.
+In the Node.js mysqljs/mysql library,
+imagine that an attacker manages to provide
+the JavaScript *object* `{password = 1}` as the password parameter
+and it's used in the SQL query
+`SELECT * FROM accounts WHERE username = ? AND password = ?`.
+The library will internally expand the expression after `AND`
+into `password = ``password`` = 1`.
+The MYSQL DBMS will interpret `password = ``password``` as 1 (true),
+and then determine that `1 = 1` is true.
+Thus result: this expression will *always* true.
+This incorrect escaping of a complex data type
+is enough to completely bypass authentication in some situations.
 
-1. The safe solution is to disable processing of complex types
-   (types other than numbers and strings) by the library.
+Unfortunately, this last issue can be a challenge to solve:
+
+1. The safe solution is to make sure that complex data types
+   (types other than numbers and strings) are not expanded by the library
+   unless the developer specifically marks them as allowed.
    This may be impractical if the application already depends on this,
-   and there may not be a way to fully disable it.
+   and the library might not provide a way to fully disable the functionality.
    For example, mysqljs/mysql allows setting `stringifyObjects` to true
    when calling `mysql.createConnection`, but while this can help,
-   this only disables
-   escaping generic Objects - it does not
+   this only disables escaping generic Objects - it does not
    disable other complex data types such as arrays.
 2. The general solution is to verify every type before calling the library.
    For example, require that all data expected to be strings must be strings.
