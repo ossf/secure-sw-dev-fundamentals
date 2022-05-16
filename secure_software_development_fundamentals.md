@@ -2527,7 +2527,6 @@ and expected data types.
 Perhaps most importantly, the DBMS developers will typically have
 security experts review this part of the DBMS system.
 However, DBMS-side parameter processing can require more effort to
-within implement in DBMS libraries, so many DBMS libraries use
 "application-side" parameter processing instead.
 
 "Application-side" parameter processing occurs when the parameter escaping
