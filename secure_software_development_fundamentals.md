@@ -2559,7 +2559,7 @@ This weakness can lead to vulnerabilities. For example:
    parsing the query language the same way that the DBMS would -
    it is doing simple text substitutions. So if the library implements this
    functionality, it must typically make *guesses* of what types are expected.
-   For example, it may guess that associative arrays are only provided sent
+   For example, it may guess that associative arrays are only sent
    to the library when that is sensible in the parameterized SQL query.
    That guess, sadly, may be exploitable.
    This is especially a risk in languages that don't require static types
