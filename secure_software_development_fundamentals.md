@@ -2374,7 +2374,24 @@ There are many ways to trigger SQL injection attacks; attackers can insert singl
 
 If you are using a database, you shouldn’t ever be concatenating strings to create a query, because that is easy to get wrong. That includes using format strings and other mechanisms that concatenate simple text. Remember, we want to try to use a routine that is easy to use correctly.
 
+Many developers try to fix this in an unwise way by calling an escape routine on every value, e.g., like this:
+
+~~~~java
+    String QueryString = "select * from authors where lastname = ' " +
+                         sql_escape(search_lastname) + " '; "; // BAD IDEA
+~~~~
+
+This approach (calling an escape routine every time you use untrusted input)
+has a fundamental flaw: the *default* is insecure.
+If an escape routine must be called every time untrusted data is used,
+and there are many uses of untrusted data,
+eventually someone will forget to call the escape.
+The mistake can happen at the beginning, or later when the code is modified,
+but experience shows that the mistake *will* happen.
+
 🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2021 CWE Top 25 #6 and 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*. 
+
+Remember, we want to try to use an approach that is easy to use correctly - it needs to be secure by default.
 
 For databases, there are well-known solutions that are far easier to use securely.
 
