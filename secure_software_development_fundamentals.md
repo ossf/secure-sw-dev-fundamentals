@@ -2508,8 +2508,9 @@ and it also has other information such as all relevant character
 encodings.
 Perhaps most importantly, the DBMS developers will typically have
 security experts review this part of the DBMS system.
-However, DBMS-side parameter processing often requires using special
-effort, so many DBMS libraries use "application-side" parameter processing.
+However, DBMS-side parameter processing can require more effort to
+within implement in DBMS libraries, so many DBMS libraries use
+"application-side" parameter processing.
 
 "Application-side" parameter processing occurs when the parameter escaping
 occurs within a library *not* in the DBMS, but instead in the application's
@@ -2598,6 +2599,7 @@ For example, in Python, if you need to write to a user-provided table name, you 
     cur = con.cursor()
     cur.execute(f"insert into {table_name}(d, ts) values (?, ?)", (today, now)) # This is safe because we know that table_name can only take trusted values from table_name_map
 ~~~~
+
 ##### Other Approaches
 
 Many programs use object-relational mapping (ORM). This is just a technique to automatically convert data in a relational database into an object in an object-oriented programming language and back; lots of libraries and frameworks will do this for you. This is fine, as long as the ORM is implemented using parameterized statements or something equivalent to them. In practice, any good ORM implementation will do so. So if you are using a respected ORM, you are already doing this. That said, it is common in systems that use ORMs to occasionally need to use SQL queries directly… and when you do, use parameterized statements or prepared statements.
