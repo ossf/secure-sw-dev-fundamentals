@@ -2372,7 +2372,7 @@ The intent is clear; if **search_lastname** has the value **Fred**, then the dat
 
 There are many ways to trigger SQL injection attacks; attackers can insert single quotes (used to surround constant character data), semicolons (which act as command separators), “**--**” which is a comment token, and so on. This is not a complete list; different database systems interpret different characters differently. For example, double quotes are often metacharacters, but with different meanings. Even different versions of the *same* database system, or different configurations, can cause changes to how the characters are interpreted. We already know we should not create a list of “bad” characters, because that is a denylist. We could create an allowlist of characters we know are not metacharacters and then escape the rest, but this process is hard to do correctly for SQL.
 
-If you are using a database, you shouldn’t ever be concatenating strings to create a query, because that is easy to get wrong. That includes using format strings and other mechanisms that concatenate simple text. Remember, we want to try to use a routine that is easy to use correctly.
+Don't concatenate strings to create a DBMS query, because that is insecure by default. That includes using format strings, string interpolations, string templates, and all other mechanism that simply concatenate text. For example, the same vulnerabilities happen if you use Python formatted string literals (f-strings such as <tt>f'{year}-{month}'</tt>), Python's `.format` method, JavaScript's template strings (<tt>`${year}-${month}`</tt>), PHP's string interpolations (<tt>"${year}-${month}"</tt>), Ruby string interpolation (<tt>"#{year}-#{month}"</tt>), Go (string) templates, or any other string-based template or formatting language, Remember, we want to try to use a routine that is easy to use securely, and all of these are dangerous by default when used to create commands like SQL comamnds.
 
 Many developers try to fix this in an unwise way by calling an escape routine on every value, e.g., like this:
 
@@ -2385,7 +2385,9 @@ This approach (calling an escape routine every time you use untrusted input)
 has a fundamental flaw: the *default* is insecure.
 If an escape routine must be called every time untrusted data is used,
 and there are many uses of untrusted data,
-eventually someone will forget to call the escape.
+eventually someone will forget to call the escape function.
+Many programs create many queries, so there are many opportunities to
+forget to do it.
 The mistake can happen at the beginning, or later when the code is modified,
 but experience shows that the mistake *will* happen.
 
