@@ -2372,7 +2372,7 @@ The intent is clear; if **search_lastname** has the value **Fred**, then the dat
 
 There are many ways to trigger SQL injection attacks; attackers can insert single quotes (used to surround constant character data), semicolons (which act as command separators), “**--**” which is a comment token, and so on. This is not a complete list; different database systems interpret different characters differently. For example, double quotes are often metacharacters, but with different meanings. Even different versions of the *same* database system, or different configurations, can cause changes to how the characters are interpreted. We already know we should not create a list of “bad” characters, because that is a denylist. We could create an allowlist of characters we know are not metacharacters and then escape the rest, but this process is hard to do correctly for SQL.
 
-Don't concatenate strings to create a DBMS query, because that is insecure by default. That includes using format strings, string interpolations, string templates, and all other mechanism that simply concatenate text. For example, the same vulnerabilities happen if you use Python formatted string literals (f-strings such as <tt>f'{year}-{month}'</tt>), Python's `.format` method, JavaScript's template strings (<tt>`${year}-${month}`</tt>), PHP's string interpolations (<tt>"${year}-${month}"</tt>), Ruby string interpolation (<tt>"#{year}-#{month}"</tt>), Go (string) templates, or any other string-based template or formatting language, Remember, we want to try to use a routine that is easy to use securely, and all of these are dangerous by default when used to create commands like SQL comamnds.
+Don't concatenate strings to create a DBMS query, because that is insecure by default. That includes using format strings, string interpolations, string templates, and all other mechanism that simply concatenate text. For example, the same vulnerabilities happen if you use Python formatted string literals (f-strings such as <tt>f'{year}-{month}'</tt>), Python's `.format` method, JavaScript's template strings (<tt>`${year}-${month}`</tt>), PHP's string interpolations (<tt>"${year}-${month}"</tt>), Ruby string interpolation (<tt>"#{year}-#{month}"</tt>), Go (string) templates, or any other string-based template or formatting language. Remember, we want to try to use a routine that is easy to use securely, and all of these are dangerous by default when used to create commands like SQL commands.
 
 Many developers try to fix this in an unwise way by calling an escape routine on every value, e.g., like this:
 
@@ -2393,7 +2393,7 @@ but experience shows that the mistake *will* happen.
 
 🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2021 CWE Top 25 #6 and 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*. 
 
-Remember, we want to try to use an approach that is easy to use correctly - it needs to be secure by default.
+Again, we want to try to use an approach that is easy to use correctly - it needs to be secure by default.
 
 For databases, there are well-known solutions that are far easier to use securely.
 
@@ -2459,7 +2459,7 @@ APIs and placeholder syntax vary by programming language, library, and database.
 Here we'll see some examples.
 
 In Python there are several libraries that interface to databases.
-Many of them implement the Python Database API Specification v2.0,
+Many of them implement the Python Database API Specification v2.0
 ([PEP 249](https://peps.python.org/pep-0249/)),
 whose `execute` and `executemany` methods implement parameterized statements.
 The library's placeholder syntax is reported by its `paramstyle` attribute.
@@ -2519,7 +2519,7 @@ parameterized statements are processed directly
 within the database management system (DBMS),
 aka "DBMS-side" parameter processing.
 This approach is often called "server-side" since many DBMSs use a
-client/server architecture where the client connect over a network
+client/server architecture where the client connects over a network
 to a server-side DBMS.
 There are many advantages to DBMS-side parameter processing.
 The DBMS has the current information on escaping rules
@@ -2529,6 +2529,7 @@ and expected data types.
 Perhaps most importantly, the DBMS developers will typically have
 security experts review this part of the DBMS system.
 However, DBMS-side parameter processing can require more effort to
+implement, so some libraries use
 "application-side" parameter processing instead.
 
 "Application-side" parameter processing occurs when the parameter escaping
@@ -2569,8 +2570,8 @@ This weakness can lead to vulnerabilities. For example:
    complex types into a library that cannot always handle them securely.
    For example, the widely-used Node.js MySQL library
    [mysqljs/mysql](https://github.com/mysqljs/mysql)
-   as of early 2022 is exploitable through its parameterized library
-   if a JavaScript object can be sent as a parameter to it.
+   as of early 2022 is often exploitable through its parameterized library
+   *if* a JavaScript object can be sent as a parameter to it
    (see 
    [Finding an Authorization Bypass on my Own Website](https://maxwelldulin.com/BlogPost?post=9185867776) by Maxwell Dulin (ꓘ)).
 
@@ -2586,7 +2587,7 @@ The library will internally expand the expression after `AND`
 into `password = ``password`` = 1`.
 The MYSQL DBMS will interpret `password = ``password``` as 1 (true),
 and then determine that `1 = 1` is true.
-Thus result: this expression will *always* true.
+The result: this expression will *always* be true.
 This incorrect escaping of a complex data type
 is enough to completely bypass authentication in some situations.
 
