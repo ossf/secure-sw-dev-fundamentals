@@ -5577,8 +5577,6 @@ kernel.org, *Linux kernel coding style* ([https://www.kernel.org/doc/Documentati
 
 Levien, Raph, *With Undefined Behavior, Anything is Possible*, 2018-08-17, ([https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html](https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html))
 
-Some countries have various laws and regulations on cryptography, and they have changed over the years. Let's look at the US as an example. The export of cryptographic technology and devices from the United States was severely restricted until 1992. More recently the US has required email notifications for many uses of encryption technology. In 2021 the US rule was further relaxed, so that open source software projects only need to provide a notification if they use "non-standard cryptography". Generally you should use standard well-vetted cryptographic algorithms and protocols anyway, so for many open source software projects this eliminates the notification requirement when exporting from the US. See the
-
 Linux Foundation, *Understanding Open Source Technology & US Export Controls*, 2021-07-19, <https://www.linuxfoundation.org/tools/understanding-us-export-controls-with-open-source-projects/>)
 
 Loukides, Mike, *Revisiting “What Is DevOps”*, 2014-06-30 ([http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html](http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html))
