@@ -4209,6 +4209,8 @@ For example, we typically want our web browsers and web servers to have an encry
 
 However, there are many people who know how to attack cryptographic systems. Using cryptography incorrectly can sometimes lead to having false confidence in an insecure system. What’s worse, incorrectly-used cryptography can sometimes be hard to spot if you are not an expert, so these mistakes may be exploited for long periods of time.
 
+Some countries have various laws and regulations on cryptography, and they have changed over the years. Let's look at the US as an example. The export of cryptographic technology and devices from the United States was severely restricted until 1992. More recently the US has required email notifications for many uses of encryption technology. In 2021 the US rule was further relaxed, so that open source software projects only need to provide a notification if they use "non-standard cryptography". Generally you should use standard well-vetted cryptographic algorithms and protocols anyway, so for many open source software projects this eliminates the notification requirement when exporting from the US. See the [Linux Foundation's *Understanding Open Source Technology & US Export Controls*](https://www.linuxfoundation.org/tools/understanding-us-export-controls-with-open-source-projects/) for more information. A discussion of cryptographic regulations around the world is beyond the scope of this course.
+
 🔔 Cryptographic failures are 2021 OWASP Top 10 #2. It was 2017 OWASP Top 10 #3 and then named Sensitive Data Exposure. Sensitive data exposure is not always caused by poor use of cryptography, but it is a common underlying cause. 2021 CWE Top 25 #35 is Cleartext Transmission of Sensitive Information ([CWE-319](https://cwe.mitre.org/data/definitions/319.html)). *Inadequate encryption strength* is such a common cause of security vulnerabilities by itself that it is 2019 CWE Top 25 #3 (it is [CWE-326](https://cwe.mitre.org/data/definitions/326.html)).
 
 For normal software development there are three key rules for cryptography:
@@ -5844,6 +5846,8 @@ Kaplan-Moss, Jacob, *Not all attackers are equal: understanding and preventing D
 kernel.org, *Linux kernel coding style* ([https://www.kernel.org/doc/Documentation/process/coding-style.rst](https://www.kernel.org/doc/Documentation/process/coding-style.rst))
 
 Levien, Raph, *With Undefined Behavior, Anything is Possible*, 2018-08-17, ([https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html](https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html))
+
+Linux Foundation, *Understanding Open Source Technology & US Export Controls*, 2021-07-19, <https://www.linuxfoundation.org/tools/understanding-us-export-controls-with-open-source-projects/>)
 
 Loukides, Mike, *Revisiting “What Is DevOps”*, 2014-06-30 ([http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html](http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html))
 
