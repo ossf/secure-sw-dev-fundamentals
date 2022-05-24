@@ -296,7 +296,7 @@ Put another way, privacy is about protecting personal data about individuals fro
 
 While some have argued that privacy is no longer possible or relevant, many others disagree, and many laws have been put in place around the world to protect privacy. One accessible summary for the widespread position that privacy is important is Glenn Greenwald’s TED Talk [*“Why privacy matters”*](https://www.ted.com/talks/glenn_greenwald_why_privacy_matters) (2014). Here are some of his points (see the talk for details):
 
-* People who say, *“If you’re doing something that you don’t want other people to know, maybe you shouldn’t be doing it in the first place”* are engaged in extreme self-deprecation; *“What they’re really saying is,"I have agreed to make myself such a harmless and unthreatening and uninteresting person that I actually don’t fear having the government know what it is that I’m doing.’”*
+* People who say, *“if you’re doing something that you don’t want other people to know, maybe you shouldn’t be doing it in the first place”* are engaged in extreme self-deprecation; *“What they’re really saying is,"I have agreed to make myself such a harmless and unthreatening and uninteresting person that I actually don’t fear having the government know what it is that I’m doing.’”*
 
 * Many of these same people [who make these claims] do not actually act in this way, e.g., they will take many steps to gain privacy for themselves.
 
@@ -308,7 +308,7 @@ While some have argued that privacy is no longer possible or relevant, many othe
 
 * *“When we allow a society to exist in which we’re subject to constant monitoring, we allow the essence of human freedom to be severely crippled.”*
 
-* *“a system of mass surveillance suppresses our own freedom in all sorts of ways. It renders off-limits all kinds of behavioral choices without our even knowing that it’s happened.”*
+* *“A system of mass surveillance suppresses our own freedom in all sorts of ways. It renders off-limits all kinds of behavioral choices without our even knowing that it’s happened.”*
 
 ### Privacy Requirements
 
