@@ -25,6 +25,16 @@ We can quickly fix significant mistakes, but we otherwise want to only implement
 
 The learning approach is designed to potentially support many users (with a potential of 10-15 million), so all problems (including knowledge checks) must be completely automated. There are no plans to use cohorts, discussions, or anything else requiring human instructors (because that doesn’t scale well). In most cases the knowledge checks are 1-2 multiple choice questions. They will generally have a random *order* of answers, but not Randomized *values* of answer (no Python script is involved).
 
+This document is written to be easily understood by its audience (in this case, software developers). In general, in this document:
+
+* Use contractions (unless you want special emphasis on something).
+* Use logical quotation, not typographical quotation. Quotations only include what is quoted. For more, see the [Wikipedia: Logical quotation on Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Logical_quotation_on_Wikipedia).
+* Use pronouns, especially *you*.
+* Cite sources.
+
+For more, see [5 Stupid Grammar Rules You Should Never Follow Because They Make Your Writing Worse](https://www.inc.com/minda-zetlin/5-stupid-grammar-rules-you-should-never-follow-because-they-make-your-writing-wo.html) and [6 Grammar Superstitions: The Never-Never Rules](https://wac.colostate.edu/docs/books/grammar/chapter6.pdf).
+
+
 Note that edX requires groupings at 3 levels: Sections, Subsections, and Units. Only Units (level 3) can have content.  We represent this in the material below as follows:  A “Heading 1” represents the beginning of a Section and contains ONLY sequences beginning with “Heading 2” (no text). A “Heading 2” represents the beginning of a Subsection and contains ONLY sequences beginning with “Heading 3”. A “Heading 3” represents the beginning of a Unit and contains all content. A Heading 3 cannot be directly contained within a Heading 1. Heading 4 (and below) are used freely within a Unit.
 
 **About this course (Part 1)**
