@@ -4195,7 +4195,7 @@ The word *cryptography* comes from the Greek phrase for “secret writing”. Cr
 
 Cryptography provides a set of tools that can sometimes help develop secure software. Cryptography *cannot* solve all security problems. In fact, most computer security vulnerabilities have nothing to do with cryptography.
 
-![image alt text](security_xkcd.png)
+![image alt text](xkcd_security.png)
 
 **Security**, retrieved from [xkcd](https://xkcd.com/538/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
 
