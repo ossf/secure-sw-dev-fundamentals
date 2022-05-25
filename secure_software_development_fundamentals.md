@@ -916,7 +916,7 @@ You can use JavaScript securely, you just need to do it correctly. You can send 
 
 The following figure shows a similar but secure design; notice that all the security-related checks are being done in the server, since in this case that is the system we can trust. It also prevents direct database access, which is often a good idea if users do not need direct access:
 
-![A More Secure Alternative of the JavaScript Application: In this figure some security-relevant input validation checks are run in a web browser, but all security checks are run by the web server, even if some were run in the browser earlier. Since the server in this case is trusted, this is a secure design. The database is not directly accessible by logged-in users; this is a good architecture, because direct access to the database is often unnecessary.](secure_design.png)
+![A More Secure Alternative of the JavaScript Application: In this figure some security-relevant input validation checks are run in a web browser, but all security checks are run by the web server, even if some were run in the browser earlier. Since the server in this case is trusted, this is a secure design. The database is not directly accessible by logged-in users; this is a good architecture, because direct access to the database is often unnecessary.](a_secure_design.png)
 
 A More Secure Alternative of the JavaScript Application
 
