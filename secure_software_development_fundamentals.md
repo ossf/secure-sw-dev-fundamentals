@@ -2319,7 +2319,7 @@ You *can* use such routines securely, and sometimes you need to. But if you can 
 
 Why are certain kinds of routines hard to use securely? One common problem is that many routines accept languages with *metacharacters* - that is, characters that change how other characters are interpreted instead of being data themselves. For example, the double quote character (**“**) is often a metacharacter (including in SQL and shell). If there is a language specification, that almost certainly means there are metacharacters. Supporting metacharacters is very flexible, and if all of the input is trusted, it is not a problem. But when parts of the data might be from an attacker, you need to be very careful and take extra precautions. If an attacker can insert metacharacters into the input, and they are not escaped exactly correctly, then dangerous and easily-exploited vulnerabilities often follow if they are read by some kind of interpreter. These kinds of attacks are sometimes called injection attacks.
 
-🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that “Injection” is 2017 OWASP Top 10 #1 and 2021 OWASP Top 10 #3. 2021 CWE Top 25 #28 and 2019 CWE Top 25 #18 are [CWE-94](https://cwe.mitre.org/data/definitions/94.html), *Improper Control of Generation of Code (‘Code Injection’)*. 2021 CWE Top 10 #25 is [CWE-77](https://cwe.mitre.org/data/definitions/77.html), *Improper Neutralization of Special Elements used in a Command ('Command Injection')*. Both CWE-94 and CWE-77 are special cases of [CWE-74](https://cwe.mitre.org/data/definitions/74.html). *Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')*. The general category CWE-74 has other common special cases such as SQL injection vulnerabilities ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) and operating system command injection ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)) that we will soon discuss.
+🔔 Vulnerabilities to injection attacks are such common mistakes in web applications that “Injection” is 2017 OWASP Top 10 #1 and 2021 OWASP Top 10 #3. 2021 CWE Top 25 #28 and 2019 CWE Top 25 #18 are identified [CWE-94](https://cwe.mitre.org/data/definitions/94.html), *Improper Control of Generation of Code (‘Code Injection’)*. 2021 CWE Top 10 #25 is [CWE-77](https://cwe.mitre.org/data/definitions/77.html), *Improper Neutralization of Special Elements used in a Command ('Command Injection')*. Both CWE-94 and CWE-77 are special cases of [CWE-74](https://cwe.mitre.org/data/definitions/74.html). *Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')*. The general category CWE-74 has other common special cases such as SQL injection vulnerabilities ([CWE-89](https://cwe.mitre.org/data/definitions/89.html)) and operating system command injection ([CWE-78](https://cwe.mitre.org/data/definitions/78.html)) that we will soon discuss.
 
 So you need to ensure that when you send data to some program (or output), you send it in a secure way. That may involve:
 
@@ -2372,7 +2372,7 @@ The intent is clear; if **search_lastname** has the value **Fred**, then the dat
 
 There are many ways to trigger SQL injection attacks; attackers can insert single quotes (used to surround constant character data), semicolons (which act as command separators), “**--**” which is a comment token, and so on. This is not a complete list; different database systems interpret different characters differently. For example, double quotes are often metacharacters, but with different meanings. Even different versions of the *same* database system, or different configurations, can cause changes to how the characters are interpreted. We already know we should not create a list of “bad” characters, because that is a denylist. We could create an allowlist of characters we know are not metacharacters and then escape the rest, but this process is hard to do correctly for SQL.
 
-Don't concatenate strings to create a DBMS query, because that is insecure by default. That includes using format strings, string interpolations, string templates, and all other mechanism that simply concatenate text. For example, the same vulnerabilities happen if you use Python formatted string literals (f-strings such as <tt>f'{year}-{month}'</tt>), Python's `.format` method, JavaScript's template strings (<tt>`${year}-${month}`</tt>), PHP's string interpolations (<tt>"${year}-${month}"</tt>), Ruby string interpolation (<tt>"#{year}-#{month}"</tt>), Go (string) templates, or any other string-based template or formatting language. Remember, we want to try to use a routine that is easy to use securely, and all of these are dangerous by default when used to create commands like SQL commands.
+Don't concatenate strings to create a DBMS query, because that is insecure by default. That includes using format strings, string interpolations, string templates, and all other mechanisms that simply concatenate text. For example, the same vulnerabilities happen if you use Python formatted string literals (f-strings such as <tt>f'{year}-{month}'</tt>), Python's `.format` method, JavaScript's template strings (<tt>`${year}-${month}`</tt>), PHP's string interpolations (<tt>"${year}-${month}"</tt>), Ruby string interpolation (<tt>"#{year}-#{month}"</tt>), Go (string) templates, or any other string-based template or formatting language. Remember, we want to try to use a routine that is easy to use securely, and all of these are dangerous by default when used to create commands like SQL commands.
 
 Many developers try to fix this in an unwise way by calling an escape routine on every value, e.g., like this:
 
@@ -2652,7 +2652,7 @@ Often the allowlist is a short list of permitted values, or at most
 a simple expression that only allows ASCII letters and digits.
 A risk with this approach is that if the validation
 is ever skipped (e.g., after some code change),
-the system may be become extremely vulnerable.
+the system may become extremely vulnerable.
 
 The [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 has a nice suggestion: if you *must* do this concatenation,
@@ -3699,7 +3699,7 @@ In security we often want to use tools that find and report certain kinds of vul
 </table>
 
 
-The reality is that there is usually a trade-off between false positives and false negatives. Tools can be designed or configured to have fewer false positives (incorrect reports), but that lack of sensitivity typically means that it will often have more false negatives (it will fail to report things that you might expect it to report). For more about details, see the [*SATE V Report: Ten Years of Static Analysis Tool Expositions*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf), 2018.
+The reality is that there is usually a trade-off between false positives and false negatives. Tools can be designed or configured to have fewer false positives (incorrect reports), but that lack of sensitivity typically means that it will often have more false negatives (it will fail to report things that you might expect it to report). For more details, see the [*SATE V Report: Ten Years of Static Analysis Tool Expositions*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-326.pdf), 2018.
 
 #### Applying Tools
 
@@ -3777,7 +3777,7 @@ Here are some kinds of vulnerabilities that specialized SAST tools can detect:
 
 * Hardcoded credentials such as cryptographic keys and passwords. Tools that look for hardcoded credentials are sometimes called “secret scanners”.
 
-🔔 Hardcoded credentials are such a common problem that they are 2021 CWE Top 25 #16, [CWE-798](https://cwe.mitre.org/data/definitions/798.html), Use of Hard-coded Credentials. This is one reason why secret scanners have rapidly become popular.
+🔔 Hardcoded credentials are such a common problem that they are 2021 CWE Top 25 #16, [CWE-798](https://cwe.mitre.org/data/definitions/798.html), *Use of Hard-coded Credentials*. This is one reason why secret scanners have rapidly become popular.
 
 #### Other Static Analysis Tools
 
