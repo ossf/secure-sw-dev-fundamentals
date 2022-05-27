@@ -30,6 +30,7 @@ This document is written to be easily understood by its audience (in this case, 
 * Use contractions (unless you want special emphasis on something).
 * Use logical quotation, not typographical quotation. Quotations only include what is quoted. For more, see [Wikipedia: Logical quotation on Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Logical_quotation_on_Wikipedia).
 * Use pronouns, especially *you*.
+* Use Oxford commas.
 * Cite sources.
 
 For more, see [5 Stupid Grammar Rules You Should Never Follow Because They Make Your Writing Worse](https://www.inc.com/minda-zetlin/5-stupid-grammar-rules-you-should-never-follow-because-they-make-your-writing-wo.html) and [6 Grammar Superstitions: The Never-Never Rules](https://wac.colostate.edu/docs/books/grammar/chapter6.pdf).
