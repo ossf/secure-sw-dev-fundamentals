@@ -143,9 +143,9 @@ Our primary concern is that you learn how to develop *secure* software. Here are
 
 2. **Free**. If you just want to learn, it doesn’t cost anything! All you need is an internet connection. Many people have limited resources and we want to make sure this information is available to them.
 
-3. **Open Content**. The main informational material is not just “free” in the sense of “no cost” but also in terms of freedom. In particular, the informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/), so you can reuse it in many ways. We *want* you to use this information! There are some exceptions: we quote other material (such as from xkcd) which are under their own licenses, and to counter cheating we do not release the graded tests used in the edX version of this course this way.
+3. **Open Content**. The main informational material is not just “free” in the sense of “no cost” but also in terms of freedom. In particular, the informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/), so you can reuse it in many ways. We *want* you to use this information! There are some exceptions; we quote other material (such as from xkcd) which are under their own licenses.
 
-4. **Certificate of Completion (for learners enrolled in a Verified track in the edX version)**. If you want to prove that you took the course (as opposed to simply learning it), that is available at a nominal price. This might really help you communicate what you know to employers, customers, or potential employers. By comparison, just owning a book doesn’t prove that you have read or understood it.
+4. **Evidence of Completion**. If you want to prove that you learned the material (as opposed to simply seeing some text), that is available. On edX this is available at a nominal price by enrolling in a verified track. This might really help you communicate what you know to employers, customers, or potential employers. By comparison, just owning a book doesn’t prove that you have read or understood it.
 
 5. **Accessibility**. We have worked to make this information accessible. We want to make sure that those who are blind, have low vision, color-blindness, and so on can learn from this material.
 
