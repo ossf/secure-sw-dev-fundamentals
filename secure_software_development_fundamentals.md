@@ -3773,7 +3773,7 @@ A *penetration test* (aka *pen test*) simulates an attack on a system to try to 
 
 In general, penetration testers are consultants with a limited scope and a predetermined duration. On the other hand, red teamers are often employees whose goal is similar to penetration testers but with a longer testing duration and a wider scope. However, in both cases, it is up to each organization to determine the scope and duration of the test. 
 
-“Red team” and “penetration tester” are unstandardized terms. As a result, it is important to pay special attention to the context because it is common to switch them around or use them for different meanings entirely. 
+“Red teamer” and “penetration tester” are unstandardized terms. As a result, you should pay attention to the context in which they appear because it is common to switch them around or use them for different meanings entirely. 
 
 A *security audit* reviews a system to look for vulnerabilities. Often the phrase is used implying a more methodical approach, where designs and code are reviewed to look for problems. But that is not always true; the terms *security audit* and *penetration test* are sometimes used synonymously. Regardless of this, security audits and penetration tests often employ a variety of techniques, including both static and dynamic analysis, to try to find vulnerabilities before real attackers can find and exploit them.
 
