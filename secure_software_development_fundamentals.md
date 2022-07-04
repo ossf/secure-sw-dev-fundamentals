@@ -3769,7 +3769,11 @@ In this course we have intentionally used more specific terms instead of DAST, i
 
 There are many other kinds of verification approaches, and many ways to combine them.
 
-A *penetration test* (aka *pen test*) simulates an attack on a system to try to break into (*penetrate*) the system. The people doing a penetration test are called penetration testers or a red team; they may be actively countered by a defensive team (also called a blue team). The point of a penetration test is to learn about weaknesses so they can be strengthened *before* a real attacker tries to attack the system.
+A *penetration test* (aka *pen test*) simulates an attack on a system to try to break into (*penetrate*) the system. The people doing a penetration test are called penetration testers. The point of a penetration test is to learn about weaknesses so they can be strengthened *before* a real adversary attacks the system.
+
+In general, penetration testers are consultants with a limited scope and a predetermined duration. On the other hand, red teamers are often employees whose goal is similar to penetration testers but with a longer testing duration and a wider scope. However, in both cases, it is up to each organization to determine the scope and duration of the test. 
+
+“Red team” and “penetration tester” are unstandardized terms. As a result, it is important to pay special attention to the context because it is common to switch them around or use them for different meanings entirely. 
 
 A *security audit* reviews a system to look for vulnerabilities. Often the phrase is used implying a more methodical approach, where designs and code are reviewed to look for problems. But that is not always true; the terms *security audit* and *penetration test* are sometimes used synonymously. Regardless of this, security audits and penetration tests often employ a variety of techniques, including both static and dynamic analysis, to try to find vulnerabilities before real attackers can find and exploit them.
 
