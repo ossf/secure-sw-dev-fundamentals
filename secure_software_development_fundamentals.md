@@ -25,6 +25,8 @@ We can quickly fix significant mistakes, but we otherwise want to only implement
 
 The learning approach is designed to potentially support many users (with a potential of 10-15 million), so all problems (including knowledge checks) must be completely automated. There are no plans to use cohorts, discussions, or anything else requiring human instructors (because that doesn’t scale well). In most cases the knowledge checks are 1-2 multiple choice questions. They will generally have a random *order* of answers, but not Randomized *values* of answer (no Python script is involved).
 
+**Contributor Guidance**
+
 This document is written to be easily understood by its audience (in this case, software developers). In general, in this document:
 
 * Use contractions (unless you want special emphasis on something).
