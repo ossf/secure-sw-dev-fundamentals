@@ -1,0 +1,39 @@
+From: "J*NOSPAM* from OpenAI" <j*NOSPAM*@openai.com>
+Subject: Re: Can I used generated images from Dall-E / Dall-E-2 to illustrate a freely-available course on developing secure software?
+Date: May 2, 2022 at 4:55:08 PM EDT
+To: dwheeler-NOSPAM@linuxfoundation.org
+Reply-To: J*NOSPAM* from OpenAI <j*NOSPAM*@openai.intercom-mail.com>
+
+Hi David,
+
+Thanks for your patience while I looked into this. We don't allow commercialization yet, but, since this is content for a freely-available course, you can use the images in your course as long as you adhere to our terms of use.
+
+is there anything else we can help with?
+
+Best,
+J*NOSPAM*
+...
+
+On Fri, Apr 22, 2022 at 07:43 AM, "David A. Wheeler" <dwheeler*NOSPAM*@linuxfoundation.org> wrote: 
+Dear OpenAI:
+
+I have a licensing question. I've developed a freely-available course 
+on how to develop secure software. Its content is available to use/modify via the 
+Creative Commons Attribution (CC-BY) license. Students can take the course 
+for free via the Linux Foundation Training site & also via edX (for those who prefer edX). 
+More info: https://openssf.org/training/courses/
+
+Could I use Dall-E and Dall-E-2 to generate images that would then be 
+included in the course, to help students understand its concepts? 
+I would *not* provide a general web API to generate new images, I'd just 
+include the generated images.
+
+I reviewed your policy here: 
+https://labs.openai.com/policies/content-policy 
+However, I couldn't figure out if this was allowed or not.
+
+I would be *delighted* to give OpenAI credit if it's allowed.
+
+Thanks!!
+
+--- David A. Wheeler
