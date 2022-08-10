@@ -3611,7 +3611,7 @@ Avoid giving security or sensitive information to untrusted users. If a request 
 
 * On a failed login, just say “*username or password failed*” or similar - don’t expose whether it was the username or the password that failed. That could tell the attacker that the username is valid, and makes further attacks easier.
 
-* If a user tries to create an account using an email address, don't tell the user if an account with that email address already exists. Similarly, if a user tries to do a password reset using an email address, don't tell the user if there is no account with that email address. Providing that information would allow an unauthenticated attacker to determine if a specific email address is being used (or not) by some existing account.
+* If a user tries to create an account using an email address, don't tell the user if an account with that email address already exists. Similarly, if a user tries to do a password reset using an email address, don't tell the user if there is no account with that email address. Providing that information would allow an attacker to determine if a specific email address is being used (or not) by some existing account.
 
 * In general, don’t display sensitive/private data unless necessary at that point.
 
