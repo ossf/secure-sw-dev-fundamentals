@@ -208,7 +208,7 @@ This set of Confidentiality, Integrity, and Availability (CIA) is sometimes call
 
 The CIA Triad
 
-Many add one more security objective: **non-repudiation** or **accountability**. The point of non-repudiation or accountability is that if someone takes certain actions, the system should be able to later prove it, even if the person involved later denies it. Examples of such actions are transferring a large sum of money, deleting something important, sending an important message, or receiving an important message. Some systems do not have such requirements, and even when they do, some people consider this a special case of integrity. Some people add other objectives, too. No matter how you categorize things, though, it is important to know clearly what the system is supposed to do. Having some simple categories can help you do that.
+Many add one more security objective: **non-repudiation** or **accountability**. The point of non-repudiation or accountability is that if someone takes certain actions, the system should be able to later prove it, even if the person involved later denies it. Examples of such actions are transferring a large sum of money, deleting something important, sending an important message, or receiving an important message. Some systems do not have such requirements, and even when they do, some people consider this a special case of integrity. Some people add other objectives, too. No matter how you categorize things, it is important to know clearly what the system is supposed to do. Having some simple categories can help you do that.
 
 These security objectives need some supporting mechanisms. For example, confidentiality and integrity require that there be a way to determine if an action is authorized (unless all requests are authorized). Here are some common supporting mechanisms:
 
@@ -1368,7 +1368,7 @@ You should determine what is legal, as narrowly as you reasonably can, and rejec
 
 The good news is that it usually does not take long to add input validation, and that can immediately make your program harder to attack. It may be hard to decide on a user-friendly response to invalid input, but it is easier than suffering a successful attack.
 
-There is a good reason for identifying *illegal* values, though, and that is for use as a set of tests to be sure that your validation code is thorough. These tests may possibly just be executed in your head, but at least a few should become test cases in your automated test suite. When we set up an input filter, we mentally attack our allowlist with a few pre-identified illegal values to make sure that a few obvious illegal values will not get through. Depending on the input, here are a few examples of common illegal values that your input filters may need to prevent: the empty string, “**.**”, “**..**”, “**../**”, anything starting with “**/**” or “**.**”, anything with “**/**” or “**&**” inside it, common metacharacters (like semicolon, single quote, double quote, and the less-than symbol), and any control characters (especially the NUL character and newline). Where numbers are expected, checking for other kinds of text that should not be allowed. Also check for very, very long inputs.
+There is a good reason for identifying *illegal* values; use them as a set of tests to be sure that your validation code is thorough. These tests may possibly just be executed in your head, but at least a few should become test cases in your automated test suite. When we set up an input filter, we mentally attack our allowlist with a few pre-identified illegal values to make sure that a few obvious illegal values will not get through. Depending on the input, here are a few examples of common illegal values that your input filters may need to prevent: the empty string, “**.**”, “**..**”, “**../**”, anything starting with “**/**” or “**.**”, anything with “**/**” or “**&**” inside it, common metacharacters (like semicolon, single quote, double quote, and the less-than symbol), and any control characters (especially the NUL character and newline). Where numbers are expected, checking for other kinds of text that should not be allowed. Also check for very, very long inputs.
 
 Later, we will discuss various kinds of security analysis tools. One kind, fuzzers, intentionally create a large number of malicious inputs that (among other things) test the quality of your input validation checks. But fuzzers do not guarantee to find all input validation problems. Instead, carefully implement your input validation, and then use tools to help you find problems you would have otherwise missed.
 
@@ -1722,7 +1722,7 @@ Lots of data and messages are encoded in XML (Extensible Markup Language). XML i
 
 * **Well-formed**<br>Well-formed XML follows certain syntax rules. For example, all opened tags must be closed, and XML elements must be properly nested. If you are accepting XML, at *least* verify that the XML is well-formed; there are easily-available libraries for this, and applications are only supposed to accept XML that is well-formed.
 
-* **Valid**<br>Valid XML meets some schema definition. The schema specifies information such as *what* tags are allowed, how they may be nested, and whether some are required. A schema definition, if rigorous, is a kind of allowlist. Thus, checking for validity before accepting XML input can be really useful for countering attacks. However, do *not* allow the attacker to determine what schema to use - decide what schema is okay and use *that*. Sometimes no schema is available, though, and if you are only extracting a small part of XML, it may not be worth it to create an XML schema.
+* **Valid**<br>Valid XML meets some schema definition. The schema specifies information such as *what* tags are allowed, how they may be nested, and whether some are required. A schema definition, if rigorous, is a kind of allowlist. Thus, checking for validity before accepting XML input can be really useful for countering attacks. However, do *not* allow the attacker to determine what schema to use - decide what schema is okay and use *that*. Sometimes no schema is available, and if you are only extracting a small part of XML, it may not be worth it to create an XML schema.
 
 If you are using XML, there is an extremely common vulnerability you need to counter called XML External Entities (XXE). To understand them, you need to understand some XML functionality that is not widely known.
 
@@ -2874,7 +2874,7 @@ Of course, once you receive information, make sure that you check for error cond
 
 [Explanation]
 
-This is false. This would make it much harder to write code (and update it later). More importantly, though, human interfaces often change or make guesses that are inappropriate when trying to automate something.
+This is false. This would make it much harder to write code (and update it later). More importantly, human interfaces often change or make guesses that are inappropriate when trying to automate something.
 
 [Explanation]
 
