@@ -566,7 +566,7 @@ This course will give you a number of tips to help you to reduce risks, focusing
 
 [Explanation]
 
-This is false. It would be great if we could eliminate all risks. But that is rarely reasonable. Instead, our goal is to reduce the probability and severity of all risks, including security vulnerabilities, to acceptable levels.
+This is false. It would be great if we could eliminate all risks, But that is unreasonable. Instead, our goal is to reduce the probability and severity of all risks, including security vulnerabilities, to acceptable levels.
 
 [Explanation]
 
