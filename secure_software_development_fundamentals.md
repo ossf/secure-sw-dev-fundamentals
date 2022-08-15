@@ -454,7 +454,7 @@ Here are some resources for learning more about the GDPR:
 
 Software sometimes includes functionality to collect telemetry data, that is, data about how the software is used or performing. Telemetry data is often collected through a “phone home” mechanism built into the software itself, where the software sends this data elsewhere.
 
-Telemetry data is especially fraught with privacy and confidentiality issues. End users are typically presented with an option to opt-in to share statistical data with the developers of the software, but that agreement may not be adequate. End users ideally should be given a full awareness of what data may be sent to the vendor or other third party when they use the software, and abilities to control that transfer of data.
+Telemetry data is especially fraught with privacy and confidentiality issues. End users are typically presented with an option to opt-in to share statistical data with the developers of the software, but that agreement may not be adequate. End users ideally should be given a full awareness of what data may be sent to which parties (including the vendor) when they use the software, and the ability to control that transfer of data.
 
 The Linux Foundation’s [*“Telemetry Data Collection and Usage Policy”*](https://www.linuxfoundation.org/telemetry-data-policy/) presents a brief discussion of some of the issues that should be considered before implementing telemetry data collection, as well as discussing the Foundation’s approach to managing use of telemetry by its open source project communities. This may be useful to you in other contexts.
 
