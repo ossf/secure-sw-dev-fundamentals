@@ -152,23 +152,23 @@ Our primary concern is that you learn how to develop *secure* software. Here are
 
 5. **Accessibility**. We have worked to make this information accessible. We want to make sure that those who are blind, have low vision, color-blindness, and so on can learn from this material.
 
-6. **Applicable to Open Source Software (OSS)**. Many materials on security don’t spend significant time on OSS, or are difficult to apply when developing OSS. Yet OSS is key to modern software development. We include information specifically for those developing and/or using open source software (OSS).
+6. **Applicable to Open Source Software (OSS)**. Many materials on security don’t spend significant time on OSS, or are difficult to apply when developing OSS. Yet OSS is key to modern software development. We include information specifically for those developing and/or using OSS.
 
 7. **Independent of organization size**. We don’t require that you be in a large or small software development organization. Some courses implicitly assume you are in a large software development organization.
 
 8. **Independent of programming language**. Most software developers use multiple programming languages or will switch through their career. With that in mind, this course provides a basic grounding in developing secure software that applies to *many* programming languages. We will use examples from specific programming languages, but we want you to have a firm foundation no matter what you use—now or in the future. You should supplement this information with materials for the specific language or framework you use, but this course will give you the key building blocks to understand and apply those other materials.
 
-9. **Practical**. This course focuses on *practical* advice for the people developing software. In particular, we recommend specific things to do or avoid, etc. It briefly discusses why this advice applies, but this is not a graduate course; we focus more on *what* to actually do instead of all the theory or technical details behind it.
+9. **Practical**. This course focuses on *practical* advice for the people developing software. In particular, we recommend specific things to do or avoid, etc. It briefly discusses why this advice applies, but this is not a graduate course; we focus more on *what* to do instead of all the theory or technical details behind it.
 
 There are other materials that can provide information about software security. Here are a few worthy alternatives and a contrast to them:
 
 1. The [*Security Engineering*](https://www.cl.cam.ac.uk/~rja14/book.html) book by Ross Anderson focuses on systems as a whole, including hardware and business processes, and focuses on big-picture concerns. However, this book does not cover most of the specifics of how to implement secure software. In contrast, this course (unlike Ross Anderson’s book) takes care to identify and discuss how to counter the most common kinds of security vulnerabilities.
 
-2. [SAFECode training materials](https://safecode.org/training/). SAFECode has a number of training materials available. Some materials are quite good and are videos (while this course is mostly text). Note that many of their materials are often narrowly focused. For example, their course *“Cross Site Scripting (XSS) 101”* is on a single common kind of vulnerability, and *“Secure Java Programming 101”* only applies to one language. Check the dates, as some materials may be out of date. That said, if their materials match what you want, you should definitely check them out, as they are definitely worthy alternatives.
+2. [SAFECode training materials](https://safecode.org/training/). SAFECode has a number of training materials available. Some materials are quite good and are videos (while this course is mostly text). Note that many of their materials are often narrowly focused. For example, their course *“Cross Site Scripting (XSS) 101”* is on a single common kind of vulnerability, and *“Secure Java Programming 101”* only applies to one language. Check the dates, as some materials may be out of date. That said, if their materials match what you want, they are definitely worthy alternatives.
 
 3. [OWASP Security Knowledge Framework (OWASP-SKF)](https://www.securityknowledgeframework.org/). “OWASP-SKF is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using [OWASP-ASVS](https://owasp.org/www-project-application-security-verification-standard/)/[OWASP-MASVS](https://owasp.org/www-project-mobile-security-testing-guide/)  or custom security checklists) and labs to practice security verification (using SKF-Labs, [OWASP Juice-shop](https://owasp.org/www-project-juice-shop/), and best practice code examples from SKF and the [OWASP-Cheatsheets](https://cheatsheetseries.owasp.org)).” In contrast, this course (unlike OWASP-SKF) doesn’t require software development projects and labs.
 
-Obviously, choose the material that will provide you with the information you want to learn, and you can certainly use them all if you wish.
+Choose the material that will provide you with the information you want to learn, and you can certainly use them all if you wish.
 
 With that, let’s begin.
 
