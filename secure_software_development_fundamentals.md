@@ -384,7 +384,7 @@ Under the GDPR some personal data are considered more sensitive, and there are g
 
 Personal data is *processed* any time an operation is performed on it. This includes collecting, storing, viewing, transmitting, and deleting it, whether or not by automated means. In the GDPR, a “controller” is the person or organization who determines the purpose and means of processing. A “processor” is a third party that processes the data on a controller’s behalf.
 
-The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial “gut reaction” for whether a particular use of personal data is likely to be acceptable. These are:
+The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial insight for whether a particular use of personal data is likely to be acceptable. These are:
 
 1. **Lawfulness, Fairness and Transparency**<br>Process personal data in a way that is legal, fair and transparent to the data subject.
 
@@ -432,7 +432,7 @@ Note that personal data can be processed if the data subject gives their consent
 
 * it must be freely revocable (e.g., the data subject must be able to withdraw consent at any time).
 
-Even if consent is granted, you may want to also find another lawful basis for processing the data, especially if you want to retain it. Under the GDPR, you are generally not allowed to retain personal data without a lawful basis.
+Even if consent is granted, you may want to also find another lawful basis for processing the data, especially if you want to retain it. Under the GDPR, you are generally prohibited from retaining personal data without a lawful basis.
 
 Under the GDPR, *profiling* is any form of automated processing that involves using personal data to evaluate aspects of that person. Profiling will usually require getting explicit consent from the individual, which means also that the individual will be able to withdraw that consent at any time. Therefore, profiling activities will typically require a greater degree of review and protections for the applicable personal data.
 
