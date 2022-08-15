@@ -490,9 +490,9 @@ One of the risks when developing and deploying software is that attacker(s) will
 
 **🚩 If people start using the software you develop, _expect_ that intelligent adversaries will try to attack it.**
 
-But while you cannot prevent attackers from trying to attack it, you can make it difficult for an attack to succeed, or reduce the impact if an attack succeeds. You can do this by taking steps throughout software development and deployment to reduce the risks to an acceptably low level. If your software is widely-used or depended on for vital tasks, then it is especially important that you work to manage those risks to your users.
+While you cannot prevent attackers from attacking software, you can make it difficult for an attack to succeed, or reduce the impact if an attack succeeds. You can do this by taking steps throughout software development and deployment to reduce the risks to an acceptably low level. If your software is widely-used or depended on for vital tasks, then it is especially important that you work to manage those risks to your users.
 
-Do *not* wait to think about risks until they happen. Then they are no longer risks - they are *problems*. It is a lot easier and cheaper to address risks *before* they become problems! It is much easier to design the software to minimize risks than to change the software later. It is also better for the user, better for your professional reputation, and better for the reputation of that software.
+Do *not* wait to think about risks until they happen. Then they are no longer risks - they are *problems*. It is easier and cheaper to address risks *before* they become problems! It is much easier to design the software to minimize risks than to change the software later. It is also better for the user, your professional reputation, the software's reputation, and any related organization's reputation.
 
 #### Risk Management Process
 
