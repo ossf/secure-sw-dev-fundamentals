@@ -238,13 +238,13 @@ Auditing : Record important events
 
 ### Security Requirements
 
-To create software, you need to know what you want it to do. Requirements are simply what a product or service needs to do or be. For our purposes, we will include in requirements anything required by law or regulation, as well as anything important to its (potential) customers/users. If you are being paid to develop software, requirements are typically written down somewhere.
+To create software, you need to know what you want it to do. Requirements are simply what a product or service needs to do or be. For our purposes, include in requirements anything required by law or regulation, as well as anything important to its (potential) customers/users. If you are being paid to develop software, requirements are typically recorded somewhere.
 
-In some cases there are special laws or regulations that you must comply with. This is especially true in areas where vulnerabilities are more likely to lead to significant harm (such as medical, financial, and military systems). This also arises if you are planning to sell software, or a system with software, in many different legal jurisdictions (so there may be many laws or regulations that apply). Again, for our purposes these are all requirements.
+In some cases, software must comply with special laws or regulations. This is especially true in areas where vulnerabilities are more likely to lead to significant harm (such as medical, financial, and military systems). This also arises if you are planning to sell software, or a system with software, in many different legal jurisdictions (so there may be many laws or regulations that apply). Again, for our purposes these are all requirements.
 
 Requirements might not be recorded in a single formal document. Sometimes each specific new requirement is simply accepted as an issue in an issue/bug tracker. In most software development projects, the requirements are identified over time in discussions with its users.
 
-Requirements don’t even *have* to be written down to be used, especially for a small project. However, in the case of security (at least), it is a good idea to record the high-level security requirements in one place. That way, when someone is thinking about using your software, or may modify it, they’ll have an idea of what the system is trying to accomplish for security.
+Requirements don’t even *have* to be written down to be used, especially for a small project. However, at least in the case of security, it is a good idea to record the high-level security requirements in one place. Then, when someone is thinking about using or modifying your software, they’ll have an idea of what the system is trying to accomplish for security.
 
 Of course, the actual requirements depend on what you’re trying to accomplish.
 
