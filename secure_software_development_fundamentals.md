@@ -594,17 +594,17 @@ Whenever you develop software there are certain processes that all developers ha
 
 Of course, you need to use these processes together.
 
-A common mistake is to try to execute these software development processes in a strict sequence (figure out all the requirements, then work out the entire design, then implement the entire system, then verify it). Attempting to create software in this strict sequence is called the *waterfall* model. The waterfall model is beguiling because doing these processes in strict sequence *appears* rigorous and sensible at first. In 1970, Winston W. Royce explained in his essay [*Managing the Development of Large Systems: Concepts and Techniques*](https://dl.acm.org/doi/10.5555/41765.41801) why trying to follow these processes in a strict sequence (a “waterfall”) is extremely risky in most circumstances and should normally be avoided.
+A common mistake is trying to execute these software development processes in a strict sequence (figure out all the requirements, then work out the entire design, then implement the entire system, then verify it). Attempting to create software in this strict sequence is called the *waterfall* model. The waterfall model is beguiling because doing these processes in strict sequence *appears* rigorous and sensible at first. In 1970, Winston W. Royce explained in his essay [*Managing the Development of Large Systems: Concepts and Techniques*](https://dl.acm.org/doi/10.5555/41765.41801) why trying to follow these processes in a strict sequence (a “waterfall”) is extremely risky in most circumstances and should normally be avoided.
 
 Another common mistake is to implement software components independently and never integrate and test them together until everything is completed independently. This is typically a mistake, because this leads to serious problems getting the components to work together.
 
-In practice, most software development executes these processes in parallel, bouncing information between the processes as new information is learned. There are many ways to combine processes, which depend on many factors such as the size of the team and how reliable the result needs to be. There are many different kinds of approaches, including the many different Agile, incremental, evolutionary, and waterfall development approaches. For purposes of this course, we will focus on security aspects whenever you choose to apply some process, and not much on these specifics. So you can apply this course’s materials regardless of the approach you use. However, let’s look at a few specific practices and terms that can be important for security.
+In practice, most software development executes these processes in parallel, bouncing information between the processes as new information is learned. There are many ways to combine processes, which depend on many factors such as the size of the team and how reliable the result needs to be. There are many different different approaches, including the many different Agile, incremental, evolutionary, and waterfall development approaches. For purposes of this course, we will focus on security aspects whenever you choose to apply some process, and not much on these specifics. So you can apply this course’s materials regardless of the approach you use. However, let’s look at a few specific practices and terms that can be important for security.
 
 A highly recommended practice is to use Continuous Integration (CI), the practice of frequently merging working copies of development into a shared mainline (e.g., once every few days through many times a day). This routine merging reduces the risks of components not working together if integration was delayed until later, and that is a good thing. However, successful CI requires a way to determine if the components are actually working together. This is resolved by using a CI pipeline—a process that runs whenever something is merged to ensure that it builds and passes a set of automated tests and other checks.
 
 Many organizations want to deploy software/services more rapidly, and have adopted various approaches to do that building on these standard software development processes. Definitions vary, but here are some common terms:
 
-* Continuous Delivery (CDE) aims to ensure *“an application is always at production-ready state after successfully passing automated tests and quality checks [by employing practices] to deliver software automatically to a production-like environment”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017). Note that the software is not actually released/deployed without a separate manual approval step.
+* Continuous Delivery (CD or CDE) aims to ensure *“an application is always at production-ready state after successfully passing automated tests and quality checks [by employing practices] to deliver software automatically to a production-like environment”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017). Note that the software is not necessarily released or deployed without a separate approval step.
 
 * Continuous Deployment (CD) *“goes a step further [than continuous delivery] and automatically and continuously deploys the application to production or customer environments”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017).
 
@@ -622,7 +622,7 @@ You also should focus on continuous improvement, of both the software itself and
 
 ### Quiz 1.5
 
-\>\>To develop secure software you should always rigorously develop all the requirements, then develop your complete design, and only then begin implementing the software. True or False?<<
+\>\>To develop secure software, you should always rigorously develop all the requirements, then develop your complete design, and only then begin implementing the software. True or False?<<
 
 ( ) True
 
@@ -630,7 +630,7 @@ You also should focus on continuous improvement, of both the software itself and
 
 [Explanation]
 
-This is false. This is a “waterfall” approach and is generally a very risky way to develop software. You do need to have an idea of what you are trying to achieve, of course, but reality is more complex: as you design, implement, and field, you will get feedback into what the requirements really *should* be.
+This is false. This is a “waterfall” approach and is generally a very risky way to develop software. You need an idea of what you are trying to achieve, of course, but reality is more complex: as you design, implement, and field, you will get feedback into what the requirements really *should* be.
 
 [Explanation]
 
@@ -646,7 +646,7 @@ This is false. This is a “waterfall” approach and is generally a very risky 
 
 This is false, but it is a sneaky question because there is a grain of truth in it.
 
-It is definitely important to have security tools in your continuous integration pipeline. No matter how good your design and implementation approach is, you will make mistakes, and tools in the continuous integration pipeline will help you find some of those mistakes.
+It is important to have security tools in your continuous integration pipeline. No matter how good your design and implementation approach is, you will make mistakes, and tools in the continuous integration pipeline will help you find some of those mistakes.
 
 But simply “adding security tools” is not enough. No tool can fix a bad design, and tools will miss implementation vulnerabilities. You must think about security no matter what you are doing during development and operations.
 
