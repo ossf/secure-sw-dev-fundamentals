@@ -152,23 +152,23 @@ Our primary concern is that you learn how to develop *secure* software. Here are
 
 5. **Accessibility**. We have worked to make this information accessible. We want to make sure that those who are blind, have low vision, color-blindness, and so on can learn from this material.
 
-6. **Applicable to Open Source Software (OSS)**. Many materials on security don’t spend significant time on OSS, or are difficult to apply when developing OSS. Yet OSS is key to modern software development. We include information specifically for those developing and/or using open source software (OSS).
+6. **Applicable to Open Source Software (OSS)**. Many materials on security don’t spend significant time on OSS, or are difficult to apply when developing OSS. Yet OSS is key to modern software development. We include information specifically for those developing and/or using OSS.
 
 7. **Independent of organization size**. We don’t require that you be in a large or small software development organization. Some courses implicitly assume you are in a large software development organization.
 
 8. **Independent of programming language**. Most software developers use multiple programming languages or will switch through their career. With that in mind, this course provides a basic grounding in developing secure software that applies to *many* programming languages. We will use examples from specific programming languages, but we want you to have a firm foundation no matter what you use—now or in the future. You should supplement this information with materials for the specific language or framework you use, but this course will give you the key building blocks to understand and apply those other materials.
 
-9. **Practical**. This course focuses on *practical* advice for the people developing software. In particular, we recommend specific things to do or avoid, etc. It briefly discusses why this advice applies, but this is not a graduate course; we focus more on *what* to actually do instead of all the theory or technical details behind it.
+9. **Practical**. This course focuses on *practical* advice for the people developing software. In particular, we recommend specific things to do or avoid, etc. It briefly discusses why this advice applies, but this is not a graduate course; we focus more on *what* to do instead of all the theory or technical details behind it.
 
 There are other materials that can provide information about software security. Here are a few worthy alternatives and a contrast to them:
 
 1. The [*Security Engineering*](https://www.cl.cam.ac.uk/~rja14/book.html) book by Ross Anderson focuses on systems as a whole, including hardware and business processes, and focuses on big-picture concerns. However, this book does not cover most of the specifics of how to implement secure software. In contrast, this course (unlike Ross Anderson’s book) takes care to identify and discuss how to counter the most common kinds of security vulnerabilities.
 
-2. [SAFECode training materials](https://safecode.org/training/). SAFECode has a number of training materials available. Some materials are quite good and are videos (while this course is mostly text). Note that many of their materials are often narrowly focused. For example, their course *“Cross Site Scripting (XSS) 101”* is on a single common kind of vulnerability, and *“Secure Java Programming 101”* only applies to one language. Check the dates, as some materials may be out of date. That said, if their materials match what you want, you should definitely check them out, as they are definitely worthy alternatives.
+2. [SAFECode training materials](https://safecode.org/training/). SAFECode has a number of training materials available. Some materials are quite good and are videos (while this course is mostly text). Note that many of their materials are often narrowly focused. For example, their course *“Cross Site Scripting (XSS) 101”* is on a single common kind of vulnerability, and *“Secure Java Programming 101”* only applies to one language. Check the dates, as some materials may be out of date. That said, if their materials match what you want, they are definitely worthy alternatives.
 
 3. [OWASP Security Knowledge Framework (OWASP-SKF)](https://www.securityknowledgeframework.org/). “OWASP-SKF is an open source web application that explains secure coding principles in multiple programming languages. The goal of OWASP-SKF is to help you learn and integrate security by design in your software development and build applications that are secure by design. OWASP-SKF does this through manageable software development projects with checklists (using [OWASP-ASVS](https://owasp.org/www-project-application-security-verification-standard/)/[OWASP-MASVS](https://owasp.org/www-project-mobile-security-testing-guide/)  or custom security checklists) and labs to practice security verification (using SKF-Labs, [OWASP Juice-shop](https://owasp.org/www-project-juice-shop/), and best practice code examples from SKF and the [OWASP-Cheatsheets](https://cheatsheetseries.owasp.org)).” In contrast, this course (unlike OWASP-SKF) doesn’t require software development projects and labs.
 
-Obviously, choose the material that will provide you with the information you want to learn, and you can certainly use them all if you wish.
+Choose the material that will provide you with the information you want to learn, and you can certainly use them all if you wish.
 
 With that, let’s begin.
 
@@ -208,7 +208,7 @@ This set of Confidentiality, Integrity, and Availability (CIA) is sometimes call
 
 The CIA Triad
 
-Many add one more security objective: **non-repudiation** or **accountability**. The point of non-repudiation or accountability is that if someone takes certain actions, the system should be able to later prove it, even if the person involved later denies it. Examples of such actions are transferring a large sum of money, deleting something important, sending an important message, or receiving an important message. Some systems do not have such requirements, and even when they do, some people consider this a special case of integrity. Some people add other objectives, too. No matter how you categorize things, though, it is important to know clearly what the system is supposed to do. Having some simple categories can help you do that.
+Many add one more security objective: **non-repudiation** or **accountability**. The point of non-repudiation or accountability is that if someone takes certain actions, the system should be able to later prove it, even if the person involved later denies it. Examples of such actions are transferring a large sum of money, deleting something important, sending an important message, or receiving an important message. Some systems do not have such requirements, and even when they do, some people consider this a special case of integrity. Some people add other objectives, too. No matter how you categorize things, it is important to know clearly what the system is supposed to do. Having some simple categories can help you do that.
 
 These security objectives need some supporting mechanisms. For example, confidentiality and integrity require that there be a way to determine if an action is authorized (unless all requests are authorized). Here are some common supporting mechanisms:
 
@@ -238,13 +238,13 @@ Auditing : Record important events
 
 ### Security Requirements
 
-To create software, you need to know what you want it to do. Requirements are simply what a product or service needs to do or be. For our purposes, we will include in requirements anything required by law or regulation, as well as anything important to its (potential) customers/users. If you are being paid to develop software, requirements are typically written down somewhere.
+To create software, you need to know what you want it to do. Requirements are simply what a product or service needs to do or be. For our purposes, include in requirements anything required by law or regulation, as well as anything important to its (potential) customers/users. If you are being paid to develop software, requirements are typically recorded somewhere.
 
-In some cases there are special laws or regulations that you must comply with. This is especially true in areas where vulnerabilities are more likely to lead to significant harm (such as medical, financial, and military systems). This also arises if you are planning to sell software, or a system with software, in many different legal jurisdictions (so there may be many laws or regulations that apply). Again, for our purposes these are all requirements.
+In some cases, software must comply with special laws or regulations. This is especially true in areas where vulnerabilities are more likely to lead to significant harm (such as medical, financial, and military systems). This also arises if you are planning to sell software, or a system with software, in many different legal jurisdictions (so there may be many laws or regulations that apply). Again, for our purposes these are all requirements.
 
 Requirements might not be recorded in a single formal document. Sometimes each specific new requirement is simply accepted as an issue in an issue/bug tracker. In most software development projects, the requirements are identified over time in discussions with its users.
 
-Requirements don’t even *have* to be written down to be used, especially for a small project. However, in the case of security (at least), it is a good idea to record the high-level security requirements in one place. That way, when someone is thinking about using your software, or may modify it, they’ll have an idea of what the system is trying to accomplish for security.
+Requirements don’t even *have* to be written down to be used, especially for a small project. However, at least in the case of security, it is a good idea to record the high-level security requirements in one place. Then, when someone is thinking about using or modifying your software, they’ll have an idea of what the system is trying to accomplish for security.
 
 Of course, the actual requirements depend on what you’re trying to accomplish.
 
@@ -328,9 +328,9 @@ While some have argued that privacy is no longer possible or relevant, many othe
 
 The first step for addressing privacy is acknowledging that privacy is important, and then considering how to ensure your software provides adequate privacy if it collects information about individuals.
 
-The simplest approach to privacy, and often the best starting point, is to *not* collect information about individuals unless you specifically need it. If you do not collect the information, you cannot divulge it later and you do not have to determine how to prevent its misuse. Eliminating it entirely is best from a privacy point of view.
+The simplest approach to privacy, and often the best starting point, is to *not* collect information about individuals unless you need it. If you do not collect the information, you cannot divulge it later, and you do not have to determine how to prevent its misuse. Eliminating it is best from a privacy point of view.
 
-Failing that, minimize personal information to what you absolutely require. If you must collect information about individuals, you must then provide a variety of protections for them, at the very least those required by law and regulation. This can be complicated, because many laws and regulations may apply.
+Failing that, minimize personal information to what you absolutely require. If you must collect information about individuals, you must provide a variety of protections for them, at the very least those required by law and regulation. This can be complicated, because many laws and regulations may apply.
 
 #### Privacy Laws and Regulations
 
@@ -384,7 +384,7 @@ Under the GDPR some personal data are considered more sensitive, and there are g
 
 Personal data is *processed* any time an operation is performed on it. This includes collecting, storing, viewing, transmitting, and deleting it, whether or not by automated means. In the GDPR, a “controller” is the person or organization who determines the purpose and means of processing. A “processor” is a third party that processes the data on a controller’s behalf.
 
-The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial “gut reaction” for whether a particular use of personal data is likely to be acceptable. These are:
+The GDPR defines seven primary principles for processing personal data. These principles inform the purposes of all of the specific provisions of the GDPR. Understanding them goes a long way towards having a good initial insight for whether a particular use of personal data is likely to be acceptable. These are:
 
 1. **Lawfulness, Fairness and Transparency**<br>Process personal data in a way that is legal, fair and transparent to the data subject.
 
@@ -432,7 +432,7 @@ Note that personal data can be processed if the data subject gives their consent
 
 * it must be freely revocable (e.g., the data subject must be able to withdraw consent at any time).
 
-Even if consent is granted, you may want to also find another lawful basis for processing the data, especially if you want to retain it. Under the GDPR, you are generally not allowed to retain personal data without a lawful basis.
+Even if consent is granted, you may want to also find another lawful basis for processing the data, especially if you want to retain it. Under the GDPR, you are generally prohibited from retaining personal data without a lawful basis.
 
 Under the GDPR, *profiling* is any form of automated processing that involves using personal data to evaluate aspects of that person. Profiling will usually require getting explicit consent from the individual, which means also that the individual will be able to withdraw that consent at any time. Therefore, profiling activities will typically require a greater degree of review and protections for the applicable personal data.
 
@@ -454,7 +454,7 @@ Here are some resources for learning more about the GDPR:
 
 Software sometimes includes functionality to collect telemetry data, that is, data about how the software is used or performing. Telemetry data is often collected through a “phone home” mechanism built into the software itself, where the software sends this data elsewhere.
 
-Telemetry data is especially fraught with privacy and confidentiality issues. End users are typically presented with an option to opt-in to share statistical data with the developers of the software, but that agreement may not be adequate. End users ideally should be given a full awareness of what data may be sent to the vendor or other third party when they use the software, and abilities to control that transfer of data.
+Telemetry data is especially fraught with privacy and confidentiality issues. End users are typically presented with an option to opt-in to share statistical data with the developers of the software, but that agreement may not be adequate. End users ideally should be given a full awareness of what data may be sent to which parties (including the vendor) when they use the software, and the ability to control that transfer of data.
 
 The Linux Foundation’s [*“Telemetry Data Collection and Usage Policy”*](https://www.linuxfoundation.org/telemetry-data-policy/) presents a brief discussion of some of the issues that should be considered before implementing telemetry data collection, as well as discussing the Foundation’s approach to managing use of telemetry by its open source project communities. This may be useful to you in other contexts.
 
@@ -490,13 +490,13 @@ One of the risks when developing and deploying software is that attacker(s) will
 
 **🚩 If people start using the software you develop, _expect_ that intelligent adversaries will try to attack it.**
 
-But while you cannot prevent attackers from trying to attack it, you can make it difficult for an attack to succeed, or reduce the impact if an attack succeeds. You can do this by taking steps throughout software development and deployment to reduce the risks to an acceptably low level. If your software is widely-used or depended on for vital tasks, then it is especially important that you work to manage those risks to your users.
+While you cannot prevent attackers from attacking software, you can make it difficult for an attack to succeed, or reduce the impact if an attack succeeds. You can do this by taking steps throughout software development and deployment to reduce the risks to an acceptably low level. If your software is widely-used or depended on for vital tasks, then it is especially important that you work to manage those risks to your users.
 
-Do *not* wait to think about risks until they happen. Then they are no longer risks - they are *problems*. It is a lot easier and cheaper to address risks *before* they become problems! It is much easier to design the software to minimize risks than to change the software later. It is also better for the user, better for your professional reputation, and better for the reputation of that software.
+Do *not* wait to think about risks until they happen. Then they are no longer risks - they are *problems*. It is easier and cheaper to address risks *before* they become problems! It is much easier to design the software to minimize risks than to change the software later. It is also better for the user, your professional reputation, the software's reputation, and any related organization's reputation.
 
 #### Risk Management Process
 
-Small projects with relatively low impacts can do risk management very informally. Large projects with major impacts should be more rigorous. But no matter what, risk management can be divided into the following activities (according to the US Department of Defense’s [*Risk, Issue, and Opportunity Management Guide for Defense Acquisition Programs*](http://acqnotes.com/wp-content/uploads/2017/07/DoD-Risk-Issue-and-Opportunity-Management-Guide-Jan-2017.pdf), 2017):
+Small projects with relatively low impacts can do risk management informally. Large projects with major impacts should be more rigorous. Regardless, risk management can be divided into the following activities (according to the US Department of Defense’s [*Risk, Issue, and Opportunity Management Guide for Defense Acquisition Programs*](http://acqnotes.com/wp-content/uploads/2017/07/DoD-Risk-Issue-and-Opportunity-Management-Guide-Jan-2017.pdf), 2017):
 
 1. **Risk planning**. Determine your project’s risk management process.
 
@@ -510,7 +510,7 @@ Small projects with relatively low impacts can do risk management very informall
 
     2. **Avoidance**. The risk is eliminated by making some change. That is, you make its likelihood zero or its severity irrelevant. This is great when you can do it. For example, you might choose to *not* gather some data (then you cannot lose its confidentiality later), or you might choose a programming language where certain kinds of vulnerabilities cannot happen (eliminating the risks from those kinds of vulnerabilities).
 
-    3. **Transfer**. The risk is transferred to someone else, e.g., by buying insurance, or by changing the system so that another component has that risk and its developers accept it. For example, instead of taking on the risks of bad identification & authentication (I&A), depend on some existing system to do I&A.
+    3. **Transfer**. The risk is transferred to someone else (e.g., buying insurance, or changing the system so that another component has that risk and its developers accept it). For example, instead of taking on the risks of bad identification & authentication (I&A), depend on some existing system to do I&A.
 
     4. **Control**. Actively reduce the risk to an acceptable level. Since the importance of a risk depends on its likelihood and severity, this means changing things to make the likelihood and/or severity low (or at least lower). For security-related risks, this is often what you need to do. There is no single way to do this, so instead you have to continuously reduce likelihood and severity through software development and deployment until the risks are acceptable. For example, you might:
 
@@ -538,11 +538,11 @@ Can this mindset be taught? Our experience is that it can be, at least in part. 
 
 #### Security Is A Process, Not A Product
 
-In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier has famously explained that 
+In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier famously explained that 
 
 > *“security is a process not a product… there’s no such thing as perfect security. Interestingly enough, that’s not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…”.*
 
-The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change.. Software that was secure a year or five ago may not be adequate today. 
+The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change. Software that was secure a year or five years ago may not be adequate today. 
 
 Since security is a process, it is not just “fire and forget.” You need to continuously consider security.
 
@@ -566,7 +566,7 @@ This course will give you a number of tips to help you to reduce risks, focusing
 
 [Explanation]
 
-This is false. It would be great if we could eliminate all risks. But that is rarely reasonable. Instead, our goal is to reduce the probability and severity of all risks, including security vulnerabilities, to acceptable levels.
+This is false. It would be great if we could eliminate all risks, But that is unreasonable. Instead, our goal is to reduce the probability and severity of all risks, including security vulnerabilities, to acceptable levels.
 
 [Explanation]
 
@@ -594,17 +594,17 @@ Whenever you develop software there are certain processes that all developers ha
 
 Of course, you need to use these processes together.
 
-A common mistake is to try to execute these software development processes in a strict sequence (figure out all the requirements, then work out the entire design, then implement the entire system, then verify it). Attempting to create software in this strict sequence is called the *waterfall* model. The waterfall model is beguiling because doing these processes in strict sequence *appears* rigorous and sensible at first. In 1970, Winston W. Royce explained in his essay [*Managing the Development of Large Systems: Concepts and Techniques*](https://dl.acm.org/doi/10.5555/41765.41801) why trying to follow these processes in a strict sequence (a “waterfall”) is extremely risky in most circumstances and should normally be avoided.
+A common mistake is trying to execute these software development processes in a strict sequence (figure out all the requirements, then work out the entire design, then implement the entire system, then verify it). Attempting to create software in this strict sequence is called the *waterfall* model. The waterfall model is beguiling because doing these processes in strict sequence *appears* rigorous and sensible at first. In 1970, Winston W. Royce explained in his essay [*Managing the Development of Large Systems: Concepts and Techniques*](https://dl.acm.org/doi/10.5555/41765.41801) why trying to follow these processes in a strict sequence (a “waterfall”) is extremely risky in most circumstances and should normally be avoided.
 
 Another common mistake is to implement software components independently and never integrate and test them together until everything is completed independently. This is typically a mistake, because this leads to serious problems getting the components to work together.
 
-In practice, most software development executes these processes in parallel, bouncing information between the processes as new information is learned. There are many ways to combine processes, which depend on many factors such as the size of the team and how reliable the result needs to be. There are many different kinds of approaches, including the many different Agile, incremental, evolutionary, and waterfall development approaches. For purposes of this course, we will focus on security aspects whenever you choose to apply some process, and not much on these specifics. So you can apply this course’s materials regardless of the approach you use. However, let’s look at a few specific practices and terms that can be important for security.
+In practice, most software development executes these processes in parallel, bouncing information between the processes as new information is learned. There are many ways to combine processes, which depend on many factors such as the size of the team and how reliable the result needs to be. There are many different different approaches, including the many different Agile, incremental, evolutionary, and waterfall development approaches. For purposes of this course, we will focus on security aspects whenever you choose to apply some process, and not much on these specifics. So you can apply this course’s materials regardless of the approach you use. However, let’s look at a few specific practices and terms that can be important for security.
 
 A highly recommended practice is to use Continuous Integration (CI), the practice of frequently merging working copies of development into a shared mainline (e.g., once every few days through many times a day). This routine merging reduces the risks of components not working together if integration was delayed until later, and that is a good thing. However, successful CI requires a way to determine if the components are actually working together. This is resolved by using a CI pipeline—a process that runs whenever something is merged to ensure that it builds and passes a set of automated tests and other checks.
 
 Many organizations want to deploy software/services more rapidly, and have adopted various approaches to do that building on these standard software development processes. Definitions vary, but here are some common terms:
 
-* Continuous Delivery (CDE) aims to ensure *“an application is always at production-ready state after successfully passing automated tests and quality checks [by employing practices] to deliver software automatically to a production-like environment”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017). Note that the software is not actually released/deployed without a separate manual approval step.
+* Continuous Delivery (CD or CDE) aims to ensure *“an application is always at production-ready state after successfully passing automated tests and quality checks [by employing practices] to deliver software automatically to a production-like environment”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017). Note that the software is not necessarily released or deployed without a separate approval step.
 
 * Continuous Deployment (CD) *“goes a step further [than continuous delivery] and automatically and continuously deploys the application to production or customer environments”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017).
 
@@ -622,7 +622,7 @@ You also should focus on continuous improvement, of both the software itself and
 
 ### Quiz 1.5
 
-\>\>To develop secure software you should always rigorously develop all the requirements, then develop your complete design, and only then begin implementing the software. True or False?<<
+\>\>To develop secure software, you should always rigorously develop all the requirements, then develop your complete design, and only then begin implementing the software. True or False?<<
 
 ( ) True
 
@@ -630,7 +630,7 @@ You also should focus on continuous improvement, of both the software itself and
 
 [Explanation]
 
-This is false. This is a “waterfall” approach and is generally a very risky way to develop software. You do need to have an idea of what you are trying to achieve, of course, but reality is more complex: as you design, implement, and field, you will get feedback into what the requirements really *should* be.
+This is false. This is a “waterfall” approach and is generally a very risky way to develop software. You need an idea of what you are trying to achieve, of course, but reality is more complex: as you design, implement, and field, you will get feedback into what the requirements really *should* be.
 
 [Explanation]
 
@@ -646,7 +646,7 @@ This is false. This is a “waterfall” approach and is generally a very risky 
 
 This is false, but it is a sneaky question because there is a grain of truth in it.
 
-It is definitely important to have security tools in your continuous integration pipeline. No matter how good your design and implementation approach is, you will make mistakes, and tools in the continuous integration pipeline will help you find some of those mistakes.
+It is important to have security tools in your continuous integration pipeline. No matter how good your design and implementation approach is, you will make mistakes, and tools in the continuous integration pipeline will help you find some of those mistakes.
 
 But simply “adding security tools” is not enough. No tool can fix a bad design, and tools will miss implementation vulnerabilities. You must think about security no matter what you are doing during development and operations.
 
@@ -1368,7 +1368,7 @@ You should determine what is legal, as narrowly as you reasonably can, and rejec
 
 The good news is that it usually does not take long to add input validation, and that can immediately make your program harder to attack. It may be hard to decide on a user-friendly response to invalid input, but it is easier than suffering a successful attack.
 
-There is a good reason for identifying *illegal* values, though, and that is for use as a set of tests to be sure that your validation code is thorough. These tests may possibly just be executed in your head, but at least a few should become test cases in your automated test suite. When we set up an input filter, we mentally attack our allowlist with a few pre-identified illegal values to make sure that a few obvious illegal values will not get through. Depending on the input, here are a few examples of common illegal values that your input filters may need to prevent: the empty string, “**.**”, “**..**”, “**../**”, anything starting with “**/**” or “**.**”, anything with “**/**” or “**&**” inside it, common metacharacters (like semicolon, single quote, double quote, and the less-than symbol), and any control characters (especially the NUL character and newline). Where numbers are expected, checking for other kinds of text that should not be allowed. Also check for very, very long inputs.
+There is a good reason for identifying *illegal* values; use them as a set of tests to be sure that your validation code is thorough. These tests may possibly just be executed in your head, but at least a few should become test cases in your automated test suite. When we set up an input filter, we mentally attack our allowlist with a few pre-identified illegal values to make sure that a few obvious illegal values will not get through. Depending on the input, here are a few examples of common illegal values that your input filters may need to prevent: the empty string, “**.**”, “**..**”, “**../**”, anything starting with “**/**” or “**.**”, anything with “**/**” or “**&**” inside it, common metacharacters (like semicolon, single quote, double quote, and the less-than symbol), and any control characters (especially the NUL character and newline). Where numbers are expected, checking for other kinds of text that should not be allowed. Also check for very, very long inputs.
 
 Later, we will discuss various kinds of security analysis tools. One kind, fuzzers, intentionally create a large number of malicious inputs that (among other things) test the quality of your input validation checks. But fuzzers do not guarantee to find all input validation problems. Instead, carefully implement your input validation, and then use tools to help you find problems you would have otherwise missed.
 
@@ -1722,7 +1722,7 @@ Lots of data and messages are encoded in XML (Extensible Markup Language). XML i
 
 * **Well-formed**<br>Well-formed XML follows certain syntax rules. For example, all opened tags must be closed, and XML elements must be properly nested. If you are accepting XML, at *least* verify that the XML is well-formed; there are easily-available libraries for this, and applications are only supposed to accept XML that is well-formed.
 
-* **Valid**<br>Valid XML meets some schema definition. The schema specifies information such as *what* tags are allowed, how they may be nested, and whether some are required. A schema definition, if rigorous, is a kind of allowlist. Thus, checking for validity before accepting XML input can be really useful for countering attacks. However, do *not* allow the attacker to determine what schema to use - decide what schema is okay and use *that*. Sometimes no schema is available, though, and if you are only extracting a small part of XML, it may not be worth it to create an XML schema.
+* **Valid**<br>Valid XML meets some schema definition. The schema specifies information such as *what* tags are allowed, how they may be nested, and whether some are required. A schema definition, if rigorous, is a kind of allowlist. Thus, checking for validity before accepting XML input can be really useful for countering attacks. However, do *not* allow the attacker to determine what schema to use - decide what schema is okay and use *that*. Sometimes no schema is available, and if you are only extracting a small part of XML, it may not be worth it to create an XML schema.
 
 If you are using XML, there is an extremely common vulnerability you need to counter called XML External Entities (XXE). To understand them, you need to understand some XML functionality that is not widely known.
 
@@ -2874,7 +2874,7 @@ Of course, once you receive information, make sure that you check for error cond
 
 [Explanation]
 
-This is false. This would make it much harder to write code (and update it later). More importantly, though, human interfaces often change or make guesses that are inappropriate when trying to automate something.
+This is false. This would make it much harder to write code (and update it later). More importantly, human interfaces often change or make guesses that are inappropriate when trying to automate something.
 
 [Explanation]
 
