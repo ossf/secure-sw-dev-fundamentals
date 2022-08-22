@@ -612,7 +612,7 @@ Many organizations want to deploy software/services more rapidly, and have adopt
 
 * DevSecOps (also called SecDevOps) is DevOps, but specifically integrating security concerns into the development and operations process (Red Hat, [*What Is DevSecOps?*](https://www.redhat.com/en/topics/devops/what-is-devsecops))
 
-* GitOps "is a way of implementing Continuous Deployment for cloud native applications. It focuses on a developer-centric experience when operating infrastructure, by using tools developers are already familiar with, including Git and Continuous Deployment tools.  The core idea of GitOps is having a Git repository that always contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository. If you want to deploy a new application or update an existing one, you only need to update the repository - the automated process handles everything else" per <https://www.gitops.tech/>. Similar definitions are "GitOps uses Git repositories as a single source of truth to deliver infrastructure as code." (Red Hat, [*What Is GitOps?*](https://www.redhat.com/en/topics/devops/what-is-gitops)) and "GitOps is an operational framework that takes DevOps best practices used for application development such as version control, collaboration, compliance, and CI/CD, and applies them to infrastructure automation." (GitLab, [*What is GitOps?*](https://about.gitlab.com/topics/gitops/)).[
+* GitOps "is a way of implementing Continuous Deployment for cloud native applications. It focuses on a developer-centric experience when operating infrastructure, by using tools developers are already familiar with, including Git and Continuous Deployment tools.  The core idea of GitOps is having a Git repository that always contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository. If you want to deploy a new application or update an existing one, you only need to update the repository - the automated process handles everything else" per <https://www.gitops.tech/>. Similar definitions are "GitOps uses Git repositories as a single source of truth to deliver infrastructure as code." (Red Hat, [*What Is GitOps?*](https://www.redhat.com/en/topics/devops/what-is-gitops)) and "GitOps is an operational framework that takes DevOps best practices used for application development such as version control, collaboration, compliance, and CI/CD, and applies them to infrastructure automation." (GitLab, [*What is GitOps?*](https://about.gitlab.com/topics/gitops/)).
 
 All these depend on automated tests and quality checks, and from a security perspective, what is critical is that tools to check for security vulnerabilities and potential security issues need to be integrated into those automated tests and quality checks. For example, you should ensure that tools are in your CI pipeline that check for various security issues, so that any security problems are detected early. Security tools that take a long time to run might be run in parallel but be used as a “gate” for CDE. We will discuss much more about tools to support security later in the course.
 
@@ -5832,6 +5832,8 @@ Gerrand, Andrew, *The Go Blog: Error handling and Go*, 2011 ([https://blog.golan
 
 GitHub Security, *Password reset emails delivered to the wrong address*, 2016-07-05 ([https://bounty.github.com/researchers/jagracey.html](https://bounty.github.com/researchers/jagracey.html))
 
+GitLab, *What is GitOps?* ([https://about.gitlab.com/topics/gitops/])
+
 Gooding, Dan, *Plundering of crypto keys from ultrasecure SGX sends Intel scrambling again*, Ars Technica, 2020-06-09 ([https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/](https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/))
 
 Google, OSS-Fuzz project ([https://github.com/google/oss-fuzz](https://github.com/google/oss-fuzz))
@@ -5943,6 +5945,8 @@ PostgreSQL, *PostgreSQL 14*, "Command Execution Functions",
 Rebert, Alexandre; Cha, Sang Kil; Avgerinos, Thanassis; Foote, Jonathan; Warren David; Grieco, Gustavo; Brumley, David, *Optimizing Seed Selection for Fuzzing*, 2014 ([https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf))
 
 Red Hat, *What Is DevSecOps?* ([https://www.redhat.com/en/topics/devops/what-is-devsecops](https://www.redhat.com/en/topics/devops/what-is-devsecops))
+
+Red Hat, *What Is GitOps?* ([https://www.redhat.com/en/topics/devops/what-is-gitops])
 
 Regehr, John, *A Guide to Undefined Behavior in C and C++ (Parts 1-3)*, 2010 ([http://blog.regehr.org/archives/213](http://blog.regehr.org/archives/213))
 
