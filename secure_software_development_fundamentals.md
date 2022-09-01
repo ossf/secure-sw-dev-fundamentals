@@ -1132,65 +1132,63 @@ If you are purchasing expensive software you selected on behalf of an organizati
 
 Many systems support installing extensions that are separately developed and maintained than the “core” program (often by different developers). ***Extensions need to be separately evaluated before installing them***. The core system may be relatively secure, but that does not mean all its extensions are secure, and often the biggest risks are from the extensions. These extensions may be called many names including extensions, plug-ins, add-ons, themes, components, or packages. No matter what they’re called, evaluate them too. For example, PatchStack reported that while WordPress powered 43.2% of websites on the web in 2021, “vulnerabilities from plugins and themes remain as one of the biggest threats to websites built on WordPress.” They noted that only 0.58% of security vulnerabilities originate from WordPress core in 2021; the rest of the vulnerabilities were in components (plugins and themes). What’s worse, 29% of the WordPress plugins with critical vulnerabilities received no patch. This wouldn’t matter as much if few sites used components, but on average a WordPress website has 18 different components (plugins and themes) installed. See [*State Of WordPress Security In 2021*](https://patchstack.com/whitepaper/the-state-of-wordpress-security-in-2021/) by PatchStack for more information.
 
-We’ll use the term “reused software” here, because that is our concern. This reused software includes all the software you depend on when the software runs, aka its dependencies. In practice, the vast majority of the software you reuse will be open source software (OSS), so we will especially focus on tips when reusing OSS.
+We use the term “reused software” here, because that is our concern. This reused software includes all the software you depend on when the software runs, aka its dependencies.
 
-### Selecting Reusable Software
+The vast majority of the software you reuse will typically be open source software (OSS). So let's focus on tips on how to evaluate OSS before reusing it. Some of these tips will also apply to closed source software.
 
-There are many important things to consider when selecting reusable software. For security here are a few things to consider:
+### Selecting (Evaluating) Open Source Software
 
-1. *Should it be added at all*? Every new dependency creates a new avenue for vulnerabilities (both unintentional and intentional), especially since many dependencies bring in other transitive dependencies. Maybe the dependency isn’t worth adding. Perhaps you could write a few lines that make the dependency unnecessary, or perhaps the functionality is already provided in something you already depend on.  If you’re selecting a base container image or virtual machine image for production use, try to find a minimal image that suits your needs and doesn’t include unnecessary baggage.
+There are many important things to consider when selecting open source software.
 
-2. Is it *easy to use securely*? If something is hard to use *securely* the result is far more likely to be insecure.
+The Open Source Security Foundation (OpenSSF) has developed a [*Concise Guide for Evaluating Open Source Software*](https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Evaluating-Open-Source-Software.md#readme) that can help. They suggest that, "As a software developer, before using open source software (OSS) dependencies or tools, identify candidates and evaluate the leading ones against your needs. To evaluate a potential OSS dependency for security and sustainability, consider these questions..."
 
-    1. Look at the defaults of its interface and configuration. Is its API secure by default, or are “simple examples” using the defaults also insecure?
+The 2022-08-26 version suggests the following questions, along with how to get information to help answer them:
 
-    2. If it has a discussion about how to use it securely, that is generally a good sign, especially if its warnings recommend that you keep its defaults.
-    
-    This is a reason to avoid using C and C++ to implement new software when there is no significant reason to use them; C and C++ have many insecure defaults (as we will discuss later).
+1. **Can you avoid adding it?** Can you use an existing (possibly indirect) dependency instead? Every new dependency increases the attack surface (a subversion of the new dependency, or its transitive dependencies, may subvert the system).
+2. **Are you evaluating the intended version?** Ensure you are evaluating the intended version of the software, not a personal fork nor an attacker-controlled fork. These techniques help to counter the common “typosquatting” attack (where an attacker creates an “almost-correct” name).
+    1. Check its name and the project website for the link.
+    2. Verify the fork relation on GitHub/GitLab.
+    3. Check if the project is affiliated with a foundation (in this case, you should be able to access the official source from the foundation’s website).
+    4. Check its creation time, and check its popularity.
+3. **Is it maintained?** Unmaintained software is a risk; most software needs continuous maintenance. If it’s unmaintained, it’s also likely to be insecure.
+    1. Has significant recent activity (e.g., commits) occurred within the last year?
+    2. When was its last release (was it less than a year ago)?
+    3. Is there more than one maintainer, ideally from different organizations?
+    4. Are there recent releases or announcements from its maintainer(s)?
+    5. Does its version string indicate instability (e.g., begin with “0”, include “alpha” or “beta”, etc.)
+4. **Is there evidence that its developers work to make it secure?**
+    1. Determine whether the project has earned (or is well on the way to) an [Open Source Security Foundation (OpenSSF) Best Practices badge](https://bestpractices.coreinfrastructure.org/).
+    2. Examine information on [https://deps.dev](https://deps.dev/), including its [OpenSSF Scorecards](https://github.com/ossf/scorecard) score and any known vulnerabilities.
+    3. Determine whether the package dependencies are (relatively) up to date.
+    4. Determine whether there is documentation explaining why it’s secure (aka an “assurance case”).
+    5. Are there automated tests included in its CI pipeline? What is its test coverage?
+    6. Does the project fix bugs (especially security bugs) in a timely manner? Do they release security fixes for older releases? Do they have an LTS (Long Time Support) version?
+    7. Do the developers use code hosting security features where applicable (e.g., if they’re on GitHub or GitLab, do they use branch protection)?
+    8. Identify security audits and whether any problems found were fixed. Security audits are relatively uncommon, but see OpenSSF’s “[Security Reviews](https://github.com/ossf/security-reviews)”.
+    9. Use [SAFECode’s guide _Principles for Software Assurance Assessment_](https://safecode.org/resource-managing-software-security/principles-of-software-assurance-assessment/) (2019), a multi-tiered approach for examining the software’s security.
+    10. How do they fare per the [OpenChain](https://www.openchainproject.org/) Security Assurance Reference Guide (the [August 2021 guide](https://www.openchainproject.org/security-guide) and [more recent draft](https://github.com/OpenChain-Project/SecurityAssuranceGuide/tree/main/Guide/2.0) are available)?
+    11. Do they apply many practices in the [Concise Guide for Developing More Secure Software](https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Evaluating-Open-Source-Software.md)?
+5. **Is it easy to use securely?**
 
-3. Is there evidence that its developers *work to make it secure*?
+    1. Are the default configuration and “simple examples” secure (e.g., encryption turned on by default in network protocols)? If not, avoid it.
+    2. Is its interface/API designed to be easy to use securely (e.g., if the interface implements a language, does it support parameterized queries)?
+    3. Is there guidance on how to use it securely?
 
-    1. If it is OSS, has the project earned an Open Source Security Foundation (OpenSSF) Best Practices badge (or at least are they well on their way to that)? An OSS project that has earned an OpenSSF Best Practices badge implements a number of best practices for sustainably developing secure software. We will discuss this in more detail later in the section on verification. You can learn more about the [OpenSSF Best Practices badge](https://bestpractices.coreinfrastructure.org/en) online.
+6. **Are there instructions on how to report vulnerabilities?​​** See the [Guide to implementing a coordinated vulnerability disclosure process for open source projects](https://github.com/ossf/oss-vulnerability-guide/blob/main/guide.md) for guidance to OSS projects.,
+7. **Does it have significant use?** Software with many users or large users may be inappropriate for your use. However, widely used software is more likely to offer useful information on how to use it securely, and more people will care about its security. Check if a similar name is more popular - that could indicate a typosquatting attack.
+8. **What is the software’s license?** Licenses are technically not security, but licenses can have a significant impact on security and sustainability. Ensure every component has a license, that it’s a widely-used [OSI license](https://opensource.org/licenses) if it’s OSS, and that it’s consistent with your intended use. Projects that won’t provide clear license information are less likely to follow other good practices that lead to secure software.
+9. **What is your evaluation of its code?** Even a brief review of software source code, and its changes over time, can give you some insight. Here are things to consider:
+    1. When you review its source code, is there evidence in the code that the developers were trying to develop secure software (such as rigorous input validation of untrusted input and the use of parameterized statements)?
+    2. Is there evidence of insecure/ incomplete software (e.g., many TODO statements)?
+    3. What are the “top” problems reported by static analysis tools?
+    4. Is there evidence that the software is malicious? Per [_Backstabber’s Knife Collection_](https://arxiv.org/abs/2005.09535), check the installation scripts/routines for maliciousness, check for data exfiltration from **~/.ssh** and environment variables, and look for encoded/ obfuscated values that are executed. Examine the most recent commits for suspicious code (an attacker may have added them recently).
+    5. Consider running the software in a sandbox to attempt to trigger and detect malicious code.
+    6. Consider running all defined test cases to ensure the software passes them.
 
-    2.  If it is OSS, look at its [OpenSSF Scorecards](https://github.com/ossf/scorecard) score. This provides an automated measure of OSS, so while it can’t include data that the Best Practices badge can, it can provide information on projects without requiring their cooperation.
+Other resources you may wish to consider include:
 
-    3. Is there evidence that the developers use tools to detect defects and vulnerabilities as early as possible? Projects should have a continuous integration (CI) pipeline that checks proposed changes, and those checks should include tools that look for vulnerabilities.
-
-    4. Is there documentation explaining why its developers believe it is secure (aka an “assurance case”)?
-
-    5. Is there evidence of a security audit, and that any problems found were fixed? Security audits are relatively uncommon, but they are a great sign when they exist. An audit that finds a large number of vulnerabilities could have found them because the software is just full of vulnerabilities, or because the audit was thorough, but no matter what, if the problems were found and fixed, those problems no longer exist in the version you plan to use. OpenSSF’s “[Security Reviews](https://github.com/ossf/security-reviews)” has a collection of security reviews (audits) of OSS projects.
-
-    6. Consider using [SAFECode’s guide ](https://safecode.org/principles-of-software-assurance-assessment/)[*Principles for Software Assurance Assessment*](https://safecode.org/principles-of-software-assurance-assessment/) (2019), which has a multi-tiered approach for examining the security characteristics of software.
-    
-    This entire course discusses how to develop secure software; the more of these actions you see in the software you are considering, the better!
-
-4. Are there instructions on *how to report vulnerabilities*? Software developers are human; they make mistakes, and sometimes those mistakes may be vulnerabilities. However, if there’s a clearly described way to report vulnerabilities, that suggests they’ve prepared themselves to accept and promptly address vulnerability reports.
-
-5. Is it *maintained*? Unmaintained software is a risk. If the software is not maintained, it is more likely to have serious unaddressed security vulnerabilities, and it is more likely that its developers will fail to quickly fix vulnerabilities when they are reported. In theory, software can be “completed” and not need future changes. However, usually software that is not being changed is not being maintained (unless the software is very small).
-
-    1. If the software is OSS, you can generally look at its repository and see its commit history. If it continues to have active commits, especially by multiple people, that is a good sign. An OSS component with no changes in the last year is generally much riskier.
-
-    2. Are there recent releases or announcements from its developer?
-
-6. Does it have *significant use*? Just because there are many users, or a large company (like Google or Facebook) uses it, does not mean it is appropriate for you. If you only choose the latest fad, you will sometimes make horrific mistakes! However, knowing that software is widely used can be useful information. If software has many users or large (corporate) users, then there’s more likely to be useful information on how to use it securely, and more people who will care about its security. Also, if it has a small number of users, see if something else with a similar name is more popular - that could indicate a typosquatting attack. We will discuss typosquatting in the next unit.
-
-7. What is the software’s *license*? Licenses are technically not security, but licenses can have a big impact on security.
-
-    1. Some software is released without a license at all; this can be legally dangerous, especially if it is more than a line or two of code, because in most countries and situations the law does not permit its use. Sometimes this can be fixed by contacting the original developer and proposing a license. A developer who puts users at legal risk is probably not worried about preventing security risks either.
-
-    2. If the software has a license, make sure that its license is consistent with what you are trying to do. **Beware**: the costs of failing to abide by a license can be extremely steep. Be especially careful if the software is not released with an OSS license, since by definition you will have fewer rights, and in practice there will only be one supplier who will decide what information you can have and how it will change. Make sure you follow the license requirements. If you won’t follow the license requirements, you are not only at legal risk for using it, but you will generally not have the right to use its security updates either.
-
-8. Has *someone else reviewed/audited it for security*? This is relatively rare but invaluable when it happens.
-
-9. If it is important, what is *your own evaluation* of it? If the software is important to you, and especially if it is OSS, you can download and examine it yourself. Some people are scared of doing this, but there is no reason to be afraid. Even a brief review of software source code, and its changes over time, can give you some insight into the software you are thinking about using. This can be time-consuming, so many will not do this. But if the software you are developing is very important, this is a step worth seriously considering. Doing a thorough evaluation of such software is outside the scope of this course. There are many organizations with expertise in doing code-level security audits for a fee; you may want to engage their services if you want an in-depth review. However, if you decide that you want to do just a brief review, here are things to consider:
-
-    1. When you review the more detailed artifacts (e.g., the source code), is there evidence that the developers were trying to develop secure software (such as rigorous input validation of untrusted input and creating database queries using parameterized statements)?
-
-    2. Is there evidence of insecure or woefully incomplete software (such as a forest of TODO statements)?
-
-    3. What are the “top” problems reported when running it through static analysis tools (that examine the code to look for problems)?
-
-    4. Is there evidence that the software is malicious? The authors of [*Backstabber’s Knife Collection: A Review of Open Source Software Supply Chain Attacks*](https://arxiv.org/abs/2005.09535) (2020) article notes traits that are especially common in malicious packages: most malicious packages perform malicious actions during installation (so check the installation routines), most aim at data exfiltration (so check for extraction and sending of data like **~/.ssh** or environment variables), and about half use some sort of obfuscation (so look for encoded values that end up being executed). You could also run the software in a sandbox with an environment intended to trigger likely issues, and see if the software attempts to do something malicious. Some malicious software detects that it is being examined and behaves well when examined, so running code in a sandbox does not guarantee detection… but it may reduce risk.
+1. [The Tidelift guide to choosing packages well (February 2021)](https://tidelift.com/subscription/choosing-open-source-packages-well), Tidelift
+2. [How to Evaluate Open Source Software / Free Software (OSS/FS) Programs](https://dwheeler.com/oss_fs_eval.html)
 
 There are many places where some of this information can be found (beyond simply using a search engine). They include the projects’ home page and/or source code repository, the main page for an ecosystem’s default package repository, [deps.dev](https://deps.dev/), [metrics.openssf.org](https://metrics.openssf.org/), [libraries.io](https://libraries.io/), Synopsys Black Duck [OpenHub](https://www.openhub.net/), and Linux Foundation [LFX](https://lfx.linuxfoundation.org/).
 
