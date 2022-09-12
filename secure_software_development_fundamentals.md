@@ -1142,7 +1142,7 @@ There are many important things to consider when selecting open source software.
 
 The Open Source Security Foundation (OpenSSF) has developed a [*Concise Guide for Evaluating Open Source Software*](https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Evaluating-Open-Source-Software.md#readme) that can help. They suggest that, "As a software developer, before using open source software (OSS) dependencies or tools, identify candidates and evaluate the leading ones against your needs. To evaluate a potential OSS dependency for security and sustainability, consider these questions..."
 
-The 2022-08-26 version suggests the following questions, along with how to get information to help answer them:
+The 2022-09-01 version suggests the following questions, along with how to get information to help answer them:
 
 1. **Can you avoid adding it?** Can you use an existing (possibly indirect) dependency instead? Every new dependency increases the attack surface (a subversion of the new dependency, or its transitive dependencies, may subvert the system).
 2. **Are you evaluating the intended version?** Ensure you are evaluating the intended version of the software, not a personal fork nor an attacker-controlled fork. These techniques help to counter the common “typosquatting” attack (where an attacker creates an “almost-correct” name).
@@ -1167,7 +1167,7 @@ The 2022-08-26 version suggests the following questions, along with how to get i
     8. Identify security audits and whether any problems found were fixed. Security audits are relatively uncommon, but see OpenSSF’s “[Security Reviews](https://github.com/ossf/security-reviews)”.
     9. Use [SAFECode’s guide _Principles for Software Assurance Assessment_](https://safecode.org/resource-managing-software-security/principles-of-software-assurance-assessment/) (2019), a multi-tiered approach for examining the software’s security.
     10. How do they fare per the [OpenChain](https://www.openchainproject.org/) Security Assurance Reference Guide (the [August 2021 guide](https://www.openchainproject.org/security-guide) and [more recent draft](https://github.com/OpenChain-Project/SecurityAssuranceGuide/tree/main/Guide/2.0) are available)?
-    11. Do they apply many practices in the [Concise Guide for Developing More Secure Software](https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Evaluating-Open-Source-Software.md)?
+    11. Do they apply many practices in the [Concise Guide for Developing More Secure Software](https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Evaluating-Open-Source-Software.md#readme)?
 5. **Is it easy to use securely?**
 
     1. Are the default configuration and “simple examples” secure (e.g., encryption turned on by default in network protocols)? If not, avoid it.
