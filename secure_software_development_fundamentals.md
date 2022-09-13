@@ -1192,6 +1192,8 @@ Other resources you may wish to consider include:
 
 There are many places where some of this information can be found (beyond simply using a search engine). They include the projects’ home page and/or source code repository, the main page for an ecosystem’s default package repository, [deps.dev](https://deps.dev/), [metrics.openssf.org](https://metrics.openssf.org/), [libraries.io](https://libraries.io/), Synopsys Black Duck [OpenHub](https://www.openhub.net/), and Linux Foundation [LFX](https://lfx.linuxfoundation.org/).
 
+Most of these questions also apply to closed source software that is reused.
+
 Most software depends on other software, which in turn often depends on other software with many tiers. A software bill of materials (SBOM) is a nested inventory that identifies the software components that make up a larger piece of software. Many ecosystems have ecosystem-specific SBOM formats. There are also some SBOM formats that support arbitrary ecosystems: [Software Package Data Exchange (SPDX)](https://spdx.dev/), [Software ID (SWID)](https://csrc.nist.gov/Projects/Software-Identification-SWID/), and [CycloneDX](https://github.com/CycloneDX/specification). When an SBOM is available for a component you are thinking about using, it’s often easier to use that data to help answer some of the questions listed above. It’s also good to provide an SBOM to potential users of your software, for the same reasons.
 
 ### Quiz 3.1
