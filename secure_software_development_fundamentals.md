@@ -4448,7 +4448,7 @@ Most CSPRNG libraries provide this function - just check that it's unbiased.
 If you must implement this yourself, there are various methods such
 as rejection sampling,
 [nearly-divisionless random numbers per Daniel Lemire's algorithm](https://dotat.at/@/2020-10-29-nearly-divisionless-random-numbers.html), or
-[Divisionless random numbers per Steve Cannon and Kendall Willets](https://dotat.at/@/2022-04-20-really-divisionless.html).
+[divisionless random numbers per Steve Cannon and Kendall Willets](https://dotat.at/@/2022-04-20-really-divisionless.html).
 However, you should normally just use the CSPRNG library function
 that provides this function.
 
