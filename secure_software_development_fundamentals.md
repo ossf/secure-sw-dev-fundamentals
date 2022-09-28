@@ -5979,7 +5979,7 @@ Reproducible Builds project, “Definitions”, (<https://reproducible-builds.or
 
 Rogers, Tony, *Falsehoods Programmers Believe About Names - With Examples*, 2018 ([https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/](https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/))
 
-Romailler, Yolan, *The definitive guide to “Modulo Bias and how to avoid it”! (<https://research.kudelskisecurity.com/2020/07/28/the-definitive-guide-to-modulo-bias-and-how-to-avoid-it/>)
+Romailler, Yolan, *The definitive guide to “Modulo Bias and how to avoid it”!* (<https://research.kudelskisecurity.com/2020/07/28/the-definitive-guide-to-modulo-bias-and-how-to-avoid-it/>)
 
 Royce, Winston W., *Managing the Development of Large Systems: Concepts and Techniques*, 1970 ([https://dl.acm.org/doi/10.5555/41765.41801](https://dl.acm.org/doi/10.5555/41765.41801))
 
