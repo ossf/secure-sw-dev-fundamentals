@@ -4432,7 +4432,7 @@ In summary: Make sure you use a strong, properly-implemented cryptographically s
 If you need a cryptographically random number in a range
 (e.g., an integer from 0 to a number N),
 do **not** simply use the modulus or remainder operators.
-Many programmers inocrrectly *think* it's fine to directly use the
+Many programmers incorrectly *think* it's fine to directly use the
 modulus or remainder operators (e.g., `%` or `mod` in many languages)
 for this purpose.
 However, this often causes some numbers to be more likely than others,
