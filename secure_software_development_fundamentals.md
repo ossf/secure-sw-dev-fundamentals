@@ -106,7 +106,7 @@ Dr. David A. Wheeler is an expert in developing secure software and in open sour
 
 Modern software is under constant attack, but many software developers have never been told how to effectively counter those attacks. This course works to solve that problem, by explaining the fundamentals of developing secure software. Geared towards software developers, DevOps professionals, software engineers, web application developers, and others interested in learning how to develop secure software, this course focuses on practical steps that can be taken, even with limited resources, to improve information security. This course will enable software developers to create and maintain systems that are much harder to successfully attack, reduce the damage when attacks are successful, and speed the response so that any latent vulnerabilities can be rapidly repaired.
 
-The course discusses risks and requirements, design principles, and evaluating code (such as packages) for reuse. It then focuses on key implementation issues: input validation (such as why allowlists and not denylists should be used), processing data securely, calling out to other programs, sending output, cryptography, error handling, and incident response. This is followed by a discussion on various kinds of verification issues, including tests, including security testing and penetration testing, and security tools. It ends with a discussion on deployment and handling vulnerability reports. 
+The course discusses risks and requirements, design principles, and evaluating code (such as packages) for reuse. It then focuses on key implementation issues: input validation (such as why allowlists and not denylists should be used), processing data securely, calling out to other programs, sending output, cryptography, error handling, and incident response. This is followed by a discussion on various kinds of verification issues, including tests, including security testing and penetration testing, and security tools. It ends with a discussion on deployment and handling vulnerability reports.
 
 The *Secure Software Development Fundamentals* course was developed by the Open Source Security Foundation (OpenSSF), a project of the Linux Foundation focused on securing the open source ecosystem. The course focuses on practical steps that you (as a developer) can take to counter most common kinds of attacks.
 
@@ -255,7 +255,7 @@ So how can you determine the security requirements for a particular system? One 
 2. **Integrity** (“No unauthorized modification”)<br>Identify information that only some people should be allowed to modify, and who that is.
 
 3. **Availability** (“Keeps working in presence of attack”)<br>What is the impact if it does not work for a while - is that serious? Availability is rarely an absolute. If your system is accessible via the internet, availability is very challenging to provide; a well-resourced attacker can always use a Distributed Denial of Service (DDoS) attack to take down a site, at least for a little while. It is possible to work to counter DDoS attacks, but in the end it can turn into a competition between how many resources each side has.
-    
+
     Even when availability cannot be universally guaranteed, you can still have secure software by focusing on the bigger-risk items ([Not all attackers are equal: understanding and preventing DoS in web applications](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/), by Jacob Kaplan-Moss, 2020).  In many cases, focus on developing your software so it is not *easy* to overwhelm or take down with simple inputs; make it possible to temporarily scale up the software by rapidly adding new servers; and implement the software so it quickly recovers when an attack ends. To counter the risk that the system might be destroyed or have its data deleted, design the software so its data is easily backed up, and plan for backups. Ensure that data can be backed up to “cold storage” (where the data cannot be corrupted later if the software is subverted). If the system is routinely backed up in operations, you can recover relatively quickly (at least partially). So yes, you *can* have availability as a requirement, as long as its limitations are clear.
 
 4. **Non-repudiation** (“Prove someone did something”)<br>Is there some action that you want to be able to *prove* someone took? In many systems this is not critical, but in some it is.
@@ -438,13 +438,13 @@ Under the GDPR, *profiling* is any form of automated processing that involves us
 
 Here are some resources for learning more about the GDPR:
 
-* The [official EU site for the GDPR text](http://data.europa.eu/eli/reg/2016/679/oj) 
+* The [official EU site for the GDPR text](http://data.europa.eu/eli/reg/2016/679/oj)
 
-* [*“The Guide to the General Data Protection Regulation (GDPR)”*](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/) 
+* [*“The Guide to the General Data Protection Regulation (GDPR)”*](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/)
 
-* [*“Solutions for a responsible use of the blockchain in the context of personal data”*](https://www.cnil.fr/sites/default/files/atoms/files/blockchain_en.pdf) 
+* [*“Solutions for a responsible use of the blockchain in the context of personal data”*](https://www.cnil.fr/sites/default/files/atoms/files/blockchain_en.pdf)
 
-* [*“Security of Personal Data”*](https://www.cnil.fr/sites/default/files/atoms/files/cnil_guide_securite_personnelle_gb_web.pdf) 
+* [*“Security of Personal Data”*](https://www.cnil.fr/sites/default/files/atoms/files/cnil_guide_securite_personnelle_gb_web.pdf)
 
 * The Linux Foundation, [*“Summary of GDPR Concepts For Free and Open Source Software Projects”*](https://www.linuxfoundation.org/wp-content/uploads/2018/05/lf_gdpr_052418.pdf)
 
@@ -530,7 +530,7 @@ Risk management is *not* complicated. It is basically common sense. But when you
 
 Note that the first step (beyond planning) is identifying risks. But how do you identify the risks of security vulnerabilities? Clearly many people do *not* notice risks from security vulnerabilities.
 
-Bruce Schneier has this wonderful story ([*The Security Mindset*](https://www.schneier.com/blog/archives/2008/03/the_security_mi_1.html), 2008): 
+Bruce Schneier has this wonderful story ([*The Security Mindset*](https://www.schneier.com/blog/archives/2008/03/the_security_mi_1.html), 2008):
 
 > *“Uncle Milton Industries has been selling ant farms to children since 1956. Some years ago, I remember opening one up with a friend. There were no actual ants included in the box. Instead, there was a card that you filled in with your address, and the company would mail you some ants. My friend expressed surprise that you could get ants sent to you in the mail. [Bruce Schneier] replied: ‘What’s really interesting is that these people will send a tube of live ants to anyone you tell them to.’ … Security requires a particular mindset. Security professionals -- at least the good ones -- see the world differently. They can’t walk into a store without noticing how they might shoplift. They can’t use a computer without wondering about the security vulnerabilities. They can’t vote without trying to figure out how to vote twice.”*
 
@@ -538,11 +538,11 @@ Can this mindset be taught? Our experience is that it can be, at least in part. 
 
 #### Security Is A Process, Not A Product
 
-In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier famously explained that 
+In his essay, [*The Process of Security*](https://www.schneier.com/essays/archives/2000/04/the_process_of_secur.html) (2000), Bruce Schneier famously explained that
 
 > *“security is a process not a product… there’s no such thing as perfect security. Interestingly enough, that’s not necessarily a problem. … Security does not have to be perfect, but the risks have to be manageable…”.*
 
-The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change. Software that was secure a year or five years ago may not be adequate today. 
+The world changes. The ways your software is used changes. New vulnerabilities are discovered. The software’s platform and libraries change. Laws, company policies, and goals change. Software that was secure a year or five years ago may not be adequate today.
 
 Since security is a process, it is not just “fire and forget.” You need to continuously consider security.
 
@@ -724,13 +724,13 @@ OWASP has other top 10 lists for different kinds of software. For example:
 
 * [OWASP Mobile Top 10](https://owasp.org/www-project-mobile-top-10/) - the mobile applications top 10
 
-* [OWASP Internet of Things Project](https://wiki.owasp.org/index.php/OWASP_Internet_of_Things_Project) - the Internet of Things (IoT) top 10. 
+* [OWASP Internet of Things Project](https://wiki.owasp.org/index.php/OWASP_Internet_of_Things_Project) - the Internet of Things (IoT) top 10.
 
 That said, the web application top 10 list is the best known top 10 list from OWASP.
 
 These top vulnerabilities are not only common, but they tend to result in severe vulnerabilities.
 
- 
+
 
 These top lists do change over time. Unfortunately, they do not change very much. Many of the top vulnerabilities in the CWE Top 25 have been the same common kinds of vulnerabilities for decades (e.g., see *Computer Security Technology Planning Study*, [volume I](https://csrc.nist.gov/csrc/media/publications/conference-paper/1998/10/08/proceedings-of-the-21st-nissc-1998/documents/early-cs-papers/ande72a.pdf) and [volume II](https://apps.dtic.mil/dtic/tr/fulltext/u2/772806.pdf), by James P. Anderson, 1972), and most of the top web application problems have been common kinds of web application vulnerabilities since the 1990s. So while things do change, learning about the *top* kinds of vulnerabilities will be helpful to you for years to come.
 
@@ -1229,7 +1229,7 @@ Of course, if you download and install a subverted version of the reused softwar
     3. Consider downloading the software, but then only install and use it a few days later after verifying nothing has changed. That way, if the distribution site is temporarily subverted when you download the software, but is quickly fixed, you will not be using the subverted version. This is not always practical, since you may be in too much of a hurry to wait, but in some cases this is easy to do.
 
     4. Try to avoid using pipe-to-shell (such as  **curl … | sh**) to download and install software. You obviously cannot download and delay installation when you use pipe-to-shell. In addition, attackers who subvert a source site can detect a pipe-to-shell request and selectively subvert pipe-to-shell users (who by definition are not reviewing what they are downloading). Using pipe-to-shell makes source site subversions much harder to detect and counter. It also makes understanding the actual version you downloaded and installed difficult to authoritatively determine - so you have effectively lost some version control, and you cannot depend on others to be able to determine what happened. Yes, the installed program could report a version, but programs can report any number and could report the same number for different actual versions. In short, your risks increase if you use pipe-to-shell.
-    
+
         That said, if you only use pipe-to-shell in a contained environment (e.g., a container or virtual machine with limited privileges) and throw away any produced executables, as it often happens in the test environments of continuous integration (CI) pipelines, pipe-to-shell is much less risky. Pipe-to-shell is also hard to avoid in some situations, depending on how the reused software is distributed, and sometimes it is not worth trying to avoid pipe-to-shell. So this is a tip that’s worth considering, but not always worth doing. **Remember**: focus on risk management, not total risk avoidance.
 
     5. Where important and practical, try to verify that the package is digitally signed by its expected creators (or at least its redistributors). Software to verify that a package is digitally signed, also called cryptographically signed, has been around for decades. In some situations, there is automated verification that the package does come from a particular redistributor. That said, it is often harder to ensure that you have the correct corresponding public keys (this is an example of a *key management* problem.) There is continuing work in this area, for example, the [sigstore](https://www.sigstore.dev/) project is working to make it significantly easier to digitally sign and verify software artifacts.  When you can practically create and verify digital signatures, take advantage of them.
@@ -1256,7 +1256,7 @@ You also need to ensure that your system is not vulnerable to a “dependency co
 
 [x] Consider downloading the software, but then only installing it a few days later after verifying there are no problems reported on that site
 
-### Updating Reused Software 
+### Updating Reused Software
 
 #### Updating Reused Software Components
 
@@ -1362,7 +1362,7 @@ First, make sure that you identify all inputs from potentially untrusted users, 
 
 At each remaining input from potentially untrusted users you need to validate the data that comes in. These input validation checks are a kind of security check, so you need to make sure that these input validation checks are non-bypassable, as we discussed earlier in the design principle *non-bypassability*. **As a reminder:** only trust security checks (including input validation) when they run on an environment you trust. This is especially important for JavaScript programs - since JavaScript can run on web browsers, it is easy to send security checks to the web browser and forget that *attackers* can control their own web browsers. Any input validation checks you do in an untrusted environment cannot be trusted. If you trust your server environment and not the client environment, then all security-relevant checks must be done in the server environment. We discussed this already, but it is important to emphasize because it is such a common and serious problem. Now let’s move on to how to actually validate input.
 
-### How Do You Validate Input? 
+### How Do You Validate Input?
 
 You should determine what is legal, as narrowly as you reasonably can, and reject anything that does not match that definition. Using rules that define what is legal, and by implication rejecting everything else, is called *allowlisting* (the rules themselves are an *allowlist*). Synonyms are *goodlisting* (the rules are the *goodlist*) and the historically common *whitelisting* (the rules are the *whitelist*). In general, do not do the reverse. That is, it is normally a mistake to try to identify what is illegal and write code to reject just those cases. This generally insecure approach, where you try to list everything that should be rejected, is called *denylisting* (the rules are a *denylist*). Synonyms for denylisting are *badlisting* and the historically common *blacklisting* (the rules are then called a *badlist* or  *blacklist*). Denylisting typically leads to security vulnerabilities, because if you forget to handle one or more important cases of illegal input, it could be an opportunity for an attacker. If you forget to allow a case, you get a bug report and your software fails securely. Besides, it is usually much easier to simply identify *what is allowed* and only allow those inputs. In a few rare cases you *can* absolutely be certain that you have enumerated all possible bad inputs, in which case denylisting is okay, but those are rare. Generally denylisting leads to trouble.
 
@@ -1374,7 +1374,7 @@ There is a good reason for identifying *illegal* values; use them as a set of te
 
 Later, we will discuss various kinds of security analysis tools. One kind, fuzzers, intentionally create a large number of malicious inputs that (among other things) test the quality of your input validation checks. But fuzzers do not guarantee to find all input validation problems. Instead, carefully implement your input validation, and then use tools to help you find problems you would have otherwise missed.
 
-Again, your code should use *allowlisting* (narrowly identifying what is legal and reject the rest), not *denylisting* (trying to identify bad inputs). Try to make that allowlist pattern as narrow as possible, including limiting the maximum input length (and minimum input length if appropriate). 
+Again, your code should use *allowlisting* (narrowly identifying what is legal and reject the rest), not *denylisting* (trying to identify bad inputs). Try to make that allowlist pattern as narrow as possible, including limiting the maximum input length (and minimum input length if appropriate).
 
 ### Quiz 1.1
 
@@ -1518,7 +1518,7 @@ Now that we have an understanding about text, let’s talk about validating it. 
 
 * Check if it is within the minimum and maximum lengths, if there are minimum and maximum lengths. Many systems will want to have a maximum simply to prevent attackers from sending absurdly-large amounts of data.
 
-In some cases it may be very difficult to check much more. Personal names, in particular, are challenging, especially if you must deal with names in all locales. Many locales have conventions that are different from other locales; for example, is the given name or the surname (e.g., family name) listed first? There may not even be a surname or a given name. Names may contain spaces (even within a given name or surname), and, of course, there is no guarantee that the name uses only Latin or Chinese characters. For a discussion of the challenges, see the [*Falsehoods Programmers Believe About Names – With Examples*](https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/) article by Tony Rogers (2018). 
+In some cases it may be very difficult to check much more. Personal names, in particular, are challenging, especially if you must deal with names in all locales. Many locales have conventions that are different from other locales; for example, is the given name or the surname (e.g., family name) listed first? There may not even be a surname or a given name. Names may contain spaces (even within a given name or surname), and, of course, there is no guarantee that the name uses only Latin or Chinese characters. For a discussion of the challenges, see the [*Falsehoods Programmers Believe About Names – With Examples*](https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/) article by Tony Rogers (2018).
 
 In many cases, though, there is more that you should do to validate text. In many cases, text values have additional rules they need to obey, and those rules vary depending on each text input.
 
@@ -1644,7 +1644,7 @@ NFA implementations of regexes - and that is most of them - *backtrack* whenever
 
 2. Within these repeated subexpressions, there are additional repetition symbols and expressions that match a suffix of another match. ([OWASP ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service&#95;-&#95;ReDoS))
 
-A trivial example is the regex pattern “**^(a+)+$**”. Let’s imagine that an attacker provided the input value ”**aaaaX**”. An NFA will match the input first letter “**a**” with the “a” in the pattern easily, but then the regex implementation has two options: should it try to apply the *inner* “**+**” or the *outer* “**+**” to the next letter? Most implementations would try the inner one first, and then backtrack as needed. In the worst case, an NFA has to try out *all* possible combinations. Thus, to determine if the input “**aaaaX**” matches the pattern, an NFA regex has to try out 16 possible paths (all possibilities), with each one eventually failing because of the trailing “**X**”. If the attacker provides the input “**aaaaaaaaaaaaaaaaX**” there would be 65536 possible paths, with the number of paths doubling for each additional “**a**”. If an attacker provided 80 ‘**a**’s followed by **X**, that thread will try to process all combinations, which would take so long that it would become a denial-of-service. 
+A trivial example is the regex pattern “**^(a+)+$**”. Let’s imagine that an attacker provided the input value ”**aaaaX**”. An NFA will match the input first letter “**a**” with the “a” in the pattern easily, but then the regex implementation has two options: should it try to apply the *inner* “**+**” or the *outer* “**+**” to the next letter? Most implementations would try the inner one first, and then backtrack as needed. In the worst case, an NFA has to try out *all* possible combinations. Thus, to determine if the input “**aaaaX**” matches the pattern, an NFA regex has to try out 16 possible paths (all possibilities), with each one eventually failing because of the trailing “**X**”. If the attacker provides the input “**aaaaaaaaaaaaaaaaX**” there would be 65536 possible paths, with the number of paths doubling for each additional “**a**”. If an attacker provided 80 ‘**a**’s followed by **X**, that thread will try to process all combinations, which would take so long that it would become a denial-of-service.
 
 We use the term *vulnerable regexes* for regex patterns with this awful worst-case behavior. A common industry term for these patterns is *evil regexes*. It is not that the regex is provided by an attacker necessarily, it is just that their worst-case behavior is “evil” and this makes them vulnerable to attack. Another term for this behavior is *catastrophic backtracking*.
 
@@ -1665,7 +1665,7 @@ There are many solutions to this problem, including the following:
 3. Where you can, limit the maximum length of input strings and check the input length first. If inputs must be short, the exponential growth in time will still end up as a small total amount of time.
 
 4. Implement a timeout, on the regex (if supported) or on the application as a whole. For example, [Ruby 3.2](https://www.ruby-lang.org/en/news/2022/04/03/ruby-3-2-0-preview1-released/) supports a global regex timeout value (`Regexp.timeout`) and a timeout parameter when instantiating a regular expression object. The [.NET framework MatchTimeout mechanisms](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.matchtimeout) can also set a global timeout value or one for each regex.
- 
+
 5. Don’t run regexes provided by attackers on systems you trust. It is okay for an adversary to provide a regex that they themselves always run (in that case, attackers just attack themselves). But if attackers can provide regexes that you run, they may be able to cause a ReDOS (unless you have taken other steps to prevent it). Regexes are, in general, programming languages, and you should generally avoid running attacker-provided programs. It is possible to do it relatively securely, but you need to take a lot of precautions and it is always more secure to just not do it.
 
 If you are interested in more details, see the [OWASP discussion](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service&#95;-&#95;ReDoS) about this.
@@ -1922,7 +1922,7 @@ Here are some examples of resources an input might disproportionately consume:
 
 * Storage space — e.g., a compressed file might expand to fill storage.
 
-* Concurrency limits — e.g., an input can cause a thread/process to run slowly, causing the software to reach concurrency maximums (e.g., the number of threads, processes, or database connections). 
+* Concurrency limits — e.g., an input can cause a thread/process to run slowly, causing the software to reach concurrency maximums (e.g., the number of threads, processes, or database connections).
 
 The risks of these can be reduced via authentication, since then attackers have to expose some information about themselves. In general, try to eliminate at least the unauthenticated ones, and consider requiring some kind of authentication for the rest ([*Not all attacks are equal: understanding and preventing DoS in web applications*](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/), by Jacob Kaplan-Moss, 2020).
 
@@ -2123,7 +2123,7 @@ Unbounded writes are not the only problem. Historically, people worried about ou
 
 ![image alt text](heartbleed.png)
 
-**Heartbleed Explained**. Retrieved from [xkcd](https://xkcd.com/1354/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
+**Heartbleed Explained**. Retrieved from [xkcd](https://xkcd.com/1354/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
 > 😱 STORY TIME: Heartbleed
 
@@ -2215,7 +2215,7 @@ Many programming languages are defined in some sort of formal specification. Whe
 
 Sometimes these specifications will permit one of several different options (this is sometimes called “unspecified behavior” or “compiler-specific behavior”). You should normally try to write your code so that it does not matter which permitted option is used, it will just keep working. Languages that support threading allow the threads to execute in parallel and in arbitrary order. In many languages, the order of operations in a call such as **f(aa, bb, cc)** is not defined (that is, it does not guarantee that **aa** or **cc** is computed first). Beware of depending on what your tools currently do, because when the tools are upgraded what they do may change. For many developers, dealing with this is already second nature.
 
-However, some languages (such as C and C++) have constructs with truly *undefined behavior*. That is, if you take certain actions, the specification guarantees *absolutely nothing*. For example, the [C FAQ](http://c-faq.com/ansi/undef.html) notes that with undefined behavior, *“Anything at all can happen; the Standard imposes no requirements. The program may fail to compile, or it may execute incorrectly (either crashing or silently generating incorrect results), or it may fortuitously do exactly what the programmer intended.”* 
+However, some languages (such as C and C++) have constructs with truly *undefined behavior*. That is, if you take certain actions, the specification guarantees *absolutely nothing*. For example, the [C FAQ](http://c-faq.com/ansi/undef.html) notes that with undefined behavior, *“Anything at all can happen; the Standard imposes no requirements. The program may fail to compile, or it may execute incorrectly (either crashing or silently generating incorrect results), or it may fortuitously do exactly what the programmer intended.”*
 
 Any undefined behavior can be - and often is - a security vulnerability. Even if it just happens to not be a security vulnerability today, a minor upgrade in your tools, operating system, or configuration might turn it into a vulnerability.
 
@@ -2223,7 +2223,7 @@ Many languages have at least some undefined behaviors, and so, if you use those 
 
 In C and C++, a null pointer dereference is also undefined (e.g., evaluating “**&#42;p**” when **p** is **NULL**). This means that an attempt to dereference a null pointer does not necessarily lead to trying to read an invalid value, the program might do *anything* at all.
 
-🔔 *Null Pointer Dereference* ([CWE-476](https://cwe.mitre.org/data/definitions/476.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #15 and 2019 CWE Top 25 #14. 
+🔔 *Null Pointer Dereference* ([CWE-476](https://cwe.mitre.org/data/definitions/476.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #15 and 2019 CWE Top 25 #14.
 
 In C  and C++, signed integer overflow is undefined (e.g., an **int** with value **MAX_INT** with 1 added to it). There is no guarantee that signed integers wrap; instead, the program might do anything at all.
 
@@ -2406,7 +2406,7 @@ forget to do it.
 The mistake can happen at the beginning, or later when the code is modified,
 but experience shows that the mistake *will* happen.
 
-🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2021 CWE Top 25 #6 and 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*. 
+🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2021 CWE Top 25 #6 and 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*.
 
 Again, we want to try to use an approach that is easy to use correctly - it needs to be secure by default.
 
@@ -2489,7 +2489,7 @@ Python sqlite3 library documentation
 ~~~~
 
 Here's an example of a query in go from the [go.dev documentation on querying](https://go.dev/doc/database/querying):
- 
+
 ~~~~go
     rows, err := db.Query("SELECT * FROM album WHERE artist = ?", artist)
 ~~~~
@@ -2587,7 +2587,7 @@ This weakness can lead to vulnerabilities. For example:
    [mysqljs/mysql](https://github.com/mysqljs/mysql)
    as of early 2022 is often exploitable through its parameterized library
    *if* a JavaScript object can be sent as a parameter to it
-   (see 
+   (see
    [Finding an Authorization Bypass on my Own Website](https://maxwelldulin.com/BlogPost?post=9185867776) by Maxwell Dulin (ꓘ)).
 
 That last issue for application-side processing
@@ -2783,7 +2783,7 @@ Technically, a “**pathname**” is a sequence of bytes that describes how to f
 
 Pathnames are often at least partly controlled by an untrusted user. For example, it is often useful to use filenames as a key to identify relevant data, but this can lead to untrusted users controlling filenames. Another example is when monitoring or managing shared systems (e.g., virtual machines or containerized filesystems); in this case, an untrusted monitoree controls filenames. Even when an attacker should not be able to gain this kind of control, it is often important to counter this kind of problem as a defense-in-depth measure, to counter attackers who gain a small amount of control.
 
- 
+
 
 #### Path Traversal
 
@@ -2837,7 +2837,7 @@ The fundamental problem is that the VestaCP application presumed that any files 
 
 The details of this attack were described as follows ([SSD Disclosure, SSD Advisory – VestaCP LPE Vulnerabilities, March 20, 2021](https://ssd-disclosure.com/ssd-advisory-vestacp-lpe-vulnerabilities/)). An attacker could go to their user web directory inside their home directory and create a directory with the name of the domain they wish to attack (e.g., *pwned.pwn*) that is controlled by the system. Inside that directory, the attacker would create another directory called `public_xhtml`. And inside `public_xhtml` the attacker would create a symlink (e.g., *pwn.pwn*) to the desired file the attacker wanted to read, e.g., the login secret in the admin account’s user.conf file. Also in the directory of the domain, *pwned.pwn*, the attacker would create symlinks to the folders which the attacker doesn’t have permission to access, e.g., `/usr/local/vesta/data/users` and `/usr/local/vesta/data/users/admin`. The attacker can then trigger the vulnerability by creating a domain with the name *pwned.pwn* in the /add/web URL of VestaCP. The attacker can now read the secret contents of the user.conf of admin, allowing the attacker to change the admin password.
 
- 
+
 🔔 2021 CWE Top 25 #31 is [CWE-59](https://cwe.mitre.org/data/definitions/59.html), Improper Link Resolution Before File Access ('Link Following').
 
 ### Quiz 3.4
@@ -3010,7 +3010,7 @@ Assertions are often great, because they can stop problems before they get more 
 
 * Limit scope of the assertion response (exception handler) to the attacker’s session where you can. For example, try to crash just that connection, not all connections, if an assertion fails.
 
-🔔 A *Reachable Assertion* (an assertion an attacker can trigger), [CWE-617](https://cwe.mitre.org/data/definitions/617.html), is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #40. 
+🔔 A *Reachable Assertion* (an assertion an attacker can trigger), [CWE-617](https://cwe.mitre.org/data/definitions/617.html), is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #40.
 
 Inserting assertions can make a verification technique called “fuzzing” more effective. So, it is often a good idea to have many assertions, as long as they are expressions that absolutely *should* always be true. We will discuss fuzzing in more detail later.
 
@@ -3036,11 +3036,11 @@ Another way to make DoS attacks more difficult is to reduce the amount of resour
 
 🔔 There are several kinds of (related) resource handling vulnerabilities, and any of them can eventually lead to a denial of service. What is more, they are common problems:
 
-* *Uncontrolled Resource Consumption* ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #27 and 2019 CWE Top 25 #20. 
+* *Uncontrolled Resource Consumption* ([CWE-400](https://cwe.mitre.org/data/definitions/400.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #27 and 2019 CWE Top 25 #20.
 
 * This is highly related to having a missing release of resources, 2019 CWE Top 25 #21, [CWE-772](https://cwe.mitre.org/data/definitions/772.html), *Missing Release of Resource after Effective Lifetime*.
 
-* *Allocation of Resources Without Limits or Throttling* ([CWE-770](https://cwe.mitre.org/data/definitions/770.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #40 and 2019 CWE Top 25 #39.  
+* *Allocation of Resources Without Limits or Throttling* ([CWE-770](https://cwe.mitre.org/data/definitions/770.html)) is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #40 and 2019 CWE Top 25 #39.
 
 An obvious but surprisingly common problem is loops where an attacker can cause the exit condition to never occur, causing the program to get stuck in an infinite loop without getting work done.
 
@@ -3528,7 +3528,7 @@ The main solution is to ensure that you greatly limit how you construct any URLs
 
 [Explanation]
 
-Not at all! If possible, don’t use untrusted data to create these URLs. If you must (and you often must), maximally limit the URLs that can be constructed and ensure that only *safe* URLs can be constructed. 
+Not at all! If possible, don’t use untrusted data to create these URLs. If you must (and you often must), maximally limit the URLs that can be constructed and ensure that only *safe* URLs can be constructed.
 
 [Explanation]
 
@@ -3570,9 +3570,9 @@ Sometimes the information may vary depending on the origin of the requestor (thi
 
 Details on how to enable CORS for a large variety of circumstances is available at [enable-cors.org](https://enable-cors.org/). You can also check out the following resources for more details:
 
-* [Web Hypertext Application Technology Working Group (WHATWG). ](https://fetch.spec.whatwg.org/)[*Fetch*](https://fetch.spec.whatwg.org/) 
+* [Web Hypertext Application Technology Working Group (WHATWG). ](https://fetch.spec.whatwg.org/)[*Fetch*](https://fetch.spec.whatwg.org/)
 
-* [Mozilla’s ](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[*Same-origin policy*](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[ documentation](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) 
+* [Mozilla’s ](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[*Same-origin policy*](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[ documentation](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
 
 * [Mozilla’s Cross-Origin Resource Sharing (CORS) documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
@@ -3970,7 +3970,7 @@ There are many fuzzers, and a lot of research has focused on improving them. His
 
 #### Using Fuzzers Effectively
 
-Fuzzers can be really useful for finding vulnerabilities. If you use one, it is often wise to add and enable program assertions. This turns internal state problems - which might not be detected by the fuzzer - into a crash, which a fuzzer can easily detect. If you are running a C/C++ program, you should consider running a fuzzer in combination with address sanitizer (ASAN) - ASAN will turn some memory access problems that would normally quietly occur into a crash, and again, this transformation improves the fuzzer’s ability to detect problems. 
+Fuzzers can be really useful for finding vulnerabilities. If you use one, it is often wise to add and enable program assertions. This turns internal state problems - which might not be detected by the fuzzer - into a crash, which a fuzzer can easily detect. If you are running a C/C++ program, you should consider running a fuzzer in combination with address sanitizer (ASAN) - ASAN will turn some memory access problems that would normally quietly occur into a crash, and again, this transformation improves the fuzzer’s ability to detect problems.
 
 Both the Firefox and Chromium web browsers use fuzzers, combined with ASAN, to try to detect vulnerabilities before releasing new versions.
 
@@ -4126,13 +4126,13 @@ An easy design-centric approach is one developed by Microsoft called STRIDE. We 
 
 Microsoft recommends doing the following steps for any threat modeling (attack modeling) approach ([Microsoft Threat Modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling)):
 
-1.  Define security requirements. 
+1.  Define security requirements.
 
-2.  Create an application diagram. 
+2.  Create an application diagram.
 
-3.  Identify threats. 
+3.  Identify threats.
 
-4.  Mitigate threats. 
+4.  Mitigate threats.
 
 5.  Validate that threats have been mitigated.
 
@@ -4216,7 +4216,7 @@ Cryptography provides a set of tools that can sometimes help develop secure soft
 
 ![image alt text](xkcd_security.png)
 
-**Security**, retrieved from [xkcd](https://xkcd.com/538/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
+**Security**, retrieved from [xkcd](https://xkcd.com/538/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
 That said, in *some* systems cryptography is a vitally important part of making a system secure. Cryptography is often used to protect sensitive data’s confidentiality, and it can do that in two ways: *at rest* (storing the information in an encrypted form) and *in transit* (transmitting the information in an encrypted form). Cryptography can also, with certain limits, verify that information is from someone with a corresponding key, and/or verify that certain data has not been changed.
 
@@ -4370,9 +4370,9 @@ One challenge is historical: today, the name *random* in programming language li
 
 ![In this figure getRandomNumber is implemented by returning the constant 4, a number chosen by fair dice roll and claimed to be guaranteed to be random.](random_number.png)
 
-**Random Number**, retrieved from [xkcd.com](https://xkcd.com/221), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
+**Random Number**, retrieved from [xkcd.com](https://xkcd.com/221), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
-Instead, for cryptography and security-related tasks you need to use a [cryptographically secure pseudo-random number generator (CSPRNG)](https://en.wikipedia.org/wiki/Cryptographically-secure_pseudorandom_number_generator) for crypto and security-related tasks. Put another way, there are many pseudo-random number generator (PRNG) algorithms and implementations, but for security, you should *only* use PRNGs that are cryptographically secure PRNGs (CSPRNGs). A good CSPRNG prevents practically predicting the next output given past outputs (at greater than random chance) and it also prevents revealing past outputs if its internal state is compromised. CSPRNGs are also called cryptographic PRNGs (CPRNGs). Typically a CSPRNG implementation's name will have “secure” and/or “crypto” in it. In their documentation, you may see references to well-accepted CSPRNG algorithms such as Yarrow, Fortuna, ANSI X9.17 (which can use any block cipher), NIST SP 800-90A’s Hash_DRBG, HMAC_DRBG, and CTR_DRBG. 
+Instead, for cryptography and security-related tasks you need to use a [cryptographically secure pseudo-random number generator (CSPRNG)](https://en.wikipedia.org/wiki/Cryptographically-secure_pseudorandom_number_generator) for crypto and security-related tasks. Put another way, there are many pseudo-random number generator (PRNG) algorithms and implementations, but for security, you should *only* use PRNGs that are cryptographically secure PRNGs (CSPRNGs). A good CSPRNG prevents practically predicting the next output given past outputs (at greater than random chance) and it also prevents revealing past outputs if its internal state is compromised. CSPRNGs are also called cryptographic PRNGs (CPRNGs). Typically a CSPRNG implementation's name will have “secure” and/or “crypto” in it. In their documentation, you may see references to well-accepted CSPRNG algorithms such as Yarrow, Fortuna, ANSI X9.17 (which can use any block cipher), NIST SP 800-90A’s Hash_DRBG, HMAC_DRBG, and CTR_DRBG.
 
 **🚩 Never use the algorithm Dual_EC_DRBG, as it is widely accepted that this is a subverted and insecure algorithm.**
 
@@ -4712,7 +4712,7 @@ If your update causes problems, people will reject it and learn to not accept an
 
 ![image alt text](worst.png)
 
-**Worst Thing That Could Happen**, retrieved from [xkcd.com](https://xkcd.com/2261/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/) 
+**Worst Thing That Could Happen**, retrieved from [xkcd.com](https://xkcd.com/2261/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
 #### Limiting Disclosure and the FIRST Traffic Light Protocol (TLP)
 
@@ -4734,7 +4734,7 @@ The TLP color is shown in all-caps after “**TLP:**”, so you will see **TLP:R
 
 * **TLP:WHITE**  = Disclosure is not limited.
 
- 
+
 
 #### Get a CVE and Compute CVSS
 
@@ -4760,7 +4760,7 @@ Once the fix is ready, release it. You will need to tell the world the software 
 
 If there are workarounds that can be applied without updating the software, be sure to note those. This is particularly important if:
 
-* there are likely to be many users who cannot update their software, or 
+* there are likely to be many users who cannot update their software, or
 
 * the vulnerability is publicly known, but the patch will not be released for some time.
 
@@ -4818,7 +4818,7 @@ Coordinated disclosure time limits (aka *embargo periods*) vary greatly. This ti
 
 * [oCERT](http://ocert.org/): 14 days standard; 7 days if trivial, 30 days if critical/complex, up to 2 months “extremely exceptional”
 
-* [CERT/CC](https://www.cert.org/vulnerability-analysis/vul-disclosure.cfm): 45 days “regardless of the existence… of patches or workarounds… Extenuating circumstances … may result in earlier or later disclosure... We will not distribute exploits” 
+* [CERT/CC](https://www.cert.org/vulnerability-analysis/vul-disclosure.cfm): 45 days “regardless of the existence… of patches or workarounds… Extenuating circumstances … may result in earlier or later disclosure... We will not distribute exploits”
 
 * [Google Project Zero](https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-faq.html): 90 days.
 
@@ -4856,7 +4856,7 @@ We could then repeatedly break each item down further. For example, we might div
 
 * For implementation, we might show that we countered all the “top” vulnerabilities identified by some widely-accepted and relevant list of top vulnerabilities.
 
-* For verification, we might show that we use a variety of tools to detect vulnerabilities before the software is released. 
+* For verification, we might show that we use a variety of tools to detect vulnerabilities before the software is released.
 
 For a detailed discussion and template for creating an assurance case, see [*A Sample Security Assurance Case Pattern*](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). If you would like to see an actual example, you can see the [OpenSSF Best Practices BadgeApp assurance case](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md).
 
@@ -5159,7 +5159,7 @@ Today formal methods are only used in special circumstances, but they might beco
 
 [x] A model-checker takes a model and tries to exhaustively show it’s true in all cases.
 
- 
+
 
 ## Top Vulnerability Lists
 
@@ -5471,7 +5471,7 @@ In real life security is a process - a journey - and not a simple endpoint. We h
 
 Attacker: A person who attacks computer systems.
 
-Hardening a system: Modifying a system so that defects are less likely to become security vulnerabilities. 
+Hardening a system: Modifying a system so that defects are less likely to become security vulnerabilities.
 
 Hacker: “a person who delights in having an intimate understanding of the internal workings of a system, computers and computer networks in particular.” ([IETF RFC 1983](https://tools.ietf.org/html/rfc1983))
 
@@ -6007,7 +6007,7 @@ Security.txt ([https://securitytxt.org/](https://securitytxt.org/))
 
 Sentinel Labs, “CVE-2021-45608 | NetUSB RCE Flaw in Millions of End User Routers” ([https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/](https://www.sentinelone.com/labs/cve-2021-45608-netusb-rce-flaw-in-millions-of-end-user-routers/))
 
-Shahin, Mojtaba; Babar, Muhammad Ali; Zhu, Liming, *Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*, IEEE Access, 2017 ([https://arxiv.org/abs/1703.07019](https://arxiv.org/abs/1703.07019))  
+Shahin, Mojtaba; Babar, Muhammad Ali; Zhu, Liming, *Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*, IEEE Access, 2017 ([https://arxiv.org/abs/1703.07019](https://arxiv.org/abs/1703.07019))
 
 Shevchenko, Nataliya, *Threat Modeling: 12 Available Methods*, 2018 ([https://insights.sei.cmu.edu/sei_blog/2018/12/threat-modeling-12-available-methods.html](https://insights.sei.cmu.edu/sei_blog/2018/12/threat-modeling-12-available-methods.html))
 
@@ -6023,7 +6023,7 @@ State of California, *California Online Privacy Protection Act (OPPA), CHAPTER 2
 
 State of California, *California Consumer Privacy Act (CCPA)*, 2018 ([https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5))
 
-Stilgherrian, *Relying on bug bounties ‘not appropriate risk management’: Katie Moussouris*, 2019 ([https://www.zdnet.com/article/relying-on-bug-bounties-not-appropriate-risk-management-katie-moussouris/](https://www.zdnet.com/article/relying-on-bug-bounties-not-appropriate-risk-management-katie-moussouris/)) 
+Stilgherrian, *Relying on bug bounties ‘not appropriate risk management’: Katie Moussouris*, 2019 ([https://www.zdnet.com/article/relying-on-bug-bounties-not-appropriate-risk-management-katie-moussouris/](https://www.zdnet.com/article/relying-on-bug-bounties-not-appropriate-risk-management-katie-moussouris/))
 
 Swift, *Optional Chaining* ([https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html))
 
