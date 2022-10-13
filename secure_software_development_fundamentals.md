@@ -5001,7 +5001,7 @@ test, and inference.
 This is an active area of study, and terminology varies.
 That said, there many kinds of potential attacks on ML systems, including:
 
-* *Evasion* ("do the wrong thing").
+* *Evasion* ("do/infer the wrong thing").
   In an evasion attack, the attacker provides a modified input to
   an ML system's classifier during inference so it's misclassified
   while keeping the modification as small as possible.
@@ -5010,16 +5010,20 @@ That said, there many kinds of potential attacks on ML systems, including:
   convince a self-driving car to unexpectedly swerve into oncoming traffic.
   Such modified inputs are sometimes called *adversarial inputs*.
   Adversarial inputs can enable the attacker to control the system depending on
-  the classifier, leading to a loss of integrity and/or availability.
+  the classifier.
+  Thus, this kind of attack may lead to a loss of integrity and/or availability.
 * *Poisoning* ("learn the wrong thing").
   In a poisoning attack, the attacker manipulate data that will be used as
   training data, e.g., to reduce performance, cause misclassification, and/or
   insert backdoors
   (Nicolae et al, 2019).
-  This can lead to a loss of integrity and/or availability.
+  ML systems typically need a large amount of training data;
+  some attackers may even create or manipulate publicly-available
+  data if it is likely to be eventually used for training.
+  This kind of attack may lead to a loss of integrity and/or availability.
 * *Loss of confidentiality* ("reveal the wrong thing").
-  An attacker may be able use query results to reveal hidden information,
-  leading to a loss of confidentiality.
+  An attacker may be able use query results to reveal hidden information.
+  Thus, this kind of attack may lead to a loss of confidentiality.
   This kind of attack can be subdivided further, for example:
     * *Extraction*.
       In an extraction attack, the attacker extracts the parameters or
@@ -5035,7 +5039,7 @@ That said, there many kinds of potential attacks on ML systems, including:
       reconstruct (some) data used to train the model, including
       private and/or secret data (Tabassi 2019).
 
-Significant work has especially focused on countering evasion
+Work has especially focused on countering evasion
 (adversarial inputs) in ML systems.
 Unfortunately, many approaches that *appear* to counter evasion fail to
 counter non-naïve attackers.
@@ -5064,15 +5068,16 @@ for your circumstances.
 Adversarial ML is an active research area.
 Before using countermeasures,
 determine if the countermeasures will be adequate for your purposes.
+Many countermeasures only work against naive attackers who do not
+compensate for countermeasures.
+Depending on your purposes,
+there may not be *any* countermeasure that adequately counters attackers
+with adequate confidence.
 *Many* countermeasures have been proposed and later found to be inadequate.
-As of this writing we don't know of any countermeasure for evasion
-(adversarial inputs) with a strong industry-wide
-confidence that it fully counters
-determined adversaries (we would love to know of one).
 One paper that discusses how to evaluate countermeasures is by
 [Nicholas Carlini, Anish Athlye, Nicolas Papernot, et al., “On Evaluating Adversarial Robustness”, 2019-02-20](https://arxiv.org/pdf/1902.06705).
 We hope that in future there will be better countermeasures with
-more confidence in them.
+more industry-wide confidence.
 
 ### Formal Methods
 
