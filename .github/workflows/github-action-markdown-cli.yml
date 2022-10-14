@@ -10,9 +10,9 @@ jobs:
       # From https://github.com/marketplace/actions/markdownlint-cli
       - name: Run markdownlint-cli
         uses: nosborn/github-action-markdown-cli@v3.2.0
-        env:
-          INPUT_FILES: '**/*.md'
-        # with:
+        with:
+          files: .
+          dot: true
         #   config_file: .markdownlint.yaml
         #   dot: false
         #   files: 'secure_software_development_fundamentals.md'
