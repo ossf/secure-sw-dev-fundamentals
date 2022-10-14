@@ -13,9 +13,8 @@ jobs:
         with:
           files: .
           dot: true
-        #   config_file: .markdownlint.yaml
-        #   dot: false
-        #   files: 'secure_software_development_fundamentals.md'
+          config_file: .markdownlint.yaml
+          ignore_files: google-doc.md
         #   rules: markdownlint-custom.js
         #   ignore_files: examples/ignore/*
         #   ignore_path: examples/.markdownlintignore

@@ -488,7 +488,7 @@ But when you develop software, you should take reasonable steps to *manage* risk
 
 One of the risks when developing and deploying software is that attacker(s) will exploit its vulnerabilities and cause harm to others. You cannot prevent attackers from trying to attack the system. In fact:
 
-**🚩 If people start using the software you develop, _expect_ that intelligent adversaries will try to attack it.**
+**🚩 If people start using the software you develop, *expect* that intelligent adversaries will try to attack it.**
 
 While you cannot prevent attackers from attacking software, you can make it difficult for an attack to succeed, or reduce the impact if an attack succeeds. You can do this by taking steps throughout software development and deployment to reduce the risks to an acceptably low level. If your software is widely-used or depended on for vital tasks, then it is especially important that you work to manage those risks to your users.
 
@@ -1246,7 +1246,7 @@ You also need to ensure that your system is not vulnerable to a “dependency co
 🔔 Dependency confusion is a special case of 2021 CWE Top 25 #34, *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)). Relying on plugins, libraries, or modules from untrusted sources, and relying on untrustworthy content delivery networks, is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
 
 
-##e Quiz 3.2
+### Quiz 3.2
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
 
@@ -1306,7 +1306,7 @@ This is false. Sure, there are risks when reusing software, but there are risks 
 
 # Part I Final Exam
 
-*  Not included as part of the free version of the course.
+(Not included as part of the free version of the course.)
 
 # Part II: Implementation
 
