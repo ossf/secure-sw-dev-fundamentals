@@ -12,9 +12,9 @@ jobs:
         uses: nosborn/github-action-markdown-cli@v3.2.0
         env:
           INPUT_FILES: '**/*.md'
-        with:
-          config_file: .markdownlint.yaml
-          dot: false
+        # with:
+        #   config_file: .markdownlint.yaml
+        #   dot: false
         #   files: 'secure_software_development_fundamentals.md'
         #   rules: markdownlint-custom.js
         #   ignore_files: examples/ignore/*
