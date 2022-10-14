@@ -8,9 +8,9 @@ jobs:
       - name: Run markdownlint-cli
         uses: nosborn/github-action-markdown-cli@v3.2.0
         with:
-          files: .
+          files:  *.md
           config_file: .markdownlint.yaml
-          dot: false
+          dot: true
           # rules: markdownlint-custom.js
           # ignore_files: examples/ignore/*
           # ignore_path: examples/.markdownlintignore
