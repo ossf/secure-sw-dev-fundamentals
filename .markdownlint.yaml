@@ -1,9 +1,23 @@
-rules "~MD013/line-length"
-rules "~MD025/single-title/single-h1"
-rules "~MD036/no-emphasis-as-heading"
-rules "~MD033/no-inline-html"
-rules "~MD049/emphasis-style"
-rules "~MD012/no-multiple-blank"
-rules "~MD024/no-duplicate-heading/no-duplicate-header"
+# "~MD013/line-length"
+rules "~MD013"
 
-rules "~MD001/heading-increment/header-increment"
+# "~MD025/single-title/single-h1"
+rules "~MD025"
+
+# "~MD036/no-emphasis-as-heading"
+rules "~MD036"
+
+# "~MD033/no-inline-html"
+rules "~MD033"
+
+# "~MD049/emphasis-style"
+rules "~MD049"
+
+# "~MD012/no-multiple-blank"
+rules "~MD012"
+
+# "~MD024/no-duplicate-heading/no-duplicate-header"
+rules "~MD024"
+
+# "~MD001/heading-increment/header-increment"
+rules "~MD001"
