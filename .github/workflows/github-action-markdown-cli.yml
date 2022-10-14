@@ -1,20 +1,19 @@
 name: GitHub Actions
 on: [push, pull_request]
 jobs:
-  GitHub-Actions:
+  run-lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      # Run markdownlint
       # From https://github.com/marketplace/actions/markdownlint-cli
       - name: Run markdownlint-cli
         uses: nosborn/github-action-markdown-cli@v3.2.0
-        # Workaround: markdownlint ignores "files" parameter
-        env:
-          INPUT_FILES: 'secure_software_development_fundamentals.md'
-        # with:
+        with:
+          config_file: .markdownlint.yaml
+          dot: false
         #   files: 'secure_software_development_fundamentals.md'
-        #   config_file: .markdownlint.yaml
-        #   dot: true
         #   rules: markdownlint-custom.js
         #   ignore_files: examples/ignore/*
         #   ignore_path: examples/.markdownlintignore
-
