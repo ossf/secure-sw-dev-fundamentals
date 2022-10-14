@@ -3,13 +3,13 @@ on: [push, pull_request]
 jobs:
   GitHub-Actions:
     runs-on: ubuntu-latest
-    # Workaround: markdownlint doesn't seem to pay attention to "files" param
-    env:
-      INPUT_FILES: secure_software_development_fundamentals.md
     steps:
       # From https://github.com/marketplace/actions/markdownlint-cli
       - name: Run markdownlint-cli
         uses: nosborn/github-action-markdown-cli@v3.2.0
+        # Workaround: markdownlint ignores "files" parameter
+        env:
+          INPUT_FILES: 'secure_software_development_fundamentals.md'
         # with:
         #   files: 'secure_software_development_fundamentals.md'
         #   config_file: .markdownlint.yaml
