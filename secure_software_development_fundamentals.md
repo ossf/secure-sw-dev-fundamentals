@@ -5039,6 +5039,9 @@ That said, there are many kinds of potential attacks on ML systems, including:
       reconstruct (some) data used to train the model, including
       private and/or secret data (Tabassi 2019).
 
+(Credit: The simple descriptions shown above in parentheses and double-quotes
+were coined by Dr. Jeff Alstott.)
+
 Work has especially focused on countering evasion
 (adversarial inputs) in ML systems.
 Unfortunately, many approaches that *appear* to counter evasion fail to
