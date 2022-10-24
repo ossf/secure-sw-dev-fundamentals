@@ -4982,8 +4982,8 @@ Artificial intelligence (AI) is intelligence demonstrated by machines
 (intelligence of humans and animals is sometimes called natural intelligence).
 Machine learning (ML) is a field of inquiry devoted to
 understanding and building methods that 'learn', that is,
-methods that leverage data to improve performance on some set of tasks.
-(*Machine Learning*, Tom Mitchell)
+methods that leverage data to improve performance on some set of tasks
+(*Machine Learning*, Tom Mitchell).
 ML is often considered a subset of AI.
 A significant amount of AI security work today focuses on ML;
 we will take the same focus here.
@@ -5004,8 +5004,8 @@ That said, there are many kinds of potential attacks on ML systems, including:
 * *Evasion* ("do/infer the wrong thing").
   In an evasion attack, the attacker provides a modified input to
   an ML system's classifier during inference so it's misclassified
-  while keeping the modification as small as possible.
-  (Nicolae et al, 2019)
+  while keeping the modification as small as possible
+  (Nicolae et al, 2019).
   For example, an attacker might create subtle markings in a road to
   convince a self-driving car to unexpectedly swerve into oncoming traffic.
   Such modified inputs are sometimes called *adversarial inputs*.
@@ -6135,7 +6135,7 @@ Sim, Darren, *Security Vulnerability and Browser Performance Impact of Target="_
 
 Singh, Animesh, Anupama Murthy, and Christian Kadner,
 [Integrate adversarial attacks in a model training pipeline](https://developer.ibm.com/patterns/integrate-adversarial-attacks-model-training-pipeline/),
-2018-06-25,
+2018-06-25
 
 SSD Disclosure, SSD Advisory – VestaCP LPE Vulnerabilities, 2021-03-20, (<https://ssd-disclosure.com/ssd-advisory-vestacp-lpe-vulnerabilities/>)
 
