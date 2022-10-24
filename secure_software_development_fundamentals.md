@@ -4976,6 +4976,112 @@ When disposing, make sure you fully destroy any data you are supposed to destroy
 
 [ ] Fix any security issue rapidly, and then just move on to other problems. {{ selected: No, after you fix a security issue (incident), you should also try to find out *why* it happened (a “root cause analysis”) so you can fix the underlying cause. Otherwise, there is a good chance that similar problems will keep happening. }}
 
+### Artificial Intelligence (AI), Machine Learning (ML), and Security
+
+Artificial intelligence (AI) is intelligence demonstrated by machines
+(intelligence of humans and animals is sometimes called natural intelligence).
+Machine learning (ML) is a field of inquiry devoted to
+understanding and building methods that 'learn', that is,
+methods that leverage data to improve performance on some set of tasks
+(*Machine Learning*, Tom Mitchell).
+ML is often considered a subset of AI.
+A significant amount of AI security work today focuses on ML;
+we will take the same focus here.
+
+Building ML systems often involve several processes, namely
+training, testing, and inference. Inference is when the ML system is being
+used by its users.
+Many ML projects have assumed a closed and trusted environment where
+there are no security threats.
+However, this assumption is often unrealistic.
+
+*Adversarial machine learning* is the set of efforts to
+protect the ML pipeline to ensure its security during training,
+test, and inference.
+This is an active area of study, and terminology varies.
+That said, there are many kinds of potential attacks on ML systems, including:
+
+* *Evasion* ("do/infer the wrong thing").
+  In an evasion attack, the attacker provides a modified input to
+  an ML system's classifier during inference so it's misclassified
+  while keeping the modification as small as possible
+  (Nicolae et al, 2019).
+  For example, an attacker might create subtle markings in a road to
+  convince a self-driving car to unexpectedly swerve into oncoming traffic.
+  Such modified inputs are sometimes called *adversarial inputs*.
+  Adversarial inputs can enable the attacker to control the system depending on
+  the classifier.
+  Thus, this kind of attack may lead to a loss of integrity and/or availability.
+* *Poisoning* ("learn the wrong thing").
+  In a poisoning attack, the attacker manipulate data that will be used as
+  training data, e.g., to reduce performance, cause misclassification, and/or
+  insert backdoors
+  (Nicolae et al, 2019).
+  ML systems typically need a large amount of training data;
+  some attackers may even create or manipulate publicly-available
+  data if it is likely to be eventually used for training.
+  This kind of attack may lead to a loss of integrity and/or availability.
+* *Loss of confidentiality* ("reveal the wrong thing").
+  An attacker may be able to use query results to reveal hidden information.
+  Thus, this kind of attack may lead to a loss of confidentiality.
+  This kind of attack can be subdivided further, for example:
+    * *Extraction*.
+      In an extraction attack, the attacker extracts the parameters or
+      structure of the model from observations of the model’s predictions
+      (Tabassi 2019).
+    * *(Membership) inference*.
+      In a membership inference attack, the attacker
+      uses target model query results to determine if specific
+      data points belong to the same distribution as the training dataset
+      (Tabassi 2019).
+    * *(Model) inversion*.
+      In an inversion attack, the attacker is able to
+      reconstruct (some) data used to train the model, including
+      private and/or secret data (Tabassi 2019).
+
+(Credit: The simple descriptions shown above in parentheses and double-quotes
+were coined by Dr. Jeff Alstott.)
+
+Work has especially focused on countering evasion
+(adversarial inputs) in ML systems.
+Unfortunately, many approaches that *appear* to counter evasion fail to
+counter non-naïve attackers.
+Here are some example approaches that don't counter determined attackers:
+
+* *Adversarial training* creates adversarial inputs, then trains the
+  model on those inputs. This can improve robustness, but an attacker can
+  simply repeat this process more often than the defender.
+* *Null labeling* attempts to train a model that certain inputs are likely
+  adversarial (and should be classified as "null" results).
+  Again, this appears to be weak against determined adversaries, as explained
+  by Carlini and Wagner
+  (“Adversarial Examples Are Not Easily Detected:
+  Bypassing Ten Detection Methods” by Nicholas Carlini & David Wagner, 2017.)
+
+One tool that may be helpful is the
+Adversarial Robustness Toolbox (ART)
+<https://github.com/Trusted-AI/adversarial-robustness-toolbox/wiki/>.
+The post
+[Integrate adversarial attacks in a model training pipeline](https://developer.ibm.com/patterns/integrate-adversarial-attacks-model-training-pipeline/),
+by Singh et al,
+provides an example of how ART can be integrated into a larger pipeline.
+However, before using any tool you need to determine if it's effective enough
+for your circumstances.
+
+Adversarial ML is an active research area.
+Before using countermeasures,
+determine if the countermeasures will be adequate for your purposes.
+Many countermeasures only work against naive attackers who do not
+compensate for countermeasures.
+Depending on your purposes,
+there may not be *any* countermeasure that adequately counters attackers
+with adequate confidence.
+*Many* countermeasures have been proposed and later found to be inadequate.
+One paper that discusses how to evaluate countermeasures is by
+[Nicholas Carlini, Anish Athlye, Nicolas Papernot, et al., “On Evaluating Adversarial Robustness”, 2019-02-20](https://arxiv.org/pdf/1902.06705).
+We hope that in the future there will be better countermeasures with
+more industry-wide confidence.
+
 ### Formal Methods
 
 Today most software needs to be developed to be “reasonably” or “adequately” secure. This course has focused on techniques to help you do that. However, if it is *extremely critical* that your software meet some criteria - such as some security criteria - there is an additional approach that you should be aware of: *formal methods*.
@@ -5798,6 +5904,11 @@ Butler, Ricky W., *What is Formal Methods?* ([https://shemesh.larc.nasa.gov/fm/f
 
 C FAQ list ([http://c-faq.com/ansi/undef.html](http://c-faq.com/ansi/undef.html))
 
+Carlini, Nicholas, & David Wagner, 2017,
+"Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods”
+
+Carlini, Nicholas Anish Athlye, Nicolas Papernot, et al., “On Evaluating Adversarial Robustness”, 2019-02-20, <https://arxiv.org/pdf/1902.06705>.
+
 Carnegie Mellon University: Software Engineering Institute, CERT Division ([https://sei.cmu.edu/about/divisions/cert/index.cfm](https://sei.cmu.edu/about/divisions/cert/index.cfm))
 
 Chen, Raymond, *Undefined behavior can result in time travel (among other things, but time travel is the funkiest)*, 2014-06-27, ([https://devblogs.microsoft.com/oldnewthing/20140627-00/?p=633](https://devblogs.microsoft.com/oldnewthing/20140627-00/?p=633))
@@ -5905,6 +6016,8 @@ Microsoft,  “3 Ways to Mitigate Risk When Using Private Package Feeds”, (<ht
 
 Minocha, Shreyas, *Regular Expressions for Regular Folk* ([https://refrf.shreyasminocha.me/](https://refrf.shreyasminocha.me/))
 
+Mitchell, Tom, 1997, *Machine Learning*. New York: McGraw Hill. ISBN 0-07-042807-7. OCLC 36417892.
+
 MITRE ([https://www.mitre.org/](https://www.mitre.org/))
 
 MITRE, Common Weakness Enumeration (CWE) ([https://cwe.mitre.org/](https://cwe.mitre.org/))
@@ -5921,11 +6034,16 @@ Mozilla, Rust vs. C++ in macOS Firefox Nightly ([https://docs.google.com/spreads
 
 Mozilla, *Same-Origin Policy* ([https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy))
 
-Newcombe, Chris; Rath, Tim; Zhang, Fan; Munteanu, Bogdan; Brooker, Marc; Daerdeuff, Michael, *Use of Formal Methods at Amazon Web Services*, 2014-09-29 ([https://lamport.azurewebsites.net/tla/formal-methods-amazon.pdf](https://lamport.azurewebsites.net/tla/formal-methods-amazon.pdf))
-
 National Vulnerability Database (NVD), CVE-2021-44228, (<https://nvd.nist.gov/vuln/detail/CVE-2021-44228>)
 
+Newcombe, Chris; Rath, Tim; Zhang, Fan; Munteanu, Bogdan; Brooker, Marc; Daerdeuff, Michael, *Use of Formal Methods at Amazon Web Services*, 2014-09-29 ([https://lamport.azurewebsites.net/tla/formal-methods-amazon.pdf](https://lamport.azurewebsites.net/tla/formal-methods-amazon.pdf))
+
 Newcombe, Chris; Rath, Tim; Zhang, Fan; Munteanu, Bogdan; Brooker, Marc; Daerdeuff, Michael, *How Amazon Web Services Uses Formal Methods*, Communications of the ACM, Vol. 58 No. 4, Pages 66-73, 10.1145/2699417, 2015-04 ([https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/fulltext](https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/fulltext))
+
+Nicolae, Maria-Irina, Mathieu Sinn, Minh Ngoc Tran, Beat Buesser, Ambrish Rawat, Martin Wistuba, Valentina Zantedeschi, Nathalie Baracaldo, Bryant Chen, Heiko Ludwig, Ian M. Molloy, Ben Edwards,
+Adversarial Robustness Toolbox v1.0.0
+2019-11-15
+<https://arxiv.org/abs/1807.01069>
 
 Official EU site for the GDPR text ([https://eur-lex.europa.eu/eli/reg/2016/679/oj](https://eur-lex.europa.eu/eli/reg/2016/679/oj))
 
@@ -6015,6 +6133,10 @@ Shu, Xiaokui; Ciambrone, Andrew; Yao, Danfeng, *Breaking the Target: An Analysis
 
 Sim, Darren, *Security Vulnerability and Browser Performance Impact of Target="_blank”*, 2019-03-23 ([https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547))
 
+Singh, Animesh, Anupama Murthy, and Christian Kadner,
+[Integrate adversarial attacks in a model training pipeline](https://developer.ibm.com/patterns/integrate-adversarial-attacks-model-training-pipeline/),
+2018-06-25
+
 SSD Disclosure, SSD Advisory – VestaCP LPE Vulnerabilities, 2021-03-20, (<https://ssd-disclosure.com/ssd-advisory-vestacp-lpe-vulnerabilities/>)
 
 State of California, *California Online Privacy Protection Act (OPPA)*, 2003 ([https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22575))
@@ -6026,6 +6148,12 @@ State of California, *California Consumer Privacy Act (CCPA)*, 2018 ([https://le
 Stilgherrian, *Relying on bug bounties ‘not appropriate risk management’: Katie Moussouris*, 2019 ([https://www.zdnet.com/article/relying-on-bug-bounties-not-appropriate-risk-management-katie-moussouris/](https://www.zdnet.com/article/relying-on-bug-bounties-not-appropriate-risk-management-katie-moussouris/))
 
 Swift, *Optional Chaining* ([https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html))
+
+Tabassi, Elham (NIST), Kevin Burns (MITRE), Michael Hadjimichael (MITRE), Andres Molina-Markham (MITRE), Julian Sexton (MITRE),
+A Taxonomy and Terminology of Adversarial Machine Learning
+NISTIR 8269 (Draft),
+October 2019
+https://csrc.nist.gov/publications/detail/nistir/8269/draft
 
 The Fuzzing Project ([https://fuzzing-project.org/](https://fuzzing-project.org/))
 
