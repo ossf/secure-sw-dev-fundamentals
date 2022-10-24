@@ -4999,7 +4999,7 @@ However, this assumption is often unrealistic.
 protect the ML pipeline to ensure its security during training,
 test, and inference.
 This is an active area of study, and terminology varies.
-That said, there many kinds of potential attacks on ML systems, including:
+That said, there are many kinds of potential attacks on ML systems, including:
 
 * *Evasion* ("do/infer the wrong thing").
   In an evasion attack, the attacker provides a modified input to
@@ -5022,7 +5022,7 @@ That said, there many kinds of potential attacks on ML systems, including:
   data if it is likely to be eventually used for training.
   This kind of attack may lead to a loss of integrity and/or availability.
 * *Loss of confidentiality* ("reveal the wrong thing").
-  An attacker may be able use query results to reveal hidden information.
+  An attacker may be able to use query results to reveal hidden information.
   Thus, this kind of attack may lead to a loss of confidentiality.
   This kind of attack can be subdivided further, for example:
     * *Extraction*.
@@ -5076,7 +5076,7 @@ with adequate confidence.
 *Many* countermeasures have been proposed and later found to be inadequate.
 One paper that discusses how to evaluate countermeasures is by
 [Nicholas Carlini, Anish Athlye, Nicolas Papernot, et al., “On Evaluating Adversarial Robustness”, 2019-02-20](https://arxiv.org/pdf/1902.06705).
-We hope that in future there will be better countermeasures with
+We hope that in the future there will be better countermeasures with
 more industry-wide confidence.
 
 ### Formal Methods
