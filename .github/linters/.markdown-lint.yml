@@ -1,18 +1,15 @@
 # Default state for all rules
 default: true
-# "~MD013/line-length"
-MD013: false
-# "~MD025/single-title/single-h1"
-MD025: false
-# "~MD036/no-emphasis-as-heading"
-MD036: false
-# "~MD033/no-inline-html"
-MD033: false
-# "~MD049/emphasis-style"
-MD049: false
-# "~MD012/no-multiple-blank"
-MD012: false
-# "~MD024/no-duplicate-heading/no-duplicate-header"
-MD024: false
-# "~MD001/heading-increment/header-increment"
-MD001: false
+MD013: false # MD013/line-length
+MD025: false # MD025/single-title/single-h1
+MD028: false # MD028/no-blanks-blockquote
+MD036: false # MD036/no-emphasis-as-heading
+MD033: false # MD033/no-inline-html
+MD049: false # MD049/emphasis-style
+MD012: false # MD012/no-multiple-blank
+MD024: false # MD024/no-duplicate-heading/no-duplicate-header
+MD001: false # MD001/heading-increment/header-increment
+# Fix these when you can:
+MD042: false # MD042/no-empty-links
+MD051: false # MD051/link-fragments Link fragments should be valid
+
