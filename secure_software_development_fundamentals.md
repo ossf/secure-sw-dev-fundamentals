@@ -2597,12 +2597,17 @@ can be confusing, so an example may help.
 In the Node.js mysqljs/mysql library,
 imagine that an attacker manages to provide
 the JavaScript *object* `{password = 1}` as the password parameter
-and it's used in the SQL query
-`SELECT * FROM accounts WHERE username = ? AND password = ?`.
+(this is not just a string, but an actual JavaScript object).
+Now imagine that this object is used in the SQL query
+<tt>SELECT &#42; FROM accounts WHERE username = ? AND password = ?</tt>
+(note that this is parameterized).
 The library will internally expand the expression after `AND`
-into `password = ``password`` = 1`.
-The MYSQL DBMS will interpret `password = ``password``` as 1 (true),
-and then determine that `1 = 1` is true.
+into <tt>password = &#96;password&#96; = 1</tt> because the library does simple
+text replacement of the second `?`, without noticing that a JavaScript object
+doesn't make sense in the context of this query (a string or number would
+be expected here).
+The MYSQL DBMS will interpret <tt>password = &#96;password&#96;</tt>
+as 1 (true), and then determine that `1 = 1` is true.
 The result: this expression will *always* be true.
 This incorrect escaping of a complex data type
 is enough to completely bypass authentication in some situations.
@@ -2610,7 +2615,8 @@ is enough to completely bypass authentication in some situations.
 Unfortunately, this last issue can be a challenge to solve:
 
 1. The safe solution is to make sure that complex data types
-   (types other than numbers and strings) are not expanded by the library
+   (types other than numbers and strings) are not expanded by
+   application-side libraries
    unless the developer specifically marks them as allowed.
    This may be impractical if the application already depends on this,
    and the library might not provide a way to fully disable the functionality.
@@ -3207,7 +3213,7 @@ In that case, where possible, use libraries *already designed* to allow only wha
 
 We have focused on escaping HTML, because that is the biggest problem in web applications. But HTML can embed other kinds of data, and of those, perhaps the most common are URLs.
 
-Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme&#58;[//authority]path[?query][#fragment]**. For example, in the URL **<https://www.linuxfoundation.org/about/>**, the scheme is “**https**”, authority “<b>www.linuxfoundation.org</b>”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, “**.**”, “**-**”, “**&#42;**”, and “**&#95;**”. The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
+Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme&#58;[//authority]path[?query]&#8202;[&#35;fragment]**. For example, in the URL **<https://www.linuxfoundation.org/about/>**, the scheme is “**https**”, authority “<b>www.linuxfoundation.org</b>”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, “**.**”, “**-**”, “**&#42;**”, and “**&#95;**”. The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
 
 #### XSS Alternatives
 
@@ -3497,7 +3503,7 @@ This is true! Yes, this is a weird and subtle point. There is reason to hope tha
 
 A Uniform Resource Locator (URL) is a way to refer to a specific web resource by location. Technically, a URL is a specific type of Uniform Resource Identifier (URI), but for our purposes we will use the terms interchangeably. As specified in [IETF RFC 3986](https://tools.ietf.org/html/rfc3986), a generic URI has this syntax:
 
-**scheme:[//authority]path[?query][#fragment]**
+**scheme:[//authority]path[?query]&#8202;[&#35;fragment]**
 
 And **authority** has this syntax:
 
