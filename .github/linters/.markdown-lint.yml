@@ -3,8 +3,9 @@ default: true
 MD013: false # MD013/line-length
 MD025: false # MD025/single-title/single-h1
 MD028: false # MD028/no-blanks-blockquote
-MD036: false # MD036/no-emphasis-as-heading
 MD033: false # MD033/no-inline-html
+MD036: false # MD036/no-emphasis-as-heading
+MD038: false # MD038/no-space-in-code Spaces inside code span elements
 MD049: false # MD049/emphasis-style
 MD012: false # MD012/no-multiple-blank
 MD024: false # MD024/no-duplicate-heading/no-duplicate-header
