@@ -212,7 +212,7 @@ Many add one more security objective: **non-repudiation** or **accountability**.
 
 These security objectives need some supporting mechanisms. For example, confidentiality and integrity require that there be a way to determine if an action is authorized (unless all requests are authorized). Here are some common supporting mechanisms:
 
-* **Identity & Authentication (I&A)**<br>Require users to identify themselves and prove (authenticate) their identity before doing anything that requires authorization. For example, they might use a username or email address as their identity, and use a password or hardware token to authenticate that they really are that user. This is typically done by a login process.
+* **Identification & Authentication (I&A)**<br>Require users to identify themselves and prove (authenticate) their identity before doing anything that requires authorization. For example, they might use a username or email address as their identity, and use a password or hardware token to authenticate that they really are that user. This is typically done by a login process.
 
 * **Authorization**<br>Determine what that user is allowed (authorized) to do before deciding to do it. You can think of authorization as a list of what each user is allowed to do. If it is easy for an attacker to add authorizations, then secure I&A means little. This is critical for implementing confidentiality and/or integrity. Watch out: the words *authentication* and *authorization* sound similar, but they are not the same thing. You may know exactly who someone is (authentication), but still not allow that person to do something (authorization).
 
