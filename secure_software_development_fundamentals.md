@@ -172,7 +172,7 @@ Choose the material that will provide you with the information you want to learn
 
 With that, let’s begin.
 
-# 1. Security Basics
+# Security Basics
 
 This chapter provides a high-level overview about security, including definitions of security and privacy, requirements, and risk management.
 
@@ -756,7 +756,7 @@ Identifying common kinds of vulnerabilities has another advantage, too: It will 
 
 (x) Avoiding common kinds of vulnerabilities is not enough by itself to make software secure, but it can be a significant help.
 
-# 2. Design
+# Design
 
 This chapter describes how to design software to be secure, focusing on key secure design principles such as least privilege, complete mediation, and input validation.
 
@@ -1100,7 +1100,7 @@ A good example of this is the Content Security Policy (CSP) supported by modern 
 
 [ ] Include control (including programs) with data, so that how to manipulate the data is easily provided with the code. {{ selected: That can be useful, but it is also dangerous from a security point of view. If an attacker manages to slip in “extra” information into data, this design can make it easy to cause a potentially-malicious program to be executed. Sometimes it is important to do this anyway, but it does create more complications when developing secure software. }}
 
-# 3. Reusing External Software
+# Reusing External Software
 
 This chapter describes how to reuse software with security in mind, including selecting, downloading, installing, and updating such software.
 
@@ -1304,13 +1304,13 @@ This is false. Sure, there are risks when reusing software, but there are risks 
 
 [Explanation]
 
-# Part I Final Exam
+# Part I: Final Exam
 
 * Not included as part of the free version of the course.
 
 # Part II: Implementation
 
-# 1. Basics of Implementation
+# Basics of Implementation
 
 ### Implementation Overview
 
@@ -1939,7 +1939,7 @@ Note that if you force attackers to make many requests (e.g., via paging), the a
 
 Rate limiting is not a complete solution, but it is an easy and inexpensive approach that increases the costs and efforts for attackers.
 
-# 2. Processing Data Securely
+# Processing Data Securely
 
 This chapter describes how to process data within software with security in mind, including treating untrusted data as dangerous, avoiding default and hardcoded credentials, avoiding memory safety issues (such as buffer overflows), and avoiding undefined behavior.
 
@@ -2295,7 +2295,7 @@ No. The range of possible values varies by language and types used, but attacker
 [Explanation]
 
 
-# 3. Calling Other Programs
+# Calling Other Programs
 
 This chapter describes how to call other programs securely, including how to counter injection attacks (including SQL injection and OS command injection) and how to properly handle filenames/pathnames.
 
@@ -3063,7 +3063,7 @@ Make sure that you have backups of important datasets and a workable recovery pr
 
 [ ] None of the above
 
-# 4. Sending Output
+# Sending Output
 
 This chapter describes how to send output securely, including how to counter cross-site scripting (XSS) attacks, using HTTP hardening headers, and securely using formatting systems.
 
@@ -3658,13 +3658,13 @@ If you need to counter these kinds of attacks, beyond what is required for crypt
 
 Thankfully, other than attacks on cryptographic systems, side-channel attacks are less common today. Most developers need to focus on the other issues discussed in this course, and only then (in more specialized circumstances) do they need to worry about side-channel attacks. Attackers will typically not bother trying to implement a side-channel attack if the software is riddled with easier-to-find vulnerabilities such as XSS and buffer overflows.
 
-# Part II Final Exam
+# Part II: Final Exam
 
 * Not included as part of the free version of the course.
 
 # PART III: Verification and More Specialized Topics
 
-# 1. Verification
+# Verification
 
 This chapter describes how to verify for security, including the limitations of tools, the meaning of *static analysis* and *dynamic analysis*, and common types of tools such as security code scanners/static application security testing (SAST) tools, fuzzers, and web application scanners.
 
@@ -4077,7 +4077,7 @@ If you are using OSS, consider preferring OSS who have earned a badge. If you ar
 
 [ ] None of the above
 
-# 2. Threat Modeling
+# Threat Modeling
 
 This chapter describes the basics of threat modeling along with a specific threat modeling approach called STRIDE.
 
@@ -4185,7 +4185,7 @@ Threat modeling may be overkill if you do not have significant security threats,
 
 [ ] The point of STRIDE is to examine each design element to see if there as a threat of information disclosure or tampering with data. {{ selected: No, that is only part of the story. Yes, you should consider information disclosure (violating confidentiality) and tampering with data (violating integrity). But those are just the “I” and “T” of STRIDE. You should also consider spoofing of identity, repudiation, denial of service, and elevation of privilege. }}
 
-# 3. Cryptography
+# Cryptography
 
 This chapter describes the basics of how to use cryptography to help develop secure software, including the basics of symmetric/shared key encryption algorithms, cryptographic hashes, public-key (asymmetric) encryption, how to securely store passwords, cryptographically secure pseudo-random number generators (CSPRNG), and Transport Layer Security (TLS).
 
@@ -4605,7 +4605,7 @@ Similarly, seek advice from experts, and weigh that advice carefully. Errors in 
 
 [ ] If powerful “general-purpose” quantum computers are developed, they will render all encryption algorithms useless. {{ selected: No. Such computers will render useless common *public-key* algorithms that are popular in 2020. However, while they will halve the effective bit length of symmetric encryption algorithms, they will not render them useless; a 256-bit key for a symmetric encryption algorithm will effectively become a 128-bit key, which is still adequately secure for most purposes. In addition, new public-key algorithms are being developed that resist attacks from such quantum computers. }}
 
-# 4. Other Topics
+# Other Topics
 
 This chapter describes topics on the fundamentals of developing secure software that have not been covered elsewhere, including handling vulnerability disclosures, assurance cases, the basics after development, formal methods, and top vulnerability lists.
 
@@ -5568,7 +5568,7 @@ As you develop your software:
 
 In real life security is a process - a journey - and not a simple endpoint. We hope that this course has made you far more prepared to take this journey. We wish you the best as you develop software that will help protect people’s reputation, property, and even lives.
 
-# Part III Final Exam
+# Part III: Final Exam
 
 * Not included as part of the free version of the course.
 
