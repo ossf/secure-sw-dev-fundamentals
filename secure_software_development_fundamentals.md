@@ -3213,7 +3213,7 @@ In that case, where possible, use libraries *already designed* to allow only wha
 
 We have focused on escaping HTML, because that is the biggest problem in web applications. But HTML can embed other kinds of data, and of those, perhaps the most common are URLs.
 
-Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme&#58;[//authority]path[?query][&#35;fragment]**. For example, in the URL **<https://www.linuxfoundation.org/about/>**, the scheme is “**https**”, authority “<b>www.linuxfoundation.org</b>”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, “**.**”, “**-**”, “**&#42;**”, and “**&#95;**”. The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
+Embedded URLs must also be escaped, and the rules for escaping URLs are different. The URL syntax is generally **scheme&#58;[//authority]path[?query]&#8202;[&#35;fragment]**. For example, in the URL **<https://www.linuxfoundation.org/about/>**, the scheme is “**https**”, authority “<b>www.linuxfoundation.org</b>”, path is “**/about/**”, and this example has no query or fragment part. Sometimes you need special characters in the path, query, or fragment. The conventional way to escape those parts of the URLs is to first ensure the data is encoded with UTF-8, and escape as “**%hh**” (where **hh** is the hexadecimal representation) all bytes except for “safe” bytes, which are typically **A-Z**, **a-z**, **0-9**, “**.**”, “**-**”, “**&#42;**”, and “**&#95;**”. The Java routine **java.net.URLEncoder.encode()** turns all spaces into “**+**” instead of “**%20**”; both the “**+**” and “**%20**” conventions are in wide use.
 
 #### XSS Alternatives
 
@@ -3503,7 +3503,7 @@ This is true! Yes, this is a weird and subtle point. There is reason to hope tha
 
 A Uniform Resource Locator (URL) is a way to refer to a specific web resource by location. Technically, a URL is a specific type of Uniform Resource Identifier (URI), but for our purposes we will use the terms interchangeably. As specified in [IETF RFC 3986](https://tools.ietf.org/html/rfc3986), a generic URI has this syntax:
 
-**scheme:[//authority]path[?query][&#35;fragment]**
+**scheme:[//authority]path[?query]&#8202;[&#35;fragment]**
 
 And **authority** has this syntax:
 
