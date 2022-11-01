@@ -2597,12 +2597,17 @@ can be confusing, so an example may help.
 In the Node.js mysqljs/mysql library,
 imagine that an attacker manages to provide
 the JavaScript *object* `{password = 1}` as the password parameter
-and it's used in the SQL query
-`SELECT * FROM accounts WHERE username = ? AND password = ?`.
+(this is not just a string, but an actual JavaScript object).
+Now imagine that this object is used in the SQL query
+<tt>SELECT * FROM accounts WHERE username = ? AND password = ?</tt>
+(note that this is parameterized).
 The library will internally expand the expression after `AND`
-into `password = ``password`` = 1`.
-The MYSQL DBMS will interpret `password = ``password``` as 1 (true),
-and then determine that `1 = 1` is true.
+into <tt>password = &#96;password&#96; = 1</tt> because the library does simple
+text replacement of the second `?`, without noticing that a JavaScript object
+doesn't make sense in the context of this query (a string or number would
+be expected here).
+The MYSQL DBMS will interpret <tt>password = &#96;password&#96;</tt>
+as 1 (true), and then determine that `1 = 1` is true.
 The result: this expression will *always* be true.
 This incorrect escaping of a complex data type
 is enough to completely bypass authentication in some situations.
@@ -2610,7 +2615,8 @@ is enough to completely bypass authentication in some situations.
 Unfortunately, this last issue can be a challenge to solve:
 
 1. The safe solution is to make sure that complex data types
-   (types other than numbers and strings) are not expanded by the library
+   (types other than numbers and strings) are not expanded by
+   application-side libraries
    unless the developer specifically marks them as allowed.
    This may be impractical if the application already depends on this,
    and the library might not provide a way to fully disable the functionality.
