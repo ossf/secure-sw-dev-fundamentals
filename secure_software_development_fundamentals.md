@@ -2822,7 +2822,7 @@ Be careful about displaying or storing pathnames, since they can include newline
 
 Once you have a pathname, you often want to do something with it, such as try to open that file.
 
-As discussed in [“Beware of Race Conditions”](#beware_of_race_conditions), open files in ways that prevent time-of-check time-of-use (TOCTOU) race conditions. Open a file directly instead of querying if the access is permitted (since that may change). Include the “exclusive” option (“<tt>x</tt>” or `O_EXCL`) if you want to expressly require that the file be created. If you’re creating temporary files, use interfaces specifically designed to securely create temporary files.
+As discussed in [“Beware of Race Conditions”](#beware-of-race-conditions), open files in ways that prevent time-of-check time-of-use (TOCTOU) race conditions. Open a file directly instead of querying if the access is permitted (since that may change). Include the “exclusive” option (“<tt>x</tt>” or `O_EXCL`) if you want to expressly require that the file be created. If you’re creating temporary files, use interfaces specifically designed to securely create temporary files.
 
 If your software might open a file system object (including a directory) that an attacker might control, be prepared for it. One way this can happen that we have not yet discussed is improper link resolution.
 
@@ -4895,7 +4895,7 @@ Where practical, harden the development environment and distribution environment
 
 The build process should be fully scripted/automated. That way builds will be performed predictably each time. Where possible, the build system should provide provenance information, that is, record what components were included in the build and ideally what components were used to perform the build. Be careful when logging a build process; often you want to avoid recording in log files any secrets like active authentication tokens.
 
-Build, verification, and distribution processes (including CI/CD pipelines) often bring in many other reusable software components. Make sure you apply the good practices discussed in the course sections on (1) [Selecting Reusable Software](#selecting_reusable_software) and (2) [Downloading and Installing Reusable Software](#downloading_and_installing_reusable_software).
+Build, verification, and distribution processes (including CI/CD pipelines) often bring in many other reusable software components. Make sure you apply the good practices discussed in the course sections on (1) [Selecting (Evaluating) Open Source Software](#selecting-evaluating-open-source-software) and (2) [Downloading and Installing Reusable Software](#downloading-and-installing-reusable-software).
 
 Supply chain Levels for Software Artifacts, or SLSA (“salsa”), is a security framework being developed as a checklist of standards and controls to prevent tampering, improve integrity, and secure packages and infrastructure. At the time of this writing it is still in development, but you should consider its recommendations. SLSA is being developed under the Open Source Security Foundation (OpenSSF). To learn more, see the SLSA home page at <https://slsa.dev/>.
 

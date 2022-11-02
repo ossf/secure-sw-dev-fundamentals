@@ -10,5 +10,3 @@ MD049: false # MD049/emphasis-style
 MD012: false # MD012/no-multiple-blank
 MD024: false # MD024/no-duplicate-heading/no-duplicate-header
 MD001: false # MD001/heading-increment/header-increment
-# Fix these when you can:
-MD051: false # MD051/link-fragments Link fragments should be valid
