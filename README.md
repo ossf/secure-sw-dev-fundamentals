@@ -21,6 +21,8 @@ to file [issues](https://github.com/ossf/secure-sw-dev-fundamentals/issues) for 
 [secure-sw-dev-fundamentals](https://github.com/ossf/secure-sw-dev-fundamentals)
 project. Changes that are accepted into the Markdown must go through a series of internal steps in coordination with LF Training &amp; Certification so that the changes will be deployed to both the LF Training and edX platforms.
 
+Changes to the markdown must have no errors reported by `markdownlint` using our configuration. This is checked when a pull request is made. You can do this check locally by installing markdownlint (e.g., `brew install markdownlint-cli` or `npm install -g markdownlint-cli`) and running `make`.
+
 This content was originally converted from Google docs format using
 [gdocs2md](http://github.com/mangini/gdocs2md),
 patched to skip inline drawings.
