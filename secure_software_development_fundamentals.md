@@ -1354,7 +1354,7 @@ Learning objectives:
 
 ## Input Validation Basics
 
-### Input Validation Basics
+### Input Validation Basics Introduction
 
 Some inputs are from untrustable users, and those inputs (at least) must be validated before being used. If you prevent invalid data from getting into your program, it will be much harder for attackers to exploit your software. Input validation can also prevent many bugs and make your program simpler. After all, if your program can immediately reject some malformed data, you don’t have to write the code to deal with those special cases later. That saves time, and such special-case code is more likely to have subtle errors.
 
@@ -1905,7 +1905,7 @@ Absolutely not. If there is a standard known password, it will be immediately po
 
 ## Consider Availability on All Inputs
 
-### Consider Availability on All Inputs
+### Consider Availability on All Inputs Introduction
 
 As we discussed before, it is often difficult to guarantee availability in all possible circumstances. For example, if a system is publicly accessible over the Internet, an attacker could initiate a large-scale distributed denial-of-service (DDoS) attack, overwhelming your service’s resources.
 
@@ -2311,7 +2311,7 @@ Learning objectives:
 
 ## Introduction to Securely Calling Programs
 
-### Introduction to Securely Calling Programs
+### Introduction to Securely Calling Programs - The Basics
 
 Very few programs are entirely self-contained; nearly all programs call out to other programs. This includes local programs, such as programs provided by the operating system, built-in software libraries for that language, and software from package repositories (like npm, PyPI, and maven). Modern systems often call out through a network to other services, making requests through various APIs (such as REST and GraphQL APIs) and receiving data in formats such as JSON and XML. Almost all of these programs then call other programs. Often, these indirect calls are not obvious (e.g., calling a library written by someone else) or involve a great deal of “hidden” infrastructure.
 
@@ -2351,7 +2351,7 @@ Where possible, use libraries and APIs that do this for you; they are easier to 
 
 Let’s now examine some common injection attack cases and how to handle them securely. Again, an injection vulnerability is when a program accepts data from an attacker and improperly hands that data to some command interpreter. Some of the most common problems occur when that data is sent to a database system (SQL injection attacks) or an operating system command interpreter (OS command injection attacks), so we will focus on those. Once you understand how to deal with these two common cases, it will be much clearer how to properly handle other interpreters we will not cover here (e.g., the Lightweight Directory Access Protocol (LDAP)). We will begin by discussing sending data to database systems, which are often vulnerable to SQL injection attacks.
 
-#### Quiz 3.1: Introduction to Securely Calling Programs
+#### Quiz 3.1: Introduction to Securely Calling Programs - The Basics
 
 \>\>Just pick secure software to reuse, and your application will be secure. True or False?<<
 
@@ -2697,7 +2697,7 @@ For example, in Python, if you need to write to a user-provided table name, you 
     cur.execute(f"insert into {table_name}(d, ts) values (?, ?)", (today, now)) # This is safe because we know that table_name can only take trusted values from table_name_map
 ~~~~
 
-##### Other Approaches
+##### Other Approaches for Countering SQL Injection
 
 Many programs use object-relational mapping (ORM). This is just a technique to automatically convert data in a relational database into an object in an object-oriented programming language and back; lots of libraries and frameworks will do this for you. This is fine, as long as the ORM is implemented using parameterized statements or something equivalent to them. In practice, any good ORM implementation will do so. So if you are using a respected ORM, you are already doing this. That said, it is common in systems that use ORMs to occasionally need to use SQL queries directly… and when you do, use parameterized statements or prepared statements.
 
@@ -2939,7 +2939,7 @@ If you are implementing the *top* level of a program or framework (e.g., its mai
 
 Otherwise, you generally should be specific about the exceptions you catch, and only catch an exception if you can do something appropriate about it. Attackers will try to trigger exceptions, so make sure that exception handlers are secure.
 
-#### Other Approaches
+#### Other Approaches for Error Handling
 
 There are other error-handling approaches.
 
@@ -4215,7 +4215,7 @@ Learning objectives:
 
 8. Understand the basics of other key cryptographic topics.
 
-## Cryptography
+## Applying Cryptography
 
 ### Introduction to Cryptography
 
