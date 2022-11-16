@@ -1248,7 +1248,7 @@ You also need to ensure that your system is not vulnerable to a “dependency co
 🔔 Dependency confusion is a special case of 2021 CWE Top 25 #34, *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)). Relying on plugins, libraries, or modules from untrusted sources, and relying on untrustworthy content delivery networks, is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
 
 
-## Quiz 3.2
+#### Quiz 3.2: Downloading and Installing Reusable Software
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
 
@@ -2285,7 +2285,7 @@ One of the simplest ways to ensure an attacker cannot trigger vulnerabilities fr
 
 🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #12 and 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound*.
 
-#### Quiz: Avoid Integer Overflow, Wraparound, and Underflow
+#### Quiz 2.7: Avoid Integer Overflow, Wraparound, and Underflow
 
 >>Integer overflows can be ignored when handling untrusted data. True or False?<<
 
@@ -3057,7 +3057,7 @@ An obvious but surprisingly common problem is loops where an attacker can cause 
 
 Make sure that you have backups of important datasets and a workable recovery process. That way, if an attacker manages to shut down the whole system, the data loss will be minimized. If necessary, you could even restart the service somewhere else or in some other form using the backups. You should have multiple backups, and at least some older ones should be in *cold storage* (that is, the backups cannot be modified by a later computer attack). That way, if newer backups are corrupted by an attacker (such as by using a ransomware attack), there are backups that can still be used.
 
-#### Quiz 3.9
+#### Quiz 3.9: Countering Denial-of-Service (DoS) Attacks
 
 \>\>Select all the approaches that might help counter denial-of-service (DoS) attacks if your service is accessible on the public internet:<<
 
