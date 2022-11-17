@@ -4487,7 +4487,7 @@ If you implement option 3, supporting a password-based login (at least in part),
 
 * Storing passwords “in the clear” (unencrypted). Obviously, if an attacker gets this data, the attacker can use all the passwords. **_Don’t do this!_**
 
-* Hashing the passwords (e.g., with SHA-256). Attackers have tools that can brute-force guess billions of passwords, hash them all, and compare them with the hashed values, so this does not protect the passwords. **_Don’t do this!_**
+* Hashing the passwords (e.g., with MD5, SHA-1, or SHA-256). Attackers have tools that can brute-force guess billions of passwords, hash them all, and compare them with the hashed values, so this does not protect the passwords. **_Don’t do this!_**
 
 * Per-user salted hashes. This combines the password with a random per-user value called a “salt”, then hashes the combination. The problem is that modern hash algorithms are so fast that attackers can still guess billions of passwords and often find a user’s password. Again, **_don’t do this!_**
 
@@ -4504,6 +4504,9 @@ Another algorithm that is in use is scrypt. This should also be strong against h
 You should allow users to require the use of two-factor authentication (2FA), either directly or by delegating to a service that does.
 
 Also, beware of implementing these algorithms only on the client side. It is fine to implement them on the client side (because that prevents the server from ever discovering the password the user enters), as long as they are *also* implemented on the server. The danger is doing them *only* on the client; if that happens, then what is stored in the server is no different from storing passwords in the clear. Once attackers get the password database, they can simply create or modify their own client to log into anyone’s account.
+
+> 😱 STORY TIME: Ashley Madison data breach
+> Ashley Madison is a Canadian commercial online dating service founded in 2022 and marketed as enabling cheating on romantic partners. In 2015 attackers stole its customer data. They had correctly used the **bcrypt** routine to store passwords. Unfortunately, they also often stored passwords encoded using the **MD5** hashing algorithm, which is not appropriate for storing passwords (as noted above). Attackers used these unprotected MD5 password hashes to decipher more than 11 million of these accounts' passwords in just 10 days, enabling them to log into those accounts (["Once seen as bulletproof, 11 million+ Ashley Madison passwords already cracked" by Dan Goodin, 2015](https://arstechnica.com/information-technology/2015/09/once-seen-as-bulletproof-11-million-ashley-madison-passwords-already-cracked/)).
 
 #### Quiz 3.5: Storing Passwords
 
@@ -5976,6 +5979,8 @@ Gerrand, Andrew, *The Go Blog: Error handling and Go*, 2011 ([https://blog.golan
 GitHub Security, *Password reset emails delivered to the wrong address*, 2016-07-05 ([https://bounty.github.com/researchers/jagracey.html](https://bounty.github.com/researchers/jagracey.html))
 
 GitLab, *What is GitOps?* ([https://about.gitlab.com/topics/gitops/])
+
+Goodin, Dan, 2015, "Once seen as bulletproof, 11 million+ Ashley Madison passwords already cracked", *Ars Technica*, <https://arstechnica.com/information-technology/2015/09/once-seen-as-bulletproof-11-million-ashley-madison-passwords-already-cracked/>
 
 Gooding, Dan, *Plundering of crypto keys from ultrasecure SGX sends Intel scrambling again*, Ars Technica, 2020-06-09 ([https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/](https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/))
 
