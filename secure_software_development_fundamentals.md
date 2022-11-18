@@ -3487,6 +3487,9 @@ Of course, if you can trust that other page, that is not a security problem. So 
 
 The simplest solution is to avoid using **target=...** in HTML, and always set **target="&#95;self"** when calling JavaScript **window.open()...** especially for links to user-generated content and external domains. If you decide to use HTML **target=**, also use **rel="noopener noreferrer"**. The “**noopener**” tells the web browser to *not* allow the JavaScript to gain control over the referring window (so **window.opener** won’t give access to it). The ”**noreferrer**” prevents passing on the referrer information to the new tab/window ([*Security Vulnerability and Browser Performance Impact of Target=”&#95;blank”*](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
 
+Update as of 2021: All current versions of major browsers now automatically use the behavior of **rel="noopener"**  for any **target="&#95;blank”** link, reducing severity of this [weakness CWE-1022](https://cwe.mitre.org/data/definitions/1022.html). See https://stackoverflow.com/a/50709724/1484823
+
+
 #### Quiz 4.8: HTML **target** and JavaScript **window.open()**
 
 \>\>In an HTML anchor (**&lt;a href=...>**) to another site, if you use **target=...** with a value other than **&#95;self**, be sure to also set “**rel**” to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
