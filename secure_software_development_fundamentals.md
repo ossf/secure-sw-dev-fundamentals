@@ -1198,6 +1198,10 @@ Most of these questions also apply to closed source software that is reused.
 
 Most software depends on other software, which in turn often depends on other software with many tiers. A software bill of materials (SBOM) is a nested inventory that identifies the software components that make up a larger piece of software. Many ecosystems have ecosystem-specific SBOM formats. There are also some SBOM formats that support arbitrary ecosystems: [Software Package Data Exchange (SPDX)](https://spdx.dev/), [Software ID (SWID)](https://csrc.nist.gov/Projects/Software-Identification-SWID/), and [CycloneDX](https://github.com/CycloneDX/specification). When an SBOM is available for a component you are thinking about using, it’s often easier to use that data to help answer some of the questions listed above. It’s also good to provide an SBOM to potential users of your software, for the same reasons.
 
+> 😱 STORY TIME: Typosquatting by jeIlyfish and python3-dateutil
+
+> On 2019-12-01 German software developer Lukas Martini discovered that two Python libraries in the popular PyPI (Python Package Index) repository implemented typosquatting attacks. These malicious packages would steal SSH and GPG private keys from developers who used them. The malicious package `jeIlyfish` imitated the non-malicious `jellyfish` package and did the damage (note that in the malicious package's name the third character is an uppercase "`I`", not a lowercase "`l`"). The same attacker also uploaded a malicious package named `python3-dateutil` which imitated the popular `dateutil` library for Python3. The malicious package `python3-dateutil` didn't include any malicious code itself, but instead loaded the malicious package `jeIlyfish` as a dependency. The malicious package `python3-dateutil` had only been on PyPI for two days, but the malicious package `jeIlyfish` had been available for nearly a year. Both libraries were removed by PyPI on the day PyPI was notified (["Two malicious Python libraries caught stealing SSH and GPG keys" by Catalin Cimpanu, ZDNet, 2019](https://www.zdnet.com/article/two-malicious-python-libraries-removed-from-pypi/)).
+
 #### Quiz 3.1: Selecting (Evaluating) Open Source Software
 
 \>\>What is evidence that the software you are thinking of reusing will probably be a good choice for security? Select all answers that apply.<<
@@ -5925,6 +5929,8 @@ Carnegie Mellon University: Software Engineering Institute, CERT Division ([http
 Chen, Raymond, *Undefined behavior can result in time travel (among other things, but time travel is the funkiest)*, 2014-06-27, ([https://devblogs.microsoft.com/oldnewthing/20140627-00/?p=633](https://devblogs.microsoft.com/oldnewthing/20140627-00/?p=633))
 
 Cimpanu, Catalin, *Microsoft: 70 percent of all security bugs are memory safe issues*, 2019-02-11 ([https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/))
+
+Cimpanu, Catalin, "Two malicious Python libraries caught stealing SSH and GPG keys", ZDNet, 2019-12-03, <https://www.zdnet.com/article/two-malicious-python-libraries-removed-from-pypi>
 
 CISCO, *Next Generation Cryptography* ([https://tools.cisco.com/security/center/resources/next_generation_cryptography](https://tools.cisco.com/security/center/resources/next_generation_cryptography))
 
