@@ -6116,7 +6116,7 @@ Reichel, Robert, *How we threat model*, 2020-09-02 ([https://github.blog/2020-09
 
 Reproducible Builds project, “Definitions”, (<https://reproducible-builds.org/docs/definition/>)
 
-Ritchey, Diane, "Data Breach Directions: What to Do After an Attack", *Security Manazine*, 2015-02-01, <https://www.securitymagazine.com/articles/86071-data-breach-directions-what-to-do-after-an-attack>
+Ritchey, Diane, "Data Breach Directions: What to Do After an Attack", *Security Magazine*, 2015-02-01, <https://www.securitymagazine.com/articles/86071-data-breach-directions-what-to-do-after-an-attack>
 
 Rogers, Tony, *Falsehoods Programmers Believe About Names - With Examples*, 2018 ([https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/](https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/))
 
