@@ -2413,6 +2413,10 @@ forget to do it.
 The mistake can happen at the beginning, or later when the code is modified,
 but experience shows that the mistake *will* happen.
 
+> 😱 STORY TIME: Heartland Payment Systems / SQL Injection
+
+> In late 2007 attackers used a SQL injection attack to compromise the database of Heartland Payment Systems (aka "Heartland"). At the time Heartland processed 100 millino payment card transactions per month for 175,000 merchants. The attackers used the SQL injection to insert code into Web scripts used by the Web login page. The attackers eventually used this accept to install a spyware program called a 'sniffer' that captured the card data as payments were processed for several months in 2008. As a result, Heartland temporarily lost its compliance with the Payment Card Industry Data Security Standard (PCI DSS), which was required to implement their core business of processing card payments. Heartland reportedly had to pay $145 million in compensation for fraudulent payments (["Data Breach Directions: What to Do After an Attack" by Diane Ritchey](https://www.securitymagazine.com/articles/86071-data-breach-directions-what-to-do-after-an-attack)). They have since taken many steps to make their systems stronger and more robust to try to prevent a recurrence.
+
 🔔 SQL injection is a special case of injection attacks, and we have already noted that injection attacks are so common and dangerous that they are 2017 OWASP Top 10 #1. SQL injection specifically is such a common cause of security vulnerabilities that just SQL injection is 2021 CWE Top 25 #6 and 2019 CWE Top 25 #6. SQL injection is also identified as [CWE-89](https://cwe.mitre.org/data/definitions/89.html), *Improper Neutralization of Special Elements used in an SQL Command (‘SQL Injection’)*.
 
 Again, we want to try to use an approach that is easy to use correctly - it needs to be secure by default.
@@ -6111,6 +6115,8 @@ Regehr, John, *A Guide to Undefined Behavior in C and C++ (Parts 1-3)*, 2010 ([h
 Reichel, Robert, *How we threat model*, 2020-09-02 ([https://github.blog/2020-09-02-how-we-threat-model/](https://github.blog/2020-09-02-how-we-threat-model/))
 
 Reproducible Builds project, “Definitions”, (<https://reproducible-builds.org/docs/definition/>)
+
+Ritchey, Diane, "Data Breach Directions: What to Do After an Attack", *Security Manazine*, 2015-02-01, <https://www.securitymagazine.com/articles/86071-data-breach-directions-what-to-do-after-an-attack>
 
 Rogers, Tony, *Falsehoods Programmers Believe About Names - With Examples*, 2018 ([https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/](https://shinesolutions.com/2018/01/08/falsehoods-programmers-believe-about-names-with-examples/))
 
