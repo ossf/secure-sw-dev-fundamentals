@@ -3627,13 +3627,13 @@ Avoid giving security or sensitive information to untrusted users. If a request 
 
 * If your program requires some sort of user authentication (e.g., you are writing a network service or login program), give the user as little information as possible before they authenticate. In particular, avoid giving away the version number of your program before authentication. Otherwise, if a particular version of your program is found to have a vulnerability, then users who don’t upgrade from that version advertise to attackers that they are vulnerable.
 
-* If your program accepts a password, don’t echo the exact characters back; this creates another way passwords can be seen by others. In HTML forms, set the input type to password, which intentionally limits the feedback.
+* If your program accepts a password, by default don’t show the full password while it's being entered. At most, show the most recently entered character. Showing the full password while it's entered may enable others to see the password. In HTML forms, set the input type to password, which intentionally limits the feedback. Many user interfaces allow users to select showing sensitive information by pressing an eye; that's fine, because the display is by specific user request instead of by default.
 
 * On a failed login, just say “*username or password failed*” or similar - don’t expose whether it was the username or the password that failed. That could tell the attacker that the username is valid, and makes further attacks easier.
 
 * If a user tries to create an account using an email address, don't tell the user if an account with that email address already exists. Similarly, if a user tries to do a password reset using an email address, don't tell the user if there is no account with that email address. Providing that information would allow an attacker to determine if a specific email address is being used (or not) by some existing account.
 
-* In general, don’t display sensitive/private data unless necessary at that point.
+* In general, don’t display sensitive/private data by default unless necessary at that point.
 
 Implement audit logging early in development. Then, if you need to record more detailed information to aid debugging, report that information in the logs instead of displaying it to the user. Audit logs are really convenient for debugging (because they are designed to record useful information without interfering with normal operations), and you are more likely to include useful status information in the logs if they are developed in parallel with the rest of the program. They will also reduce the temptation to reveal too much to untrusted users.
 
