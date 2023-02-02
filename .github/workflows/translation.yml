@@ -59,8 +59,8 @@ jobs:
             az storage blob upload \
               --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \ \
               --container-name $INPUT_CONTAINER_NAME \
-              --name ${{ variables.DOCUMENT_PATH }} \
-              --file ${{ variables.DOCUMENT_PATH }} \
+              --name ${{ vars.DOCUMENT_PATH }} \
+              --file ${{ vars.DOCUMENT_PATH }} \
               --auth-mode login
 
             
