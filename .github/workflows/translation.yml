@@ -15,6 +15,11 @@ permissions:
     id-token: write
     contents: read
 
+env:
+  INPUT_CONTAINER_NAME: translatesource
+  OUTPUT_CONTAINER_NAME: translatetarget
+
+
 
 jobs:
   ###################################
@@ -38,11 +43,39 @@ jobs:
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     
-      - name: 'Run Azure CLI commands'
+      - name: 'Create containers with Azure CLI'
         run: |
-            az account show
-            az group list
-            pwd 
+            az storage container create \
+              --name $INPUT_CONTAINER_NAME \
+              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+              --auth-mode login
+            az storage container create \
+              --name $OUTPUT_CONTAINER_NAME \
+              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+              --auth-mode login
+
+      - name: 'Upload source document with Azure CLI'
+        run: |
+            az storage blob upload \
+              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \ \
+              --container-name $INPUT_CONTAINER_NAME \
+              --name ${{ variables.DOCUMENT_PATH }} \
+              --file ${{ variables.DOCUMENT_PATH }} \
+              --auth-mode login
+
+            
+
+      - name: 'Translate document to language'
+        run: |
+          end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
+          input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
+          output_sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
+
+          az rest --method post \
+            --url {{ secrets.TRANSLATOR_API_URI }}/batches
+            --headers Ocp-Apim-Subscription-Key=${{ secrets.STORAGE_ACCOUNT_NAME }}
+            --body `{"inputs": [{"source": { "sourceUrl": "https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME$input_sas"}, "targets": [{"targetUrl": "https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME$input_sas","language": "heb"}]}]}`
+            
   # translate:
   #   runs-on: ubuntu-latest
   #   steps:
