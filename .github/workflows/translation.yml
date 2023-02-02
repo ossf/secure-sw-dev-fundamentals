@@ -9,7 +9,7 @@ name: Translate Document
 #############################
 # Start the job manually #
 #############################
-on: workflow_dispatch
+on: [push, workflow_dispatch]
 
 permissions:
     id-token: write
