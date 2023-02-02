@@ -59,6 +59,7 @@ jobs:
             end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
             sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
             az storage blob upload \
+              --overwrite true
               --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
               --container-name $INPUT_CONTAINER_NAME \
               --name ${{ vars.DOCUMENT_PATH }} \
