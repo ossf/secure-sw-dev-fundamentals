@@ -57,7 +57,7 @@ jobs:
       - name: 'Upload source document with Azure CLI'
         run: |
             az storage blob upload \
-              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \ \
+              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
               --container-name $INPUT_CONTAINER_NAME \
               --name ${{ vars.DOCUMENT_PATH }} \
               --file ${{ vars.DOCUMENT_PATH }} \
