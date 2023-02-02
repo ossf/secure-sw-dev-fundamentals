@@ -77,7 +77,7 @@ jobs:
           az rest --method post \
             --uri ${{ secrets.TRANSLATOR_API_URI }}/batches
             --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }}
-            --body `{"inputs": [{"source": { "sourceUrl": "https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/${{ INPUT_CONTAINER_NAME }}${{ input_sas }}"}, "targets": [{"targetUrl": "https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/${{ INPUT_CONTAINER_NAME }}${{ input_sas }}","language": "heb"}]}]}`
+            --body `{"inputs": [{"source": { "sourceUrl": "https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$(INPUT_CONTAINER_NAME)$(input_sas)"}, "targets": [{"targetUrl": "https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$(INPUT_CONTAINER_NAME)$(input_sas)","language": "heb"}]}]}`
             
   # translate:
   #   runs-on: ubuntu-latest
