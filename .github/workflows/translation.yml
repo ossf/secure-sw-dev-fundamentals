@@ -56,20 +56,22 @@ jobs:
 
       - name: 'Upload source document with Azure CLI'
         run: |
+            end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
+            sas=`az storage container generate-sas -n mycontainer --https-only --permissions dlrw --expiry $end -o tsv`
             az storage blob upload \
               --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
               --container-name $INPUT_CONTAINER_NAME \
               --name ${{ vars.DOCUMENT_PATH }} \
               --file ${{ vars.DOCUMENT_PATH }} \
-              --auth-mode login
+              --sas-token $sas
 
             
 
       - name: 'Translate document to language'
         run: |
           end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-          input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
-          output_sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
+          input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
+          output_sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
 
           az rest --method post \
             --url {{ secrets.TRANSLATOR_API_URI }}/batches
