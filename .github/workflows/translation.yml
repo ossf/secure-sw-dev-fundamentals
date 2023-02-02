@@ -77,7 +77,7 @@ jobs:
             --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} \
             --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME$input_sas\",\"language\": \"he\"}]}]}" \
             --verbose | grep Operation-Location
-          echo "header" $header "header"
+          echo $header
             
   # translate:
   #   runs-on: ubuntu-latest
