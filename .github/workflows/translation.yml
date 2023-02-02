@@ -43,30 +43,28 @@ jobs:
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     
-      - name: 'Create containers with Azure CLI'
-        run: |
-            az storage container create \
-              --name $INPUT_CONTAINER_NAME \
-              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-              --auth-mode login
-            az storage container create \
-              --name $OUTPUT_CONTAINER_NAME \
-              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-              --auth-mode login
+      # - name: 'Create containers with Azure CLI'
+      #   run: |
+      #       az storage container create \
+      #         --name $INPUT_CONTAINER_NAME \
+      #         --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+      #         --auth-mode login
+      #       az storage container create \
+      #         --name $OUTPUT_CONTAINER_NAME \
+      #         --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+      #         --auth-mode login
 
-      - name: 'Upload source document with Azure CLI'
-        run: |
-            end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-            sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
-            az storage blob upload \
-              --overwrite true \
-              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-              --container-name $INPUT_CONTAINER_NAME \
-              --name ${{ vars.DOCUMENT_PATH }} \
-              --file ${{ vars.DOCUMENT_PATH }} \
-              --sas-token $sas
-
-            
+      # - name: 'Upload source document with Azure CLI'
+      #   run: |
+      #       end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
+      #       sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
+      #       az storage blob upload \
+      #         --overwrite true \
+      #         --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+      #         --container-name $INPUT_CONTAINER_NAME \
+      #         --name ${{ vars.DOCUMENT_PATH }} \
+      #         --file ${{ vars.DOCUMENT_PATH }} \
+      #         --sas-token $sas
 
       - name: 'Translate document to language'
         run: |
@@ -75,7 +73,7 @@ jobs:
           output_sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
 
           az rest --method post \
-            --uri `${{ secrets.TRANSLATOR_API_URI }}/batches`
+            --url `${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches`
             --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }}
             --body `{"inputs": [{"source": { "sourceUrl": "https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME$input_sas"}, "targets": [{"targetUrl": "https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME$input_sas","language": "heb"}]}]}`
             
