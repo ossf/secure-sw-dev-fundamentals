@@ -11,6 +11,7 @@ on:
     paths:
       - '!translations/**'
 
+
 permissions:
   id-token: write
   contents: read
