@@ -54,7 +54,7 @@ jobs:
       - name: 'Upload source document with Azure CLI'
         run: |
           end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-          sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
+          sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --as-user --auth-mode login --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
           az storage blob upload \
             --overwrite true \
             --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
