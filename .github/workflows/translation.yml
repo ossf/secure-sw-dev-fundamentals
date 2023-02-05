@@ -12,7 +12,6 @@ on:
     paths:
       - '.github/workflows/translation.yml'
 
-
 permissions:
   id-token: write
   contents: read
