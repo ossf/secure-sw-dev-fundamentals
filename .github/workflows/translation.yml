@@ -22,15 +22,12 @@ permissions:
 env:
   INPUT_CONTAINER_NAME: translatesource
   OUTPUT_CONTAINER_NAME: translatetarget
-  LANGUAGES: (he, ar)
-
-
 
 jobs:
   translate-language:
     strategy:
       matrix: 
-        language: ${{ env.LANGUAGES }}
+        language: [he, ar]
     runs-on: ubuntu-latest
     steps:
       ##########################
