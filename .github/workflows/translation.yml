@@ -94,6 +94,7 @@ jobs:
     
       - name: 'Create containers with Azure CLI'
         run: |
+            echo $language-target-container
             az storage container create \
               --name $language-target-container \
               --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
@@ -102,8 +103,8 @@ jobs:
       - name: 'Translate document to language'
         run: |
           set -eux
+
           
-          echo $language-target-container
           end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
           input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
           output_sas=`az storage container generate-sas -n $language-target-container --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
