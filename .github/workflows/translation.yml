@@ -7,10 +7,11 @@
 name: Translate Document
 
 on: 
-  push:
-    paths:
-      - '**'
-      - '!translations/**'
+  workflow_dispatch
+  # push:
+  #   paths:
+  #     - '**'
+  #     - '!translations/**'
 
 
 permissions:
