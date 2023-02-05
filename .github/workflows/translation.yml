@@ -67,7 +67,7 @@ jobs:
     needs: upload-source
     name: translate to ${{ matrix.language }}
     env:
-      language-target-container: ${{ env.OUTPUT_CONTAINER_NAME }}_${{ matrix.language-id }}
+      language-target-container: $OUTPUT_CONTAINER_NAME_${{ matrix.language-id }}
     strategy:
       matrix: 
         include:
