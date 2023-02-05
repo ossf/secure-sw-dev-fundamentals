@@ -9,7 +9,11 @@ name: Translate Document
 #############################
 # Start the job manually #
 #############################
-on: [push, workflow_dispatch]
+on: 
+  push: 
+      paths:
+        - '.github/workflows/translation.yml'
+  workflow_dispatch:
 
 permissions:
     id-token: write
@@ -122,7 +126,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           branch: feature/he-translation
-          title: Sync staging to master
+          title: translation to he
           token: ${{ secrets.CREATE_PULL_REQUEST_TOKEN }}
 
           
