@@ -85,24 +85,24 @@ jobs:
         run: |
           action_state="${{ env.action_state }}"
           echo $action_state
-          status='NotStarted'
-          while [ $status = 'NotStarted' ]
+          status=NotStarted
+          while [ "$status" = "NotStarted" ]
           do
             status=$(az rest --method get \
               --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
-              --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }}) | jq ".status"
+              --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }}) | jq ".status")
             echo status is $status
           done
 
-          while [ $status = 'Running' ]
+          while [ "$status" = "Running" ]
           do
             status=$(az rest --method get \
               --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
-              --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }}) | jq ".status"
+              --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }}) | jq ".status")
             echo status is $status
           done
 
-          if [ $status != 'Succeeded']
+          if [ "$status" != "Succeeded"]
             echo "Error!" 1>&2
             exit 1
           fi
