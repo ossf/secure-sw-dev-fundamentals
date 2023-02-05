@@ -123,7 +123,7 @@ jobs:
         with:
           branch: feature/he-translation
           title: Sync staging to master
-          token: ${{ secrets.CREATE_PULL_REQUEST_TOKEN }
+          token: ${{ secrets.CREATE_PULL_REQUEST_TOKEN }}
 
           
           
