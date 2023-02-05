@@ -149,7 +149,7 @@ jobs:
         run: |
           set -ux
           end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-          input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions r --expiry $end -o tsv`
+          input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
           output_sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
 
           operation_id=$(az rest --method post \
