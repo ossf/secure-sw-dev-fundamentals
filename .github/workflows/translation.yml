@@ -80,7 +80,7 @@ jobs:
         include:
           - language: "Hebrew"
             language-id: "he"
-            glossary: tranlation-glossary.xlxx
+            glossary: translation-glossary.xlsx
           - language: "Arabic"
             language-id: "ar"
     runs-on: ubuntu-latest
