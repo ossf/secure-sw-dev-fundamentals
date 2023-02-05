@@ -86,7 +86,7 @@ jobs:
           action_state="${{ env.action_state }}"
           echo $action_state
           status='NotStarted'
-          while [ $status -eq 'NotStarted' ]
+          while [ $status = 'NotStarted' ]
           do
             status=$(az rest --method get \
               --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
@@ -94,7 +94,7 @@ jobs:
             echo status is $status
           done
 
-          while [ $status -eq 'Running' ]
+          while [ $status = 'Running' ]
           do
             status=$(az rest --method get \
               --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
