@@ -19,6 +19,7 @@ permissions:
 
 env:
   INPUT_CONTAINER_NAME: translatesource
+  GLOSSARY_CONTAINER_NAME: translateglossaries
 
 jobs:
   ###################################
@@ -50,6 +51,11 @@ jobs:
           set -eux
           az storage container create \
             --name $INPUT_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
+
+          az storage container create \
+            --name $GLOSSARY_CONTAINER_NAME \
             --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
             --auth-mode login
       ##############################
@@ -118,16 +124,16 @@ jobs:
             set -eux
             
             end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-            sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
+            sas=`az storage container generate-sas -n $GLOSSARY_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
             az storage blob upload \
               --overwrite true \
               --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-              --container-name $INPUT_CONTAINER_NAME \
+              --container-name $GLOSSARY_CONTAINER_NAME \
               --name ${{ matrix.glossary }} \
               --file translations/${{ matrix.language-id }}/${{ matrix.glossary }} \
               --sas-token $sas
-            glossary_sas=`az storage blob generate-sas -n ${{ matrix.glossary }} -c $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions r --expiry $end -o tsv`
-            glossary_uri_with_sas=https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME/${{ matrix.glossary }}?glossary_sas
+            glossary_sas=`az storage blob generate-sas -n ${{ matrix.glossary }} -c $GLOSSARY_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions r --expiry $end -o tsv`
+            glossary_uri_with_sas=https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$GLOSSARY_CONTAINER_NAME/${{ matrix.glossary }}?glossary_sas
             glossary_json=",\"glossaries\": [{\"glossaryUrl\":\"$glossary_uri_with_sas\",\"format\":\"CSV\"}]"
             echo "glossary_json=$glossary_json" >> $GITHUB_ENV
       - name: 'Upload Translation'
@@ -143,13 +149,13 @@ jobs:
         run: |
           set -eux
           end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-          input_sas=`az storage blob generate-sas -n ${{ vars.DOCUMENT_PATH }} -c $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions r --expiry $end -o tsv`
+          input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions r --expiry $end -o tsv`
           output_sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
 
           operation_id=$(az rest --method post \
             --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches \
             --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} \
-            --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME/${{ vars.DOCUMENT_PATH }}?$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$OUTPUT_CONTAINER_NAME?$output_sas\",\"language\": \"${{ matrix.language-id }}\" $glossary_json }]}]}" \
+            --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME/?$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$OUTPUT_CONTAINER_NAME?$output_sas\",\"language\": \"${{ matrix.language-id }}\" $glossary_json }]}]}" \
             --verbose 2> >(grep -i Operation-Location) >/dev/null | grep -oEi '(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}')
           echo opertaion id is $operation_id
           echo "operation_id=$operation_id" >> $GITHUB_ENV
@@ -243,5 +249,9 @@ jobs:
           set -eux
           az storage container delete \
             --name $INPUT_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
+          az storage container delete \
+            --name $GLOSSARY_CONTAINER_NAME \
             --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
             --auth-mode login
