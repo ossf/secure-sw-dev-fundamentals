@@ -6,9 +6,6 @@
 #######################################
 name: Translate Document
 
-#############################
-# Start the job manually #
-#############################
 on: 
   push: 
       paths:
@@ -16,16 +13,61 @@ on:
   workflow_dispatch:
 
 permissions:
-    id-token: write
-    contents: read
+  id-token: write
+  contents: read
 
 env:
   INPUT_CONTAINER_NAME: translatesource
   OUTPUT_CONTAINER_NAME: translatetarget
 
 jobs:
+  upload-source:
+    name: Upload source document to Azure
+    runs-on: ubuntu-latest
+    steps:
+      ##########################
+      # Checkout the code base #
+      ##########################
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      ##########################
+      # Login to Azure         #
+      ##########################
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ##############################
+      # Create the input container #
+      ##############################
+      - name: 'Create input container with Azure CLI'
+        run: |
+          az storage container create \
+            --name $INPUT_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
+      ##############################
+      # Upload the source document #
+      ##############################
+      - name: 'Upload source document with Azure CLI'
+        run: |
+          end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
+          sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
+          az storage blob upload \
+            --overwrite true \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --container-name $INPUT_CONTAINER_NAME \
+            --name ${{ vars.DOCUMENT_PATH }} \
+            --file ${{ vars.DOCUMENT_PATH }} \
+            --sas-token $sas
+
   translate-language:
+    needs: upload-source
     name: translate to ${{ matrix.language }}
+    env:
+      language-target-container: ${{ env.OUTPUT_CONTAINER_NAME }}_${{ matrix.language-id }}
     strategy:
       matrix: 
         include:
@@ -50,81 +92,63 @@ jobs:
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     
-      # - name: 'Create containers with Azure CLI'
-      #   run: |
-      #       az storage container create \
-      #         --name $INPUT_CONTAINER_NAME \
-      #         --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-      #         --auth-mode login
-      #       az storage container create \
-      #         --name $OUTPUT_CONTAINER_NAME \
-      #         --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-      #         --auth-mode login
-      ###################################
-        # Upload source document to Azure #
-        ###################################
-      # - name: 'Upload source document with Azure CLI'
-      #   run: |
-      #       end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-      #       sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
-      #       az storage blob upload \
-      #         --overwrite true \
-      #         --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-      #         --container-name $INPUT_CONTAINER_NAME \
-      #         --name ${{ vars.DOCUMENT_PATH }} \
-      #         --file ${{ vars.DOCUMENT_PATH }} \
-      #         --sas-token $sas
+      - name: 'Create containers with Azure CLI'
+        run: |
+            az storage container create \
+              --name $language-target-container \
+              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+              --auth-mode login
 
-      # - name: 'Translate document to language'
-      #   run: |
-      #     set -eux
+      - name: 'Translate document to language'
+        run: |
+          set -eux
           
-      #     end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-      #     input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
-      #     output_sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
+          end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
+          input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
+          output_sas=`az storage container generate-sas -n $language-target-container --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
 
-      #     operation_id=$(az rest --method post \
-      #       --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches \
-      #       --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} \
-      #       --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME?$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$OUTPUT_CONTAINER_NAME?$output_sas\",\"language\": \"${{ matrix.language-id }}\"}]}]}" \
-      #       --verbose 2> >(grep -i Operation-Location) >/dev/null | grep -oEi '(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}')
-      #     echo $operation_id
-      #     echo "operation_id=$operation_id" >> $GITHUB_ENV
-      # - name: 'Wait for translation job'
-      #   run: |
-      #     action_state="${{ env.action_state }}"
-      #     echo $action_state
-      #     status=NotStarted
-      #     while [ "$status" = "NotStarted" ]
-      #     do
-      #       status=$(az rest --method get \
-      #         --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
-      #         --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} | jq -r .status)
-      #       echo waiting for run to start status is $status
-      #     done
+          operation_id=$(az rest --method post \
+            --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches \
+            --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} \
+            --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME?$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$language-target-container?$output_sas\",\"language\": \"${{ matrix.language-id }}\"}]}]}" \
+            --verbose 2> >(grep -i Operation-Location) >/dev/null | grep -oEi '(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}')
+          echo $operation_id
+          echo "operation_id=$operation_id" >> $GITHUB_ENV
+      - name: 'Wait for translation job'
+        run: |
+          action_state="${{ env.action_state }}"
+          echo $action_state
+          status=NotStarted
+          while [ "$status" = "NotStarted" ]
+          do
+            status=$(az rest --method get \
+              --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
+              --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} | jq -r .status)
+            echo waiting for run to start status is $status
+          done
 
-      #     while [ "$status" = "Running" ]
-      #     do
-      #       status=$(az rest --method get \
-      #         --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
-      #         --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} | jq -r .status)
-      #       echo running status is $status
-      #     done
-      #     echo status is $status
-      #     if [ "$status" != "Succeeded" ]
-      #     then
-      #       echo "Error!" 1>&2
-      #       exit 1
-      #     fi
+          while [ "$status" = "Running" ]
+          do
+            status=$(az rest --method get \
+              --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
+              --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} | jq -r .status)
+            echo running status is $status
+          done
+          echo status is $status
+          if [ "$status" != "Succeeded" ]
+          then
+            echo "Error!" 1>&2
+            exit 1
+          fi
       - uses: actions/checkout@v3
       - name: 'Download translation'
         run: |
           mkdir -p ./translations/${{ matrix.language-id }}
           end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-          sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
+          sas=`az storage container generate-sas -n $language-target-container --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
           az storage blob download \
           --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-          --container-name $OUTPUT_CONTAINER_NAME \
+          --container-name $language-target-container \
           --name  ${{ vars.DOCUMENT_PATH }} \
           --file  ./translations/${{ matrix.language-id }}/${{ vars.DOCUMENT_PATH }} \
           --sas-token $sas
@@ -134,28 +158,3 @@ jobs:
           branch: feature/${{ matrix.language }}-translation
           title: translation to ${{ matrix.language }}
           token: ${{ secrets.CREATE_PULL_REQUEST_TOKEN }}
-
-          
-          
-            
-  # translate:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: NPM Install
-  #       run: npm install -g bats
-  #     - name: BATS
-  #       run: bats -v
-  # download-all:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: NPM Install
-  #       run: npm install -g bats
-  #     - name: BATS
-  #       run: bats -v
-  # pull-request-all:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: NPM Install
-  #       run: npm install -g bats
-  #     - name: BATS
-  #       run: bats -v
