@@ -75,12 +75,14 @@ jobs:
           operation_id=$(az rest --method post \
             --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches \
             --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} \
-            --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$OUTPUT_CONTAINER_NAME$output_sas\",\"language\": \"he\"}]}]}" \
+            --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME?$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$OUTPUT_CONTAINER_NAME?$output_sas\",\"language\": \"he\"}]}]}" \
             --verbose 2> >(grep -i Operation-Location) >/dev/null | grep -oEi '(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}')
           echo $operation_id
 
           status=$(az rest --method get \
-            --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id)
+            --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
+            --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }})
+            
           echo $status
             
   # translate:
