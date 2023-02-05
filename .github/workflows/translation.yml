@@ -102,7 +102,7 @@ jobs:
             echo status is $status
           done
 
-          if [ "$status" != "Succeeded"]
+          if [ "$status" != "Succeeded"] then
             echo "Error!" 1>&2
             exit 1
           fi
