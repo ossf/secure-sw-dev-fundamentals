@@ -91,7 +91,7 @@ jobs:
             status=$(az rest --method get \
               --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
               --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} | jq ".status")
-            echo status is $status
+            echo waiting for run to start status is $status
           done
 
           while [ "$status" = "Running" ]
@@ -99,10 +99,11 @@ jobs:
             status=$(az rest --method get \
               --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
               --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} | jq ".status")
-            echo status is $status
+            echo running status is $status
           done
-
-          if [ "$status" != "Succeeded"] then
+          echo status is $status
+          if [ "$status" != "Succeeded" ]
+          then
             echo "Error!" 1>&2
             exit 1
           fi
