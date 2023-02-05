@@ -120,7 +120,7 @@ jobs:
           --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
           --container-name $OUTPUT_CONTAINER_NAME \
           --name  ${{ vars.DOCUMENT_PATH }} \
-          --file  ./he/${{ vars.DOCUMENT_PATH }} \
+          --file  .translations/he/${{ vars.DOCUMENT_PATH }} \
           --sas-token $sas
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
