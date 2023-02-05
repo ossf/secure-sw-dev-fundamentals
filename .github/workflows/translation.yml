@@ -130,6 +130,11 @@ jobs:
             glossary_uri_with_sas=https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME/${{ matrix.glossary }}?glossary_sas
             glossary_json=",\"glossaries\": [{\"glossaryUrl\":\"$glossary_uri_with_sas\",\"format\":\"CSV\"}]"
             echo "glossary_json=$glossary_json" >> $GITHUB_ENV
+      - name: 'Upload Translation'
+        if: ! matrix.glossary
+        run: |
+            set -eux
+            echo "glossary_json=' '" >> $GITHUB_ENV
       ############################
       # Call translate REST API  #
       ############################
