@@ -7,11 +7,10 @@
 name: Translate Document
 
 on: 
-  workflow_dispatch
-  # push:
-  #   paths:
-  #     - '**'
-  #     - '!translations/**'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/translation.yml'
 
 
 permissions:
