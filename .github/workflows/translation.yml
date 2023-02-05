@@ -80,7 +80,7 @@ jobs:
           echo $operation_id
 
           status=$(az rest --method get \
-            --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id
+            --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id)
           echo $status
             
   # translate:
