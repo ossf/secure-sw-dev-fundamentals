@@ -22,10 +22,7 @@ env:
 
 
 jobs:
-  ###################################
-  # Upload source document to Azure #
-  ###################################
-  upload-source:
+  translate-language:
     runs-on: ubuntu-latest
     steps:
       ##########################
@@ -53,7 +50,9 @@ jobs:
       #         --name $OUTPUT_CONTAINER_NAME \
       #         --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
       #         --auth-mode login
-
+      ###################################
+        # Upload source document to Azure #
+        ###################################
       # - name: 'Upload source document with Azure CLI'
       #   run: |
       #       end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
@@ -124,7 +123,7 @@ jobs:
         with:
           branch: feature/he-translation
           title: Sync staging to master
-
+          token: ${{ secrets.CREATE_PULL_REQUEST_TOKEN }
 
           
           
