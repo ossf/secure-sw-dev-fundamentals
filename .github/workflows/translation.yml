@@ -8,9 +8,8 @@ name: Translate Document
 
 on: 
   push: 
-      paths:
-        - '!translations/**'
-  workflow_dispatch:
+    paths:
+      - '!translations/**'
 
 permissions:
   id-token: write
