@@ -67,7 +67,7 @@ jobs:
     needs: upload-source
     name: translate to ${{ matrix.language }}
     env:
-      target-container: "$OUTPUT_CONTAINER_NAME${{ matrix.language-id }}"
+      target_container: "$OUTPUT_CONTAINER_NAME${{ matrix.language-id }}"
     strategy:
       matrix: 
         include:
@@ -94,9 +94,9 @@ jobs:
     
       - name: 'Create containers with Azure CLI'
         run: |
-            echo $target-container
+            echo $target_container
             az storage container create \
-              --name $target-container \
+              --name $target_container \
               --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
               --auth-mode login
 
@@ -107,12 +107,12 @@ jobs:
           
           end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
           input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
-          output_sas=`az storage container generate-sas -n $target-container --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
+          output_sas=`az storage container generate-sas -n $target_container --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv`
 
           operation_id=$(az rest --method post \
             --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches \
             --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} \
-            --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME?$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$target-container?$output_sas\",\"language\": \"${{ matrix.language-id }}\"}]}]}" \
+            --body "{\"inputs\": [{\"source\": { \"sourceUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$INPUT_CONTAINER_NAME?$input_sas\"}, \"targets\": [{\"targetUrl\": \"https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$target_container?$output_sas\",\"language\": \"${{ matrix.language-id }}\"}]}]}" \
             --verbose 2> >(grep -i Operation-Location) >/dev/null | grep -oEi '(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}')
           echo $operation_id
           echo "operation_id=$operation_id" >> $GITHUB_ENV
@@ -147,10 +147,10 @@ jobs:
         run: |
           mkdir -p ./translations/${{ matrix.language-id }}
           end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-          sas=`az storage container generate-sas -n $target-container --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
+          sas=`az storage container generate-sas -n $target_container --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
           az storage blob download \
           --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
-          --container-name $target-container \
+          --container-name $target_container \
           --name  ${{ vars.DOCUMENT_PATH }} \
           --file  ./translations/${{ matrix.language-id }}/${{ vars.DOCUMENT_PATH }} \
           --sas-token $sas
