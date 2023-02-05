@@ -81,7 +81,7 @@ jobs:
             --verbose 2> >(grep -i Operation-Location) >/dev/null | grep -oEi '(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}')
           echo $operation_id
           echo "operation_id=$operation_id" >> $GITHUB_ENV
-      - name: 'Wait for translation'
+      - name: 'Wait for translation job'
         run: |
           action_state="${{ env.action_state }}"
           echo $action_state
@@ -107,7 +107,18 @@ jobs:
             echo "Error!" 1>&2
             exit 1
           fi
-          
+      - uses: actions/checkout@v3
+      - name: 'Download translation'
+        run: |
+          az storage blob download \
+          --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+          --container-name $OUTPUT_CONTAINER_NAME \
+          --name  ${{ vars.DOCUMENT_PATH }} \
+          --file  ./he/${{ vars.DOCUMENT_PATH }} \
+          --auth-mode login
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+
           
           
             
