@@ -116,7 +116,7 @@ jobs:
         if: matrix.glossary
         run: |
             set -eux
-            FILE=translations/${{ matrix.language-id }}/${{ matrix.glossary }}
+            
             end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
             sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions dlrw --expiry $end -o tsv`
             az storage blob upload \
@@ -124,7 +124,7 @@ jobs:
               --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
               --container-name $INPUT_CONTAINER_NAME \
               --name ${{ matrix.glossary }} \
-              --file FILE \
+              --file translations/${{ matrix.language-id }}/${{ matrix.glossary }} \
               --sas-token $sas
             
       ############################
