@@ -132,7 +132,7 @@ jobs:
               --name ${{ matrix.glossary }} \
               --file translations/${{ matrix.language-id }}/${{ matrix.glossary }} \
               --sas-token $sas
-            glossary_sas=`az storage container generate-sas -n ${{ matrix.glossary }} -c $GLOSSARY_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
+            glossary_sas=`az storage container generate-sas -n $GLOSSARY_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv`
             glossary_uri_with_sas=https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$GLOSSARY_CONTAINER_NAME/${{ matrix.glossary }}?glossary_sas
             glossary_json=",\"glossaries\": [{\"glossaryUrl\":\"$glossary_uri_with_sas\",\"format\":\"CSV\"}]"
             echo "glossary_json=$glossary_json" >> $GITHUB_ENV
