@@ -1,0 +1,274 @@
+---
+###########################################
+###########################################
+## Translate Document GitHub Actions     ##
+## Expects the folowing secrets:         ##
+##   AZURE_CLIENT_ID: Client Id of the   ##
+##     azure cli application that is     ##
+##     federated to trust github actions.##
+##      more info: https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux#use-the-azure-login-action-with-openid-connect
+##   AZURE_SUBSCRIPTION_ID: Subscription ##
+##     Id of the azure cli application   ##
+##   AZURE_TENANT_ID: Tenant id of the   ##
+##     azure cli application             ##
+##   CREATE_PULL_REQUEST_TOKEN: A GitHub ##
+##     PAT with repo scope to allow the  ##
+##     action to issue PRs. more info:   ##
+##     https://github.com/peter-evans/create-pull-request#action-inputs
+##   STORAGE_ACCOUNT_NAME: Azure Blob    ##
+##     storage account name              ##
+##   TRANSLATOR_API_KEY: Key for Azure   ##
+##     Cognitive Service Translate API   ##
+##   TRANSLATOR_API_URI: URI of Azure    ##
+##     Document Translator API           ##
+## Expects the folowing variables:       ##
+##   DOCUMENT_PATH: Path to source       ##
+##     document for translation          ##
+###########################################
+###########################################
+name: Translate Document
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  INPUT_CONTAINER_NAME: translatesource
+  GLOSSARY_CONTAINER_NAME: translateglossaries
+
+jobs:
+  ###################################
+  # Upload source document to Azure #
+  ###################################
+  upload-source:
+    name: Upload source document to Azure
+    runs-on: ubuntu-latest
+    steps:
+      ##########################
+      # Checkout the code base #
+      ##########################
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      ##########################
+      # Login to Azure         #
+      ##########################
+      - name: "Az CLI login"
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ##############################
+      # Create the input container #
+      ##############################
+      - name: "Create input container with Azure CLI"
+        run: |
+          set -eux
+          az storage container create \
+            --name $INPUT_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
+
+          az storage container create \
+            --name $GLOSSARY_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
+      ##############################
+      # Upload the source document #
+      ##############################
+      - name: "Upload source document with Azure CLI"
+        run: |
+          set -eux
+          az storage blob upload \
+            --overwrite true \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --container-name $INPUT_CONTAINER_NAME \
+            --name ${{ vars.DOCUMENT_PATH }} \
+            --file ${{ vars.DOCUMENT_PATH }} \
+            --auth-mode login
+  ###########################################
+  # Translate the document to all languages #
+  ###########################################
+  translate-language:
+    needs: upload-source
+    name: translate to ${{ matrix.language }}
+    env:
+      OUTPUT_CONTAINER_NAME: translatetarget${{ matrix.language-id }}
+    strategy:
+      matrix:
+        include:
+          - language: "Hebrew"
+            language-id: "he"
+            glossary: translation-glossary-he.csv
+          - language: "Arabic"
+            language-id: "ar"
+    runs-on: ubuntu-latest
+    steps:
+      ##########################
+      # Checkout the code base #
+      ##########################
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      ##########################
+      # Login to Azure         #
+      ##########################
+      - name: "Az CLI login"
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ############################
+      # Create output container  #
+      ############################
+      - name: "Create containers with Azure CLI"
+        run: |
+          set -eux
+          az storage container create \
+            --name $OUTPUT_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
+      #################################
+      # Upload translation, if exists #
+      #################################
+      - name: "Upload Translation"
+        if: matrix.glossary
+        run: |
+          set -eux
+          glossary_file=translations/${{ matrix.language-id }}/${{ matrix.glossary }}
+          if [ -f "$glossary_file" ]; then
+            az storage blob upload \
+              --overwrite true \
+              --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+              --container-name $GLOSSARY_CONTAINER_NAME \
+              --name ${{ matrix.glossary }} \
+              --file  \
+              --auth-mode login
+            end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
+            glossary_sas=`az storage container generate-sas -n $GLOSSARY_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lre --expiry $end -o tsv`
+            glossary_uri_with_sas=https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$GLOSSARY_CONTAINER_NAME/${{ matrix.glossary }}?$glossary_sas
+            glossary_json="{\"glossaryUrl\":\"$glossary_uri_with_sas\",\"format\":\"CSV\"}"
+            echo "glossary_json=$glossary_json" >> $GITHUB_ENV
+          else
+            echo "glossary_json= " >> $GITHUB_ENV
+          fi
+      - name: "No Translation to Upload"
+        if: ${{ ! matrix.glossary }}
+        run: |
+          set -eux
+          echo "glossary_json= " >> $GITHUB_ENV
+      ############################
+      # Call translate REST API  #
+      ############################
+
+      - name: "Translate document to language"
+        run: |
+          set -ux
+          end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
+          input_sas=`az storage container generate-sas -n $INPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lr --expiry $end -o tsv | sed 's#&#\\\&#g'`
+          output_sas=`az storage container generate-sas -n $OUTPUT_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lw --expiry $end -o tsv | sed 's#&#\\\&#g'`
+          body=`sed -e "s#STORAGE_ACCOUNT_NAME#${{ secrets.STORAGE_ACCOUNT_NAME }}#g" \
+            -e "s#INPUT_CONTAINER_NAME#$INPUT_CONTAINER_NAME#g" \
+            -e "s#INPUT_SAS#$input_sas#g" \
+            -e "s#OUTPUT_CONTAINER_NAME#$OUTPUT_CONTAINER_NAME#g" \
+            -e "s#OUTPUT_SAS#$output_sas#g" \
+            -e "s#LANGUAGE_ID#${{ matrix.language-id }}#g" \
+            -e "s#GLOSSARIES#$glossary_json#g" .github/workflows/translate-body.json`
+          operation_id=$(az rest --method post \
+            --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches \
+            --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} \
+            --body "$body" \
+            --verbose 2> >(grep -i Operation-Location) >/dev/null | grep -oEi '(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}')
+          echo opertaion id is $operation_id
+          echo "operation_id=$operation_id" >> $GITHUB_ENV
+    ############################
+      # Wait for Translation     #
+      ############################
+      - name: "Wait for translation job"
+        run: |
+          set -eux
+          action_state="${{ env.action_state }}"
+          echo $action_state
+          status=NotStarted
+          while [[ "$status" = "NotStarted" || "$status" = "Running" ]]
+          do
+            status=$(az rest --method get \
+              --url ${{ secrets.TRANSLATOR_API_URI }}translator/text/batch/v1.0/batches/$operation_id \
+              --headers Ocp-Apim-Subscription-Key=${{ secrets.TRANSLATOR_API_KEY }} | jq -r .status)
+            echo waiting for run status is $status
+          done
+          echo status is $status
+          if [ "$status" != "Succeeded" ]
+          then
+            echo "Error!" 1>&2
+            exit 1
+          fi
+      #############################
+      # Download translation from #
+      #############################
+      - uses: actions/checkout@v3
+      - name: "Download translation with Azure CLI"
+        run: |
+          set -eux
+          mkdir -p ./translations/${{ matrix.language-id }}
+          az storage blob download \
+          --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+          --container-name $OUTPUT_CONTAINER_NAME \
+          --name  ${{ vars.DOCUMENT_PATH }} \
+          --file  ./translations/${{ matrix.language-id }}/${{ vars.DOCUMENT_PATH }} \
+          --auth-mode login
+      #############################
+      # Delete output container   #
+      #############################
+      - name: Delete target container
+        if: always()
+        run: |
+          set -eux
+          az storage container delete \
+            --name $OUTPUT_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
+      #############################
+      # Create PR for language    #
+      #############################
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: feature/${{ matrix.language }}-translation
+          title: translation to ${{ matrix.language }}
+          token: ${{ secrets.CREATE_PULL_REQUEST_TOKEN }}
+  ##################
+  # Tear Down      #
+  ##################
+  delete-source:
+    name: Delete source document container
+    needs: translate-language
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      ##########################
+      # Login to Azure         #
+      ##########################
+      - name: "Az CLI login"
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ##############################
+      # Delete the input container #
+      ##############################
+      - name: "Delete input container with Azure CLI"
+        run: |
+          set -eux
+          az storage container delete \
+            --name $INPUT_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
+          az storage container delete \
+            --name $GLOSSARY_CONTAINER_NAME \
+            --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
+            --auth-mode login
