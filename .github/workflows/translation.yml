@@ -150,7 +150,7 @@ jobs:
               --file "$glossary_file" \
               --auth-mode login
             end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
-            glossary_sas=`az storage container generate-sas -n $GLOSSARY_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lre --expiry $end -o tsv`
+            glossary_sas=`az storage container generate-sas -n $GLOSSARY_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lre --expiry $end -o tsv | sed 's#&#\\\&#g'`
             glossary_uri_with_sas=https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/$GLOSSARY_CONTAINER_NAME/${{ matrix.glossary }}?$glossary_sas
             glossary_json="{\"glossaryUrl\":\"$glossary_uri_with_sas\",\"format\":\"CSV\"}"
             echo "glossary_json=$glossary_json" >> $GITHUB_ENV
