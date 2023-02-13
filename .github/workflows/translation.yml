@@ -147,7 +147,7 @@ jobs:
               --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} \
               --container-name $GLOSSARY_CONTAINER_NAME \
               --name ${{ matrix.glossary }} \
-              --file $glossary_file \
+              --file "$glossary_file" \
               --auth-mode login
             end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
             glossary_sas=`az storage container generate-sas -n $GLOSSARY_CONTAINER_NAME --auth-mode login --as-user --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --https-only --permissions lre --expiry $end -o tsv`
