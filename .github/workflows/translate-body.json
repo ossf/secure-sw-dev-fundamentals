@@ -1,0 +1,16 @@
+{
+  "inputs": [
+    {
+      "source": {
+        "sourceUrl": "https://STORAGE_ACCOUNT_NAME.blob.core.windows.net/INPUT_CONTAINER_NAME?INPUT_SAS"
+      },
+      "targets": [
+        {
+          "targetUrl": "https://STORAGE_ACCOUNT_NAME.blob.core.windows.net/OUTPUT_CONTAINER_NAME?OUTPUT_SAS",
+          "language": "LANGUAGE_ID",
+          "glossaries": [ GLOSSARIES ]
+        }
+      ]
+    }
+  ]
+}
