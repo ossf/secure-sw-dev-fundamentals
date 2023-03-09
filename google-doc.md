@@ -4,4 +4,4 @@ where this material was originally created.
 
 Please justify why you need it this unusual access; you almost certainly don't need it, since the content is the same.
 If you want to propose changes to the content, the preferred mechanism is
-via issues and pull requests bia GitHub.
+via issues and pull requests via GitHub.
