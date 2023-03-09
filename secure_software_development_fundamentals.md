@@ -1073,14 +1073,14 @@ If your software manages secrets like private cryptographic keys and passwords, 
 
 * Store passwords used for inbound authentication with an algorithm specifically designed to do this. We will discuss these later in the course, but these kinds of algorithms are called *iterated per-user salted hash* algorithms (such as argon2id, bcrypt, or PBKDF2). If done correctly, it is infeasible for an attacker to determine many passwords even if the attacker gets the encrypted password data.
 
-* Use **https://** instead of **http://**; that provides an encrypted link to prevent data leakage.
+* Use **https&#58;//** instead of **http&#58;//**; that provides an encrypted link to prevent data leakage.
 
 * Avoid accepting and sending secret data (like private keys) as command line parameters, where you can; command line parameters are often visible to other processes on a system.
 
 
 #### Trust Only Trustworthy Channels
 
-In general, only trust information (input or results) from trustworthy channels. For example, use **https://** instead of **http://** when contacting a server, because enables checking if the server has a valid cryptographic certificate for that site. In general you should use **https**, because that will prevent attackers from snooping or modifying information exchanged with other users.
+In general, only trust information (input or results) from trustworthy channels. For example, use **https&#58;//** instead of **http&#58;//** when contacting a server, because enables checking if the server has a valid cryptographic certificate for that site. In general you should use **https**, because that will prevent attackers from snooping or modifying information exchanged with other users.
 
 #### Separate Data from Control
 
@@ -4534,7 +4534,7 @@ Also, beware of implementing these algorithms only on the client side. It is fin
 
 ### Transport Layer Security (TLS)
 
-Transport Layer Security (TLS) is a widely-used cryptographic protocol to provide security over a network between two parties. It provides privacy and integrity between those parties. TLS version 1.3 was released in 2018. An older and insecure version of this protocol was named Secure Sockets Layer (SSL), and sometimes the terms are used interchangeably. When you use **https://** in a web browser or server today, you are normally using TLS (in rare cases, you might be using its insecure predecessor, SSL). TLS is also used in other applications, for example, to protect exchanges of email between different Mail Transport Agents (MTAs).
+Transport Layer Security (TLS) is a widely-used cryptographic protocol to provide security over a network between two parties. It provides privacy and integrity between those parties. TLS version 1.3 was released in 2018. An older and insecure version of this protocol was named Secure Sockets Layer (SSL), and sometimes the terms are used interchangeably. When you use **https&#58;//** in a web browser or server today, you are normally using TLS (in rare cases, you might be using its insecure predecessor, SSL). TLS is also used in other applications, for example, to protect exchanges of email between different Mail Transport Agents (MTAs).
 
 #### Certificate Validation
 
@@ -5967,7 +5967,7 @@ Di Paola, Stefano, and Arshan Dabirsiaghi. "Expression Language Injection", 2011
 
 Dulin, Maxwell (ꓘ), Finding an Authorization Bypass on my Own Website, 2022-03-03, (<https://maxwelldulin.com/BlogPost?post=9185867776>)
 
-ECMA, ECMA-262, 12th edition, June 2021, ECMAScript® 2021 Language Specification, “The Number Type” ([https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type]((https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type))
+ECMA, ECMA-262, 12th edition, June 2021, ECMAScript® 2021 Language Specification, “The Number Type” ([https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type](https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-number-type))
 
 Enosuchblog, 2022-12-28, "ReDoS "vulnerabilities" and misaligned incentives", <https://blog.yossarian.net/2022/12/28/ReDoS-vulnerabilities-and-misaligned-incentives>
 
