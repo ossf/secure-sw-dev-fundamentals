@@ -3682,7 +3682,7 @@ Thankfully, other than attacks on cryptographic systems, side-channel attacks ar
 
 * Not included as part of the free version of the course.
 
-# PART III: Verification and More Specialized Topics
+# Part III: Verification and More Specialized Topics
 
 # Verification
 
