@@ -28,6 +28,8 @@ project. Changes that are accepted into the Markdown must go through a series of
 
 Changes to the markdown must have no errors reported by `markdownlint` using our configuration. This is checked when a pull request is made. You can do this check locally by installing markdownlint (e.g., `brew install markdownlint-cli` or `npm install -g markdownlint-cli`) and running `make`.
 
+You can see a generated [table of contents](toc.md) - rerun `make` to regenerate it. This generated file is included in the repository itself for convenience of those new to the document.
+
 This content was originally converted from Google docs format using
 [gdocs2md](http://github.com/mangini/gdocs2md),
 patched to skip inline drawings.
