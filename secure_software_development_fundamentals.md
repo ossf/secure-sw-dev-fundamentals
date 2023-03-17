@@ -3487,21 +3487,29 @@ This is true! The problem is not redirection, it is *unvalidated* redirection. O
 
 [Web application]
 
-There is a peculiar problem with the HTML **target** attribute that many people are not aware of. Let’s explain the problem, and some partial solutions.
+There is a peculiar problem with some special uses of the HTML **target** attribute and JavaScript `window.open()` that web developers are not aware of. Let’s explain the problem, and some partial solutions.
 
-In HTML, **&lt;a href=...>** creates a hyperlink. The HTML construct **&lt;a href=... target=...>** creates a hyperlink where, if you click on it, it creates a new “target”. The default value for target is **&#95;self**; if you set **target**, a common one is **target="&#95;blank”** which creates the target in a new tab.
+In HTML, **&lt;a href=...>** creates a hyperlink. The HTML construct **&lt;a href=... target=...>** creates a hyperlink where, if you click on it, it creates a new named “target”. Using **target="&#95;blank”** creates the target in a new tab. Historically setting **target="&#95;blank”** could be a vulnerability, but the [HTML specification has been modified so **&#95;blank** is no longer a problem](https://html.spec.whatwg.org/#following-hyperlinks) and modern browsers implement this fix.
 
-But what many don’t realize is that a value of “**target**” other than the default “**&#95;self**” may, in some cases, create a vulnerability. Because of the way it works, the page being linked to runs in the *same* process as the calling page. As a result, on a click the receiving page gains partial control over the linking page, *even if they are from different origins*. The primary way this happens is through the **window.opener** value. The receiving page can do things like force the *calling* page to navigate to a different page (e.g., **window.opener.location.href = newURL**), provide a new page that looks like the old one (even though it is in a different place), and fool the user into doing something on the “same” page that is not the same at all. A related problem is that the new page may also get “referrer” information that you might not have expected.
+However, there's a special case you still need to worry about. If you do *all* of these things at the same time you may have a security problem:
 
-The same kind of problem can happen in JavaScript. JavaScript’s “**window.open**” has a default target of “**&#95;blank**”; since that is not “**&#95;self**”, the *default value* of **window.open()** is insecure. Again, it will open a window that loads another page that is simultaneously given control over its calling page, *even if* they have different origins.
+1. The new page being loaded is from some (other) system you don't totally trust.
+2. Use HTML tag "a" with a named target or use JavaScript **window.open()** with named target,
+3. The named target is something *other* than **&#95;self** (the default for HTML's a tag), **&#95;blank** (the default for JavaScript's **window.open()**), **&#95;parent**, or **&#95;top**, *and*
 
-Of course, if you can trust that other page, that is not a security problem. So using a target value is often not a problem as long as you are referring to your *own* site. But if you are referring to another site, this may be more of a concern - are you sure you can trust it? Even if you trust your own or another site, it might be unwise to allow this - what happens if someone breaks into that part or that other site? Again, there is the principle of least privilege - we don’t want to give privileges if we don’t need to. This can also be a minor performance problem; page performance may suffer due to use of a shared process.
+Where possible, when loading pages from other sites, don't use named targets (other than the safe ones listed above). If you really must use this unusual circumstance, fix this in HTML by adding **rel="noopener"** to the "a" tag.
 
-The simplest solution is to avoid using **target=...** in HTML, and always set **target="&#95;self"** when calling JavaScript **window.open()...** especially for links to user-generated content and external domains. If you decide to use HTML **target=**, also use **rel="noopener noreferrer"**. The “**noopener**” tells the web browser to *not* allow the JavaScript to gain control over the referring window (so **window.opener** won’t give access to it). The ”**noreferrer**” prevents passing on the referrer information to the new tab/window ([*Security Vulnerability and Browser Performance Impact of Target=”&#95;blank”*](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
+Explaining why this odd combination is a security problem is complicated. The underlying problem is that web browsers need to support legacy systems. Fundamentally, when there is a named target, the browser will re-use an existing window by that name, or create one if there aren't any. The browser will then provide that window with an "opener" value set to its requestor. This was a common pattern for older websites to implement pop-ups. This approach is fine if the named window was trusted and cooperative. However, this provides a mechanism for the newer page to manipulate the web page of its caller. This enables, for example, "tabnapping", where the new site tricks the user by controlling another tab. If no countermeasure is taken, The receiving page can do things like force the *calling* page to navigate to a different page (e.g., **window.opener.location.href = newURL**), provide a new page that looks like the old one (even though it is in a different place), and fool the user into doing something on the “same” page that is not the same at all.
+
+This used to be a more common problem, because at one time this also impacted **&#95;blank**. Today browsers automatically add **rel="noopener"** when **&#95;blank** is the target. The other named targets listed above are from the same origin, so again the problem can't happen. But developers must handle these other less-common cases themselves.
+
+You may see some documents recommending the use of **rel="noreferrer"**, though there's no known problem today if you don't change the browser's referrer default. Modern browsers by default now have a setting of "strict-origin-when-cross-origin"; that means that when a different origin is loaded, the new origin sees the domain but *not* the path or other details about the page the user was viewing before. As long as you're happy with that default, or set an even stricter one, you're fine. However, if you set a looser value (and be careful before doing that), **rel="noreferrer"** will prevent that detailed information from getting to the other site. You can combine **noopener** and **noreferrer* as **rel="noopener noreferrer"**.
+
+A historical discussion of these problems, before the defaults were changed, can be found in ([*Security Vulnerability and Browser Performance Impact of Target=”&#95;blank”*](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
 
 #### Quiz 4.8: HTML **target** and JavaScript **window.open()**
 
-\>\>In an HTML anchor (**&lt;a href=...>**) to another site, if you use **target=...** with a value other than **&#95;self**, be sure to also set “**rel**” to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
+\>\>In an HTML anchor (**&lt;a href=...>**) to another site, if you use **target=...** with a value such as **new&#95;window**, be sure to also set “**rel**” to "**noopener**" or “**noopener noreferrer**” to prevent control by that other site of the originating tab. True or False?<<
 
 (x) True
 
@@ -3509,7 +3517,7 @@ The simplest solution is to avoid using **target=...** in HTML, and always set *
 
 [Explanation]
 
-This is true! Yes, this is a weird and subtle point. There is reason to hope that future developments in HTML and JavaScript will close this unexpected security hole, but for now, it is important to know about it.
+This is true! Yes, this is a weird and subtle point. There has been progress on making this less of a problem; changes to handling of **&#95;blank** have made this much less common. There is reason to hope that future developments in HTML and JavaScript will completely close this unexpected security hole, but for now, we want you to know about it.
 
 [Explanation]
 
