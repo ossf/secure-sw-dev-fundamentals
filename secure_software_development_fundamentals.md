@@ -176,6 +176,8 @@ With that, let’s begin.
 
 # Security Basics
 
+> 🎥 This chapter provides a high-level overview about security, including definitions of security and privacy, requirements, and risk management. We need to know these security basics so we can understand how to develop software that supports these basics.
+
 This chapter provides a high-level overview about security, including definitions of security and privacy, requirements, and risk management.
 
 Learning Objectives:
@@ -760,6 +762,8 @@ Identifying common kinds of vulnerabilities has another advantage, too: It will 
 
 # Design
 
+> 🎥 This chapter describes how to design software to be secure, focusing on key secure design principles such as least privilege, complete mediation, and input validation. These principles will help you avoid common problems and make your software harder to attack.
+
 This chapter describes how to design software to be secure, focusing on key secure design principles such as least privilege, complete mediation, and input validation.
 
 Learning objectives:
@@ -1104,6 +1108,8 @@ A good example of this is the Content Security Policy (CSP) supported by modern 
 
 # Reusing External Software
 
+> 🎥 Hi, I'm CRob. I work at Intel corporation and lead the Open Source Security Foundation Best Practices Working Group. When developing software today we typically don't develop everything from scratch, but instead we typically reuse a lot of existing software. This chapter describes how to reuse software with security in mind, including selecting, downloading, installing, and updating such software.
+
 This chapter describes how to reuse software with security in mind, including selecting, downloading, installing, and updating such software.
 
 Learning objectives:
@@ -1337,6 +1343,8 @@ A few of the common kinds of vulnerabilities are design problems. However, most 
 Practically all programs have to accept input. So we will begin examining how to implement secure software by discussing how to securely handle inputs.
 
 # Input Validation
+
+> 🎥 The first step in developing secure software is to only input that should be accepted. This chapter describes how to validate input, including how to validate numbers and text, the importance of minimizing attack surfaces, and how to improve availability by considering the inputs.
 
 This chapter describes how to validate input, including how to validate numbers and text, the importance of minimizing attack surfaces, and how to improve availability by considering the inputs.
 
@@ -1950,7 +1958,9 @@ Rate limiting is not a complete solution, but it is an easy and inexpensive appr
 
 # Processing Data Securely
 
-This chapter describes how to process data within software with security in mind, including treating untrusted data as dangerous, avoiding default and hardcoded credentials, avoiding memory safety issues (such as buffer overflows), and avoiding undefined behavior.
+> 🎥 This chapter describes how to process data with security in mind, including treating untrusted data as dangerous, avoiding default and hardcoded credentials, avoiding memory safety issues (such as buffer overflows), and avoiding undefined behavior.
+
+This chapter describes how to process data with security in mind, including treating untrusted data as dangerous, avoiding default and hardcoded credentials, avoiding memory safety issues (such as buffer overflows), and avoiding undefined behavior.
 
 Learning objectives:
 
@@ -2305,6 +2315,8 @@ No. The range of possible values varies by language and types used, but attacker
 
 
 # Calling Other Programs
+
+> 🎥 Real-world programs often call out to other programs, such as the operating system, database, and supporting browser. This chapter describes how to call other programs securely, including how to counter injection attacks (including SQL injection and OS command injection) and how to properly handle filenames/pathnames.
 
 This chapter describes how to call other programs securely, including how to counter injection attacks (including SQL injection and OS command injection) and how to properly handle filenames/pathnames.
 
@@ -3085,6 +3097,8 @@ Make sure that you have backups of important datasets and a workable recovery pr
 
 # Sending Output
 
+> 🎥 This chapter describes how to send output securely, including how to counter cross-site scripting (XSS) attacks, using HTTP hardening headers, and securely using formatting systems.
+
 This chapter describes how to send output securely, including how to counter cross-site scripting (XSS) attacks, using HTTP hardening headers, and securely using formatting systems.
 
 Learning objectives:
@@ -3686,6 +3700,8 @@ Thankfully, other than attacks on cryptographic systems, side-channel attacks ar
 
 # Verification
 
+> 🎥 This chapter describes how to verify for security, including the limitations of tools, the meaning of *static analysis* and *dynamic analysis*, and common types of tools such as security code scanners/static application security testing (SAST) tools, fuzzers, and web application scanners.
+
 This chapter describes how to verify for security, including the limitations of tools, the meaning of *static analysis* and *dynamic analysis*, and common types of tools such as security code scanners/static application security testing (SAST) tools, fuzzers, and web application scanners.
 
 Learning objectives:
@@ -4099,6 +4115,8 @@ If you are using OSS, consider preferring OSS who have earned a badge. If you ar
 
 # Threat Modeling
 
+> 🎥 This chapter describes the basics of threat modeling along with a specific threat modeling approach called STRIDE.
+
 This chapter describes the basics of threat modeling along with a specific threat modeling approach called STRIDE.
 
 Learning objectives:
@@ -4206,6 +4224,8 @@ Threat modeling may be overkill if you do not have significant security threats,
 [ ] The point of STRIDE is to examine each design element to see if there as a threat of information disclosure or tampering with data. {{ selected: No, that is only part of the story. Yes, you should consider information disclosure (violating confidentiality) and tampering with data (violating integrity). But those are just the “I” and “T” of STRIDE. You should also consider spoofing of identity, repudiation, denial of service, and elevation of privilege. }}
 
 # Cryptography
+
+> 🎥 This chapter describes the basics of how to use cryptography to help develop secure software, including the basics of symmetric/shared key encryption algorithms, cryptographic hashes, public-key (asymmetric) encryption, how to securely store passwords, cryptographically secure pseudo-random number generators (CSPRNG), and Transport Layer Security (TLS).
 
 This chapter describes the basics of how to use cryptography to help develop secure software, including the basics of symmetric/shared key encryption algorithms, cryptographic hashes, public-key (asymmetric) encryption, how to securely store passwords, cryptographically secure pseudo-random number generators (CSPRNG), and Transport Layer Security (TLS).
 
@@ -4629,6 +4649,8 @@ Similarly, seek advice from experts, and weigh that advice carefully. Errors in 
 [ ] If powerful “general-purpose” quantum computers are developed, they will render all encryption algorithms useless. {{ selected: No. Such computers will render useless common *public-key* algorithms that are popular in 2020. However, while they will halve the effective bit length of symmetric encryption algorithms, they will not render them useless; a 256-bit key for a symmetric encryption algorithm will effectively become a 128-bit key, which is still adequately secure for most purposes. In addition, new public-key algorithms are being developed that resist attacks from such quantum computers. }}
 
 # Other Topics
+
+> 🎥 This chapter describes topics on the fundamentals of developing secure software that have not been covered elsewhere, including handling vulnerability disclosures, assurance cases, the basics after development, formal methods, and top vulnerability lists.
 
 This chapter describes topics on the fundamentals of developing secure software that have not been covered elsewhere, including handling vulnerability disclosures, assurance cases, the basics after development, formal methods, and top vulnerability lists.
 
