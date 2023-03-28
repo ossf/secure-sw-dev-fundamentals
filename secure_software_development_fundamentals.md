@@ -3493,8 +3493,8 @@ In HTML, **&lt;a href=...&gt;** creates a hyperlink. The HTML construct **&lt;a 
 
 However, there's a special case you still need to worry about. If you do *all* of these things at the same time you may have a security problem:
 
-1. The new page being loaded is from some (other) system that you don't totally trust.
-2. Use HTML tag "a" with a named target or use JavaScript **window.open()** with a named target, *and*
+1. Use HTML tag "a" with a named target or use JavaScript **window.open()** with a named target, *and*
+2. The new page being loaded is from some (other) system that you don't totally trust, *and*
 3. The named target is something *other* than the safe values **&#95;self** (the default for HTML's a tag), **&#95;blank** (the default for JavaScript's **window.open()**), **&#95;parent**, or **&#95;top**.
 
 Where possible, when loading pages from other sites, don't use named targets (other than the safe ones listed above). If you really must use this unusual circumstance, fix this in HTML by adding **rel="noopener"** to the "a" tag.
