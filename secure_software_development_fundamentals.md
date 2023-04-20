@@ -4521,6 +4521,8 @@ If you are using passwords for inbound authentication, for security you **_must_
 
 Another algorithm that is in use is scrypt. This should also be strong against hardware attacks, but it has not gotten as much review compared to Argon2id, so Argon2id is more commonly recommended. That said, at the time of this writing, it has no known serious problems.
 
+All of these algorithms have various configuration options, and it is vital to use an adequately secure set of options. The OWASP [Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) provides a set of recommended configuration option values.
+
 You should allow users to require the use of two-factor authentication (2FA), either directly or by delegating to a service that does.
 
 Also, beware of implementing these algorithms only on the client side. It is fine to implement them on the client side (because that prevents the server from ever discovering the password the user enters), as long as they are *also* implemented on the server. The danger is doing them *only* on the client; if that happens, then what is stored in the server is no different from storing passwords in the clear. Once attackers get the password database, they can simply create or modify their own client to log into anyone’s account.
