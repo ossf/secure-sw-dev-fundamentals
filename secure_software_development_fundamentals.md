@@ -3317,6 +3317,21 @@ When you are delivering web pages you can limit what can be done with the result
 
 If your site is publicly accessible, you can easily test your headers using the [Security Headers website](https://securityheaders.com/).
 
+If you are serving especially sensitive data, you should *only* serve that data from a few specific pages and completely disable caching of that data (to prevent accidental spills from a cache). The safest way to ensure that caching is disabled is through this set of HTTP headers
+(["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
+
+~~~~
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Expires: 0
+~~~~
+
+Some of these settings are only relevant to extremely old browsers. If you only care about current browsers, this setting is enough:
+
+~~~~
+Cache-Control: no-store, must-revalidate
+~~~~
+
 Also, an important word about HTTP headers in general. You may decide, for various reasons, to provide other HTTP headers. If some of that header information might be from an attacker, be *especially careful*. As always, do very careful input validation. There is a nasty attack, in particular, where the attacker manages to insert a newline in the input; this will cause *HTTP header splitting* in HTTP versions 1.1 and 2, where the rest of the text after the newline may be interpreted as an HTTP header provided by the attacker. This could disable many protections or even implement an attack.
 
 #### Quiz 4.4: Other HTTP Hardening Headers
