@@ -176,7 +176,7 @@ With that, let’s begin.
 
 # Security Basics
 
-> 🎥 This chapter provides a high-level overview about security concepts, including definitions of security and privacy, requirements, and risk management. We need to know these security basics so we can understand how to develop software that supports these basics. It's hard to implement security and privacy if we don't know what it is, and we must have a basic idea of what the software needs to do before we can implement it. In addition, we should take reasonable steps to *manage* risks so that the risks taken are acceptable.
+> 🎥 This chapter provides a high-level overview about security concepts, including definitions of security and privacy, requirements, and risk management. We need to know these security basics so we can understand how to develop software that supports these basics. It's hard to implement security and privacy if we don't know what they are, and we must have a basic idea of what the software needs to do before we can implement it. In addition, we should take reasonable steps to *manage* risks so that any risks taken are acceptable.
 
 Learning Objectives:
 
