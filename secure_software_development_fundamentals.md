@@ -3317,8 +3317,7 @@ When you are delivering web pages you can limit what can be done with the result
 
 If your site is publicly accessible, you can easily test your headers using the [Security Headers website](https://securityheaders.com/).
 
-If you are serving especially sensitive data, you should *only* serve that data from a few specific pages and completely disable caching of that data (to prevent accidental spills from a cache). The safest way to ensure that caching is disabled is through this set of HTTP headers
-(["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
+If you are serving especially sensitive data, you should *only* serve that data from a few specific web pages and *completely* disable caching of that data on the server, client, and any proxies along the way. Disabling caches prevents accidental spills from a cache. On the server commonly-used systems for caching include memcached and Redis - disable caching of that data when you can. The safest way to ensure that the web browser and web proxy caching is disabled is through this set of HTTP headers (["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
 
 ~~~~
 Cache-Control: no-cache, no-store, must-revalidate
@@ -3326,7 +3325,7 @@ Pragma: no-cache
 Expires: 0
 ~~~~
 
-Some of these settings are only relevant to extremely old browsers. If you only care about current browsers, this setting is enough:
+Some of these settings are only relevant to extremely old browsers. If you only care about current browsers, this HTTP header is enough to disable caching:
 
 ~~~~
 Cache-Control: no-store, must-revalidate
