@@ -3317,20 +3317,6 @@ When you are delivering web pages you can limit what can be done with the result
 
 If your site is publicly accessible, you can easily test your headers using the [Security Headers website](https://securityheaders.com/).
 
-If you are serving especially sensitive data, you should *only* serve that data from a few specific web pages and *completely* disable caching of that data on the server, client, and any proxies along the way. Disabling caches prevents accidental spills from a cache. On the server commonly-used systems for caching include memcached and Redis - disable caching of that data when you can. The safest way to ensure that the web browser and web proxy caching is disabled is through this set of HTTP headers (["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
-
-~~~~html_header
-Cache-Control: no-cache, no-store, must-revalidate
-Pragma: no-cache
-Expires: 0
-~~~~
-
-Some of these settings are only relevant to extremely old browsers. If you only care about current browsers, this HTTP header is enough to disable caching:
-
-~~~~html_header
-Cache-Control: no-store, must-revalidate
-~~~~
-
 Also, an important word about HTTP headers in general. You may decide, for various reasons, to provide other HTTP headers. If some of that header information might be from an attacker, be *especially careful*. As always, do very careful input validation. There is a nasty attack, in particular, where the attacker manages to insert a newline in the input; this will cause *HTTP header splitting* in HTTP versions 1.1 and 2, where the rest of the text after the newline may be interpreted as an HTTP header provided by the attacker. This could disable many protections or even implement an attack.
 
 #### Quiz 4.4: Other HTTP Hardening Headers
@@ -3679,6 +3665,34 @@ Also, ensure that users cannot receive unauthorized information. Permissions and
 We hope this was a really easy one. The problem is not just that this is a terrible user experience; it could also lead to a security breach. Untrusted users should normally be told if some request failed, but there is no reason they must see all that detail; that is what logs are for.
 
 [Explanation]
+
+### Avoid caching especially sensitive information
+
+Caching (creating intermediate copies of data) can speed many responses. However, if you are serving especially sensitive data, you should isolate it. For example, if you're implementing a website, you should *only* serve that sensitive data from a few specialized web pages and *completely* disable caching of that data on the server, client, and any proxies along the way. Disabling caches prevents accidental spills from a cache, and is yet another way to implement least privilege. Caching can occur in any part of a system, but unnecessary caching of sensitive data is especially common as part of output, so we include this issue here.
+
+On the server commonly-used systems for caching include memcached and Redis - disable caching of that data when you can. The safest way to ensure that the web browser and web proxy caching is disabled is through this set of HTTP headers (["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
+
+~~~~html_header
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Expires: 0
+~~~~
+
+Some of these settings are only relevant to extremely old browsers. If you only care about current browsers, this HTTP header is enough to disable caching:
+
+~~~~html_header
+Cache-Control: no-store, must-revalidate
+~~~~
+
+You could also consider doing extra double-checks to ensure that any cached data is only being sent to someone authorized to receive it.
+
+> 😱 STORY TIME: Cache system vulnerabilities in ChatGPT in 2023
+
+> In 2023 two different cache-related problems impacted ChatGPT
+> (["OpenAI Reveals Redis Bug Behind ChatGPT User Data Exposure Incident" by Ravie Lakshmanan](https://thehackernews.com/2023/03/openai-reveals-redis-bug-behind-chatgpt.html)):
+>
+> 1. It was discovered that a bug in the Redis library led to the exposure of other users' personal information and chat titles in the ChatGPT service. Canceled requests could cause connection corruption, leading to revelation of data from an unrelated user such as the user's first and last name, email address, payment address, the last four digits of a credit card number, and the credit card expiration date. This leaked information to users who were using the system normally (and not attacking the system in any way).
+> 2. A *different* caching-related vulnerability enabled an account takeover vulnerability that could be exploited to seize control of another user's account, view their chat history, and access their billing information. An attacker could create a special hyperlink that caused an access token to be cached in the content distribution network (CDN).
 
 ### Side-Channel Attacks
 
@@ -6052,6 +6066,8 @@ ISO/IEC 15026-2:2011, *Systems and software engineering - Systems and software a
 Kaplan-Moss, Jacob, *Not all attackers are equal: understanding and preventing DOS in web applications*, 2020 ([https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/))
 
 kernel.org, *Linux kernel coding style* ([https://www.kernel.org/doc/Documentation/process/coding-style.rst](https://www.kernel.org/doc/Documentation/process/coding-style.rst))
+
+Lakshmanan, Ravie, 2023-03-25, (["OpenAI Reveals Redis Bug Behind ChatGPT User Data Exposure Incident"](https://thehackernews.com/2023/03/openai-reveals-redis-bug-behind-chatgpt.html))
 
 Levien, Raph, *With Undefined Behavior, Anything is Possible*, 2018-08-17, ([https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html](https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html))
 
