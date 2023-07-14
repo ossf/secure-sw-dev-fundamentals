@@ -176,7 +176,7 @@ With that, let’s begin.
 
 # Security Basics
 
-This chapter provides a high-level overview about security, including definitions of security and privacy, requirements, and risk management.
+> 🎥 This chapter provides a high-level overview about security concepts, including definitions of security and privacy, requirements, and risk management. We need to know these security basics so we can understand how to develop software that supports these basics. It's hard to implement security and privacy if we don't know what they are, and we must have a basic idea of what the software needs to do before we can implement it. In addition, we should take reasonable steps to *manage* risks so that any risks taken are acceptable.
 
 Learning Objectives:
 
@@ -760,7 +760,8 @@ Identifying common kinds of vulnerabilities has another advantage, too: It will 
 
 # Design
 
-This chapter describes how to design software to be secure, focusing on key secure design principles such as least privilege, complete mediation, and input validation.
+
+> 🎥 Non-trivial software needs to broken into smaller components that work together, and that breakdown is often called design or architectural design. This chapter describes how to design software to be secure, focusing on key secure design principles such as least privilege, complete mediation, and input validation. These principles will help you avoid common problems and make your software harder to attack.
 
 Learning objectives:
 
@@ -1104,7 +1105,9 @@ A good example of this is the Content Security Policy (CSP) supported by modern 
 
 # Reusing External Software
 
-This chapter describes how to reuse software with security in mind, including selecting, downloading, installing, and updating such software.
+<!-- Have CRob do this intro? -->
+
+> 🎥 When developing software today we typically don't develop everything from scratch, we typically reuse a lot of existing software. In fact, on average, software products are mostly reused software. This chapter describes how to reuse software with security in mind, including selecting, downloading, installing, and updating such software. Reusing more secure software generally produces more secure results.
 
 Learning objectives:
 
@@ -1338,7 +1341,7 @@ Practically all programs have to accept input. So we will begin examining how to
 
 # Input Validation
 
-This chapter describes how to validate input, including how to validate numbers and text, the importance of minimizing attack surfaces, and how to improve availability by considering the inputs.
+> 🎥 A key part of implementing secure software is to only accept input that should be accepted. This chapter describes how to validate input, including how to validate numbers and text, the importance of minimizing attack surfaces, and how to improve availability by considering the inputs. Limiting input won't counter every attack, but it will tend to make the software harder to attack.
 
 Learning objectives:
 
@@ -1950,7 +1953,7 @@ Rate limiting is not a complete solution, but it is an easy and inexpensive appr
 
 # Processing Data Securely
 
-This chapter describes how to process data within software with security in mind, including treating untrusted data as dangerous, avoiding default and hardcoded credentials, avoiding memory safety issues (such as buffer overflows), and avoiding undefined behavior.
+> 🎥 This chapter describes how to process data with security in mind, including treating untrusted data as dangerous, avoiding default and hardcoded credentials, avoiding memory safety issues (such as buffer overflows), and avoiding undefined behavior.
 
 Learning objectives:
 
@@ -2306,7 +2309,7 @@ No. The range of possible values varies by language and types used, but attacker
 
 # Calling Other Programs
 
-This chapter describes how to call other programs securely, including how to counter injection attacks (including SQL injection and OS command injection) and how to properly handle filenames/pathnames.
+> 🎥 Real-world programs often call out to other programs. On a server-side application these programs might include the operating system or a database. On a client-side application this might include the supporting browser. This chapter describes how to call other programs securely. We'll discuss in particular on how to counter injection attacks, including SQL injection and OS command injection, as well as how to properly handle filenames and pathnames.
 
 Learning objectives:
 
@@ -3085,7 +3088,7 @@ Make sure that you have backups of important datasets and a workable recovery pr
 
 # Sending Output
 
-This chapter describes how to send output securely, including how to counter cross-site scripting (XSS) attacks, using HTTP hardening headers, and securely using formatting systems.
+> 🎥 This chapter describes how to send output securely. This includes how to counter cross-site scripting (XSS) attacks, how to use HTTP hardening headers, and how to securely use formatting systems.
 
 Learning objectives:
 
@@ -3694,7 +3697,7 @@ Thankfully, other than attacks on cryptographic systems, side-channel attacks ar
 
 # Verification
 
-This chapter describes how to verify for security, including the limitations of tools, the meaning of *static analysis* and *dynamic analysis*, and common types of tools such as security code scanners/static application security testing (SAST) tools, fuzzers, and web application scanners.
+> 🎥 This chapter describes how to verify for security, including the limitations of tools, the meaning of *static analysis* and *dynamic analysis*, and common types of tools that can help improve security. These tool types include security code scanners aka static application security testing (SAST) tools, fuzzers, and web application scanners.
 
 Learning objectives:
 
@@ -4107,7 +4110,7 @@ If you are using OSS, consider preferring OSS who have earned a badge. If you ar
 
 # Threat Modeling
 
-This chapter describes the basics of threat modeling along with a specific threat modeling approach called STRIDE.
+> 🎥 This chapter describes the basics of threat modeling, along with a specific threat modeling approach called STRIDE. The point of threat modeling is to try to *think like an attacker* when considering your software, including looking for threats and proactively countering them.
 
 Learning objectives:
 
@@ -4215,7 +4218,7 @@ Threat modeling may be overkill if you do not have significant security threats,
 
 # Cryptography
 
-This chapter describes the basics of how to use cryptography to help develop secure software, including the basics of symmetric/shared key encryption algorithms, cryptographic hashes, public-key (asymmetric) encryption, how to securely store passwords, cryptographically secure pseudo-random number generators (CSPRNG), and Transport Layer Security (TLS).
+> 🎥 This chapter describes the basics of how to use cryptography to help develop secure software. Developing secure software involves a lot more than cryptography, but many secure systems depend vitally on cryptography, so to have secure systems we often need to know how to correctly use cryptography. We will cover the basics of symmetric/shared key encryption algorithms, cryptographic hashes, public-key (asymmetric) encryption, how to securely store passwords, cryptographically secure pseudo-random number generators (CSPRNG), and Transport Layer Security (TLS).
 
 Learning objectives:
 
@@ -4640,7 +4643,7 @@ Similarly, seek advice from experts, and weigh that advice carefully. Errors in 
 
 # Other Topics
 
-This chapter describes topics on the fundamentals of developing secure software that have not been covered elsewhere, including handling vulnerability disclosures, assurance cases, the basics after development, formal methods, and top vulnerability lists.
+> 🎥 This chapter describes topics on the fundamentals of developing secure software that have not been covered elsewhere, including handling vulnerability disclosures, assurance cases, the basics after development, formal methods, and top vulnerability lists.
 
 Learning objectives:
 
