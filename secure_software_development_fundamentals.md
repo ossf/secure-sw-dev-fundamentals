@@ -3694,6 +3694,9 @@ In 2017 it was found that 70% of tested sites
 failed to correctly forbid browsers from storing cached content, because
 they incorrectly used only the nonstandard request to store cached data
 ["Industry-wide Misunderstandings of HTTPS" by Independent Security Evaluators (ISE), July 12, 2017](https://www.ise.io/casestudies/industry-wide-misunderstandings-of-https/#5d).
+You should always try to use a *standard* interface to request
+a security-related capability where you can, to make it more likely that
+the mechanism will work in the future.
 
 You could also consider implementing extra double-checks to ensure that any cached data is only being sent to someone authorized to receive it.
 
