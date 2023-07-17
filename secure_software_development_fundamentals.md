@@ -3684,7 +3684,18 @@ Some of these settings are only relevant to extremely old browsers. If you only 
 Cache-Control: no-store, must-revalidate
 ~~~~
 
-You could also consider doing extra double-checks to ensure that any cached data is only being sent to someone authorized to receive it.
+This is especially a problem because many websites long ignored web standards.
+The HTTP/1.1 standard, published In 1999, standardized the
+header to disable writing content to storage
+("no-store"), However, many websites continued to use only the non-standard
+mechanisms supported by the Internet Explorer web browser.
+In 2017 it was found that 70% of tested sites
+(financial, healthcare, insurance, and utility sites)
+failed to correctly forbid browsers from storing cached content, because
+they incorrectly used only the nonstandard request to store cached data
+["Industry-wide Misunderstandings of HTTPS" by Independent Security Evaluators (ISE), July 12, 2017](https://www.ise.io/casestudies/industry-wide-misunderstandings-of-https/#5d).
+
+You could also consider implementing extra double-checks to ensure that any cached data is only being sent to someone authorized to receive it.
 
 > 😱 STORY TIME: Cache system vulnerabilities in ChatGPT in 2023
 
@@ -6058,6 +6069,8 @@ IETF RFC 5321, section 2.3.11, *Mailbox and Address* ([https://tools.ietf.org/ht
 Information Commissioner’s Office (ICO), *Guide to the General Data Protection Regulation (GDPR)* ([https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/))
 
 International Association for Privacy Professionals (IAPP), *What does privacy mean?* ([https://iapp.org/about/what-is-privacy/](https://iapp.org/about/what-is-privacy/))
+
+Independent Security Evaluators (ISE), "Industry-wide Misunderstandings of HTTPS" July 12, 2017, <https://www.ise.io/casestudies/industry-wide-misunderstandings-of-https/#5d>
 
 ISO/IEC 9899:2018, *Programming Languages - C* (aka “C17”).  This standard is not publicly available; its final draft is publicly available at ([https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf](https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf))
 
