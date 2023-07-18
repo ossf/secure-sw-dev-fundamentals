@@ -760,7 +760,6 @@ Identifying common kinds of vulnerabilities has another advantage, too: It will 
 
 # Design
 
-
 > 🎥 Non-trivial software needs to broken into smaller components that work together, and that breakdown is often called design or architectural design. This chapter describes how to design software to be secure, focusing on key secure design principles such as least privilege, complete mediation, and input validation. These principles will help you avoid common problems and make your software harder to attack.
 
 Learning objectives:
