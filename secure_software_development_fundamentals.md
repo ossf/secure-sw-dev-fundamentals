@@ -3666,11 +3666,11 @@ We hope this was a really easy one. The problem is not just that this is a terri
 
 [Explanation]
 
-### Avoid caching especially sensitive information
+### Avoid caching sensitive information
 
-Caching (creating intermediate copies of data) can speed many responses. However, if you are serving especially sensitive data, you should isolate it. For example, if you're implementing a website, you should *only* serve that sensitive data from a few specialized web pages and *completely* disable caching of that data on the server, client, and any proxies along the way. Disabling caches prevents accidental spills from a cache, and is yet another way to implement least privilege. Caching can occur in any part of a system, but unnecessary caching of sensitive data is especially common as part of output, so we include this issue here.
+Caching (creating intermediate copies of data) can speed many responses. However, if you are serving very sensitive data, you should avoid caching it where practical. For example, if you're implementing a website, you should *only* serve that sensitive data from a few specialized web pages and *completely* disable caching of that data on the server, client, and any proxies along the way. Disabling caches prevents accidental spills from a cache, and is yet another way to implement least privilege. Caching can occur in any part of a system, but unnecessary caching of sensitive data is especially common as part of output, so we focus on disabling caching as part of secure output.
 
-On the server commonly-used systems for caching include memcached and Redis - disable caching of that data when you can. The safest way to ensure that the web browser and web proxy caching is disabled is through this set of HTTP headers (["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
+On the server commonly-used systems for caching include memcached and Redis. The safest way to ensure that the web browser and web proxy caching is disabled is through this set of HTTP headers (["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
 
 ~~~~html_header
 Cache-Control: no-cache, no-store, must-revalidate
@@ -3691,7 +3691,7 @@ header to disable writing content to storage
 mechanisms supported by the Internet Explorer web browser.
 In 2017 it was found that 70% of tested sites
 (financial, healthcare, insurance, and utility sites)
-failed to correctly forbid browsers from storing cached content, because
+failed to correctly prevent browsers from storing cached content, because
 they incorrectly used only the nonstandard request to store cached data
 ["Industry-wide Misunderstandings of HTTPS" by Independent Security Evaluators (ISE), July 12, 2017](https://www.ise.io/casestudies/industry-wide-misunderstandings-of-https/#5d).
 You should always try to use a *standard* interface to request
