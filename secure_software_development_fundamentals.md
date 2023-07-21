@@ -3668,6 +3668,48 @@ We hope this was a really easy one. The problem is not just that this is a terri
 
 [Explanation]
 
+### Avoid caching sensitive information
+
+Caching (creating intermediate copies of data) can speed many responses. However, if you are serving very sensitive data, you should avoid caching it where practical. For example, if you're implementing a website, you should *only* serve that sensitive data from a few specialized web pages and *completely* disable caching of that data on the server, client, and any proxies along the way. Disabling caches prevents accidental spills from a cache, and is yet another way to implement least privilege. Caching can occur in any part of a system, but unnecessary caching of sensitive data is especially common as part of output, so we focus on disabling caching as part of secure output.
+
+On the server commonly-used systems for caching include memcached and Redis. The safest way to ensure that the web browser and web proxy caching is disabled is through this set of HTTP headers (["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
+
+~~~~html_header
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Expires: 0
+~~~~
+
+Some of these settings are only relevant to extremely old browsers. If you only care about current browsers, this HTTP header is enough to disable caching:
+
+~~~~html_header
+Cache-Control: no-store, must-revalidate
+~~~~
+
+This is especially a problem because many websites long ignored web standards.
+The HTTP/1.1 standard, published In 1999, standardized the
+header to disable writing content to storage
+("no-store"), However, many websites continued to use only the non-standard
+mechanisms supported by the Internet Explorer web browser.
+In 2017 it was found that 70% of tested sites
+(financial, healthcare, insurance, and utility sites)
+failed to correctly prevent browsers from storing cached content, because
+they incorrectly used only the nonstandard request to store cached data
+["Industry-wide Misunderstandings of HTTPS" by Independent Security Evaluators (ISE), July 12, 2017](https://www.ise.io/casestudies/industry-wide-misunderstandings-of-https/#5d).
+You should always try to use a *standard* interface to request
+a security-related capability where you can, to make it more likely that
+the mechanism will work in the future.
+
+You could also consider implementing extra double-checks to ensure that any cached data is only being sent to someone authorized to receive it.
+
+> 😱 STORY TIME: Cache system vulnerabilities in ChatGPT in 2023
+
+> In 2023 two different cache-related problems impacted ChatGPT
+> (["OpenAI Reveals Redis Bug Behind ChatGPT User Data Exposure Incident" by Ravie Lakshmanan](https://thehackernews.com/2023/03/openai-reveals-redis-bug-behind-chatgpt.html)):
+>
+> 1. It was discovered that a bug in the Redis library led to the exposure of other users' personal information and chat titles in the ChatGPT service. Canceled requests could cause connection corruption, leading to revelation of data from an unrelated user such as the user's first and last name, email address, payment address, the last four digits of a credit card number, and the credit card expiration date. This leaked information to users who were using the system normally (and not attacking the system in any way).
+> 2. A *different* caching-related vulnerability enabled an account takeover vulnerability that could be exploited to seize control of another user's account, view their chat history, and access their billing information. An attacker could create a special hyperlink that caused an access token to be cached in the content distribution network (CDN).
+
 ### Side-Channel Attacks
 
 In some cases, the software you develop may send security-relevant output that you did not intend to send.
@@ -6033,6 +6075,8 @@ Information Commissioner’s Office (ICO), *Guide to the General Data Protection
 
 International Association for Privacy Professionals (IAPP), *What does privacy mean?* ([https://iapp.org/about/what-is-privacy/](https://iapp.org/about/what-is-privacy/))
 
+Independent Security Evaluators (ISE), "Industry-wide Misunderstandings of HTTPS" July 12, 2017, <https://www.ise.io/casestudies/industry-wide-misunderstandings-of-https/#5d>
+
 ISO/IEC 9899:2018, *Programming Languages - C* (aka “C17”).  This standard is not publicly available; its final draft is publicly available at ([https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf](https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf))
 
 ISO/IEC 15026-2:2011, *Systems and software engineering - Systems and software assurance - Part 2: Assurance case* ([https://www.iso.org/standard/52926.html](https://www.iso.org/standard/52926.html))
@@ -6040,6 +6084,8 @@ ISO/IEC 15026-2:2011, *Systems and software engineering - Systems and software a
 Kaplan-Moss, Jacob, *Not all attackers are equal: understanding and preventing DOS in web applications*, 2020 ([https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/))
 
 kernel.org, *Linux kernel coding style* ([https://www.kernel.org/doc/Documentation/process/coding-style.rst](https://www.kernel.org/doc/Documentation/process/coding-style.rst))
+
+Lakshmanan, Ravie, 2023-03-25, (["OpenAI Reveals Redis Bug Behind ChatGPT User Data Exposure Incident"](https://thehackernews.com/2023/03/openai-reveals-redis-bug-behind-chatgpt.html))
 
 Levien, Raph, *With Undefined Behavior, Anything is Possible*, 2018-08-17, ([https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html](https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html))
 
