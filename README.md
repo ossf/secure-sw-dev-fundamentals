@@ -8,11 +8,13 @@ and via [edX](http://edx.org/professional-certificate/linuxfoundationx-secure-so
 
 ## Highlights
 
-Please **[select the course you are interested in and take it](https://openssf.org/training/courses/)** if you just want to *take* these courses.  This site is intended for those who are updating the courses or using its content in special ways.
+Please **[select the course you are interested in and take it](https://openssf.org/training/courses/)** if you just want to *take* these courses.
 
-Please see **[*Secure Software Development Fundamentals* content converted into Markdown format](secure_software_development_fundamentals.md)** for the main content of this repository.
+This repository is instead intended for those who want to modify the course material or using its content in special ways.
 
 If you see something in the course that should be changed, please **[file an issue](https://github.com/ossf/secure-sw-dev-fundamentals/issues)** or (even better) **[create a pull request](https://github.com/ossf/secure-sw-dev-fundamentals/pulls)**.
+
+Please see **[*Secure Software Development Fundamentals* content in Markdown format](secure_software_development_fundamentals.md)** for the main **text** content of the course (in this repository). The text embeds references to images that are also in this repository. The course as delivered includes some video introductions; those files are very large and so they aren't currently stored in this repository.
 
 ## Details
 
