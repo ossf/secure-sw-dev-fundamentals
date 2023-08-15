@@ -16,6 +16,8 @@ If you see something in the course that should be changed, please **[file an iss
 
 Please see **[*Secure Software Development Fundamentals* content in Markdown format](secure_software_development_fundamentals.md)** for the main **text** content of the course (in this repository). The text embeds references to images that are also in this repository. The course as delivered includes some video introductions; those files are very large and so they aren't currently stored in this repository.
 
+There are video introductions, but the videos are in large files. See the [repository with the corresponding videos](https://github.com/ossf/secure-sw-dev-videos).
+
 ## Details
 
 <img src="by.svg" width="60" height="21" alt="CC-BY">This informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.txt), so you can reuse it in many ways. We want you to use this information! There are some <b>exceptions</b>: we quote some images (such as from xkcd) which are under their own licenses. Also, to counter cheating we do not release certain testing materials this way at all (so they are not in this repository). Note that we update this material, so you should be prepared for updates if you use a significant portion of it.
