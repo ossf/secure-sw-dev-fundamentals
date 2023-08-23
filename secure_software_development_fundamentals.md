@@ -176,7 +176,7 @@ With that, let’s begin.
 
 # Security Basics
 
-This chapter provides a high-level overview about security, including definitions of security and privacy, requirements, and risk management.
+> 🎥 This chapter provides a high-level overview about security concepts, including definitions of security and privacy, requirements, and risk management. We need to know these security basics so we can understand how to develop software that supports these basics. It's hard to implement security and privacy if we don't know what they are, and we must have a basic idea of what the software needs to do before we can implement it. In addition, we should take reasonable steps to *manage* risks so that any risks taken are acceptable.
 
 Learning Objectives:
 
@@ -760,7 +760,7 @@ Identifying common kinds of vulnerabilities has another advantage, too: It will 
 
 # Design
 
-This chapter describes how to design software to be secure, focusing on key secure design principles such as least privilege, complete mediation, and input validation.
+> 🎥 Non-trivial software needs to broken into smaller components that work together, and that breakdown is often called design or architectural design. This chapter describes how to design software to be secure, focusing on key secure design principles such as least privilege, complete mediation, and input validation. These principles will help you avoid common problems and make your software harder to attack.
 
 Learning objectives:
 
@@ -1104,7 +1104,9 @@ A good example of this is the Content Security Policy (CSP) supported by modern 
 
 # Reusing External Software
 
-This chapter describes how to reuse software with security in mind, including selecting, downloading, installing, and updating such software.
+<!-- Have CRob do this intro? -->
+
+> 🎥 When developing software today we typically don't develop everything from scratch, we typically reuse a lot of existing software. In fact, on average, software products are mostly reused software. This chapter describes how to reuse software with security in mind, including selecting, downloading, installing, and updating such software. Reusing more secure software generally produces more secure results.
 
 Learning objectives:
 
@@ -1234,7 +1236,7 @@ Of course, if you download and install a subverted version of the reused softwar
 
     3. Consider downloading the software, but then only install and use it a few days later after verifying nothing has changed. That way, if the distribution site is temporarily subverted when you download the software, but is quickly fixed, you will not be using the subverted version. This is not always practical, since you may be in too much of a hurry to wait, but in some cases this is easy to do.
 
-    4. Try to avoid using pipe-to-shell (such as  **curl … | sh**) to download and install software. You obviously cannot download and delay installation when you use pipe-to-shell. In addition, attackers who subvert a source site can detect a pipe-to-shell request and selectively subvert pipe-to-shell users, who by definition are not reviewing what they are downloading (see [Phil's "Detecting the use of "curl | bash" server side"](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/)). Using pipe-to-shell makes source site subversions much harder to detect and counter. It also makes understanding the actual version you downloaded and installed difficult to authoritatively determine - so you have effectively lost some version control, and you cannot depend on others to be able to determine what happened. Yes, the installed program could report a version, but programs can report any number and could report the same number for different actual versions. In short, your risks increase if you use pipe-to-shell.
+    4. Try to avoid using pipe-to-shell (such as  **curl … | sh**) to download and install software. You obviously cannot download and delay installation when you use pipe-to-shell. In addition, attackers who subvert a source site can detect a pipe-to-shell request and selectively subvert pipe-to-shell users, who by definition are not reviewing what they are downloading (see [Phil's "Detecting the use of "curl | bash" server side"](https://web.archive.org/web/20230325190353/https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/)). Using pipe-to-shell makes source site subversions much harder to detect and counter. It also makes understanding the actual version you downloaded and installed difficult to authoritatively determine - so you have effectively lost some version control, and you cannot depend on others to be able to determine what happened. Yes, the installed program could report a version, but programs can report any number and could report the same number for different actual versions. In short, your risks increase if you use pipe-to-shell.
 
         That said, if you only use pipe-to-shell in a contained environment (e.g., a container or virtual machine with limited privileges) and throw away any produced executables, as it often happens in the test environments of continuous integration (CI) pipelines, pipe-to-shell is much less risky. Pipe-to-shell is also hard to avoid in some situations, depending on how the reused software is distributed, and sometimes it is not worth trying to avoid pipe-to-shell. So this is a tip that’s worth considering, but not always worth doing. **Remember**: focus on risk management, not total risk avoidance.
 
@@ -1338,7 +1340,7 @@ Practically all programs have to accept input. So we will begin examining how to
 
 # Input Validation
 
-This chapter describes how to validate input, including how to validate numbers and text, the importance of minimizing attack surfaces, and how to improve availability by considering the inputs.
+> 🎥 A key part of implementing secure software is to only accept input that should be accepted. This chapter describes how to validate input, including how to validate numbers and text, the importance of minimizing attack surfaces, and how to improve availability by considering the inputs. Limiting input won't counter every attack, but it will tend to make the software harder to attack.
 
 Learning objectives:
 
@@ -1950,7 +1952,7 @@ Rate limiting is not a complete solution, but it is an easy and inexpensive appr
 
 # Processing Data Securely
 
-This chapter describes how to process data within software with security in mind, including treating untrusted data as dangerous, avoiding default and hardcoded credentials, avoiding memory safety issues (such as buffer overflows), and avoiding undefined behavior.
+> 🎥 This chapter describes how to process data with security in mind, including treating untrusted data as dangerous, avoiding default and hardcoded credentials, avoiding memory safety issues (such as buffer overflows), and avoiding undefined behavior.
 
 Learning objectives:
 
@@ -2306,7 +2308,7 @@ No. The range of possible values varies by language and types used, but attacker
 
 # Calling Other Programs
 
-This chapter describes how to call other programs securely, including how to counter injection attacks (including SQL injection and OS command injection) and how to properly handle filenames/pathnames.
+> 🎥 Real-world programs often call out to other programs. On a server-side application these programs might include the operating system or a database. On a client-side application this might include the supporting browser. This chapter describes how to call other programs securely. We'll discuss in particular on how to counter injection attacks, including SQL injection and OS command injection, as well as how to properly handle filenames and pathnames.
 
 Learning objectives:
 
@@ -3085,7 +3087,7 @@ Make sure that you have backups of important datasets and a workable recovery pr
 
 # Sending Output
 
-This chapter describes how to send output securely, including how to counter cross-site scripting (XSS) attacks, using HTTP hardening headers, and securely using formatting systems.
+> 🎥 This chapter describes how to send output securely. This includes how to counter cross-site scripting (XSS) attacks, how to use HTTP hardening headers, and how to securely use formatting systems.
 
 Learning objectives:
 
@@ -3487,21 +3489,29 @@ This is true! The problem is not redirection, it is *unvalidated* redirection. O
 
 [Web application]
 
-There is a peculiar problem with the HTML **target** attribute that many people are not aware of. Let’s explain the problem, and some partial solutions.
+There is a peculiar problem with some special uses of the HTML **target** attribute and JavaScript `window.open()` that many web developers are not aware of. Let’s explain the problem and some solutions.
 
-In HTML, **&lt;a href=...>** creates a hyperlink. The HTML construct **&lt;a href=... target=...>** creates a hyperlink where, if you click on it, it creates a new “target”. The default value for target is **&#95;self**; if you set **target**, a common one is **target="&#95;blank”** which creates the target in a new tab.
+In HTML, **&lt;a href=...&gt;** creates a hyperlink. The HTML construct **&lt;a href=... target=...&gt;** creates a hyperlink where, if you click on it, it creates a new named “target”. Using **target="&#95;blank”** creates the target in a new tab. Historically setting **target="&#95;blank”** could be a vulnerability, but the [HTML specification has been modified so **&#95;blank** is no longer a problem](https://html.spec.whatwg.org/#following-hyperlinks) and modern browsers implement this fix.
 
-But what many don’t realize is that a value of “**target**” other than the default “**&#95;self**” may, in some cases, create a vulnerability. Because of the way it works, the page being linked to runs in the *same* process as the calling page. As a result, on a click the receiving page gains partial control over the linking page, *even if they are from different origins*. The primary way this happens is through the **window.opener** value. The receiving page can do things like force the *calling* page to navigate to a different page (e.g., **window.opener.location.href = newURL**), provide a new page that looks like the old one (even though it is in a different place), and fool the user into doing something on the “same” page that is not the same at all. A related problem is that the new page may also get “referrer” information that you might not have expected.
+However, there's a special case you still need to worry about. If you do *all* of these things at the same time you may have a security problem:
 
-The same kind of problem can happen in JavaScript. JavaScript’s “**window.open**” has a default target of “**&#95;blank**”; since that is not “**&#95;self**”, the *default value* of **window.open()** is insecure. Again, it will open a window that loads another page that is simultaneously given control over its calling page, *even if* they have different origins.
+1. Use HTML tag "a" with a named target or use JavaScript **window.open()** with a named target, *and*
+2. The new page being loaded is from some (other) system that you don't totally trust, *and*
+3. The named target is something *other* than the safe values **&#95;self** (the default for HTML's a tag), **&#95;blank** (the default for JavaScript's **window.open()**), **&#95;parent**, or **&#95;top**.
 
-Of course, if you can trust that other page, that is not a security problem. So using a target value is often not a problem as long as you are referring to your *own* site. But if you are referring to another site, this may be more of a concern - are you sure you can trust it? Even if you trust your own or another site, it might be unwise to allow this - what happens if someone breaks into that part or that other site? Again, there is the principle of least privilege - we don’t want to give privileges if we don’t need to. This can also be a minor performance problem; page performance may suffer due to use of a shared process.
+Where possible, when loading pages from other sites, don't use named targets (other than the safe ones listed above). If you really must use this unusual circumstance, fix this in HTML by adding **rel="noopener"** to the "a" tag.
 
-The simplest solution is to avoid using **target=...** in HTML, and always set **target="&#95;self"** when calling JavaScript **window.open()...** especially for links to user-generated content and external domains. If you decide to use HTML **target=**, also use **rel="noopener noreferrer"**. The “**noopener**” tells the web browser to *not* allow the JavaScript to gain control over the referring window (so **window.opener** won’t give access to it). The ”**noreferrer**” prevents passing on the referrer information to the new tab/window ([*Security Vulnerability and Browser Performance Impact of Target=”&#95;blank”*](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019).
+Explaining why this odd combination is a security problem is complicated. The underlying problem is that web browsers need to support legacy systems. Fundamentally, when there is a named target, the browser will re-use an existing window by that name, or create one if there aren't any. The browser will then provide that window with an "opener" value set to its requestor. This was a common pattern for older websites to implement pop-ups. This approach is fine if the named window is trusted by the requestor. However, this provides a mechanism for the newer page to manipulate the web page of its caller. This enables, for example, "tabnapping", where the new site tricks the user by controlling another tab. If no countermeasure is taken, the receiving page can do things like force the *calling* page to navigate to a different page (e.g., **window.opener.location.href = newURL**), provide a new page that looks like the old one (even though it is in a different place), and fool the user into doing something on the “same” page that is not the same at all.
+
+This used to be a more common problem, because at one time this also impacted **&#95;blank**. Today browsers automatically add **rel="noopener"** when **&#95;blank** is the target. The other "safe" named targets (listed above) are from the same origin, so again the problem can't happen. But if you use one of these less-common cases, you must handle it yourself.
+
+You may see some older documents recommending the use of **rel="noreferrer"**. You don't need to do that any more as long as you don't change the browser's default referrer value. Modern browsers by default now have a setting of "strict-origin-when-cross-origin"; that means that when a different origin is loaded, the new origin sees the domain but *not* the path or other details about the page the user was viewing before. As long as you're happy with that default, or set an even stricter one, you're fine. However, if you set a looser value (and be careful before doing that), **rel="noreferrer"** will prevent that detailed information from getting to the other site in that specific case. You can combine **noopener** and **noreferrer** as **rel="noopener noreferrer"**. You should, in general, try to use secure defaults instead of trying to separately set a secure value on each use.
+
+A historical discussion of these problems, before the defaults were changed, can be found in [*Security Vulnerability and Browser Performance Impact of Target=”&#95;blank”*](https://medium.com/@darrensimio/security-vulnerability-and-browser-performance-impact-of-target-blank-80e5e67db547) by Darren Sim, 2019.
 
 #### Quiz 4.8: HTML **target** and JavaScript **window.open()**
 
-\>\>In an HTML anchor (**&lt;a href=...>**) to another site, if you use **target=...** with a value other than **&#95;self**, be sure to also set “**rel**” to “**noopener noreferrer**” prevent control by that other site of the originating tab. True or False?<<
+\>\>In an HTML anchor (**&lt;a href=...>**) to another site, if you use **target=...** with a value such as **new&#95;window**, be sure to also set “**rel**” to "**noopener**" or “**noopener noreferrer**” to prevent control by that other site of the originating tab. True or False?<<
 
 (x) True
 
@@ -3509,7 +3519,7 @@ The simplest solution is to avoid using **target=...** in HTML, and always set *
 
 [Explanation]
 
-This is true! Yes, this is a weird and subtle point. There is reason to hope that future developments in HTML and JavaScript will close this unexpected security hole, but for now, it is important to know about it.
+This is true! Yes, this is a weird and subtle point. There has been progress on making this less of a problem; changes to handling of **&#95;blank** have made this much less common. There is reason to hope that future developments in HTML and JavaScript will completely close this unexpected security hole, but for now, we want you to know about it.
 
 [Explanation]
 
@@ -3658,6 +3668,48 @@ We hope this was a really easy one. The problem is not just that this is a terri
 
 [Explanation]
 
+### Avoid caching sensitive information
+
+Caching (creating intermediate copies of data) can speed many responses. However, if you are serving very sensitive data, you should avoid caching it where practical. For example, if you're implementing a website, you should *only* serve that sensitive data from a few specialized web pages and *completely* disable caching of that data on the server, client, and any proxies along the way. Disabling caches prevents accidental spills from a cache, and is yet another way to implement least privilege. Caching can occur in any part of a system, but unnecessary caching of sensitive data is especially common as part of output, so we focus on disabling caching as part of secure output.
+
+On the server commonly-used systems for caching include memcached and Redis. The safest way to ensure that the web browser and web proxy caching is disabled is through this set of HTTP headers (["How do we control web page caching, across all browsers?"](https://stackoverflow.com/questions/49547/how-do-we-control-web-page-caching-across-all-browsers)):
+
+~~~~html_header
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Expires: 0
+~~~~
+
+Some of these settings are only relevant to extremely old browsers. If you only care about current browsers, this HTTP header is enough to disable caching:
+
+~~~~html_header
+Cache-Control: no-store, must-revalidate
+~~~~
+
+This is especially a problem because many websites long ignored web standards.
+The HTTP/1.1 standard, published In 1999, standardized the
+header to disable writing content to storage
+("no-store"), However, many websites continued to use only the non-standard
+mechanisms supported by the Internet Explorer web browser.
+In 2017 it was found that 70% of tested sites
+(financial, healthcare, insurance, and utility sites)
+failed to correctly prevent browsers from storing cached content, because
+they incorrectly used only the nonstandard request to store cached data
+["Industry-wide Misunderstandings of HTTPS" by Independent Security Evaluators (ISE), July 12, 2017](https://www.ise.io/casestudies/industry-wide-misunderstandings-of-https/#5d).
+You should always try to use a *standard* interface to request
+a security-related capability where you can, to make it more likely that
+the mechanism will work in the future.
+
+You could also consider implementing extra double-checks to ensure that any cached data is only being sent to someone authorized to receive it.
+
+> 😱 STORY TIME: Cache system vulnerabilities in ChatGPT in 2023
+
+> In 2023 two different cache-related problems impacted ChatGPT
+> (["OpenAI Reveals Redis Bug Behind ChatGPT User Data Exposure Incident" by Ravie Lakshmanan](https://thehackernews.com/2023/03/openai-reveals-redis-bug-behind-chatgpt.html)):
+>
+> 1. It was discovered that a bug in the Redis library led to the exposure of other users' personal information and chat titles in the ChatGPT service. Canceled requests could cause connection corruption, leading to revelation of data from an unrelated user such as the user's first and last name, email address, payment address, the last four digits of a credit card number, and the credit card expiration date. This leaked information to users who were using the system normally (and not attacking the system in any way).
+> 2. A *different* caching-related vulnerability enabled an account takeover vulnerability that could be exploited to seize control of another user's account, view their chat history, and access their billing information. An attacker could create a special hyperlink that caused an access token to be cached in the content distribution network (CDN).
+
 ### Side-Channel Attacks
 
 In some cases, the software you develop may send security-relevant output that you did not intend to send.
@@ -3682,11 +3734,11 @@ Thankfully, other than attacks on cryptographic systems, side-channel attacks ar
 
 * Not included as part of the free version of the course.
 
-# PART III: Verification and More Specialized Topics
+# Part III: Verification and More Specialized Topics
 
 # Verification
 
-This chapter describes how to verify for security, including the limitations of tools, the meaning of *static analysis* and *dynamic analysis*, and common types of tools such as security code scanners/static application security testing (SAST) tools, fuzzers, and web application scanners.
+> 🎥 This chapter describes how to verify for security, including the limitations of tools, the meaning of *static analysis* and *dynamic analysis*, and common types of tools that can help improve security. These tool types include security code scanners aka static application security testing (SAST) tools, fuzzers, and web application scanners.
 
 Learning objectives:
 
@@ -4099,7 +4151,7 @@ If you are using OSS, consider preferring OSS who have earned a badge. If you ar
 
 # Threat Modeling
 
-This chapter describes the basics of threat modeling along with a specific threat modeling approach called STRIDE.
+> 🎥 This chapter describes the basics of threat modeling, along with a specific threat modeling approach called STRIDE. The point of threat modeling is to try to *think like an attacker* when considering your software, including looking for threats and proactively countering them.
 
 Learning objectives:
 
@@ -4207,7 +4259,7 @@ Threat modeling may be overkill if you do not have significant security threats,
 
 # Cryptography
 
-This chapter describes the basics of how to use cryptography to help develop secure software, including the basics of symmetric/shared key encryption algorithms, cryptographic hashes, public-key (asymmetric) encryption, how to securely store passwords, cryptographically secure pseudo-random number generators (CSPRNG), and Transport Layer Security (TLS).
+> 🎥 This chapter describes the basics of how to use cryptography to help develop secure software. Developing secure software involves a lot more than cryptography, but many secure systems depend vitally on cryptography, so to have secure systems we often need to know how to correctly use cryptography. We will cover the basics of symmetric/shared key encryption algorithms, cryptographic hashes, public-key (asymmetric) encryption, how to securely store passwords, cryptographically secure pseudo-random number generators (CSPRNG), and Transport Layer Security (TLS).
 
 Learning objectives:
 
@@ -4513,6 +4565,8 @@ If you are using passwords for inbound authentication, for security you **_must_
 
 Another algorithm that is in use is scrypt. This should also be strong against hardware attacks, but it has not gotten as much review compared to Argon2id, so Argon2id is more commonly recommended. That said, at the time of this writing, it has no known serious problems.
 
+All of these algorithms have various configuration options, and it is vital to use an adequately secure set of options. The OWASP [Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) provides a set of recommended configuration option values.
+
 You should allow users to require the use of two-factor authentication (2FA), either directly or by delegating to a service that does.
 
 Also, beware of implementing these algorithms only on the client side. It is fine to implement them on the client side (because that prevents the server from ever discovering the password the user enters), as long as they are *also* implemented on the server. The danger is doing them *only* on the client; if that happens, then what is stored in the server is no different from storing passwords in the clear. Once attackers get the password database, they can simply create or modify their own client to log into anyone’s account.
@@ -4630,7 +4684,7 @@ Similarly, seek advice from experts, and weigh that advice carefully. Errors in 
 
 # Other Topics
 
-This chapter describes topics on the fundamentals of developing secure software that have not been covered elsewhere, including handling vulnerability disclosures, assurance cases, the basics after development, formal methods, and top vulnerability lists.
+> 🎥 This chapter describes topics on the fundamentals of developing secure software that have not been covered elsewhere, including handling vulnerability disclosures, assurance cases, the basics after development, formal methods, and top vulnerability lists.
 
 Learning objectives:
 
@@ -4683,6 +4737,8 @@ In one sense this requirement is easy. Decide what your reporting convention is,
 2. A common convention in OSS projects is to provide this information in a file named **SECURITY.md** in the repository’s root or **docs/** directory. Sites such as GitHub will highlight this file if present and encourage their creation. Add a link from your **README.md** file to this **SECURITY.md** file.
 
 3. If the project has or implements a website, a common recommendation is to add a **security.txt** file on the website at **/security.txt** or **/.well-known/security.txt**. To learn more, visit [securitytxt.org](https://securitytxt.org/).
+
+4. GitHub provides a new type of issue tracking that projects can enable for [privately reporting a security vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability). Other source code management platforms have similar capabilities. When used, typically the **SECURITY.md** file will tell reporters to use it.
 
 One challenge is that attackers are also very interested in getting vulnerability reports, because they want to exploit those vulnerabilities until everyone installs its fixes or mitigations. So, it is usually important to have some mechanism for reporting vulnerabilities that prevents attackers from also getting this information before a patch is distributed. This can sometimes be hard to do:
 
@@ -6021,6 +6077,8 @@ Information Commissioner’s Office (ICO), *Guide to the General Data Protection
 
 International Association for Privacy Professionals (IAPP), *What does privacy mean?* ([https://iapp.org/about/what-is-privacy/](https://iapp.org/about/what-is-privacy/))
 
+Independent Security Evaluators (ISE), "Industry-wide Misunderstandings of HTTPS" July 12, 2017, <https://www.ise.io/casestudies/industry-wide-misunderstandings-of-https/#5d>
+
 ISO/IEC 9899:2018, *Programming Languages - C* (aka “C17”).  This standard is not publicly available; its final draft is publicly available at ([https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf](https://web.archive.org/web/20181230041359if_/http://www.open-std.org/jtc1/sc22/wg14/www/abq/c17_updated_proposed_fdis.pdf))
 
 ISO/IEC 15026-2:2011, *Systems and software engineering - Systems and software assurance - Part 2: Assurance case* ([https://www.iso.org/standard/52926.html](https://www.iso.org/standard/52926.html))
@@ -6028,6 +6086,8 @@ ISO/IEC 15026-2:2011, *Systems and software engineering - Systems and software a
 Kaplan-Moss, Jacob, *Not all attackers are equal: understanding and preventing DOS in web applications*, 2020 ([https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/](https://r2c.dev/blog/2020/understanding-and-preventing-dos-in-web-apps/))
 
 kernel.org, *Linux kernel coding style* ([https://www.kernel.org/doc/Documentation/process/coding-style.rst](https://www.kernel.org/doc/Documentation/process/coding-style.rst))
+
+Lakshmanan, Ravie, 2023-03-25, (["OpenAI Reveals Redis Bug Behind ChatGPT User Data Exposure Incident"](https://thehackernews.com/2023/03/openai-reveals-redis-bug-behind-chatgpt.html))
 
 Levien, Raph, *With Undefined Behavior, Anything is Possible*, 2018-08-17, ([https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html](https://raphlinus.github.io/programming/rust/2018/08/17/undefined-behavior.html))
 
@@ -6108,7 +6168,7 @@ Patchstack, 2022, State Of WordPress Security In 2021 ([https://patchstack.com/w
 
 Petro, Dan and Allan Cecil, 2021, You're Doing IoT RNG, DEF CON 29 ([https://labs.bishopfox.com/tech-blog/youre-doing-iot-rng](https://labs.bishopfox.com/tech-blog/youre-doing-iot-rng)) with presentation at [https://www.youtube.com/watch?v=Zuqw0-jZh9Y](https://www.youtube.com/watch?v=Zuqw0-jZh9Y)
 
-Phil, 2016-04-19, "Detecting the use of "curl | bash" server side", idontplaydarts.com, <https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/>
+Phil, 2016-04-19, "Detecting the use of "curl | bash" server side", idontplaydarts.com, <https://web.archive.org/web/20230325190353/https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/> <!-- https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/ -->
 
 Ponemon Institute LLC, *Costs and Consequences of Gaps in Vulnerability Responses*, 2019 ([https://www.servicenow.com/lpayr/ponemon-vulnerability-survey.html](https://www.servicenow.com/lpayr/ponemon-vulnerability-survey.html))
 

@@ -8,11 +8,15 @@ and via [edX](http://edx.org/professional-certificate/linuxfoundationx-secure-so
 
 ## Highlights
 
-Please **[select the course you are interested in and take it](https://openssf.org/training/courses/)** if you just want to *take* these courses.  This site is intended for those who are updating the courses or using its content in special ways.
+Please **[select the course you are interested in and take it](https://openssf.org/training/courses/)** if you just want to *take* these courses.
 
-Please see **[*Secure Software Development Fundamentals* content converted into Markdown format](secure_software_development_fundamentals.md)** for the main content of this repository.
+This repository is instead intended for those who want to modify the course material or using its content in special ways.
 
 If you see something in the course that should be changed, please **[file an issue](https://github.com/ossf/secure-sw-dev-fundamentals/issues)** or (even better) **[create a pull request](https://github.com/ossf/secure-sw-dev-fundamentals/pulls)**.
+
+Please see **[*Secure Software Development Fundamentals* content in Markdown format](secure_software_development_fundamentals.md)** for the main **text** content of the course (in this repository). The text embeds references to images that are also in this repository. The course as delivered includes some video introductions; those files are very large and so they aren't currently stored in this repository.
+
+There are video introductions, but the videos are in large files. See the [repository with the corresponding videos](https://github.com/ossf/secure-sw-dev-videos).
 
 ## Details
 
@@ -28,6 +32,8 @@ project. Changes that are accepted into the Markdown must go through a series of
 
 Changes to the markdown must have no errors reported by `markdownlint` using our configuration. This is checked when a pull request is made. You can do this check locally by installing markdownlint (e.g., `brew install markdownlint-cli` or `npm install -g markdownlint-cli`) and running `make`.
 
+You can see a generated [table of contents](toc.md) - rerun `make` to regenerate it. This generated file is included in the repository itself for convenience of those new to the document.
+
 This content was originally converted from Google docs format using
 [gdocs2md](http://github.com/mangini/gdocs2md),
 patched to skip inline drawings.
@@ -41,5 +47,8 @@ and
 This course is one of the results of the
 [Open Source Security Foundation (OpenSSF)](https://openssf.org/)
 [Best Practices working group (WG)](https://github.com/ossf/wg-best-practices-os-developers).
+
+If you want to report vulnerabilities in this project, please see
+[SECURITY.md](./SECURITY.md).
 
 Our thanks to Flavia Cioanca for her work to convert the text into live courses!
