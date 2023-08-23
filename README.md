@@ -48,4 +48,7 @@ This course is one of the results of the
 [Open Source Security Foundation (OpenSSF)](https://openssf.org/)
 [Best Practices working group (WG)](https://github.com/ossf/wg-best-practices-os-developers).
 
+If you want to report vulnerabilities in this project, please see
+[SECURITY.md](./SECURITY.md).
+
 Our thanks to Flavia Cioanca for her work to convert the text into live courses!
