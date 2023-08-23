@@ -4738,6 +4738,8 @@ In one sense this requirement is easy. Decide what your reporting convention is,
 
 3. If the project has or implements a website, a common recommendation is to add a **security.txt** file on the website at **/security.txt** or **/.well-known/security.txt**. To learn more, visit [securitytxt.org](https://securitytxt.org/).
 
+4. GitHub provides a new type of issue tracking that projects can enable for [privately reporting a security vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability).
+
 One challenge is that attackers are also very interested in getting vulnerability reports, because they want to exploit those vulnerabilities until everyone installs its fixes or mitigations. So, it is usually important to have some mechanism for reporting vulnerabilities that prevents attackers from also getting this information before a patch is distributed. This can sometimes be hard to do:
 
 1. Email systems are generally not end-to-end encrypted. Email systems that support end-to-end encryption (e.g., OpenPGP and S/MIME) are not widely used, may be hard to use, and/or are primarily used only within specific communities.
