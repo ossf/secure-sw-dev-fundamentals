@@ -1161,7 +1161,7 @@ The 2022-09-01 version suggests the following questions, along with how to get i
     4. Are there recent releases or announcements from its maintainer(s)?
     5. Does its version string indicate instability (e.g., begin with “0”, include “alpha” or “beta”, etc.)
 4. **Is there evidence that its developers work to make it secure?**
-    1. Determine whether the project has earned (or is well on the way to) an [Open Source Security Foundation (OpenSSF) Best Practices badge](https://bestpractices.coreinfrastructure.org/).
+    1. Determine whether the project has earned (or is well on the way to) an [Open Source Security Foundation (OpenSSF) Best Practices badge](https://www.bestpractices.dev/).
     2. Examine information on [https://deps.dev](https://deps.dev/), including its [OpenSSF Scorecards](https://github.com/ossf/scorecard) score and any known vulnerabilities.
     3. Determine whether the package dependencies are (relatively) up to date.
     4. Determine whether there is documentation explaining why it’s secure (aka an “assurance case”).
@@ -4135,7 +4135,7 @@ The Open Source Security Foundation (OpenSSF) Best Practices badge identifies a 
 
 * *“The project sites (website, repository, and download URLs) MUST support HTTPS using TLS.”* [sites_https]
 
-If you are using OSS, consider preferring OSS who have earned a badge. If you are developing OSS, you should strongly consider working to earn an Open Source Security Foundation (OpenSSF) Best Practices badge. By implementing these best practices you will increase the likelihood of developing higher-quality and more secure software. To learn more and get started, check out the [OpenSSF Best Practices Badge Program](https://bestpractices.coreinfrastructure.org/en).
+If you are using OSS, consider preferring OSS who have earned a badge. If you are developing OSS, you should strongly consider working to earn an Open Source Security Foundation (OpenSSF) Best Practices badge. By implementing these best practices you will increase the likelihood of developing higher-quality and more secure software. To learn more and get started, check out the [OpenSSF Best Practices Badge Program](https://www.bestpractices.dev/en).
 
 #### Quiz 1.7: Combining Verification Approaches
 
@@ -6140,7 +6140,7 @@ Official EU site for the GDPR text ([https://eur-lex.europa.eu/eli/reg/2016/679/
 
 Ohm, Marc; Plate, Henrik; Sykosch, Arnold; Meier, Michal, *Backstabber’s Knife Collection: A Review of Open Source Software Supply Chain Attacks*, 2020-05-19 ([https://arxiv.org/abs/2005.09535](https://arxiv.org/abs/2005.09535))
 
-Open Source Security Foundation (OpenSSF), *OpenSSF Best Practices Badge Program* ([https://bestpractices.coreinfrastructure.org/en](https://bestpractices.coreinfrastructure.org/en))
+Open Source Security Foundation (OpenSSF), *OpenSSF Best Practices Badge Program* ([https://www.bestpractices.dev/en](https://www.bestpractices.dev/en))
 
 Open Source Security Foundation (OpenSSF), *BadgeApp Security: Its Assurance Case* ([https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md))
 
