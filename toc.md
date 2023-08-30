@@ -182,6 +182,8 @@
 
 ### Minimize Feedback / Information Exposure
 
+### Avoid caching sensitive information
+
 ### Side-Channel Attacks
 
 # Part III: Verification and More Specialized Topics
