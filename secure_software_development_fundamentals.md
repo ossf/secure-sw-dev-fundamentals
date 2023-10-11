@@ -4477,6 +4477,11 @@ Here are some examples of how to call the predictable PRNG versus a cryptographi
     <td>random</td>
     <td>os.random</td>
   </tr>
+  <tr>
+    <td>Ruby</td>
+    <td>rand (or Random.rand)</td>
+    <td>SecureRandom.rand</td>
+  </tr>
 </table>
 
 
