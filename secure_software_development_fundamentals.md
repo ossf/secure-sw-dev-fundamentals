@@ -4459,31 +4459,30 @@ Here are some examples of how to call the predictable PRNG versus a cryptographi
   </tr>
   <tr>
     <td>Java</td>
-    <td>Random()</td>
-    <td>SecureRandom()</td>
+    <td><tt>Random()</tt></td>
+    <td><tt>SecureRandom()</tt></td>
   </tr>
   <tr>
     <td>C#</td>
-    <td>System.Random</td>
-    <td>System.Security.Cryptography. RandomNumberGenerator</td>
+    <td><tt>System.Random</tt></td>
+    <td><tt>System.Security.Cryptography. RandomNumberGenerator</tt></td>
   </tr>
   <tr>
     <td>JavaScript</td>
-    <td>Math.random</td>
-    <td>window.crypto.getRandomValues<br>or crypto.randomBytes</td>
+    <td><tt>Math.random</tt></td>
+    <td><tt>window.crypto.getRandomValues</tt><br>or <tt>crypto.randomBytes</tt></td>
   </tr>
   <tr>
     <td>Python</td>
-    <td>random</td>
-    <td>os.random</td>
+    <td><tt>random</tt></td>
+    <td><tt>os.random</tt></td>
   </tr>
   <tr>
     <td>Ruby</td>
-    <td>rand (or Random.rand)</td>
-    <td>SecureRandom.rand</td>
+    <td><tt>rand</tt> (or <tt>Random.rand</tt>)</td>
+    <td><tt>SecureRandom.rand</tt></td>
   </tr>
 </table>
-
 
 Another challenge is that software is fundamentally deterministic; given exactly the same inputs, a sequential algorithm should produce exactly the same output. You should not normally be directly seeding (initializing) any cryptographically secure algorithms, as many of these libraries implement secure seeding themselves. If you must seed it (and that is a bad sign), ensure that attackers cannot guess the seed value. Some people seed cryptographically secure PRNGs algorithms with date/time data, which is a vulnerability; in many cases, attackers can easily guess the likely date/times.
 
