@@ -1,3 +1,93 @@
+# secure-sw-dev-fundamentals: Secure Software Development Fundamentals courses (from the OpenSSF Best Practices WG)
+
+This repository is for managing and sharing the content of the
+*Secure Software Development Fundamentals*
+courses (from the [OpenSSF Best Practices WG](https://github.com/ossf/wg-best-practices-os-developers) that are available via the
+[Linux Foundation Training &amp; Certification Platform](https://training.linuxfoundation.org/training/developing-secure-software-lfd121/)
+and via [edX](http://edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals?utm_medium=partner-marketing&utm_source=affiliate&utm_campaign=openssf&utm_content=openssforg-securedevelopmentpc).
+
+## Highlights
+
+Please **[select the course you are interested in and take it](https://openssf.org/training/courses/)** if you just want to *take* these courses.
+
+This repository is instead intended for those who want to modify the course material or using its content in special ways.
+
+If you see something in the course that should be changed, please **[file an issue](https://github.com/ossf/secure-sw-dev-fundamentals/issues)** or (even better) **[create a pull request](https://github.com/ossf/secure-sw-dev-fundamentals/pulls)**.
+
+Please see **[*Secure Software Development Fundamentals* content in Markdown format](secure_software_development_fundamentals.md)** for the main **text** content of the course (in this repository). The text embeds references to images that are also in this repository. The course as delivered includes some video introductions; those files are very large and so they aren't currently stored in this repository.
+
+There are video introductions, but the videos are in large files. See the [repository with the corresponding videos](https://github.com/ossf/secure-sw-dev-videos).
+
+## Details
+
+<img src="by.svg" width="60" height="21" alt="CC-BY">This informational content is released under the [Creative Commons Attribution License (CC-BY) version 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.txt), so you can reuse it in many ways. We want you to use this information! There are some <b>exceptions</b>: we quote some images (such as from xkcd) which are under their own licenses. Also, to counter cheating we do not release certain testing materials this way at all (so they are not in this repository). Note that we update this material, so you should be prepared for updates if you use a significant portion of it.
+
+If you earn a certificate of completion for the course via the Linux Foundation (LF) Training, you can show off the [digital credentials (badges) you've earned](https://training.linuxfoundation.org/badges-2/). Similarly, if you earn a course certificate or program certificate on edX, you can [show your edX certificates](https://www.edx.org/verified-certificate).
+
+If you want to propose changes to the content, as noted above
+the preferred mechanism is
+to file [issues](https://github.com/ossf/secure-sw-dev-fundamentals/issues) for general suggestions and provide [pull requests](https://github.com/ossf/secure-sw-dev-fundamentals/pulls) for specific changes, in both cases to this
+[secure-sw-dev-fundamentals](https://github.com/ossf/secure-sw-dev-fundamentals)
+project. Changes that are accepted into the Markdown must go through a series of internal steps in coordination with LF Training &amp; Certification so that the changes will be deployed to both the LF Training and edX platforms.
+
+Changes to the markdown must have no errors reported by `markdownlint` using our configuration. This is checked when a pull request is made. You can do this check locally by installing markdownlint (e.g., `brew install markdownlint-cli` or `npm install -g markdownlint-cli`) and running `make`.
+
+You can see a generated [table of contents](toc.md) - rerun `make` to regenerate it. This generated file is included in the repository itself for convenience of those new to the document.
+
+This content was originally converted from Google docs format using
+[gdocs2md](http://github.com/mangini/gdocs2md),
+patched to skip inline drawings.
+That project unfortunately seems to have stalled.
+Alternative converters include
+[lmmx/gdocs2md-html](https://github.com/lmmx/gdocs2md-html)
+and
+[evbacher/gd2md-html](https://github.com/evbacher/gd2md-html!)
+(the last one is most recently active).
+
+This course is one of the results of the
+[Open Source Security Foundation (OpenSSF)](https://openssf.org/)
+[Best Practices working group (WG)](https://github.com/ossf/wg-best-practices-os-developers).
+
+If you want to report vulnerabilities in this project, please see
+[SECURITY.md](./SECURITY.md).
+
+Our thanks to Flavia Cioanca for her work to convert the text into live courses!
+# SECURITY
+
+We're *glad* if you want to report a vulnerability!
+
+If you wish to propose text to explain how to detect and prevent a *kind*
+of vulnerability that is already publicly known, please just file a normal
+issue and/or pull request. We don't consider that a "vulnerability report"
+in the sense that many people use the term.
+
+In some cases we're the wrong place to report vulnerabilities to:
+
+* If you wish to report a vulnerability on a specific project that isn't
+  this project, please don't report that here. Instead, please report the
+  vulnerability to that project.
+* If you wish to report a general vulnerability in edX or the
+  Linux Foundation Training & Certification platform, please report the
+  vulnerability to them instead.
+
+However, in some cases we *do* want you to report a vulnerability to us:
+
+* If you wish to report a vulnerability in this *specific* course
+  as supported by the Linux Foundation (via edX or the Linux Foundation
+  Training & Certification platform).
+* If you wish to propose text to explain how to detect and prevent a *kind*
+  of vulnerability that has *never* been publicly announced or
+  discussed anywhere.
+
+If you want to report those kinds of vulnerabilities to us,
+please use the GitHub mechanism [privately reporting a security vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability) to this repository.
+If you have a special need you may request
+view access to the [content in Google Docs form](https://docs.google.com/document/d/1oN6juqVR7KXuvclHvoY0pr_XQmC6t6uXMLcYphPsUsA/edit?usp=sharing)
+where this material was originally created.
+
+Please justify why you need it this unusual access; you almost certainly don't need it, since the content is the same.
+If you want to propose changes to the content, the preferred mechanism is
+via issues and pull requests via GitHub.
 # Secure Software Development Fundamentals
 
 by David A. Wheeler
@@ -206,7 +296,7 @@ To get secure software, we first need to understand what *security* means. Diffe
 
 This set of Confidentiality, Integrity, and Availability (CIA) is sometimes called the CIA triad.
 
-![CIA Triad](cia.png)
+![CIA Triad](images/cia.png)
 
 The CIA Triad
 
@@ -922,7 +1012,7 @@ This HTML is fine if its purpose is to be a quick check to counter accidental mi
 
 A related and common insecure design is where code is sent to web browsers, for example, as JavaScript or WebAssembly (WASM), and that code does security checks before sending its data to a server. In most situations, an attacker can control the web browser, while the server is under your control, so again, you cannot trust anything the web browser does. Put another way, any security checks in the code sent to the browser can be trivially bypassed by an attacker, since attackers control their own web browsers. A related problem is providing direct database access to untrusted users. Often users do not need full access, so this is giving users far more privilege than they need (violating least privilege), and such access can make it harder to prevent bypassing security checks. The following figure shows this mistake:
 
-![Insecure design: In this figure security-relevant input validation checks are run in a web browser, and not run again by the web server. Since the attacker can control their own web browser, this is insecure. The database is also directly accessible by logged-in users; this is a bad sign, because this grants a lot of data access that is often unnecessary.](insecure_design.png)
+![Insecure design: In this figure security-relevant input validation checks are run in a web browser, and not run again by the web server. Since the attacker can control their own web browser, this is insecure. The database is also directly accessible by logged-in users; this is a bad sign, because this grants a lot of data access that is often unnecessary.](images/insecure_design.png)
 
 An Insecure JavaScript Application
 
@@ -932,7 +1022,7 @@ You can use JavaScript securely, you just need to do it correctly. You can send 
 
 The following figure shows a similar but secure design; notice that all the security-related checks are being done in the server, since in this case that is the system we can trust. It also prevents direct database access, which is often a good idea if users do not need direct access:
 
-![A More Secure Alternative of the JavaScript Application: In this figure some security-relevant input validation checks are run in a web browser, but all security checks are run by the web server, even if some were run in the browser earlier. Since the server in this case is trusted, this is a secure design. The database is not directly accessible by logged-in users; this is a good architecture, because direct access to the database is often unnecessary.](a_secure_design.png)
+![A More Secure Alternative of the JavaScript Application: In this figure some security-relevant input validation checks are run in a web browser, but all security checks are run by the web server, even if some were run in the browser earlier. Since the server in this case is trusted, this is a secure design. The database is not directly accessible by logged-in users; this is a good architecture, because direct access to the database is often unnecessary.](images/a_secure_design.png)
 
 A More Secure Alternative of the JavaScript Application
 
@@ -1126,7 +1216,7 @@ Learning objectives:
 
 When developing software, you normally reuse lots of other software. This may include an operating system, a container runtime, frameworks, libraries, extensions, plug-ins, themes, and so on. You will typically also use development tools that others have developed. This reused software, and how you get it, can significantly impact the security of the result.
 
-![Dependency](dependency.png)
+![Dependency](images/dependency.png)
 
 *Dependency* (retrieved from [xkcd.com](https://xkcd.com/2347/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/))
 
@@ -1326,7 +1416,7 @@ You may know what your software is supposed to do (requirements) and may have a 
 
 This section discusses how to implement secure software. We will do that by considering a very abstract view of a program, as illustrated by the following figure:
 
-![Program Model](program_model.png)
+![Program Model](images/program_model.png)
 
 **Abstract View of a Program**
 
@@ -2085,7 +2175,7 @@ As a result, some programming languages that emphasize performance are either *n
 
 Memory safety problems are a common cause of vulnerabilities. Catalin Cimpanu’s study, [*Microsoft: 70 percent of all security bugs are memory safe issues*](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/) (2019), found that about ~70% of all Microsoft vulnerabilities in 2006-2018 were due to memory safety issues. What is more, while there are annual fluctuations, it has been relatively stable over that time:
 
-![Memory safety has been consistently a vulnerability over time](memory_safety_over_time.png)
+![Memory safety has been consistently a vulnerability over time](images/memory_safety_over_time.png)
 
 **Percentage of memory-safety vulnerabilities at Microsoft** (by Catalin Cimpanu, 2019, retrieved from [ZDNet](https://www.zdnet.com/article/microsoft-70-percent-of-all-security-bugs-are-memory-safety-issues/))
 
@@ -2133,7 +2223,7 @@ If an attacker can cause your program to write outside its buffer, this often re
 
 Unbounded writes are not the only problem. Historically, people worried about out-of-bounds writes more than reads, but the Heartbleed vulnerability in 2014 showed that out-of-bounds reads could also be extremely dangerous. Out-of-bounds reads can reveal information that allow attackers to completely break into a system. Even programs that only allow one byte of an out-of-bound read or write can have a dangerous vulnerability.
 
-![image alt text](heartbleed.png)
+![image alt text](images/heartbleed.png)
 
 **Heartbleed Explained**. Retrieved from [xkcd](https://xkcd.com/1354/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
@@ -2380,7 +2470,7 @@ This is false. Clearly, if you pick known *insecure* software, you will have a p
 
 #### SQL Injection Vulnerability
 
-![image alt text](exploits_of_a_mom.png)
+![image alt text](images/exploits_of_a_mom.png)
 
 **Exploits of a Mom**, retrieved from [xkcd.com](https://xkcd.com/327/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
@@ -4233,7 +4323,7 @@ The idea is to have a simple model of the design that shows the essential featur
 
 Then, when applying STRIDE in step 3, you examine each of the elements (processes, data stores, data flows, and interactors) to determine what threats it is susceptible to. For each element, you look for the threats as shown in this table:
 
-![image alt text](stride_threat_categories.png)
+![image alt text](images/stride_threat_categories.png)
 
 **STRIDE Threat Categories**, retrieved from [SEI](https://insights.sei.cmu.edu/sei_blog/2018/12/threat-modeling-12-available-methods.html), originally from Microsoft
 
@@ -4287,7 +4377,7 @@ The word *cryptography* comes from the Greek phrase for “secret writing”. Cr
 
 Cryptography provides a set of tools that can sometimes help develop secure software. Cryptography *cannot* solve all security problems. In fact, most computer security vulnerabilities have nothing to do with cryptography.
 
-![image alt text](xkcd_security.png)
+![image alt text](images/xkcd_security.png)
 
 **Security**, retrieved from [xkcd](https://xkcd.com/538/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
@@ -4347,7 +4437,7 @@ Many symmetric key algorithms, including AES, are what is called *block algorith
 
 The ECB mode is basically a debug or test mode for testing cryptographic algorithms. In ECB mode, the same block of data will produce the same encryption result. This is disastrous for an encryption algorithm, because it reveals far too much about the data that is supposed to be encrypted. A great illustration of this is the so-called “ECB Penguin” image; this image is encrypted using an ECB mode. Encrypted images should appear as random noise, but because ECB mode is used, in the ECB Penguin the image of Tux the Penguin is clearly visible.
 
-![The ECB Penguin: A dark encrypted image that clearly shows the Linux mascot, Tux the Penguin](ecb_penguin.png)
+![The ECB Penguin: A dark encrypted image that clearly shows the Linux mascot, Tux the Penguin](images/ecb_penguin.png)
 
 The ECB Penguin, by Filippo Valsorda, retrieved from [filippo.io](https://blog.filippo.io/the-ecb-penguin/). Licensed under [CC BY-SA 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode). This image was inspired by the original lower-resolution ECB Penguin image by Wikipedia User: Lunkwill. Source “The ECB Penguin” (2013-11-10). Based on the Tux the penguin official Linux mascot created by Larry Ewing in 1996
 
@@ -4441,7 +4531,7 @@ Many algorithms depend on secret values that cannot be practically guessed by an
 
 One challenge is historical: today, the name *random* in programming language libraries usually implies that the function is *not* cryptographically secure. One of the first uses for digital computers was to implement simulations (especially *Monte Carlo simulations*) where random numbers were repeatedly acquired for a simulation. It was often important to be able to *reconstruct* these random numbers so experiments could be repeated. Internally, such random functions would be implemented using algorithms such as a linear congruential generator (LCG), and would often be “seeded” (initialized) by values such as a date/time that can be trivially guessed by an attacker. Because this was one of the first uses of computers, there is a convention across almost all programming languages that the word “random” refers to a way to create a sequence of numbers that could be easily reconstructed later if needed. In other words, the word “random” in programming languages typically implies “*predictably random*”, and that is not what you want in cryptography or security. Such random numbers *must not* be used for security mechanisms where it is important that an attacker *not* be able to determine the number.
 
-![In this figure getRandomNumber is implemented by returning the constant 4, a number chosen by fair dice roll and claimed to be guaranteed to be random.](random_number.png)
+![In this figure getRandomNumber is implemented by returning the constant 4, a number chosen by fair dice roll and claimed to be guaranteed to be random.](images/random_number.png)
 
 **Random Number**, retrieved from [xkcd.com](https://xkcd.com/221), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
@@ -4794,7 +4884,7 @@ When fixing a security vulnerability, check to see if the same kind of vulnerabi
 
 If your update causes problems, people will reject it and learn to not accept any future updates from you. Any proposed fix must avoid backwards incompatibilities if at all possible. It must also be of high quality. This implies that you need to have a strong *automated* test suite before you release the software, and have any needed hardware to execute it (if the tests need special hardware). Add automated tests related to what you are changing, both to ensure that it really fixes the problem and also to verify that the change does not negatively affect anything else.
 
-![image alt text](worst.png)
+![image alt text](images/worst.png)
 
 **Worst Thing That Could Happen**, retrieved from [xkcd.com](https://xkcd.com/2261/), licensed under [CC-BY-NC-2.5](https://creativecommons.org/licenses/by-nc/2.5/)
 
@@ -4930,7 +5020,7 @@ An assurance case does not have to be in any particular form. However, they are 
 
 Let’s talk about one way to create an assurance case, based on material from [*A Sample Security Assurance Case Pattern*](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). Let’s say that we have an overall claim: we want to claim that our “system is adequately secure against moderate threats”. Let’s argue that we can provide adequate proof of this if our security requirements are identified and met by its functionality, and that security is implemented by system life cycle processes. We can break down the security requirements further into our security requirement triad (confidentiality, integrity, and availability), properly handling access control, and identifying and addressing the assets and threat actors. Here is a figure that shows the top level of an assurance case:
 
-![image alt text](top_assurance_case.png)
+![image alt text](images/top_assurance_case.png)
 
 **Sample top level of an assurance case**, by David A. Wheeler (2018)
 
@@ -6301,4 +6391,294 @@ The LF education team needs:
 3. final exam for each of the 3 courses: 15 questions, preferably multiple choice, different than the ones in the end of chapter quizzes.
 
 Items 2 and 3 are covered in a separate file, to protect their confidentiality.
+
+# Part I: Requirements, Design, and Reuse
+
+# Course Introduction
+
+## Introduction
+
+## A Note from the Author
+
+## Motivation
+
+### Motivation: Why Is It Important to Secure Software?
+
+### Motivation: Why Take This course?
+
+# Security Basics
+
+## What Do We Need?
+
+### What Does “Security” Mean?
+
+### Security Requirements
+
+### What Is Privacy and Why It Is Important
+
+### Privacy Requirements
+
+## How Can We Get There?
+
+### Risk Management
+
+### Development Processes / Defense-in-Breadth
+
+### Protect, Detect, Respond
+
+### Vulnerabilities
+
+# Design
+
+## Secure Design Basics
+
+### What Are Security Design Principles?
+
+### Widely-Recommended Secure Design Principles
+
+### Least Privilege
+
+### Complete Mediation (Non-Bypassability)
+
+### The Rest of the Saltzer & Schroeder Design Principles
+
+### Other Design Principles
+
+# Reusing External Software
+
+## Supply Chain
+
+### Basics of Reusing Software
+
+### Selecting (Evaluating) Open Source Software
+
+### Downloading and Installing Reusable Software
+
+### Updating Reused Software
+
+# Part II: Implementation
+
+# Basics of Implementation
+
+### Implementation Overview
+
+# Input Validation
+
+## Input Validation Basics
+
+### Input Validation Basics Introduction
+
+### How Do You Validate Input?
+
+## Input Validation: Numbers and Text
+
+### Input Validation: A Few Simple Data Types
+
+### Sidequest: Text, Unicode, and Locales
+
+### Validating Text
+
+### Introduction to Regular Expressions
+
+### Using Regular Expressions for Text Input Validation
+
+### Countering ReDoS Attacks on Regular Expressions
+
+## Input Validation: Beyond Numbers and Text
+
+### Insecure Deserialization
+
+### Input Data Structures (XML, HTML, CSV, JSON, & File Uploads)
+
+### Minimizing Attack Surface, Identification, Authentication, and Authorization
+
+### Search Paths and Environment Variables (including setuid/setgid Programs)
+
+### Special Inputs: Secure Defaults and Secure Startup
+
+## Consider Availability on All Inputs
+
+### Consider Availability on All Inputs Introduction
+
+# Processing Data Securely
+
+## Processing Data Securely: General Issues
+
+### Prefer Trusted Data. Treat Untrusted Data as Dangerous
+
+### Avoid Default & Hardcoded Credentials
+
+### Avoid Incorrect Conversion or Cast
+
+## Processing Data Securely: Undefined Behavior / Memory Safety
+
+### Countering Out-of-Bounds Reads and Writes (Buffer Overflow)
+
+### Double-free, Use-after-free, and Missing Release
+
+### Avoid Undefined Behavior
+
+## Processing Data Securely: Calculate Correctly
+
+### Avoid Integer Overflow, Wraparound, and Underflow
+
+# Calling Other Programs
+
+## Introduction to Securely Calling Programs
+
+### Introduction to Securely Calling Programs - The Basics
+
+## Calling Other Programs: Injection and Filenames
+
+### SQL Injection
+
+### OS Command (Shell) injection
+
+### Other Injection Attacks
+
+### Filenames (Including Path Traversal and Link Following)
+
+## Calling Other Programs: Other Issues
+
+### Call APIs for Programs and Check What Is Returned
+
+### Handling Errors
+
+### Logging
+
+### Debug and Assertion Code
+
+### Countering Denial-of-Service (DoS) Attacks
+
+# Sending Output
+
+### Introduction to Sending Output
+
+### Countering Cross-Site Scripting (XSS)
+
+### Content Security Policy (CSP)
+
+### Other HTTP Hardening Headers
+
+### Cookies & Login Sessions
+
+### CSRF / XSRF
+
+### Open Redirects and Forwards
+
+### HTML **target** and JavaScript **window.open()**
+
+### Using Inadequately Checked URLs / Server-Side Request Forgery (SSRF)
+
+### Same-Origin Policy and Cross-Origin Resource Sharing (CORS)
+
+### Format Strings and Templates
+
+### Minimize Feedback / Information Exposure
+
+### Avoid caching sensitive information
+
+### Side-Channel Attacks
+
+# Part III: Verification and More Specialized Topics
+
+# Verification
+
+## Basics of Verification
+
+### Verification Overview
+
+## Static Analysis
+
+### Static Analysis Overview
+
+### Software Composition Analysis (SCA)/Dependency Analysis
+
+## Dynamic Analysis
+
+### Dynamic Analysis Overview
+
+### Fuzz Testing
+
+### Web Application Scanners
+
+## Other Verification Topics
+
+### Combining Verification Approaches
+
+# Threat Modeling
+
+## Threat Modeling/Attack Modeling
+
+### Introduction to Threat Modeling
+
+### STRIDE
+
+# Cryptography
+
+## Applying Cryptography
+
+### Introduction to Cryptography
+
+### Symmetric/Shared Key Encryption Algorithms
+
+### Cryptographic Hashes (Digital Fingerprints)
+
+### Public-Key (Asymmetric) Cryptography
+
+### Cryptographically Secure Pseudo-Random Number Generator (CSPRNG)
+
+### Storing Passwords
+
+### Transport Layer Security (TLS)
+
+### Other Topics in Cryptography
+
+# Other Topics
+
+## Vulnerability Disclosures
+
+### Receiving Vulnerability Reports
+
+### Respond To and Fix the Vulnerability in a Timely Way
+
+### Sending Vulnerability Reports to Others
+
+## Miscellaneous
+
+### Assurance Cases
+
+### Harden the Development Environment (Including Build and CI/CD Pipeline) & Distribution Environment
+
+### Distributing, Fielding/Deploying, Operations, and Disposal
+
+### Artificial Intelligence (AI), Machine Learning (ML), and Security
+
+### Formal Methods
+
+## Top Vulnerability Lists
+
+### OWASP Top 10
+
+### CWE Top 25
+
+## Concluding Notes
+
+### Conclusions
+
+# Part IV: Supporting Materials Not Part of the Course
+
+# Glossary
+
+# Further Reading
+
+# Old Mappings
+
+## OWASP Top 10 and CWE Top 25
+
+### OWASP Top 10 (2017 edition)
+
+### CWE Top 25 (2019 edition)
+
+# References
 
