@@ -4664,9 +4664,15 @@ Remember that per least privilege, we want to minimize the time a privilege is a
 
 #### Quantum Computing
 
-One of the large future unknowns in cryptography is the potential impact of general-purpose quantum computers. At the time of this writing, so-called *general-purpose* quantum computers exist, but they are not powerful enough to threaten current cryptographic algorithms. It is not known if such more powerful general-purpose quantum computers can be built, and if so, when that will happen. If strong general-purpose quantum computers are built, they have the potential to break all the public-key algorithms that are popular in 2020 by using an algorithm called *Shor’s algorithm*. As a result, researchers are developing new public-key algorithms that resist attacks from such quantum computers, an area called *post-quantum cryptography*. At the time of this writing, many such algorithms have been developed and are being evaluated.
+One of the large future unknowns in cryptography is the potential impact of general-purpose quantum computers. At the time of this writing, so-called *general-purpose* quantum computers exist, but they are not powerful enough to threaten current cryptographic algorithms. It is not known if such more powerful general-purpose quantum computers can be built, and if so, when that will happen.
 
-In contrast, current symmetric cryptographic algorithms and hash functions are less affected by quantum computers. Grover’s algorithm speeds up attacks against symmetric ciphers, halving their effective length. That means that 128-bit AES could be broken by a quantum computer (it would then be equivalent to a 64-bit key today), but 256-bit AES would still be secure (it would be equivalent to a 128-bit key today). So simply using longer keys and hashes is expected to be adequate in a post-quantum world for symmetric cryptographic algorithms and hash functions.
+If strong general-purpose quantum computers are built, they have the potential to break all the historically popular public-key algorithms using an algorithm called *Shor’s algorithm*. As a result, researchers are developing new public-key algorithms that resist attacks from such quantum computers, an area called *post-quantum cryptography*. At the time of this writing, many such algorithms have been developed and are being evaluated.
+
+In contrast, current symmetric cryptographic algorithms and hash functions are less affected by quantum computers. A quantum computer algorithm called *Grover’s algorithm* speeds up attacks against symmetric ciphers, halving their effective key bit length. That means that 128-bit AES could be broken by a quantum computer (because it would then be equivalent to a 64-bit key today), but 256-bit AES would still be secure (because it would be equivalent to a 128-bit key today). So simply using longer keys and hashes is generally expected to be adequate in a post-quantum world for symmetric cryptographic algorithms and hash functions.
+
+So be prepared to change any public key algorithms to resist quantum computing, and ensure that key lengths are long enough when using symmetric and hash cryptographic algorithms. Some large organizations record vast amounts of Internet traffic for later decryption [[European Parliament 2001](https://irp.fas.org/program/process/rapport_echelon_en.pdf)], so if your users are at risk from data capture and decryption years later, you should consider implementing countermeasures now against quantum computing.
+
+Unfortunately, creating radically new cryptographic algorithms is difficult and risky. About half of all post-quantum cryptography algorithms in NIST's competition have been found to not meet their claimed security levels. One of the leading contenders for post-quantum cryptography was SIKE (Supersingular Isogeny Key Encapsulation), but in 2022 it was discovered that SIKE could be broken by ordinary non-quantum computers [[Goodin 2022](https://arstechnica.com/information-technology/2022/08/sike-once-a-post-quantum-encryption-contender-is-koed-in-nist-smackdown/)]. Thus, if you're adding a post-quantum cryptographic algorithm, be sure to also keep a pre-quantum layer so that if a break is found in the post-quantum algorithm you are still secure from attacks by traditional computers. This approach of combining algorithms is called a "hybrid" system. Hybrid systems add a little more complexity (because you're using two algorithms), but they help counter the significant risk of failure in these newer post-quantum algorithms. [[Bernstein 2024](https://blog.cr.yp.to/20240102-hybrid.html)]
 
 #### Humility Is Important in Cryptography
 
@@ -5975,6 +5981,8 @@ Bals, Fred, *The AppSec alphabet soup: A guide to SAST, IAST, DAST, and RASP*, S
 
 Barker, Elaine, *Recommendation for Key Management: Part 1 - General*, NIST Special Publication 800-57 Part 1 Revision 5, 2020,  ([https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf))
 
+Bernstein, D.J., 2024-01-02, "Double encryption: Analyzing the NSA/GCHQ arguments against hybrids", blog.cr.yp.to, <https://blog.cr.yp.to/20240102-hybrid.html>
+
 Birsan, Alex, 2021-02-09, “Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies”, (<https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610>)
 
 Bobby Tables, "Java", (<https://bobby-tables.com/java>)
@@ -6033,6 +6041,8 @@ Enosuchblog, 2022-12-28, "ReDoS "vulnerabilities" and misaligned incentives", <h
 
 Enable Cross-Origin Resource Sharing ([https://enable-cors.org/](https://enable-cors.org/))
 
+European Parliament, 2001-07-11, Report on the existence of a global system for the interception of private and commercial communications (ECHELON interception system) (2001/2098(INI), <https://irp.fas.org/program/process/rapport_echelon_en.pdf>
+
 Flatt Security Inc,, "Finding an unseen SQL Injection by bypassing escape functions in mysqljs/mysql", 2022-02-21, (<https://flattsecurity.medium.com/finding-an-unseen-sql-injection-by-bypassing-escape-functions-in-mysqljs-mysql-90b27f6542b4>)
 
 Forum of Incident Response and Security Teams (FIRST), *FIRST Services Framework* ([https://www.first.org/standards/frameworks/](https://www.first.org/standards/frameworks/))
@@ -6058,6 +6068,8 @@ GitHub Security, *Password reset emails delivered to the wrong address*, 2016-07
 GitLab, *What is GitOps?* ([https://about.gitlab.com/topics/gitops/])
 
 Goodin, Dan, 2015, "Once seen as bulletproof, 11 million+ Ashley Madison passwords already cracked", *Ars Technica*, <https://arstechnica.com/information-technology/2015/09/once-seen-as-bulletproof-11-million-ashley-madison-passwords-already-cracked/>
+
+Goodin, Dan, 2022-08-02, "Post-quantum encryption contender is taken out by single-core PC and 1 hour", Ars Technica, <https://arstechnica.com/information-technology/2022/08/sike-once-a-post-quantum-encryption-contender-is-koed-in-nist-smackdown/>
 
 Gooding, Dan, *Plundering of crypto keys from ultrasecure SGX sends Intel scrambling again*, Ars Technica, 2020-06-09 ([https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/](https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/))
 
