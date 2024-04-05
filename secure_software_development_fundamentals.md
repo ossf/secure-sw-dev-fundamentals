@@ -1423,7 +1423,7 @@ Some input formats are composite structures of a lot of other data. For example,
 
 Many programs need to validate text fields, but those fields’ rules are not defined in a pre-existing library. Some tools allow us to easily handle them, but to use them, we need to understand some background. We will first need to discuss more about text, unicode, and locales in general. Then we will discuss text validation in general and the common way of doing so - regular expressions.
 
- 🧪 LAB: Please try lab [input1][https://best.openssf.org/labs/input1.html).
+ 🧪 LAB: Please try lab [input1](https://best.openssf.org/labs/input1.html).
 
 #### Quiz 1.2: Input Validation: A Few Simple Data Types
 
