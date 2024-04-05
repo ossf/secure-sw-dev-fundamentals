@@ -1253,7 +1253,6 @@ You also need to ensure that your system is not vulnerable to a “dependency co
 
 🔔 Dependency confusion is a special case of 2021 CWE Top 25 #34, *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)). Relying on plugins, libraries, or modules from untrusted sources, and relying on untrustworthy content delivery networks, is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
 
-
 #### Quiz 3.2: Downloading and Installing Reusable Software
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
@@ -1370,6 +1369,8 @@ First, make sure that you identify all inputs from potentially untrusted users, 
 
 At each remaining input from potentially untrusted users you need to validate the data that comes in. These input validation checks are a kind of security check, so you need to make sure that these input validation checks are non-bypassable, as we discussed earlier in the design principle *non-bypassability*. **As a reminder:** only trust security checks (including input validation) when they run on an environment you trust. This is especially important for JavaScript programs - since JavaScript can run on web browsers, it is easy to send security checks to the web browser and forget that *attackers* can control their own web browsers. Any input validation checks you do in an untrusted environment cannot be trusted. If you trust your server environment and not the client environment, then all security-relevant checks must be done in the server environment. We discussed this already, but it is important to emphasize because it is such a common and serious problem. Now let’s move on to how to actually validate input.
 
+ 🧪 LAB: This course includes some labs. They're optional, but you're *strongly* encouraged to try them! Please try lab [hello](https://best.openssf.org/labs/hello.html) to see how our labs work.
+
 ### How Do You Validate Input?
 
 You should determine what is legal, as narrowly as you reasonably can, and reject anything that does not match that definition. Using rules that define what is legal, and by implication rejecting everything else, is called *allowlisting* (the rules themselves are an *allowlist*). Synonyms are *goodlisting* (the rules are the *goodlist*) and the historically common *whitelisting* (the rules are the *whitelist*). In general, do not do the reverse. That is, it is normally a mistake to try to identify what is illegal and write code to reject just those cases. This generally insecure approach, where you try to list everything that should be rejected, is called *denylisting* (the rules are a *denylist*). Synonyms for denylisting are *badlisting* and the historically common *blacklisting* (the rules are then called a *badlist* or  *blacklist*). Denylisting typically leads to security vulnerabilities, because if you forget to handle one or more important cases of illegal input, it could be an opportunity for an attacker. If you forget to allow a case, you get a bug report and your software fails securely. Besides, it is usually much easier to simply identify *what is allowed* and only allow those inputs. In a few rare cases you *can* absolutely be certain that you have enumerated all possible bad inputs, in which case denylisting is okay, but those are rare. Generally denylisting leads to trouble.
@@ -1421,6 +1422,8 @@ Sometimes the validation libraries you can use require some configuration. Again
 Some input formats are composite structures of a lot of other data. For example, JSON, XML, and CSV files can contain lots of other data. You would typically use a trustworthy library to examine and extract the portions of the data you need, and then you would validate each piece. So again, if you extract a sequence of characters representing a number, you would validate the number (e.g., to see if it is within the minimum and maximum range). In many cases, it is a text value. We will further discuss handling composite structures later, but at some point, they will decompose to specific values, often as numbers or text.
 
 Many programs need to validate text fields, but those fields’ rules are not defined in a pre-existing library. Some tools allow us to easily handle them, but to use them, we need to understand some background. We will first need to discuss more about text, unicode, and locales in general. Then we will discuss text validation in general and the common way of doing so - regular expressions.
+
+ 🧪 LAB: Please try lab [input1][https://best.openssf.org/labs/input1.html).
 
 #### Quiz 1.2: Input Validation: A Few Simple Data Types
 
@@ -1619,6 +1622,10 @@ Almost all regex implementations support *branches* - that is, “**aa|bb|cc**�
 #### Test Input Validators
 
 Again, you should know what your software should not accept, and use some of those examples as automated test cases to ensure that your software will correctly reject them. This is especially important with regexes, because it is easy to write a regex that looks fine but allows inputs it wasn’t intended to. This can help you catch, for example, missing anchors or failures to surround branches with parentheses.
+
+ 🧪 LAB: Please try lab [regex1](https://best.openssf.org/labs/regex1.html), which lets you experiment with regex notation.
+
+ 🧪 LAB: Please try lab [input2](https://best.openssf.org/labs/input2.html), which lets you experiment in how to use this in a real program.
 
 #### Quiz 1.4: Using Regular Expressions for Text Input Validation
 
@@ -3290,6 +3297,8 @@ As always, your goal is least privilege: try to make the CSP as restrictive as y
 CSP has various other mechanisms to limit privileges. Another CSP parameter that is especially important is **frame-ancestors**, which is a great tool for countering clickjacking attacks. A clickjacking attack is one where an attacker can “hijack” a click that the user intended for one purpose, but in fact the click was “hijacked” to do something else. Attackers typically do this by misusing HTML’s frame capabilities. If you don’t use frames - and most sites don’t - you can easily fix this by including “**frame-ancestors ‘none';**” in your policy. If you do use frames, then use “**frame-ancestors ‘self';**” instead.
 
 When you are developing a site it might be wise to go through the CSP specification and try to maximally limit what you ask web browsers to allow. The less you allow, the less attackers can do if you make a mistake. There are other HTTP headers that can help harden a site against attack; in the next unit we will look at a few.
+
+ 🧪 LAB: Please try lab [csp1](https://best.openssf.org/labs/csp1.html).
 
 #### Quiz 4.3: Content Security Policy (CSP)
 
