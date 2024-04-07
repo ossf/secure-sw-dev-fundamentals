@@ -1565,6 +1565,8 @@ You can usually do a case-insensitive match through some option. Make sure you s
 
 There is far more to regexes. In fact, there is a whole book on just regular expressions, [*Mastering Regular Expressions, 3rd Edition*](https://www.oreilly.com/library/view/mastering-regular-expressions/0596528124/), by Jeffrey Friedl (2006), and there are many tutorials on regexes such as the  [Regular Expressions for Regular Folk](https://refrf.shreyasminocha.me/) tutorial by Shreyas Minocha. But that introduction will get us started, because we are now going to discuss how regexes can be used for input validation.
 
+ 🧪 LAB: Please try lab [regex0](https://best.openssf.org/labs/regex0.html), which lets you experiment with simple regex notation.
+
 ### Using Regular Expressions for Text Input Validation
 
 Many programs need to quickly validate input text from untrusted sources. While there are many ways to do that, regexes are often an especially useful tool for input validation of text. Regexes are generally quick to write down (so they take very little development time), easy to use, and widely available. They’re also flexible enough for many input validation tasks, compact, and normally execute very quickly. They are also widely known and understood. These are important advantages; if writing input validation is too hard, it won’t be done. They don’t solve all possible input validation problems, but they are useful enough that they are important to know.
@@ -1623,9 +1625,9 @@ Almost all regex implementations support *branches* - that is, “**aa|bb|cc**�
 
 Again, you should know what your software should not accept, and use some of those examples as automated test cases to ensure that your software will correctly reject them. This is especially important with regexes, because it is easy to write a regex that looks fine but allows inputs it wasn’t intended to. This can help you catch, for example, missing anchors or failures to surround branches with parentheses.
 
- 🧪 LAB: Please try lab [regex1](https://best.openssf.org/labs/regex1.html), which lets you experiment with regex notation.
+ 🧪 LAB: Please try lab [regex1](https://best.openssf.org/labs/regex1.html), which lets you experiment using regex notation to validate strings.
 
- 🧪 LAB: Please try lab [input2](https://best.openssf.org/labs/input2.html), which lets you experiment in how to use this in a real program.
+ 🧪 LAB: Please try lab [input2](https://best.openssf.org/labs/input2.html), which lets you experiment in how to use a regex in a real program.
 
 #### Quiz 1.4: Using Regular Expressions for Text Input Validation
 
