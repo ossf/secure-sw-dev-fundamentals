@@ -2760,7 +2760,6 @@ In summary, properly using parameterized statement libraries makes it much easie
 \>\>True or false: A good object-relational mapping (ORM) system should be implemented using parameterized statements or something equivalent to them.<<
 
 (x) True
-DBMS' current escaping rules for its particular version and configuration.
 
 ( ) False
 
