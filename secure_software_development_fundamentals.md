@@ -2376,9 +2376,7 @@ This is false. Clearly, if you pick known *insecure* software, you will have a p
 
 ## Calling Other Programs: Injection and Filenames
 
-### SQL Injection
-
-#### SQL Injection Vulnerability
+### SQL Injection Vulnerability
 
 ![image alt text](exploits_of_a_mom.png)
 
@@ -2428,7 +2426,17 @@ Again, we want to try to use an approach that is easy to use correctly - it need
 
 For databases, there are well-known solutions that are far easier to use securely.
 
-#### Usual SQL Injection Solution: Parameterized Statements
+#### Quiz - SQL Injection Vulnerability
+
+\>\>Select all the warning signs suggesting that a SQL injection is especially likely:<<
+
+[x] A SQL statement is being created via string concatenation.
+
+[x] At least one part of the SQL statement is data that may be from an attacker.
+
+[x] The SQL statement is executed.
+
+### SQL Injection: Parameterized Statements
 
 SQL injection vulnerabilities are one of the most common and devastating vulnerabilities, especially in web applications. They are also easy to counter, once you know how to do it.
 
@@ -2438,7 +2446,7 @@ For our purposes, a *prepared statement* compiles the statement with the databas
 
 For security, the key is to use an API with parameterized statements (including a prepared statement API) and ensure that every untrusted input is sent as a separate parameter. Make sure that you do *not* normally include untrusted input by concatenating untrusted data as a string (including a formatted string) into a request.
 
-##### Advantages of parameterized/prepared statements
+#### Advantages of parameterized/prepared statements
 
 Most programming languages have at least one library that implements parameterized statements and/or prepared statements. Using parameterized statements, including by using prepared statements, has many advantages:
 
@@ -2448,7 +2456,7 @@ Most programming languages have at least one library that implements parameteriz
 
 3. Many can handle variation in different SQL engines (which is important because different systems often have different syntax rules).
 
-##### Example: Prepared statements in Java
+#### Example: Prepared statements in Java
 
 Here is an example of using prepared statements in Java
 using its JDBC interface:
@@ -2483,7 +2491,7 @@ Of course, like any technique, if you use it wrongly then it won’t be secure. 
 
 This insecure program uses a prepared statement, but instead of correctly using “**?**” as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly is not), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
 
-##### Examples: Parameterized and Prepared Statements in some Other Languages
+#### Examples: Parameterized and Prepared Statements in some Other Languages
 
 Parameterized and prepared statements are widely available, though the
 APIs and placeholder syntax vary by programming language, library, and database.
@@ -2538,7 +2546,7 @@ explained in the [PostgreSQL (Command Execution Functions) documentation](https:
 
 The [OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html) and [Bobby Tables website](https://bobby-tables.com/) provide examples for a variety of ecosystems.
 
-#### Quiz 3.2: SQL Injection
+#### Quiz 3.2: SQL Injection: Parameterized Statements
 
 \>\>Parameterized statements (including prepared statements) are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
 
