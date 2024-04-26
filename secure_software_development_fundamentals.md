@@ -250,7 +250,7 @@ Requirements don’t even *have* to be written down to be used, especially for a
 
 Of course, the actual requirements depend on what you’re trying to accomplish.
 
-### Common Security Objectives
+#### Common Security Objectives
 
 So how can you determine the security requirements for a particular system? One way to identify security requirements is to think about the common security objectives and supporting security functions we have *already* discussed and determine the specific requirements for your system in each category. In particular, think about how each one applies to the kind of information your program will manage. Let’s walk through each security objective and supporting security function, and discuss some things to consider:
 
