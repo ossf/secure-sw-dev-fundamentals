@@ -250,6 +250,8 @@ Requirements don’t even *have* to be written down to be used, especially for a
 
 Of course, the actual requirements depend on what you’re trying to accomplish.
 
+#### Common Security Objectives
+
 So how can you determine the security requirements for a particular system? One way to identify security requirements is to think about the common security objectives and supporting security functions we have *already* discussed and determine the specific requirements for your system in each category. In particular, think about how each one applies to the kind of information your program will manage. Let’s walk through each security objective and supporting security function, and discuss some things to consider:
 
 1. **Confidentiality** (“No unauthorized read”)<br>Identify information that should not be publicly revealed, such as private information about people and systems. Who should be allowed to see that? Can you avoid having that information at all (since you cannot reveal what you do not have)? If you store password information so people can log in to your system (aka “inbound” authentication), you need to store this password information using special algorithms designed for it (such as Argon2id), as we will discuss later.
@@ -268,6 +270,8 @@ So how can you determine the security requirements for a particular system? One 
 
 7. **Auditing/Logging**<br>What information/events should you record? Typically you at least record login, logout, and important events like user account creation and deletion. Generally a system should record when something happened (date and time), what happened, what system component did it, and who caused it to happen.
 
+#### Tips for Finding Security Requirements
+
 You will sometimes see documents that use the security terms “subject” and “object”. A “subject” is something that acts (e.g., a user or process). An “object” is something being acted on (e.g., a file or network port).
 
 Some developers capture some requirements as *use cases*. Each use case is a list of interactions between actor(s) and a system to achieve a goal. This has led to an interesting security approach, the development of *abuse cases* or *misuse cases*. An abuse case is a list of interactions between actors and a system that are intended to cause harm (e.g., to the system, actor(s), or stakeholders). A very similar term is “misuse case”, a description of a malicious act against a system. Many have found it useful to define abuse cases or misuse cases to then describe how the system must *counter* such abuse/misuse. By thinking about abuse and misuse, and figuring out how to counter them early, a lot of mischief can be prevented. Many developers find it hard to *think like an attacker*, so throughout this course we will focus on techniques to help you find vulnerabilities anyway, for example, by identifying common types of vulnerabilities and explaining how to systematically do threat modeling.
@@ -279,6 +283,19 @@ Note that in this course we focus on attackers, not hackers. In the computer com
 If you are looking for ideas for potential security requirements, one source is the [*Common Criteria for Information Technology Security Evaluation” (CC) part 2*](https://www.commoncriteriaportal.org/), which is freely available. The CC is an international standard for evaluating security that was originally developed in 1994. The vast majority of software developed today does not undergo a CC evaluation, in part because it is often both expensive and time-consuming to have an external lab formally evaluate your software using the CC. However, you can still look at the CC for ideas even if you will not use an evaluation lab. The CC is publicly available and has 3 parts: part 1 is an introduction, part 2 is a list of common security functional requirements, and part 3 is a list of common assurance requirements. Part 2 in particular is a list of *“security functions you might require”*. If you suspect your system will need some special security requirements, but are not sure what those might be, part 2 provides a long list of ideas that might be useful. Some of its terminology is arcane, but it includes a glossary which can help.
 
 **Finally:** If there is existing software that does something like the software you are developing, look at its security capabilities. They added those capabilities for a reason, and your software might need at least some of them as well.
+
+#### Key terms: Trust, Trustworthy, and Untrusted
+
+A *trustworthy* component is worthy of being trusted (for some purpose).
+
+*Trust*, by contrast, is a *decision* to depend on something for some purpose.
+You should only trust things that have adequate evidence of being trustworthy.
+Security vulnerabilities occur when trust is given to something not
+adequately trustworthy.
+
+An *untrusted user* is a user you do not completely trust.
+Any data from an untrusted user should be handled carefully, because an
+untrusted user might be an attacker.
 
 #### Quiz 1.2: Security Requirements
 
@@ -1362,7 +1379,7 @@ Learning objectives:
 
 ### Input Validation Basics Introduction
 
-Some inputs are from untrustable users, and those inputs (at least) must be validated before being used. If you prevent invalid data from getting into your program, it will be much harder for attackers to exploit your software. Input validation can also prevent many bugs and make your program simpler. After all, if your program can immediately reject some malformed data, you don’t have to write the code to deal with those special cases later. That saves time, and such special-case code is more likely to have subtle errors.
+Some inputs are from untrusted users, and those inputs (at least) must be validated before being used. If you prevent invalid data from getting into your program, it will be much harder for attackers to exploit your software. Input validation can also prevent many bugs and make your program simpler. After all, if your program can immediately reject some malformed data, you don’t have to write the code to deal with those special cases later. That saves time, and such special-case code is more likely to have subtle errors.
 
 It can also be a good idea to check inputs from trusted users. Even trusted users make mistakes, and immediately catching those mistakes can make the system more reliable. There is debate on how much validation should be done on the inputs from trusted users. On one hand, trusted users can clearly make mistakes, and validation can prevent costly mistakes. On the other hand, if too much time is spent on validating inputs from trusted users, perhaps other more-important tasks will be skipped, and sometimes trusted users need to be able to do unusual things to respond to unexpected events. Where it is not too time-consuming, it is probably best to do at least some input validation on inputs from trusted users too. For the purpose of this course, we will focus on validating input from untrusted users. Just remember that the same techniques can also be applied to trusted inputs.
 
