@@ -2376,9 +2376,7 @@ This is false. Clearly, if you pick known *insecure* software, you will have a p
 
 ## Calling Other Programs: Injection and Filenames
 
-### SQL Injection
-
-#### SQL Injection Vulnerability
+### SQL Injection Vulnerability
 
 ![image alt text](exploits_of_a_mom.png)
 
@@ -2428,7 +2426,17 @@ Again, we want to try to use an approach that is easy to use correctly - it need
 
 For databases, there are well-known solutions that are far easier to use securely.
 
-#### SQL Injection Solutions
+#### Quiz - SQL Injection Vulnerability
+
+\>\>Select all the warning signs suggesting that a SQL injection is especially likely:<<
+
+[x] A SQL statement is being created via string concatenation.
+
+[x] At least one part of the SQL statement is data that may be from an attacker.
+
+[x] The SQL statement is executed.
+
+### SQL Injection: Parameterized Statements
 
 SQL injection vulnerabilities are one of the most common and devastating vulnerabilities, especially in web applications. They are also easy to counter, once you know how to do it.
 
@@ -2438,7 +2446,7 @@ For our purposes, a *prepared statement* compiles the statement with the databas
 
 For security, the key is to use an API with parameterized statements (including a prepared statement API) and ensure that every untrusted input is sent as a separate parameter. Make sure that you do *not* normally include untrusted input by concatenating untrusted data as a string (including a formatted string) into a request.
 
-##### Advantages of parameterized/prepared statements
+#### Advantages of parameterized/prepared statements
 
 Most programming languages have at least one library that implements parameterized statements and/or prepared statements. Using parameterized statements, including by using prepared statements, has many advantages:
 
@@ -2448,7 +2456,7 @@ Most programming languages have at least one library that implements parameteriz
 
 3. Many can handle variation in different SQL engines (which is important because different systems often have different syntax rules).
 
-##### Example: Prepared statements in Java
+#### Example: Prepared statements in Java
 
 Here is an example of using prepared statements in Java
 using its JDBC interface:
@@ -2483,7 +2491,7 @@ Of course, like any technique, if you use it wrongly then it won’t be secure. 
 
 This insecure program uses a prepared statement, but instead of correctly using “**?**” as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly is not), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
 
-##### Examples: Parameterized and Prepared Statements in some Other Languages
+#### Examples: Parameterized and Prepared Statements in some Other Languages
 
 Parameterized and prepared statements are widely available, though the
 APIs and placeholder syntax vary by programming language, library, and database.
@@ -2538,12 +2546,20 @@ explained in the [PostgreSQL (Command Execution Functions) documentation](https:
 
 The [OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html) and [Bobby Tables website](https://bobby-tables.com/) provide examples for a variety of ecosystems.
 
-##### Subtle issues: DBMS (Server) side vs. Application (client) side
+#### Quiz 3.2: SQL Injection: Parameterized Statements
 
-An important security issue is *where* the
+\>\>Parameterized statements (including prepared statements) are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
+
+(x) True
+
+( ) False
+
+### SQL Injection: DBMS (Server) side vs. Application (client) side
+
+An important yet subtle security issue when using
+SQL parameterized statements is *where* the
 parameters of a parameterized statement are processed.
-There are two options, DBMS-side and application-side, and
-DBMS-side is better from a security point of view.
+There are two options, DBMS-side and application-side.
 
 From a security point-of-view it's best if the parameters of
 parameterized statements are processed directly
@@ -2552,6 +2568,7 @@ aka "DBMS-side" parameter processing.
 This approach is often called "server-side" since many DBMSs use a
 client/server architecture where the client connects over a network
 to a server-side DBMS.
+
 There are many advantages to DBMS-side parameter processing.
 The DBMS has the current information on escaping rules
 (and can often use more efficient mechanisms than adding escape characters),
@@ -2590,8 +2607,9 @@ This weakness can lead to vulnerabilities. For example:
    objects, associative arrays, and/or dictionaries), then there
    is a significant risk of a vulnerability.
    The fundamental problem is that the application-side library isn't
-   parsing the query language the same way that the DBMS would -
-   it is doing simple text substitutions. So if the library implements this
+   necessarily parsing the query language the same way that the DBMS would -
+   it is usually doing simple text substitutions.
+   So if the library implements this
    functionality, it must typically make *guesses* of what types are expected.
    For example, it may guess that associative arrays are only sent
    to the library when that is sensible in the parameterized SQL query.
@@ -2655,8 +2673,33 @@ only an application-side approach is available.
 In some cases requesting a prepared statement forces the library to
 use DBMS-side processing, but don't assume it - check the documentation.
 If you have a practical choice, prefer a DBMS-side implementation.
+Otherwise, carefully validate input and data going to the library
+to ensure they are the appropriate types.
 
-##### Stored Procedures
+This is a good example of a general kind of security issue,
+namely, that different components may interpret the same input differently.
+In some cases, an attacker can exploit this, by making their input
+appear benign to one part while performing something malicious in another.
+
+#### Quiz: SQL Injection: DBMS (Server) side vs. Application (client) side
+
+\>\>Which of these is an advantage of libraries that implement application-side parameterization?<<
+
+( ) The library necessarily has the current information on the
+DBMS' current escaping rules for its particular version and configuration.
+
+( ) The library has the information on this DBMS session's character encodings
+and expected data types.
+
+(x) An application-side library is often easier to implement.
+
+### SQL Injection: Alternatives to Parameterized Statements
+
+Database systems are widely used, so there are many ways to
+interact with them.
+Here we discuss some alternatives.
+
+#### Stored Procedures
 
 Many database systems support "stored procedures", that is,
 procedures embedded in the database itself.
@@ -2674,7 +2717,7 @@ in stored procedures, see your library's documentation, the
 [OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html#stored-procedure-examples), and the
 [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 
-##### When Parameterized Statements Won't Work
+#### When Parameterized Statements Won't Work
 
 In some situations parameterized statements (including
 prepared statements) will *not* work.
@@ -2710,7 +2753,7 @@ For example, in Python, if you need to write to a user-provided table name, you 
     cur.execute(f"insert into {table_name}(d, ts) values (?, ?)", (today, now)) # This is safe because we know that table_name can only take trusted values from table_name_map
 ~~~~
 
-##### Other Approaches for Countering SQL Injection
+#### Other Approaches for Countering SQL Injection
 
 Many programs use object-relational mapping (ORM). This is just a technique to automatically convert data in a relational database into an object in an object-oriented programming language and back; lots of libraries and frameworks will do this for you. This is fine, as long as the ORM is implemented using parameterized statements or something equivalent to them. In practice, any good ORM implementation will do so. So if you are using a respected ORM, you are already doing this. That said, it is common in systems that use ORMs to occasionally need to use SQL queries directly… and when you do, use parameterized statements or prepared statements.
 
@@ -2720,9 +2763,9 @@ There are other approaches, of course. You can write your own escape code, but t
 
 In summary, properly using parameterized statement libraries makes it much easier to write secure code. In addition, they typically make code easier to read, automatically handle the variations between how databases escape things, and sometimes they are faster than doing metacharacter escapes yourself.
 
-#### Quiz 3.2: SQL Injection
+#### Quiz: SQL Injection: Alternatives to Parameterized Statements
 
-\>\>Parameterized statements (including prepared statements) are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
+\>\>True or false: A good object-relational mapping (ORM) system should be implemented using parameterized statements or something equivalent to them.<<
 
 (x) True
 
