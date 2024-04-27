@@ -340,6 +340,8 @@ Requirements don’t even *have* to be written down to be used, especially for a
 
 Of course, the actual requirements depend on what you’re trying to accomplish.
 
+#### Common Security Objectives
+
 So how can you determine the security requirements for a particular system? One way to identify security requirements is to think about the common security objectives and supporting security functions we have *already* discussed and determine the specific requirements for your system in each category. In particular, think about how each one applies to the kind of information your program will manage. Let’s walk through each security objective and supporting security function, and discuss some things to consider:
 
 1. **Confidentiality** (“No unauthorized read”)<br>Identify information that should not be publicly revealed, such as private information about people and systems. Who should be allowed to see that? Can you avoid having that information at all (since you cannot reveal what you do not have)? If you store password information so people can log in to your system (aka “inbound” authentication), you need to store this password information using special algorithms designed for it (such as Argon2id), as we will discuss later.
@@ -358,6 +360,8 @@ So how can you determine the security requirements for a particular system? One 
 
 7. **Auditing/Logging**<br>What information/events should you record? Typically you at least record login, logout, and important events like user account creation and deletion. Generally a system should record when something happened (date and time), what happened, what system component did it, and who caused it to happen.
 
+#### Tips for Finding Security Requirements
+
 You will sometimes see documents that use the security terms “subject” and “object”. A “subject” is something that acts (e.g., a user or process). An “object” is something being acted on (e.g., a file or network port).
 
 Some developers capture some requirements as *use cases*. Each use case is a list of interactions between actor(s) and a system to achieve a goal. This has led to an interesting security approach, the development of *abuse cases* or *misuse cases*. An abuse case is a list of interactions between actors and a system that are intended to cause harm (e.g., to the system, actor(s), or stakeholders). A very similar term is “misuse case”, a description of a malicious act against a system. Many have found it useful to define abuse cases or misuse cases to then describe how the system must *counter* such abuse/misuse. By thinking about abuse and misuse, and figuring out how to counter them early, a lot of mischief can be prevented. Many developers find it hard to *think like an attacker*, so throughout this course we will focus on techniques to help you find vulnerabilities anyway, for example, by identifying common types of vulnerabilities and explaining how to systematically do threat modeling.
@@ -369,6 +373,19 @@ Note that in this course we focus on attackers, not hackers. In the computer com
 If you are looking for ideas for potential security requirements, one source is the [*Common Criteria for Information Technology Security Evaluation” (CC) part 2*](https://www.commoncriteriaportal.org/), which is freely available. The CC is an international standard for evaluating security that was originally developed in 1994. The vast majority of software developed today does not undergo a CC evaluation, in part because it is often both expensive and time-consuming to have an external lab formally evaluate your software using the CC. However, you can still look at the CC for ideas even if you will not use an evaluation lab. The CC is publicly available and has 3 parts: part 1 is an introduction, part 2 is a list of common security functional requirements, and part 3 is a list of common assurance requirements. Part 2 in particular is a list of *“security functions you might require”*. If you suspect your system will need some special security requirements, but are not sure what those might be, part 2 provides a long list of ideas that might be useful. Some of its terminology is arcane, but it includes a glossary which can help.
 
 **Finally:** If there is existing software that does something like the software you are developing, look at its security capabilities. They added those capabilities for a reason, and your software might need at least some of them as well.
+
+#### Key terms: Trust, Trustworthy, and Untrusted
+
+A *trustworthy* component is worthy of being trusted (for some purpose).
+
+*Trust*, by contrast, is a *decision* to depend on something for some purpose.
+You should only trust things that have adequate evidence of being trustworthy.
+Security vulnerabilities occur when trust is given to something not
+adequately trustworthy.
+
+An *untrusted user* is a user you do not completely trust.
+Any data from an untrusted user should be handled carefully, because an
+untrusted user might be an attacker.
 
 #### Quiz 1.2: Security Requirements
 
@@ -1452,7 +1469,7 @@ Learning objectives:
 
 ### Input Validation Basics Introduction
 
-Some inputs are from untrustable users, and those inputs (at least) must be validated before being used. If you prevent invalid data from getting into your program, it will be much harder for attackers to exploit your software. Input validation can also prevent many bugs and make your program simpler. After all, if your program can immediately reject some malformed data, you don’t have to write the code to deal with those special cases later. That saves time, and such special-case code is more likely to have subtle errors.
+Some inputs are from untrusted users, and those inputs (at least) must be validated before being used. If you prevent invalid data from getting into your program, it will be much harder for attackers to exploit your software. Input validation can also prevent many bugs and make your program simpler. After all, if your program can immediately reject some malformed data, you don’t have to write the code to deal with those special cases later. That saves time, and such special-case code is more likely to have subtle errors.
 
 It can also be a good idea to check inputs from trusted users. Even trusted users make mistakes, and immediately catching those mistakes can make the system more reliable. There is debate on how much validation should be done on the inputs from trusted users. On one hand, trusted users can clearly make mistakes, and validation can prevent costly mistakes. On the other hand, if too much time is spent on validating inputs from trusted users, perhaps other more-important tasks will be skipped, and sometimes trusted users need to be able to do unusual things to respond to unexpected events. Where it is not too time-consuming, it is probably best to do at least some input validation on inputs from trusted users too. For the purpose of this course, we will focus on validating input from untrusted users. Just remember that the same techniques can also be applied to trusted inputs.
 
@@ -2466,9 +2483,7 @@ This is false. Clearly, if you pick known *insecure* software, you will have a p
 
 ## Calling Other Programs: Injection and Filenames
 
-### SQL Injection
-
-#### SQL Injection Vulnerability
+### SQL Injection Vulnerability
 
 ![image alt text](images/exploits_of_a_mom.png)
 
@@ -2518,7 +2533,17 @@ Again, we want to try to use an approach that is easy to use correctly - it need
 
 For databases, there are well-known solutions that are far easier to use securely.
 
-#### SQL Injection Solutions
+#### Quiz - SQL Injection Vulnerability
+
+\>\>Select all the warning signs suggesting that a SQL injection is especially likely:<<
+
+[x] A SQL statement is being created via string concatenation.
+
+[x] At least one part of the SQL statement is data that may be from an attacker.
+
+[x] The SQL statement is executed.
+
+### SQL Injection: Parameterized Statements
 
 SQL injection vulnerabilities are one of the most common and devastating vulnerabilities, especially in web applications. They are also easy to counter, once you know how to do it.
 
@@ -2528,7 +2553,7 @@ For our purposes, a *prepared statement* compiles the statement with the databas
 
 For security, the key is to use an API with parameterized statements (including a prepared statement API) and ensure that every untrusted input is sent as a separate parameter. Make sure that you do *not* normally include untrusted input by concatenating untrusted data as a string (including a formatted string) into a request.
 
-##### Advantages of parameterized/prepared statements
+#### Advantages of parameterized/prepared statements
 
 Most programming languages have at least one library that implements parameterized statements and/or prepared statements. Using parameterized statements, including by using prepared statements, has many advantages:
 
@@ -2538,7 +2563,7 @@ Most programming languages have at least one library that implements parameteriz
 
 3. Many can handle variation in different SQL engines (which is important because different systems often have different syntax rules).
 
-##### Example: Prepared statements in Java
+#### Example: Prepared statements in Java
 
 Here is an example of using prepared statements in Java
 using its JDBC interface:
@@ -2573,7 +2598,7 @@ Of course, like any technique, if you use it wrongly then it won’t be secure. 
 
 This insecure program uses a prepared statement, but instead of correctly using “**?**” as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly is not), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
 
-##### Examples: Parameterized and Prepared Statements in some Other Languages
+#### Examples: Parameterized and Prepared Statements in some Other Languages
 
 Parameterized and prepared statements are widely available, though the
 APIs and placeholder syntax vary by programming language, library, and database.
@@ -2628,12 +2653,20 @@ explained in the [PostgreSQL (Command Execution Functions) documentation](https:
 
 The [OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html) and [Bobby Tables website](https://bobby-tables.com/) provide examples for a variety of ecosystems.
 
-##### Subtle issues: DBMS (Server) side vs. Application (client) side
+#### Quiz 3.2: SQL Injection: Parameterized Statements
 
-An important security issue is *where* the
+\>\>Parameterized statements (including prepared statements) are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
+
+(x) True
+
+( ) False
+
+### SQL Injection: DBMS (Server) side vs. Application (client) side
+
+An important yet subtle security issue when using
+SQL parameterized statements is *where* the
 parameters of a parameterized statement are processed.
-There are two options, DBMS-side and application-side, and
-DBMS-side is better from a security point of view.
+There are two options, DBMS-side and application-side.
 
 From a security point-of-view it's best if the parameters of
 parameterized statements are processed directly
@@ -2642,6 +2675,7 @@ aka "DBMS-side" parameter processing.
 This approach is often called "server-side" since many DBMSs use a
 client/server architecture where the client connects over a network
 to a server-side DBMS.
+
 There are many advantages to DBMS-side parameter processing.
 The DBMS has the current information on escaping rules
 (and can often use more efficient mechanisms than adding escape characters),
@@ -2680,8 +2714,9 @@ This weakness can lead to vulnerabilities. For example:
    objects, associative arrays, and/or dictionaries), then there
    is a significant risk of a vulnerability.
    The fundamental problem is that the application-side library isn't
-   parsing the query language the same way that the DBMS would -
-   it is doing simple text substitutions. So if the library implements this
+   necessarily parsing the query language the same way that the DBMS would -
+   it is usually doing simple text substitutions.
+   So if the library implements this
    functionality, it must typically make *guesses* of what types are expected.
    For example, it may guess that associative arrays are only sent
    to the library when that is sensible in the parameterized SQL query.
@@ -2745,8 +2780,33 @@ only an application-side approach is available.
 In some cases requesting a prepared statement forces the library to
 use DBMS-side processing, but don't assume it - check the documentation.
 If you have a practical choice, prefer a DBMS-side implementation.
+Otherwise, carefully validate input and data going to the library
+to ensure they are the appropriate types.
 
-##### Stored Procedures
+This is a good example of a general kind of security issue,
+namely, that different components may interpret the same input differently.
+In some cases, an attacker can exploit this, by making their input
+appear benign to one part while performing something malicious in another.
+
+#### Quiz: SQL Injection: DBMS (Server) side vs. Application (client) side
+
+\>\>Which of these is an advantage of libraries that implement application-side parameterization?<<
+
+( ) The library necessarily has the current information on the
+DBMS' current escaping rules for its particular version and configuration.
+
+( ) The library has the information on this DBMS session's character encodings
+and expected data types.
+
+(x) An application-side library is often easier to implement.
+
+### SQL Injection: Alternatives to Parameterized Statements
+
+Database systems are widely used, so there are many ways to
+interact with them.
+Here we discuss some alternatives.
+
+#### Stored Procedures
 
 Many database systems support "stored procedures", that is,
 procedures embedded in the database itself.
@@ -2764,7 +2824,7 @@ in stored procedures, see your library's documentation, the
 [OWASP Query Parameterization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Query_Parameterization_Cheat_Sheet.html#stored-procedure-examples), and the
 [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 
-##### When Parameterized Statements Won't Work
+#### When Parameterized Statements Won't Work
 
 In some situations parameterized statements (including
 prepared statements) will *not* work.
@@ -2800,7 +2860,7 @@ For example, in Python, if you need to write to a user-provided table name, you 
     cur.execute(f"insert into {table_name}(d, ts) values (?, ?)", (today, now)) # This is safe because we know that table_name can only take trusted values from table_name_map
 ~~~~
 
-##### Other Approaches for Countering SQL Injection
+#### Other Approaches for Countering SQL Injection
 
 Many programs use object-relational mapping (ORM). This is just a technique to automatically convert data in a relational database into an object in an object-oriented programming language and back; lots of libraries and frameworks will do this for you. This is fine, as long as the ORM is implemented using parameterized statements or something equivalent to them. In practice, any good ORM implementation will do so. So if you are using a respected ORM, you are already doing this. That said, it is common in systems that use ORMs to occasionally need to use SQL queries directly… and when you do, use parameterized statements or prepared statements.
 
@@ -2810,9 +2870,9 @@ There are other approaches, of course. You can write your own escape code, but t
 
 In summary, properly using parameterized statement libraries makes it much easier to write secure code. In addition, they typically make code easier to read, automatically handle the variations between how databases escape things, and sometimes they are faster than doing metacharacter escapes yourself.
 
-#### Quiz 3.2: SQL Injection
+#### Quiz: SQL Injection: Alternatives to Parameterized Statements
 
-\>\>Parameterized statements (including prepared statements) are a valuable countermeasure against SQL injection, but you have to use placeholders for every data value that might possibly be controllable by an attacker. True or False?<<
+\>\>True or false: A good object-relational mapping (ORM) system should be implemented using parameterized statements or something equivalent to them.<<
 
 (x) True
 
@@ -4754,9 +4814,15 @@ Remember that per least privilege, we want to minimize the time a privilege is a
 
 #### Quantum Computing
 
-One of the large future unknowns in cryptography is the potential impact of general-purpose quantum computers. At the time of this writing, so-called *general-purpose* quantum computers exist, but they are not powerful enough to threaten current cryptographic algorithms. It is not known if such more powerful general-purpose quantum computers can be built, and if so, when that will happen. If strong general-purpose quantum computers are built, they have the potential to break all the public-key algorithms that are popular in 2020 by using an algorithm called *Shor’s algorithm*. As a result, researchers are developing new public-key algorithms that resist attacks from such quantum computers, an area called *post-quantum cryptography*. At the time of this writing, many such algorithms have been developed and are being evaluated.
+One of the large future unknowns in cryptography is the potential impact of general-purpose quantum computers. At the time of this writing, so-called *general-purpose* quantum computers exist, but they are not powerful enough to threaten current cryptographic algorithms. It is not known if such more powerful general-purpose quantum computers can be built, and if so, when that will happen.
 
-In contrast, current symmetric cryptographic algorithms and hash functions are less affected by quantum computers. Grover’s algorithm speeds up attacks against symmetric ciphers, halving their effective length. That means that 128-bit AES could be broken by a quantum computer (it would then be equivalent to a 64-bit key today), but 256-bit AES would still be secure (it would be equivalent to a 128-bit key today). So simply using longer keys and hashes is expected to be adequate in a post-quantum world for symmetric cryptographic algorithms and hash functions.
+If powerful general-purpose quantum computers are built, they have the potential to break all the historically popular public-key algorithms using an algorithm called *Shor’s algorithm*. As a result, researchers are developing new public-key algorithms that resist attacks from such quantum computers, an area called *post-quantum cryptography*. At the time of this writing, many such algorithms have been developed and are being evaluated.
+
+In contrast, current symmetric cryptographic algorithms and hash functions are less affected by quantum computers. A quantum computer algorithm called *Grover’s algorithm* speeds up attacks against symmetric ciphers, halving their effective key bit length. That means that 128-bit AES could be broken by a quantum computer (because it would then be equivalent to a 64-bit key today), but 256-bit AES would still be secure (because it would be equivalent to a 128-bit key today). So simply using longer keys and hashes is generally expected to be adequate in a post-quantum world for symmetric cryptographic algorithms and hash functions.
+
+So be prepared to change any public key algorithms to resist quantum computing, and ensure that key lengths are long enough when using symmetric and hash cryptographic algorithms. Some large organizations record vast amounts of Internet traffic for later decryption [[European Parliament 2001](https://irp.fas.org/program/process/rapport_echelon_en.pdf)], so if your users are at risk from data capture and decryption years later, you should consider implementing countermeasures now against quantum computing.
+
+Unfortunately, creating radically new cryptographic algorithms is difficult and risky. About half of all post-quantum cryptography algorithms in NIST's competition have been found to not meet their claimed security levels. One of the leading contenders for post-quantum cryptography was SIKE (Supersingular Isogeny Key Encapsulation), but in 2022 it was discovered that SIKE could be broken by ordinary non-quantum computers [[Goodin 2022](https://arstechnica.com/information-technology/2022/08/sike-once-a-post-quantum-encryption-contender-is-koed-in-nist-smackdown/)]. Thus, if you're adding a post-quantum cryptographic algorithm, be sure to also keep a pre-quantum layer so that if a break is found in the post-quantum algorithm you are still secure from attacks by traditional computers. This approach of combining algorithms is called a "hybrid" system. Hybrid systems add a little more complexity (because you're using two algorithms), but they help counter the significant risk of failure in these newer post-quantum algorithms. [[Bernstein 2024](https://blog.cr.yp.to/20240102-hybrid.html)]
 
 #### Humility Is Important in Cryptography
 
@@ -6065,6 +6131,8 @@ Bals, Fred, *The AppSec alphabet soup: A guide to SAST, IAST, DAST, and RASP*, S
 
 Barker, Elaine, *Recommendation for Key Management: Part 1 - General*, NIST Special Publication 800-57 Part 1 Revision 5, 2020,  ([https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf))
 
+Bernstein, D.J., 2024-01-02, "Double encryption: Analyzing the NSA/GCHQ arguments against hybrids", blog.cr.yp.to, <https://blog.cr.yp.to/20240102-hybrid.html>
+
 Birsan, Alex, 2021-02-09, “Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies”, (<https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610>)
 
 Bobby Tables, "Java", (<https://bobby-tables.com/java>)
@@ -6123,6 +6191,8 @@ Enosuchblog, 2022-12-28, "ReDoS "vulnerabilities" and misaligned incentives", <h
 
 Enable Cross-Origin Resource Sharing ([https://enable-cors.org/](https://enable-cors.org/))
 
+European Parliament, 2001-07-11, Report on the existence of a global system for the interception of private and commercial communications (ECHELON interception system) (2001/2098(INI), <https://irp.fas.org/program/process/rapport_echelon_en.pdf>
+
 Flatt Security Inc,, "Finding an unseen SQL Injection by bypassing escape functions in mysqljs/mysql", 2022-02-21, (<https://flattsecurity.medium.com/finding-an-unseen-sql-injection-by-bypassing-escape-functions-in-mysqljs-mysql-90b27f6542b4>)
 
 Forum of Incident Response and Security Teams (FIRST), *FIRST Services Framework* ([https://www.first.org/standards/frameworks/](https://www.first.org/standards/frameworks/))
@@ -6148,6 +6218,8 @@ GitHub Security, *Password reset emails delivered to the wrong address*, 2016-07
 GitLab, *What is GitOps?* ([https://about.gitlab.com/topics/gitops/])
 
 Goodin, Dan, 2015, "Once seen as bulletproof, 11 million+ Ashley Madison passwords already cracked", *Ars Technica*, <https://arstechnica.com/information-technology/2015/09/once-seen-as-bulletproof-11-million-ashley-madison-passwords-already-cracked/>
+
+Goodin, Dan, 2022-08-02, "Post-quantum encryption contender is taken out by single-core PC and 1 hour", Ars Technica, <https://arstechnica.com/information-technology/2022/08/sike-once-a-post-quantum-encryption-contender-is-koed-in-nist-smackdown/>
 
 Gooding, Dan, *Plundering of crypto keys from ultrasecure SGX sends Intel scrambling again*, Ars Technica, 2020-06-09 ([https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/](https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/))
 
