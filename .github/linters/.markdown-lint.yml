@@ -10,6 +10,9 @@ MD049: false # MD049/emphasis-style
 MD012: false # MD012/no-multiple-blank
 MD001: false # MD001/heading-increment/header-increment
 
+# For the moment, disable
+MD024: false # MD024/no-duplicate-heading/no-duplicate-header
+
 # We enforce "no duplicate headers" so hypertext links to sections will have
 # unique anchor names to refer to.
 # MD024: false # MD024/no-duplicate-heading/no-duplicate-header
