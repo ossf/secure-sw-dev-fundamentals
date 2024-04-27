@@ -52,6 +52,7 @@ If you want to report vulnerabilities in this project, please see
 [SECURITY.md](./SECURITY.md).
 
 Our thanks to Flavia Cioanca for her work to convert the text into live courses!
+
 # SECURITY
 
 We're *glad* if you want to report a vulnerability!
@@ -88,6 +89,7 @@ where this material was originally created.
 Please justify why you need it this unusual access; you almost certainly don't need it, since the content is the same.
 If you want to propose changes to the content, the preferred mechanism is
 via issues and pull requests via GitHub.
+
 # Secure Software Development Fundamentals
 
 by David A. Wheeler
