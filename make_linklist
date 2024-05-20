@@ -1,0 +1,12 @@
+#!/bin/sh
+ 
+url='https://github.com/ossf/secure-sw-dev-fundamentals/blob/main/secure_software_development_fundamentals.md'
+while read line; do
+  case "$line" in
+    \#*)
+      name=$(printf '%s\n' "$line" | sed -e 's/^#* //')
+      link=$(printf '%s\n' "$name" | tr -dc 'A-Za-z0-9 -' | tr 'A-Z ' 'a-z-')
+      printf '%s\n' "[${name}](${url}#${link})"
+    ;;
+  esac
+done
