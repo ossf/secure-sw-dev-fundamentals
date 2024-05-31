@@ -41,7 +41,7 @@ That project unfortunately seems to have stalled.
 Alternative converters include
 [lmmx/gdocs2md-html](https://github.com/lmmx/gdocs2md-html)
 and
-[evbacher/gd2md-html](https://github.com/evbacher/gd2md-html!)
+[evbacher/gd2md-html](https://github.com/evbacher/gd2md-html)
 (the last one is most recently active).
 
 This course is one of the results of the
