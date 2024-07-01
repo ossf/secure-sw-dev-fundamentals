@@ -1685,15 +1685,17 @@ The usual way to require a regex to match an entire input is to include *anchors
 
 **ca[brt]**
 
-In contrast, this regex will only match *exactly* the words “**cab**”, “**car**”, or “**cat**” in most regex implementations, because “**^**” means *“match the beginning”* and “**$**” means *“match the end”*:
+In contrast, this regex will only match *exactly* the words “**cab**”, “**car**”, or “**cat**” in most regex implementations, because “**^**” often means *“match the beginning”* and “**$**” means *“match the end”*:
 
 **^ca[brt]$**
 
-In some implementations (depending on the option), “**^**” may mean *“beginning of any line”* not *“beginning of the string”* - and you usually want *“beginning of the string”*. A similar thing can happen with “**$**”. From here on we will assume that “**^**” and “**$**” mean beginning and end of the entire string.
+In some implementations (depending on the option), “**^**” may mean *“beginning of any line”* not *“beginning of the string”* - and you usually want *“beginning of the string”*. A “**$**” means *"end of the string*" in some implementations, and not in others. Since regular expression notations vary, it's important to know about your specific regex expression system.
 
 #### Know Your Regex Implementation
 
-Almost every programming language has at least one good regex implementation. They all share many features, but many are slightly different. So, when you use a regex implementation you have not used before, look at its documentation every time you use an operation that you have not used before. Here are some variations to look for.
+Regex notations are *not* the same between different languages and libraries. Almost every programming language has at least one good regex implementation and they all share many features. However, they are slightly different.
+
+So, when you use a regex implementation you have not used before, look at its documentation every time you use an operation that you have not used before. Also, be careful when reusing a pattern.Here are some variations to look for.
 
 There are three major families of regex language notations:
 
@@ -1707,7 +1709,9 @@ There are three major families of regex language notations:
 
 * Sometimes there is an option or alternative method to match the entire input; if available, you can use that instead of the anchoring symbols. Make sure it matches the whole thing, though; some methods only check the beginning.
 
-* Sometimes “**^**” matches the beginning of the whole data, while in others it represents the beginning of any line in the data. The same goes for “**$**”. This is often controlled by a *multiline* option.
+* Sometimes “**^**” matches the beginning of all the data, while in others it represents the beginning of any line in the data. This is often controlled by a *multiline* option.
+
+* Sometimes “**$**” matches the end of all the data, while in others it represents the end of any line in the data. In some systems, an optional newline character (or similar) is also always accepted. In some systems you must use `\z` to match the end of the data, but in Python you must use `\Z`.
 
 * The “**.**” for representing *“any character”* doesn’t always match the newline character (**\n**); often there is an option to turn this on or off.
 
@@ -1717,7 +1721,83 @@ There are three major families of regex language notations:
 
 * Is matching case-sensitive? Usually it is case-sensitive by default, and there is a trivial way to make it case-insensitive. If it is case-insensitive, remember that exactly what characters have case-insensitive matches depends on the locale. For example, “**I**” and “**i**” match in the English (“**en**”) and the C locale (“**C**”), but not in the Turkish (“**tr**”). In the Turkish locale, the Unicode LATIN CAPITAL LETTER I matches the LATIN SMALL LETTER DOTLESS I - not a lowercase “**i**”.
 
-In some languages, such as in Ruby, you normally use **\A** and **\z** instead of “**^**” and “**$**” to match string begin/end, because “**^**” and “**$**” match line begin/end instead.
+The following table shows how to create a regex pattern that matches an entire input string for some common platforms, as provided by [Correctly Using Regular Expressions for Secure Input Validation](https://best.openssf.org/Correctly-Using-Regular-Expressions). There's no need to memorize this; the point to understand is to make sure you use the correct symbols for the platform you're using:
+
+<table>
+  <tr>
+   <td>
+Platform
+   </td>
+   <td>Prepend
+   </td>
+   <td>Append
+   </td>
+  </tr>
+  <tr>
+   <td>POSIX BRE, POSIX ERE, and ECMAScript (JavaScript)
+   </td>
+   <td>“^” (not “\A”)
+   </td>
+   <td>“$” (not “\z” nor “\Z”)
+   </td>
+  </tr>
+  <tr>
+   <td>Perl, .NET/C#
+   </td>
+   <td>“^” or “\A”
+   </td>
+   <td>“\z” (not “$”)
+   </td>
+  </tr>
+  <tr>
+   <td>Java
+   </td>
+   <td>“^” or “\A”
+   </td>
+   <td>“\z”; “$” works but some documents conflict
+   </td>
+  </tr>
+  <tr>
+   <td>PHP
+   </td>
+   <td>“^” or “\A”
+   </td>
+   <td>“\z”; “$” with “D” modifier
+   </td>
+  </tr>
+  <tr>
+   <td>PCRE
+   </td>
+   <td>“^” or “\A”
+   </td>
+   <td>“\z”; “$” with PCRE2_ DOLLAR_ENDONLY
+   </td>
+  </tr>
+  <tr>
+   <td>Golang, Rust crate regex, and RE2
+   </td>
+   <td>“^” or “\A”
+   </td>
+   <td>“\z” or “$”
+   </td>
+  </tr>
+  <tr>
+   <td>Python
+   </td>
+   <td>“^” or “\A”
+   </td>
+   <td>“\Z” (not “$” nor “\z”)
+   </td>
+  </tr>
+  <tr>
+   <td>Ruby
+   </td>
+   <td>“\A” (not “^”)
+   </td>
+   <td>“\z” (not “$”)
+   </td>
+  </tr>
+</table>
 
 #### Branch Priority
 
