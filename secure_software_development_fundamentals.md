@@ -4738,7 +4738,7 @@ RSA key lengths need to be longer than you might expect. An RSA key length of 10
 
 A whole family of algorithms are called *elliptic curve cryptography*; these are algorithms that are based on complex math involving elliptic curves. These algorithms require far shorter key lengths for equivalent cryptographic strength, and that is a significant advantage. Historically, elliptic curve cryptography involved a minefield of patents, but over the years many of those patents have expired and so elliptic curve cryptography has become more common. A widely-used and respected algorithm for key exchange and digital signatures is Curve25519; a related protocol called ECIES combines Curve25519 key exchange with a symmetric key algorithm (for more details, see [*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
-The Digital Signature Standard (DSS) is a standard for creating cryptographic digital signatures. It supports several underlying algorithms: Digital Signature Algorithm (DSA), the RSA digital signature algorithm, and the elliptic curve digital signature algorithm (ECDSA).
+The Digital Signature Standard (DSS) is a NIST standard (FIPS 186-5) for creating cryptographic digital signatures. It supports several underlying algorithms: the RSA digital signature algorithm, the elliptic curve digital signature algorithm (ECDSA) and the Edwards-curve digital signature algorithm (EdDSA).
 
 There are also a variety of key exchange algorithms. The oldest is the Diffie-Hellman key exchange algorithm. There is a newer key exchange algorithm based on elliptic curves, called Elliptic Curve Diffie-Hellman (ECDH).
 
