@@ -10,6 +10,9 @@ toc.md: secure_software_development_fundamentals.md tocignore
 	grep -E '^#{1,3} ' secure_software_development_fundamentals.md | \
 	  grep -E -v -f tocignore | while read line; do echo "$$line"; echo; done > toc.md
 
+linklist.md: toc.md make_linklist
+	./make_linklist < toc.md > linklist.md
+
 # This requires wkhtmltopdf because it goes via HTML
 # https://plaintextproject.online/articles/2022/04/06/pdf.html
 # https://stackoverflow.com/questions/38455078/specifying-papersize-for-md-to-pdf-conversion
