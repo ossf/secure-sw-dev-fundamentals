@@ -1369,7 +1369,7 @@ First, make sure that you identify all inputs from potentially untrusted users, 
 
 At each remaining input from potentially untrusted users you need to validate the data that comes in. These input validation checks are a kind of security check, so you need to make sure that these input validation checks are non-bypassable, as we discussed earlier in the design principle *non-bypassability*. **As a reminder:** only trust security checks (including input validation) when they run on an environment you trust. This is especially important for JavaScript programs - since JavaScript can run on web browsers, it is easy to send security checks to the web browser and forget that *attackers* can control their own web browsers. Any input validation checks you do in an untrusted environment cannot be trusted. If you trust your server environment and not the client environment, then all security-relevant checks must be done in the server environment. We discussed this already, but it is important to emphasize because it is such a common and serious problem. Now let’s move on to how to actually validate input.
 
-### Input Validation Basics Introduction
+### Lab: Input Validation Basics Introduction
 
  🧪 LAB: This course includes some labs. Labs are optional, but you're *strongly* encouraged to try them! Please try lab [hello](https://best.openssf.org/labs/hello.html) to see how the labs work in this course.
 
