@@ -1362,7 +1362,6 @@ You also need to ensure that your system is not vulnerable to a “dependency co
 
 🔔 Dependency confusion is a special case of 2021 CWE Top 25 #34, *Uncontrolled Search Path Element* ([CWE-427](https://cwe.mitre.org/data/definitions/427.html)). Relying on plugins, libraries, or modules from untrusted sources, and relying on untrustworthy content delivery networks, is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*.
 
-
 #### Quiz 3.2: Downloading and Installing Reusable Software
 
 \>\>What are good ways to acquire software? Select all answers that apply.<<
@@ -1479,6 +1478,16 @@ First, make sure that you identify all inputs from potentially untrusted users, 
 
 At each remaining input from potentially untrusted users you need to validate the data that comes in. These input validation checks are a kind of security check, so you need to make sure that these input validation checks are non-bypassable, as we discussed earlier in the design principle *non-bypassability*. **As a reminder:** only trust security checks (including input validation) when they run on an environment you trust. This is especially important for JavaScript programs - since JavaScript can run on web browsers, it is easy to send security checks to the web browser and forget that *attackers* can control their own web browsers. Any input validation checks you do in an untrusted environment cannot be trusted. If you trust your server environment and not the client environment, then all security-relevant checks must be done in the server environment. We discussed this already, but it is important to emphasize because it is such a common and serious problem. Now let’s move on to how to actually validate input.
 
+#### Lab: Input Validation Basics Introduction
+
+ 🧪 Lab: This course includes some labs. Labs are optional, but you're *strongly* encouraged to try them! Please try lab [hello](https://best.openssf.org/labs/hello.html) to see how the labs work in this course.
+
+IF a section has a quiz and one or more labs, we'll present the
+quiz first. This order is intentional.
+Quizzes help make sure you can *recognize* a correct answer,
+while labs help you *create* a correct answer. Recognizing a correct answer
+can be a first step towards creating your own.
+
 ### How Do You Validate Input?
 
 You should determine what is legal, as narrowly as you reasonably can, and reject anything that does not match that definition. Using rules that define what is legal, and by implication rejecting everything else, is called *allowlisting* (the rules themselves are an *allowlist*). Synonyms are *goodlisting* (the rules are the *goodlist*) and the historically common *whitelisting* (the rules are the *whitelist*). In general, do not do the reverse. That is, it is normally a mistake to try to identify what is illegal and write code to reject just those cases. This generally insecure approach, where you try to list everything that should be rejected, is called *denylisting* (the rules are a *denylist*). Synonyms for denylisting are *badlisting* and the historically common *blacklisting* (the rules are then called a *badlist* or  *blacklist*). Denylisting typically leads to security vulnerabilities, because if you forget to handle one or more important cases of illegal input, it could be an opportunity for an attacker. If you forget to allow a case, you get a bug report and your software fails securely. Besides, it is usually much easier to simply identify *what is allowed* and only allow those inputs. In a few rare cases you *can* absolutely be certain that you have enumerated all possible bad inputs, in which case denylisting is okay, but those are rare. Generally denylisting leads to trouble.
@@ -1542,6 +1551,11 @@ Many programs need to validate text fields, but those fields’ rules are not de
 [x] Use an unsigned type if your language supports it and the input is not allowed to be negative.
 
 [x] Require that the number be an integer if that is the only expected kind of number.
+
+#### Lab: Input Validation: A Few Simple Data Types
+
+ 🧪 Lab: Please try lab [input1](https://best.openssf.org/labs/input1.html).
+Labs are optional, but we encourage you to try them.
 
 ### Sidequest: Text, Unicode, and Locales
 
@@ -1671,6 +1685,11 @@ You can usually do a case-insensitive match through some option. Make sure you s
 
 There is far more to regexes. In fact, there is a whole book on just regular expressions, [*Mastering Regular Expressions, 3rd Edition*](https://www.oreilly.com/library/view/mastering-regular-expressions/0596528124/), by Jeffrey Friedl (2006), and there are many tutorials on regexes such as the  [Regular Expressions for Regular Folk](https://refrf.shreyasminocha.me/) tutorial by Shreyas Minocha. But that introduction will get us started, because we are now going to discuss how regexes can be used for input validation.
 
+#### Lab: Introduction to Regular Expressions
+
+ 🧪 Lab: Please try lab [regex0](https://best.openssf.org/labs/regex0.html), which lets you experiment with simple regex notation.
+Labs are optional, but we encourage you to try them.
+
 ### Using Regular Expressions for Text Input Validation
 
 Many programs need to quickly validate input text from untrusted sources. While there are many ways to do that, regexes are often an especially useful tool for input validation of text. Regexes are generally quick to write down (so they take very little development time), easy to use, and widely available. They’re also flexible enough for many input validation tasks, compact, and normally execute very quickly. They are also widely known and understood. These are important advantages; if writing input validation is too hard, it won’t be done. They don’t solve all possible input validation problems, but they are useful enough that they are important to know.
@@ -1747,6 +1766,14 @@ Remember, **^...$** are required to make this an allowlist (the text *must* matc
 
 [Explanation]
 
+#### Lab: Using Regular Expressions for Text Input Validation
+
+ 🧪 Lab: Please try lab [regex1](https://best.openssf.org/labs/regex1.html), which lets you experiment using regex notation to validate strings.
+
+ 🧪 Lab: Please try lab [input2](https://best.openssf.org/labs/input2.html), which lets you experiment in how to use a regex in a real program.
+
+Labs are optional, but we encourage you to try them.
+
 ### Countering ReDoS Attacks on Regular Expressions
 
 When you add code, there is a risk that the added code has a vulnerability. This is especially true when you add code that is supposed to help keep your software secure, since by definition, problems in that code could lead to a security problem.
@@ -1801,6 +1828,11 @@ Note: ReDoS is often *not* a real vulnerability. Such regexes can *only* be a vu
 [x] Limit the maximum size of the input, so that even the worst-case behavior is not so bad.
 
 [ ] None of the above
+
+#### Lab: Countering ReDoS Attacks on Regular Expressions
+
+ 🧪 Lab: Please try lab [ReDoS](https://best.openssf.org/labs/redos.html), which lets you experiment in how to counter redos attacks in a real program.
+Labs are optional, but we encourage you to try them.
 
 ## Input Validation: Beyond Numbers and Text
 
@@ -2180,6 +2212,11 @@ A cast changes a value’s type (that is what it is *for*), so by itself that is
 
 [Explanation]
 
+#### Lab: Avoid Incorrect Conversion or Cast
+
+ 🧪 Lab: Please try lab [conversion](https://best.openssf.org/labs/conversion.html), which lets you experiment in how to counter improper conversion.
+Labs are optional, but we encourage you to try them.
+
 ## Processing Data Securely: Undefined Behavior / Memory Safety
 
 ### Countering Out-of-Bounds Reads and Writes (Buffer Overflow)
@@ -2293,6 +2330,11 @@ If you are writing code that is not memory-safe, or calling code that is not mem
 Correct. Of course, it is safer to not use memory-unsafe languages in the first place, but that is not always an option today.
 
 [Explanation]
+
+#### Lab: Countering Out-of-Bounds Reads and Writes (Buffer Overflow)
+
+ 🧪 Lab: Please try lab [oob1](https://best.openssf.org/labs/oob1.html), which lets you experiment in how to counter an out-of-bounds vulnerability.
+Labs are optional, but we encourage you to try them.
 
 ### Double-free, Use-after-free, and Missing Release
 
@@ -2918,6 +2960,11 @@ This is true. Not only is it more efficient, but the operating system shell usua
 
 [Explanation]
 
+#### Lab: OS Command (Shell) injection
+
+ 🧪 Lab: Please try lab [shell-injection](https://best.openssf.org/labs/shell-injection.html), which lets you experiment in how to counter an OS shell (injection) vulnerability.
+Labs are optional, but we encourage you to try them.
+
 ### Other Injection Attacks
 
 There are many other kinds of injection attacks beyond SQL injection and operating system command injection. There may be a risk of an injection attack any time you are sending data partly controlled by an untrusted user in a format that has metacharacters, is defined as a language, and/or is processed by an interpreter.
@@ -3126,6 +3173,11 @@ Error-handling is a fact of life, but you need to make sure your error handling 
 [ ] You should catch all exceptions raised by the methods/functions you call. {{ selected: No, you should only catch an exception if you know what you will do with it. }}
 
 [x] If an exception is raised all the way to the “top” of a program (e.g., its event loop), you should typically log that exception, and then decide if the program will halt or continue.
+
+#### Lab: Handling Errors
+
+ 🧪 Lab: Please try lab [handling-errors](https://best.openssf.org/labs/handling-errors.html), which lets you experiment in how to counter an OS shell (injection) vulnerability.
+Labs are optional, but we encourage you to try them.
 
 ### Logging
 
@@ -3456,6 +3508,12 @@ When you are developing a site it might be wise to go through the CSP specificat
 This is true. CSP does not eliminate all problems, but CSP does let you forbid inline scripts and instead require JavaScript to be loaded from specific trusted locations. In this configuration, XSS attacks can no longer easily insert malicious JavaScript code, and that can reduce the impact of XSS attacks.
 
 [Explanation]
+
+#### Lab: Content Security Policy (CSP)
+
+ 🧪 Lab: Please try lab [csp1](https://best.openssf.org/labs/csp1.html),
+which lets you experiment with a Content Security Policy (CSP).
+Labs are optional, but we encourage you to try them.
 
 ### Other HTTP Hardening Headers
 
