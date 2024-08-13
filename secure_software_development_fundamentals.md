@@ -1554,7 +1554,7 @@ Many programs need to validate text fields, but those fields’ rules are not de
 
 #### Lab: Input Validation: A Few Simple Data Types
 
- 🧪 Lab: Please try lab [input1](https://best.openssf.org/labs/input1.html).
+ 🧪 Lab: Please try lab [input1](https://best.openssf.org/labs/input1.html), which lets you practice validating input of a simple data type.
 Labs are optional, but we encourage you to try them.
 
 ### Sidequest: Text, Unicode, and Locales
