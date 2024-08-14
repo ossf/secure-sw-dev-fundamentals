@@ -18,20 +18,21 @@ It's free, and its certificate of completion is free.
 The [OpenSSF page about this course](https://openssf.org/training/courses/) provides some broader context about the course.
 The learning material also available via [edX](http://edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals?utm_medium=partner-marketing&utm_source=affiliate&utm_campaign=openssf&utm_content=openssforg-securedevelopmentpc). but the edX certificate of completion is not free.
 
-## This repository is for maintainers of the course
+## This repository is for maintaining the course content
 
-This repository is intended for those who *maintain* the course material.
-
-In particular, this is the place to report proposed changes
-to the course content or report issues about the course content.
+This repository is primarily intended for those
+who *maintain* the course content and those who want to *propose a change*.
 If you want to use its content in special ways, this might also be a
 useful repository for you.
 
-If you see something in the course that should be changed, please **[file an issue](https://github.com/ossf/secure-sw-dev-fundamentals/issues)** or (even better) **[create a pull request](https://github.com/ossf/secure-sw-dev-fundamentals/pulls)**.
+If you see something in the course content that you think should be changed, please **[file an issue](https://github.com/ossf/secure-sw-dev-fundamentals/issues)** or (even better) **[create a pull request](https://github.com/ossf/secure-sw-dev-fundamentals/pulls)**.
 
-Please see **[*Secure Software Development Fundamentals* content in Markdown format](secure_software_development_fundamentals.md)** for the main **text** content of the course (in this repository). The text embeds references to images that are also in this repository. The course as delivered includes some video introductions; those files are very large and so they aren't currently stored in this repository.
+Please see **[*Secure Software Development Fundamentals* content in Markdown format](secure_software_development_fundamentals.md)** for the main **text** content of the course (in this repository). The text embeds references to images that are also in this repository.
 
-There are video introductions, but the videos are in large files. See the [repository with the corresponding videos](https://github.com/ossf/secure-sw-dev-videos).
+The course as delivered includes some videos.
+Those files are very large, so they aren't stored in this repository.
+See the
+[repository with the corresponding videos](https://github.com/ossf/secure-sw-dev-videos).
 
 ## Details
 
