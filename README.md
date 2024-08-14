@@ -1,16 +1,31 @@
-# secure-sw-dev-fundamentals: Secure Software Development Fundamentals courses (from the OpenSSF Best Practices WG)
+# secure-sw-dev-fundamentals: Developing Secure Software (LFD121) course
 
-This repository is for managing and sharing the content of the
-*Secure Software Development Fundamentals*
-courses (from the [OpenSSF Best Practices WG](https://github.com/ossf/wg-best-practices-os-developers) that are available via the
-[Linux Foundation Training &amp; Certification Platform](https://training.linuxfoundation.org/training/developing-secure-software-lfd121/)
-and via [edX](http://edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals?utm_medium=partner-marketing&utm_source=affiliate&utm_campaign=openssf&utm_content=openssforg-securedevelopmentpc).
+This repository is for maintaining the content of the
+[Developing Secure Software (LFD121) course](https://training.linuxfoundation.org/training/developing-secure-software-lfd121/),
+aka the *Secure Software Development Fundamentals* course.
 
-## Highlights
+This course is overseen by the [Open Source Security Foundation (OpenSSF) Best Practices Working Group (WG)](https://github.com/ossf/wg-best-practices-os-developers).
 
-Please **[select the course you are interested in and take it](https://openssf.org/training/courses/)** if you just want to *take* these courses.
+## If you want to LEARN
 
-This repository is instead intended for those who want to modify the course material or using its content in special ways.
+If you want to *learn*, you're in the *wrong place*.
+
+Instead, *please* go to the
+**[Developing Secure Software (LFD121) entry page](https://training.linuxfoundation.org/training/developing-secure-software-lfd121/)**
+so you can learn how to develop secure software.
+It's free, and its certificate of completion is free.
+
+The [OpenSSF page about this course](https://openssf.org/training/courses/) provides some broader context about the course.
+The learning material also available via [edX](http://edx.org/professional-certificate/linuxfoundationx-secure-software-development-fundamentals?utm_medium=partner-marketing&utm_source=affiliate&utm_campaign=openssf&utm_content=openssforg-securedevelopmentpc). but the edX certificate of completion is not free.
+
+## This repository is for maintainers of the course
+
+This repository is intended for those who *maintain* the course material.
+
+In particular, this is the place to report proposed changes
+to the course content or report issues about the course content.
+If you want to use its content in special ways, this might also be a
+useful repository for you.
 
 If you see something in the course that should be changed, please **[file an issue](https://github.com/ossf/secure-sw-dev-fundamentals/issues)** or (even better) **[create a pull request](https://github.com/ossf/secure-sw-dev-fundamentals/pulls)**.
 
