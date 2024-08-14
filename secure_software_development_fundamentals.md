@@ -1770,7 +1770,7 @@ Platform
    </td>
    <td>“^” or “\A”
    </td>
-   <td>“\z”; “$” with PCRE2_ DOLLAR_ENDONLY
+   <td>“\z”; “$” with `PCRE2_DOLLAR_ENDONLY`
    </td>
   </tr>
   <tr>
