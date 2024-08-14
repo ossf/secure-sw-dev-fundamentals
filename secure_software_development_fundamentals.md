@@ -4906,7 +4906,7 @@ Similarly, seek advice from experts, and weigh that advice carefully. Errors in 
 
 \>\>Select the true statement(s):<<
 
-[!] Attackers cannot detect latency within an equality over a network.
+[!] Attackers cannot detect latency within an equality check over a network.
 
 [x] Where practical, you should minimize the time that normally-encrypted data is decrypted.
 
