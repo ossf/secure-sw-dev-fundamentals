@@ -1693,7 +1693,7 @@ In some implementations (depending on the option), “**^**” may mean *“begi
 
 #### Know Your Regex Implementation
 
-Regex notations are *not* the same between different languages and libraries. Almost every programming language has at least one good regex implementation and they all share many features. However, they are slightly different.
+Regex notations are *not* the same between different languages and libraries. Almost every programming language has at least one good regex implementation and they all share many features. However, they are often slightly different.
 
 So, when you use a regex implementation you have not used before, look at its documentation every time you use an operation that you have not used before. Also, be careful when reusing a pattern. Here are some variations to look for.
 
