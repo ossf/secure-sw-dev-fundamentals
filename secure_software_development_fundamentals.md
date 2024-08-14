@@ -3176,7 +3176,7 @@ Error-handling is a fact of life, but you need to make sure your error handling 
 
 #### Lab: Handling Errors
 
- 🧪 Lab: Please try lab [handling-errors](https://best.openssf.org/labs/handling-errors.html), which lets you experiment in how to counter an OS shell (injection) vulnerability.
+ 🧪 Lab: Please try lab [handling-errors](https://best.openssf.org/labs/handling-errors.html), which lets you experiment with leveraging an error handling mechanism (specifically exception handling) and improve its robustness.
 Labs are optional, but we encourage you to try them.
 
 ### Logging
