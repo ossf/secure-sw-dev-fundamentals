@@ -1707,19 +1707,19 @@ There are three major families of regex language notations:
 
  Here are some important things that vary:
 
-* Sometimes there is an option or alternative method to match the entire input; if available, you can use that instead of the anchoring symbols. Make sure it matches the whole thing, though; some methods only check the beginning.
+1. Sometimes there is an option or alternative method to match the entire input; if available, you can use that instead of the anchoring symbols. Make sure it matches the whole thing, though; some methods only check the beginning.
 
-* Sometimes “**^**” matches the beginning of all the data, while in others it represents the beginning of any line in the data. This is often controlled by a *multiline* option.
+2. Sometimes “**^**” matches the beginning of all the data, while in others it represents the beginning of any line in the data. This is often controlled by a *multiline* option.
 
-* Sometimes “**$**” matches the end of all the data, while in others it represents the end of any line in the data. In some systems, an optional newline character (or similar) is also always accepted. In some systems you must use "**\z**" to match the end of the data, but in Python you must use "**\Z**".
+3. Sometimes “**$**” matches the end of all the data, while in others it represents the end of any line in the data. In some systems, an optional newline character (or similar) is also always accepted. In some systems you must use "**\z**" to match the end of the data, but in Python you must use "**\Z**".
 
-* The “**.**” for representing *“any character”* doesn’t always match the newline character (**\n**); often there is an option to turn this on or off.
+4. The “**.**” for representing *“any character”* doesn’t always match the newline character (**\n**); often there is an option to turn this on or off.
 
-* Does it properly support Unicode and the encoding you are using?
+5. Some properly support Unicode and the encoding you are using; others do not.
 
-* Can it handle data with the **NUL** character (byte value 0) within the data? If not, and your input data could have an embedded **NUL** character, you will need to validate the data first to make sure there are no **NUL** characters before passing the data to the regex implementation.
+6. Some can handle data with the **NUL** character (byte value 0) within the data; others do not. If not, and your input data could have an embedded **NUL** character, you will need to validate the data first to make sure there are no **NUL** characters before passing the data to the regex implementation.
 
-* Is matching case-sensitive? Usually it is case-sensitive by default, and there is a trivial way to make it case-insensitive. If it is case-insensitive, remember that exactly what characters have case-insensitive matches depends on the locale. For example, “**I**” and “**i**” match in the English (“**en**”) and the C locale (“**C**”), but not in the Turkish (“**tr**”). In the Turkish locale, the Unicode LATIN CAPITAL LETTER I matches the LATIN SMALL LETTER DOTLESS I - not a lowercase “**i**”.
+7. Some do case-sensitive matching by default; others do not. Usually it is case-sensitive by default, and there is a trivial way to make it case-insensitive. If it is case-insensitive, remember that exactly what characters have case-insensitive matches depends on the locale. For example, “**I**” and “**i**” match in the English (“**en**”) and the C locale (“**C**”), but not in the Turkish (“**tr**”). In the Turkish locale, the Unicode LATIN CAPITAL LETTER I matches the LATIN SMALL LETTER DOTLESS I - not a lowercase “**i**”.
 
 The following table shows how to create a regex pattern that matches an entire input string for some common platforms, as provided by [Correctly Using Regular Expressions for Secure Input Validation](https://best.openssf.org/Correctly-Using-Regular-Expressions). There's no need to memorize this; the point to understand is to make sure you use the correct symbols for the platform you're using:
 
