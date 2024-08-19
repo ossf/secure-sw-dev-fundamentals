@@ -2457,6 +2457,12 @@ No, it is not safe to use a memory region after freeing it, no matter what. It *
 
 [Explanation]
 
+#### Lab: Double-free, Use-after-free, and Missing Release
+
+ 🧪 **Lab: Please try lab [free](https://best.openssf.org/labs/free.html), which lets you experiment in how to fix a simple use-after-free bug.**
+
+*Labs are optional, but you're strongly encouraged to try them!*
+
 ### Avoid Undefined Behavior
 
 [Memory-unsafe code]
