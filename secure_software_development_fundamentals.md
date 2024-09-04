@@ -1854,7 +1854,7 @@ Remember, **^...$** are required to make this an allowlist (the text *must* matc
 
  🧪 **Lab: Please try lab [regex1](https://best.openssf.org/labs/regex1.html), which lets you experiment using regex notation to validate strings.**
 
- 🧪 **Lab: Please try lab [input2](https://best.openssf.org/labs/input2.html), which lets you experiment in how to use a regex in a real program.**
+ 🧪 **Lab: Please try lab [input2](https://best.openssf.org/labs/input2.html), which lets you experiment on how to use a regex in a real program.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
@@ -1915,7 +1915,7 @@ Note: ReDoS is often *not* a real vulnerability. Such regexes can *only* be a vu
 
 #### Lab: Countering ReDoS Attacks on Regular Expressions
 
- 🧪 **Lab: Please try lab [ReDoS](https://best.openssf.org/labs/redos.html), which lets you experiment in how to counter redos attacks in a real program.**
+ 🧪 **Lab: Please try lab [ReDoS](https://best.openssf.org/labs/redos.html), which lets you experiment on how to counter redos attacks in a real program.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
@@ -2299,7 +2299,7 @@ A cast changes a value’s type (that is what it is *for*), so by itself that is
 
 #### Lab: Avoid Incorrect Conversion or Cast
 
- 🧪 **Lab: Please try lab [conversion](https://best.openssf.org/labs/conversion.html), which lets you experiment in how to counter improper conversion.**
+ 🧪 **Lab: Please try lab [conversion](https://best.openssf.org/labs/conversion.html), which lets you experiment on how to counter improper conversion.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
@@ -2419,7 +2419,7 @@ Correct. Of course, it is safer to not use memory-unsafe languages in the first 
 
 #### Lab: Countering Out-of-Bounds Reads and Writes (Buffer Overflow)
 
- 🧪 **Lab: Please try lab [oob1](https://best.openssf.org/labs/oob1.html), which lets you experiment in how to counter an out-of-bounds vulnerability.**
+ 🧪 **Lab: Please try lab [oob1](https://best.openssf.org/labs/oob1.html), which lets you experiment on how to counter an out-of-bounds vulnerability.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
@@ -2459,7 +2459,7 @@ No, it is not safe to use a memory region after freeing it, no matter what. It *
 
 #### Lab: Double-free, Use-after-free, and Missing Release
 
- 🧪 **Lab: Please try lab [free](https://best.openssf.org/labs/free.html), which lets you experiment in how to fix a simple use-after-free bug.**
+ 🧪 **Lab: Please try lab [free](https://best.openssf.org/labs/free.html), which lets you experiment on how to fix a simple use-after-free bug.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
@@ -3055,7 +3055,7 @@ This is true. Not only is it more efficient, but the operating system shell usua
 
 #### Lab: OS Command (Shell) injection
 
- 🧪 **Lab: Please try lab [shell-injection](https://best.openssf.org/labs/shell-injection.html), which lets you experiment in how to counter an OS shell (injection) vulnerability.**
+ 🧪 **Lab: Please try lab [shell-injection](https://best.openssf.org/labs/shell-injection.html), which lets you experiment on how to counter an OS shell (injection) vulnerability.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
