@@ -391,7 +391,7 @@ untrusted user might be an attacker.
 
 #### Quiz 1.2: Security Requirements
 
-\>\>A typical Internet-connected service should try to stay available, but this may be difficult to achieve if the service is the target of a highly-resourced distributed denial-of-service attack (DDoS). True or False?<<
+\>\>A typical Internet-connected service should try to stay available, but this may be difficult to achieve if the service is the target of a highly-resourced distributed denial-of-service (DDoS) attack. True or False?<<
 
 (x) True
 
