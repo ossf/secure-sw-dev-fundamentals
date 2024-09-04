@@ -391,15 +391,15 @@ untrusted user might be an attacker.
 
 #### Quiz 1.2: Security Requirements
 
-\>\>A typical requirement for an Internet-connected service is to stay available regardless of the attacks it undergoes. True or False?<<
+\>\>A typical Internet-connected service should try to stay available, but this may be difficult to achieve if the service is the target of a highly-resourced distributed denial-of-service (DDoS) attack. True or False?<<
 
-( ) True
+(x) True
 
-(x) False
+( ) False
 
 [Explanation]
 
-This is false. It would be great if we could ensure that all Internet-connected services could always stay available. But in most cases, if every device in the world connected to the Internet requested a specific service, that service will be unable to handle the load. At some point, attackers with many resources can usually overwhelm the availability of a defender with few resources.
+This is true. It would be great if we could ensure that all Internet-connected services could always stay available. But in most cases, if every device in the world connected to the Internet requested a specific service, that service will be unable to handle the load. At some point, attackers with many resources can usually overwhelm the availability of a defender with few resources.
 
 Of course, we should not make it easy for an attacker to take down a system. So instead, any Internet-connected services we build should be able to handle some moderate request rate so that an attacker has to at least commit nontrivial resources. You could do this by designing the system so that it can rapidly scale to large request sizes, and using other services like content delivery networks (CDNs) to harden the system against large loads. In addition, a service can use techniques like rapid recovery so that even if it is taken down by an attack, it can quickly recover when the attack ends.
 
