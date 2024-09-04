@@ -2735,6 +2735,12 @@ Of course, like any technique, if you use it wrongly then it won’t be secure. 
 
 This insecure program uses a prepared statement, but instead of correctly using “**?**” as a value placeholder (which will then be properly escaped), this code directly concatenates data into the query. Unless the data is properly escaped (and it almost certainly is not), this code can quickly lead to a serious vulnerability if this data can be controlled by an attacker.
 
+##### Lab: SQL injection
+
+ 🧪 **Lab: Please try lab [sql-injection](https://best.openssf.org/labs/sql-injection.html), which lets you experiment with how to counter a SQL injection vulnerability.**
+
+*Labs are optional, but you're strongly encouraged to try them!*
+
 #### Examples: Parameterized and Prepared Statements in some Other Languages
 
 Parameterized and prepared statements are widely available, though the
