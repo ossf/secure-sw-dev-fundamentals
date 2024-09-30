@@ -1,3 +1,5 @@
+# Google docs is no longer used to propose changes
+
 If you want to propose changes to the content, the preferred mechanisms are
 [issues and pull requests via GitHub](https://github.com/ossf/secure-sw-dev-fundamentals).
 
