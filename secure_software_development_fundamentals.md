@@ -82,13 +82,9 @@ However, in some cases we *do* want you to report a vulnerability to us:
 
 If you want to report those kinds of vulnerabilities to us,
 please use the GitHub mechanism [privately reporting a security vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability) to this repository.
-If you have a special need you may request
-view access to the [content in Google Docs form](https://docs.google.com/document/d/1oN6juqVR7KXuvclHvoY0pr_XQmC6t6uXMLcYphPsUsA/edit?usp=sharing)
-where this material was originally created.
 
-Please justify why you need it this unusual access; you almost certainly don't need it, since the content is the same.
-If you want to propose changes to the content, the preferred mechanism is
-via issues and pull requests via GitHub.
+If you want to propose changes to the content, the preferred mechanisms are
+[issues and pull requests via GitHub](https://github.com/ossf/secure-sw-dev-fundamentals).
 
 # Secure Software Development Fundamentals
 
