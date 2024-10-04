@@ -4961,13 +4961,15 @@ Those who develop cryptographic libraries must implement their algorithms so tha
 
 The normal comparison operations (such as **is-equal**) try to minimize execution time, and this can sometimes leak timing information about the values to attackers. If an attacker could repeatedly send in data and notice that a comparison of a value beginning with “0” takes longer than one that does not, then the first value it is compared to must be “0”. The attacker can then repeatedly guess the second digit, then the third, and so on. Many developers incorrectly believe that it is not possible for attackers to exploit timing variations over a network; this is a false belief attackers love to exploit. Modern statistics turns out to be remarkably powerful for removing latency variances; attackers really *can* exploit these latencies.
 
-*Constant-time comparisons* are comparisons (usually equality) that take the same time no matter what data is provided to them. These are not the same as O(1) operations in computer science. Examples of these constant-time comparison functions are:
+*Constant-time comparisons*, also called *fixed-time comparisons*, are comparisons (usually equality) that avoid leaking this timing information. These comparisons always take the same time based purely on the length of the data, and do *not* take shorter times for different data values of the same length. These are not the same as O(1) operations in computer science. Examples of these constant-time comparison functions are:
 
-* Node.js: **crypto.timingSafeEqual**
+* Node.js: [`crypto.timingSafeEqual`](https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b)
 
-* Ruby on Rails: **ActiveSupport::SecurityUtils secure_compare** and **fixed_length_secure_compare**
+* Ruby on Rails: [`ActiveSupport::SecurityUtils`](https://api.rubyonrails.org/classes/ActiveSupport/SecurityUtils.html) methods `secure_compare` and `fixed_length_secure_compare`
 
-* Java: **MessageDigest.equal** (assuming you are not using an ancient version of Java)
+* Java: [`MessageDigest.isEqual`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/security/MessageDigest.html#isEqual(byte%5B%5D,byte%5B%5D)), assuming you are not using an ancient version of Java. Users of Google Guava can also use [`HashCode::equals`](https://github.com/google/guava/blob/master/guava/src/com/google/common/hash/HashCode.java#L371)
+
+* C#/.NET: [`CryptographicOperations.FixedTimeEquals`](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.cryptographicoperations.fixedtimeequals?view=netcore-2.1)
 
 Whenever you compare secret values or cryptographic values (such as session keys), use a *constant-time comparison* instead of a normal comparison unless an attacker cannot exploit the normal comparison timing. You don’t need to do this with an iterated salted hash computed in a trusted environment (such as your server), because it will take an attacker too much time to create the matching values. You *do* need to do this if you are directly comparing session keys to a stored value, since attackers *can* sometimes iterate this to figure out each digit in the session key.
 
