@@ -5117,7 +5117,7 @@ If you want to be able to discuss reports in a constrained group - and most grou
 
 Ensure that you can quickly stand up a working test environment for any supported version and environment of the software. So make sure you have good version control of the source code, and also ensure that you can quickly stand up the development and test environments.
 
-When fixing a security vulnerability, check to see if the same kind of vulnerability exists in similar situations in the software. Otherwise, you will end up creating many more patches.
+When fixing a security vulnerability, check to see if the same kind of vulnerability exists in similar situations in the software. If they do, fix those as well. Also, where practical, consider making changes to prevent recurrence of this kind of vulnerability.
 
 If your update causes problems, people will reject it and learn to not accept any future updates from you. Any proposed fix must avoid backwards incompatibilities if at all possible. It must also be of high quality. This implies that you need to have a strong *automated* test suite before you release the software, and have any needed hardware to execute it (if the tests need special hardware). Add automated tests related to what you are changing, both to ensure that it really fixes the problem and also to verify that the change does not negatively affect anything else.
 
