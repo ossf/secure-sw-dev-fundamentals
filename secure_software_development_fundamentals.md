@@ -2246,6 +2246,12 @@ For outbound authentication, credentials should be stored outside the code in a 
 
 🔔 Hardcoded credentials are such a common cause of security vulnerabilities that they are 2021 CWE Top 25 #16 and 2019 CWE Top 25 #19. This weakness is [CWE-798](https://cwe.mitre.org/data/definitions/798.html), *Use of Hard-coded Credentials*. The related *Insufficiently Protected Credentials* is 2021 CWE Top 25 #21 and 2019 CWE Top 25 #27 as [CWE-522](https://cwe.mitre.org/data/definitions/522.html).
 
+##### Lab: Hardcoded credentials
+
+🧪 **Lab: Please try lab [hardcoded](https://best.openssf.org/labs/hardcoded.html), which lets you experiment with how to eliminate hardcoded credentials as a vulnerability.**
+
+*Labs are optional, but you're strongly encouraged to try them!*
+
 #### Quiz 2.2: Avoid Default & Hardcoded Credentials
 
 \>\>Secret keys should be stored in source code so that they cannot be easily read, as they could be if they were stored in separate files. True or False?<<
@@ -3543,6 +3549,12 @@ An alternative sometimes suggested is to use very harsh input filtering that pre
 A very mild hardening measure is to set the attribute **HttpOnly** on cookies. That way, if a malicious script is run, it cannot see the cookie value. You *should* set this limitation when you can, because it limits privilege, but this is a very mild hardening measure that is only useful if you apply *other* measures as well.
 
 XSS is usually best countered by choosing a framework or library that automatically escapes output for you. However, programs often have many outputs. It would be best if we paired this solution with something else that limited the damage when a mistake *is* made. On the web there is a solution: the Content Security Policy (CSP). The next unit will discuss this.
+
+#### Lab: Cross-Site Scripting (XSS)
+
+🧪 **Lab: Please try lab [xss](https://best.openssf.org/labs/xss.html), which lets you experiment with how to counter cross-site scripting (XSS) vulnerabilitiesies.**
+
+*Labs are optional, but you're strongly encouraged to try them!*
 
 #### Quiz 4.2: Countering Cross-Site Scripting (XSS)
 
