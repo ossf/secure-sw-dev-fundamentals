@@ -3552,7 +3552,7 @@ XSS is usually best countered by choosing a framework or library that automatica
 
 #### Lab: Cross-Site Scripting (XSS)
 
-🧪 **Lab: Please try lab [xss](https://best.openssf.org/labs/xss.html), which lets you experiment with how to counter cross-site scripting (XSS) vulnerabilitiesies.**
+🧪 **Lab: Please try lab [xss](https://best.openssf.org/labs/xss.html), which lets you experiment with how to counter cross-site scripting (XSS) vulnerabilities.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
