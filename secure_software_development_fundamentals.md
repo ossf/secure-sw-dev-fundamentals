@@ -5334,23 +5334,33 @@ More information on how to create reproducible builds is available; see [“Docu
 
 ### Distributing, Fielding/Deploying, Operations, and Disposal
 
-No course can teach everything. This course focuses on *developing* secure software, including its distribution. We have intentionally not focused on processes after development, including distributing, fielding (deploying), operations, and disposal of software. One reason is that there are already many documents and guidelines that try to help people do this securely, but these efforts are hampered because they are trying to twiddle configuration knobs to turn insecure software into secure software. It is generally far more effective, if you want a secure system, to start with secure software.
+No course can teach everything. This course focuses on *developing* secure software. We have intentionally not focused on processes after development, including distributing, fielding (deploying), operations, and disposal of software. One reason is that there are already many documents and guidelines that try to help people do this securely. These efforts are often hampered because they are trying to twiddle configuration knobs in a futile effort to turn insecure software into secure software. It is generally far more effective, if you want a secure system, to start with secure software.
 
 Of course, distributing, deployment, operations, and disposal all matter. Many projects apply a DevOps or DevSecOps approach, which intentionally blend these processes together with development. Even if development is done by a different group, having secure distribution, fielding, operations, and disposal is critical for software to be secure in the real world. So while this course does not focus on these processes, here are a few tips on these processes that may help you.
 
 When distributing:
 
+* Ensure that the software, including any provided configuration, passes all automated verification *before* it is distributed to users. The automated verification must include the automated tests. The validation must include validation of the *entire* system as you deliver it ("end-to-end" tests, not just "unit" or "component" tests). If you can't confidently release software after it is passes automated verification, improve your verification process.
+
+* Automate the distribution process. In many cases it should call the automated verification process, to ensure that what is being distributed does pass automated verification.
+
 * Use HTTPS (TLS), so that people can verify that it is the intended domain and the information cannot be manipulated between the server and recipient.
 
 * Where practical, sign the distributed information using a private key *not* available to the server that is distributing the software. Ideally software releases should be signed by a private key that is never available on the Internet. That enables external verification (using the corresponding public key) even if the server is compromised. Unfortunately, this requires ensuring that public keys are securely distributed to the receivers. In some cases, ensuring that the receivers have the correct public keys can be a challenging problem, while in other cases this is easy. A common solution for software updates is to accept an update if it is signed by the same key that signed the currently-installed version of the software. The sigstore project is working to develop easier ways to sign and verify software artifacts; for more information, see <https://www.sigstore.dev/>.
 
-* If you are distributing an application, arrange to have it updated by default (though allow the user to override this). Users often won’t update unless it’s automatic. There is a risk that an attacker may subvert your build or distribution process, so protect those processes and ensure that updates are only accepted if they are signed by a private key that is never connected to the Internet.
+* If you are distributing an application, arrange to have it updated by default (though allow the user to override this). Users often won’t update unless it’s automatic.
+
+  * Where practical, try to have updates distributed in stages (e.g., to a smaller set, verify that the update works, then update to a larger set). That way, if a mistake slips through everything else, the total damage is reduced.
+
+  * Consider using *existing* update mechanisms where available and appropriate.
+
+  * There is a risk that an attacker may subvert your build or distribution process, so protect those processes and ensure that updates are only accepted if they are signed by a private key that is never connected to the Internet.
 
 Note that our earlier discussion about software acquisition discussed distribution problems from the opposite side. That is, when acquiring software you want to ensure that you receive what you were supposed to receive, and when distributing software you want to make it easy for recipients to verify this.
 
 Again, consider the recommendations of Supply chain Levels for Software Artifacts, or SLSA (“salsa”), at <https://slsa.dev/>.
 
-When fielding/deploying:
+When fielding/deploying, including updates:
 
 * Configure your production environment to be secure, including all components you depend on, and keep it updated. For example:
 
@@ -5360,7 +5370,7 @@ When fielding/deploying:
 
   * Harden your environment by maximally enabling security countermeasures and eliminating unused components (so their vulnerabilities cannot be exploited). These components include your operating systems, database systems, virtual machine monitor, virtual machines, container runtime infrastructure, containers, and anything else you use or depend on. There are many documents that discuss how to harden various components; use them!
 
-  * Where it is reasonable, enable automatic updates.
+  * Where it is reasonable, enable automatic updates. That *should* be the default.
 
 * Avoid giving direct access to your database unless it is necessary *and* you have verified it is secure.
 
@@ -5387,6 +5397,12 @@ When operating:
 * When you receive a vulnerability report, process and fix it in a timely manner. Then give the reporter public credit unless the reporter requests otherwise.
 
 When disposing, make sure you fully destroy any data you are supposed to destroy. Just removing a file does not actually remove its contents from most storage devices.
+
+> 😱 STORY TIME: 2024 Crowdstrike-related IT outages
+
+> On 2024-07-19 the American cybersecurity company CrowdStrike distributed an update to its Falcon Sensor security software. Unfortunately, this update was defective. This crashed about 8.5 million computers running Microsoft Windows, which were then unable to restart correctly. Massive disruptions around the world followed. Over 5,000 air flights were cancelled worldwide and many government services (including emergency services) became unavailable. Worldwide damage has been estimated to be at least US$10 billion (["Here comes the wave of insurance claims for the CrowdStrike outage"](https://archive.ph/20240722161959/https://www.businessinsider.com/businesses-claiming-losses-crowdstrike-outage-insurance-billions-losses-cyber-policies-2024-7) by Kit Lian, 2024-07-22, Business Insider).
+
+> Causal analysis began immediately. The company routinely provided updates to Falcon Sensor, including its underlying software and various "template instances". The underlying *software* had been tested, and the template instances had been validated before shipping updates. However, the template instance content validator had a bug and did not notice any problem (["CrowdStrike blames a test software bug for that giant global mess it made"](https://archive.ph/20240724112421/https://www.theregister.com/2024/07/24/crowdstrike_preliminary_incident_report/#selection-735.0-783.10), Simon Sharwood, 2024-07-24, *The Register*). Note that the organization did not perform an end-to-end test of the entire update (including the updated software and template instances) before shipping it, and instead relied solely on validation of isolated components. In addition, updates were not staged. Instead, all relevant systems were updated at the same time, maximizing damage if there was a serious problem in an update.
 
 🔔 Security misconfiguration is such a common mistake in web applications that it is 2017 OWASP Top 10 #6 and 2021 OWASP Top 10 #5.  Protecting automatic update functionality is considered part of 2021 OWASP Top 10 #8 (A08:2021), *Software and Data Integrity Failures*. Using components with known vulnerabilities is such a common web application vulnerability that it is 2017 OWASP Top 10 #9. Using vulnerable and outdated components is 2021 OWASP Top 10 #6. *Security Logging and Monitoring Failures* is 2021 OWASP Top 10 #9. *Insufficient logging and monitoring* is 2017 OWASP Top 10 #10.
 
