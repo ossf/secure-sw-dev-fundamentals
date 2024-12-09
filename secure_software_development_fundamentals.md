@@ -1241,13 +1241,15 @@ If you are purchasing expensive software you selected on behalf of an organizati
 
 Many systems support installing extensions that are separately developed and maintained than the “core” program (often by different developers). ***Extensions need to be separately evaluated before installing them***. The core system may be relatively secure, but that does not mean all its extensions are secure, and often the biggest risks are from the extensions. These extensions may be called many names including extensions, plug-ins, add-ons, themes, components, or packages. No matter what they’re called, evaluate them too. For example, PatchStack reported that while WordPress powered 43.2% of websites on the web in 2021, “vulnerabilities from plugins and themes remain as one of the biggest threats to websites built on WordPress.” They noted that only 0.58% of security vulnerabilities originate from WordPress core in 2021; the rest of the vulnerabilities were in components (plugins and themes). What’s worse, 29% of the WordPress plugins with critical vulnerabilities received no patch. This wouldn’t matter as much if few sites used components, but on average a WordPress website has 18 different components (plugins and themes) installed. See [*State Of WordPress Security In 2021*](https://patchstack.com/whitepaper/the-state-of-wordpress-security-in-2021/) by PatchStack for more information.
 
-We use the term “reused software” here, because that is our concern. This reused software includes all the software you depend on when the software runs, aka its dependencies.
+We use the term “reused software” here, because that is our primary concern. This reused software includes all the software you depend on when the software runs, aka its dependencies.
 
-The vast majority of the software you reuse will typically be open source software (OSS). So let's focus on tips on how to evaluate OSS before reusing it. Some of these tips will also apply to closed source software.
+In most cases, the majority of a software application's code is reused software that is licensed as open source software (OSS).  OSS is, briefly, software where users have the freedom to run, copy, distribute, study, change and improve the software (this is actually the [Free Software Definition](https://www.gnu.org/philosophy/free-sw.en.html)). A very widely-used and more detailed definition of OSS is the [Open Source Definition (OSD)](https://opensource.org/osd) from the [Open Source Initiative (OSI)](https://opensource.org), who also maintain a list of [OSI Approved Licenses](https://opensource.org/licenses).  Studies show that the average percentage of OSS in software applications is somewhere between 77% ([Black Duck 2024](https://www.blackduck.com/resources/analyst-reports/open-source-security-risk-analysis.html)) and 90% ([Sonatype 2024](https://www.sonatype.com/state-of-the-software-supply-chain/introduction)).
+
+Since it's so common, let's focus on tips on how to evaluate OSS before reusing it. Many of these tips will also apply to evaluating closed source software.
 
 ### Selecting (Evaluating) Open Source Software
 
-There are many important things to consider when selecting open source software.
+There are many important things to consider when selecting open source software (OSS).
 
 The Open Source Security Foundation (OpenSSF) has developed a [*Concise Guide for Evaluating Open Source Software*](https://github.com/ossf/wg-best-practices-os-developers/blob/main/docs/Concise-Guide-for-Evaluating-Open-Source-Software.md#readme) that can help. They suggest that, "As a software developer, before using open source software (OSS) dependencies or tools, identify candidates and evaluate the leading ones against your needs. To evaluate a potential OSS dependency for security and sustainability, consider these questions..."
 
@@ -6335,6 +6337,8 @@ Birsan, Alex, 2021-02-09, “Dependency Confusion: How I Hacked Into Apple, Micr
 
 Bobby Tables, "Java", (<https://bobby-tables.com/java>)
 
+[Black Duck 2024] Black Duck. 2024. *Open Source Vulnerabilities - OSSRA Report 2024*. <https://www.blackduck.com/resources/analyst-reports/open-source-security-risk-analysis.html>
+
 Black, Paul E.; Badger, Lee; Guttman, Barbara; Fong, Elizabeth, *Dramatically Reducing Software Vulnerabilities: Report to the White House Office of Science and Technology Policy*, NISTIR 8151, US National Institute of Standards and Technology (NIST) Information Technology Laboratory, 2016-11 ([https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8151.pdf](https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8151.pdf))
 
 Breeden II, John, *9 top fuzzing tools: Finding the weirdest application errors*, 2019 ([https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html](https://www.csoonline.com/article/3487708/9-top-fuzzing-tools-finding-the-weirdest-application-errors.html))
@@ -6595,6 +6599,8 @@ Sim, Darren, *Security Vulnerability and Browser Performance Impact of Target="_
 Singh, Animesh, Anupama Murthy, and Christian Kadner,
 [Integrate adversarial attacks in a model training pipeline](https://developer.ibm.com/patterns/integrate-adversarial-attacks-model-training-pipeline/),
 2018-06-25
+
+[Sonatype 2024] Sonatype. 2024. *State of the Software Supply Chain* <https://www.sonatype.com/state-of-the-software-supply-chain/introduction>
 
 SSD Disclosure, SSD Advisory – VestaCP LPE Vulnerabilities, 2021-03-20, (<https://ssd-disclosure.com/ssd-advisory-vestacp-lpe-vulnerabilities/>)
 
