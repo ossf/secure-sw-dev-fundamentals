@@ -4763,9 +4763,9 @@ A widely-used public key algorithm is the RSA algorithm, which *can* be used for
 
 RSA key lengths need to be longer than you might expect. An RSA key length of 1024 bits is approximately equivalent to a symmetric key length of 80 bits, which is so small that it is generally considered insecure. An RSA key length of 2048 bits is equivalent to a symmetric key length of 112 bits; a 2048 bit is considered barely acceptable by some (e.g., NIST says that this may be used through 2030, after which it may not be used by the US government). If you are using RSA, you should probably use at least 3,072 bit key in current deployments (this is equivalent to a 128 bit symmetric key). You would need an RSA key of 15,360 bits to get the equivalent of a 256-bit symmetric key. See [NIST’s *Recommendation for Key Management: Part 1 - General*](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf) for more about key equivalent lengths. Unfortunately, RSA is relatively slow, especially as you increase to key lengths necessary for minimum security. For all these reasons, some organizations, such as Trail of Bits, recommend avoiding using RSA in most cases ([*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
-A whole family of algorithms are called *elliptic curve cryptography*; these are algorithms that are based on complex math involving elliptic curves. These algorithms require far shorter key lengths for equivalent cryptographic strength, and that is a significant advantage. Historically, elliptic curve cryptography involved a minefield of patents, but over the years many of those patents have expired and so elliptic curve cryptography has become more common. A widely-used and respected algorithm for key exchange and digital signatures is Curve25519; a related protocol called ECIES combines Curve25519 key exchange with a symmetric key algorithm (for more details, see [*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
+A whole family of algorithms are called *elliptic curve cryptography*; these are algorithms that are based on complex math involving elliptic curves. These algorithms require far shorter key lengths for equivalent cryptographic strength, and that is a significant advantage. Historically, elliptic curve cryptography involved a minefield of patents, but over the years many of those patents have expired and so elliptic curve cryptography has become more common. A widely-used and respected elliptic curve algorithm for key exchange is X25519, while for digital signatures it's EdDSA. A related protocol called ECIES combines elliptic curve key exchange with a symmetric key algorithm (for more details, see [*Seriously, stop using RSA*](https://blog.trailofbits.com/2019/07/08/fuck-rsa/), 2019).
 
-The Digital Signature Standard (DSS) is a standard for creating cryptographic digital signatures. It supports several underlying algorithms: Digital Signature Algorithm (DSA), the RSA digital signature algorithm, and the elliptic curve digital signature algorithm (ECDSA).
+The Digital Signature Standard (DSS) is a NIST standard (FIPS 186-5) for creating cryptographic digital signatures. It supports several underlying algorithms: the RSA digital signature algorithm, the elliptic curve digital signature algorithm (ECDSA) and the Edwards-curve digital signature algorithm (EdDSA).
 
 There are also a variety of key exchange algorithms. The oldest is the Diffie-Hellman key exchange algorithm. There is a newer key exchange algorithm based on elliptic curves, called Elliptic Curve Diffie-Hellman (ECDH).
 
@@ -4779,7 +4779,7 @@ As hinted at earlier, it is critical that you use existing well-respected implem
 
 [ ] RSA is basically exponentiation, so to limit dependencies it is often better to reimplement it within a larger system.
 
-[x] Curve25519 is a widely-used algorithm that is generally considered secure.
+[x] X25519 is a widely-used algorithm that is generally considered secure.
 
 ### Cryptographically Secure Pseudo-Random Number Generator (CSPRNG)
 
