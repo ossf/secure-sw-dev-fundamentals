@@ -4924,6 +4924,10 @@ Also, beware of implementing these algorithms only on the client side. It is fin
 > 😱 STORY TIME: Ashley Madison data breach
 > Ashley Madison is a Canadian commercial online dating service founded in 2002 and marketed as enabling cheating on romantic partners. In 2015 attackers stole its customer data. Many issues were revealed at that point; we will focus on one here. Ashley Madison had correctly used the **bcrypt** routine to store user passwords. Unfortunately, in many cases they had *also* stored passwords encoded using the **MD5** hashing algorithm, which is not an appropriate algorithm for storing passwords (as noted above). Attackers used these unprotected MD5 password hashes to decipher more than 11 million of these accounts' passwords in just 10 days, enabling them to log into those accounts (["Once seen as bulletproof, 11 million+ Ashley Madison passwords already cracked" by Dan Goodin, 2015](https://arstechnica.com/information-technology/2015/09/once-seen-as-bulletproof-11-million-ashley-madison-passwords-already-cracked/)).
 
+> 😱 STORY TIME: Meta fined 91 million Euros for plaintext passwords
+> Meta was fined 91 million Euros (USD $102 million) in 2024 for storing passwords in plain text.
+(["Meta Fined $102M for Storing Facebook Passwords in Plain Text" by Katie Collins, 2024-09-27](https://www.cnet.com/tech/services-and-software/meta-fined-102m-for-storing-facebook-passwords-in-plain-text/)]
+
 #### Quiz 3.5: Storing Passwords
 
 \>\>Select the true statement(s):<<
@@ -6377,6 +6381,8 @@ Cimpanu, Catalin, "Two malicious Python libraries caught stealing SSH and GPG ke
 CISCO, *Next Generation Cryptography* ([https://tools.cisco.com/security/center/resources/next_generation_cryptography](https://tools.cisco.com/security/center/resources/next_generation_cryptography))
 
 Coggeshall, John, *Updating the Git protocol for SHA-256*, 2020 ([https://lwn.net/Articles/823352/](https://lwn.net/Articles/823352/))
+
+Collins, Katie, "Meta Fined $102M for Storing Facebook Passwords in Plain Text", 2024-09-27, <https://www.cnet.com/tech/services-and-software/meta-fined-102m-for-storing-facebook-passwords-in-plain-text/>
 
 Commission Nationale Informatique & Libertés (CNIL), *The CNIL’s Guides: Security of Personal Data*, 2018 ([https://www.cnil.fr/sites/default/files/atoms/files/cnil_guide_securite_personnelle_gb_web.pdf](https://www.cnil.fr/sites/default/files/atoms/files/cnil_guide_securite_personnelle_gb_web.pdf))
 
