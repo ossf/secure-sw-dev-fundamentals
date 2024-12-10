@@ -5008,11 +5008,17 @@ The normal comparison operations (such as **is-equal**) try to minimize executio
 
 * C#/.NET: [`CryptographicOperations.FixedTimeEquals`](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.cryptographicoperations.fixedtimeequals?view=netcore-2.1)
 
+* C/OpenSSL: [`CRYPTO_memcmp`](https://docs.openssl.org/master/man3/CRYPTO_memcmp/)
+
 Whenever you compare secret values or cryptographic values (such as session keys), use a *constant-time comparison* instead of a normal comparison unless an attacker cannot exploit the normal comparison timing. You don’t need to do this with an iterated salted hash computed in a trusted environment (such as your server), because it will take an attacker too much time to create the matching values. You *do* need to do this if you are directly comparing session keys to a stored value, since attackers *can* sometimes iterate this to figure out each digit in the session key.
 
 #### Minimizing the Time Keys/Decrypted Data Exists
 
-Remember that per least privilege, we want to minimize the time a privilege is active. In cryptography, you often want to minimize the time a private key or password is available, or at least minimize the time that the decrypted data is available. This can be harder that you might think. At the operating system level you can probably lock it into memory with **mlock()** or **VirtualLock()**; this will at least prevent the data from being copied into storage. Ideally, you would erase it from memory after use, though that is often surprisingly difficult. Compilers may turn overwrite code into a no-op, because they detect that nothing reads the overwritten values. Languages with built-in garbage collection often quietly make extra copies and/or do not provide a mechanism for erasure. That said, some languages or infrastructure do make this easy. For example, those using the .NET framework (e.g., C#) can use SecureString.
+Remember that per least privilege, we want to minimize the time a privilege is active. In cryptography, you often want to minimize the time a private key or password is available, or at least minimize the time that the decrypted data is available. This can be harder that you might think. At the operating system level you can probably lock it into memory with **mlock()** or **VirtualLock()**; this will at least prevent the data from being copied into storage. Ideally, you would erase it from memory after use using interfaces that are safe for that purpose. Compiler optimizers may quietly eliminate the code to overwrite data, because they detect that nothing else in the program reads the overwritten values. In addition, languages with built-in garbage collection often quietly make extra copies and/or do not provide a mechanism for erasure. That said, some languages or infrastructure do make this easy. For example, those using the .NET framework (e.g., C#) can use SecureString. The following interfaces in C and C++ are safer for overwriting sensitive data in memory.
+
+* Linux: **explicit_bzero**
+
+* Windows: **SecureZeroMemory**
 
 #### Quantum Computing
 
