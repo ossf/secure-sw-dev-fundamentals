@@ -715,7 +715,7 @@ Many organizations want to deploy software/services more rapidly, and have adopt
 
 * Continuous Deployment (CD) *“goes a step further [than continuous delivery] and automatically and continuously deploys the application to production or customer environments”* (Mojtaba Shahin, Muhammad Ali Babar, and Liming Zhu, [*Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices*](https://arxiv.org/abs/1703.07019), 2017).
 
-* DevOps focuses on coordination and cooperation between the software development (Dev) and IT operations (Ops) teams (Mike Loukides, [*Revisiting “What Is DevOps”*](http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html), 2014), e.g., to shorten development and deployment time. In practice, this typically includes Continuous Delivery (CDE) and may include Continuous Deployment (CD).
+* DevOps focuses on coordination and cooperation between the software development (Dev) and IT operations (Ops) teams (Mike Loukides, [*Revisiting “What Is DevOps”*](https://web.archive.org/web/20230429215657/http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html), 2014), e.g., to shorten development and deployment time. In practice, this typically includes Continuous Delivery (CDE) and may include Continuous Deployment (CD).
 
 * DevSecOps (also called SecDevOps) is DevOps, but specifically integrating security concerns into the development and operations process (Red Hat, [*What Is DevSecOps?*](https://www.redhat.com/en/topics/devops/what-is-devsecops))
 
@@ -6487,7 +6487,7 @@ Levien, Raph, *With Undefined Behavior, Anything is Possible*, 2018-08-17, ([htt
 
 Linux Foundation, *Understanding Open Source Technology & US Export Controls*, 2021-07-19, <https://www.linuxfoundation.org/tools/understanding-us-export-controls-with-open-source-projects/>)
 
-Loukides, Mike, *Revisiting “What Is DevOps”*, 2014-06-30 ([http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html](http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html))
+Loukides, Mike, *Revisiting “What Is DevOps”*, 2014-06-30 <https://web.archive.org/web/20230429215657/http://radar.oreilly.com/2014/06/revisiting-what-is-devops.html>
 
 MacCarthaigh, Colm, *Automated Reasoning and Amazon s2n*, 2016-09-08 ([https://aws.amazon.com/blogs/security/automated-reasoning-and-amazon-s2n/](https://aws.amazon.com/blogs/security/automated-reasoning-and-amazon-s2n/))
 
