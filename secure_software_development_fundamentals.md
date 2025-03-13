@@ -5306,7 +5306,7 @@ We could then repeatedly break each item down further. For example, we might div
 
 * For verification, we might show that we use a variety of tools to detect vulnerabilities before the software is released.
 
-For a detailed discussion and template for creating an assurance case, see [*A Sample Security Assurance Case Pattern*](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). If you would like to see an actual example, you can see the [OpenSSF Best Practices BadgeApp assurance case](https://github.com/coreinfrastructure/best-practices-badge/blob/master/doc/security.md).
+For a detailed discussion and template for creating an assurance case, see [*A Sample Security Assurance Case Pattern*](https://www.ida.org/-/media/feature/publications/a/as/a-sample-security-assurance-case-pattern/p-9278.ashx) by David A. Wheeler (2018). If you would like to see an actual example, you can see the [OpenSSF Best Practices BadgeApp assurance case](https://github.com/coreinfrastructure/best-practices-badge/blob/main/docs/assurance-case.md).
 
 When do you end? The usual answer is when the stakeholders agree that it is enough. If they don’t think it is enough, then ask them what would be enough and if they are willing to pay for those changes. If they are not paying you enough, then you don’t need to do it.
 
