@@ -5463,6 +5463,8 @@ less secure code, but were more likely to believe their code was secure
 [Perry2022](https://arxiv.org/abs/2211.03622).
 Another found 35.8% of code snippets contained vulnerabilities
 [Fu2023](https://arxiv.org/abs/2310.02059).
+AI-generated code will probably get better over time,
+but perfection is unlikely.
 Even worse, LLM systems often hallucinate package names that don't exist.
 Attackers can then perform *slopsquatting*, that is,
 they create malicious packages with those LLM-hallucinated fake names
