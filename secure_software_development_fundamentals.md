@@ -5455,7 +5455,10 @@ A significant amount of AI security work today focuses on ML and LLMs;
 we will take the same focus here.
 
 First, let's discuss using AI systems to help write code.
-Unfortunately, AI-generated code often contains vulnerabilities.
+It's *vital* to *not* blindly trust AI systems to write code.
+Instead, when using them actively engage with the tools, rephrase questions,
+and carefully check their results.
+This is because AI-generated code often contains vulnerabilities.
 This should be expected; such systems are typically trained on
 code with vulnerabilities and they don't understand their context of use.
 One study found that participants using an AI assistant wrote significantly
@@ -5466,13 +5469,12 @@ Another found 35.8% of code snippets contained vulnerabilities
 AI-generated code will probably get better over time,
 but perfection is unlikely.
 Even worse, LLM systems often hallucinate package names that don't exist.
-Attackers can then perform *slopsquatting*, that is,
-they create malicious packages with those LLM-hallucinated fake names
+Attackers sometimes perform *slopsquatting* attacks, that is,
+attackers create malicious packages with those LLM-hallucinated fake names
 as a dangerous trap for the unwary
 [Gooding2025](https://socket.dev/blog/slopsquatting-how-ai-hallucinations-are-fueling-a-new-class-of-supply-chain-attacks).
-It's *vital* to *not* blindly trust AI systems to write code.
-Instead, when using them actively engage with the tools, rephrase questions,
-and carefully check their results.
+Again, don't blindly trust AI systems to write code; take steps such as
+carefully checking their results.
 
 Now let's discuss how to build more secure software systems that *use* ML.
 Building ML systems often involve several processes, namely
