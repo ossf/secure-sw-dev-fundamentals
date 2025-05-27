@@ -5449,10 +5449,34 @@ Machine learning (ML) is a field of inquiry devoted to
 understanding and building methods that 'learn', that is,
 methods that leverage data to improve performance on some set of tasks
 (*Machine Learning*, Tom Mitchell).
-ML is often considered a subset of AI.
-A significant amount of AI security work today focuses on ML;
+ML is often considered a subset of AI, and ML includes the use of
+Large Language Models (LLMs).
+A significant amount of AI security work today focuses on ML and LLMs;
 we will take the same focus here.
 
+First, let's discuss using AI systems to help write code.
+It's *vital* to *not* blindly trust AI systems to write code.
+Instead, when using them actively engage with the tools, rephrase questions,
+and carefully check their results.
+This is because AI-generated code often contains vulnerabilities.
+This should be expected; such systems are typically trained on
+code with vulnerabilities and they don't understand their context of use.
+One study found that participants using an AI assistant wrote significantly
+less secure code, but were more likely to believe their code was secure
+[Perry2022](https://arxiv.org/abs/2211.03622).
+Another found 35.8% of code snippets contained vulnerabilities
+[Fu2023](https://arxiv.org/abs/2310.02059).
+AI-generated code will probably get better over time,
+but perfection is unlikely.
+Even worse, LLM systems often hallucinate package names that don't exist.
+Attackers sometimes perform *slopsquatting* attacks, that is,
+attackers create malicious packages with those LLM-hallucinated fake names
+as a dangerous trap for the unwary
+[Gooding2025](https://socket.dev/blog/slopsquatting-how-ai-hallucinations-are-fueling-a-new-class-of-supply-chain-attacks).
+Again, don't blindly trust AI systems to write code; take steps such as
+carefully checking their results.
+
+Now let's discuss how to build more secure software systems that *use* ML.
 Building ML systems often involve several processes, namely
 training, testing, and inference. Inference is when the ML system is being
 used by its users.
@@ -6435,6 +6459,8 @@ Forum of Incident Response and Security Teams (FIRST), *Traffic Light Protocol (
 
 Friedl, Jeffrey E.F., *Mastering Regular Expressions*, 3rd Edition, O’Reilly Media,  ISBN 9780596528126, 2006-08 ([https://www.oreilly.com/library/view/mastering-regular-expressions/0596528124/](https://www.oreilly.com/library/view/mastering-regular-expressions/0596528124/))
 
+Fu, et al, 2023, “Security Weaknesses of Copilot Generated Code in GitHub”, <https://arxiv.org/abs/2310.02059>
+
 Garavel, Hubert, et al, *Formal Methods for Safe and Secure Computers Systems*, BSI Study 875, 2013 ([https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Studien/formal_methods_study_875/formal_methods_study_875.pdf?&#95;&#95;blob=publicationFile&v=1](https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/Studien/formal_methods_study_875/formal_methods_study_875.pdf?&#95;&#95;blob=publicationFile&v=1))
 
 Georgiev, Martin; Iyengar, Subodh; Jana, Suman; Anubhai, Rishita; Boneh, Dan; Shmatikov, Vitaly; *The Most Dangerous Code in the World: Validating SSL Certificates in Non-Browser Software*, 2012 ([https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf](https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf))
@@ -6450,6 +6476,8 @@ Goodin, Dan, 2015, "Once seen as bulletproof, 11 million+ Ashley Madison passwor
 Goodin, Dan, 2022-08-02, "Post-quantum encryption contender is taken out by single-core PC and 1 hour", Ars Technica, <https://arstechnica.com/information-technology/2022/08/sike-once-a-post-quantum-encryption-contender-is-koed-in-nist-smackdown/>
 
 Gooding, Dan, *Plundering of crypto keys from ultrasecure SGX sends Intel scrambling again*, Ars Technica, 2020-06-09 ([https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/](https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/))
+
+Gooding, Sarah, 2025-04-08, "The Rise of Slopsquatting: How AI Hallucinations Are Fueling a New Class of Supply Chain Attacks", <https://socket.dev/blog/slopsquatting-how-ai-hallucinations-are-fueling-a-new-class-of-supply-chain-attacks>
 
 Google, OSS-Fuzz project ([https://github.com/google/oss-fuzz](https://github.com/google/oss-fuzz))
 
@@ -6559,6 +6587,8 @@ Open Web Application Security Project (OWASP), *Vulnerability Disclosure Cheat S
 Qualys, *SSL Server Test* ([https://www.ssllabs.com/ssltest/](https://www.ssllabs.com/ssltest/))
 
 Patchstack, 2022, State Of WordPress Security In 2021 ([https://patchstack.com/whitepaper/the-state-of-wordpress-security-in-2021/]( https://patchstack.com/whitepaper/the-state-of-wordpress-security-in-2021/))
+
+Perry, Neil, et al, 2022, “Do Users Write More Insecure Code with AI Assistants?”, <https://arxiv.org/abs/2211.03622>
 
 Petro, Dan and Allan Cecil, 2021, You're Doing IoT RNG, DEF CON 29 ([https://labs.bishopfox.com/tech-blog/youre-doing-iot-rng](https://labs.bishopfox.com/tech-blog/youre-doing-iot-rng)) with presentation at [https://www.youtube.com/watch?v=Zuqw0-jZh9Y](https://www.youtube.com/watch?v=Zuqw0-jZh9Y)
 
