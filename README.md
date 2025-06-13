@@ -27,7 +27,7 @@ useful repository for you.
 
 If you see something in the course content that you think should be changed, please **[file an issue](https://github.com/ossf/secure-sw-dev-fundamentals/issues)** or (even better) **[create a pull request](https://github.com/ossf/secure-sw-dev-fundamentals/pulls)**.
 
-Please see **[*Secure Software Development Fundamentals* content in Markdown format](secure_software_development_fundamentals.md)** for the main **text** content of the course (in this repository). The text embeds references to images that are also in this repository.
+Please see **[Developing Secure Software (LFD121) content in Markdown format](docs/lfd121.md)** for the main **text** content of the course (in this repository). The text embeds references to images that are also in this repository.
 
 The course as delivered includes some videos.
 Those files are very large, so they aren't stored in this repository.
