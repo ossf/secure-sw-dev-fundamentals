@@ -2,12 +2,16 @@
 
 all: lint toc.md
 
-lint: toc.md
-	markdownlint --config .github/linters/.markdown-lint.yml \
-	  secure_software_development_fundamentals.md toc.md
+MAINDOC_PREFIX = docs/lfd121
+MAINDOC = $(MAINDOC_PREFIX).md
+MAINDOC_HTML = $(MAINDOC_PREFIX).html
 
-toc.md: secure_software_development_fundamentals.md tocignore
-	grep -E '^#{1,3} ' secure_software_development_fundamentals.md | \
+lint: $(MAINDOC)
+	markdownlint --config .github/linters/.markdown-lint.yml \
+	  $(MAINDOC) toc.md
+
+toc.md: $(MAINDOC) tocignore
+	grep -E '^#{1,3} ' $(MAINDOC) | \
 	  grep -E -v -f tocignore | while read line; do echo "$$line"; echo; done > toc.md
 
 linklist.md: toc.md make_linklist
@@ -27,15 +31,13 @@ PANDOCFLAGS = -f gfm-tex_math_dollars
 # https://stackoverflow.com/questions/38455078/specifying-papersize-for-md-to-pdf-conversion
 # We don't include this because it shows the title twice:
 # --metadata title="Secure Software Development Fundamentals"
-book.pdf: secure_software_development_fundamentals.md
+book.pdf: $(MAINDOC)
 	$(PANDOC) $(PANDOCFLAGS) --pdf-engine=wkhtmltopdf \
-		--css=print.css -V geometry:a4paper -o book.pdf \
-	  secure_software_development_fundamentals.md
+		--css=print.css -V geometry:a4paper -o book.pdf $(MAINDOC)
 
-secure_software_development_fundamentals.html: \
-  secure_software_development_fundamentals.md
+$(MAINDOC_HTML): $(MAINDOC)
 	$(PANDOC) $(PANDOCFLAGS) -t html $< > $@
 
-html: secure_software_development_fundamentals.html
+html: $(MAINDOC_HTML)
 
 .PHONY: all lint html
