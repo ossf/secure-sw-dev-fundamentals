@@ -5024,13 +5024,28 @@ Remember that per least privilege, we want to minimize the time a privilege is a
 
 One of the large future unknowns in cryptography is the potential impact of general-purpose quantum computers. At the time of this writing, so-called *general-purpose* quantum computers exist, but they are not powerful enough to threaten current cryptographic algorithms. It is not known if such more powerful general-purpose quantum computers can be built, and if so, when that will happen.
 
-If powerful general-purpose quantum computers are built, they have the potential to break all the historically popular public-key algorithms using an algorithm called *Shor’s algorithm*. As a result, researchers are developing new public-key algorithms that resist attacks from such quantum computers, an area called *post-quantum cryptography*. At the time of this writing, many such algorithms have been developed and are being evaluated.
+If powerful general-purpose quantum computers are built, they have the potential to break all the historically popular public-key algorithms using an algorithm called *Shor’s algorithm*. As a result, researchers are developing new public-key algorithms that resist attacks from such quantum computers, an area called *post-quantum cryptography* or *quantum-safe cryptography*. As of 2024, NIST has standardized several quantum-safe algorithms, including:
 
-In contrast, current symmetric cryptographic algorithms and hash functions are less affected by quantum computers. A quantum computer algorithm called *Grover’s algorithm* speeds up attacks against symmetric ciphers, halving their effective key bit length. That means that 128-bit AES could be broken by a quantum computer (because it would then be equivalent to a 64-bit key today), but 256-bit AES would still be secure (because it would be equivalent to a 128-bit key today). So simply using longer keys and hashes is generally expected to be adequate in a post-quantum world for symmetric cryptographic algorithms and hash functions.
+* FIPS 203 (ML-KEM) --a key encapsulation mechanism
+* FIPS 204 (ML-DSA) --a digital signature algorithm
+* FIPS 205 (SLH-DSA) --a digital signature algorithm based on symmetric primitives
+
+In contrast, current symmetric cryptographic algorithms and hash functions are less affected by quantum computers. A quantum computer algorithm called *Grover’s algorithm* speeds up attacks against symmetric ciphers, halving their effective key bit length.  This means AES-128 could be reduced to the strength of a 64-bit key, though 256-bit AES would remain secure as it would be reduced to an effective 128-bit key. So simply using longer keys and hashes is generally expected to be adequate in a post-quantum world for symmetric cryptographic algorithms and hash functions. [ENISA-ECCG](https://certification.enisa.europa.eu/document/download/a845662b-aee0-484e-9191-890c4cfa7aaa_en?filename=ECCG%20Agreed%20Cryptographic%20Mechanisms%20version%202.pdf) recommend using encryption algorithms with more than 192-bit key size, and hash algorithms with more than 384-bits output.
 
 So be prepared to change any public key algorithms to resist quantum computing, and ensure that key lengths are long enough when using symmetric and hash cryptographic algorithms. Some large organizations record vast amounts of Internet traffic for later decryption [[European Parliament 2001](https://irp.fas.org/program/process/rapport_echelon_en.pdf)], so if your users are at risk from data capture and decryption years later, you should consider implementing countermeasures now against quantum computing.
 
-Unfortunately, creating radically new cryptographic algorithms is difficult and risky. About half of all post-quantum cryptography algorithms in NIST's competition have been found to not meet their claimed security levels. One of the leading contenders for post-quantum cryptography was SIKE (Supersingular Isogeny Key Encapsulation), but in 2022 it was discovered that SIKE could be broken by ordinary non-quantum computers [[Goodin 2022](https://arstechnica.com/information-technology/2022/08/sike-once-a-post-quantum-encryption-contender-is-koed-in-nist-smackdown/)]. Thus, if you're adding a post-quantum cryptographic algorithm, be sure to also keep a pre-quantum layer so that if a break is found in the post-quantum algorithm you are still secure from attacks by traditional computers. This approach of combining algorithms is called a "hybrid" system. Hybrid systems add a little more complexity (because you're using two algorithms), but they help counter the significant risk of failure in these newer post-quantum algorithms. [[Bernstein 2024](https://blog.cr.yp.to/20240102-hybrid.html)]
+##### Challenges in implementing Quantum-safe cryptography
+
+Unfortunately, there are a few challenges in implementing quantum-safe software today.
+
+1. Limited testing & maturity: The first NIST standards for quantum safe cryptography were finalized in 2024, meaning they lack the decades of testing that classic algorithms have undergone.
+2. Hardware support lag: Cryptographic hardware (e.g., used for firmware verification) do not yet support quantum-safe algorithms, delaying adoption.
+3. Increased ciphertext and signature sizes: Quantum-safe algorithms require many more bytes for ciphertext or digital signatures. That makes them inefficient over transport layers with small Maximum Transmission Units (MTU) such as Zigbee or BLE, where packet fragmentation can degrade performance.
+
+
+##### Hybrid cryptosystems: a risk mitigation strategy
+
+An approach to minimize risk of using a new quantum safe algorithm is to keep a pre-quantum layer so that if a break is found in the post-quantum algorithm attacks by traditional computers is prevented. This approach of combining algorithms is called a "hybrid" system. Hybrid systems add a little more complexity (because you're using two algorithms), but they help counter the significant risk of failure in these newer post-quantum algorithms. [[Bernstein 2024](https://blog.cr.yp.to/20240102-hybrid.html)]
 
 #### Humility Is Important in Cryptography
 
